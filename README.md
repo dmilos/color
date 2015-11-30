@@ -4,7 +4,8 @@ All color classes fulfil next very restricted conditions:
 - No Virtual function ( and destructors also )
 - Minimal memory footprint
 ```c
-        color::rgb<float>f;//!< This will pack ONLY three consective floats in memory 
+        color::rgb_float  f;//!< This will pack ONLY three consective floats in memory 
+        color::argb_uint32 u;//!< Just one uint32_t for all. 
 ```
 
 - Ability to copy instances with memcpy, memmove
