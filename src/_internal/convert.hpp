@@ -19,7 +19,7 @@ namespace color
          static void process
           (
             typename left_trait_type::container_input_type         left
-           ,typename right_trait_type:: container_const_input_type right
+           ,typename right_trait_type::container_const_input_type  right
           )
           {
 

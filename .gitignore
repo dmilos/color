@@ -2,3 +2,5 @@
 *.obj
 *.dblite
 *.o
+
+/src/generic/operation/.docstates.suo

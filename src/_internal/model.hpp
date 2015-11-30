@@ -1,5 +1,6 @@
 #ifndef color__internal_model_87845cb9_e99c_4016_b1e9_148e6e094f40
 #define color__internal_model_87845cb9_e99c_4016_b1e9_148e6e094f40
+// color::_internal::model< category >
 
 #include "./trait.hpp"
 #include "./convert.hpp"
@@ -16,7 +17,8 @@ namespace color
  
         typedef color::_internal::trait<category_type> trait_type;
 
-        typedef typename trait_type::index_const_input_type    index_const_input_type;
+        typedef typename trait_type::index_type                 index_type;
+        typedef typename trait_type::index_const_input_type     index_const_input_type;
         typedef typename trait_type::index_const_return_type    index_const_return_type;
 
         typedef typename trait_type::container_type               container_type;
@@ -35,6 +37,7 @@ namespace color
                   // do nothing. 
                   // Allow using of memset instead this default init
                  }
+                 
         explicit model( container_const_input_type container ):m_container(container){ }
 
         template< typename other_category_name >
@@ -55,12 +58,27 @@ namespace color
          {
           return trait_type::get( m_container, index );
          }
+         
+        template< index_type index >
+         component_const_return_type
+         get()const
+          {
+           return trait_type::get( m_container, index );
+          }
  
         component_return_type
         get( index_const_input_type index )
          {
           return trait_type::get( m_container, index );
          }
+        template< index_type index >
+         component_const_return_type
+         get()
+          {
+           return trait_type::get( m_container, index );
+          }
+
+
  
         set_return_type
         set( index_const_input_type index, component_const_input_type component )

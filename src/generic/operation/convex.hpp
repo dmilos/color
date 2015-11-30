@@ -1,5 +1,5 @@
-#ifndef  color_generic_operation_scale_123
-#define color_generic_operation_scale_123
+#ifndef  color_generic_operation_convex_123
+#define color_generic_operation_convex_123
 
 
  namespace color
@@ -9,7 +9,7 @@
      namespace _internal
       {
        template< typename category_name, typename scalar_name >
-        struct scale
+        struct convex
          {
           public:
             typedef category_name  category_type;
@@ -25,26 +25,26 @@
             typedef typename trait_type::component_type component_type;
             typedef typename trait_type::index_type  index_type;
 
-            static void accumulate( model_input_type  result, scalar_const_input_type const& scalar )
+            static void accumulate( model_input_type result, scalar_const_input_type scalar, model_const_input_type right )
              {
               for( index_type index = 0; index < trait_type::size(); index ++ )
                {
-                result.set( index, result.get( index ) * scalar );
+                result.set( index, scalar * result.get( index ) +( scalar_type( 1 ) - scalar ) *right.get( index )  );
                }
              }
 
-            static void full(  model_input_type  result, scalar_const_input_type scalar, model_const_input_type right )
+            static void full(  model_input_type  result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right )
              {
               for( index_type index = 0; index < trait_type::size(); index ++ )
                {
-                result.set( index, scalar * right.get( index ) );
+                result.set( index, scalar * left.get( index ) +(scalar_type( 1 ) - scalar ) *right.get( index )  );
                }
              }
 
          };
       }
 
-     namespace scale
+     namespace convex
       {
 
        template< typename category_name, typename scalar_name >
@@ -52,20 +52,22 @@
          (
            color::_internal::model<category_name>      & result
           ,scalar_name                            const& scalar
+          ,color::_internal::model<category_name> const& right
          )
          {
-          color::operation::_internal::scale<category_name,scalar_name>::accumulate( result, scalar );
+          color::operation::_internal::convex<category_name,scalar_name>::accumulate( result, scalar, right );
          }
 
        template< typename category_name, typename scalar_name >
         void full
          (
            color::_internal::model<category_name>      & result
+          ,color::_internal::model<category_name> const& left
           ,scalar_name                            const& scalar
           ,color::_internal::model<category_name> const& right
          )
          {
-          color::operation::_internal::scale<category_name,scalar_name>::full( result, scalar, right );
+          color::operation::_internal::convex<category_name,scalar_name>::full( result, left, scalar, right );
          }
 
       }
