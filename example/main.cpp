@@ -1,4 +1,6 @@
 #include "../src/color.hpp"
+#include "../src/generic/operation/operation.hpp"
+
 
 
 
@@ -11,6 +13,8 @@ int main(int argc, char const *argv[])
 	f.container();
 	//color:rgb<float> f;
 	//color:rgb<int>   i;
+	color::operation::addition::full( f,f,f);
+	color::operation::addition::accumulate( f, f);
 	f = d;
 	return 0;
 }

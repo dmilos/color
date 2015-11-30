@@ -26,6 +26,7 @@ namespace color
 
         typedef typename trait_type::component_const_return_type  component_const_return_type;
         typedef typename trait_type::component_return_type        component_return_type;
+        typedef typename trait_type::component_const_input_type   component_const_input_type;
         typedef typename trait_type::component_input_type         component_input_type;
         typedef typename trait_type::set_return_type              set_return_type;
  
@@ -62,7 +63,7 @@ namespace color
          }
  
         set_return_type
-        set( index_const_input_type index, component_input_type component )const
+        set( index_const_input_type index, component_const_input_type component )
          {
           return trait_type::set( m_container, index, component );
          }

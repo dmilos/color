@@ -1,0 +1,7 @@
+#include "add.hpp"
+#include "blend.hpp"
+#include "divide.hpp"
+#include "invert.hpp"
+#include "scale.hpp"
+#include "subtract.hpp"
+#include "multiply.hpp"

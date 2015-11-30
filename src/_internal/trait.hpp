@@ -12,7 +12,7 @@ namespace color
      struct trait
       {
        private:
-         typedef unsigned IntNum32; 
+         typedef unsigned IntNum32;
          typedef unsigned char IntNum8;
 
        public:
@@ -39,20 +39,39 @@ namespace color
 
         static component_const_return_type get( container_const_input_type container, index_const_input_type index )
          {
-          return 0;
-         }
-        static component_return_type get( container_input_type container, index_const_input_type index )
-         {
-          return 0;
+          return (component_type) ( ( container >> ( index << 3 )) & 0xFF );
          }
 
-        static set_return_type set( container_const_input_type container, index_const_input_type index, component_const_input_type component )
+        static set_return_type set( container_input_type container, index_const_input_type index, component_const_input_type value )
          {
-          return 0;
+          container = ( container & ~(  0xFF << ( index << 3 ) ) )  |  ( ((container_type)value) << ( index << 3) );
          }
-     };
 
-  }
+        static index_const_return_type size()
+         {
+          static index_type length = 4;
+          return length;
+         }
+
+        static /*constexpr*/ container_const_return_type   maximum( index_const_input_type  index )
+         {
+          static container_type value=255;
+          return value;
+         }
+
+        static /*constexpr*/ container_const_return_type   minimum( index_const_input_type  index )
+         {
+          static container_type value=0;
+          return value;
+         }
+
+        static /*constexpr*/ container_const_return_type   range(   index_const_input_type  index )
+         {
+          static container_type value = maximum( index ) - minimum( index );
+          return value;
+         }
+      };
+   }
  }
 
 #endif

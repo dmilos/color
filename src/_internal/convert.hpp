@@ -27,12 +27,12 @@ namespace color
        };
 
     template< typename category_name> 
-     struct convert< category_name >
+     struct convert< category_name,category_name >
       {
        public:
 
-         typedef ::color::_internal::trait<category_left_name>    left_trait_type;
-         typedef ::color::_internal::trait<category_right_name>   right_trait_type;
+         typedef ::color::_internal::trait<category_name>    left_trait_type;
+         typedef ::color::_internal::trait<category_name>   right_trait_type;
 
          static void process
           (
