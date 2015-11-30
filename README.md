@@ -10,11 +10,13 @@ All color classes fulfil next very restricted conditions:
 - Ability to copy instances with memcpy, memmove
 - Coonversions are fast as possible.
 ```c++
-        color::rgb<float>         f;
-        color::rgb<std::uint32_t> u;
-        color::rgb<double>        d;
+        color::rgb_float     f;
+        color::rgb_uint32    u;
+        color::rgb_double    d;
         f = u; //!< Perform direct conversion from packed uint32_t to float.
         f = d; //!< Conversion from double to float
+        color::hls_uint32     h;
+        h = f; //!< And this will convert correctly.
 ```
 
 [Want to see more](doc/index.html)

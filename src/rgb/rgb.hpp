@@ -7,13 +7,12 @@
 
 namespace color
  {
-  typedef ::color::_internal::model<  ::color::category::rgb_uint8 >    rgb_uint8 ;
-  typedef ::color::_internal::model<  ::color::category::rgb_uint16 >   rgb_uint16;
-  typedef ::color::_internal::model<  ::color::category::rgb_uint32 >   rgb_uint32;
-  typedef ::color::_internal::model<  ::color::category::rgb_float >    rgb_float ;
-  typedef ::color::_internal::model<  ::color::category::rgb_double >   rgb_double ;
-  typedef ::color::_internal::model<  ::color::category::rgb_ldouble >  rgb_ldouble ;
+  typedef ::color::_internal::model< ::color::category::rgb_uint8   >  rgb_uint8;
+  typedef ::color::_internal::model< ::color::category::rgb_uint16  >  rgb_uint16;
+  typedef ::color::_internal::model< ::color::category::rgb_uint32  >  rgb_uint32;
+  typedef ::color::_internal::model< ::color::category::rgb_float   >  rgb_float;
+  typedef ::color::_internal::model< ::color::category::rgb_double  >  rgb_double;
+  typedef ::color::_internal::model< ::color::category::rgb_ldouble >  rgb_ldouble;
  }
-
 
 #endif
