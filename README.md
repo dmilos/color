@@ -9,7 +9,7 @@ All color classes fulfil next very restricted conditions:
 
 - Ability to copy instances with memcpy, memmove
 - Coonversions are fast as possible.
-    ```c++
+```c++
         color::rgb<float>       f;<br/>
         color::rgb<std::uint32_t> u;<br/>
         color::rgb<double> d;<br/>
