@@ -1,17 +1,16 @@
 # Yet another c++ library thats implemets color.
 
 All color classes fulfil next very restricted conditions:
-- No Virtual function
-- No Virtual destructors
-- Memory footprint only required data 
+- No Virtual function ( and destructors also )
+- Minimal memory footprint
     > e.g ```     color::rgb<float> f;//!< This will pack ONLY three consective float in memory ```
-
-- Ability to copy class with memcpy, memmove, etc
-- Coonversions are fast eas possible.
-    >    ```
-    >    color::rgb<float>       f;
-    >    color::rgb<std::uint32_t> u;
-    >    f = u; //!< Use conversion from packed uint32_t to float not some generic
-    >    ```
+- Ability to copy instances with memcpy, memmove
+- Coonversions are fast as possible.
+    > e.g.\
+    >`color::rgb<float>       f;`\
+    >`color::rgb<std::uint32_t> u;`\
+    >`color::rgb<double> d;`\
+    >`f = u; //!< Use conversion from packed uint32_t to float not some generic`
+    >`f= d; //!< THis qill use only conversion from double to float`
 
 [Want to see more](doc/index.html)
