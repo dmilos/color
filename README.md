@@ -4,7 +4,7 @@ All color classes fulfil next very restricted conditions:
 - No Virtual function ( and destructors also )
 - Minimal memory footprint
 
-        color::rgb<float> f;//!< This will pack ONLY three consective floats in memory 
+    color::rgb<float> f;//!< This will pack ONLY three consective floats in memory 
 
 - Ability to copy instances with memcpy, memmove
 - Coonversions are fast as possible.
