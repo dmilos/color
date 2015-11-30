@@ -15,6 +15,8 @@ int main(int argc, char const *argv[])
 	//color:rgb<int>   i;
 	color::operation::addition::full( f,f,f);
 	color::operation::addition::accumulate( f, f);
+	color::operation::invert::full( f,f);
+	color::operation::invert::accumulate( f);
 	f = d;
 	return 0;
 }
