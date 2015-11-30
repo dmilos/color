@@ -1,3 +1,4 @@
+Status: Under construction
 # Yet another c++ library thats implemets color.
 
 All color classes fulfil next very restricted conditions:
@@ -9,7 +10,7 @@ All color classes fulfil next very restricted conditions:
 ```
 
 - Ability to copy instances with memcpy, memmove
-- Coonversions are fast as possible.
+- Conversions are fast as possible.
 ```c++
         color::rgb_float     f;
         color::rgb_uint32    u;
