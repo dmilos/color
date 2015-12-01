@@ -30,11 +30,11 @@
                }
              }
 
-            static void full(  model_type &result, model_type const& P_left, model_type const& right )
+            static void full(  model_type &result, model_type const& left, model_type const& right )
              {
               for( index_type index = 0; index < trait_type::size(); index ++ )
                {
-                result.set( index, P_left.get( index ) - right.get( index ) );
+                result.set( index, left.get( index ) - right.get( index ) );
                }
              }
 

@@ -8,6 +8,7 @@
     {
      namespace _internal
       {
+
        template< typename category_name>
         struct addition
          {
@@ -15,9 +16,9 @@
             typedef category_name  category_type;
 
 
-            typedef color::_internal::trait< category_type >   trait_type;
+            typedef ::color::_internal::trait< category_type >   trait_type;
 
-            typedef typename color::_internal::model<category_type>  model_type;
+            typedef typename ::color::_internal::model<category_type>  model_type;
 
             typedef typename trait_type::component_type component_type;
             typedef typename trait_type::index_type  index_type;
@@ -30,11 +31,11 @@
                }
              }
 
-            static void full(  model_type &result, model_type const& P_left, model_type const& right )
+            static void full(  model_type &result, model_type const& left, model_type const& right )
              {
               for( index_type index = 0; index < trait_type::size(); index ++ )
                {
-                result.set( index, P_left.get( index ) +  right.get( index ) );
+                result.set( index, left.get( index ) +  right.get( index ) );
                }
              }
 
@@ -47,8 +48,8 @@
        template< typename category_name >
         void accumulate
          (
-           color::_internal::model<category_name>      & result
-          ,color::_internal::model<category_name> const& right
+           ::color::_internal::model<category_name>      & result
+          ,::color::_internal::model<category_name> const& right
          )
          {
           color::operation::_internal::addition<category_name>::accumulate( result, right );
@@ -57,16 +58,15 @@
        template< typename category_name >
         void full
          (
-           color::_internal::model<category_name>      & result
-          ,color::_internal::model<category_name> const& left
-          ,color::_internal::model<category_name> const& right
+           ::color::_internal::model<category_name>      & result
+          ,::color::_internal::model<category_name> const& left
+          ,::color::_internal::model<category_name> const& right
          )
          {
-          color::operation::_internal::addition<category_name>::full( result, left, right );
+          ::color::operation::_internal::addition<category_name>::full( result, left, right );
          }
 
       }
-
     }
   }
 
