@@ -11,6 +11,7 @@ namespace color
    {
     namespace traitX
      {
+     // Obsolete !!!
       template < typename number_name, unsigned legth >
        struct generic
         {

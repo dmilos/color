@@ -14,30 +14,31 @@ namespace color
       {
        public:
         typedef category_name category_type;
- 
-        typedef color::_internal::trait<category_type> trait_type;
 
-        typedef typename trait_type::index_type                 index_type;
-        typedef typename trait_type::index_const_input_type     index_const_input_type;
-        typedef typename trait_type::index_const_return_type    index_const_return_type;
+        typedef ::color::_internal::trait<category_type> trait_type;
+
+        typedef typename trait_type::index_type                   index_type;
+        typedef typename trait_type::index_const_input_type       index_const_input_type;
+        typedef typename trait_type::index_const_return_type      index_const_return_type;
 
         typedef typename trait_type::container_type               container_type;
         typedef typename trait_type::container_const_return_type  container_const_return_type;
         typedef typename trait_type::container_const_input_type   container_const_input_type;
         typedef typename trait_type::container_return_type        container_return_type;
+        typedef typename trait_type::set_return_type              set_return_type;
 
         typedef typename trait_type::component_const_return_type  component_const_return_type;
         typedef typename trait_type::component_return_type        component_return_type;
         typedef typename trait_type::component_const_input_type   component_const_input_type;
         typedef typename trait_type::component_input_type         component_input_type;
-        typedef typename trait_type::set_return_type              set_return_type;
- 
+
+
                  model( )
                  {
-                  // do nothing. 
-                  // Allow using of memset instead this default init
+                  // do nothing.
+                  // Allow using of memset instead this default initialization
                  }
-                 
+
         explicit model( container_const_input_type container ):m_container(container){ }
 
         template< typename other_category_name >
@@ -58,14 +59,14 @@ namespace color
          {
           return trait_type::get( m_container, index );
          }
-         
+
         template< index_type index >
          component_const_return_type
          get()const
           {
            return trait_type::get( m_container, index );
           }
- 
+
         component_return_type
         get( index_const_input_type index )
          {
@@ -79,7 +80,7 @@ namespace color
           }
 
 
- 
+
         set_return_type
         set( index_const_input_type index, component_const_input_type component )
          {
@@ -88,28 +89,28 @@ namespace color
 
         component_const_return_type operator[]( index_const_input_type index )const
          {
-          return this->get(index); 
+          return this->get(index);
          }
- 
-        component_return_type       operator[]( index_const_input_type index )     
+
+        component_return_type       operator[]( index_const_input_type index )
          {
-          return this->get(index); 
+          return this->get(index);
          }
- 
+
         container_const_return_type container()const
          {
-          return m_container; 
+          return m_container;
          }
         container_return_type       container()
          {
-          return m_container; 
+          return m_container;
          }
 
         static index_const_return_type       size()
          {
-          return trait_type::size(); 
+          return trait_type::size();
          }
- 
+
         private:
           container_type m_container;
    };

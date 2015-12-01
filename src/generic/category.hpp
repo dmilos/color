@@ -8,14 +8,14 @@ namespace color
   namespace category 
    {
     // empty class to take the name
-    template< unsigned length > class generic_number{ };
-    template< unsigned length > class generic_uint8  {};
+    template< unsigned length > class generic_number  {};
+    template< unsigned length > class generic_uint8   {};
     template< unsigned length > class generic_uint16  {};
     template< unsigned length > class generic_uint32  {};
     template< unsigned length > class generic_uint64  {};
-    template< unsigned length > class generic_float  {};
+    template< unsigned length > class generic_float   {};
     template< unsigned length > class generic_double  {};
-    template< unsigned length > class generic_ldouble  {};
+    template< unsigned length > class generic_ldouble {};
    }
 
  }
