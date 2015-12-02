@@ -64,7 +64,7 @@ namespace color
               template< index_instance_type index >
                static set_return_type set( input_type container, component_const_input_type value )
                 {
-                 container = ( container & ~(  ( (1 << width) -1 ) << ( index * width ) ) )  |  ( ((instance_type)value) << ( index * width ) );;
+                 container = ( container & ~(  ( (1 << width) -1 ) << ( index * width ) ) )  |  ( ((instance_type)value) << ( index * width ) );
                 }
 
               static index_const_return_type size()

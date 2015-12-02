@@ -3,5 +3,12 @@
 *.dblite
 *.o
 *.bak
+*.sdf
+*.suo
+*.pdb
 /src/generic/operation/.docstates.suo
 /example/main
+*.opensdf
+*.idb
+*.ilk
+/example/test/Debug

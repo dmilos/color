@@ -64,13 +64,13 @@ namespace color
 
              template< index_instance_type index >
               static /*constexpr*/ const_return_type   range()
-               { // TODO this is BUG!!!
+               {
                 static instance_type value = bound_type::range();
                 return value;
                }
 
              static /*constexpr*/ const_return_type   range(   index_const_input_type  index )
-              { // TODO this is BUG!!!
+              {
                static instance_type value = bound_type::range();
                return value;
               }

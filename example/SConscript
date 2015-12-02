@@ -1,21 +1,37 @@
+import os
 import nucleotide
+
 
 Import('settings')
 
+name_full = 'test'
+directory_pdb = '.'
+
+settings.set_custom( 'RTL', 'dynamic' ) 
+settings.set_custom( 'architecture', 'i386' )
+settings.set_custom( 'configuration', 'debug' )
+
+configuration = settings.get_custom( 'configuration' )
 
 # Accumulate Atoms
+settings.accumulate( 'architecture', { 'name' : settings.get_custom( 'architecture' ) } )
 settings.accumulate( 'exception' )
 settings.accumulate( 'source:c++', { 'dialekt' : 'c++11' } )
+settings.accumulate( 'RTTI', { 'enable': 'false' } )
+settings.accumulate( 'compiler:configuration', { 'name'          : configuration  } )
+settings.accumulate( 'compiler:optimisation',  { 'configuration' : configuration  } )
+settings.accumulate( 'PDB', { 'configuration': configuration , 'synchronous' : 'false', 'file-name': os.path.join( directory_pdb, name_full + '.pdb' ) } )
+settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.get_custom( 'RTL' ) } )
 
 # Accumulate source
 source = []
-source +=   ['main.cpp', 'test_gray.cpp', 'test_rgb.cpp'] 
+source +=   ['main.cpp', 'test_gray.cpp', 'test_rgb.cpp' ]
 
 # Make native environment
 envProgram = nucleotide.Environment( settings ).native()
 
 # Create program
-program = envProgram.Program( target =  'main' + envProgram['PROGSUFFIX'], source = source  )
+program = envProgram.Program( target =  'test' + envProgram['PROGSUFFIX'], source = source  )
 
 # ... and return!
 Return( 'program' )

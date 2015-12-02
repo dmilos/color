@@ -42,7 +42,7 @@ namespace color
                       ( category_right_trait_type::get( right, index ) - category_left_trait_type::minimum(index) ) / category_right_trait_type::range( index )
                       + category_right_trait_type::minimum( index );
 
-             container_left_trait_type::set( left, value, index );
+             container_left_trait_type::set( left, index, value );
 
             }
           }

@@ -20,25 +20,50 @@ namespace color
            public:
            typedef number_name              number_type;
            typedef number_const_return_name number_const_return_type;
- 
+
            static /*constexpr*/ number_const_return_type  maximum()
             { // Purposly set to ZERO to force specialization
              static number_type value=0;
              return value;
             }
- 
+
            static /*constexpr*/ number_const_return_type  minimum()
             { // Purposly set to ZERO to force specialization
              static number_type value=0;
              return value;
             }
- 
+
            static /*constexpr*/ number_const_return_type range()
             {
              static number_type value = maximum() - minimum();
              return value;
             }
           };
+
+        template <>
+         struct bound<bool, bool const& >
+         {
+          typedef bool           number_type;
+          typedef bool const&    number_const_return_type;
+
+          static /*constexpr*/ number_const_return_type  maximum()
+           {
+            static number_type value = true;
+            return value;
+           }
+
+          static /*constexpr*/ number_const_return_type  minimum()
+           {
+            static number_type value = false;
+            return value;
+           }
+
+          static /*constexpr*/ number_const_return_type range()
+           {
+            static number_type value = maximum(  ) - minimum();
+            return value;
+           }
+         };
 
         template <>
          struct bound<float, float const& >

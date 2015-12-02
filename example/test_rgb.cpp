@@ -89,6 +89,9 @@ void test_rgb_conversion_intrisic()
   d = f;
   d = u32;
 
+  d.set(0,0.5);
+  d.set(1,0.5);
+  d.set(2,0.5);
   f = d;
   f = f;
   f = u32;
