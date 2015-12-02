@@ -42,7 +42,6 @@ namespace color
          typedef typename component_trait_type::return_type         component_return_type;
          typedef typename component_trait_type::const_return_type   component_const_input_type;
          typedef typename component_trait_type::return_type         component_input_type;
-
       };
 
    }

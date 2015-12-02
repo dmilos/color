@@ -1,6 +1,6 @@
 #ifndef color__internal_component
 #define color__internal_component
-// color::_internal::model< category >
+// color::_internal::component< category >
 
 #include "./index.hpp"
 
@@ -10,7 +10,7 @@ namespace color
    {
 
     template< typename category_name >
-     class component
+     struct component
       {
        public:
          typedef unsigned char          instance_type;

@@ -3,5 +3,5 @@
 *.dblite
 *.o
 *.bak
-
 /src/generic/operation/.docstates.suo
+/example/main

@@ -2,8 +2,9 @@
 #define color_rgb_rgb_289d3a0b_06c8_48de_95d2_0b38ad3d4298
 
 #include "../_internal/model.hpp"
-#include "./trait.hpp"
 #include "./category.hpp"
+
+#include "./uint32.hpp"
 
 namespace color
  {

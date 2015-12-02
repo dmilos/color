@@ -1,6 +1,6 @@
 #ifndef color__internal_container
 #define color__internal_container
-// color::_internal::model< category >
+// color::_internal::container< category >
 
 #include <cstdint>
 #include "./index.hpp"

@@ -9,6 +9,7 @@ namespace color
  {
   namespace _internal
    {
+
     template< typename category_name >
      class model
       {
@@ -79,12 +80,17 @@ namespace color
            return trait_type::get( m_container, index );
           }
 
-
-
         set_return_type
         set( index_const_input_type index, component_const_input_type component )
          {
           return trait_type::set( m_container, index, component );
+         }
+
+        template< index_type index >
+        set_return_type
+        set( component_const_input_type component )
+         {
+          /*return*/ trait_type::set<index>( m_container, component );
          }
 
         component_const_return_type operator[]( index_const_input_type index )const
@@ -116,7 +122,6 @@ namespace color
    };
 
   }
-
  }
 
 #endif

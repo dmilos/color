@@ -1,7 +1,7 @@
 #ifndef color__internal_trait_2ad5c81b_a127_4589_b065_b9f05265855d
 #define color__internal_trait_2ad5c81b_a127_4589_b065_b9f05265855d
 
-// ::color::_internal::trait::component::bound< number_name, number_const_return_name >
+// ::color::_internal::utility::type::bound< number_name, number_const_return_name >
 
 #include <cstdint>
 
@@ -9,9 +9,9 @@ namespace color
  {
   namespace _internal
    {
-    namespace trait
+    namespace utility
      {
-      namespace component
+      namespace type
        {
 
         template < typename number_name, typename number_const_return_name >
