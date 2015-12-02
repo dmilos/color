@@ -1,3 +1,5 @@
+#ifndef color__internal_utility_container_array
+#define color__internal_utility_container_array
 
 namespace color
  {
@@ -22,7 +24,7 @@ namespace color
               typedef instance_type const&     const_input_type;
               typedef instance_type      &     input_type;
 
-              typedef ::color::_internal::utility::index< typename instance_type::size_type >   index_trait_type;
+              typedef ::color::_internal::utility::type::index< typename instance_type::size_type >   index_trait_type;
 
               typedef typename index_trait_type::instance_type     index_instance_type;
               typedef typename index_trait_type::const_input_type  index_const_input_type;
@@ -42,7 +44,7 @@ namespace color
                }
 
               template< index_instance_type index >
-               static component_const_return_type get( const_input_type container)
+               static component_const_return_type get( const_input_type container )
                 {
                  return container[index];
                 }
@@ -69,3 +71,4 @@ namespace color
    }
  }
 
+#endif

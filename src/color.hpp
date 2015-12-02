@@ -8,4 +8,6 @@
 #include "./rgb/rgb.hpp"
 #include "./yiq/yiq.hpp"
 
+#include "./generic/operation/operation.hpp"
+
 #endif

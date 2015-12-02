@@ -2,7 +2,7 @@
 #define color__internal_utility_component_array
 
 #include "../type/bound.hpp"
-#include "../type/type.hpp"
+#include "../type/traitc.hpp"
 #include "../type/index.hpp"
 
 namespace color
@@ -14,7 +14,7 @@ namespace color
       namespace component
        {
 
-        template< typename value_name, typename index_type >
+        template< typename value_name, typename index_name >
          class array
           {
            public:
@@ -29,7 +29,7 @@ namespace color
              typedef typename trait_type::const_input_type       const_input_type;
              typedef typename trait_type::input_type             input_type;
 
-             typedef ::color::_internal::utility::index< index_type >   index_trait_type;
+             typedef ::color::_internal::utility::type::index< index_type >   index_trait_type;
 
              typedef typename index_trait_type::instance_type    index_instance_type;
              typedef typename index_trait_type::const_input_type index_const_input_type;

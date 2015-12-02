@@ -9,7 +9,7 @@ settings.accumulate( 'source:c++', { 'dialekt' : 'c++11' } )
 
 # Accumulate source
 source = []
-source +=   ['main.cpp'] 
+source +=   ['main.cpp', 'test_gray.cpp', 'test_rgb.cpp'] 
 
 # Make native environment
 envProgram = nucleotide.Environment( settings ).native()

@@ -65,20 +65,21 @@ namespace color
          component_const_return_type
          get()const
           {
-           return trait_type::get( m_container, index );
+           return trait_type::template get<index>( m_container );
           }
 
-        component_return_type
-        get( index_const_input_type index )
-         {
-          return trait_type::get( m_container, index );
-         }
-        template< index_type index >
-         component_const_return_type
-         get()
-          {
-           return trait_type::get( m_container, index );
-          }
+        //component_return_type
+        //get( index_const_input_type index )
+        // {
+        //  return trait_type::get( m_container, index );
+        // }
+//
+        //template< index_type index >
+        // component_return_type
+        // get()
+        //  {
+        //   return trait_type::get<index>( m_container );
+        //  }
 
         set_return_type
         set( index_const_input_type index, component_const_input_type component )
@@ -90,7 +91,7 @@ namespace color
         set_return_type
         set( component_const_input_type component )
          {
-          /*return*/ trait_type::set<index>( m_container, component );
+          /*return*/ trait_type::template set<index>( m_container, component );
          }
 
         component_const_return_type operator[]( index_const_input_type index )const
@@ -98,10 +99,10 @@ namespace color
           return this->get(index);
          }
 
-        component_return_type       operator[]( index_const_input_type index )
-         {
-          return this->get(index);
-         }
+        //component_return_type       operator[]( index_const_input_type index )
+        // {
+        //  return this->get(index);
+        // }
 
         container_const_return_type container()const
          {
