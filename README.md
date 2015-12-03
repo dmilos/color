@@ -13,11 +13,11 @@ All color classes fulfil next very restricted conditions:
 - Conversions are fast as possible.
 ```c++
         color::rgb<float>     f;
-        color::rgb<uint32>    u;
+        color::rgb<std::uint32_t>    u;
         color::rgb<double>    d;
         f = u; //!< Perform direct conversion from packed uint32_t to float.
         f = d; //!< Conversion from double to float
-        color::hls<uint32>     h;
+        color::hls<std::uint32_t>     h;
         h = f; //!< This is the way to convert from RGB to HLS.
 ```
 
