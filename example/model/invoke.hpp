@@ -3,13 +3,12 @@
 
 #include "../../src/color.hpp"
 
-using namespace color::operation::arithmetic;
-
 #include "../print.hpp"
 
 template< typename category_name > 
  void test_invoke()
   {
+   std::cout << __FUNCTION__ << "::begin - " << typeid( category_name ).name()   <<std::endl;
    typedef color::_internal::model< category_name > model_type;
    typedef typename model_type::component_type     component_type;
 
@@ -26,5 +25,7 @@ template< typename category_name >
     }
 
   c.container();
+  std::cout << std::endl;
+  std::cout << __FUNCTION__ << "::end" << std::endl;
  }
 

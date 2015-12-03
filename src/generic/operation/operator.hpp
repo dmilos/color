@@ -46,12 +46,56 @@
           return result;
          }
 
-       template< typename category_name>
+
+       template< typename category_name, typename scalar_name >
+        inline
+        ::color::_internal::model< category_name >
+        operator *
+         (
+           scalar_name                                const& left
+          ,::color::_internal::model< category_name > const& right
+         )
+         {
+          ::color::_internal::model< category_name > result;
+          ::color::operation::scale::full( result,  left, right );
+          return result;
+         }
+
+       template< typename category_name, typename scalar_name >
+        inline
+        ::color::_internal::model< category_name >
+        operator *
+         (
+           ::color::_internal::model< category_name > const & left
+          ,scalar_name                                const & right
+         )
+         {
+          ::color::_internal::model< category_name > result;
+          ::color::operation::scale::full( result, right, left );
+          return result;
+         }
+
+       template< typename category_name, typename scalar_name >
+        inline
+        ::color::_internal::model< category_name >
+        operator /
+         (
+           ::color::_internal::model< category_name > const & left
+          ,scalar_name                                const & right
+         )
+         {
+          ::color::_internal::model< category_name > result;
+          ::color::operation::scale::full( result,  scalar_name(1) / right, left );
+          return result;
+         }
+
+
+       template< typename category_name, typename scalar_name >
         inline
         ::color::_internal::model< category_name > &
-        operator -=( ::color::_internal::model< category_name > & result, ::color::_internal::model< category_name > const&  right )
+        operator -=( ::color::_internal::model< category_name > & result, scalar_name const&  left )
          {
-          ::color::operation::subtract::accumulate( result, right );
+          ::color::operation::subtract::accumulate( result, left );
           return result;
          }
 

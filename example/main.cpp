@@ -3,7 +3,7 @@
 #include "./model/invoke.hpp"
 #include "./model/operation.hpp"
 #include "./model/make.hpp"
-
+#include "./model/intrisic_conversion.hpp"
 
 
 int main(int argc, char const *argv[])
@@ -53,6 +53,9 @@ int main(int argc, char const *argv[])
   test_make< color::category::rgb_float   >();
   test_make< color::category::rgb_double  >();
   test_make< color::category::rgb_ldouble >();
+
+  test_intrisic_conversion< color::rgb >();
+  test_intrisic_conversion< color::gray >();
 
   return 0;
  }
