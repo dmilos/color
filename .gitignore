@@ -12,3 +12,5 @@
 *.idb
 *.ilk
 /example/test/Debug
+/example/Debug
+/example/test

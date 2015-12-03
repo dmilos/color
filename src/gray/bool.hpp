@@ -24,7 +24,7 @@ namespace color
 
     template< >
      struct container< ::color::category::gray_bool >
-      : public  ::color::_internal::utility::container::bool< unsigned >
+      : public  ::color::_internal::utility::container::boolean< unsigned >
       {
       };
 

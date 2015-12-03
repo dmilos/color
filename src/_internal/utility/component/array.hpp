@@ -39,39 +39,39 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ const_return_type   maximum( )
                {
-                static instance_type value=bound_type::maximum();
+                static const instance_type value = bound_type::maximum();
                 return value;
                }
 
              static /*constexpr*/ const_return_type   maximum( index_const_input_type  index )
               {
-               static instance_type value=bound_type::maximum();
+               static const instance_type value = bound_type::maximum();
                return value;
               }
 
              template< index_instance_type index >
               static /*constexpr*/ const_return_type   minimum( )
                {
-                static instance_type value=bound_type::minimum();
+                static const instance_type value = bound_type::minimum();
                 return value;
                }
 
              static /*constexpr*/ const_return_type   minimum( index_const_input_type  index )
               {
-               static instance_type value=bound_type::minimum();
+               static const instance_type value = bound_type::minimum();
                return value;
               }
 
              template< index_instance_type index >
               static /*constexpr*/ const_return_type   range()
                {
-                static instance_type value = bound_type::range();
+                static const instance_type value = bound_type::range();
                 return value;
                }
 
              static /*constexpr*/ const_return_type   range(   index_const_input_type  index )
               {
-               static instance_type value = bound_type::range();
+               static const instance_type value = bound_type::range();
                return value;
               }
           };

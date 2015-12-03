@@ -20,6 +20,8 @@ namespace color
            public:
            typedef number_name              number_type;
            typedef number_const_return_name number_const_return_type;
+           // Having this typedef is bad idea
+           typedef bound<number_type,number_const_return_type> this_type;
 
            static /*constexpr*/ number_const_return_type  maximum()
             { // Purposly set to ZERO to force specialization
@@ -35,7 +37,7 @@ namespace color
 
            static /*constexpr*/ number_const_return_type range()
             {
-             static number_type value = maximum() - minimum();
+             static number_type value =  this_type::maximum() - this_type::minimum();
              return value;
             }
           };
@@ -45,6 +47,8 @@ namespace color
          {
           typedef bool           number_type;
           typedef bool const&    number_const_return_type;
+
+          typedef bound<number_type,number_const_return_type> this_type;
 
           static /*constexpr*/ number_const_return_type  maximum()
            {
@@ -60,7 +64,7 @@ namespace color
 
           static /*constexpr*/ number_const_return_type range()
            {
-            static number_type value = maximum(  ) - minimum();
+            static number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
          };
@@ -71,6 +75,8 @@ namespace color
           typedef float           number_type;
           typedef float const&    number_const_return_type;
 
+          typedef bound<number_type,number_const_return_type> this_type;
+
           static /*constexpr*/ number_const_return_type  maximum()
            {
             static number_type value=1;
@@ -85,7 +91,7 @@ namespace color
 
           static /*constexpr*/ number_const_return_type range()
            {
-            static number_type value = maximum(  ) - minimum();
+            static number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
          };
@@ -96,6 +102,8 @@ namespace color
           typedef double           number_type;
           typedef double const&    number_const_return_type;
 
+          typedef bound<number_type,number_const_return_type> this_type;
+
           static /*constexpr*/ number_const_return_type  maximum()
            {
             static number_type value=1;
@@ -110,7 +118,7 @@ namespace color
 
           static /*constexpr*/ number_const_return_type range()
            {
-            static number_type value = maximum() - minimum();
+            static number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
          };
@@ -120,6 +128,8 @@ namespace color
          {
           typedef long double           number_type;
           typedef long double const&    number_const_return_type;
+
+          typedef bound<number_type,number_const_return_type> this_type;
 
           static /*constexpr*/ number_const_return_type  maximum()
            {
@@ -135,7 +145,7 @@ namespace color
 
           static /*constexpr*/ number_const_return_type range()
            {
-            static number_type value = maximum() - minimum();
+            static number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
 
@@ -146,6 +156,8 @@ namespace color
          {
           typedef unsigned char           number_type;
           typedef unsigned char const&    number_const_return_type;
+
+          typedef bound<number_type,number_const_return_type> this_type;
 
           static /*constexpr*/ number_const_return_type  maximum()
            {
@@ -161,7 +173,7 @@ namespace color
 
           static /*constexpr*/ number_const_return_type range()
            {
-            static number_type value = maximum() - minimum();
+            static number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
 

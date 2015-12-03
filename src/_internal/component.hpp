@@ -23,42 +23,44 @@ namespace color
          typedef typename index_trait_type::instance_type    index_instance_type;
          typedef typename index_trait_type::const_input_type index_const_input_type;
 
+         typedef ::color::_internal::component< category_name >  this_type;
+
          template< index_instance_type index >
-          static /*constexpr*/ const_return_type   maximum( )
+          inline static /*constexpr*/ const_return_type   maximum()
            {
             static instance_type value=255;
             return value;
            }
 
-         static /*constexpr*/ const_return_type   maximum( index_const_input_type  index )
+         inline static /*constexpr*/ const_return_type   maximum( index_const_input_type  index )
           {
            static instance_type value=255;
            return value;
           }
 
          template< index_instance_type index >
-          static /*constexpr*/ const_return_type   minimum( )
+          inline static /*constexpr*/ const_return_type   minimum()
            {
             static instance_type value=0;
             return value;
            }
 
-         static /*constexpr*/ const_return_type   minimum( index_const_input_type  index )
+         inline static /*constexpr*/ const_return_type   minimum(index_const_input_type  index)
           {
            static instance_type value=0;
            return value;
           }
 
          template< index_instance_type index >
-          static /*constexpr*/ const_return_type   range()
-           { // TODO this is BUG!!!
-            static instance_type value = maximum<index>() - minimum<index>();
+         inline static /*constexpr*/ const_return_type   range()
+           {
+            static instance_type value = this_type::maximum<index>() - this_type::minimum<index>();
             return value;
            }
 
-         static /*constexpr*/ const_return_type   range(   index_const_input_type  index )
-          { // TODO this is BUG!!!
-           static instance_type value = maximum( index ) - minimum( index );
+         inline static /*constexpr*/ const_return_type   range(index_const_input_type  index)
+          {
+           static instance_type value = this_type::maximum( index ) - this_type::minimum( index );
            return value;
           }
       };

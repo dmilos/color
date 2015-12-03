@@ -1,6 +1,8 @@
 #ifndef color_rgb_category_39a2279e_58d9_43b5_a2c8_ece8259dbcc9
 #define color_rgb_category_39a2279e_58d9_43b5_a2c8_ece8259dbcc9
 
+// color::category::rgb_ABC;
+
 namespace color
  {
   namespace category

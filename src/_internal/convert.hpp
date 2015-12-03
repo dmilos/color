@@ -38,9 +38,9 @@ namespace color
            for( index_type index=0; index < min_common_size; ++index )
             {
 
-             component_left_type value = category_left_trait_type::range( index ) *
-                      ( category_right_trait_type::get( right, index ) - category_left_trait_type::minimum(index) ) / category_right_trait_type::range( index )
-                      + category_right_trait_type::minimum( index );
+            value = category_left_trait_type::range( index ) *
+                      ( container_right_trait_type::get( right, index ) - category_right_trait_type::minimum(index) ) / category_right_trait_type::range( index )
+                      + category_left_trait_type::minimum(index);
 
              container_left_trait_type::set( left, index, value );
 

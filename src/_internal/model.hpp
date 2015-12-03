@@ -28,11 +28,11 @@ namespace color
         typedef typename trait_type::container_return_type        container_return_type;
         typedef typename trait_type::set_return_type              set_return_type;
 
+        typedef typename trait_type::component_type               component_type;
         typedef typename trait_type::component_const_return_type  component_const_return_type;
         typedef typename trait_type::component_return_type        component_return_type;
         typedef typename trait_type::component_const_input_type   component_const_input_type;
         typedef typename trait_type::component_input_type         component_input_type;
-
 
                  model( )
                  {
@@ -120,9 +120,9 @@ namespace color
 
         private:
           container_type m_container;
-   };
+    };
 
-  }
+   }
  }
 
 #endif

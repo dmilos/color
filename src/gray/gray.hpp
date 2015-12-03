@@ -1,26 +1,41 @@
-#ifndef color_rgb_gray
-#define color_rgb_gray
+#ifndef color_gray_gray
+#define color_gray_gray
 
-#include "./category.hpp"
 #include "../_internal/model.hpp"
 
-#include "./double.hpp"
-#include "./float.hpp"
-#include "./ldouble.hpp"
+#include "./category.hpp"
+
+#include "./bool.hpp"
+#include "./uint8.hpp"
 #include "./uint16.hpp"
 #include "./uint32.hpp"
 #include "./uint64.hpp"
-#include "./uint8.hpp"
+#include "./float.hpp"
+#include "./double.hpp"
+#include "./ldouble.hpp"
 
 namespace color
  {
-  typedef ::color::_internal::model< ::color::category::gray_uint8   >  gray_uint8;
-  typedef ::color::_internal::model< ::color::category::gray_uint16  >  gray_uint16;
-  typedef ::color::_internal::model< ::color::category::gray_uint32  >  gray_uint32;
-  typedef ::color::_internal::model< ::color::category::gray_uint64  >  gray_uint64;
-  typedef ::color::_internal::model< ::color::category::gray_float   >  gray_float;
-  typedef ::color::_internal::model< ::color::category::gray_double  >  gray_double;
-  typedef ::color::_internal::model< ::color::category::gray_ldouble >  gray_ldouble;
+  namespace _internal
+   {
+    template< typename type_name > struct pick_gray
+     {
+         typedef color::category::gray_uint32 category_type;
+     };
+
+    template<> struct pick_gray< bool           >{ typedef ::color::category::gray_bool    category_type; };
+    template<> struct pick_gray< std::uint8_t   >{ typedef ::color::category::gray_uint8   category_type; };
+    template<> struct pick_gray< std::uint16_t  >{ typedef ::color::category::gray_uint16  category_type; };
+    template<> struct pick_gray< std::uint32_t  >{ typedef ::color::category::gray_uint32  category_type; };
+    template<> struct pick_gray< std::uint64_t  >{ typedef ::color::category::gray_uint64  category_type; };
+    template<> struct pick_gray< float          >{ typedef ::color::category::gray_float   category_type; };
+    template<> struct pick_gray< double         >{ typedef ::color::category::gray_double  category_type; };
+    template<> struct pick_gray< long    double >{ typedef ::color::category::gray_ldouble category_type; };
+   }
+
+  template< typename type_name >
+   using gray = color::_internal::model< typename color::_internal::pick_gray< type_name >::category_type >;
+
  }
 
 #endif

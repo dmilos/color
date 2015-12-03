@@ -16,11 +16,12 @@ namespace color
        {
 
         template< typename index_name/* pointless */ >
-          struct Unsigned
+          struct boolean
            {
             public:
               
               typedef index_name     index_type;
+              typedef bool           value_type;
 
               typedef bool  instance_type;
 
@@ -35,7 +36,7 @@ namespace color
               typedef typename index_trait_type::const_input_type  index_const_input_type;
               typedef typename index_trait_type::const_return_type index_const_return_type;
 
-              typedef ::color::_internal::utility::type::traitP< value_name >         component_trait_type;
+              typedef ::color::_internal::utility::type::traitC< value_type >         component_trait_type;
 
               typedef typename component_trait_type::const_return_type    component_const_return_type;
               typedef typename component_trait_type::const_input_type     component_const_input_type;
