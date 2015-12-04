@@ -8,6 +8,7 @@
     {
      namespace _internal
       {
+
        template< typename category_name, typename scalar_name >
         struct convex
          {

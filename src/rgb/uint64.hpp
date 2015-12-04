@@ -18,13 +18,13 @@ namespace color
 
     template< >
      struct component< ::color::category::rgb_uint64 >
-      : public ::color::_internal::utility::component::Unsigned< std::uint64_t, 16, unsigned>
+      : public ::color::_internal::utility::component::Unsigned< std::uint16_t, 16, unsigned>
       {
       };
 
     template< >
      struct container< ::color::category::rgb_uint64 >
-      : public  ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint8_t,  unsigned,  3, 16 >
+      : public  ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 >
       {
       };
 

@@ -3,7 +3,12 @@
 template< typename category_name > 
  void test_operation()
   {
-   std::cout << __FUNCTION__ << "::begin - " << typeid( category_name ).name()   <<std::endl;
+   std::cout << std::endl;
+   std::cout << "{{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{"<< std::endl;
+   std::cout << "  function - " << __FUNCTION__ << std::endl;
+   std::cout << "  type - " << typeid( category_name ).name()   << std::endl;
+   std::cout << std::endl;
+
    typedef color::_internal::model< category_name > model_type;
    typedef typename model_type::component_type     component_type;
 
@@ -35,7 +40,9 @@ template< typename category_name >
    u32a *= 0.5;
 
    std::cout << std::endl;
-   std::cout << __FUNCTION__ << "::end" << std::endl;
+   std::cout << "  function - " << __FUNCTION__ << std::endl;
+   std::cout << "  type - " << typeid(category_name).name() << std::endl;
+   std::cout << "}}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}}" << std::endl;
   }
 
 

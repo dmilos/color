@@ -1,7 +1,7 @@
-#ifndef color_generic_get_red
-#define color_generic_get_red
+#ifndef color_generic_get_gray
+#define color_generic_get_gray
 
-// ::color::get::red( c )
+// ::color::get::gray( c )
 
  namespace color
   {
@@ -11,9 +11,9 @@
      template< typename category_name >
       inline
       typename ::color::_internal::model< category_name >::component_const_return_type
-      red( ::color::_internal::model< category_name > const& color_parameter )
+      gray( ::color::_internal::model< category_name > const& color_parameter )
        {
-        return color_parameter.template get<0>();
+        return color_parameter.template get<1>();
        };
 
     }

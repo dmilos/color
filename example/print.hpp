@@ -11,7 +11,7 @@ template< typename category_name >
 
    for( typename model_type::index_type index=0; index < model_type::size(); ++index )
     {
-     std::cout << " " << gray.get( index ) << ", ";
+     std::cout << " " << double( gray.get( index ) ) << ", ";
     }
     std::cout << ">";
   }

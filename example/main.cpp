@@ -4,7 +4,8 @@
 #include "./model/operation.hpp"
 #include "./model/make.hpp"
 #include "./model/intrisic_conversion.hpp"
-
+#include "./model/set.hpp"
+#include "./model/get.hpp"
 
 int main(int argc, char const *argv[])
  {
@@ -30,24 +31,24 @@ int main(int argc, char const *argv[])
   test_invoke< color::category::generic_ldouble <1> >();
   */
 
-  test_invoke< color::category::rgb_uint8   >();
-  test_invoke< color::category::rgb_uint16  >();
+  //test_invoke< color::category::rgb_uint8   >();
+  //test_invoke< color::category::rgb_uint16  >();
   test_invoke< color::category::rgb_uint32  >();
   test_invoke< color::category::rgb_uint64  >();
   test_invoke< color::category::rgb_float   >();
   test_invoke< color::category::rgb_double  >();
   test_invoke< color::category::rgb_ldouble >();
   
-  test_operation< color::category::rgb_uint8   >();
-  test_operation< color::category::rgb_uint16  >();
+  //test_operation< color::category::rgb_uint8   >();
+  //test_operation< color::category::rgb_uint16  >();
   test_operation< color::category::rgb_uint32  >();
   test_operation< color::category::rgb_uint64  >();
   test_operation< color::category::rgb_float   >();
   test_operation< color::category::rgb_double  >();
   test_operation< color::category::rgb_ldouble >();
 
-  test_make< color::category::rgb_uint8   >();
-  test_make< color::category::rgb_uint16  >();
+  //test_make< color::category::rgb_uint8   >();
+  //test_make< color::category::rgb_uint16  >();
   test_make< color::category::rgb_uint32  >();
   test_make< color::category::rgb_uint64  >();
   test_make< color::category::rgb_float   >();
@@ -56,6 +57,22 @@ int main(int argc, char const *argv[])
 
   test_intrisic_conversion< color::rgb >();
   test_intrisic_conversion< color::gray >();
+
+  //test_get< color::category::rgb_uint8  >();
+  //test_get< color::category::rgb_uint16 >();
+  test_get< color::category::rgb_uint32 >();
+  test_get< color::category::rgb_uint64 >();
+  test_get< color::category::rgb_float  >();
+  test_get< color::category::rgb_double >();
+  test_get< color::category::rgb_ldouble>();
+
+  //test_set< color::category::rgb_uint8   >();
+  //test_set< color::category::rgb_uint16  >();
+  test_set< color::category::rgb_uint32  >(   50  );
+  test_set< color::category::rgb_uint64  >( 1500  );
+  test_set< color::category::rgb_float   >( 0.76  );
+  test_set< color::category::rgb_double  >( 1.99  );
+  test_set< color::category::rgb_ldouble >( 0.256 );
 
   return 0;
  }

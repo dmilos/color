@@ -58,13 +58,13 @@ namespace color
 
               static set_return_type set( input_type container, index_const_input_type index, component_const_input_type value )
                {
-                container = ( container & ~(  ( (1 << width) -1 ) << ( index * width ) ) )  |  ( ((instance_type)value) << ( index * width ) );
+                container = ( container & ~(  ( ( instance_type(1) << width) - instance_type(1) ) << ( index * width ) ) )  |  ( ( instance_type(value) << ( index * width ) ) );
                }
 
               template< index_instance_type index >
                static set_return_type set( input_type container, component_const_input_type value )
                 {
-                 container = ( container & ~(  ( (1 << width) -1 ) << ( index * width ) ) )  |  ( ((instance_type)value) << ( index * width ) );
+                 container = ( container & ~(  ( ( instance_type(1) << width) - instance_type(1) ) << ( index * width ) ) )  |  ( ( instance_type(value) ) << ( index * width ) );
                 }
 
               static index_const_return_type size()

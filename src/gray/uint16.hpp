@@ -24,7 +24,7 @@ namespace color
 
     template< >
      struct container< ::color::category::gray_uint16 >
-      : public  ::color::_internal::utility::container::Unsigned< std::uint16_t, std::uint8_t,  unsigned,  1, 16  >
+      : public  ::color::_internal::utility::container::Unsigned< std::uint16_t, std::uint16_t, unsigned,  1, 16  >
       {
       };
 

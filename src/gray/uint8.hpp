@@ -17,14 +17,14 @@ namespace color
       };
 
     template< >
-     struct component< ::color::category::gray_uint8 >
-      : public ::color::_internal::utility::component::Unsigned< std::uint8_t, 8, unsigned>
+     struct component< ::color::category::gray_uint8  >
+      : public ::color::_internal::utility::component::Unsigned< std::uint8_t,   8, unsigned>
       {
       };
 
     template< >
-     struct container< ::color::category::gray_uint8 >
-      : public  ::color::_internal::utility::container::Unsigned< std::uint8_t, std::uint8_t, unsigned,  1, 8  >
+     struct container< ::color::category::gray_uint8  >
+      : public  ::color::_internal::utility::container::Unsigned< std::uint8_t,  std::uint8_t,  unsigned,  1, 8  >
       {
       };
 

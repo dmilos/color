@@ -9,10 +9,11 @@
     {
 
      template< typename category_name >
+      inline
       typename ::color::_internal::model< category_name >::component_const_return_type
-      void alpha( ::color::_internal::model< category_name > const& color_parameter )
+      alpha( ::color::_internal::model< category_name > const& color_parameter )
        {
-        return color_parameter.get<4>( index );
+        return color_parameter.template get<0>();
        };
 
     }

@@ -1,5 +1,5 @@
-#ifndef color_generic_get_get
-#define color_generic_get_get
+#ifndef color_generic_set_get
+#define color_generic_set_get
 
 #include "./yellow.hpp"
 #include "./red.hpp"
