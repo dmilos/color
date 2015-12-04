@@ -1,5 +1,5 @@
 #ifndef color_gray_category
-#define color_rgb_category
+#define color_gray_category
 
 namespace color
  {
