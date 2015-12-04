@@ -17,7 +17,7 @@
         typename ::color::_internal::model< category_name >::component_const_input_type         component_parameter
        )
        {
-        color_parameter.template set<0>( component_parameter );
+        //color_parameter.template set<3>( component_parameter );
        };
 
     }

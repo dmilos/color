@@ -18,17 +18,21 @@ namespace color
 
         typedef ::color::_internal::trait<category_type> trait_type;
 
+        
         typedef typename trait_type::index_type                   index_type;
+      // TODO typedef typename trait_type::index_const_type             index_const_type;
         typedef typename trait_type::index_const_input_type       index_const_input_type;
         typedef typename trait_type::index_const_return_type      index_const_return_type;
 
         typedef typename trait_type::container_type               container_type;
+        typedef typename trait_type::container_const_type         container_const_type;
         typedef typename trait_type::container_const_return_type  container_const_return_type;
         typedef typename trait_type::container_const_input_type   container_const_input_type;
         typedef typename trait_type::container_return_type        container_return_type;
         typedef typename trait_type::set_return_type              set_return_type;
 
         typedef typename trait_type::component_type               component_type;
+        typedef typename trait_type::component_const_type         component_const_type;
         typedef typename trait_type::component_const_return_type  component_const_return_type;
         typedef typename trait_type::component_return_type        component_return_type;
         typedef typename trait_type::component_const_input_type   component_const_input_type;

@@ -24,6 +24,7 @@ namespace color
              typedef ::color::_internal::utility::type::traitC< value_name >         trait_type;
 
              typedef typename trait_type::instance_type          instance_type;
+             typedef typename trait_type::const_type             const_type;
              typedef typename trait_type::const_return_type      const_return_type;
              typedef typename trait_type::return_type            return_type;
              typedef typename trait_type::const_input_type       const_input_type;

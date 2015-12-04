@@ -26,6 +26,7 @@ namespace color
 
               typedef unsigned_name  instance_type;
 
+              typedef instance_type const      const_type;
               typedef instance_type const&     const_return_type;
               typedef instance_type      &     return_type;
               typedef instance_type const&     const_input_type;
@@ -39,9 +40,10 @@ namespace color
 
               typedef ::color::_internal::utility::type::traitP< value_name >         component_trait_type;
 
+              typedef typename component_trait_type::const_type           component_const_type;
+              typedef typename component_trait_type::instance_type        component_type;
               typedef typename component_trait_type::const_return_type    component_const_return_type;
               typedef typename component_trait_type::const_input_type     component_const_input_type;
-              typedef typename component_trait_type::instance_type        component_type;
 
               typedef void set_return_type;
 

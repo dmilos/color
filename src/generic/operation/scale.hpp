@@ -1,6 +1,7 @@
 #ifndef  color_generic_operation_scale_123
 #define color_generic_operation_scale_123
-
+// color::operation::scale::accumulate
+// color::operation::scale::full
 
  namespace color
   {

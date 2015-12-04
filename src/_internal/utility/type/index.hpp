@@ -16,7 +16,9 @@ namespace color
          class index
           {
            public:
-             typedef index_name              instance_type;
+             typedef index_name             instance_type;
+
+             typedef instance_type const    const_type;
              typedef instance_type const&   const_return_type;
              typedef instance_type      &   return_type;
              typedef instance_type const&   const_input_type;

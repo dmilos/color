@@ -14,8 +14,9 @@ namespace color
       {
        public:
          typedef unsigned char          instance_type;
-         typedef instance_type          const_return_type;
-         typedef instance_type  const   return_type;
+         typedef instance_type  const   const_type;
+         typedef instance_type  const   const_return_type;
+         typedef instance_type          return_type;
          typedef instance_type const&   const_input_type;
          typedef instance_type      &   input_type;
 

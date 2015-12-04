@@ -25,6 +25,7 @@ namespace color
 
               typedef bool  instance_type;
 
+              typedef instance_type const      const_type;
               typedef instance_type const&     const_return_type;
               typedef instance_type      &     return_type;
               typedef instance_type const&     const_input_type;

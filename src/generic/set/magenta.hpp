@@ -17,7 +17,10 @@
         typename ::color::_internal::model< category_name >::component_const_input_type         component_parameter
        )
        {
-        color_parameter.template set<0>( component_parameter );
+        typedef ::color::_internal::model< category_name > model_type;
+        typedef ::color::_internal::trait< category_name > trait_type;
+
+        color_parameter.template set<2>( trait_type::template range<2>() - ( component_parameter - trait_type::template minimum<2>()) + trait_type::template minimum<2>() );
        };
 
     }
