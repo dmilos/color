@@ -14,7 +14,7 @@
       red( ::color::_internal::model< category_name > const& color_parameter )
        {
         return color_parameter.template get<0>();
-       };
+       }
 
     }
   }

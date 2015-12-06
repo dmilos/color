@@ -17,7 +17,7 @@
         typedef ::color::_internal::trait< category_name > trait_type;
 
         return trait_type::template maximum<0>();
-       };
+       }
 
     }
   }
