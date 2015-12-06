@@ -23,8 +23,9 @@ namespace color
               typedef unsigned_name  unsigned_type;
               typedef value_name     value_type;
               typedef index_name     index_type;
-
               typedef unsigned_name  instance_type;
+              
+              typedef color::_internal::utility::container::Unsigned<unsigned_name,value_name,index_name,length,width> this_type;
 
               typedef instance_type const      const_type;
               typedef instance_type const&     const_return_type;
@@ -69,12 +70,20 @@ namespace color
                  container = ( container & ~(  ( ( instance_type(1) << width) - instance_type(1) ) << ( index * width ) ) )  |  ( ( instance_type(value) ) << ( index * width ) );
                 }
 
-              static index_const_return_type size()
+              static /*constexpr*/ index_const_return_type size()
                {
                 static index_instance_type local_length = length;
                 return local_length;
                }
-           }; 
+             private:
+               static /*constexpr*/ const_return_type mask()
+                {
+                 static instance_type local_mask = (instance_type(1) << width) - instance_type(1);
+                 return local_mask;
+                }
+           };
+
+
        }
      }
    }

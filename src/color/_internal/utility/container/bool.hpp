@@ -67,7 +67,7 @@ namespace color
                  container = value;
                 }
 
-              static index_const_return_type size()
+              static /*constexpr*/ index_const_return_type size()
                {
                 static index_instance_type local_length = 1;
                 return local_length;

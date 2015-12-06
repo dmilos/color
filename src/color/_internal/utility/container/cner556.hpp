@@ -90,15 +90,15 @@ namespace color
                  }
                 }
 
-              static index_const_return_type size()
+              static /*constexpr*/ index_const_return_type size()
                {
                 static index_instance_type local_length = 3;
                 return local_length;
                }
-           }; 
+           };
        }
      }
    }
  }
 
-#endif 
+#endif

@@ -39,7 +39,7 @@ int main(int argc, char const *argv[])
   test_invoke< color::category::rgb_float   >();
   test_invoke< color::category::rgb_double  >();
   test_invoke< color::category::rgb_ldouble >();
-  
+
   //test_operation< color::category::rgb_uint8   >();
   test_operation< color::category::rgb_uint16  >();
   test_operation< color::category::rgb_uint32  >();
@@ -75,5 +75,25 @@ int main(int argc, char const *argv[])
   test_set< color::category::rgb_double  >( 1.99  );
   test_set< color::category::rgb_ldouble >( 0.256 );
 
+  // Problem !!!!
+  color::gray<std::uint64_t> g2( { 64, 127 , 192} );
+  
+  test_set< color::category::gray_bool  >( true );
+  test_set< color::category::gray_uint8   >( 128 );
+  test_set< color::category::gray_uint16  >( 12812 );
+  test_set< color::category::gray_uint32  >(   50  );
+  test_set< color::category::gray_uint64  >( 1500  );
+  test_set< color::category::gray_float   >( 0.76  );
+  test_set< color::category::gray_double  >( 1.99  );
+  test_set< color::category::gray_ldouble >( 0.256 );
+
+  {
+   color::rgb<bool>           c0( { true, false, false} );
+   color::rgb<float>          c1( { 0.5, 0.6,0.7}  );
+   color::rgb<std::uint64_t>  c2( { 64, 127 , 192} );
+   color::rgb<std::uint32_t>  c3( { 64, 127 , 192} );
+   color::rgb<std::uint16_t>  c4( { 64, 127 , 192} );
+   color::rgb<std::uint8_t>   c5( { 64, 127 , 192} );
+  }
   return 0;
  }
