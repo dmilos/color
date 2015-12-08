@@ -25,7 +25,7 @@ template< typename category_name >
    model_type   ccont( cont );
 
    std::cout << "  model_type   c; ";
-   model_type   c( { 1, 2, 3 } );
+   model_type   c;
    print( c );
    //print( cc );
    std::cout << std::endl;

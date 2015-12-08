@@ -14,6 +14,10 @@
 #include "./double.hpp"
 #include "./ldouble.hpp"
 
+//#include "./get/get.hpp"
+//#include "./set/set.hpp"
+#include "./make/make.hpp"
+
 namespace color
  {
   namespace _internal

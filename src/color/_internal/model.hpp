@@ -20,6 +20,7 @@ namespace color
         typedef category_name category_type;
 
         typedef ::color::_internal::trait<category_type> trait_type;
+        //typedef ::color::_internal::model<category_type>  this_type;
 
         
         typedef typename trait_type::index_type                   index_type;
@@ -50,10 +51,7 @@ namespace color
 
         explicit model( container_const_input_type container ):m_container(container){ }
 
-        explicit model( std::initializer_list<component_type > const& ilist )
-         {
-          ::color::_internal::init<category_name>( *this, ilist );
-         }
+        explicit model( std::initializer_list<component_type > const& ilist );
 
         template< typename other_category_name >
          explicit model( ::color::_internal::model<other_category_name> const& that )
@@ -139,5 +137,12 @@ namespace color
  }
 
 #include "./init.hpp"
+
+    template< typename category_name >
+     inline
+     color::_internal::model<category_name>::model( std::initializer_list<component_type > const& ilist )
+      {
+       ::color::_internal::init<category_name>( *this, ilist );
+      }
 
 #endif

@@ -23,6 +23,7 @@
              {
               typedef ::color::_internal::model< category_name > model_type;
               typedef ::color::_internal::trait< category_name > trait_type;
+              typedef typename trait_type::component_type     component_type;
 
               return ( trait_type::template range<1>() - ( color_parameter.template get<1>() - trait_type::template minimum<1>() ) ) + trait_type::template  minimum<1>(); 
              }

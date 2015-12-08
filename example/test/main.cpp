@@ -77,7 +77,7 @@ int main(int argc, char const *argv[])
 
   // Problem !!!!
   color::gray<std::uint64_t> g2( { 64, 127 , 192} );
-  
+
   test_set< color::category::gray_bool  >( true );
   test_set< color::category::gray_uint8   >( 128 );
   test_set< color::category::gray_uint16  >( 12812 );

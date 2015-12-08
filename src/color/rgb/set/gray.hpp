@@ -3,6 +3,8 @@
 
 // ::color::set::gray( c, val )
 
+#include "../../generic/operation/operation.hpp"
+
  namespace color
   {
    namespace set

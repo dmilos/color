@@ -23,6 +23,7 @@
              {
               typedef ::color::_internal::model< category_name > model_type;
               typedef ::color::_internal::trait< category_name > trait_type;
+              typedef typename trait_type::component_type     component_type;
 
               return color_parameter.template get<1>();
              }

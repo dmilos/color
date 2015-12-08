@@ -3,6 +3,8 @@
 
 // ::color::set::gray( c, val )
 
+#include "../../generic/operation/operation.hpp"
+
  namespace color
   {
    namespace set
@@ -14,7 +16,7 @@
          namespace _internal
           {
 
-           template< typename category_name >
+           template< typename category_name, typename float_name = double >
             inline
             void
             gray
@@ -23,7 +25,18 @@
               typename ::color::_internal::model< category_name >::component_const_input_type         component_parameter
              )
              {
-              // TODO
+              typedef ::color::_internal::model< category_name > model_type;
+              typedef ::color::_internal::trait< category_name > trait_type;
+              typedef typename trait_type::component_type component_type;
+
+              float_name value = 
+                   0.2126 * ( float_name(1) - ( color_parameter.template get<0>() - trait_type::template minimum<0>() ) / trait_type::template range<0>())
+                 + 0.7152 * ( float_name(1) - ( color_parameter.template get<1>() - trait_type::template minimum<1>() ) / trait_type::template range<1>())
+                 + 0.0722 * ( float_name(1) - ( color_parameter.template get<2>() - trait_type::template minimum<2>() ) / trait_type::template range<2>());
+
+              value = float_name( component_parameter - trait_type::template minimum<0>() ) / trait_type::template range<0>()  / value;
+
+              ::color::operation::scale::accumulate( color_parameter, value );
              }
 
           }
