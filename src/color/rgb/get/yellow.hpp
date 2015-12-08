@@ -43,43 +43,42 @@
       yellow( ::color::_internal::model< color::category::rgb_uint16 > const& color_parameter )
        {
         return ::color::get::_internal::rgb::_internal::yellow<color::category::rgb_uint16>( color_parameter );
-       };
+       }
 
       inline
       ::color::_internal::model< color::category::rgb_uint32 >::component_const_type
       yellow( ::color::_internal::model< color::category::rgb_uint32 > const& color_parameter )
        {
         return ::color::get::_internal::rgb::_internal::yellow<color::category::rgb_uint32>( color_parameter );
-       };
+       }
 
       inline
       ::color::_internal::model< color::category::rgb_uint64 >::component_const_type
       yellow( ::color::_internal::model< color::category::rgb_uint64 > const& color_parameter )
        {
         return ::color::get::_internal::rgb::_internal::yellow<color::category::rgb_uint64>( color_parameter );
-       };
+       }
 
       inline
       ::color::_internal::model< color::category::rgb_float >::component_const_type
       yellow( ::color::_internal::model< color::category::rgb_float > const& color_parameter )
        {
         return ::color::get::_internal::rgb::_internal::yellow<color::category::rgb_float>( color_parameter );
-       };
+       }
 
       inline
       ::color::_internal::model< color::category::rgb_double >::component_const_type
       yellow( ::color::_internal::model< color::category::rgb_double > const& color_parameter )
        {
         return ::color::get::_internal::rgb::_internal::yellow<color::category::rgb_double>( color_parameter );
-       };
+       }
 
       inline
       ::color::_internal::model< color::category::rgb_ldouble >::component_const_type
       yellow( ::color::_internal::model< color::category::rgb_ldouble > const& color_parameter )
        {
         return ::color::get::_internal::rgb::_internal::yellow<color::category::rgb_ldouble>( color_parameter );
-       };
-
+       }
 
     }
   }
