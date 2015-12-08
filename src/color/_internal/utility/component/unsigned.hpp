@@ -7,6 +7,7 @@
 #include "../type/traitp.hpp"
 #include "../type/index.hpp"
 
+
 namespace color
  {
   namespace _internal
@@ -43,13 +44,13 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ const_return_type   maximum( )
                {
-                static instance_type value= (1 << width) - 1;
+                static instance_type value= ((( 1 << (width-1)) - 1 )<< 1) + 1 ;
                 return value;
                }
 
              static /*constexpr*/ const_return_type   maximum( index_const_input_type  index )
               {
-               static instance_type value=(1 << width) - 1;
+               static instance_type value = ((( 1 << (width-1)) - 1 )<< 1) + 1 ;
                return value;
               }
 
@@ -69,13 +70,13 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ const_return_type   range()
                { // TODO this is BUG!!!
-                static instance_type value = (1 << width) - 1;
+                static instance_type value = ((( 1 << (width-1)) - 1 )<< 1) + 1 ;
                 return value;
                }
 
              static /*constexpr*/ const_return_type   range(   index_const_input_type  index )
               { // TODO this is BUG!!!
-               static instance_type value = (1 << width) - 1;
+               static instance_type value = ((( 1 << (width-1)) - 1 )<< 1) + 1 ;
                return value;
               }
           };
