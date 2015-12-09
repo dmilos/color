@@ -7,6 +7,7 @@
 
 #include "./trait.hpp"
 #include "./convert.hpp"
+#include "./init.hpp"
 
 namespace color
  {
@@ -49,34 +50,40 @@ namespace color
                   // Allow using of memset instead this default initialization
                  }
 
-        explicit model( container_const_input_type container ):m_container(container){ }
+        explicit model( container_const_input_type container )
+         :m_container(container)
+         {
+         }
 
-        explicit model( std::initializer_list<component_type > const& ilist );
+        explicit model( std::initializer_list<component_type > const& ilist )
+         {
+          ::color::_internal::init<category_name>( this->m_container, ilist );
+         }
 
         template< typename other_category_name >
          explicit model( ::color::_internal::model<other_category_name> const& that )
           {
-           ::color::_internal::convert<category_name, other_category_name>::process( m_container, that.container() );
+           ::color::_internal::convert<category_name, other_category_name>::process( this->m_container, that.container() );
           }
 
         template< typename other_category_name >
          model operator=( ::color::_internal::model<other_category_name> const& that )
           {
-          ::color::_internal::convert<category_name, other_category_name>::process( m_container, that.container() );
+          ::color::_internal::convert<category_name, other_category_name>::process( this->m_container, that.container() );
            return *this;
           }
 
         component_const_return_type
         get( index_const_input_type index )const
          {
-          return trait_type::get( m_container, index );
+          return trait_type::get( this->m_container, index );
          }
 
         template< index_type index >
          component_const_return_type
          get()const
           {
-           return trait_type::template get<index>( m_container );
+           return trait_type::template get<index>( this->m_container );
           }
 
         //component_return_type
@@ -84,7 +91,7 @@ namespace color
         // {
         //  return trait_type::get( m_container, index );
         // }
-//
+
         //template< index_type index >
         // component_return_type
         // get()
@@ -95,14 +102,14 @@ namespace color
         set_return_type
         set( index_const_input_type index, component_const_input_type component )
          {
-          return trait_type::set( m_container, index, component );
+          return trait_type::set( this->m_container, index, component );
          }
 
         template< index_type index >
         set_return_type
         set( component_const_input_type component )
          {
-          /*return*/ trait_type::template set<index>( m_container, component );
+          /*return*/ trait_type::template set<index>( this->m_container, component );
          }
 
         component_const_return_type operator[]( index_const_input_type index )const
@@ -135,14 +142,5 @@ namespace color
 
    }
  }
-
-#include "./init.hpp"
-
-    template< typename category_name >
-     inline
-     color::_internal::model<category_name>::model( std::initializer_list<component_type > const& ilist )
-      {
-       ::color::_internal::init<category_name>( *this, ilist );
-      }
 
 #endif

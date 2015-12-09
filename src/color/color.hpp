@@ -3,6 +3,7 @@
 
 //#include "./argb/argb.hpp"
 #include "./cmy/cmy.hpp"
+#include "./cmyk/cmyk.hpp"
 #include "./gray/gray.hpp"
 //#include "./hls/hls.hpp"
 //#include "./hsv/hsv.hpp"

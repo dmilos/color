@@ -47,7 +47,7 @@
        )
        {
         ::color::set::_internal::rgb::_internal::yellow<::color::category::rgb_uint8>( color_parameter, component_parameter );
-       };
+       }
 
       inline
       void
@@ -58,7 +58,7 @@
        )
        {
         ::color::set::_internal::rgb::_internal::yellow<::color::category::rgb_uint16>( color_parameter, component_parameter );
-       };
+       }
 
       inline
       void
@@ -69,7 +69,7 @@
        )
        {
         ::color::set::_internal::rgb::_internal::yellow<::color::category::rgb_uint32>( color_parameter, component_parameter );
-       };
+       }
 
       inline
       void
@@ -80,7 +80,7 @@
        )
        {
         ::color::set::_internal::rgb::_internal::yellow<::color::category::rgb_uint64>( color_parameter, component_parameter );
-       };
+       }
 
       inline
       void
@@ -91,7 +91,7 @@
        )
        {
         ::color::set::_internal::rgb::_internal::yellow<::color::category::rgb_float>( color_parameter, component_parameter );
-       };
+       }
 
       inline
       void
@@ -102,7 +102,7 @@
        )
        {
         ::color::set::_internal::rgb::_internal::yellow<::color::category::rgb_double>( color_parameter, component_parameter );
-       };
+       }
 
       inline
       void
@@ -113,7 +113,7 @@
        )
        {
         ::color::set::_internal::rgb::_internal::yellow<::color::category::rgb_ldouble>( color_parameter, component_parameter );
-       };
+       }
 
     }
   }
