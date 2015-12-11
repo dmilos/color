@@ -114,21 +114,21 @@ namespace color
 
         component_const_return_type operator[]( index_const_input_type index )const
          {
-          return this->get(index);
+          return this->get( index );
          }
 
         //component_return_type       operator[]( index_const_input_type index )
         // {
-        //  return this->get(index);
+        //  return this->get( index );
         // }
 
         container_const_return_type container()const
          {
-          return m_container;
+          return this->m_container;
          }
         container_return_type       container()
          {
-          return m_container;
+          return this->m_container;
          }
 
         static index_const_return_type       size()
