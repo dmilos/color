@@ -5,8 +5,6 @@
 #include "./green.hpp"
 #include "./blue.hpp"
 
-#include "./alpha.hpp"
-
 #include "./gray.hpp"
 
 #include "./yellow.hpp"

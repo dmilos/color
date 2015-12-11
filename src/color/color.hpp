@@ -5,10 +5,10 @@
 #include "./cmy/cmy.hpp"
 #include "./cmyk/cmyk.hpp"
 #include "./gray/gray.hpp"
-//#include "./hls/hls.hpp"
+#include "./hsl/hsl.hpp"
 //#include "./hsv/hsv.hpp"
 #include "./rgb/rgb.hpp"
-//#include "./yiq/yiq.hpp"
+#include "./yiq/yiq.hpp"
 
 #include "./generic/generic.hpp"
 #include "./generic/operation/operation.hpp"

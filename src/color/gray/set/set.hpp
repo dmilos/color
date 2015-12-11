@@ -1,13 +1,16 @@
 #ifndef color_gray_set_get
 #define color_gray_set_get
 
-#include "./yellow.hpp"
 #include "./red.hpp"
-#include "./magenta.hpp"
 #include "./green.hpp"
-#include "./cyan.hpp"
 #include "./blue.hpp"
-#include "./alpha.hpp"
+
 #include "./gray.hpp"
+
+#include "./yellow.hpp"
+#include "./magenta.hpp"
+#include "./cyan.hpp"
+
+
 
 #endif

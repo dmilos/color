@@ -23,13 +23,13 @@
       inline
       void white( ::color::_internal::model< color::category::rgb_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffffff;
+        color_parameter.container() = 0xffffffff;
        };
 
       inline
       void white( ::color::_internal::model< color::category::rgb_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0xffffffffffffu );
+        color_parameter.container() = std::uint64_t( 0xffffffffffffffffu );
        };
 
       inline

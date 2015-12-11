@@ -7,7 +7,6 @@
 #include "./green.hpp"
 #include "./cyan.hpp"
 #include "./blue.hpp"
-#include "./alpha.hpp"
 #include "./gray.hpp"
 
 #endif
