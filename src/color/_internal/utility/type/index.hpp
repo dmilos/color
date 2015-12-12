@@ -19,9 +19,9 @@ namespace color
              typedef index_name             instance_type;
 
              typedef instance_type const    const_type;
-             typedef instance_type const&   const_return_type;
+             typedef instance_type const&   return_const_type;
              typedef instance_type      &   return_type;
-             typedef instance_type const&   const_input_type;
+             typedef instance_type const&   input_const_type;
              typedef instance_type      &   input_type;
          };
 

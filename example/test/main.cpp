@@ -58,6 +58,7 @@ int main(int argc, char const *argv[])
 
   test_intrisic_conversion< color::rgb >();
   test_intrisic_conversion< color::gray >();
+  test_intrisic_conversion< color::yiq  >();
 
   //test_get< color::category::rgb_uint8  >();
   test_get< color::category::rgb_uint16 >();

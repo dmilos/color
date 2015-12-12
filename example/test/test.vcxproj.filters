@@ -64,6 +64,21 @@
     <Filter Include="Source Files\src\cmy\init">
       <UniqueIdentifier>{5308a8c1-a69e-4bca-a85f-651e307aaa41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\yiq">
+      <UniqueIdentifier>{979563e4-10ef-4bdf-9337-a94fa4220f99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\yiq\get">
+      <UniqueIdentifier>{c1c83fab-740d-4b51-a1a2-62130762aa2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\yiq\set">
+      <UniqueIdentifier>{166c84fe-9342-46d0-95ae-8fa5914fe82f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\yiq\make">
+      <UniqueIdentifier>{effcac08-5ef0-491a-a4d9-952522a83cae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\hsl">
+      <UniqueIdentifier>{bdf9b088-ef65-41e6-8f20-d23a2ea6687a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -313,6 +328,63 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\cmy\uint64.hpp">
       <Filter>Source Files\src\cmy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\get\blue.hpp">
+      <Filter>Source Files\src\yiq\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\get\get.hpp">
+      <Filter>Source Files\src\yiq\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\get\gray.hpp">
+      <Filter>Source Files\src\yiq\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\get\green.hpp">
+      <Filter>Source Files\src\yiq\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\get\inphase.hpp">
+      <Filter>Source Files\src\yiq\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\get\quadrature.hpp">
+      <Filter>Source Files\src\yiq\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\get\red.hpp">
+      <Filter>Source Files\src\yiq\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\make\black.hpp">
+      <Filter>Source Files\src\yiq\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\make\gray.hpp">
+      <Filter>Source Files\src\yiq\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\make\make.hpp">
+      <Filter>Source Files\src\yiq\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\make\white.hpp">
+      <Filter>Source Files\src\yiq\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\set\blue.hpp">
+      <Filter>Source Files\src\yiq\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\set\cyan.hpp">
+      <Filter>Source Files\src\yiq\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\set\gray.hpp">
+      <Filter>Source Files\src\yiq\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\set\green.hpp">
+      <Filter>Source Files\src\yiq\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\set\magenta.hpp">
+      <Filter>Source Files\src\yiq\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\set\red.hpp">
+      <Filter>Source Files\src\yiq\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\set\set.hpp">
+      <Filter>Source Files\src\yiq\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\set\yellow.hpp">
+      <Filter>Source Files\src\yiq\set</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

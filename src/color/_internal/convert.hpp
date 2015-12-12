@@ -25,7 +25,7 @@ namespace color
          typedef typename category_left_trait_type::component_type  component_left_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
-         typedef typename container_right_trait_type::const_input_type  container_right_const_input_type;
+         typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
          static void process
           (
@@ -38,7 +38,7 @@ namespace color
            for( index_type index=0; index < min_common_size; ++index )
             {
 
-            value = category_left_trait_type::range( index ) *
+             value = category_left_trait_type::range( index ) *
                       ( container_right_trait_type::get( right, index ) - category_right_trait_type::minimum(index) ) / category_right_trait_type::range( index )
                       + category_left_trait_type::minimum(index);
 
@@ -60,7 +60,7 @@ namespace color
          typedef typename category_right_trait_type::container_trait_type    container_right_trait_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
-         typedef typename container_right_trait_type::const_input_type  container_right_const_input_type;
+         typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
          static void process
           (
