@@ -3,8 +3,6 @@
 
 // ::color::_internal::utility::type::traitC
 
-#include <cstdint>
-
 namespace color
  {
   namespace _internal
@@ -20,11 +18,15 @@ namespace color
            public:
              typedef  type_name       instance_type;     //!< Something that must instacible
 
-             typedef  instance_type  const   const_type;
-             typedef  instance_type  const&  return_const_type; //!< Will be returned but must be constant
-             typedef  instance_type       &  return_type;       //!< May or may not be able to modyfy or to have property with effect of real modification
-             typedef  instance_type  const&  input_const_type;
-             typedef  instance_type       &  input_type;        //!< Input parameter. Must be modifiable.
+             typedef  instance_type  const    const_type;
+
+             typedef  instance_type  const&   return_const_type;     //!< Will be returned but must be constant
+             typedef  instance_type       &   return_type;           //!< May or may not be able to modify or to have property with effect of real modification
+           //typedef  instance_type       &   return_original_type;  //!< Return original object wit ability to modify them
+
+             typedef  instance_type  const&   input_const_type;
+             typedef  instance_type       &   input_type;        //!< Input parameter. Modifiable but might have no external effect
+           //typedef  instance_type       &   output_type;       //!< Output parameter. Must be modifiable.
           };
 
        }
