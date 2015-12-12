@@ -50,24 +50,24 @@ namespace color
 
               static component_const_return_type get( input_const_type container, index_const_input_type index )
                {
-                return (component_type)(  ( container >> (  index *  width  ) ) & ( (1 << width) -1 ) );
+                return (component_type)(  ( container >> (  index *  width  ) ) & mask() );
                }
 
               template< index_instance_type index >
                static component_const_return_type get( input_const_type container )
                 {
-                 return (component_type)(  ( container >> (  index *  width  ) ) & ( (1 << width) -1 ) );
+                 return (component_type)(  ( container >> (  index * width  ) ) & mask() );
                 }
 
               static set_return_type set( input_type container, index_const_input_type index, component_const_input_type value )
                {
-                container = ( container & ~(  ( ( instance_type(1) << width) - instance_type(1) ) << ( index * width ) ) )  |  ( ( instance_type(value) << ( index * width ) ) );
+                container = ( container & ~(  this_type::mask() << ( index * width ) ) )  |  ( ( instance_type(value) << ( index * width ) ) );
                }
 
               template< index_instance_type index >
                static set_return_type set( input_type container, component_const_input_type value )
                 {
-                 container = ( container & ~(  ( ( instance_type(1) << width) - instance_type(1) ) << ( index * width ) ) )  |  ( ( instance_type(value) ) << ( index * width ) );
+                 container = ( container & ~(  this_type::mask() << ( index * width ) ) )  |  ( ( instance_type(value) ) << ( index * width ) );
                 }
 
               static /*constexpr*/ index_const_return_type size()
@@ -78,7 +78,7 @@ namespace color
              private:
                static /*constexpr*/ return_const_type mask()
                 {
-                 static instance_type local_mask = (instance_type(1) << width) - instance_type(1);
+                 static instance_type local_mask = ((( instance_type(1) << (width-1)) - instance_type(1) )<< 1) + instance_type(1);
                  return local_mask;
                 }
            };

@@ -44,13 +44,13 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_const_type   maximum( )
                {
-                static instance_type value= ((( 1 << (width-1)) - 1 )<< 1) + 1 ;
+                static instance_type value= ((( unsigned_type(1) << (width-1)) - unsigned_type(1) ) << 1) + unsigned_type(1);
                 return value;
                }
 
              static /*constexpr*/ return_const_type   maximum( index_const_input_type  index )
               {
-               static instance_type value = ((( 1 << (width-1)) - 1 )<< 1) + 1 ;
+               static instance_type value = ((( unsigned_type(1) << (width-1)) - unsigned_type(1) ) << 1) + unsigned_type(1);
                return value;
               }
 
@@ -70,13 +70,13 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_const_type   range()
                { // TODO this is BUG!!!
-                static instance_type value = ((( 1 << (width-1)) - 1 )<< 1) + 1 ;
+                static instance_type value = ((( unsigned_type(1) << (width-1)) - unsigned_type(1) ) << 1) + unsigned_type(1);
                 return value;
                }
 
              static /*constexpr*/ return_const_type   range(   index_const_input_type  index )
               { // TODO this is BUG!!!
-               static instance_type value = ((( 1 << (width-1)) - 1 )<< 1) + 1 ;
+               static instance_type value = ((( unsigned_type(1) << (width-1)) - unsigned_type(1) )<< 1) + unsigned_type(1);
                return value;
               }
           };
