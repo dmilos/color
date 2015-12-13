@@ -11,6 +11,12 @@ namespace color
    {
 
     template< >
+     struct bound< ::color::category::rgb_ldouble >
+      : public ::color::_internal::utility::bound::general< long double, unsigned >
+      {
+      };
+      
+    template< >
      struct index< ::color::category::rgb_ldouble >
       : public color::_internal::utility::type::index< unsigned >
       {

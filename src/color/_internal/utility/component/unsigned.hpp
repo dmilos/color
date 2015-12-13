@@ -7,7 +7,6 @@
 #include "../type/traitp.hpp"
 #include "../type/index.hpp"
 
-
 namespace color
  {
   namespace _internal
@@ -24,61 +23,19 @@ namespace color
              typedef unsigned_name      unsigned_type;
              typedef index_name         index_type;
 
-             typedef ::color::_internal::utility::type::traitP< unsigned_name >         trait_type;
+             typedef ::color::_internal::utility::type::traitP< unsigned_name >         utility_trait_type;
 
-
-
-             typedef typename trait_type::instance_type          instance_type;
-             typedef typename trait_type::const_type             const_type;
-             typedef typename trait_type::return_const_type      return_const_type;
-             typedef typename trait_type::return_type            return_type;
-             typedef typename trait_type::input_const_type       input_const_type;
-             typedef typename trait_type::input_type             input_type;
+             typedef typename utility_trait_type::instance_type          instance_type;
+             typedef typename utility_trait_type::const_type             const_type;
+             typedef typename utility_trait_type::return_const_type      return_const_type;
+             typedef typename utility_trait_type::return_type            return_type;
+             typedef typename utility_trait_type::input_const_type       input_const_type;
+             typedef typename utility_trait_type::input_type             input_type;
 
              typedef ::color::_internal::utility::type::index< index_type >   index_trait_type;
 
              typedef typename index_trait_type::instance_type    index_instance_type;
              typedef typename index_trait_type::input_const_type index_input_const_type;
-
-
-             template< index_instance_type index >
-              static /*constexpr*/ return_const_type   maximum( )
-               {
-                static instance_type value= ((( unsigned_type(1) << (width-1)) - unsigned_type(1) ) << 1) + unsigned_type(1);
-                return value;
-               }
-
-             static /*constexpr*/ return_const_type   maximum( index_input_const_type  index )
-              {
-               static instance_type value = ((( unsigned_type(1) << (width-1)) - unsigned_type(1) ) << 1) + unsigned_type(1);
-               return value;
-              }
-
-             template< index_instance_type index >
-              static /*constexpr*/ return_const_type   minimum( )
-               {
-                static instance_type value=0;
-                return value;
-               }
-
-             static /*constexpr*/ return_const_type   minimum( index_input_const_type  index )
-              {
-               static instance_type value=0;
-               return value;
-              }
-
-             template< index_instance_type index >
-              static /*constexpr*/ return_const_type   range()
-               { // TODO this is BUG!!!
-                static instance_type value = ((( unsigned_type(1) << (width-1)) - unsigned_type(1) ) << 1) + unsigned_type(1);
-                return value;
-               }
-
-             static /*constexpr*/ return_const_type   range(   index_input_const_type  index )
-              { // TODO this is BUG!!!
-               static instance_type value = ((( unsigned_type(1) << (width-1)) - unsigned_type(1) )<< 1) + unsigned_type(1);
-               return value;
-              }
           };
 
        }

@@ -11,11 +11,11 @@ namespace color
 
     template< typename category_name >
      struct index
-      : public color::_internal::utility::type::index< unsigned >
+      : public ::color::_internal::utility::type::index< unsigned >
       {
        public:
 
-         typedef color::_internal::utility::type::index< unsigned > utility_type;
+         typedef ::color::_internal::utility::type::index< unsigned > utility_type;
 
          typedef typename utility_type::instance_type              instance_type;
 

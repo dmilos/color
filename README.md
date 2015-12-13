@@ -1,7 +1,7 @@
 Status: Under construction
-# Yet another c++ library thats implements color.
+# Yet another c++ library that implements color.
 
-All color classes fulfill next very restricted conditions:
+All color classes fulfils next very restricted conditions:
 - No Virtual function ( and destructor also )
 - Minimal memory footprint
 ```c
@@ -17,7 +17,7 @@ All color classes fulfill next very restricted conditions:
         f = u; //!< Perform direct conversion from packed uint32_t to float.
         f = d; //!< Conversion from double to float
         color::hls<std::uint32_t>     h;
-        h = f; //!< This is the way how to convert from RGB to HLS.
+        h = f; //!< This is the way how to convert from RGB(float) to HLS(std::uint32_t).
 ```
 
 Library it self

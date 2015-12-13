@@ -32,7 +32,7 @@ int main(int argc, char const *argv[])
   test_invoke< color::category::generic_ldouble <1> >();
   */
 
-  //test_invoke< color::category::rgb_uint8   >();
+  test_invoke< color::category::rgb_uint8   >();
   test_invoke< color::category::rgb_uint16  >();
   test_invoke< color::category::rgb_uint32  >();
   test_invoke< color::category::rgb_uint64  >();
@@ -40,7 +40,7 @@ int main(int argc, char const *argv[])
   test_invoke< color::category::rgb_double  >();
   test_invoke< color::category::rgb_ldouble >();
 
-  //test_operation< color::category::rgb_uint8   >();
+  test_operation< color::category::rgb_uint8   >();
   test_operation< color::category::rgb_uint16  >();
   test_operation< color::category::rgb_uint32  >();
   test_operation< color::category::rgb_uint64  >();
@@ -48,7 +48,7 @@ int main(int argc, char const *argv[])
   test_operation< color::category::rgb_double  >();
   test_operation< color::category::rgb_ldouble >();
 
-  //test_make< color::category::rgb_uint8   >();
+  test_make< color::category::rgb_uint8   >();
   test_make< color::category::rgb_uint16  >();
   test_make< color::category::rgb_uint32  >();
   test_make< color::category::rgb_uint64  >();
@@ -60,7 +60,7 @@ int main(int argc, char const *argv[])
   test_intrisic_conversion< color::gray >();
   test_intrisic_conversion< color::yiq  >();
 
-  //test_get< color::category::rgb_uint8  >();
+  test_get< color::category::rgb_uint8  >();
   test_get< color::category::rgb_uint16 >();
   test_get< color::category::rgb_uint32 >();
   test_get< color::category::rgb_uint64 >();
@@ -68,7 +68,7 @@ int main(int argc, char const *argv[])
   test_get< color::category::rgb_double >();
   test_get< color::category::rgb_ldouble>();
 
-  //test_set< color::category::rgb_uint8   >();
+  test_set< color::category::rgb_uint8   >( 3 );
   test_set< color::category::rgb_uint16  >( 6 );
   test_set< color::category::rgb_uint32  >(   50  );
   test_set< color::category::rgb_uint64  >( 1500  );

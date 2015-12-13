@@ -5,6 +5,7 @@
 
 #include "./category.hpp"
 
+#include "./uint8.hpp"
 #include "./uint16.hpp"
 #include "./uint32.hpp"
 #include "./uint64.hpp"

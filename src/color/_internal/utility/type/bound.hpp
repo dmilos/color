@@ -71,6 +71,114 @@ namespace color
          };
 
         template <>
+         struct bound<std::uint8_t, std::uint8_t const& >
+         {
+          typedef std::uint8_t           number_type;
+          typedef std::uint8_t const&    number_const_return_type;
+
+          typedef bound<number_type,number_const_return_type> this_type;
+
+          static /*constexpr*/ number_const_return_type  maximum()
+           {
+            static number_type value = 255;
+            return value;
+           }
+
+          static /*constexpr*/ number_const_return_type  minimum()
+           {
+            static number_type value = 0;
+            return value;
+           }
+
+          static /*constexpr*/ number_const_return_type range()
+           {
+            static number_type value = this_type::maximum() - this_type::minimum();
+            return value;
+           }
+         };
+
+        template <>
+         struct bound<std::uint16_t, std::uint16_t const& >
+         {
+          typedef std::uint16_t           number_type;
+          typedef std::uint16_t const&    number_const_return_type;
+
+          typedef bound<number_type,number_const_return_type> this_type;
+
+          static /*constexpr*/ number_const_return_type  maximum()
+           {
+            static number_type value = 0xFFFF;
+            return value;
+           }
+
+          static /*constexpr*/ number_const_return_type  minimum()
+           {
+            static number_type value = 0;
+            return value;
+           }
+
+          static /*constexpr*/ number_const_return_type range()
+           {
+            static number_type value = this_type::maximum() - this_type::minimum();
+            return value;
+           }
+         };
+
+        template <>
+         struct bound<std::uint32_t, std::uint32_t const& >
+         {
+          typedef std::uint32_t           number_type;
+          typedef std::uint32_t const&    number_const_return_type;
+
+          typedef bound<number_type,number_const_return_type> this_type;
+
+          static /*constexpr*/ number_const_return_type  maximum()
+           {
+            static number_type value = 0xFFFFFFFF;
+            return value;
+           }
+
+          static /*constexpr*/ number_const_return_type  minimum()
+           {
+            static number_type value = 0;
+            return value;
+           }
+
+          static /*constexpr*/ number_const_return_type range()
+           {
+            static number_type value = this_type::maximum() - this_type::minimum();
+            return value;
+           }
+         };
+
+        template <>
+         struct bound<std::uint64_t, std::uint64_t const& >
+         {
+          typedef std::uint64_t           number_type;
+          typedef std::uint64_t const&    number_const_return_type;
+
+          typedef bound<number_type,number_const_return_type> this_type;
+
+          static /*constexpr*/ number_const_return_type  maximum()
+           {
+            static number_type value = 0xFFFFFFFFFFFFFFFFu;
+            return value;
+           }
+
+          static /*constexpr*/ number_const_return_type  minimum()
+           {
+            static number_type value = 0;
+            return value;
+           }
+
+          static /*constexpr*/ number_const_return_type range()
+           {
+            static number_type value = this_type::maximum() - this_type::minimum();
+            return value;
+           }
+         };
+
+        template <>
          struct bound<float, float const& >
          {
           typedef float           number_type;
@@ -141,34 +249,6 @@ namespace color
           static /*constexpr*/ number_const_return_type  minimum()
            {
             static number_type value = 0;
-            return value;
-           }
-
-          static /*constexpr*/ number_const_return_type range()
-           {
-            static number_type value = this_type::maximum() - this_type::minimum();
-            return value;
-           }
-
-         };
-
-        template <>
-         struct bound<unsigned char, unsigned char const& >
-         {
-          typedef unsigned char           number_type;
-          typedef unsigned char const&    number_const_return_type;
-
-          typedef bound<number_type,number_const_return_type> this_type;
-
-          static /*constexpr*/ number_const_return_type  maximum()
-           {
-            static number_type value=255;
-            return value;
-           }
-
-          static /*constexpr*/ number_const_return_type  minimum()
-           {
-            static number_type value=0;
             return value;
            }
 

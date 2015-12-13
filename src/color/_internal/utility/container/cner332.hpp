@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_container_cner556
-#define color__internal_utility_container_cner556
+#ifndef color__internal_utility_container_cner332
+#define color__internal_utility_container_cner332
 
-// ::color::_internal::utility::container::cner556< index_name >
+// ::color::_internal::utility::container::cner332< index_name >
 
 #include "../type/index.hpp"
 #include "../type/traitp.hpp"
@@ -16,7 +16,7 @@ namespace color
        {
 
         template<  typename index_name >
-          struct cner556
+          struct cner332
            {
             public:
 
@@ -50,9 +50,9 @@ namespace color
                {
                 switch( index )
                  {
-                  case( 0 ): return ( ( container >>  0 ) & 31 );
-                  case( 1 ): return ( ( container >>  5 ) & 31 );
-                  case( 2 ): return ( ( container >> 10 ) & 63 );
+                  case( 0 ): return ( ( container >>  0 ) & 7 );
+                  case( 1 ): return ( ( container >>  3 ) & 7 );
+                  case( 2 ): return ( ( container >>  5 ) & 3 );
                  }
                 return 0;
                }
@@ -62,9 +62,9 @@ namespace color
                 {
                  switch( index )
                   {
-                   case( 0 ): return ( ( container >>  0 ) & 31 );
-                   case( 1 ): return ( ( container >>  5 ) & 31 );
-                   case( 2 ): return ( ( container >> 10 ) & 63 );
+                   case( 0 ): return ( ( container >> 0 ) & 7 );
+                   case( 1 ): return ( ( container >> 3 ) & 7 );
+                   case( 2 ): return ( ( container >> 6 ) & 3 );
                   }
                  return 0;
                 }
@@ -73,9 +73,9 @@ namespace color
                {
                 switch( index )
                  {
-                  case(0) : container = ( container & ~(  31 << (  0 ) ) )  |  ( ((instance_type)value) << (  0) ); break;
-                  case(1) : container = ( container & ~(  31 << (  5 ) ) )  |  ( ((instance_type)value) << (  5) ); break;
-                  case(2) : container = ( container & ~(  63 << ( 10 ) ) )  |  ( ((instance_type)value) << ( 10) ); break;
+                  case(0) : container = ( container & ~(   7 << ( 0 ) ) )  |  ( ((instance_type)value) << ( 0 ) ); break;
+                  case(1) : container = ( container & ~(   7 << ( 3 ) ) )  |  ( ((instance_type)value) << ( 3 ) ); break;
+                  case(2) : container = ( container & ~(   3 << ( 6 ) ) )  |  ( ((instance_type)value) << ( 6 ) ); break;
                  }
                }
 
@@ -84,9 +84,9 @@ namespace color
                 {
                 switch( index )
                  {
-                  case(0) : container = ( container & ~(  31 << (  0 ) ) )  |  ( ((instance_type)value) << (  0) ); break;
-                  case(1) : container = ( container & ~(  31 << (  5 ) ) )  |  ( ((instance_type)value) << (  5) ); break;
-                  case(2) : container = ( container & ~(  63 << ( 10 ) ) )  |  ( ((instance_type)value) << ( 10) ); break;
+                  case(0) : container = ( container & ~(  7 << ( 0 ) ) )  |  ( ((instance_type)value) << ( 0 ) ); break;
+                  case(1) : container = ( container & ~(  7 << ( 3 ) ) )  |  ( ((instance_type)value) << ( 3 ) ); break;
+                  case(2) : container = ( container & ~(  3 << ( 6 ) ) )  |  ( ((instance_type)value) << ( 6 ) ); break;
                  }
                 }
 

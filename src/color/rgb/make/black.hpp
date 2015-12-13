@@ -11,13 +11,13 @@
       inline
       void black( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0; // TODO
+        color_parameter.container() = 0;
        };
 
       inline
       void black( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0; // TODO
+        color_parameter.container() = 0;
        };
 
       inline

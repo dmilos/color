@@ -11,6 +11,12 @@ namespace color
    {
 
     template< >
+     struct bound< ::color::category::rgb_uint16 >
+      : public ::color::_internal::utility::bound::general< std::uint16_t, unsigned >
+      {
+      };
+
+    template< >
      struct index< ::color::category::rgb_uint16 >
       : public color::_internal::utility::type::index< unsigned >
       {
