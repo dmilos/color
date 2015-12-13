@@ -10,7 +10,7 @@
 
      template< typename category_name >
       inline
-      typename ::color::_internal::model< category_name >::component_const_return_type
+      typename ::color::_internal::model< category_name >::component_return_const_type
       alpha( ::color::_internal::model< category_name > const& color_parameter )
        {
         typedef ::color::_internal::model< category_name > model_type;

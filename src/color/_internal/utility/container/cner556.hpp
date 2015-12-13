@@ -34,19 +34,19 @@ namespace color
               typedef ::color::_internal::utility::type::index< index_type >   index_trait_type;
 
               typedef typename index_trait_type::instance_type     index_instance_type;
-              typedef typename index_trait_type::input_const_type  index_const_input_type;
-              typedef typename index_trait_type::return_const_type index_const_return_type;
+              typedef typename index_trait_type::input_const_type  index_input_const_type;
+              typedef typename index_trait_type::return_image_type index_return_image_type;
 
               typedef ::color::_internal::utility::type::traitP< value_type >         component_trait_type;
 
               typedef typename component_trait_type::const_type           component_const_type;
               typedef typename component_trait_type::instance_type        component_type;
-              typedef typename component_trait_type::return_const_type    component_const_return_type;
-              typedef typename component_trait_type::input_const_type     component_const_input_type;
+              typedef typename component_trait_type::return_const_type    component_return_const_type;
+              typedef typename component_trait_type::input_const_type     component_input_const_type;
 
               typedef void set_return_type;
 
-              static component_const_return_type get( input_const_type container, index_const_input_type index )
+              static component_return_const_type get( input_const_type container, index_input_const_type index )
                {
                 switch( index )
                  {
@@ -58,7 +58,7 @@ namespace color
                }
 
               template< index_instance_type index >
-               static component_const_return_type get( input_const_type container )
+               static component_return_const_type get( input_const_type container )
                 {
                  switch( index )
                   {
@@ -69,7 +69,7 @@ namespace color
                  return 0;
                 }
 
-              static set_return_type set( input_type container, index_const_input_type index, component_const_input_type value )
+              static set_return_type set( input_type container, index_input_const_type index, component_input_const_type value )
                {
                 switch( index )
                  {
@@ -80,7 +80,7 @@ namespace color
                }
 
               template< index_instance_type index >
-               static set_return_type set( input_type container, component_const_input_type value )
+               static set_return_type set( input_type container, component_input_const_type value )
                 {
                 switch( index )
                  {
@@ -90,7 +90,7 @@ namespace color
                  }
                 }
 
-              static /*constexpr*/ index_const_return_type size()
+              static /*constexpr*/ index_return_image_type size()
                {
                 static index_instance_type local_length = 3;
                 return local_length;

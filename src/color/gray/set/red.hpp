@@ -20,7 +20,7 @@
             red
              ( 
                        ::color::_internal::model< category_name >                                   & color_parameter,
-              typename ::color::_internal::model< category_name >::component_const_input_type         component_parameter
+              typename ::color::_internal::model< category_name >::component_input_const_type         component_parameter
              )
              {
               color_parameter.template set<0>( component_parameter );
@@ -35,7 +35,7 @@
       red
        (
          ::color::_internal::model< ::color::category::gray_uint8 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::gray_uint8 >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::gray_uint8 >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::gray::_internal::red<::color::category::gray_uint8>( color_parameter, component_parameter );
@@ -46,7 +46,7 @@
       red
        (
          ::color::_internal::model< ::color::category::gray_uint16 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::gray_uint16 >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::gray_uint16 >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::gray::_internal::red<::color::category::gray_uint16>( color_parameter, component_parameter );
@@ -57,7 +57,7 @@
       red
        (
          ::color::_internal::model< ::color::category::gray_uint32 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::gray_uint32 >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::gray_uint32 >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::gray::_internal::red<::color::category::gray_uint32>( color_parameter, component_parameter );
@@ -68,7 +68,7 @@
       red
        (
          ::color::_internal::model< ::color::category::gray_uint64 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::gray_uint64 >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::gray_uint64 >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::gray::_internal::red<::color::category::gray_uint64>( color_parameter, component_parameter );
@@ -79,7 +79,7 @@
       red
        (
          ::color::_internal::model< ::color::category::gray_float >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::gray_float >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::gray_float >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::gray::_internal::red<::color::category::gray_float>( color_parameter, component_parameter );
@@ -90,7 +90,7 @@
       red
        (
          ::color::_internal::model< ::color::category::gray_double >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::gray_double >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::gray_double >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::gray::_internal::red<::color::category::gray_double>( color_parameter, component_parameter );
@@ -101,7 +101,7 @@
       red
        (
          ::color::_internal::model< ::color::category::gray_ldouble >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::gray_ldouble >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::gray_ldouble >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::gray::_internal::red<::color::category::gray_ldouble>( color_parameter, component_parameter );

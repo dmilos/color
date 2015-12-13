@@ -20,7 +20,7 @@
             blue
              ( 
                        ::color::_internal::model< category_name >                                   & color_parameter,
-              typename ::color::_internal::model< category_name >::component_const_input_type         component_parameter
+              typename ::color::_internal::model< category_name >::component_input_const_type         component_parameter
              )
              {
               typedef ::color::_internal::model< category_name > model_type;
@@ -43,7 +43,7 @@
       blue
        (
          ::color::_internal::model< ::color::category::cmy_uint8 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_uint8 >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::cmy_uint8 >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint8>( color_parameter, component_parameter );
@@ -54,7 +54,7 @@
       blue
        (
          ::color::_internal::model< ::color::category::cmy_uint16 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_uint16 >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::cmy_uint16 >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint16>( color_parameter, component_parameter );
@@ -65,7 +65,7 @@
       blue
        (
          ::color::_internal::model< ::color::category::cmy_uint32 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_uint32 >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::cmy_uint32 >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint32>( color_parameter, component_parameter );
@@ -76,7 +76,7 @@
       blue
        (
          ::color::_internal::model< ::color::category::cmy_uint64 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_uint64 >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::cmy_uint64 >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint64>( color_parameter, component_parameter );
@@ -87,7 +87,7 @@
       blue
        (
          ::color::_internal::model< ::color::category::cmy_float >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_float >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::cmy_float >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_float>( color_parameter, component_parameter );
@@ -98,7 +98,7 @@
       blue
        (
          ::color::_internal::model< ::color::category::cmy_double >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_double >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::cmy_double >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_double>( color_parameter, component_parameter );
@@ -109,7 +109,7 @@
       blue
        (
          ::color::_internal::model< ::color::category::cmy_ldouble >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_ldouble >::component_const_input_type         component_parameter
+         ::color::_internal::model< ::color::category::cmy_ldouble >::component_input_const_type         component_parameter
        )
        {
         ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_ldouble>( color_parameter, component_parameter );

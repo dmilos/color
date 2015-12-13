@@ -33,7 +33,7 @@ namespace color
              typedef ::color::_internal::utility::type::index< index_type >   index_trait_type;
 
              typedef typename index_trait_type::instance_type    index_instance_type;
-             typedef typename index_trait_type::input_const_type index_const_input_type;
+             typedef typename index_trait_type::input_const_type index_input_const_type;
 
              typedef ::color::_internal::utility::type::bound< value_type, return_const_type > bound_type;
 
@@ -44,7 +44,7 @@ namespace color
                 return value;
                }
 
-             static /*constexpr*/ return_const_type   maximum( index_const_input_type  index )
+             static /*constexpr*/ return_const_type   maximum( index_input_const_type  index )
               {
                static const instance_type value = bound_type::maximum();
                return value;
@@ -57,7 +57,7 @@ namespace color
                 return value;
                }
 
-             static /*constexpr*/ return_const_type   minimum( index_const_input_type  index )
+             static /*constexpr*/ return_const_type   minimum( index_input_const_type  index )
               {
                static const instance_type value = bound_type::minimum();
                return value;
@@ -70,7 +70,7 @@ namespace color
                 return value;
                }
 
-             static /*constexpr*/ return_const_type   range(   index_const_input_type  index )
+             static /*constexpr*/ return_const_type   range(   index_input_const_type  index )
               {
                static const instance_type value = bound_type::range();
                return value;

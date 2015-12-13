@@ -3,7 +3,7 @@
 
 // ::color::get::gray( c )
 
-
+#include "../../_internal/diverse.hpp"
 
  namespace color
   {
@@ -31,6 +31,7 @@
                  + (1-0.0722) * ( color_parameter.template get<2>() - trait_type::template minimum<2>() ) / trait_type::template range<2>();
               
               return component_type( value * trait_type::template range<0>() + trait_type::template minimum<0>() );
+              //return ::color::_internal::diverse< category_name, 0, float_name >( value );
              }
 
           }

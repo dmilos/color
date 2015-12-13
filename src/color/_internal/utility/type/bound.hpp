@@ -14,23 +14,24 @@ namespace color
       namespace type
        {
 
-        template < typename number_name, typename number_const_return_name >
+        template < typename number_name, typename number_const_return_name = number_name const& >
          struct bound
           {
            public:
            typedef number_name              number_type;
            typedef number_const_return_name number_const_return_type;
+
            // Having this typedef is bad idea
            typedef bound<number_type,number_const_return_type> this_type;
 
            static /*constexpr*/ number_const_return_type  maximum()
-            { // Purposly set to ZERO to force specialization
+            { // Purposely set to ZERO to force specialization
              static number_type value=0;
              return value;
             }
 
            static /*constexpr*/ number_const_return_type  minimum()
-            { // Purposly set to ZERO to force specialization
+            { // Purposely set to ZERO to force specialization
              static number_type value=0;
              return value;
             }
