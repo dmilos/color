@@ -35,19 +35,19 @@
       inline
       void white( ::color::_internal::model< color::category::rgb_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( {1,1,1});
+        color_parameter.container() = std::array<float,3>( {1,1,1} );
        };
 
       inline
       void white( ::color::_internal::model< color::category::rgb_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( {1,1,1});
+        color_parameter.container() = std::array<double,3>( {1,1,1} );
        };
 
       inline
       void white( ::color::_internal::model< color::category::rgb_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( {1,1,1});
+        color_parameter.container() = std::array<long double,3>( {1,1,1} );
        };
 
     }

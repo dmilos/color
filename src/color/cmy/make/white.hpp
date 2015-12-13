@@ -23,31 +23,31 @@
       inline
       void black( ::color::_internal::model< color::category::cmy_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffffff;
+        color_parameter.container() = 0xff000000;
        };
 
       inline
       void black( ::color::_internal::model< color::category::cmy_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0xffffffffffffu );
+        color_parameter.container() = std::uint64_t( 0xffff000000000000u );
        };
 
       inline
       void black( ::color::_internal::model< color::category::cmy_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( {1,1,1} );
+        color_parameter.container() = std::array<float,3>( {0,0,0} );
        };
 
       inline
       void black( ::color::_internal::model< color::category::cmy_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( {1,1,1} );
+        color_parameter.container() = std::array<double,3>( {0,0,0} );
        };
 
       inline
       void black( ::color::_internal::model< color::category::cmy_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( {1,1,1} );
+        color_parameter.container() = std::array<long double,3>( {0,0,0} );
        };
 
     }
