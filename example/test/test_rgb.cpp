@@ -99,4 +99,12 @@ void test_rgb_conversion_intrisic()
   u32 = d;
   u32 = f;
   u32 = u32;
+
+  {
+   //auto r = ::color::make::red< ::color::category::rgb_float >();
+  }
+
  }
+
+
+

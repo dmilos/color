@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <stdint>
+#include <cstdint>
 
 #include "color/color.hpp"
 
@@ -13,7 +13,7 @@ int main( int argc, char *argv[] )
   auto blue = color::get::blue( c ); 
   
   // Now do whatever you wan to do
-  std::cout << blue << std::endl
+  std::cout << blue << std::endl;
 
   return EXIT_SUCCESS;
  }

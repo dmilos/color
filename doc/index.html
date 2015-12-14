@@ -6,6 +6,70 @@
 </head>
 <body>
 	<h1 align="center">Color</h1>
+
+	<dl>
+		<dt> <font face="Roman">General</font></dt>
+		<dd></dd>
+		<dt>Header(s)</dt>
+		<dd></dd>
+		<dt>Classes</dt>
+		<dd>
+			<dl>
+				<dt>Model</dt>
+				<dd>
+					
+					All color class has same set of properties like <code><i>_model</i></code> class. <br>
+					<code>
+					template &lt; typename category_name &gt; color::_model ;
+					</code><br>
+					Depend of implementation color classes might or might not be in relation with <code><i>_model</i></code> or <code><i>_model</i></code> might no exist.<br>
+					In here it serve purpose to describe give description of all color classes at once.<br>
+					To replace all color classes in example avoid misleading that some functionality might be used only for one color class.
+				</dd>
+				<dt>Color classes</dt>
+				<dd>
+					<code>template &lt; typename unspecified_name &gt; ::color::rgb</code>,  <br />
+					<code>template &lt; typename unspecified_name &gt; ::color::gray</code>, <br />
+					<code>template &lt; typename unspecified_name &gt; ::color::yiq</code>,  <br />
+					<code>template &lt; typename unspecified_name &gt; ::color::hls</code>   <br />
+				</dd>
+				<dt>Categories</dt>
+				<dd>
+				</dd>
+
+			</dl>
+		</dd>
+		<dt>Operations</dt>
+		<dd>
+			<dl>
+				<dt>make</dt>
+				<dd>
+					<code>color::make:red(     <i>_model </i> &amp; _m );</code><br/>
+					<code>color::make:green(   <i>_model </i> &amp; _m );</code><br/>
+					<code>color::make:blue(    <i>_model </i> &amp; _m );</code><br/>
+					<code>color::make:gray50(  <i>_model </i> &amp; _m );</code><br/>
+					<code>color::make:yellow(  <i>_model </i> &amp; _m );</code><br/>
+					<code>color::make:cyan(    <i>_model </i> &amp; _m );</code><br/>
+					<code>color::make:magenta( <i>_model </i> &amp; _m );</code><br/>
+					where <i>_model</i> is one of color class.
+				</dd>
+				<dt>initialization</dt>
+				<dd></dd>
+				<dt>conversion</dt>
+				<dd>For all conversion between colors are performed by using <code>operator=</code>.<br>
+					Example:
+						<blockquote>
+							<code>
+									::color::hls h;<br>
+									::color::hls r;<br>
+								<b>h = r;</b>
+							</code>
+						</blockquote>
+				</dd>
+			</dl>
+
+		</dd>
+	</dl>
 	<hr>
 </body>
 </html>

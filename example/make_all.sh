@@ -1,0 +1,31 @@
+# make all examples.
+# No Scons, CMake, Make or similar tool
+# One line one example
+#designed for easy copy/paset
+
+g++ -fexceptions -std=c++11 -g -I../src convert_rgb2gray.cpp    -o  convert_rgb2gray
+g++ -fexceptions -std=c++11 -g -I../src convert_rgb2cmy.cpp     -o  convert_rgb2cmy
+g++ -fexceptions -std=c++11 -g -I../src convert_gray2rgb.cpp    -o  convert_gray2rgb
+g++ -fexceptions -std=c++11 -g -I../src convert_gray2cmy.cpp    -o  convert_gray2cmy
+g++ -fexceptions -std=c++11 -g -I../src convert_cmy2rgb.cpp     -o  convert_cmy2rgb
+g++ -fexceptions -std=c++11 -g -I../src convert_cmy2gray.cpp    -o  convert_cmy2gray
+
+g++ -fexceptions -std=c++11 -g -I../src ctor_cmy.cpp                    -o  ctor_cmy
+g++ -fexceptions -std=c++11 -g -I../src ctor_gray.cpp                   -o  ctor_gray
+g++ -fexceptions -std=c++11 -g -I../src ctor_hsl.cpp                    -o  ctor_hsl
+g++ -fexceptions -std=c++11 -g -I../src ctor_rgb.cpp                    -o  ctor_rgb
+g++ -fexceptions -std=c++11 -g -I../src ctor_yiq.cpp                    -o  ctor_yiq
+
+#g++ -fexceptions -std=c++11 -g -I../src extract_blue_from_cmy.cpp       -o  extract_blue_from_cmy
+#g++ -fexceptions -std=c++11 -g -I../src extract_blue_from_rgb.cpp       -o  extract_blue_from_rgb
+#g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_cmy.cpp       -o  extract_gray_from_cmy
+#g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_rgb.cpp       -o  extract_gray_from_rgb
+#g++ -fexceptions -std=c++11 -g -I../src extract_green_from_cmy.cpp      -o  extract_green_from_cmy
+#g++ -fexceptions -std=c++11 -g -I../src extract_green_from_rgb.cpp      -o  extract_green_from_rgb
+#g++ -fexceptions -std=c++11 -g -I../src extract_red_from_cmy.cpp        -o  extract_red_from_cmy
+#g++ -fexceptions -std=c++11 -g -I../src extract_red_from_rgb.cpp        -o  extract_red_from_rgb
+
+
+
+
+
