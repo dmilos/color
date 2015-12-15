@@ -88,6 +88,20 @@ int main(int argc, char const *argv[])
   test_set< color::category::gray_double  >( 1.99  );
   test_set< color::category::gray_ldouble >( 0.256 );
 
+
+  {
+   ::color::rgb< long double > r;
+   ::color::yiq< long double > y;
+
+   ::color::make::red( r );
+    std::cout << "rgb::red == "; print( r ); std::cout << std::endl;
+    y =r;
+    r = y;
+    std::cout << "rgb::convert == "; print( r ); std::cout << std::endl;
+  }
+
+  
+
   {
    color::rgb<bool>           c0( { true, false, false} );
    color::rgb<float>          c1( { 0.5, 0.6,0.7}  );
@@ -96,5 +110,6 @@ int main(int argc, char const *argv[])
    color::rgb<std::uint16_t>  c4( { 64, 127 , 192} );
    color::rgb<std::uint8_t>   c5( { 64, 127 , 192} );
   }
+
   return 0;
  }

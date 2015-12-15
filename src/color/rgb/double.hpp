@@ -18,7 +18,7 @@ namespace color
 
     template< >
      struct component< ::color::category::rgb_double >
-      : public ::color::_internal::utility::component::array< double, unsigned>
+      : public ::color::_internal::utility::component::array< double, unsigned >
       {
       };
 

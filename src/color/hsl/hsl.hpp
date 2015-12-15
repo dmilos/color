@@ -1,5 +1,5 @@
-#ifndef color_hsl_hsl_289d3a0b_06c8_48de_95d2_0b38ad3d4298
-#define color_hsl_hsl_289d3a0b_06c8_48de_95d2_0b38ad3d4298
+#ifndef color_hsl_hsl_
+#define color_hsl_hsl_
 
 #include "../_internal/model.hpp"
 

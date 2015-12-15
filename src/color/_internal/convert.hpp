@@ -1,7 +1,11 @@
 #ifndef color_internal_convert_
 #define color_internal_convert_
 
+// ::color::_internal::convert
+
 #include <algorithm>
+
+#include "./reformat.hpp"
 
 #include "./trait.hpp"
 
@@ -14,8 +18,11 @@ namespace color
      struct convert
       {
        public:
-         typedef ::color::_internal::trait<category_left_name>    category_left_trait_type;
-         typedef ::color::_internal::trait<category_right_name>   category_right_trait_type;
+         typedef category_left_name category_left_type;
+         typedef category_right_name category_right_type;
+
+         typedef ::color::_internal::trait<category_left_type>    category_left_trait_type;
+         typedef ::color::_internal::trait<category_right_type>   category_right_trait_type;
 
          typedef typename category_left_trait_type::index_type          index_type;
 
@@ -35,15 +42,13 @@ namespace color
           {
            static const index_type min_common_size = std::min< index_type >( container_left_trait_type::size(), container_right_trait_type::size() );
            component_left_type value;
+           typedef  ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
+
            for( index_type index=0; index < min_common_size; ++index )
             {
-
-             value = category_left_trait_type::range( index ) *
-                      ( container_right_trait_type::get( right, index ) - category_right_trait_type::minimum(index) ) / category_right_trait_type::range( index )
-                      + category_left_trait_type::minimum(index);
+             value = reformat_type::process( index, container_right_trait_type::get( right, index ), index );
 
              container_left_trait_type::set( left, index, value );
-
             }
           }
        };

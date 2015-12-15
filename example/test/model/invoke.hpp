@@ -16,9 +16,9 @@ template< typename category_name >
    typedef typename model_type::container_type     container_type;
 
    model_type   cdef;
-   model_type   cilu{ 0,2,3};
-   model_type   cile{ 0,2,3};
-   model_type   cilo{ 0,1,2,3,4,5,6,7,8};
+   model_type   cilu{ 0, 2, 3 };
+   model_type   cile{ 0, 2, 3 };
+   model_type   cilo{ 0, 1, 2, 3, 4, 5, 6, 7, 8 };
 
    container_type cont;
 

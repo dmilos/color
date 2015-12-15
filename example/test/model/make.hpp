@@ -18,6 +18,9 @@ template< typename category_name >
    color::make::black( c );  std::cout << "  color::make::black( c ); "; print( c ); std::cout << std::endl;
    color::make::gray50( c ); std::cout << "  color::make::gray50( c );"; print( c ); std::cout << std::endl;
    color::make::white( c );  std::cout << "  color::make::white( c ); "; print( c ); std::cout << std::endl;
+   color::make::red( c );    std::cout << "  color::make::red( c ); ";   print( c ); std::cout << std::endl;
+   color::make::green( c );  std::cout << "  color::make::green( c );";  print( c ); std::cout << std::endl;
+   color::make::blue( c );   std::cout << "  color::make::blue( c ); ";  print( c ); std::cout << std::endl;
 
    std::cout << std::endl;
    std::cout << "function - " << __FUNCTION__ << std::endl;

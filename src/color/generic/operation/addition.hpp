@@ -38,8 +38,8 @@
                 result.set( index, left.get( index ) +  right.get( index ) );
                }
              }
-
          };
+
       }
 
      namespace addition

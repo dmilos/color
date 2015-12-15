@@ -1,5 +1,5 @@
-#ifndef color_yiq_yiq_289d3a0b_06c8_48de_95d2_0b38ad3d4298
-#define color_yiq_yiq_289d3a0b_06c8_48de_95d2_0b38ad3d4298
+#ifndef color_yiq_yiq_
+#define color_yiq_yiq_
 
 #include "../_internal/model.hpp"
 
@@ -15,6 +15,7 @@
 #include "./get/get.hpp"
 #include "./set/set.hpp"
 #include "./make/make.hpp"
+#include "./convert/rgb.hpp"
 
 namespace color
  {

@@ -1,6 +1,7 @@
 #ifndef  color_generic_operation_invert_123
 #define color_generic_operation_invert_123
 
+// color::operation::_internal::invert<category_name>::process< 0, 0 >
 
  namespace color
   {
@@ -8,6 +9,7 @@
     {
      namespace _internal
       {
+
        template< typename category_name>
         struct invert
          {
@@ -20,13 +22,36 @@
             typedef typename color::_internal::model<category_type>  model_type;
 
             typedef typename trait_type::component_type component_type;
-            typedef typename trait_type::index_type  index_type;
+            typedef typename trait_type::component_input_const_type component_input_const_type;
+
+            typedef typename trait_type::index_type              index_type;
+            typedef typename trait_type::index_input_const_type  index_input_const_type;
+
+            typedef typename trait_type::component_return_type  component_return_type;
+
+            static component_return_type
+            component
+             (
+               component_input_const_type component
+              ,index_input_const_type     index
+             )
+             {
+              return ( trait_type::maximum( index ) - component ) + trait_type::minimum( index );
+             }
+
+            template< index_type index_size >
+             static
+             component_return_type
+             component( component_input_const_type component )
+             {
+              return ( trait_type::template maximum<index_size>() - component ) + trait_type::template minimum<index_size>();
+             }
 
             static void accumulate( model_type &result )
              {
               for( index_type index = 0; index < trait_type::size(); index ++ )
                {
-                  result.set( index, ( trait_type::maximum( index ) -  result.get( index ) ) + trait_type::minimum( index ) );
+                result.set( index, component( result.get( index ), index ) );
                }
              }
 
@@ -34,7 +59,7 @@
              {
               for( index_type index = 0; index < trait_type::size(); index ++ )
                {
-                result.set( index, ( trait_type::maximum( index ) -  result.get( index) ) + trait_type::minimum( index ) );
+                result.set( index, component( right.get( index ), index ) );
                }
              }
 
