@@ -29,7 +29,7 @@
       inline
       void gray50( ::color::_internal::model< color::category::cmy_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0x00007fff7fff7fffu );
+        color_parameter.container() = std::uint64_t( 0xffff7fff7fff7fffu );
        }
 
       inline

@@ -17,14 +17,14 @@ template < template<typename> class color_left_name, template<typename> class co
    std::cout << "type - " << typeid( color_right_name<bool>  ).name() << std::endl;
    std::cout << std::endl;
 
-   color_left_name<bool>            lb;    color::make::gray50( lb   );
-   color_left_name<std::uint8_t>    lu8;   color::make::gray50( lu8  );
-   color_left_name<std::uint16_t>   lu16;  color::make::gray50( lu16 );
-   color_left_name<std::uint32_t>   lu32;  color::make::gray50( lu32 );
-   color_left_name<std::uint64_t>   lu64;  color::make::gray50( lu64 );
-   color_left_name<float>           lf;    color::make::gray50( lf   );
-   color_left_name<double>          ld;    color::make::gray50( ld   );
-   color_left_name<long double>     lld;   color::make::gray50( lld  );
+   color_left_name<bool>            lb;    color::make::black( lb   );
+   color_left_name<std::uint8_t>    lu8;   color::make::black( lu8  );
+   color_left_name<std::uint16_t>   lu16;  color::make::black( lu16 );
+   color_left_name<std::uint32_t>   lu32;  color::make::black( lu32 );
+   color_left_name<std::uint64_t>   lu64;  color::make::black( lu64 );
+   color_left_name<float>           lf;    color::make::black( lf   );
+   color_left_name<double>          ld;    color::make::black( ld   );
+   color_left_name<long double>     lld;   color::make::black( lld  );
    
    color_right_name<bool>            rb;    color::make::gray50( rb   );
    color_right_name<std::uint8_t>    ru8;   color::make::gray50( ru8  );

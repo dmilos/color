@@ -60,9 +60,10 @@ int main(int argc, char const *argv[])
   test_intrisic_conversion< color::rgb >();
   test_intrisic_conversion< color::gray >();
   test_intrisic_conversion< color::yiq  >();
+  test_intrisic_conversion< color::cmy  >();
   
-  test_conversion< color::rgb,  color::cmy >();
-  test_conversion< color::cmy,  color::rgb >();
+  test_conversion< color::rgb, color::cmy >();
+  test_conversion< color::cmy, color::rgb >();
 
   test_get< color::category::rgb_uint8  >();
   test_get< color::category::rgb_uint16 >();
@@ -80,8 +81,6 @@ int main(int argc, char const *argv[])
   test_set< color::category::rgb_double  >( 1.99  );
   test_set< color::category::rgb_ldouble >( 0.256 );
 
-  // Problem !!!!
-  color::gray<std::uint64_t> g2( { 64, 127 , 192} );
 
   test_set< color::category::gray_bool  >( true );
   test_set< color::category::gray_uint8   >( 128 );
@@ -93,15 +92,17 @@ int main(int argc, char const *argv[])
   test_set< color::category::gray_ldouble >( 0.256 );
 
 
+  // Problem !!!!
+  color::gray<std::uint64_t> g2( { 64, 127 , 192} );
   {
    ::color::rgb< double > r;
    ::color::cmy< double > y;
 
    ::color::make::red( r );
-    std::cout << "rgb::red == "; print( r ); std::cout << std::endl;
+    std::cout << "rgb::original == "; print( r ); std::cout << std::endl;
     y =r;
     r = y;
-    std::cout << "rgb::convert == "; print( r ); std::cout << std::endl;
+    std::cout << "rgb::back == "; print( r ); std::cout << std::endl;
   }
 
   
