@@ -17,6 +17,8 @@
     <ClInclude Include="..\..\src\color\category.hpp" />
     <ClInclude Include="..\..\src\color\cmy\category.hpp" />
     <ClInclude Include="..\..\src\color\cmy\cmy.hpp" />
+    <ClInclude Include="..\..\src\color\cmy\convert\convert.hpp" />
+    <ClInclude Include="..\..\src\color\cmy\convert\rgb.hpp" />
     <ClInclude Include="..\..\src\color\cmy\double.hpp" />
     <ClInclude Include="..\..\src\color\cmy\float.hpp" />
     <ClInclude Include="..\..\src\color\cmy\get\alpha.hpp" />
@@ -58,6 +60,10 @@
     <ClInclude Include="..\..\src\color\gray\uint64.hpp" />
     <ClInclude Include="..\..\src\color\gray\uint8.hpp" />
     <ClInclude Include="..\..\src\color\rgb\category.hpp" />
+    <ClInclude Include="..\..\src\color\rgb\convert\cmy.hpp" />
+    <ClInclude Include="..\..\src\color\rgb\convert\cmyk.hpp" />
+    <ClInclude Include="..\..\src\color\rgb\convert\convert.hpp" />
+    <ClInclude Include="..\..\src\color\rgb\convert\yiq.hpp" />
     <ClInclude Include="..\..\src\color\rgb\double.hpp" />
     <ClInclude Include="..\..\src\color\rgb\float.hpp" />
     <ClInclude Include="..\..\src\color\rgb\get\alpha.hpp" />

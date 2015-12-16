@@ -2,7 +2,7 @@
 #define color_rgb_convert_cmy
 
 #include "../../_internal/convert.hpp"
-#include "../../cmy/category.hpp"
+#include "../../cmy/cmy.hpp"
 
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"

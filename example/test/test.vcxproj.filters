@@ -79,6 +79,12 @@
     <Filter Include="Source Files\src\hsl">
       <UniqueIdentifier>{bdf9b088-ef65-41e6-8f20-d23a2ea6687a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\rgb\convert">
+      <UniqueIdentifier>{1fcfb361-25e8-48ae-b922-e892236ad1cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\cmy\convert">
+      <UniqueIdentifier>{33d16a50-9240-4aec-814e-9a907d92da52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -385,6 +391,24 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\yiq\set\yellow.hpp">
       <Filter>Source Files\src\yiq\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\cmy.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\cmyk.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\convert.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\yiq.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\convert.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\rgb.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

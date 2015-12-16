@@ -90,8 +90,8 @@ int main(int argc, char const *argv[])
 
 
   {
-   ::color::rgb< long double > r;
-   ::color::yiq< long double > y;
+   ::color::rgb< double > r;
+   ::color::cmy< double > y;
 
    ::color::make::red( r );
     std::cout << "rgb::red == "; print( r ); std::cout << std::endl;

@@ -50,8 +50,8 @@ namespace color
        typedef ::color::_internal::component< category_name >  component_trait_type;
 
        float_name divergent = normal;
-       divergent *= bound_trait_type::template minimum<index_name>( );
-       divergent += bound_trait_type::template range<index_name>( );
+       divergent *= bound_trait_type::template range<index_name>();
+       divergent += bound_trait_type::template minimum<index_name>();
 
        return  typename component_trait_type::instance_type( divergent );
       }

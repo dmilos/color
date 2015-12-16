@@ -36,7 +36,7 @@
               ,index_input_const_type     index
              )
              {
-              return ( trait_type::maximum( index ) - component ) + trait_type::minimum( index );
+                return trait_type::range(index) - component;
              }
 
             template< index_type index_size >
@@ -44,7 +44,7 @@
              component_return_type
              component( component_input_const_type component )
              {
-              return ( trait_type::template maximum<index_size>() - component ) + trait_type::template minimum<index_size>();
+              return trait_type::template range<index_size>() - component;
              }
 
             static void accumulate( model_type &result )
