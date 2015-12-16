@@ -7,6 +7,7 @@
 #include "./model/intrisic_conversion.hpp"
 #include "./model/set.hpp"
 #include "./model/get.hpp"
+#include "./model/conversion.hpp"
 
 int main(int argc, char const *argv[])
  {
@@ -59,6 +60,9 @@ int main(int argc, char const *argv[])
   test_intrisic_conversion< color::rgb >();
   test_intrisic_conversion< color::gray >();
   test_intrisic_conversion< color::yiq  >();
+  
+  test_conversion< color::rgb,  color::cmy >();
+  test_conversion< color::cmy,  color::rgb >();
 
   test_get< color::category::rgb_uint8  >();
   test_get< color::category::rgb_uint16 >();
