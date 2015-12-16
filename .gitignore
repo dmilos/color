@@ -14,7 +14,7 @@
 /example/test/Debug
 /example/Debug
 /example/test
-
+doc/doxygen/html
 example/convert_cmy2gray
 example/convert_cmy2rgb
 example/convert_gray2cmy
