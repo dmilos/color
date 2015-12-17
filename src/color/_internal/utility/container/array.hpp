@@ -3,6 +3,9 @@
 
 #include <array>
 
+#include "../type/index.hpp"
+#include "../type/traitc.hpp"
+
 namespace color
  {
   namespace _internal
@@ -40,7 +43,7 @@ namespace color
               typedef typename component_trait_type::const_type           component_const_type;
               typedef typename component_trait_type::return_const_type    component_return_const_type;
               typedef typename component_trait_type::input_const_type     component_input_const_type;
-              
+
 
               typedef void set_return_type;
 

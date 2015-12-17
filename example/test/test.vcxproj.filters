@@ -152,9 +152,6 @@
     <ClInclude Include="..\..\src\color\rgb\rgb.hpp">
       <Filter>Source Files\src\rgb</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\trait.hpp">
-      <Filter>Source Files\src\rgb</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\uint16.hpp">
       <Filter>Source Files\src\rgb</Filter>
     </ClInclude>
@@ -339,9 +336,6 @@
       <Filter>Source Files\src\cmy</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\cmy\ldouble.hpp">
-      <Filter>Source Files\src\cmy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmy\trait.hpp">
       <Filter>Source Files\src\cmy</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\cmy\uint16.hpp">
@@ -555,9 +549,6 @@
       <Filter>Source Files\src\hsl</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\hsl\uint16.hpp">
-      <Filter>Source Files\src\hsl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\hsl\trait.hpp">
       <Filter>Source Files\src\hsl</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\hsl\ldouble.hpp">

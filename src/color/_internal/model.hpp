@@ -21,9 +21,8 @@ namespace color
         typedef category_name category_type;
 
         typedef ::color::_internal::trait<category_type> trait_type;
-        //typedef ::color::_internal::model<category_type>  this_type;
+      //typedef ::color::_internal::model<category_type>  this_type;
 
-        
         typedef typename trait_type::index_type                   index_type;
       // TODO typedef typename trait_type::index_const_type             index_const_type;
         typedef typename trait_type::index_input_const_type       index_input_const_type;

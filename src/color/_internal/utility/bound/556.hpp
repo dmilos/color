@@ -3,7 +3,7 @@
 
 // ::color::_internal::utility::bound::cnent556< index_type >
 
-#include "../type/bound.hpp"
+
 #include "../type/traitp.hpp"
 #include "../type/index.hpp"
 

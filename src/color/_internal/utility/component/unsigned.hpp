@@ -3,7 +3,6 @@
 
 // ::color::_internal::utility::component::Unsigned< unsigned_name, width, index_type>
 
-#include "../type/bound.hpp"
 #include "../type/traitp.hpp"
 #include "../type/index.hpp"
 

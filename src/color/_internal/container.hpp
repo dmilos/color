@@ -42,6 +42,7 @@ namespace color
 
          typedef void set_return_type;
 
+
          static component_return_const_type get( input_const_type container, index_input_const_type index )
           {
            return (component_type) ( ( container >> ( index << 3 )) & 0xFF );

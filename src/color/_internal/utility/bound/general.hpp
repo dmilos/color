@@ -1,11 +1,11 @@
 #ifndef color__internal_utility_bound_general
 #define color__internal_utility_bound_general
 
+// ::color::_internal::utility::bound::general< value_name, index_name >
+
 #include "../type/bound.hpp"
 #include "../type/traitc.hpp"
 #include "../type/index.hpp"
-
-
 
 
 namespace color

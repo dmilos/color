@@ -3,9 +3,9 @@
 
 // ::color::_internal::utility::bound::bound332< index_type >
 
-#include "../type/bound.hpp"
 #include "../type/traitp.hpp"
 #include "../type/index.hpp"
+
 
 
 namespace color
@@ -21,7 +21,7 @@ namespace color
          struct bound332
           {
            public:
-             typedef std::uint8_t      unsigned_type;
+             typedef std::uint8_t       unsigned_type;
              typedef index_name         index_type;
 
              typedef ::color::_internal::utility::type::traitP< unsigned_type >         trait_type;

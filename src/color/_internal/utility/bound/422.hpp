@@ -3,7 +3,7 @@
 
 // ::color::_internal::utility::bound::cnent422< index_type >
 
-#include "../type/bound.hpp"
+
 #include "../type/traitp.hpp"
 #include "../type/index.hpp"
 
@@ -21,7 +21,7 @@ namespace color
          struct cnent422
           {
            public:
-             typedef std::uint8_t      unsigned_type;
+             typedef std::uint8_t       unsigned_type;
              typedef index_name         index_type;
 
              typedef ::color::_internal::utility::type::traitP< unsigned_type >   trait_type;
@@ -68,7 +68,7 @@ namespace color
 
              static /*constexpr*/ return_const_type   range(   index_input_const_type  index )
               {
-                static instance_type max_list[] = { 15, 3, 3 };;
+                static instance_type max_list[] = { 15, 3, 3 };
                 return max_list[index];
               }
           };

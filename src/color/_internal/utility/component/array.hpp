@@ -3,7 +3,6 @@
 
 // ::color::_internal::utility::component::array< value_name, index_name >
 
-#include "../type/bound.hpp"
 #include "../type/traitc.hpp"
 #include "../type/index.hpp"
 
