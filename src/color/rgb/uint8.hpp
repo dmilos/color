@@ -31,7 +31,7 @@ namespace color
 
     template< >
      struct component< ::color::category::rgb_uint8 >
-      : public ::color::_internal::utility::component::cnent332< unsigned>
+      : public ::color::_internal::utility::component::cnent332< unsigned >
       {
       };
 

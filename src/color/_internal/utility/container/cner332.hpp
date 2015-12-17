@@ -22,8 +22,8 @@ namespace color
 
               typedef index_name     index_type;
 
-              typedef std::uint8_t  value_type;
-              typedef std::uint16_t  instance_type;
+              typedef std::uint8_t   value_type;
+              typedef std::uint8_t   instance_type;
 
               typedef instance_type const      const_type;
               typedef instance_type const&     return_const_type;

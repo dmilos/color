@@ -39,10 +39,10 @@ namespace color
               container_left_input_type         left
              ,container_right_const_input_type  right
             )
-            { 
-             container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( invert_type::template component<0>(container_right_trait_type::template get<0>( right ) ) ) );
-             container_left_trait_type::template set<1>( left, reformat_type::template process<1,1>( invert_type::template component<1>(container_right_trait_type::template get<1>( right ) ) ) );
-             container_left_trait_type::template set<2>( left, reformat_type::template process<2,2>( invert_type::template component<2>(container_right_trait_type::template get<2>( right ) ) ) );
+            {
+             container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
+             container_left_trait_type::template set<1>( left, reformat_type::template process<1,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
+             container_left_trait_type::template set<2>( left, reformat_type::template process<2,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
             }
         };
      }

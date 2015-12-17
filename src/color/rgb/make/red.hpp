@@ -11,25 +11,25 @@
       inline
       void red( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0; // TODO
+        color_parameter.container() = 0x07;
        } 
 
       inline
       void red( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x7def; // TODO
+        color_parameter.container() = 0x003F;
        }
 
       inline
       void red( ::color::_internal::model< color::category::rgb_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff7f0000;
+        color_parameter.container() = 0xff0000ff;
        };
 
       inline
       void red( ::color::_internal::model< color::category::rgb_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0xffff7fff00000000u );
+        color_parameter.container() = std::uint64_t( 0xffff00000000ffffu );
        }
 
       inline

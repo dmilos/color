@@ -124,6 +124,9 @@
     <Filter Include="Source Files\src\_internal\utility\type">
       <UniqueIdentifier>{f3597bc2-4448-42a7-a27d-4c4b0d3273b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\gray\convert">
+      <UniqueIdentifier>{9a578899-9371-4bfe-a722-a457f8fd5fe4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -691,6 +694,15 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\_internal\bound.hpp">
       <Filter>Source Files\src\_internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\convert\cmy.hpp">
+      <Filter>Source Files\src\gray\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\convert\convert.hpp">
+      <Filter>Source Files\src\gray\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\convert\rgb.hpp">
+      <Filter>Source Files\src\gray\convert</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

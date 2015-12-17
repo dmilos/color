@@ -11,25 +11,25 @@
       inline
       void green( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0;  // TODO
+        color_parameter.container() = 0x38;
        } 
 
       inline
       void green( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x7def; // TODO
+        color_parameter.container() = 0x03E0;
        }
 
       inline
       void green( ::color::_internal::model< color::category::rgb_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff007f00;
+        color_parameter.container() = 0xff00ff00;
        };
 
       inline
       void green( ::color::_internal::model< color::category::rgb_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0xffff00007fff0000u );
+        color_parameter.container() = std::uint64_t( 0xffff0000ffff0000u );
        }
 
       inline

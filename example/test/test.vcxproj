@@ -70,6 +70,9 @@
     <ClInclude Include="..\..\src\color\color.hpp" />
     <ClInclude Include="..\..\src\color\gray\bool.hpp" />
     <ClInclude Include="..\..\src\color\gray\category.hpp" />
+    <ClInclude Include="..\..\src\color\gray\convert\cmy.hpp" />
+    <ClInclude Include="..\..\src\color\gray\convert\convert.hpp" />
+    <ClInclude Include="..\..\src\color\gray\convert\rgb.hpp" />
     <ClInclude Include="..\..\src\color\gray\double.hpp" />
     <ClInclude Include="..\..\src\color\gray\float.hpp" />
     <ClInclude Include="..\..\src\color\gray\get\blue.hpp" />

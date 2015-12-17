@@ -13,8 +13,8 @@ template < template<typename> class color_left_name, template<typename> class co
    std::cout << std::endl;
    std::cout << "{{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{"<< std::endl;
    std::cout << "  function - " << __FUNCTION__ << std::endl;
-   std::cout << "type - " << typeid( color_left_name<bool>  ).name() << std::endl;
-   std::cout << "type - " << typeid( color_right_name<bool>  ).name() << std::endl;
+   std::cout << "type - " << typeid( color_left_name<std::uint8_t>  ).name() << std::endl;
+   std::cout << "type - " << typeid( color_right_name<std::uint8_t>  ).name() << std::endl;
    std::cout << std::endl;
 
    color_left_name<bool>            lb;    color::make::black( lb   );
@@ -47,7 +47,7 @@ template < template<typename> class color_left_name, template<typename> class co
 
    std::cout << std::endl;
    std::cout << "  function - " << __FUNCTION__ << std::endl;
-   std::cout << "type - " << typeid( color_left_name<bool>  ).name() << std::endl;
-   std::cout << "type - " << typeid( color_right_name<bool>  ).name() << std::endl;
+   std::cout << "type - " << typeid( color_left_name<std::uint8_t>  ).name() << std::endl;
+   std::cout << "type - " << typeid( color_right_name<std::uint8_t>  ).name() << std::endl;
    std::cout << "}}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}}" << std::endl;
   }

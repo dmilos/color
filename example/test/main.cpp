@@ -11,27 +11,6 @@
 
 int main(int argc, char const *argv[])
  {
-  color::rgb<std::uint32_t> u32;
-  color::rgb<float> f;
-  color::rgb<double> d;
-
-  color::make::black(f);
-  color::make::gray50(f);
-  color::make::white(f);
-
-  f = d;
-  u32 = f;
-
-  /*test_invoke< color::category::generic_bool       > ();
-  test_invoke< color::category::generic_number  <1> >();
-  test_invoke< color::category::generic_uint8   <1> >();
-  test_invoke< color::category::generic_uint16  <1> >();
-  test_invoke< color::category::generic_uint32  <1> >();
-  test_invoke< color::category::generic_uint64  <1> >();
-  test_invoke< color::category::generic_float   <1> >();
-  test_invoke< color::category::generic_double  <1> >();
-  test_invoke< color::category::generic_ldouble <1> >();
-  */
 
   test_invoke< color::category::rgb_uint8   >();
   test_invoke< color::category::rgb_uint16  >();
@@ -68,56 +47,6 @@ int main(int argc, char const *argv[])
   test_conversion< color::gray, color::rgb >();
   test_conversion< color::gray, color::cmy >();
   test_conversion< color::gray, color::gray >();
-
-  test_get< color::category::rgb_uint8  >();
-  test_get< color::category::rgb_uint16 >();
-  test_get< color::category::rgb_uint32 >();
-  test_get< color::category::rgb_uint64 >();
-  test_get< color::category::rgb_float  >();
-  test_get< color::category::rgb_double >();
-  test_get< color::category::rgb_ldouble>();
-
-  test_set< color::category::rgb_uint8   >( 3 );
-  test_set< color::category::rgb_uint16  >( 6 );
-  test_set< color::category::rgb_uint32  >(   50  );
-  test_set< color::category::rgb_uint64  >( 1500  );
-  test_set< color::category::rgb_float   >( 0.76  );
-  test_set< color::category::rgb_double  >( 1.99  );
-  test_set< color::category::rgb_ldouble >( 0.256 );
-
-  test_set< color::category::gray_bool  >( true );
-  test_set< color::category::gray_uint8   >( 128 );
-  test_set< color::category::gray_uint16  >( 12812 );
-  test_set< color::category::gray_uint32  >(   50  );
-  test_set< color::category::gray_uint64  >( 1500  );
-  test_set< color::category::gray_float   >( 0.76  );
-  test_set< color::category::gray_double  >( 1.99  );
-  test_set< color::category::gray_ldouble >( 0.256 );
-
-
-  // Problem !!!!
-  color::gray<std::uint64_t> g2( { 64, 127 , 192} );
-  {
-   ::color::rgb< double > r;
-   ::color::cmy< double > y;
-
-   ::color::make::red( r );
-    std::cout << "rgb::original == "; print( r ); std::cout << std::endl;
-    y =r;
-    r = y;
-    std::cout << "rgb::back == "; print( r ); std::cout << std::endl;
-  }
-
-  
-
-  {
-   color::rgb<bool>           c0( { true, false, false} );
-   color::rgb<float>          c1( { 0.5, 0.6,0.7}  );
-   color::rgb<std::uint64_t>  c2( { 64, 127 , 192} );
-   color::rgb<std::uint32_t>  c3( { 64, 127 , 192} );
-   color::rgb<std::uint16_t>  c4( { 64, 127 , 192} );
-   color::rgb<std::uint8_t>   c5( { 64, 127 , 192} );
-  }
 
   return 0;
  }
