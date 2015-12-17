@@ -16,6 +16,11 @@ g++ -fexceptions -std=c++11 -g -I../src ctor_hsl.cpp                    -o  ctor
 g++ -fexceptions -std=c++11 -g -I../src ctor_rgb.cpp                    -o  ctor_rgb
 g++ -fexceptions -std=c++11 -g -I../src ctor_yiq.cpp                    -o  ctor_yiq
 
+g++ -fexceptions -std=c++11 -g -I../src make_red_in_rgb.cpp             -o  make_red_in_rgb
+g++ -fexceptions -std=c++11 -g -I../src make_red_in_gray.cpp             -o  make_red_in_gray
+g++ -fexceptions -std=c++11 -g -I../src make_red_in_cmy.cpp             -o  make_red_in_cmy
+
+
 #g++ -fexceptions -std=c++11 -g -I../src extract_blue_from_cmy.cpp       -o  extract_blue_from_cmy
 #g++ -fexceptions -std=c++11 -g -I../src extract_blue_from_rgb.cpp       -o  extract_blue_from_rgb
 #g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_cmy.cpp       -o  extract_gray_from_cmy

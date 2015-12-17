@@ -1,7 +1,9 @@
 #ifndef  color_generic_operation_invert_123
 #define color_generic_operation_invert_123
 
-// color::operation::_internal::invert<category_name>::process< 0, 0 >
+// ::color::operation::_internal::invert<category_name>::component<>( )
+// ::color::operation::_internal::invert<category_name>::accumulate( )
+// ::color::operation::_internal::invert<category_name>::full( )
 
  namespace color
   {

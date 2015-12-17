@@ -57,13 +57,17 @@ int main(int argc, char const *argv[])
   test_make< color::category::rgb_double  >();
   test_make< color::category::rgb_ldouble >();
 
-  test_intrisic_conversion< color::rgb >();
-  test_intrisic_conversion< color::gray >();
-  test_intrisic_conversion< color::yiq  >();
-  test_intrisic_conversion< color::cmy  >();
-  
+  test_conversion< color::rgb, color::rgb >();
   test_conversion< color::rgb, color::cmy >();
+  test_conversion< color::rgb, color::gray >();
+
   test_conversion< color::cmy, color::rgb >();
+  test_conversion< color::cmy, color::cmy >();
+  test_conversion< color::cmy, color::gray >();
+
+  test_conversion< color::gray, color::rgb >();
+  test_conversion< color::gray, color::cmy >();
+  test_conversion< color::gray, color::gray >();
 
   test_get< color::category::rgb_uint8  >();
   test_get< color::category::rgb_uint16 >();
@@ -80,7 +84,6 @@ int main(int argc, char const *argv[])
   test_set< color::category::rgb_float   >( 0.76  );
   test_set< color::category::rgb_double  >( 1.99  );
   test_set< color::category::rgb_ldouble >( 0.256 );
-
 
   test_set< color::category::gray_bool  >( true );
   test_set< color::category::gray_uint8   >( 128 );

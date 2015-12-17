@@ -18,13 +18,17 @@ namespace color
      <
        typename category_left_name
       ,typename category_right_name 
+      ,typename float_name = double 
      >
      struct reformat
       {
        public:
          typedef  category_left_name   category_left_type;
          typedef  category_right_name  category_right_type;
+         typedef float_name float_type;
 
+         typedef ::color::_internal::diverse< category_left_type, float_type >   diverse_type;
+         typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
 
          typedef typename ::color::_internal::component< category_left_name >::return_type          left_component_return_type;
          typedef typename ::color::_internal::index< category_left_name >::input_const_type         left_index_const_input_type;
@@ -43,9 +47,9 @@ namespace color
            ,right_index_const_input_type       right_index
           )
           {
-           return ::color::_internal::diverse< category_left_type >
+           return diverse_type::process
             (
-             ::color::_internal::normalize< category_right_type >
+             normalize_type::process
               (
                 right_component
                ,right_index
@@ -66,9 +70,9 @@ namespace color
            ,right_index_const_input_type       right_index
           )
           {
-           return ::color::_internal::diverse< category_left_type, left_index_size >
+           return diverse_type::template process< left_index_size >
             (
-             ::color::_internal::normalize< category_right_type >
+             normalize_type::process
               (
                 right_component
                ,right_index
@@ -88,9 +92,9 @@ namespace color
             right_component_const_input_type   right_component
           )
           {
-           return ::color::_internal::diverse< category_left_type, left_index_size >
+           return diverse_type::template process< left_index_size >
             (
-             ::color::_internal::normalize< category_right_type, right_index_size >
+             normalize_type::template process< right_index_size >
               (
                 right_component
               )
