@@ -18,6 +18,20 @@
         // Do nothing to force specialization
        };
 
+     template< typename category_name >
+      inline
+      ::color::_internal::model< category_name >
+      red( )
+       {
+        typedef ::color::_internal::model< category_name > model_type;
+        static model_type dummy;
+        // TODO Will call every time, That is no good.
+        ::color::make::red( dummy );
+
+        // Do nothing to force specialization
+        return dummy;
+       };
+
     }
   }
 

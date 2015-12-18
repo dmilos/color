@@ -9,6 +9,8 @@ g++ -fexceptions -std=c++11 -g -I../src convert_gray2rgb.cpp    -o  convert_gray
 g++ -fexceptions -std=c++11 -g -I../src convert_gray2cmy.cpp    -o  convert_gray2cmy
 g++ -fexceptions -std=c++11 -g -I../src convert_cmy2rgb.cpp     -o  convert_cmy2rgb
 g++ -fexceptions -std=c++11 -g -I../src convert_cmy2gray.cpp    -o  convert_cmy2gray
+g++ -fexceptions -std=c++11 -g -I../src convert_rgb2yiq.cpp     -o  convert_rgb2yiq
+g++ -fexceptions -std=c++11 -g -I../src convert_rgb2yuv.cpp     -o  convert_rgb2yuv
 
 g++ -fexceptions -std=c++11 -g -I../src ctor_cmy.cpp                    -o  ctor_cmy
 g++ -fexceptions -std=c++11 -g -I../src ctor_gray.cpp                   -o  ctor_gray

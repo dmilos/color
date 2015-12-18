@@ -14,21 +14,22 @@ namespace color
     namespace  _privateRGB
      {
 
-      template< typename category_left_name, typename category_right_name >
+      template< typename category_left_name, typename category_right_name, typename float_name = double >
        struct convert_yuv2rgb
         {
          public:
            typedef category_left_name category_left_type;
            typedef category_right_name category_right_type;
+           typedef float_name  float_type;
 
-           typedef ::color::_internal::trait<category_left_type>    category_left_trait_type;
-           typedef ::color::_internal::trait<category_right_type>   category_right_trait_type;
-
-           typedef typename category_left_trait_type::container_trait_type     container_left_trait_type;
-           typedef typename category_right_trait_type::container_trait_type    container_right_trait_type;
+           typedef ::color::_internal::container<category_left_type>     container_left_trait_type;
+           typedef ::color::_internal::container<category_right_type>    container_right_trait_type;
 
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+
+           typedef ::color::_internal::diverse< category_left_type, float_type >    diverse_type;
+           typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
 
            static void process
             (
@@ -36,13 +37,24 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             typedef  ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
-             typedef  ::color::operation::_internal::invert< category_right_type > invert_type;
+             static float_type Wr = 0.299000;
+             static float_type Wb = 0.114000;
+             static float_type Wg = 1.0-Wr-Wb;
+             static float_type Umax = 0.436;
+             static float_type Vmax = 0.615;
 
-             container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
-             container_left_trait_type::template set<1>( left, reformat_type::template process<1,1>( invert_type::template component<1>( container_right_trait_type::template get<1>( right ) ) ) );
-             container_left_trait_type::template set<2>( left, reformat_type::template process<2,2>( invert_type::template component<2>( container_right_trait_type::template get<2>( right ) ) ) );
-           }
+             float_type y = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+             float_type u = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+             float_type v = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+
+             float_type r = y + v*( (1-Wr)/Vmax );   
+             float_type g = y- u*( Wb*(1-Wb)/Umax/Wg ) - v*( Wr*(1-Wr)/Vmax/Wg );  
+             float_type b = y- u*( (1-Wb)/Umax );  
+
+             container_left_trait_type::template set<0>( left, diverse_type::template process<0>( r ) );
+             container_left_trait_type::template set<1>( left, diverse_type::template process<1>( g ) );
+             container_left_trait_type::template set<2>( left, diverse_type::template process<2>( b ) );
+            }
         };
 
      }

@@ -39,14 +39,27 @@ int main(int argc, char const *argv[])
   test_conversion< color::rgb, color::rgb >();
   test_conversion< color::rgb, color::cmy >();
   test_conversion< color::rgb, color::gray >();
+  test_conversion< color::rgb, color::yiq >();
+  test_conversion< color::rgb, color::yuv >();
+  test_conversion< color::rgb, color::xyz >();
 
+  test_conversion< color::cmy, color::cmy >();
   test_conversion< color::cmy, color::rgb >();
   test_conversion< color::cmy, color::cmy >();
   test_conversion< color::cmy, color::gray >();
 
+  test_conversion< color::gray, color::gray >();
   test_conversion< color::gray, color::rgb >();
   test_conversion< color::gray, color::cmy >();
-  test_conversion< color::gray, color::gray >();
+
+  test_conversion< color::yiq, color::yiq >();
+  test_conversion< color::yiq, color::rgb >();
+
+  test_conversion< color::yuv, color::yuv >();
+  test_conversion< color::yuv, color::rgb >();
+
+  test_conversion< color::xyz, color::xyz >();
+  test_conversion< color::xyz, color::rgb >();
 
   return 0;
  }
