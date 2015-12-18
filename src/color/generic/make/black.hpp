@@ -21,7 +21,7 @@
          {
           color_parameter.set( index, trait_type::minimum( index ) );
          }
-       };
+       }
 
      template< typename category_name >
       inline
@@ -38,7 +38,7 @@
           color.set( index, trait_type::minimum( index ) );
          }
         return color;
-       };
+       }
 
 
     }

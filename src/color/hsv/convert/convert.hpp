@@ -1,0 +1,8 @@
+#include "./cmy.hpp"
+#include "./cmyk.hpp"
+#include "./gray.hpp"
+#include "./hls.hpp"
+#include "./hsv.hpp"
+#include "./rgb.hpp"
+#include "./xyz.hpp"
+#include "./yiq.hpp"

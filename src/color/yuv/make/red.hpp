@@ -24,7 +24,7 @@
       void red( ::color::_internal::model< color::category::yuv_uint32 > & color_parameter )
        {
         color_parameter.container() = 0xff0000ff; //!< TODO
-       };
+       }
 
       inline
       void red( ::color::_internal::model< color::category::yuv_uint64 > & color_parameter )
@@ -36,19 +36,19 @@
       void red( ::color::_internal::model< color::category::yuv_float > & color_parameter )
        {
         color_parameter.container() = std::array<float,3>( { 1, 0, 0 } ); //!< TODO
-       };
+       }
 
       inline
       void red( ::color::_internal::model< color::category::yuv_double> & color_parameter )
        {
         color_parameter.container() = std::array<double,3>( { 1, 0, 0 } ); //!< TODO
-       };
+       }
 
       inline
       void red( ::color::_internal::model< color::category::yuv_ldouble> & color_parameter )
        {
         color_parameter.container() = std::array<long double,3>( { 1, 0, 0 } ); //!< TODO
-       };
+       }
 
     }
   }

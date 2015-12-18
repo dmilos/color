@@ -16,7 +16,7 @@
         typedef typename model_type::index_type index_type;
 
         // Do nothing to force specialization
-       };
+       }
 
     }
   }

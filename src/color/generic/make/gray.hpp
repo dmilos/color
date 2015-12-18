@@ -20,7 +20,7 @@
          {
           color_parameter.set( index, trait_type::minimum( index ) + trait_type::range( index )/2 );
          }
-       };
+       }
 
     }
   }

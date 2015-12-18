@@ -19,7 +19,7 @@
          {
           color_parameter.set(index, trait_type::maximum( index ) );
          }
-       };
+       }
 
     }
   }

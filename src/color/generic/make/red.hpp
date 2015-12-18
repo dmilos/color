@@ -16,7 +16,7 @@
         typedef typename model_type::index_type index_type;
 
         // Do nothing to force specialization
-       };
+       }
 
      template< typename category_name >
       inline
@@ -30,7 +30,7 @@
 
         // Do nothing to force specialization
         return dummy;
-       };
+       }
 
     }
   }
