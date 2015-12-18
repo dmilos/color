@@ -1,11 +1,13 @@
 #ifndef color_hsl_convert_rgb
 #define color_hsl_convert_rgb
 
+#include <algorithm>
+
 #include "../../_internal/convert.hpp"
 #include "../../rgb/rgb.hpp"
 
-#include "../../generic/operation/invert.hpp"
-#include "../../_internal/reformat.hpp"
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
 
 namespace color
  {
@@ -14,12 +16,13 @@ namespace color
     namespace  _privateHSL
      {
 
-      template< typename category_left_name, typename category_right_name >
+      template< typename category_left_name, typename category_right_name, typename float_name = double >
        struct convert_rgb2hsl
         {
          public:
            typedef category_left_name category_left_type;
            typedef category_right_name category_right_type;
+           typedef float_name float_type;
 
            typedef ::color::_internal::container<category_left_type>     container_left_trait_type;
            typedef ::color::_internal::container<category_right_type>    container_right_trait_type;
@@ -27,13 +30,53 @@ namespace color
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+           typedef ::color::_internal::diverse< category_left_type, float_type >    diverse_type;
+           typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type; 
+
            static void process
             (
               container_left_input_type         left
              ,container_right_const_input_type  right
             )
             {
-             // TODO
+             float_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+             float_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+             float_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+                
+             const float_type hi = std::max<float_type>( { r, g, b } );
+             const float_type lo = std::min<float_type>( { r, g, b } );
+
+             float_type h;
+             float_type s;
+             float_type l = (hi + lo) / float_type(2);
+
+             if( hi == lo )
+              {
+               h = s = 0;
+              }
+             else
+              {
+               float_type d = hi - lo;
+               s = float_type(0.5) < l ? ( d / ( float_type(2) - hi - lo) ) : ( d / (hi + lo) );
+               if( hi == r )
+                {
+                 h = (g - b) / d + (g < b ? 6 : 0);
+                }
+               if( hi == g ) 
+                {
+                 h = (b - r) / d + float_type(2);
+                }    
+                
+               if( hi == b ) 
+                {
+                 h = (r - g) / d + float_type(4);
+                }
+               h /= float_type(6);
+              }
+
+             container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );
+             container_left_trait_type::template set<1>( left, diverse_type::template process<1>( s ) );
+             container_left_trait_type::template set<2>( left, diverse_type::template process<2>( l ) );
             }
         };
 

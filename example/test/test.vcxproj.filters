@@ -127,11 +127,39 @@
     <Filter Include="Source Files\src\gray\convert">
       <UniqueIdentifier>{9a578899-9371-4bfe-a722-a457f8fd5fe4}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Filter Include="Source Files\src\hsl\convert">
+      <UniqueIdentifier>{135495ab-7743-459d-863e-d900b4595c7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\hsv">
+      <UniqueIdentifier>{8c0deda4-25c5-45eb-9782-0ef9993abb31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\hsv\make">
+      <UniqueIdentifier>{c6de07be-0694-448f-8355-82d36891f938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\hsv\convert">
+      <UniqueIdentifier>{19386b8c-2ac8-4114-969d-0258375d33fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\xyz">
+      <UniqueIdentifier>{f7136c26-673d-4b4a-a040-72ddd3124ddd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\xyz\convert">
+      <UniqueIdentifier>{a3104dcf-05bd-4581-a0cd-ca80dfd1059f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\xyz\make">
+      <UniqueIdentifier>{ad3cdc53-0d49-42a1-8ef0-89036a84c35a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\yuv">
+      <UniqueIdentifier>{ac3b69f2-8781-435a-a31d-e19005ab1564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\yuv\make">
+      <UniqueIdentifier>{31234cd5-9346-4f25-9ca9-84de96261cba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\yuv\convert">
+      <UniqueIdentifier>{1a3ae3a4-d36a-4772-9d04-04fa08545603}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main">
+      <UniqueIdentifier>{7d0c2007-fcb6-4b63-b55b-e076d2cded07}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\color\color.hpp">
@@ -188,18 +216,6 @@
     <ClInclude Include="..\..\src\color\rgb\get\yellow.hpp">
       <Filter>Source Files\src\rgb\get</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\make\black.hpp">
-      <Filter>Source Files\src\rgb\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\make\gray.hpp">
-      <Filter>Source Files\src\rgb\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\make\make.hpp">
-      <Filter>Source Files\src\rgb\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\make\white.hpp">
-      <Filter>Source Files\src\rgb\make</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\set\alpha.hpp">
       <Filter>Source Files\src\rgb\set</Filter>
     </ClInclude>
@@ -226,18 +242,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\set\yellow.hpp">
       <Filter>Source Files\src\rgb\set</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmy\make\black.hpp">
-      <Filter>Source Files\src\cmy\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmy\make\gray.hpp">
-      <Filter>Source Files\src\cmy\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmy\make\make.hpp">
-      <Filter>Source Files\src\cmy\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmy\make\white.hpp">
-      <Filter>Source Files\src\cmy\make</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\cmy\set\alpha.hpp">
       <Filter>Source Files\src\cmy\set</Filter>
@@ -404,24 +408,6 @@
     <ClInclude Include="..\..\src\color\yiq\set\yellow.hpp">
       <Filter>Source Files\src\yiq\set</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\convert\cmy.hpp">
-      <Filter>Source Files\src\rgb\convert</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\convert\cmyk.hpp">
-      <Filter>Source Files\src\rgb\convert</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\convert\convert.hpp">
-      <Filter>Source Files\src\rgb\convert</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\convert\yiq.hpp">
-      <Filter>Source Files\src\rgb\convert</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmy\convert\convert.hpp">
-      <Filter>Source Files\src\cmy\convert</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmy\convert\rgb.hpp">
-      <Filter>Source Files\src\cmy\convert</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\gray\get\yellow.hpp">
       <Filter>Source Files\src\gray\get</Filter>
     </ClInclude>
@@ -445,18 +431,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\gray\get\blue.hpp">
       <Filter>Source Files\src\gray\get</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\gray\make\white.hpp">
-      <Filter>Source Files\src\gray\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\gray\make\make.hpp">
-      <Filter>Source Files\src\gray\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\gray\make\gray.hpp">
-      <Filter>Source Files\src\gray\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\gray\make\black.hpp">
-      <Filter>Source Files\src\gray\make</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\gray\set\yellow.hpp">
       <Filter>Source Files\src\gray\set</Filter>
@@ -505,18 +479,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\cmyk\get\blue.hpp">
       <Filter>Source Files\src\cmyk\get</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmyk\make\white.hpp">
-      <Filter>Source Files\src\cmyk\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmyk\make\make.hpp">
-      <Filter>Source Files\src\cmyk\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmyk\make\gray.hpp">
-      <Filter>Source Files\src\cmyk\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmyk\make\black.hpp">
-      <Filter>Source Files\src\cmyk\make</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\cmyk\set\yellow.hpp">
       <Filter>Source Files\src\cmyk\set</Filter>
@@ -574,18 +536,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\hsl\get\get.hpp">
       <Filter>Source Files\src\hsl\get</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\hsl\make\white.hpp">
-      <Filter>Source Files\src\hsl\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\hsl\make\make.hpp">
-      <Filter>Source Files\src\hsl\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\hsl\make\gray.hpp">
-      <Filter>Source Files\src\hsl\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\hsl\make\black.hpp">
-      <Filter>Source Files\src\hsl\make</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\hsl\set\set.hpp">
       <Filter>Source Files\src\hsl\set</Filter>
@@ -686,14 +636,496 @@
     <ClInclude Include="..\..\src\color\_internal\bound.hpp">
       <Filter>Source Files\src\_internal</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\cmyk.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\convert.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\gray.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\hls.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\hsv.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\rgb.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\xyz.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\yiq.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\convert\yuv.hpp">
+      <Filter>Source Files\src\cmy\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\make\black.hpp">
+      <Filter>Source Files\src\cmy\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\make\blue.hpp">
+      <Filter>Source Files\src\cmy\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\make\gray.hpp">
+      <Filter>Source Files\src\cmy\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\make\green.hpp">
+      <Filter>Source Files\src\cmy\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\make\make.hpp">
+      <Filter>Source Files\src\cmy\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\make\red.hpp">
+      <Filter>Source Files\src\cmy\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\make\white.hpp">
+      <Filter>Source Files\src\cmy\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\convert\cmy.hpp">
+      <Filter>Source Files\src\cmyk\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\convert\convert.hpp">
+      <Filter>Source Files\src\cmyk\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\convert\gray.hpp">
+      <Filter>Source Files\src\cmyk\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\convert\hls.hpp">
+      <Filter>Source Files\src\cmyk\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\convert\hsv.hpp">
+      <Filter>Source Files\src\cmyk\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\convert\rgb.hpp">
+      <Filter>Source Files\src\cmyk\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\convert\xyz.hpp">
+      <Filter>Source Files\src\cmyk\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\convert\yiq.hpp">
+      <Filter>Source Files\src\cmyk\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\convert\yuv.hpp">
+      <Filter>Source Files\src\cmyk\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\make\black.hpp">
+      <Filter>Source Files\src\cmyk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\make\blue.hpp">
+      <Filter>Source Files\src\cmyk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\make\gray.hpp">
+      <Filter>Source Files\src\cmyk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\make\green.hpp">
+      <Filter>Source Files\src\cmyk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\make\make.hpp">
+      <Filter>Source Files\src\cmyk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\make\red.hpp">
+      <Filter>Source Files\src\cmyk\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\make\white.hpp">
+      <Filter>Source Files\src\cmyk\make</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\src\color\gray\convert\cmy.hpp">
+      <Filter>Source Files\src\gray\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\convert\cmyk.hpp">
       <Filter>Source Files\src\gray\convert</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\gray\convert\convert.hpp">
       <Filter>Source Files\src\gray\convert</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\convert\hls.hpp">
+      <Filter>Source Files\src\gray\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\convert\hsv.hpp">
+      <Filter>Source Files\src\gray\convert</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\src\color\gray\convert\rgb.hpp">
       <Filter>Source Files\src\gray\convert</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\convert\xyz.hpp">
+      <Filter>Source Files\src\gray\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\convert\yiq.hpp">
+      <Filter>Source Files\src\gray\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\convert\yuv.hpp">
+      <Filter>Source Files\src\gray\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\make\black.hpp">
+      <Filter>Source Files\src\gray\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\make\blue.hpp">
+      <Filter>Source Files\src\gray\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\make\gray.hpp">
+      <Filter>Source Files\src\gray\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\make\green.hpp">
+      <Filter>Source Files\src\gray\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\make\make.hpp">
+      <Filter>Source Files\src\gray\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\make\red.hpp">
+      <Filter>Source Files\src\gray\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\gray\make\white.hpp">
+      <Filter>Source Files\src\gray\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\convert\cmy.hpp">
+      <Filter>Source Files\src\hsl\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\convert\cmyk.hpp">
+      <Filter>Source Files\src\hsl\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\convert\convert.hpp">
+      <Filter>Source Files\src\hsl\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\convert\gray.hpp">
+      <Filter>Source Files\src\hsl\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\convert\hsv.hpp">
+      <Filter>Source Files\src\hsl\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\convert\rgb.hpp">
+      <Filter>Source Files\src\hsl\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\convert\xyz.hpp">
+      <Filter>Source Files\src\hsl\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\convert\yiq.hpp">
+      <Filter>Source Files\src\hsl\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\convert\yuv.hpp">
+      <Filter>Source Files\src\hsl\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\make\black.hpp">
+      <Filter>Source Files\src\hsl\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\make\blue.hpp">
+      <Filter>Source Files\src\hsl\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\make\gray.hpp">
+      <Filter>Source Files\src\hsl\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\make\green.hpp">
+      <Filter>Source Files\src\hsl\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\make\make.hpp">
+      <Filter>Source Files\src\hsl\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\make\red.hpp">
+      <Filter>Source Files\src\hsl\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\make\white.hpp">
+      <Filter>Source Files\src\hsl\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\convert\cmy.hpp">
+      <Filter>Source Files\src\hsv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\convert\cmyk.hpp">
+      <Filter>Source Files\src\hsv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\convert\convert.hpp">
+      <Filter>Source Files\src\hsv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\convert\gray.hpp">
+      <Filter>Source Files\src\hsv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\convert\hls.hpp">
+      <Filter>Source Files\src\hsv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\convert\hsv.hpp">
+      <Filter>Source Files\src\hsv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\convert\rgb.hpp">
+      <Filter>Source Files\src\hsv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\convert\xyz.hpp">
+      <Filter>Source Files\src\hsv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\convert\yiq.hpp">
+      <Filter>Source Files\src\hsv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\make\black.hpp">
+      <Filter>Source Files\src\hsv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\make\blue.hpp">
+      <Filter>Source Files\src\hsv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\make\gray.hpp">
+      <Filter>Source Files\src\hsv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\make\green.hpp">
+      <Filter>Source Files\src\hsv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\make\make.hpp">
+      <Filter>Source Files\src\hsv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\make\red.hpp">
+      <Filter>Source Files\src\hsv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\make\white.hpp">
+      <Filter>Source Files\src\hsv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\category.hpp">
+      <Filter>Source Files\src\hsv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\double.hpp">
+      <Filter>Source Files\src\hsv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\float.hpp">
+      <Filter>Source Files\src\hsv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\hsv.hpp">
+      <Filter>Source Files\src\hsv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\ldouble.hpp">
+      <Filter>Source Files\src\hsv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\uint16.hpp">
+      <Filter>Source Files\src\hsv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\uint32.hpp">
+      <Filter>Source Files\src\hsv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\uint64.hpp">
+      <Filter>Source Files\src\hsv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\uint8.hpp">
+      <Filter>Source Files\src\hsv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\cmy.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\cmyk.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\convert.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\gray.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\hsl.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\hsv.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\xyz.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\yiq.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\convert\yuv.hpp">
+      <Filter>Source Files\src\rgb\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\make\black.hpp">
+      <Filter>Source Files\src\rgb\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\make\blue.hpp">
+      <Filter>Source Files\src\rgb\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\make\gray.hpp">
+      <Filter>Source Files\src\rgb\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\make\green.hpp">
+      <Filter>Source Files\src\rgb\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\make\make.hpp">
+      <Filter>Source Files\src\rgb\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\make\red.hpp">
+      <Filter>Source Files\src\rgb\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\make\white.hpp">
+      <Filter>Source Files\src\rgb\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\category.hpp">
+      <Filter>Source Files\src\xyz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\double.hpp">
+      <Filter>Source Files\src\xyz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\float.hpp">
+      <Filter>Source Files\src\xyz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\ldouble.hpp">
+      <Filter>Source Files\src\xyz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\uint16.hpp">
+      <Filter>Source Files\src\xyz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\uint32.hpp">
+      <Filter>Source Files\src\xyz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\uint64.hpp">
+      <Filter>Source Files\src\xyz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\uint8.hpp">
+      <Filter>Source Files\src\xyz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\xyz.hpp">
+      <Filter>Source Files\src\xyz</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\make\black.hpp">
+      <Filter>Source Files\src\xyz\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\make\blue.hpp">
+      <Filter>Source Files\src\xyz\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\make\gray.hpp">
+      <Filter>Source Files\src\xyz\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\make\green.hpp">
+      <Filter>Source Files\src\xyz\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\make\make.hpp">
+      <Filter>Source Files\src\xyz\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\make\red.hpp">
+      <Filter>Source Files\src\xyz\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\make\white.hpp">
+      <Filter>Source Files\src\xyz\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\convert\cmy.hpp">
+      <Filter>Source Files\src\xyz\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\convert\cmyk.hpp">
+      <Filter>Source Files\src\xyz\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\convert\convert.hpp">
+      <Filter>Source Files\src\xyz\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\convert\gray.hpp">
+      <Filter>Source Files\src\xyz\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\convert\hls.hpp">
+      <Filter>Source Files\src\xyz\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\convert\hsv.hpp">
+      <Filter>Source Files\src\xyz\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\convert\rgb.hpp">
+      <Filter>Source Files\src\xyz\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\convert\yiq.hpp">
+      <Filter>Source Files\src\xyz\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\xyz\convert\yuv.hpp">
+      <Filter>Source Files\src\xyz\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\convert\cmy.hpp">
+      <Filter>Source Files\src\yuv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\convert\cmyk.hpp">
+      <Filter>Source Files\src\yuv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\convert\convert.hpp">
+      <Filter>Source Files\src\yuv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\convert\gray.hpp">
+      <Filter>Source Files\src\yuv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\convert\hls.hpp">
+      <Filter>Source Files\src\yuv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\convert\hsv.hpp">
+      <Filter>Source Files\src\yuv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\convert\rgb.hpp">
+      <Filter>Source Files\src\yuv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\convert\xyz.hpp">
+      <Filter>Source Files\src\yuv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\convert\yiq.hpp">
+      <Filter>Source Files\src\yuv\convert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\make\black.hpp">
+      <Filter>Source Files\src\yuv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\make\blue.hpp">
+      <Filter>Source Files\src\yuv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\make\gray.hpp">
+      <Filter>Source Files\src\yuv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\make\green.hpp">
+      <Filter>Source Files\src\yuv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\make\make.hpp">
+      <Filter>Source Files\src\yuv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\make\red.hpp">
+      <Filter>Source Files\src\yuv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\make\white.hpp">
+      <Filter>Source Files\src\yuv\make</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\category.hpp">
+      <Filter>Source Files\src\yuv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\double.hpp">
+      <Filter>Source Files\src\yuv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\float.hpp">
+      <Filter>Source Files\src\yuv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\ldouble.hpp">
+      <Filter>Source Files\src\yuv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\uint16.hpp">
+      <Filter>Source Files\src\yuv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\uint32.hpp">
+      <Filter>Source Files\src\yuv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\uint64.hpp">
+      <Filter>Source Files\src\yuv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\uint8.hpp">
+      <Filter>Source Files\src\yuv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\yuv.hpp">
+      <Filter>Source Files\src\yuv</Filter>
+    </ClInclude>
+    <ClInclude Include="model\conversion.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\get.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\intrisic_conversion.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\invoke.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\make.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\operation.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\set.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

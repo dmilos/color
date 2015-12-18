@@ -61,5 +61,17 @@ int main(int argc, char const *argv[])
   test_conversion< color::xyz, color::xyz >();
   test_conversion< color::xyz, color::rgb >();
 
+  {
+   color::rgb<float> r;
+   color::hsl<float> h;
+
+   color::make::red( r );
+   h = r;
+   r = h;
+
+   r = r;
+  }
+
   return 0;
  }
+
