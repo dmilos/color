@@ -9,6 +9,7 @@
 #include "./hsv/hsv.hpp"
 #include "./rgb/rgb.hpp"
 #include "./yiq/yiq.hpp"
+#include "./xyz/xyz.hpp"
 
 #include "./generic/generic.hpp"
 #include "./generic/operation/operation.hpp"

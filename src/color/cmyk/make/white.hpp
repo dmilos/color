@@ -35,19 +35,19 @@
       inline
       void black( ::color::_internal::model< color::category::cmyk_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( {1,1,1} );
+        color_parameter.container() = std::array<float,4>( {1,1,1} );
        };
 
       inline
       void black( ::color::_internal::model< color::category::cmyk_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( {1,1,1} );
+        color_parameter.container() = std::array<double,4>( {1,1,1} );
        };
 
       inline
       void black( ::color::_internal::model< color::category::cmyk_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( {1,1,1} );
+        color_parameter.container() = std::array<long double,4>( {1,1,1} );
        };
 
     }

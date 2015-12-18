@@ -24,7 +24,7 @@ namespace color
    {
     template< typename type_name > struct pick_rgb
      {
-         typedef color::category::rgb_uint32 category_type;
+      typedef color::category::rgb_uint32 category_type;
      };
 
     template<> struct pick_rgb< std::uint8_t   >{ typedef ::color::category::rgb_uint8   category_type; };

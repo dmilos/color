@@ -35,19 +35,19 @@
       inline
       void gray50( ::color::_internal::model< color::category::cmyk_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( {0.5,0.5,0.5} );
+        color_parameter.container() = std::array<float,4>( {0.5,0.5,0.5} );
        };
 
       inline
       void gray50( ::color::_internal::model< color::category::cmyk_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( {0.5,0.5,0.5} );
+        color_parameter.container() = std::array<double,4>( {0.5,0.5,0.5} );
        };
 
       inline
       void gray50( ::color::_internal::model< color::category::cmyk_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( {0.5,0.5,0.5} );
+        color_parameter.container() = std::array<long double,4>( {0.5,0.5,0.5} );
        };
 
     }

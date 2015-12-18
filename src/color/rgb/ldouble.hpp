@@ -1,9 +1,15 @@
 #ifndef color_rgb_ldouble
 #define color_rgb_ldouble
 
+#include "../_internal/utility/bound/general.hpp"
 #include "../_internal/utility/type/index.hpp"
 #include "../_internal/utility/component/array.hpp"
 #include "../_internal/utility/container/array.hpp"
+
+#include "../_internal/bound.hpp"
+#include "../_internal/index.hpp"
+#include "../_internal/component.hpp"
+#include "../_internal/container.hpp" 
 
 namespace color
  {

@@ -1,14 +1,10 @@
 #ifndef color_rgb_uint16
 #define color_rgb_uint16
 
+#include "../_internal/utility/bound/general.hpp"
 #include "../_internal/utility/type/index.hpp"
 #include "../_internal/utility/component/cnent556.hpp"
 #include "../_internal/utility/container/cner556.hpp"
-
-#include "../_internal/bound.hpp"
-#include "../_internal/index.hpp"
-#include "../_internal/component.hpp"
-#include "../_internal/container.hpp"
 
 #include "../_internal/bound.hpp"
 #include "../_internal/index.hpp"

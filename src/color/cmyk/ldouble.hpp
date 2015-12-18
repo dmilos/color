@@ -11,6 +11,12 @@ namespace color
    {
 
     template< >
+     struct bound< ::color::category::cmyk_ldouble >
+      : public ::color::_internal::utility::bound::general< long double, unsigned >
+      {
+      };
+
+    template< >
      struct index< ::color::category::cmyk_ldouble >
       : public color::_internal::utility::type::index< unsigned >
       {
@@ -24,7 +30,7 @@ namespace color
 
     template< >
      struct container< ::color::category::cmyk_ldouble >
-      : public  ::color::_internal::utility::container::array< long double, 3 >
+      : public  ::color::_internal::utility::container::array< long double, 4 >
       {
       };
 

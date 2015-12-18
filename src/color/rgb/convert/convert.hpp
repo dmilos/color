@@ -1,5 +1,7 @@
 #include "./cmy.hpp"
-#include "./gray.hpp"
-
 #include "./cmyk.hpp"
+#include "./gray.hpp"
+#include "./hsl.hpp"
+#include "./xyz.hpp"
 #include "./yiq.hpp"
+#include "./yuv.hpp"
