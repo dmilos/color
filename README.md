@@ -1,6 +1,7 @@
 
 # Yet another c++ library that implements color.
 Status: Wery close to first mileston.
+
 All color classes fulfils next very restricted conditions:
 - No Virtual function ( and destructor also )
 - Minimal memory footprint
