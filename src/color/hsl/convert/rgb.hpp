@@ -56,22 +56,22 @@ namespace color
               }
              else
               {
-               float_type d = hi - lo;
-               s = float_type(0.5) < l ? ( d / ( float_type(2) - hi - lo) ) : ( d / (hi + lo) );
+               float_type delta = hi - lo;
+               s = delta / ( 1 - fabs( 2*l - 1 ) );
                if( hi == r )
                 {
-                 h = (g - b) / d + (g < b ? 6 : 0);
+                 h = (float_type(60)/float_type(360)) * (g - b) / delta + (g < b ? float_type(1) : float_type(0));
                 }
                if( hi == g ) 
                 {
-                 h = (b - r) / d + float_type(2);
-                }    
-                
+                 h = (float_type(60)/float_type(360)) * (b - r) / delta + (float_type(120)/float_type(360));
+                }
+
                if( hi == b ) 
                 {
-                 h = (r - g) / d + float_type(4);
+                 h = (float_type(60)/float_type(360)) * (r - g) / delta + (float_type(240)/float_type(360));
                 }
-               h /= float_type(6);
+
               }
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );

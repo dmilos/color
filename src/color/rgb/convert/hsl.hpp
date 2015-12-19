@@ -30,6 +30,8 @@ namespace color
 
            typedef ::color::_internal::diverse< category_left_type, float_type >    diverse_type;
            typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+           
+           typedef ::color::_internal::_privateRGB::convert_hsl2rgb<category_left_name, category_right_name, float_name> this_type;
 
            static void process
             (
@@ -56,9 +58,9 @@ namespace color
                float_type q = l < float_type(0.5) ? (l * (1 + s)) : ( l + s - l * s );
                float_type p = float_type(2) * l - q;
 
-               r = value( p, q, h + ( float_type(1) / float_type(3) ) );
-               g = value( p, q, h );
-               b = value( p, q, h - ( float_type(1) / float_type(3) ) );
+               r = this_type::value( p, q, h + ( float_type(1) / float_type(3) ) + ( float_type(2) / float_type(3) < h ? -1 :0 ) );
+               g = this_type::value( p, q, h );
+               b = this_type::value( p, q, h - ( float_type(1) / float_type(3) ) + ( h < float_type(1) / float_type(3) ? +1 :0 ) );
               }
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( r ) );
@@ -67,13 +69,11 @@ namespace color
             }
 
          private:
-           static float_type value(  float_type p, float_type q, float_type t )
+           static float_type value(  float_type const& p, float_type const& q, float_type const& t )
             {
-             if( t < 0 ) t += 1;
-             if( t > 1 ) t -= 1;
              if( t < float_type(1)/float_type(6) ) return ( p + ( q - p ) * float_type(6) * t );
              if( t < float_type(1)/float_type(2) ) return ( q );
-             if( t < float_type(2)/float_type(2) ) return ( p + ( q - p ) * ( ( float_type(2)/float_type(3) ) - t ) * float_type(6) );
+             if( t < float_type(2)/float_type(3) ) return ( p + ( q - p ) * ( ( float_type(2)/float_type(3) ) - t ) * float_type(6) );
              return p ;
            }
         };

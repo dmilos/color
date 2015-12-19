@@ -1,4 +1,4 @@
-#ifndef  color_generic_operation_addition_123
+#ifndef color_generic_operation_addition_123
 #define color_generic_operation_addition_123
 
 

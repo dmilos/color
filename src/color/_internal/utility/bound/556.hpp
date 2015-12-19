@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_bound_cnent556
-#define color__internal_utility_bound_cnent556
+#ifndef color__internal_utility_bound_bound556
+#define color__internal_utility_bound_bound556
 
-// ::color::_internal::utility::bound::cnent556< index_type >
+// ::color::_internal::utility::bound::bound556< index_type >
 
 
 #include "../type/traitp.hpp"
@@ -18,7 +18,7 @@ namespace color
        {
 
         template< typename index_name >
-         struct cnent556
+         struct bound556
           {
            public:
              typedef std::uint16_t      unsigned_type;

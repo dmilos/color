@@ -1,6 +1,8 @@
 #ifndef color_hsv_convert_rgb
 #define color_hsv_convert_rgb
 
+#include <algorithm>
+
 #include "../../_internal/convert.hpp"
 #include "../../rgb/rgb.hpp"
 
@@ -37,7 +39,40 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             // TODO
+             float_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+             float_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+             float_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+             float_type lo = std::min( {r,g,b} );
+             float_type hi = std::max( {r,g,b} );
+             float_type delta = hi - lo;
+
+             float_type h = 0;
+             float_type s = 0;
+             float_type v = hi;
+
+             if( ( 0 != hi ) && ( 0 != delta ) )
+              {
+               s = delta / hi;
+               if( r = hi )
+                { h = 0 + ( g - b ) / delta; }
+               else 
+                {
+                 if( g == hi )
+                  { h = 2.0 + ( b - r ) / delta; }
+                 else
+                  { h = 4.0 + ( r - g ) / delta; }
+                }
+               h /= 6;
+
+               if( h < 0.0 )
+                {
+                 h += 1; 
+                }
+              }
+
+             container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );
+             container_left_trait_type::template set<1>( left, diverse_type::template process<1>( s ) );
+             container_left_trait_type::template set<2>( left, diverse_type::template process<2>( v ) );
             }
         };
 

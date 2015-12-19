@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_bound_cnent422
-#define color__internal_utility_bound_cnent422
+#ifndef color__internal_utility_bound_bound422
+#define color__internal_utility_bound_bound422
 
-// ::color::_internal::utility::bound::cnent422< index_type >
+// ::color::_internal::utility::bound::bound422< index_type >
 
 
 #include "../type/traitp.hpp"
@@ -18,7 +18,7 @@ namespace color
        {
 
         template< typename index_name >
-         struct cnent422
+         struct bound422
           {
            public:
              typedef std::uint8_t       unsigned_type;

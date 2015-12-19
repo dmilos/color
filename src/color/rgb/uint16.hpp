@@ -1,7 +1,7 @@
 #ifndef color_rgb_uint16
 #define color_rgb_uint16
 
-#include "../_internal/utility/bound/general.hpp"
+#include "../_internal/utility/bound/556.hpp"
 #include "../_internal/utility/type/index.hpp"
 #include "../_internal/utility/component/cnent556.hpp"
 #include "../_internal/utility/container/cner556.hpp"
@@ -11,6 +11,8 @@
 #include "../_internal/component.hpp"
 #include "../_internal/container.hpp"
 
+#include "./category.hpp"
+
 
 namespace color
  {
@@ -19,7 +21,7 @@ namespace color
 
     template< >
      struct bound< ::color::category::rgb_uint16 >
-      : public ::color::_internal::utility::bound::general< std::uint16_t, unsigned >
+      : public ::color::_internal::utility::bound::bound556< unsigned >
       {
       };
 
