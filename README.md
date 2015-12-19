@@ -22,7 +22,7 @@ Available color models: CMY, CMYK, GRAY, HSL, HSV, RGB, XYZ, YIQ, YUV
 
 Implemented Conversions:
 > | l = r | cmy  | cmyk | gray | hsl  | hsv  | rgb  | xyz  | yiq  | yuv  |
-> |-------|------|------|------|------|------|------|------|------|
+> |-------|------|------|------|------|------|------|------|------|------|
 > | cmy   | 101% | 100% | 100% |      |      | 100% |      |      |      |
 > | cmyk  | 100% | 101% |      |      |      | 100% |      |      |      |
 > | gray  | 100% |      | 101% |      |      | 100% |      |      |      |
