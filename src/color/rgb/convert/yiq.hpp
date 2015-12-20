@@ -2,7 +2,7 @@
 #define color_rgb_convert_yiq
 
 #include "../../_internal/convert.hpp"
-#include "../../yiq/yiq.hpp"
+#include "../../yiq/category.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"

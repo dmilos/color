@@ -47,9 +47,9 @@ namespace color
              float_type u = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
              float_type v = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-             float_type r = y + v*( (1-Wr)/Vmax );   
+             float_type r = y + v*( (1-Wr)/Vmax );
              float_type g = y- u*( Wb*(1-Wb)/Umax/Wg ) - v*( Wr*(1-Wr)/Vmax/Wg );  
-             float_type b = y- u*( (1-Wb)/Umax );  
+             float_type b = y+ u*( (1-Wb)/Umax );  
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( r ) );
              container_left_trait_type::template set<1>( left, diverse_type::template process<1>( g ) );

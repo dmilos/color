@@ -26,7 +26,7 @@ settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.
 
 # Accumulate source
 source = []
-source +=   ['main.cpp' ]
+source +=   ['main.cpp', 'precision.cpp' ]
 
 # Make native environment
 envProgram = nucleotide.Environment( settings ).native()

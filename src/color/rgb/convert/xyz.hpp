@@ -1,11 +1,13 @@
 #ifndef color_rgb_convert_xyz
 #define color_rgb_convert_xyz
 
+#include "../../_internal/container.hpp"
 #include "../../_internal/convert.hpp"
-#include "../../xyz/xyz.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
+
+#include "../../xyz/xyz.hpp"
 
 namespace color
  {
@@ -37,9 +39,9 @@ namespace color
              ,container_right_const_input_type  right
             )
             { // TODO divide by 0.17697
-             static float_type b11 =  2.36461,   b12 = -0.896541,  b13 = -0.468073;
-             static float_type b21 = -0.515166,  b22 =  1.42641,   b23 = 0.0887581;
-             static float_type b31 =  0.0052037, b32 = -0.0144082, b33 = 1.0092; 
+             static float_type b11 =  2.3646138465383655,   b12 = -0.896540570739668,    b13 = -0.4680732757986974;
+             static float_type b21 = -0.515166208447888,    b22 =  1.4264081038563887,   b23 =  0.08875810459149917;
+             static float_type b31 =  0.005203699075231192, b32 = -0.014408162665216047, b33 =  1.0092044635899848; 
 
              float_type x = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              float_type y = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );

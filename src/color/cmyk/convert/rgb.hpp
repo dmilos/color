@@ -1,6 +1,8 @@
 #ifndef color_cmyk_convert_rgb
 #define color_cmyk_convert_rgb
 
+#include <algorithm>
+
 #include "../../_internal/convert.hpp"
 #include "../../rgb/rgb.hpp"
 
@@ -41,13 +43,12 @@ namespace color
              float_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
              float_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-
-             float_type k = 1-max( r, g, b );
+             float_type k = float_type(1) - std::max( { r, g, b } );
              float_type c;
              float_type m;
              float_type y;
 
-             if( 0 != k )
+             if( float_type(0) != k )
               {
                c = (1-r-k) / (1-k);
                m = (1-g-k) / (1-k);
@@ -55,9 +56,9 @@ namespace color
               }
              else
               {
-               c = 0;
-               m = 0;
-               y = 0;
+               c = float_type(0);
+               m = float_type(0);
+               y = float_type(0);
               }
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( c ) );

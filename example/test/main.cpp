@@ -9,9 +9,8 @@
 #include "./model/get.hpp"
 #include "./model/conversion.hpp"
 
-int main(int argc, char const *argv[])
+void invoke()
  {
-
   test_invoke< color::category::rgb_uint8   >();
   test_invoke< color::category::rgb_uint16  >();
   test_invoke< color::category::rgb_uint32  >();
@@ -60,17 +59,15 @@ int main(int argc, char const *argv[])
 
   test_conversion< color::xyz, color::xyz >();
   test_conversion< color::xyz, color::rgb >();
+ 
+ }
 
-  {
-   color::rgb<float> r;
-   color::hsl<float> h;
+int main(int argc, char const *argv[])
+ {
+  // invoke();
 
-   color::make::red( r );
-   h = r;
-   r = h;
-
-   r = r;
-  }
+  extern void check_precision();
+  check_precision();
 
   return 0;
  }

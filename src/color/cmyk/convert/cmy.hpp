@@ -1,6 +1,8 @@
 #ifndef color_cmyk_convert_cmy
 #define color_cmyk_convert_cmy
 
+#include <algorithm>
+
 #include "../../_internal/convert.hpp"
 #include "../../cmy/cmy.hpp"
 
@@ -37,26 +39,26 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             float_type cc = 1 - normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-             float_type cm = 1 - normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-             float_type cy = 1 - normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+             float_type cc = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+             float_type cm = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+             float_type cy = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-             float_type k = 1 - max( cc, cm, cy );
+             float_type k = std::min( { cc, cm, cy } );
              float_type c;
              float_type m;
              float_type y;
 
-             if( 0 != k )
+             if( float_type(1) != k )
               {
-               c = (1-cc-k) / (1-k);
-               m = (1-cm-k) / (1-k);
-               y = (1-cy-k) / (1-k);
+               c = (cc-k) / ( 1-k );
+               m = (cm-k) / ( 1-k );
+               y = (cy-k) / ( 1-k );
               }
              else
               {
-               c = 0;
-               m = 0;
-               y = 0;
+               c = float_type(0);
+               m = float_type(0);
+               y = float_type(0);
               }
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( c ) );

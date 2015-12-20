@@ -5,6 +5,7 @@
 
 #include "./category.hpp"
 
+
 #include "./uint8.hpp"
 #include "./uint16.hpp"
 #include "./uint32.hpp"
@@ -13,8 +14,8 @@
 #include "./double.hpp"
 #include "./ldouble.hpp"
 
-#include "./get/get.hpp"
-#include "./set/set.hpp"
+//#include "./get/get.hpp"
+//#include "./set/set.hpp"
 #include "./make/make.hpp"
 #include "./convert/convert.hpp"
 
@@ -22,10 +23,12 @@ namespace color
  {
   namespace _internal
    {
-    template< typename type_name > struct pick_rgb
-     {
-      typedef color::category::rgb_uint32 category_type;
-     };
+    template< typename type_name >
+     struct pick_rgb
+      {
+       typedef color::category::rgb_uint32 category_type;
+      };
+
 
     template<> struct pick_rgb< std::uint8_t   >{ typedef ::color::category::rgb_uint8   category_type; };
     template<> struct pick_rgb< std::uint16_t  >{ typedef ::color::category::rgb_uint16  category_type; };

@@ -5,6 +5,8 @@
 
 #include "./category.hpp"
 
+
+
 #include "./uint16.hpp"
 #include "./uint32.hpp"
 #include "./uint64.hpp"
@@ -21,12 +23,12 @@ namespace color
  {
   namespace _internal
    {
-    template< typename type_name > 
+    template< typename type_name >
      struct pick_yiq
       {
-       public:
-        typedef color::category::yiq_uint32 category_type;
+       typedef color::category::yiq_uint32 category_type;
       };
+
 
     template<> struct pick_yiq< std::uint8_t   >{ typedef ::color::category::yiq_uint8   category_type; };
     template<> struct pick_yiq< std::uint16_t  >{ typedef ::color::category::yiq_uint16  category_type; };

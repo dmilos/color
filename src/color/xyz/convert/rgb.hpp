@@ -39,7 +39,7 @@ namespace color
             { // TODO divide by 0.17697
              static float_type b11 = 0.49000, b12 = 0.31000, b13 = 0.20000;
              static float_type b21 = 0.17697, b22 = 0.81240, b23 = 0.01063;
-             static float_type b31 = 0.00000, b32 = 0.01,    b33 = 0.99000;
+             static float_type b31 = 0.00000, b32 = 0.01000, b33 = 0.99000;
 
              float_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              float_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
