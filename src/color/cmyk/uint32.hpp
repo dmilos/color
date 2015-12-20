@@ -11,7 +11,7 @@
 #include "../_internal/component.hpp"
 #include "../_internal/container.hpp"
 
-#include "../_internal/container.hpp"
+#include "./category.hpp"
 
 
 namespace color
@@ -27,19 +27,19 @@ namespace color
 
     template< >
      struct index< ::color::category::cmyk_uint32 >
-      : public color::_internal::utility::type::index< unsigned >
+      : public ::color::_internal::utility::type::index< unsigned >
       {
       };
 
     template< >
      struct component< ::color::category::cmyk_uint32 >
-      : public ::color::_internal::utility::component::Unsigned< std::uint8_t, 8, unsigned>
+      : public ::color::_internal::utility::component::Unsigned< std::uint8_t,   8, unsigned>
       {
       };
 
     template< >
      struct container< ::color::category::cmyk_uint32 >
-      : public  ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t,  unsigned, 4,  8 >
+      : public  ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 4,  8 >
       {
       };
 

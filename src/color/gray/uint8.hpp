@@ -5,12 +5,25 @@
 #include "../_internal/utility/component/unsigned.hpp"
 #include "../_internal/utility/container/unsigned.hpp"
 
+
+//#include "../_internal/bound.hpp"
+#include "../_internal/index.hpp"
+#include "../_internal/component.hpp"
+#include "../_internal/container.hpp"
+
+
 namespace color
  {
   namespace _internal
    {
 
-    template< >
+
+
+
+
+
+
+   template< >
      struct index< ::color::category::gray_uint8 >
       : public color::_internal::utility::type::index< unsigned >
       {

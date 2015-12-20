@@ -11,7 +11,7 @@
 #include "../_internal/component.hpp"
 #include "../_internal/container.hpp"
 
-#include "../_internal/container.hpp"
+#include "./category.hpp"
 
 
 namespace color
@@ -39,7 +39,7 @@ namespace color
 
     template< >
      struct container< ::color::category::rgb_uint32 >
-      : public  ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t,  unsigned, 3,  8 >
+      : public  ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3,  8 >
       {
       };
 

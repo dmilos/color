@@ -2,6 +2,6 @@
 #include "./cmyk.hpp"
 #include "./gray.hpp"
 #include "./hsl.hpp"
-//#include "./yiq.hpp"
+#include "./yiq.hpp"
 #include "./yuv.hpp"
 #include "./xyz.hpp"

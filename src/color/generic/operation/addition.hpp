@@ -1,6 +1,8 @@
 #ifndef color_generic_operation_addition_123
 #define color_generic_operation_addition_123
 
+#include "../../_internal/trait.hpp"
+#include "../../_internal/model.hpp"
 
  namespace color
   {

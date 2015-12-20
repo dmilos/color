@@ -3,11 +3,15 @@
 
 //#include "../argb/category.hpp"
 #include "../gray/category.hpp"
-//#include "../hls/category.hpp"
-//#include "../hsv/category.hpp"
+#include "../cmy/category.hpp"
+#include "../cmyk/category.hpp"
+#include "../hls/category.hpp"
+#include "../hsv/category.hpp"
 #include "../rgb/category.hpp"
 #include "../rgb/generic.hpp"
 #include "../yiq/category.hpp"
+#include "../yuv/category.hpp"
+#include "../xyz/category.hpp"
 
 namespace color
  {

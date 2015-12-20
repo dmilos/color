@@ -11,7 +11,7 @@
 #include "../_internal/component.hpp"
 #include "../_internal/container.hpp"
 
-#include "../_internal/container.hpp"
+#include "./category.hpp"
 
 
 namespace color
@@ -27,7 +27,7 @@ namespace color
 
     template< >
      struct index< ::color::category::hsl_uint32 >
-      : public color::_internal::utility::type::index< unsigned >
+      : public ::color::_internal::utility::type::index< unsigned >
       {
       };
 
