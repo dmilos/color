@@ -15,9 +15,9 @@
 		<dt>Classes</dt>
 		<dd>
 			<dl>
-				<dt>Model</dt>
+				<dt>The <code><i>_model</i></code></dt>
 				<dd>
-					
+
 					All color class has same set of properties like <code><i>_model</i></code> class. <br>
 					<code>
 					template &lt; typename category_name &gt; color::_model ;
@@ -25,16 +25,70 @@
 					Depend of implementation color classes might or might not be in relation with <code><i>_model</i></code> or <code><i>_model</i></code> might no exist.<br>
 					In here it serve purpose to describe give description of all color classes at once.<br>
 					To replace all color classes in example avoid misleading that some functionality might be used only for one color class.
+<pre>
+   template&lt; typename category_name &gt;
+     class model
+      {
+       public:
+        typedef category_name category_type;
+
+
+        typedef  <i>unspecified</i>     component_type
+        typedef  <i>unspecified</i>     index_input_const_type
+        typedef  <i>unspecified</i>     index_type
+        typedef  <i>unspecified</i>     component_input_const_type
+        typedef  <i>unspecified</i>     component_return_const_type
+        typedef  <i>unspecified</i>     container_return_const_type
+        typedef  <i>unspecified</i>     container_return_type
+        typedef  <i>unspecified</i>     index_return_image_type
+        typedef  <i>unspecified</i>     container_type
+        typedef  <i>unspecified</i>             set_return_type;
+
+                 model( );
+
+        explicit model( container_input_const_type container );
+
+        explicit model( std::initializer_list&lt;component_type  &gt; const& ilist );
+
+        template &lt; typename other_category_name  &gt;
+         explicit model( ::color::_internal::model&lt;other_category_name &gt; const& that );
+
+        template &lt; typename other_category_name  &gt;
+         model operator=( ::color::_internal::model&lt;other_category_name &gt; const& that );
+
+        component_return_const_type  get( index_input_const_type index )const;
+
+        template&lt; index_type index  &gt;
+         component_return_const_type  get()const;
+
+        set_return_type  set( index_input_const_type index, component_input_const_type component );
+
+        template&lt; index_type index  &gt;
+         set_return_type set( component_input_const_type component );
+
+        component_return_const_type operator[]( index_input_const_type index )const;
+
+        container_return_const_type container()const;
+        container_return_type       container();
+
+        static index_return_image_type       size();
+
+        private:
+          container_type m_container;
+    };
+</pre>
+
 				</dd>
-				<dt>Color classes</dt>
+				<dt>Classes</dt>
 				<dd>
+					<code>template &lt; typename unspecified_name &gt; ::color::cmy</code>,  <br />
+					<code>template &lt; typename unspecified_name &gt; ::color::cmyk</code>,  <br />
 					<code>template &lt; typename unspecified_name &gt; ::color::rgb</code>,  <br />
 					<code>template &lt; typename unspecified_name &gt; ::color::gray</code>, <br />
 					<code>template &lt; typename unspecified_name &gt; ::color::yiq</code>,  <br />
-					<code>template &lt; typename unspecified_name &gt; ::color::hls</code>   <br />
-				</dd>
-				<dt>Categories</dt>
-				<dd>
+					<code>template &lt; typename unspecified_name &gt; ::color::hsl</code>   <br />
+					<code>template &lt; typename unspecified_name &gt; ::color::hsv</code>   <br />
+					<code>template &lt; typename unspecified_name &gt; ::color::yuv</code>,  <br />
 				</dd>
 
 			</dl>
@@ -44,24 +98,25 @@
 			<dl>
 				<dt>make</dt>
 				<dd>
-					<code>color::make:red(     <i>_model </i> &amp; _m );</code><br/>
-					<code>color::make:green(   <i>_model </i> &amp; _m );</code><br/>
-					<code>color::make:blue(    <i>_model </i> &amp; _m );</code><br/>
-					<code>color::make:gray50(  <i>_model </i> &amp; _m );</code><br/>
-					<code>color::make:yellow(  <i>_model </i> &amp; _m );</code><br/>
-					<code>color::make:cyan(    <i>_model </i> &amp; _m );</code><br/>
-					<code>color::make:magenta( <i>_model </i> &amp; _m );</code><br/>
-					where <i>_model</i> is one of color class.
+					<code>::color::make::black(   <i>_model </i> &amp; _m );</code><br/>
+					<code>::color::make::white(   <i>_model </i> &amp; _m );</code><br/>
+					<code>::color::make:red(        <i>_model </i> &amp; _m );</code><br/>
+					<code>::color::make:green(      <i>_model </i> &amp; _m );</code><br/>
+					<code>::color::make:blue(       <i>_model </i> &amp; _m );</code><br/>
+					<code>::color::make:gray50(     <i>_model </i> &amp; _m );</code><br/>
+					<code>::color::make:yellow(     <i>_model </i> &amp; _m );</code><br/>
+					<code>::color::make:cyan(       <i>_model </i> &amp; _m );</code><br/>
+					<code>::color::make:magenta(    <i>_model </i> &amp; _m );</code><br/>
 				</dd>
 				<dt>initialization</dt>
-				<dd></dd>
+				<dd>{ }</dd>
 				<dt>conversion</dt>
 				<dd>For all conversion between colors are performed by using <code>operator=</code>.<br>
 					Example:
 						<blockquote>
 							<code>
-									::color::hls h;<br>
-									::color::hls r;<br>
+								::color::hls h;<br>
+								::color::hls r;<br>
 								<b>h = r;</b>
 							</code>
 						</blockquote>
@@ -73,3 +128,4 @@
 	<hr>
 </body>
 </html>
+
