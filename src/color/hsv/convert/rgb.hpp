@@ -42,32 +42,33 @@ namespace color
              float_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              float_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
              float_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
-             float_type lo = std::min( {r,g,b} );
-             float_type hi = std::max( {r,g,b} );
-             float_type delta = hi - lo;
+
+             float_type lo = std::min<float_type>( {r,g,b} );
+             float_type v =  std::max<float_type>( {r,g,b} );
+             float_type delta = v - lo;
 
              float_type h = 0;
              float_type s = 0;
-             float_type v = hi;
 
-             if( ( 0 != hi ) && ( 0 != delta ) )
+
+             if( ( 0 != v ) && ( 0 != delta ) )
               {
-               s = delta / hi;
-               if( r = hi )
-                { h = 0 + ( g - b ) / delta; }
-               else 
-                {
-                 if( g == hi )
-                  { h = 2.0 + ( b - r ) / delta; }
-                 else
-                  { h = 4.0 + ( r - g ) / delta; }
-                }
-               h /= 6;
+               s = delta / v;
 
-               if( h < 0.0 )
+               if( v == r )
                 {
-                 h += 1; 
+                 h = (float_type(60)/float_type(360)) * (g - b) / delta + (g < b ? float_type(1) : float_type(0));
                 }
+               if( v == g ) 
+                {
+                 h = (float_type(60)/float_type(360)) * (b - r) / delta + (float_type(120)/float_type(360));
+                }
+
+               if( v == b ) 
+                {
+                 h = (float_type(60)/float_type(360)) * (r - g) / delta + (float_type(240)/float_type(360));
+                }
+ 
               }
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );

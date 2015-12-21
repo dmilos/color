@@ -11,7 +11,7 @@
       inline
       void green( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x38;
+        color_parameter.container() = 0x38; // TODO
        } 
 
       inline

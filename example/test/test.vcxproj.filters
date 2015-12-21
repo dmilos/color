@@ -1220,5 +1220,11 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
+    <ClCompile Include="precision.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="targa.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

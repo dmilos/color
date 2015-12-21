@@ -5,7 +5,7 @@
 #include "../gray/category.hpp"
 #include "../cmy/category.hpp"
 #include "../cmyk/category.hpp"
-#include "../hls/category.hpp"
+#include "../hsl/category.hpp"
 #include "../hsv/category.hpp"
 #include "../rgb/category.hpp"
 #include "../rgb/generic.hpp"

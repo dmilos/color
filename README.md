@@ -11,14 +11,17 @@ Code sample:
 ```c++
         color::rgb<float>          f; //!< This will pack ONLY three consecutive floats in memory
         color::rgb<std::uint32_t>  u; //!< Just one std::uint32_t for all.
+
         f = u; //!< Perform direct conversion from packed uint32_t to float.
 
-        color::rgb<double>         d;
+        color::rgb<double>         d( { 0.1, 0.2, 0.3  } );
 
-        f = d; //!< Conversion from double to float
+        f = d; //!< Reformat RGB from double to float
+        u = f; //!< Reformat RGB from float to packed uint32_t
 
-        color::hls<std::uint32_t>     h;
-        h = f; //!< This is the way how to convert from RGB(float) to HLS(std::uint32_t).
+        color::hsl<std::uint32_t>     h( { 192, 64, 92  } );
+
+        h = f; //!< This is the way how to convert from RGB(float) to HSL(std::uint32_t).
 ```
 
 Available color models: CMY, CMYK, GRAY, HSL, HSV, RGB, XYZ, YIQ, YUV
@@ -29,8 +32,8 @@ Implemented Conversions:
 > | cmy   | 101% | 100% | 100% |      |      | 100% |      |      |      |
 > | cmyk  | 100% | 101% |      |      |      | 100% |      |      |      |
 > | gray  | 100% |      | 101% |      |      | 100% |      |      |      |
-> | hsl   |      |      |      | 101% |      | 100% |      |      |      |
-> | hsv   |      |      |      |      | 101% | 100% |      |      |      |
+> | hsl   |      |      |      | 101% | 100% | 100% |      |      |      |
+> | hsv   |      |      |      | 100% | 101% | 100% |      |      |      |
 > | rgb   | 100% | 100% | 100% | 100% | 100% | 101% | 100% | 100% | 100% |
 > | xyz   |      |      |      |      |      | 100% | 101% |      |      |
 > | yiq   |      |      |      |      |      | 100% |      | 101% |      |

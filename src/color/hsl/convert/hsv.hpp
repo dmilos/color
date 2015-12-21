@@ -42,9 +42,9 @@ namespace color
              float_type h  = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              float_type ss = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
              float_type v  = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
-                
+
              float_type l = v * ( 2-ss ) / 2;
-             float_type s = v*ss/( 1- fabs( 2* l -1 ) ) ;
+             float_type s = v*ss/( 1- fabs( 2 * l -1 ) ) ;
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );
              container_left_trait_type::template set<1>( left, diverse_type::template process<1>( s ) );

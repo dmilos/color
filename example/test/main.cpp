@@ -1,3 +1,5 @@
+#include <vector>
+#include <fstream>
 
 #include "color/color.hpp"
 
@@ -62,9 +64,46 @@ void invoke()
  
  }
 
+//template < template<typename> class color_name >
+void make_image(std::string const& name )
+ {
+  int height = 1000;
+  int width  = 1000;
+  typedef unsigned char targa_header_struct[18];
+
+  targa_header_struct header;
+
+  void targa_make_header(int height, int width, targa_header_struct header);
+
+  targa_make_header( height, width, header);
+
+  std::vector< color::rgb<std::uint32_t> >   image(height * width);
+
+  for (int y = 0; y < height; y++)
+   {
+    for (int x = 0; x < width; x++)
+     {
+         image[y * width + x] = color::hsl<double>({ y / double(height), 0.5, x / double(width) });
+     }
+   }
+
+  std::ofstream of(name, std::ios_base::binary);
+  of.write((const char *)header, 18);
+  of.write((const char *)image.data(), image.size() * 4);
+ }
+
 int main(int argc, char const *argv[])
  {
-  // invoke();
+  //make_image( "image-rgb.tga");
+  //make_image( "image-cmy.tga");
+  //make_image("image-cmyk.tga");
+  make_image( "image-hsl.tga");
+  //make_image( "image-hsv.tga");
+  //make_image( "image-xyz.tga");
+  //make_image( "image-yiq.tga");
+  //make_image( "image-yuv.tga");
+
+  invoke();
 
   extern void check_precision();
   check_precision();

@@ -39,7 +39,7 @@ namespace color
             {
              static float_type b11 = 1, b12 =  0.9562948323208939905, b13 =  0.6210251254447287141;
              static float_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-             static float_type b31 = 1, b32 = -1.106989908567128216,  b33 =   1.704614975498829329;
+             static float_type b31 = 1, b32 = -1.1069899085671282160, b33 =  1.7046149754988293290;
 
              float_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              float_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );

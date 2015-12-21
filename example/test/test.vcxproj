@@ -12,6 +12,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="precision.cpp" />
+    <ClCompile Include="targa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\color\cmyk\category.hpp" />

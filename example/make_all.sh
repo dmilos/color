@@ -17,9 +17,11 @@ g++ -fexceptions -std=c++11 -g -I../src ctor_gray.cpp                   -o  ctor
 g++ -fexceptions -std=c++11 -g -I../src ctor_hsl.cpp                    -o  ctor_hsl
 g++ -fexceptions -std=c++11 -g -I../src ctor_rgb.cpp                    -o  ctor_rgb
 g++ -fexceptions -std=c++11 -g -I../src ctor_yiq.cpp                    -o  ctor_yiq
+g++ -fexceptions -std=c++11 -g -I../src ctor_hsv.cpp                    -o  ctor_hsv
+g++ -fexceptions -std=c++11 -g -I../src ctor_yuv.cpp                    -o  ctor_yuv
 
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_rgb.cpp             -o  make_red_in_rgb
-g++ -fexceptions -std=c++11 -g -I../src make_red_in_gray.cpp             -o  make_red_in_gray
+g++ -fexceptions -std=c++11 -g -I../src make_red_in_gray.cpp            -o  make_red_in_gray
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_cmy.cpp             -o  make_red_in_cmy
 
 

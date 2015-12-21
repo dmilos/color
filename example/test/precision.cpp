@@ -5,8 +5,8 @@
 
 void check_precision()
  {
-  color::rgb<long double > l;
-  color::yiq<long double > r;
+  color::hsl<long double > l;
+  color::hsv<long double > r;
 
   long double e0 = 0;
   long double e1 = 0;
@@ -46,19 +46,17 @@ void check_precision()
  }
 
 
+// rgb vs YIQ: e0 : 4.44089e-016
+// rgb vs YIQ: e1 : 3.33067e-016
+// rgb vs YIQ: e2 : 4.44089e-016
 
-// rgb vs HSV e0: 0.998316
-// rgb vs HSV e1: 1
-// rgb vs HSV e2: 0.99
-
-// rgb vs YIQ: e0: 0.69399
-// rgb vs YIQ: e1: 1.57976
-// rgb vs YIQ: e2: 1.19934
+// rgb vs HSV e0 : 1.11022e-015
+// rgb vs HSV e1 : 8.32667e-016
+// rgb vs HSV e2 : 8.88178e-016
 
 // rgb vs xyz e0: e0: 7.77156e-016
 // rgb vs xyz e1: e1: 4.44089e-016
 // rgb vs xyz e2: e2: 1.11022e-016
-
 
 // rgb vs CMY e0: 5.55112e-017
 // rgb vs CMY e1: 5.55112e-017
@@ -79,3 +77,8 @@ void check_precision()
 // rgb vs YUV e0: e0: 2.22045e-016
 // rgb vs YUV e1: e1: 4.44089e-016
 // rgb vs YUV e2: e2: 2.22045e-016
+
+
+// hSL vs HSB e0: 0
+// hSL vs HSB e1: 7.99361e-015
+// hSL vs HSB e2: 1.11022e-016

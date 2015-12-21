@@ -45,18 +45,14 @@ namespace color
                 
              const float_type hi = std::max<float_type>( { r, g, b } );
              const float_type lo = std::min<float_type>( { r, g, b } );
+             float_type delta = hi - lo;
 
-             float_type h;
-             float_type s;
+             float_type h = 0;
+             float_type s = 0;
              float_type l = (hi + lo) / float_type(2);
 
-             if( hi == lo )
+             if( 0 != delta )
               {
-               h = s = 0;
-              }
-             else
-              {
-               float_type delta = hi - lo;
                s = delta / ( 1 - fabs( 2*l - 1 ) );
                if( hi == r )
                 {
@@ -71,7 +67,6 @@ namespace color
                 {
                  h = (float_type(60)/float_type(360)) * (r - g) / delta + (float_type(240)/float_type(360));
                 }
-
               }
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );
