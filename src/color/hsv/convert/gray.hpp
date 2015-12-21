@@ -4,8 +4,7 @@
 #include "../../_internal/convert.hpp"
 #include "../../gray/gray.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+#include "../../_internal/reformat.hpp"
 
 namespace color
  {
@@ -21,6 +20,7 @@ namespace color
            typedef category_left_name category_left_type;
            typedef category_right_name category_right_type;
 
+           typedef ::color::_internal::bound<category_left_type>         bound_left_trait_type;
            typedef ::color::_internal::container<category_left_type>     container_left_trait_type;
            typedef ::color::_internal::container<category_right_type>    container_right_trait_type;
 
@@ -35,7 +35,9 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             // TODO
+             container_left_trait_type::template set<0>( left, bound_left_trait_type::minimum<0>() );
+             container_left_trait_type::template set<1>( left, bound_left_trait_type::minimum<1>() );
+             container_left_trait_type::template set<2>( left, reformat_type::template process<2,0>( container_right_trait_type::template get<0>( right ) ) );
             }
         };
      }

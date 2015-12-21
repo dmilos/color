@@ -83,7 +83,8 @@ void make_image(std::string const& name )
    {
     for (int x = 0; x < width; x++)
      {
-         image[y * width + x] = color::hsl<double>({ y / double(height), 0.5, x / double(width) });
+      image[y * width + x].set<3>(255);
+      image[y * width + x] = color::hsl<double>({ y / double(height), 0.5, x / double(width) });
      }
    }
 
