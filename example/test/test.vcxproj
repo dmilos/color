@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="make.cpp" />
     <ClCompile Include="precision.cpp" />
     <ClCompile Include="targa.cpp" />
   </ItemGroup>

@@ -48,7 +48,7 @@ namespace color
              float_type m;
              float_type y;
 
-             if( float_type(0) != k )
+             if( float_type(1) != k )
               {
                c = (1-r-k) / (1-k);
                m = (1-g-k) / (1-k);

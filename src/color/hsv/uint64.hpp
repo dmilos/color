@@ -21,7 +21,7 @@ namespace color
 
     template< >
      struct bound< ::color::category::hsv_uint64 >
-      : public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 8, unsigned >
+      : public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 16, unsigned >
       {
       };
 

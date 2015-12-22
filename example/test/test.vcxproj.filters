@@ -1226,5 +1226,8 @@
     <ClCompile Include="targa.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
+    <ClCompile Include="make.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
