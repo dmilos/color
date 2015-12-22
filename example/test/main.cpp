@@ -98,16 +98,20 @@ int main(int argc, char const *argv[])
   //make_image( "image-rgb.tga");
   //make_image( "image-cmy.tga");
   //make_image("image-cmyk.tga");
-  make_image( "image-hsl.tga");
+  //make_image( "image-hsl.tga");
   //make_image( "image-hsv.tga");
   //make_image( "image-xyz.tga");
   //make_image( "image-yiq.tga");
   //make_image( "image-yuv.tga");
 
-  invoke();
+  //invoke();
 
-  extern void check_precision();
-  check_precision();
+  //extern void check_precision();
+  //check_precision();
+
+  extern void make_test();
+
+  make_test();
 
   return 0;
  }

@@ -11,13 +11,13 @@
       inline
       void black( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0;
+        color_parameter.container() = 0x00;
        }
 
       inline
       void black( ::color::_internal::model< color::category::cmy_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0;
+        color_parameter.container() = 0x0000;
        }
 
       inline
