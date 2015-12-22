@@ -22,6 +22,20 @@
          }
        }
 
+     template< typename category_name >
+      inline
+      ::color::_internal::model< category_name >
+      gray50( )
+       {
+        typedef ::color::_internal::model< category_name > model_type;
+        static model_type dummy;
+        // TODO Will call every time, That is no good.
+        ::color::make::gray50( dummy );
+
+        // Do nothing to force specialization
+        return dummy;
+       }
+
     }
   }
 

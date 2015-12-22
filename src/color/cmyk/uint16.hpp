@@ -33,7 +33,7 @@ namespace color
 
     template< >
      struct component< ::color::category::cmyk_uint16 >
-      : public ::color::_internal::utility::component::Unsigned< std::uint8_t, 4, unsigned>
+      : public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned>
       {
       };
 

@@ -15,4 +15,7 @@
 #include "./yiq/yiq.hpp"
 #include "./yuv/yuv.hpp"
 
+using namespace ::color::operation::arithmetic;
+using namespace ::color::operation::compare;
+
 #endif

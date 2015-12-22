@@ -1,7 +1,7 @@
-#ifndef  color_generic_make_cyan
-#define color_generic_make_cyan
+#ifndef  color_generic_make_silver
+#define color_generic_make_silver
 
-// ::color::make::cyan( c )
+// ::color::make::silver( c )
 
  namespace color
   {
@@ -9,7 +9,7 @@
     {
 
      template< typename category_name >
-      void cyan( ::color::_internal::model< category_name > & color_parameter )
+      void silver( ::color::_internal::model< category_name > & color_parameter )
        {
         typedef ::color::_internal::model< category_name > model_type;
         typedef ::color::_internal::trait< category_name > trait_type;
@@ -21,12 +21,12 @@
      template< typename category_name >
       inline
       ::color::_internal::model< category_name >
-      cyan( )
+      silver( )
        {
         typedef ::color::_internal::model< category_name > model_type;
         static model_type dummy;
         // TODO Will call every time, That is no good.
-        ::color::make::cyan( dummy );
+        ::color::make::silver( dummy );
 
         // Do nothing to force specialization
         return dummy;

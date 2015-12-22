@@ -33,7 +33,7 @@ namespace color
 
     template< >
      struct component< ::color::category::yiq_uint32 >
-      : public ::color::_internal::utility::component::Unsigned< std::uint8_t,   8, unsigned>
+      : public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned>
       {
       };
 

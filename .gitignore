@@ -33,4 +33,9 @@ example/extract_blue_from_cmy
 example/extract_blue_from_rgb
 example/extract_gray_from_cmy
 example/extract_gray_from_rgb
+example/convert_rgb2yiq
+example/convert_rgb2yuv
+example/ctor_hsv
+example/ctor_yuv
+
 

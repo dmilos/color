@@ -1,13 +1,16 @@
 #ifndef  color_generic_operation_operator_123
 #define color_generic_operation_operator_123
 // using namespace  color::operation::arithmetic
+// using namespace  color::operation::compare
 
 
-#include "addition.hpp"
-#include "divide.hpp"
-#include "multiply.hpp"
-#include "scale.hpp"
-#include "subtract.hpp"
+#include "./addition.hpp"
+#include "./divide.hpp"
+#include "./multiply.hpp"
+#include "./scale.hpp"
+#include "./subtract.hpp"
+
+#include "./compare.hpp"
 
 
  namespace color
@@ -45,7 +48,6 @@
           ::color::operation::subtract::full( result,  left, right );
           return result;
          }
-
 
        template< typename category_name, typename scalar_name >
         inline
@@ -117,7 +119,61 @@
          ::color::operation::scale::accumulate( result, scalar_name(1) / scalar );
           return result;
          }
+
       }
+
+     namespace compare
+      {
+       template< typename category_name, typename scalar_name >
+        inline
+        bool
+        operator ==( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const&  right )
+         {
+          return ::color::operation::compare::equal( left, right );
+         }
+
+       template< typename category_name, typename scalar_name >
+        inline
+        bool
+        operator !=( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const&  right )
+         {
+          return ::color::operation::compare::different( left, right );
+         }
+
+       template< typename category_name, typename scalar_name >
+        inline
+        bool
+        operator <( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const&  right )
+         {
+          return ::color::operation::compare::less_strict( left, right );
+         }
+
+       template< typename category_name, typename scalar_name >
+        inline
+        bool
+        operator >( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const&  right )
+         {
+          return ::color::operation::compare::great_strict( left, right );
+         }
+
+       template< typename category_name, typename scalar_name >
+        inline
+        bool
+        operator <=( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const&  right )
+         {
+          return ::color::operation::compare::less_or_equal( left, right );
+         }
+
+       template< typename category_name, typename scalar_name >
+        inline
+        bool
+        operator >=( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const&  right )
+         {
+          return ::color::operation::compare::great_or_equal( left, right );
+         }
+
+      }
+
     }
   }
 

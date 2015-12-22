@@ -33,7 +33,7 @@ namespace color
 
     template< >
      struct component< ::color::category::gray_uint32 >
-      : public ::color::_internal::utility::component::Unsigned< std::uint32_t, 32, unsigned>
+      : public ::color::_internal::utility::component::Unsigned< std::uint32_t, unsigned>
       {
       };
 

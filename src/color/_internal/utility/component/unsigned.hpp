@@ -1,7 +1,7 @@
 #ifndef color__internal_utility_component_unsigned
 #define color__internal_utility_component_unsigned
 
-// ::color::_internal::utility::component::Unsigned< unsigned_name, width, index_type>
+// ::color::_internal::utility::component::Unsigned< unsigned_name, index_type>
 
 #include "../type/traitp.hpp"
 #include "../type/index.hpp"
@@ -15,14 +15,14 @@ namespace color
       namespace component
        {
 
-        template< typename unsigned_name, unsigned  width, typename index_name >
+        template< typename unsigned_name, typename index_name >
          struct Unsigned
           {
            public:
              typedef unsigned_name      unsigned_type;
              typedef index_name         index_type;
 
-             typedef ::color::_internal::utility::type::traitP< unsigned_name >         utility_trait_type;
+             typedef ::color::_internal::utility::type::traitP< unsigned_type >         utility_trait_type;
 
              typedef typename utility_trait_type::instance_type          instance_type;
              typedef typename utility_trait_type::const_type             const_type;
