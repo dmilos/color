@@ -17,5 +17,3 @@ namespace color
  }
 
 #endif
-
-

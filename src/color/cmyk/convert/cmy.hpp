@@ -1,8 +1,6 @@
 #ifndef color_cmyk_convert_cmy
 #define color_cmyk_convert_cmy
 
-#include <algorithm>
-
 #include "../../_internal/convert.hpp"
 #include "../../cmy/cmy.hpp"
 

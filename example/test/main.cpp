@@ -106,8 +106,8 @@ int main(int argc, char const *argv[])
 
   //invoke();
 
-  //extern void check_precision();
-  //check_precision();
+  extern void check_conversion();
+  check_conversion();
 
   extern void make_test();
 

@@ -1,8 +1,6 @@
 #ifndef color_hsv_convert_rgb
 #define color_hsv_convert_rgb
 
-#include <algorithm>
-
 #include "../../_internal/convert.hpp"
 #include "../../rgb/rgb.hpp"
 

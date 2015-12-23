@@ -2,8 +2,6 @@
 #define color__internal_model_87845cb9_e99c_4016_b1e9_148e6e094f40
 // color::_internal::model< category >
 
-#include <initializer_list>
-#include <array>
 
 #include "./trait.hpp"
 #include "./convert.hpp"

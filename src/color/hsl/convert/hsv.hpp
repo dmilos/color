@@ -1,8 +1,6 @@
 #ifndef color_hsl_convert_hsv
 #define color_hsl_convert_hsv
 
-#include <algorithm>
-
 #include "../../_internal/convert.hpp"
 #include "../../hsv/hsv.hpp"
 

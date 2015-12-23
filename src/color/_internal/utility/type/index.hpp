@@ -29,8 +29,8 @@ namespace color
              typedef  instance_type       &   output_type,      param_output_type;        //!< Output type that can be changed. Must have outside effect.
           };
 
+       }
      }
-    }
    }
  }
 

@@ -1,8 +1,6 @@
 #ifndef color__internal_utility_container_array
 #define color__internal_utility_container_array
 
-#include <array>
-
 #include "../type/index.hpp"
 #include "../type/traitc.hpp"
 

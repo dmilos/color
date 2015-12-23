@@ -1,8 +1,6 @@
 #ifndef color__internal_trait_
 #define color__internal_trait_
 
-#include <cstdint>
-
 #include "./index.hpp"
 #include "./component.hpp"
 #include "./container.hpp"

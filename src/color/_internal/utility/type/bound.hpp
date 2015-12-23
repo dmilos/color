@@ -3,8 +3,6 @@
 
 // ::color::_internal::utility::type::bound< number_name, number_const_return_name >
 
-#include <cstdint>
-
 namespace color
  {
   namespace _internal

@@ -2,7 +2,6 @@
 #define color__internal_container
 // color::_internal::container< category >
 
-#include <cstdint>
 #include "./index.hpp"
 #include "./component.hpp"
 

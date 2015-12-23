@@ -3,8 +3,6 @@
 
 // ::color::_internal::convert
 
-#include <algorithm>
-
 #include "./reformat.hpp"
 
 #include "./trait.hpp"

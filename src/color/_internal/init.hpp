@@ -1,8 +1,6 @@
 #ifndef color_generic_init
 #define color_generic_init
 
-#include <initializer_list>
-
 
 // ::color::make::white( c )
 
