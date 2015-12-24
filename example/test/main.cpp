@@ -46,12 +46,16 @@ void invoke()
 
   test_conversion< color::cmy, color::cmy >();
   test_conversion< color::cmy, color::rgb >();
-  test_conversion< color::cmy, color::cmy >();
+  test_conversion< color::cmy, color::cmyk >();
   test_conversion< color::cmy, color::gray >();
 
   test_conversion< color::gray, color::gray >();
   test_conversion< color::gray, color::rgb >();
   test_conversion< color::gray, color::cmy >();
+  test_conversion< color::gray, color::hsl >();
+  test_conversion< color::gray, color::hsv >();
+  test_conversion< color::gray, color::yiq >();
+  test_conversion< color::gray, color::yuv >();
 
   test_conversion< color::yiq, color::yiq >();
   test_conversion< color::yiq, color::rgb >();
@@ -61,7 +65,6 @@ void invoke()
 
   test_conversion< color::xyz, color::xyz >();
   test_conversion< color::xyz, color::rgb >();
- 
  }
 
 //template < template<typename> class color_name >
@@ -104,7 +107,7 @@ int main(int argc, char const *argv[])
   //make_image( "image-yiq.tga");
   //make_image( "image-yuv.tga");
 
-  //invoke();
+  invoke();
 
   extern void check_conversion();
   check_conversion();
