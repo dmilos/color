@@ -29,15 +29,15 @@ Available color models: CMY, CMYK, GRAY, HSL, HSV, RGB, XYZ, YIQ, YUV
 Implemented Conversions:
 > | l = r | cmy  | cmyk | gray | hsl  | hsv  | rgb  | xyz  | yiq  | yuv  |
 > |-------|------|------|------|------|------|------|------|------|------|
-> | cmy   | 101% | 100% | 100% |      |      | 100% |      |      |      |
-> | cmyk  | 100% | 101% | 100% |      |      | 100% |      |      |      |
-> | gray  | 100% | 100% | 101% | 100% | 100% | 100% |      | 100% | 100% |
-> | hsl   |      |      | 100% | 101% | 100% | 100% |      |      |      |
-> | hsv   |      |      | 100% | 100% | 101% | 100% |      |      |      |
-> | rgb   | 100% | 100% | 100% | 100% | 100% | 101% | 100% | 100% | 100% |
-> | xyz   |      |      |      |      |      | 100% | 101% |      |      |
-> | yiq   |      |      | 100% |      |      | 100% |      | 101% |      |
-> | yuv   |      |      | 100% |      |      | 100% |      |      | 101% |
+> | cmy   |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |  :white_check_mark: |      |      |      |
+> | cmyk  |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |  :white_check_mark: |      |      |      |
+> | gray  |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |  :white_check_mark: |  :white_check_mark: |
+> | hsl   |      |      |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |      |
+> | hsv   |      |      |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |      |
+> | rgb   |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: | :white_check_mark: |  :white_check_mark: |
+> | xyz   |      |      |      |      |      |  :white_check_mark: |  :white_check_mark: |      |      |
+> | yiq   |      |      |  :white_check_mark: |      |      |  :white_check_mark: |      |  :white_check_mark: |      |
+> | yuv   |      |      | :white_check_mark: |      |      |  :white_check_mark: |      |      |  :white_check_mark: |
 
 Available Color Formats
 > <dl>
