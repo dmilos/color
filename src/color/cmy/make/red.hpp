@@ -6,51 +6,52 @@
  namespace color
   {
    namespace make
-    {
+    { //RGB equivalent std::array<double,3>( { 1, 0, 0 } ) 
 
       inline
       void red( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0; // TODO
-       } 
+        color_parameter.container() = 0xf8;
+       }
 
       inline
       void red( ::color::_internal::model< color::category::cmy_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x7def; // TODO
+        color_parameter.container() = 0xffe0;
        }
 
       inline
       void red( ::color::_internal::model< color::category::cmy_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff007f7f;
-       };
+        color_parameter.container() = 0xffffff00u;
+       }
 
       inline
       void red( ::color::_internal::model< color::category::cmy_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0xffff00007fff7fffu );
+        color_parameter.container() = 0xffffffffffff0000ul;
        }
 
       inline
       void red( ::color::_internal::model< color::category::cmy_float > & color_parameter )
        {
         color_parameter.container() = std::array<float,3>( { 0, 1, 1 } );
-       };
+       }
 
       inline
       void red( ::color::_internal::model< color::category::cmy_double> & color_parameter )
        {
         color_parameter.container() = std::array<double,3>( { 0, 1, 1 } );
-       };
+       }
 
       inline
       void red( ::color::_internal::model< color::category::cmy_ldouble> & color_parameter )
        {
         color_parameter.container() = std::array<long double,3>( { 0, 1, 1 } );
-       };
+       }
 
     }
   }
 
 #endif
+

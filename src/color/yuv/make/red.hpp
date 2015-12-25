@@ -6,51 +6,52 @@
  namespace color
   {
    namespace make
-    {
+    { //RGB equivalent std::array<double,3>( { 1, 0, 0 } ) 
 
       inline
       void red( ::color::_internal::model< color::category::yuv_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x07; //!< TODO
-       } 
+        color_parameter.container() = 0x7a;
+       }
 
       inline
       void red( ::color::_internal::model< color::category::yuv_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x003F; //!< TODO
+        color_parameter.container() = 0x9b89;
        }
 
       inline
       void red( ::color::_internal::model< color::category::yuv_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff0000ff; //!< TODO
+        color_parameter.container() = 0xff9cdb4cu;
        }
 
       inline
       void red( ::color::_internal::model< color::category::yuv_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0xffff00000000ffffu ); //!< TODO
+        color_parameter.container() = 0xffff9d70da564c8aul;
        }
 
       inline
       void red( ::color::_internal::model< color::category::yuv_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 1, 0, 0 } ); //!< TODO
+        color_parameter.container() = std::array<float,3>( { 0.299, -0.147138, 0.615 } );
        }
 
       inline
       void red( ::color::_internal::model< color::category::yuv_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 1, 0, 0 } ); //!< TODO
+        color_parameter.container() = std::array<double,3>( { 0.299, -0.147138, 0.615 } );
        }
 
       inline
       void red( ::color::_internal::model< color::category::yuv_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 1, 0, 0 } ); //!< TODO
+        color_parameter.container() = std::array<long double,3>( { 0.299, -0.147138, 0.615 } );
        }
 
     }
   }
 
 #endif
+

@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    {
+    { //RGB equivalent std::array<double,3>( { 0, 0, 0 } ) 
 
       inline
       void black( ::color::_internal::model< color::category::hsl_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0;
+        color_parameter.container() = 0xb7000000;
        }
 
       inline
       void black( ::color::_internal::model< color::category::hsl_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0;
+        color_parameter.container() = 0x0;
        }
 
       inline
       void black( ::color::_internal::model< color::category::hsl_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff000000;
+        color_parameter.container() = 0xff000000u;
        }
 
       inline
       void black( ::color::_internal::model< color::category::hsl_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0xffff00000000000u );
+        color_parameter.container() = 0xffff000000000000ul;
        }
 
       inline
@@ -54,3 +54,4 @@
   }
 
 #endif
+

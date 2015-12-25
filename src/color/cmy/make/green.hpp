@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    {
+    { //RGB equivalent std::array<double,3>( { 0, 1, 0 } ) 
 
       inline
       void green( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0;  // TODO
-       } 
+        color_parameter.container() = 0xc7;
+       }
 
       inline
       void green( ::color::_internal::model< color::category::cmy_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x7def; // TODO
+        color_parameter.container() = 0xfc1f;
        }
 
       inline
       void green( ::color::_internal::model< color::category::cmy_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff007f00;
+        color_parameter.container() = 0xffff00ffu;
        }
 
       inline
       void green( ::color::_internal::model< color::category::cmy_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0xffff00007fff0000u );
+        color_parameter.container() = 0xffffffff0000fffful;
        }
 
       inline
@@ -54,3 +54,4 @@
   }
 
 #endif
+

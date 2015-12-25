@@ -98,25 +98,25 @@ void print_header( std::string const& model, std::string const& name, color::rgb
 void make_test()
  {
   color::rgb<double>  r;
-  color::make::aqua       ( r );  print_header<color::cmy>(  "cmy", "aqua",    r );
-  color::make::black      ( r );  print_header<color::cmy>(  "cmy", "black",   r );
-  color::make::blue       ( r );  print_header<color::cmy>(  "cmy", "blue",    r );
-  color::make::cyan       ( r );  print_header<color::cmy>(  "cmy", "cyan",    r );
-  color::make::fuchsia    ( r );  print_header<color::cmy>(  "cmy", "fuchsia", r );
-  color::make::gray50     ( r );  print_header<color::cmy>(  "cmy", "gray50",  r );
-  color::make::green      ( r );  print_header<color::cmy>(  "cmy", "green",   r );
-  color::make::lime       ( r );  print_header<color::cmy>(  "cmy", "lime",    r );
-  color::make::magenta    ( r );  print_header<color::cmy>(  "cmy", "magenta", r );
-  color::make::maroon     ( r );  print_header<color::cmy>(  "cmy", "maroon",  r );
-  color::make::navy       ( r );  print_header<color::cmy>(  "cmy", "navy",    r );
-  color::make::olive      ( r );  print_header<color::cmy>(  "cmy", "olive",   r );
-  color::make::orange     ( r );  print_header<color::cmy>(  "cmy", "orange",  r );
-  color::make::purple     ( r );  print_header<color::cmy>(  "cmy", "purple",  r );
-  color::make::red        ( r );  print_header<color::cmy>(  "cmy", "red",     r );
-  color::make::silver     ( r );  print_header<color::cmy>(  "cmy", "silver",  r );
-  color::make::teal       ( r );  print_header<color::cmy>(  "cmy", "teal",    r );
-  color::make::violet     ( r );  print_header<color::cmy>(  "cmy", "violet",  r );
-  color::make::white      ( r );  print_header<color::cmy>(  "cmy", "white",   r );
-  color::make::yellow     ( r );  print_header<color::cmy>(  "cmy", "yellow",  r );
+  color::make::aqua       ( r );  print_header<color::yuv>(  "yuv", "aqua",    r );
+  color::make::black      ( r );  print_header<color::yuv>(  "yuv", "black",   r );
+  color::make::blue       ( r );  print_header<color::yuv>(  "yuv", "blue",    r );
+  color::make::cyan       ( r );  print_header<color::yuv>(  "yuv", "cyan",    r );
+  color::make::fuchsia    ( r );  print_header<color::yuv>(  "yuv", "fuchsia", r );
+  color::make::gray50     ( r );  print_header<color::yuv>(  "yuv", "gray50",  r );
+  color::make::green      ( r );  print_header<color::yuv>(  "yuv", "green",   r );
+  color::make::lime       ( r );  print_header<color::yuv>(  "yuv", "lime",    r );
+  color::make::magenta    ( r );  print_header<color::yuv>(  "yuv", "magenta", r );
+  color::make::maroon     ( r );  print_header<color::yuv>(  "yuv", "maroon",  r );
+  color::make::navy       ( r );  print_header<color::yuv>(  "yuv", "navy",    r );
+  color::make::olive      ( r );  print_header<color::yuv>(  "yuv", "olive",   r );
+  color::make::orange     ( r );  print_header<color::yuv>(  "yuv", "orange",  r );
+  color::make::purple     ( r );  print_header<color::yuv>(  "yuv", "purple",  r );
+  color::make::red        ( r );  print_header<color::yuv>(  "yuv", "red",     r );
+  color::make::silver     ( r );  print_header<color::yuv>(  "yuv", "silver",  r );
+  color::make::teal       ( r );  print_header<color::yuv>(  "yuv", "teal",    r );
+  color::make::violet     ( r );  print_header<color::yuv>(  "yuv", "violet",  r );
+  color::make::white      ( r );  print_header<color::yuv>(  "yuv", "white",   r );
+  color::make::yellow     ( r );  print_header<color::yuv>(  "yuv", "yellow",  r );
  }
 
