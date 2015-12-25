@@ -29,7 +29,7 @@
       inline
       void yellow( ::color::_internal::model< color::category::rgb_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0xffff0000ffff0000u ); // TODO
+        color_parameter.container() = std::uint64_t( 0xffff00000000ffffu ); // TODO
        }
 
       inline

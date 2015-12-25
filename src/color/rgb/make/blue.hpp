@@ -11,13 +11,13 @@
       inline
       void blue( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xC0;
+        color_parameter.container() = 3 << 6;
        } 
 
       inline
       void blue( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x7C00;
+        color_parameter.container() = 0xF800;
        }
 
       inline

@@ -44,9 +44,9 @@ Available Color Formats
 > <dt>bool</dt>
 >     <dd> Each component is one bool.</dd>
 > <dt>uint8_t</dt>
->     <dd> All components occupy 8 bit. First take 3 bits, second 3 third 2. Designed for three component colors.</dd>
+>     <dd> All components occupy 8 bit. First take 3 bits, second 3, third 2. Designed for three component colors.</dd>
 > <dt>uint16_t</dt>
->     <dd> All components occupy 16 bit. First take 6 bits, second 5 third 5. Designed for three component colors.</dd>
+>     <dd> All components occupy 16 bit. First take 6 bits, second 5, third 5. Designed for three component colors.</dd>
 > <dt>uint32_t</dt>
 >     <dd> All components occupy 32 bit. Each component take 8 bits, If model require only 3 component, most significant 8 bits will be wasted space.</dd>
 > <dt>uint64_t</dt>

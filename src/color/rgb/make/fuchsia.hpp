@@ -17,13 +17,13 @@
       inline
       void fuchsia( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x03E0; // TODO
+        color_parameter.container() = 0xF83F;
        }
 
       inline
       void fuchsia( ::color::_internal::model< color::category::rgb_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffff00ff; // TODO
+        color_parameter.container() = 0xffff00ff;
        }
 
       inline

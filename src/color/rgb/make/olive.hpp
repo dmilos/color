@@ -23,7 +23,7 @@
       inline
       void olive( ::color::_internal::model< color::category::rgb_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff008080; // TODO
+        color_parameter.container() = 0xff008080;
        }
 
       inline
