@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="conversion.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="make.cpp" />
-    <ClCompile Include="precision.cpp" />
     <ClCompile Include="targa.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -240,6 +240,7 @@
     <ClInclude Include="..\..\src\color\rgb\uint16.hpp" />
     <ClInclude Include="..\..\src\color\rgb\uint32.hpp" />
     <ClInclude Include="..\..\src\color\rgb\uint64.hpp" />
+    <ClInclude Include="..\..\src\color\rgb\uint8.hpp" />
     <ClInclude Include="..\..\src\color\xyz\category.hpp" />
     <ClInclude Include="..\..\src\color\xyz\convert\cmy.hpp" />
     <ClInclude Include="..\..\src\color\xyz\convert\cmyk.hpp" />

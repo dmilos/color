@@ -1215,18 +1215,21 @@
     <ClInclude Include="..\..\src\color\yiq\make\black.hpp">
       <Filter>Source Files\src\yiq\make</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\uint8.hpp">
+      <Filter>Source Files\src\rgb</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="precision.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
     <ClCompile Include="targa.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
     <ClCompile Include="make.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="conversion.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
   </ItemGroup>

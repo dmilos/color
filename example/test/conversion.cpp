@@ -27,15 +27,15 @@ template< typename category_left_name, typename category_right_name>
          e0 = fabs( left.template get<0>() - c0 );
         }
 
-      if( e1 < fabs( left.template get<1>() - c1 ) )
-       {
-        e1 = fabs( left.template get<1>() - c1 );
-       }
+       if( e1 < fabs( left.template get<1>() - c1 ) )
+        {
+         e1 = fabs( left.template get<1>() - c1 );
+        }
 
-      if( e2 < fabs( left.template get<2>() - c2 ) )
-       {
-        e2 = fabs( left.template get<2>() - c2 );
-       }
+       if( e2 < fabs( left.template get<2>() - c2 ) )
+        {
+         e2 = fabs( left.template get<2>() - c2 );
+        }
      }
 
 
