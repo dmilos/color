@@ -11,7 +11,7 @@
       inline
       void magenta( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb7854569;
+        color_parameter.container() = 0x4a;
        }
 
       inline

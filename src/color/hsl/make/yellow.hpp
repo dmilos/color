@@ -11,7 +11,7 @@
       inline
       void yellow( ::color::_internal::model< color::category::hsl_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb77fff2a;
+        color_parameter.container() = 0x79;
        }
 
       inline

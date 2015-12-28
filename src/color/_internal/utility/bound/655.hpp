@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_bound_bound556
-#define color__internal_utility_bound_bound556
+#ifndef color__internal_utility_bound_bound655
+#define color__internal_utility_bound_bound655
 
-// ::color::_internal::utility::bound::bound556< index_type >
+// ::color::_internal::utility::bound::bound655< index_type >
 
 
 #include "../type/traitp.hpp"
@@ -19,7 +19,7 @@ namespace color
        {
 
         template< typename index_name >
-         struct bound556
+         struct bound655
           {
            public:
              typedef std::uint16_t      unsigned_type;
@@ -37,13 +37,13 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_const_type   maximum( )
                {
-                static instance_type max_list[] = { 31, 31, 63 };
+                static instance_type max_list[] = { 63, 31, 31 };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_const_type   maximum( index_input_const_type  index )
               {
-                static instance_type max_list[] = { 31, 31, 63 };
+                static instance_type max_list[] = { 63, 31, 31 };
                 return max_list[index];
               }
 
@@ -63,13 +63,13 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_const_type   range()
                {
-                static instance_type max_list[] = { 31, 31, 63 };
+                static instance_type max_list[] = { 63, 31, 31 };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_const_type   range(   index_input_const_type  index )
               {
-                static instance_type max_list[] = { 31, 31, 63 };
+                static instance_type max_list[] = { 63, 31, 31 };
                 return max_list[index];
               }
           };

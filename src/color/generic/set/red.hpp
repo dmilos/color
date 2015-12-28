@@ -18,7 +18,19 @@
        )
        {
         // Do nothing!!!
-       };
+       }
+
+     //template< typename category_source_name, typename category_target_name = category_source_name >
+     // inline
+     // void
+     // red
+     //  ( 
+     //            ::color::_internal::model< category_target_name >                                   & color_parameter, 
+     //   typename ::color::_internal::model< category_source_name >::component_input_const_type         component_parameter
+     //  )
+     //  {
+     //   // Do nothing!!!
+     //  }
 
     }
   }

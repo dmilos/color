@@ -8,6 +8,7 @@
 #include "../type/index.hpp"
 
 
+
 namespace color
  {
   namespace _internal

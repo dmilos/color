@@ -11,7 +11,7 @@
       inline
       void orange( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb7e06aad;
+        color_parameter.container() = 0x14;
        }
 
       inline

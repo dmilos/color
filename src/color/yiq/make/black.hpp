@@ -11,7 +11,7 @@
       inline
       void black( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb7000000;
+        color_parameter.container() = 0x0;
        }
 
       inline

@@ -3,6 +3,7 @@
 
 // ::color::_internal::utility::bound::bound332< index_type >
 
+
 #include "../type/traitp.hpp"
 #include "../type/index.hpp"
 
@@ -24,8 +25,8 @@ namespace color
              typedef std::uint8_t       unsigned_type;
              typedef index_name         index_type;
 
-             typedef ::color::_internal::utility::type::traitP< unsigned_type >         trait_type;
-             typedef ::color::_internal::utility::type::index< index_type >   index_trait_type;
+             typedef ::color::_internal::utility::type::traitP< unsigned_type >   trait_type;
+             typedef ::color::_internal::utility::type::index< index_type >       index_trait_type;
 
              typedef typename trait_type::instance_type          instance_type;
              typedef typename trait_type::return_const_type      return_const_type;

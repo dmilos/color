@@ -11,7 +11,7 @@
       inline
       void purple( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb7422234;
+        color_parameter.container() = 0x1;
        }
 
       inline

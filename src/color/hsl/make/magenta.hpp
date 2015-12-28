@@ -11,7 +11,7 @@
       inline
       void magenta( ::color::_internal::model< color::category::hsl_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb77fffd4;
+        color_parameter.container() = 0x7d;
        }
 
       inline

@@ -11,7 +11,7 @@
       inline
       void blue( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb74faf1d;
+        color_parameter.container() = 0x30;
        }
 
       inline

@@ -11,7 +11,7 @@
       inline
       void silver( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb70000bf;
+        color_parameter.container() = 0x5;
        }
 
       inline

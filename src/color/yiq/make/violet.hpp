@@ -11,7 +11,7 @@
       inline
       void violet( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb7381dae;
+        color_parameter.container() = 0x4;
        }
 
       inline

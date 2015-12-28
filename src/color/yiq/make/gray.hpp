@@ -11,7 +11,7 @@
       inline
       void gray50( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb700007f;
+        color_parameter.container() = 0x3;
        }
 
       inline

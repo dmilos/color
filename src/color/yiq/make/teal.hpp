@@ -11,7 +11,7 @@
       inline
       void teal( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb7e6b559;
+        color_parameter.container() = 0x32;
        }
 
       inline

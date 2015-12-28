@@ -11,7 +11,7 @@
       inline
       void navy( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb727d80e;
+        color_parameter.container() = 0x38;
        }
 
       inline
