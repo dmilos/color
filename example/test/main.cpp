@@ -87,7 +87,7 @@ void make_image(std::string const& name )
     for (int x = 0; x < width; x++)
      {
       image[y * width + x].set<3>(255);
-      image[y * width + x] = color::hsl<double>({ y / double(height), 0.5, x / double(width) });
+      image[y * width + x] = color::yiq<double>({ y / double(height), 0.5, x / double(width) });
      }
    }
 
@@ -104,7 +104,7 @@ int main(int argc, char const *argv[])
   //make_image( "image-hsl.tga");
   //make_image( "image-hsv.tga");
   //make_image( "image-xyz.tga");
-  //make_image( "image-yiq.tga");
+  make_image( "image-yiq.tga");
   //make_image( "image-yuv.tga");
 
   invoke();

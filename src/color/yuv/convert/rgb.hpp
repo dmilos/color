@@ -37,11 +37,11 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             static float_type Wr = 0.299000;
-             static float_type Wb = 0.114000;
-             static float_type Wg = 1.0-Wr-Wb;
-             static float_type Umax = 0.436;
-             static float_type Vmax = 0.615;
+             static float_type const Wr = 0.299000;
+             static float_type const Wb = 0.114000;
+             static float_type const Wg = 1.0-Wr-Wb;
+             static float_type const Umax = 0.436;
+             static float_type const Vmax = 0.615;
 
              float_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              float_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );

@@ -41,13 +41,17 @@ namespace color
              static float_type b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
              static float_type b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 =  0.3111346431714933019;
 
+             static float_type const a1 = 1/1                , c1 = 0;
+             static float_type const a2 = 1/(b21 - b23 - b23), c2 = -( b22 + b23 )/a2;
+             static float_type const a3 = 1/(b31 + b33 - b31), c3 = -b32/a3;
+
              float_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              float_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
              float_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-             container_left_trait_type::template set<0>( left, diverse_type::template process<0>( b11 * r + b12 * g + b13 * b ) );
-             container_left_trait_type::template set<1>( left, diverse_type::template process<1>( b21 * r + b22 * g + b23 * b ) );
-             container_left_trait_type::template set<2>( left, diverse_type::template process<2>( b31 * r + b32 * g + b33 * b ) );
+             container_left_trait_type::template set<0>( left, diverse_type::template process<0>( a1 * ( b11 * r + b12 * g + b13 * b ) + c1 ) );
+             container_left_trait_type::template set<1>( left, diverse_type::template process<1>( a2 * ( b21 * r + b22 * g + b23 * b ) + c2 ) );
+             container_left_trait_type::template set<2>( left, diverse_type::template process<2>( a3 * ( b31 * r + b32 * g + b33 * b ) + c3 ) );
             }
         };
 

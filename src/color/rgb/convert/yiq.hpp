@@ -41,13 +41,17 @@ namespace color
              static float_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
              static float_type b31 = 1, b32 = -1.1069899085671282160, b33 =  1.7046149754988293290;
 
-             float_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-             float_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-             float_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+             static float_type const a1 = 1/( b11 + b12 + b13 ), c1 = 0;
+             static float_type const a2 = 1/( b21 - b22 - b23 ), c2 = -( b23 + b23 ) /a2;
+             static float_type const a3 = 1/( b31 - b32 + b33 ), c3 = -b32/a3;
 
-             container_left_trait_type::template set<0>( left, diverse_type::template process<0>( b11 * r + b12 * g + b13 * b ) );
-             container_left_trait_type::template set<1>( left, diverse_type::template process<1>( b21 * r + b22 * g + b23 * b ) );
-             container_left_trait_type::template set<2>( left, diverse_type::template process<2>( b31 * r + b32 * g + b33 * b ) );
+             float_type y = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+             float_type i = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+             float_type q = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+
+             container_left_trait_type::template set<0>( left, diverse_type::template process<0>( a1 * ( b11 * y + b12 * i + b13 * q ) + c1 ) );
+             container_left_trait_type::template set<1>( left, diverse_type::template process<1>( a2 * ( b21 * y + b22 * i + b23 * q ) + c2 ) );
+             container_left_trait_type::template set<2>( left, diverse_type::template process<2>( a3 * ( b31 * y + b32 * i + b33 * q ) + c3 ) );
             }
         };
 

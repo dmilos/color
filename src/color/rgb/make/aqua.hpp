@@ -17,7 +17,7 @@
       inline
       void aqua( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {// Same as Cyan
-        color_parameter.container() = 0xFFC0;
+        color_parameter.container() = 0xffe0;
        }
 
       inline

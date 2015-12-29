@@ -6,18 +6,18 @@
  namespace color
   {
    namespace make
-    {
+    { //RGB equivalent std::array<double,3>( { 1, 0, 1 } ) 
 
       inline
       void magenta( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
        { // Same as Fuchsia 
-        color_parameter.container() = 0x38; // TODO
-       } 
+        color_parameter.container() = 0xc7;
+       }
 
       inline
       void magenta( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        { // Same as Fuchsia 
-        color_parameter.container() = 0x03E0; // TODO
+        color_parameter.container() = 0xfc1f;
        }
 
       inline
@@ -29,7 +29,7 @@
       inline
       void magenta( ::color::_internal::model< color::category::rgb_uint64 > & color_parameter )
        { // Same as Fuchsia 
-        color_parameter.container() = std::uint64_t( 0xffffFFFF0000FFFFu ); // TODO
+        color_parameter.container() = std::uint64_t( 0xffffFFFF0000FFFFu );
        }
 
       inline

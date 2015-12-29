@@ -48,3 +48,5 @@ example/convert_rgb2yiq
 example/convert_rgb2yuv
 example/ctor_hsv
 example/ctor_yuv
+
+example/test/gen
