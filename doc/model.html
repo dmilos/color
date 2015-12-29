@@ -7,5 +7,71 @@
 <body>
 	Work In progress
 	<h1>Model class</h1>
+
+	<dl>
+		<dt>Description</dt>
+		<dd>					All color class has same set of properties like <code><i>_model</i></code> class. <br>
+				<code>
+				template &lt; typename category_name &gt; color::_model ;
+				</code><br>
+				Depend of implementation color classes might or might not be in relation with <code><i>_model</i></code> or <code><i>_model</i></code> might no exist.<br>
+				In here it serve purpose to describe give description of all color classes at once.<br>
+				To replace all color classes in example avoid misleading that some functionality might be used only for one color class.
+		</dd>
+		<dt>Class</dt>
+		<dd>
+<pre><code>
+    template&lt; typename category_name &gt;
+     class model
+      {
+       public:
+        typedef category_name   category_type;
+        typedef ...             index_type;
+        typedef ...             component_type;
+        typedef ...             container_type;
+        typedef ...             set_return_type;
+
+                 model( )
+
+        explicit model( container_input_const_type container )
+
+        explicit model( std::initializer_list&gt;component_type &lt; const&amp; ilist )
+
+        template&lt; typename other_category_name &gt;
+         explicit model( ::color::_internal::model<other_category_name> const&amp; that )
+
+        template&lt; typename other_category_name &gt;
+         model operator=( ::color::_internal::model<other_category_name> const&amp; that )
+
+        component_return_const_type get( index_input_const_type index )const
+
+        template&lt; index_type index &gt;
+         component_return_const_type get()const;
+
+        set_return_type set( index_input_const_type index, component_input_const_type component );
+
+        template&lt; index_type index &gt;
+         set_return_type set( component_input_const_type component );
+
+        component_return_const_type operator[]( index_input_const_type index )const;
+
+        container_return_const_type container()const;
+
+        container_return_type       container();
+
+        static index_return_image_type       size();
+
+        private:
+          container_type m_container;
+    };
+</code><pre>			
+
+
+		</dd>
+
+	</dl>
+
+
+<hr>
 </body>
 </html>

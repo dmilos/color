@@ -49,4 +49,4 @@ example/convert_rgb2yuv
 example/ctor_hsv
 example/ctor_yuv
 
-example/test/gen
+example/test/gen*

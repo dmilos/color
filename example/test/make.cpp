@@ -114,19 +114,19 @@ void print_header( std::string const& model, std::string const& name, color::rgb
   ss << "      inline"                                                                                    << std::endl;
   ss << "      void " << name << "( ::color::_internal::model< color::category::"<< model <<"_float > & color_parameter )"    << std::endl;
   ss << "       {"                                                                                        << std::endl;
-  ss << "        color_parameter.container() = std::array<float,3>( { "<< f[0]<<", "<< f[1]<<", "<< f[2]<<" } );"                       << std::endl;
+  ss << "        color_parameter.container() = std::array<float,3>( { "<< f[0]<<", "<< f[1]<<", "<< f[2] << " } );"                       << std::endl;
   ss << "       }"                                                                                        << std::endl;
   ss                                                                                                      << std::endl;
   ss << "      inline"                                                                                    << std::endl;
   ss << "      void " << name << "( ::color::_internal::model< color::category::"<< model <<"_double> & color_parameter )"    << std::endl;
   ss << "       {"                                                                                        << std::endl;
-  ss << "        color_parameter.container() = std::array<double,3>( { "<< d[0]<<", "<< d[1]<<", "<< d[2]<<" } );"                      << std::endl;
+  ss << "        color_parameter.container() = std::array<double,3>( { "<< d[0]<<", "<< d[1]<<", "<< d[2] << " } );"                      << std::endl;
   ss << "       }"                                                                                        << std::endl;
   ss                                                                                                      << std::endl;
   ss << "      inline"                                                                                    << std::endl;
   ss << "      void " << name << "( ::color::_internal::model< color::category::"<< model <<"_ldouble> & color_parameter )"   << std::endl;
   ss << "       {"                                                                                        << std::endl;
-  ss << "        color_parameter.container() = std::array<long double,3>( { "<< ld[0]<<", "<< ld[1]<<", "<< ld[2]<<" } );"                 << std::endl;
+  ss << "        color_parameter.container() = std::array<long double,3>( { "<< ld[0]<<", "<< ld[1]<<", "<< ld[2] <<  " } );"                 << std::endl;
   ss << "       }"                                                                                        << std::endl;
   ss                                                                                                      << std::endl;
   ss << "    }"                                                                                           << std::endl;
@@ -138,7 +138,7 @@ void print_header( std::string const& model, std::string const& name, color::rgb
   std::cout << "-------" << std:: endl;
 
    {
-    std::ofstream ofs( ( "./gen/"+name + ".hpp" ). c_str() );
+    std::ofstream ofs( ( "./gen-"+ model +"/"+name + ".hpp" ). c_str() );
     ofs <<  ss.str();
    }
  
@@ -148,56 +148,56 @@ void make_test()
  {
   color::rgb<double>  r;
   
-  std::string model_str = "rgb";
+  std::string model_str = "yiq";
   
-  color::make::aqua       ( r );  print_header<color::rgb>(  model_str, "aqua",    r );
-  color::make::black      ( r );  print_header<color::rgb>(  model_str, "black",   r );
-  color::make::blue       ( r );  print_header<color::rgb>(  model_str, "blue",    r );
-  color::make::cyan       ( r );  print_header<color::rgb>(  model_str, "cyan",    r );
-  color::make::fuchsia    ( r );  print_header<color::rgb>(  model_str, "fuchsia", r );
-  color::make::gray50     ( r );  print_header<color::rgb>(  model_str, "gray50",  r );
-  color::make::green      ( r );  print_header<color::rgb>(  model_str, "green",   r );
-  color::make::lime       ( r );  print_header<color::rgb>(  model_str, "lime",    r );
-  color::make::magenta    ( r );  print_header<color::rgb>(  model_str, "magenta", r );
-  color::make::maroon     ( r );  print_header<color::rgb>(  model_str, "maroon",  r );
-  color::make::navy       ( r );  print_header<color::rgb>(  model_str, "navy",    r );
-  color::make::olive      ( r );  print_header<color::rgb>(  model_str, "olive",   r );
-  color::make::orange     ( r );  print_header<color::rgb>(  model_str, "orange",  r );
-  color::make::purple     ( r );  print_header<color::rgb>(  model_str, "purple",  r );
-  color::make::red        ( r );  print_header<color::rgb>(  model_str, "red",     r );
-  color::make::silver     ( r );  print_header<color::rgb>(  model_str, "silver",  r );
-  color::make::teal       ( r );  print_header<color::rgb>(  model_str, "teal",    r );
-  color::make::violet     ( r );  print_header<color::rgb>(  model_str, "violet",  r );
-  color::make::white      ( r );  print_header<color::rgb>(  model_str, "white",   r );
-  color::make::yellow     ( r );  print_header<color::rgb>(  model_str, "yellow",  r );
+  color::make::aqua       ( r );  print_header<color::yiq>(  model_str, "aqua",    r );
+  color::make::black      ( r );  print_header<color::yiq>(  model_str, "black",   r );
+  color::make::blue       ( r );  print_header<color::yiq>(  model_str, "blue",    r );
+  color::make::cyan       ( r );  print_header<color::yiq>(  model_str, "cyan",    r );
+  color::make::fuchsia    ( r );  print_header<color::yiq>(  model_str, "fuchsia", r );
+  color::make::gray50     ( r );  print_header<color::yiq>(  model_str, "gray50",  r );
+  color::make::green      ( r );  print_header<color::yiq>(  model_str, "green",   r );
+  color::make::lime       ( r );  print_header<color::yiq>(  model_str, "lime",    r );
+  color::make::magenta    ( r );  print_header<color::yiq>(  model_str, "magenta", r );
+  color::make::maroon     ( r );  print_header<color::yiq>(  model_str, "maroon",  r );
+  color::make::navy       ( r );  print_header<color::yiq>(  model_str, "navy",    r );
+  color::make::olive      ( r );  print_header<color::yiq>(  model_str, "olive",   r );
+  color::make::orange     ( r );  print_header<color::yiq>(  model_str, "orange",  r );
+  color::make::purple     ( r );  print_header<color::yiq>(  model_str, "purple",  r );
+  color::make::red        ( r );  print_header<color::yiq>(  model_str, "red",     r );
+  color::make::silver     ( r );  print_header<color::yiq>(  model_str, "silver",  r );
+  color::make::teal       ( r );  print_header<color::yiq>(  model_str, "teal",    r );
+  color::make::violet     ( r );  print_header<color::yiq>(  model_str, "violet",  r );
+  color::make::white      ( r );  print_header<color::yiq>(  model_str, "white",   r );
+  color::make::yellow     ( r );  print_header<color::yiq>(  model_str, "yellow",  r );
 
-  color::make::aquamarine ( r );  print_header<color::rgb>(  model_str, "aquamarine",  r );
-  color::make::azure      ( r );  print_header<color::rgb>(  model_str, "azure",       r );
-  color::make::beige      ( r );  print_header<color::rgb>(  model_str, "beige",       r );
-  color::make::bisque     ( r );  print_header<color::rgb>(  model_str, "bisque",      r );
-  color::make::brown      ( r );  print_header<color::rgb>(  model_str, "brown",       r );
-  color::make::chocolate  ( r );  print_header<color::rgb>(  model_str, "chocolate",   r );
-  color::make::coral      ( r );  print_header<color::rgb>(  model_str, "coral",       r );
-  color::make::crimson    ( r );  print_header<color::rgb>(  model_str, "crimson",     r );
-  color::make::gainsboro  ( r );  print_header<color::rgb>(  model_str, "gainsboro",   r );
-  color::make::gold       ( r );  print_header<color::rgb>(  model_str, "gold",        r );
-  color::make::indigo     ( r );  print_header<color::rgb>(  model_str, "indigo",      r );
-  color::make::ivory      ( r );  print_header<color::rgb>(  model_str, "ivory",       r );
-  color::make::khaki      ( r );  print_header<color::rgb>(  model_str, "khaki",       r );
-  color::make::lavender   ( r );  print_header<color::rgb>(  model_str, "lavender",    r );
-  color::make::linen      ( r );  print_header<color::rgb>(  model_str, "linen",       r );
-  color::make::moccasin   ( r );  print_header<color::rgb>(  model_str, "moccasin",    r );
-  color::make::orchid     ( r );  print_header<color::rgb>(  model_str, "orchid",      r );
-  color::make::peru       ( r );  print_header<color::rgb>(  model_str, "peru",        r );
-  color::make::pink       ( r );  print_header<color::rgb>(  model_str, "pink",        r );
-  color::make::plum       ( r );  print_header<color::rgb>(  model_str, "plum",        r );
-  color::make::salmon     ( r );  print_header<color::rgb>(  model_str, "salmon",      r );
-  color::make::sienna     ( r );  print_header<color::rgb>(  model_str, "sienna",      r );
-  color::make::snow       ( r );  print_header<color::rgb>(  model_str, "snow",        r );
-  color::make::tan        ( r );  print_header<color::rgb>(  model_str, "tan",         r );
-  color::make::thistle    ( r );  print_header<color::rgb>(  model_str, "thistle",     r );
-  color::make::tomato     ( r );  print_header<color::rgb>(  model_str, "tomato",      r );
-  color::make::turquoise  ( r );  print_header<color::rgb>(  model_str, "turquoise",   r );
-  color::make::wheat      ( r );  print_header<color::rgb>(  model_str, "wheat",       r );
+  color::make::aquamarine ( r );  print_header<color::yiq>(  model_str, "aquamarine",  r );
+  color::make::azure      ( r );  print_header<color::yiq>(  model_str, "azure",       r );
+  color::make::beige      ( r );  print_header<color::yiq>(  model_str, "beige",       r );
+  color::make::bisque     ( r );  print_header<color::yiq>(  model_str, "bisque",      r );
+  color::make::brown      ( r );  print_header<color::yiq>(  model_str, "brown",       r );
+  color::make::chocolate  ( r );  print_header<color::yiq>(  model_str, "chocolate",   r );
+  color::make::coral      ( r );  print_header<color::yiq>(  model_str, "coral",       r );
+  color::make::crimson    ( r );  print_header<color::yiq>(  model_str, "crimson",     r );
+  color::make::gainsboro  ( r );  print_header<color::yiq>(  model_str, "gainsboro",   r );
+  color::make::gold       ( r );  print_header<color::yiq>(  model_str, "gold",        r );
+  color::make::indigo     ( r );  print_header<color::yiq>(  model_str, "indigo",      r );
+  color::make::ivory      ( r );  print_header<color::yiq>(  model_str, "ivory",       r );
+  color::make::khaki      ( r );  print_header<color::yiq>(  model_str, "khaki",       r );
+  color::make::lavender   ( r );  print_header<color::yiq>(  model_str, "lavender",    r );
+  color::make::linen      ( r );  print_header<color::yiq>(  model_str, "linen",       r );
+  color::make::moccasin   ( r );  print_header<color::yiq>(  model_str, "moccasin",    r );
+  color::make::orchid     ( r );  print_header<color::yiq>(  model_str, "orchid",      r );
+  color::make::peru       ( r );  print_header<color::yiq>(  model_str, "peru",        r );
+  color::make::pink       ( r );  print_header<color::yiq>(  model_str, "pink",        r );
+  color::make::plum       ( r );  print_header<color::yiq>(  model_str, "plum",        r );
+  color::make::salmon     ( r );  print_header<color::yiq>(  model_str, "salmon",      r );
+  color::make::sienna     ( r );  print_header<color::yiq>(  model_str, "sienna",      r );
+  color::make::snow       ( r );  print_header<color::yiq>(  model_str, "snow",        r );
+  color::make::tan        ( r );  print_header<color::yiq>(  model_str, "tan",         r );
+  color::make::thistle    ( r );  print_header<color::yiq>(  model_str, "thistle",     r );
+  color::make::tomato     ( r );  print_header<color::yiq>(  model_str, "tomato",      r );
+  color::make::turquoise  ( r );  print_header<color::yiq>(  model_str, "turquoise",   r );
+  color::make::wheat      ( r );  print_header<color::yiq>(  model_str, "wheat",       r );
  }
 

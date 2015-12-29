@@ -12,7 +12,7 @@
       void aqua( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
        {// Same as Cyan
         color_parameter.container() = ( 3 << 6) + ( 7 << 3 );
-       } 
+       }
 
       inline
       void aqua( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
