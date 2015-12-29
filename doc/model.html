@@ -25,25 +25,32 @@
      class model
       {
        public:
-        typedef category_name   category_type;
-        typedef ...             index_type;
-        typedef ...             component_type;
-        typedef ...             container_type;
-        typedef ...             set_return_type;
+        typedef category_name category_type;
 
-                 model( )
+        typedef  <i>unspecified</i>     component_type
+        typedef  <i>unspecified</i>     index_input_const_type
+        typedef  <i>unspecified</i>     index_type
+        typedef  <i>unspecified</i>     component_input_const_type
+        typedef  <i>unspecified</i>     component_return_const_type
+        typedef  <i>unspecified</i>     container_return_const_type
+        typedef  <i>unspecified</i>     container_return_type
+        typedef  <i>unspecified</i>     index_return_image_type
+        typedef  <i>unspecified</i>     container_type
+        typedef  <i>unspecified</i>     set_return_type;
 
-        explicit model( container_input_const_type container )
+                 model( );
 
-        explicit model( std::initializer_list&gt;component_type &lt; const&amp; ilist )
+        explicit model( container_input_const_type container );
+
+        explicit model( std::initializer_list&lt;component_type&gt; const&amp; ilist );
 
         template&lt; typename other_category_name &gt;
-         explicit model( ::color::_internal::model<other_category_name> const&amp; that )
+         explicit model( ::color::_internal::model&lt;other_category_name&gt; const&amp; that );
 
         template&lt; typename other_category_name &gt;
-         model operator=( ::color::_internal::model<other_category_name> const&amp; that )
+         model operator=( ::color::_internal::model&lt;other_category_name&gt; const&amp; that );
 
-        component_return_const_type get( index_input_const_type index )const
+        component_return_const_type get( index_input_const_type index )const;
 
         template&lt; index_type index &gt;
          component_return_const_type get()const;
@@ -64,7 +71,7 @@
         private:
           container_type m_container;
     };
-</code><pre>			
+</code><pre>
 
 
 		</dd>
