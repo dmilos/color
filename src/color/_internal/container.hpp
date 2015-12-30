@@ -25,6 +25,7 @@ namespace color
 
          typedef instance_type const&   input_const_type;
          typedef instance_type      &   input_type;
+         typedef instance_type      &   output_type,      param_output_type;
 
          typedef ::color::_internal::index< category_name >   index_trait_type;
 

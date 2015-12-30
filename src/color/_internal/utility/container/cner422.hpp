@@ -25,11 +25,14 @@ namespace color
               typedef std::uint8_t  value_type;
               typedef std::uint8_t  instance_type;
 
+
+
               typedef instance_type const      const_type;
               typedef instance_type const&     return_const_type;
               typedef instance_type      &     return_type;
               typedef instance_type const&     input_const_type;
               typedef instance_type      &     input_type;
+              typedef instance_type      &     output_type;
 
               typedef ::color::_internal::utility::type::index< index_type >   index_trait_type;
 

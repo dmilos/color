@@ -1,7 +1,3 @@
-// CMYK 0, 50, 100, 0
-// HSV 30/360, 100%, 100%
-// RGB 255, 127, 0
-
 #ifndef  color_generic_make_orange
 #define color_generic_make_orange
 
@@ -16,9 +12,6 @@
       void orange( ::color::_internal::model< category_name > & color_parameter )
        {
         typedef ::color::_internal::model< category_name > model_type;
-        typedef ::color::_internal::trait< category_name > trait_type;
-        typedef typename model_type::index_type index_type;
-
         // Do nothing to force specialization
        }
 

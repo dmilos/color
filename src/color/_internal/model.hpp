@@ -41,6 +41,8 @@ namespace color
 
         typedef typename trait_type::set_return_type              set_return_type;
 
+        typedef ::color::_internal::bound<category_type> bound_type;
+
                  model( )
                  {
                   // do nothing.

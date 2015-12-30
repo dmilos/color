@@ -17,17 +17,15 @@
           public:
             typedef category_name  category_type;
 
+            typedef ::color::_internal::container< category_type >   container_trait_type;
+            typedef ::color::_internal::index< category_type >       index_trait_type;
+            typedef ::color::_internal::model<category_type>         model_type;
 
-            typedef ::color::_internal::trait< category_type >   trait_type;
-
-            typedef typename ::color::_internal::model<category_type>  model_type;
-
-            typedef typename trait_type::component_type component_type;
-            typedef typename trait_type::index_type  index_type;
+            typedef typename index_trait_type::instance_type        index_type;
 
             static void accumulate( model_type &result, model_type const& right )
              {
-              for( index_type index = 0; index < trait_type::size(); index ++ )
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, result.get( index ) +  right.get( index ) );
                }
@@ -35,7 +33,7 @@
 
             static void full(  model_type &result, model_type const& left, model_type const& right )
              {
-              for( index_type index = 0; index < trait_type::size(); index ++ )
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, left.get( index ) +  right.get( index ) );
                }

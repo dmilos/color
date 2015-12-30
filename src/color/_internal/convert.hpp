@@ -5,7 +5,9 @@
 
 #include "./reformat.hpp"
 
-#include "./trait.hpp"
+#include "./container.hpp"
+#include "./index.hpp"
+#include "./component.hpp"
 
 namespace color
  {
@@ -19,15 +21,14 @@ namespace color
          typedef category_left_name category_left_type;
          typedef category_right_name category_right_type;
 
-         typedef ::color::_internal::trait<category_left_type>    category_left_trait_type;
-         typedef ::color::_internal::trait<category_right_type>   category_right_trait_type;
+         typedef ::color::_internal::index<category_left_type>          index_trait_type;
+         typedef typename index_trait_type::instance_type               index_type;
 
-         typedef typename category_left_trait_type::index_type          index_type;
+         typedef ::color::_internal::container< category_left_type >    container_left_trait_type;
+         typedef ::color::_internal::container< category_right_type >   container_right_trait_type;
 
-         typedef typename category_left_trait_type::container_trait_type     container_left_trait_type;
-         typedef typename category_right_trait_type::container_trait_type    container_right_trait_type;
-
-         typedef typename category_left_trait_type::component_type  component_left_type;
+         typedef ::color::_internal::component<category_left_type>      component_trait_type;
+         typedef typename component_trait_type::instance_type           component_left_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
@@ -56,19 +57,15 @@ namespace color
       {
        public:
 
-         typedef ::color::_internal::trait<category_name>   category_left_trait_type;
-         typedef ::color::_internal::trait<category_name>   category_right_trait_type;
+         typedef ::color::_internal::container< category_name >    container_trait_type;
 
-         typedef typename category_left_trait_type::container_trait_type     container_left_trait_type;
-         typedef typename category_right_trait_type::container_trait_type    container_right_trait_type;
-
-         typedef typename container_left_trait_type::input_type         container_left_input_type;
-         typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+         typedef typename container_trait_type::input_type        container_input_type;
+         typedef typename container_trait_type::input_const_type  container_const_input_type;
 
          static void process
           (
-            container_left_input_type         left
-           ,container_right_const_input_type  right
+            container_input_type         left
+           ,container_const_input_type  right
           )
           {
            left = right;

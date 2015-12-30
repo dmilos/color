@@ -22,11 +22,17 @@ namespace color
 
               typedef std::array< value_name, length> instance_type;
 
+
+
+
+
+
               typedef instance_type const      const_type;
               typedef instance_type const&     return_const_type;
               typedef instance_type      &     return_type;
               typedef instance_type const&     input_const_type;
               typedef instance_type      &     input_type;
+              typedef instance_type      &     output_type;
 
               typedef ::color::_internal::utility::type::index< typename instance_type::size_type >   index_trait_type;
 
