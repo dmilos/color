@@ -28,6 +28,15 @@ template< typename category_name >
    color::operation::convex::accumulate( u32a, 0.5, u32b );
    color::operation::convex::full( u32a, u32b, 0.5, u32c );
 
+   color::operation::convex::full( u32a, u32b, 0.5, u32c );
+
+   color::operation::blend( u32b, 0.5, u32c );
+   color::operation::blend<0>( u32a, u32b );
+
+   color::operation::blend( u32b, u32b, 0.5, u32c );
+   color::operation::blend<0>( u32b, u32a, u32b );
+
+
    u32a = u32b + u32c;
    u32a = u32b - u32c;
    u32a = 0.5 * u32c;

@@ -5,8 +5,6 @@
 
 
 #include "./addition.hpp"
-#include "./divide.hpp"
-#include "./multiply.hpp"
 #include "./scale.hpp"
 #include "./subtract.hpp"
 

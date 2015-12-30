@@ -1,6 +1,10 @@
 #ifndef color_generic_operation_blend
 #define color_generic_operation_blend
 
+// color::operation::blend( result, alpha, upper )
+// color::operation::blend<alpha_index>( result, upper )
+
+
 #include "../../_internal/model.hpp"
 
  namespace color
@@ -28,44 +32,67 @@
             typedef typename index_trait_type::instance_type        index_type;
 
             typedef ::color::_internal::normalize< category_type, float_type > normalize_type;
-            typedef ::color::_internal::diverse< category_type, float_type >   diverse_type; 
+            typedef ::color::_internal::diverse< category_type, float_type >   diverse_type;
 
-             static void accumulate( model_type &result, float_type const& alpha, model_type const& upper )
-              {
-               for( index_type index = 0; index < container_trait_type::size(); index ++ )
-                {
-                 result.set( index, ( float_type(1) - alpha ) * result.get( index ) + alpha * upper.get( index ) );
-                }
-              }
+            static void accumulate( model_type &result, float_type const& alpha, model_type const& upper )
+             {
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
+               {
+                result.set( index, ( float_type(1) - alpha ) * result.get( index ) + alpha * upper.get( index ) );
+               }
+             }
+
+            static void accumulate( model_type &result, model_type const& lower, float_type const& alpha, model_type const& upper )
+             {
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
+               {
+                result.set( index, ( float_type(1) - alpha ) * lower.get( index ) + alpha * upper.get( index ) );
+               }
+             }
 
            template< index_type alpha_index >
              static void accumulate( model_type &result, model_type const& upper )
               {
-               float_type aA = normalize_type::template process<alpha_index>( result.template get<alpha_index>( upper  ) );
-               float_type aB = normalize_type::template process<alpha_index>( result.template get<alpha_index>( result ) );
+               float_type aU = normalize_type::template process<alpha_index>( upper.template get<alpha_index>() );
+               float_type aL = normalize_type::template process<alpha_index>( result.template get<alpha_index>() );
 
-               float_type divisor = aA + aB*( float_type(1) - aA );
+               float_type divisor = aU + aL*( float_type(1) - aU );
 
-               float_type cA = aA/divisor;
-               float_type cB = aB * ( float_type(1) - aA ) / divisor;
+               float_type cU = aU/divisor;
+               float_type cL = aL * ( float_type(1) - aU ) / divisor;
 
                for( index_type index = 0; index < container_trait_type::size(); index ++ )
                 {
-                 result.set( index, cB * result.get( index ) + cA * upper.get( index ) );
+                 result.set( index, cL * result.get( index ) + cU * upper.get( index ) );
                 }
 
-               result.set<alpha_index>( diverse_type::template process<alpha_index>( divisor ) );
+               result.template set<alpha_index>( diverse_type::template process<alpha_index>( divisor ) );
               }
 
+           template< index_type alpha_index >
+             static void accumulate( model_type &result, model_type const& lower, model_type const& upper )
+              {
+               float_type aU = normalize_type::template process<alpha_index>( upper.template get<alpha_index>() );
+               float_type aL = normalize_type::template process<alpha_index>( lower.template get<alpha_index>() );
+
+               float_type divisor = aU + aL*( float_type(1) - aU );
+
+               float_type cU = aU/divisor;
+               float_type cL = aL * ( float_type(1) - aU ) / divisor;
+
+               for( index_type index = 0; index < container_trait_type::size(); index ++ )
+                {
+                 result.set( index, cL * lower.get( index ) + cU * upper.get( index ) );
+                }
+
+               result.template set<alpha_index>( diverse_type::template process<alpha_index>( divisor ) );
+              }
          };
 
       }
 
-     namespace blend
-      {
-
        template< unsigned alpha_index, typename category_name, typename float_name = double >
-        void accumulate
+        void blend
          (
            ::color::_internal::model<category_name>      & result
           ,::color::_internal::model<category_name> const& upper
@@ -74,8 +101,19 @@
           color::operation::_internal::blend<category_name,float_name>::template accumulate< alpha_index >( result, upper );
          }
 
+       template< unsigned alpha_index, typename category_name, typename float_name = double >
+        void blend
+         (
+           ::color::_internal::model<category_name>      & result
+          ,::color::_internal::model<category_name> const& lower
+          ,::color::_internal::model<category_name> const& upper
+         )
+         {
+          color::operation::_internal::blend<category_name,float_name>::template accumulate< alpha_index >( result, lower, upper );
+         }
+
        template< typename category_name, typename float_name = double >
-        void accumulate
+        void blend
          (
            ::color::_internal::model<category_name>      & result
           ,float_name                               const& alpha
@@ -85,7 +123,17 @@
           color::operation::_internal::blend<category_name,float_name>::accumulate( result, alpha, upper );
          }
 
-      }
+       template< typename category_name, typename float_name = double >
+        void blend
+         (
+           ::color::_internal::model<category_name>      & result
+          ,::color::_internal::model<category_name> const& lower
+          ,float_name                               const& alpha
+          ,::color::_internal::model<category_name> const& upper
+         )
+         {
+          color::operation::_internal::blend<category_name,float_name>::accumulate( result, lower, alpha, upper );
+         }
     }
   }
 
