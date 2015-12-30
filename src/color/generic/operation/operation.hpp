@@ -1,10 +1,10 @@
 #include "./addition.hpp"
 #include "./clamp.hpp"
 #include "./convex.hpp"
-#include "./divide.hpp"
 #include "./invert.hpp"
-#include "./multiply.hpp"
 #include "./scale.hpp"
 #include "./subtract.hpp"
+#include "./blend.hpp"
+
 
 #include "./operator.hpp"

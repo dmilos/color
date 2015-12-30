@@ -51,13 +51,10 @@ namespace color
 
             return normal;
            }
+
       };
 
    }
  }
 
 #endif
-
-
-
-
