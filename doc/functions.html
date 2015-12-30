@@ -23,78 +23,78 @@
 			Next operators are available on all <code>_model</code>s:
 
 			<table>
-				<tr><td>operator +</td><td><code>
-				template&lt; typename category_name&gt;<br> 
+				<tr><td nowrap="nowrap">operator +</td><td><code>
+				template&lt; typename category_name&gt;<br>
 				::color::_internal::model&lt;category_name&gt; <b>operator +</b>( ::color::_internal::model&lt;category_name&gt; const&amp;left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
 				</code></td></tr>
 
-				<tr><td>operator +=</td><td><code>
-               template&lt;  typename category_name&gt;<br>
-                ::color::_internal::model&lt;category_name&gt; &amp; <b>operator +=</b>( ::color::_internal::model&lt;category_name&gt; &amp; result, ::color::_internal::model&lt;category_name&gt; const&amp; right );
-                </code></td></tr>
-        
-				<tr><td>operator +</td><td><code>
-               template&lt;  typename category_name&gt;<br>
-                ::color::_internal::model&lt;category_name&gt; <b>operator -</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+				<tr><td nowrap="nowrap">operator +=</td><td><code>
+					template&lt;  typename category_name&gt;<br>
+					::color::_internal::model&lt;category_name&gt; &amp; <b>operator +=</b>( ::color::_internal::model&lt;category_name&gt; &amp; result, ::color::_internal::model&lt;category_name&gt; const&amp; right );
 				</code></td></tr>
 
-				<tr><td>operator *</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-                ::color::_internal::model&lt;category_name&gt; <b>operator *</b>( scalar_name const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp; right );
+				<tr><td nowrap="nowrap">operator +</td><td><code>
+					template&lt;  typename category_name&gt;<br>
+					::color::_internal::model&lt;category_name&gt; <b>operator -</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
 				</code></td></tr>
 
-				<tr><td>operator *</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-                ::color::_internal::model&lt;category_name&gt; <b>operator *</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, scalar_name const &amp; right );
+				<tr><td nowrap="nowrap">operator *</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					::color::_internal::model&lt;category_name&gt; <b>operator *</b>( scalar_name const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp; right );
 				</code></td></tr>
 
-				<tr><td>operator /</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-                ::color::_internal::model&lt;category_name&gt; <b>operator /</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, scalar_name const&amp; right );
+				<tr><td nowrap="nowrap">operator *</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					::color::_internal::model&lt;category_name&gt; <b>operator *</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, scalar_name const &amp; right );
 				</code></td></tr>
 
-				<tr><td>operator -=</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-                ::color::_internal::model&lt;category_name&gt; &amp; <b>operator -=</b>( ::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp; left );
-        
-				<tr><td>operator *=</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-               ::color::_internal::model&lt;category_name&gt; &amp; <b>operator *=</b>(::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp;  scalar );
+				<tr><td nowrap="nowrap">operator /</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					::color::_internal::model&lt;category_name&gt; <b>operator /</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, scalar_name const&amp; right );
 				</code></td></tr>
-        
-				<tr><td>operator /=</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-               ::color::_internal::model&lt;category_name&gt; &amp; <b>operator /=</b>(::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp; scalar );
+
+				<tr><td nowrap="nowrap">operator -=</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					::color::_internal::model&lt;category_name&gt; &amp; <b>operator -=</b>( ::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp; left );
+
+				<tr><td nowrap="nowrap">operator *=</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					::color::_internal::model&lt;category_name&gt; &amp; <b>operator *=</b>(::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp;  scalar );
 				</code></td></tr>
-        
-				<tr><td>operator ==</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-                bool  operator ==( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+
+				<tr><td nowrap="nowrap">operator /=</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					::color::_internal::model&lt;category_name&gt; &amp; <b>operator /=</b>(::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp; scalar );
 				</code></td></tr>
-        
-				<tr><td>operator !=</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-                bool <b>operator !=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+
+				<tr><td nowrap="nowrap">operator ==</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					bool  operator ==( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
 				</code></td></tr>
-        
-				<tr><td>operator &lt;</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-                bool <b>operator &lt;</b> ( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+
+				<tr><td nowrap="nowrap">operator !=</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					bool <b>operator !=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
 				</code></td></tr>
-        
-				<tr><td>operator &gt;</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-                bool <b>operator &gt;</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp; right );
+
+				<tr><td nowrap="nowrap">operator &lt;</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					bool <b>operator &lt;</b> ( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
 				</code></td></tr>
-        
-				<tr><td>operator &lt; =</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-                bool <b>operator &lt; =</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+
+				<tr><td nowrap="nowrap">operator &gt;</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					bool <b>operator &gt;</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp; right );
 				</code></td></tr>
-        
-				<tr><td>operator &gt;=</td><td><code>
-               template&lt;  typename category_name, typename scalar_name &gt;<br>
-                bool <b>operator &gt;=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+
+				<tr><td nowrap="nowrap">operator &lt;=</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					bool <b>operator &lt; =</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+				</code></td></tr>
+
+				<tr><td nowrap="nowrap">operator &gt;=</td><td><code>
+					template&lt;  typename category_name, typename scalar_name &gt;<br>
+					bool <b>operator &gt;=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
 				</code></td></tr>
 
 </table>
