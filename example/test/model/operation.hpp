@@ -1,5 +1,5 @@
 
-template< typename category_name > 
+template< typename category_name >
  void test_operation()
   {
    std::cout << std::endl;
@@ -38,6 +38,12 @@ template< typename category_name >
 
    color::operation::mix( u32b, 0.5, u32c );
    color::operation::mix<0>( u32a, u32b );
+
+   color::operation::fix::range( u32b );
+   color::operation::fix::range( u32a, u32b );
+   
+   color::operation::fix::integrity( u32b );
+   color::operation::fix::integrity( u32a, u32b );
 
    u32a = u32b + u32c;
    u32a = u32b - u32c;

@@ -141,7 +141,7 @@ void check_conversion()
   color::yiq<long double >   yi;
   color::yuv<long double >   yu;
 
-  //check_conversion_back_and_forth( hl, r  );
+  check_conversion_back_and_forth( hl, r  );
   //check_conversion_back_and_forth( hv, r  );
 
   check_conversion_back_and_forth( c, c  );  /*check_conversion_back_and_forth( ck, c  );*/  check_conversion_back_and_forth( r, c  );
