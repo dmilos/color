@@ -4,11 +4,15 @@
 #include "../_internal/utility/type/index.hpp"
 #include "../_internal/utility/component/array.hpp"
 #include "../_internal/utility/container/array.hpp"
+#include "../_internal/utility/bound/yuv.hpp"
 
 #include "../_internal/bound.hpp"
 #include "../_internal/index.hpp"
 #include "../_internal/component.hpp"
 #include "../_internal/container.hpp"
+
+#include "./category.hpp"
+
 
 
 namespace color
@@ -18,7 +22,7 @@ namespace color
 
     template< >
      struct bound< ::color::category::yuv_double >
-      : public ::color::_internal::utility::bound::general< double, unsigned >
+      : public ::color::_internal::utility::bound::yuv_float< unsigned, double >
       {
       };
 

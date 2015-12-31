@@ -11,6 +11,8 @@
 #include "../_internal/component.hpp"
 #include "../_internal/container.hpp"
 
+#include "./category.hpp"
+
 
 namespace color
  {

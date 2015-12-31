@@ -67,8 +67,8 @@ void invoke()
   test_conversion< color::xyz, color::rgb >();
  }
 
-//template < template<typename> class color_name >
-void make_image(std::string const& name )
+template < typename model_name >
+void make_image(std::string const& name, float y_plane = 0.5 )
  {
   int height = 1000;
   int width  = 1000;
@@ -87,7 +87,7 @@ void make_image(std::string const& name )
     for (int x = 0; x < width; x++)
      {
       image[y * width + x].set<3>(255);
-      image[y * width + x] = color::yiq<double>({ y / double(height), 0.5, x / double(width) });
+      image[y * width + x] = model_name( { y / double(height), y_plane, x / double(width) } );
      }
    }
 
@@ -98,22 +98,34 @@ void make_image(std::string const& name )
 
 int main(int argc, char const *argv[])
  {
-  //make_image( "image-rgb.tga");
-  //make_image( "image-cmy.tga");
-  //make_image("image-cmyk.tga");
-  //make_image( "image-hsl.tga");
-  //make_image( "image-hsv.tga");
-  //make_image( "image-xyz.tga");
-  make_image( "image-yiq.tga");
-  //make_image( "image-yuv.tga");
 
-  invoke();
+  make_image<color::rgb<double> >( "image-rgb.tga");
+  make_image<color::cmy<double> >( "image-cmy.tga");
+  make_image<color::cmyk<double> >("image-cmyk.tga");
+  make_image<color::hsl<double> >( "image-hsl.tga");
+  make_image<color::hsv<double> >( "image-hsv.tga");
+  make_image<color::xyz<double> >( "image-xyz.tga");
+  make_image<color::yiq<double> >( "image-yiq.tga");
 
-  //extern void check_conversion();
-  //check_conversion();
+  make_image<color::yuv<double> >("image-yuv_0.0.tga", 0.0);
+  make_image<color::yuv<double> >("image-yuv_0.1.tga", 0.1);
+  make_image<color::yuv<double> >("image-yuv_0.2.tga", 0.2);
+  make_image<color::yuv<double> >("image-yuv_0.3.tga", 0.3);
+  make_image<color::yuv<double> >("image-yuv_0.4.tga", 0.4);
+  make_image<color::yuv<double> >("image-yuv_0.5.tga", 0.5);
+  make_image<color::yuv<double> >("image-yuv_0.6.tga", 0.6);
+  make_image<color::yuv<double> >("image-yuv_0.7.tga", 0.7);
+  make_image<color::yuv<double> >("image-yuv_0.8.tga", 0.8);
+  make_image<color::yuv<double> >("image-yuv_0.9.tga", 0.9);
+  make_image<color::yuv<double> >("image-yuv_1.0.tga", 1.0);
 
-  extern void make_test();
-  make_test();
+  //invoke();
+
+  extern void check_conversion();
+  check_conversion();
+
+  //extern void make_test();
+  //make_test();
 
   return 0;
  }

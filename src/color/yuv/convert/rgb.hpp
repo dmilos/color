@@ -37,8 +37,8 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             static float_type const Wr = 0.299000;
-             static float_type const Wb = 0.114000;
+             static float_type const Wr = 0.299;
+             static float_type const Wb = 0.114;
              static float_type const Wg = 1.0-Wr-Wb;
              static float_type const Umax = 0.436;
              static float_type const Vmax = 0.615;
@@ -48,8 +48,10 @@ namespace color
              float_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
              float_type y = Wr * r + Wg * g + Wb * b;
-             float_type u = Umax * ( b - y )/( 1- Wb );
-             float_type v = Vmax * ( r - y )/( 1- Wr );
+             //float_type u = Umax * ( b - y )/( 1- Wb );
+             //float_type v = Vmax * ( r - y )/( 1- Wr );
+             float_type u = ( (b - y) / (1 - Wb) + float_type(1) ) / float_type(2);
+             float_type v = ( (r - y) / (1 - Wr) + float_type(1) ) / float_type(2);
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( y ) );
              container_left_trait_type::template set<1>( left, diverse_type::template process<1>( u ) );
