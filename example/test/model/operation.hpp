@@ -17,18 +17,18 @@ template< typename category_name >
    model_type   u32c;
 
    // long names discourage usage of it directly.
-   color::operation::addition::full( u32a, u32b, u32c );
-   color::operation::addition::accumulate( u32a, u32b );
-   color::operation::subtract::full( u32a, u32b, u32c );
-   color::operation::subtract::accumulate( u32a, u32b );
-   color::operation::invert::full( u32a, u32b );
-   color::operation::invert::accumulate( u32a );
-   color::operation::scale::accumulate( u32a, 0.5 );
-   color::operation::scale::full( u32a, 0.5, u32b );
-   color::operation::convex::accumulate( u32a, 0.5, u32b );
-   color::operation::convex::full( u32a, u32b, 0.5, u32c );
+   color::operation::addition( u32a, u32b, u32c );
+   color::operation::addition( u32a, u32b );
+   color::operation::subtract( u32a, u32b, u32c );
+   color::operation::subtract( u32a, u32b );
+   color::operation::invert( u32a, u32b );
+   color::operation::invert( u32a );
+   color::operation::scale( u32a, 0.5 );
+   color::operation::scale( u32a, 0.5, u32b );
+   color::operation::convex( u32a, 0.5, u32b );
+   color::operation::convex( u32a, u32b, 0.5, u32c );
 
-   color::operation::convex::full( u32a, u32b, 0.5, u32c );
+   color::operation::convex( u32a, u32b, 0.5, u32c );
 
    color::operation::blend( u32b, 0.5, u32c );
    color::operation::blend( u32b, u32b, 0.5, u32c );
@@ -41,9 +41,13 @@ template< typename category_name >
 
    color::operation::fix::range( u32b );
    color::operation::fix::range( u32a, u32b );
-   
+
    color::operation::fix::integrity( u32b );
    color::operation::fix::integrity( u32a, u32b );
+
+   color::operation::check::range( u32b );
+   color::operation::check::integrity( u32b );
+
 
    u32a = u32b + u32c;
    u32a = u32b - u32c;

@@ -35,7 +35,7 @@
                  
               value = float_name( component_parameter - trait_type::template minimum<0>() ) / trait_type::template range<0>()  / value;
 
-              ::color::operation::scale::accumulate( color_parameter, value );
+              ::color::operation::scale( color_parameter, value );
              }
 
           }

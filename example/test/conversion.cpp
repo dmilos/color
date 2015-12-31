@@ -5,8 +5,8 @@
 
 template< typename category_left_name, typename category_right_name>
  void check_conversion_back_and_forth
-  ( 
-   color::_internal::model< category_left_name> &left, 
+  (
+   color::_internal::model< category_left_name> &left,
    color::_internal::model<category_right_name> &desno
   )
   {
@@ -24,6 +24,11 @@ template< typename category_left_name, typename category_right_name>
        left.template set<0>( c0 );
        left.template set<1>( c1 );
        left.template set<2>( c2 );
+
+       if( false == color::operation::check::integrity( left ) )
+        {
+         continue;
+        }
 
        desno = left;
 
@@ -130,7 +135,7 @@ template< typename category_left_name, typename category_middle_name, typename c
     return;
   }
 
- 
+
 void check_conversion()
  {
   color::cmy<long double >   c;

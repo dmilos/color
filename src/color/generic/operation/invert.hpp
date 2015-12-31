@@ -2,8 +2,8 @@
 #define color_generic_operation_invert_123
 
 // ::color::operation::_internal::invert<category_name>::component<>( )
-// ::color::operation::_internal::invert<category_name>::accumulate( )
-// ::color::operation::_internal::invert<category_name>::full( )
+// ::color::operation::_internal::invert<category_name>::process( )
+// ::color::operation::_internal::invert<category_name>::process( )
 
  namespace color
   {
@@ -49,7 +49,7 @@
               return trait_type::template range<index_size>() - component;
              }
 
-            static void accumulate( model_type &result )
+            static void process( model_type &result )
              {
               for( index_type index = 0; index < trait_type::size(); index ++ )
                {
@@ -57,7 +57,7 @@
                }
              }
 
-            static void full(  model_type &result, model_type const& right )
+            static void process(  model_type &result, model_type const& right )
              {
               for( index_type index = 0; index < trait_type::size(); index ++ )
                {
@@ -68,29 +68,26 @@
          };
       }
 
-     namespace invert
-      {
 
-       template< typename category_name >
-        void accumulate
-         (
-           color::_internal::model<category_name>      & result
-         )
-         {
-          color::operation::_internal::invert<category_name>::accumulate( result );
-         }
+     template< typename category_name >
+      void invert
+       (
+         color::_internal::model<category_name>      & result
+       )
+       {
+        color::operation::_internal::invert<category_name>::process( result );
+       }
 
-       template< typename category_name >
-        void full
-         (
-           color::_internal::model<category_name>      & result
-          ,color::_internal::model<category_name> const& right
-         )
-         {
-          color::operation::_internal::invert<category_name>::full( result, right );
-         }
+     template< typename category_name >
+      void invert
+       (
+         color::_internal::model<category_name>      & result
+        ,color::_internal::model<category_name> const& right
+       )
+       {
+        color::operation::_internal::invert<category_name>::process( result, right );
+       }
 
-      }
 
     }
   }

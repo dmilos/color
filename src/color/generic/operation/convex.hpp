@@ -26,7 +26,7 @@
             typedef typename trait_type::component_type component_type;
             typedef typename trait_type::index_type  index_type;
 
-            static void accumulate( model_input_type result, scalar_const_input_type scalar, model_const_input_type right )
+            static void process( model_input_type result, scalar_const_input_type scalar, model_const_input_type right )
              {
               for( index_type index = 0; index < trait_type::size(); index ++ )
                {
@@ -34,7 +34,7 @@
                }
              }
 
-            static void full(  model_input_type  result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right )
+            static void process(  model_input_type  result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right )
              {
               for( index_type index = 0; index < trait_type::size(); index ++ )
                {
@@ -45,33 +45,30 @@
          };
       }
 
-     namespace convex
-      {
 
-       template< typename category_name, typename scalar_name >
-        void accumulate
-         (
-           color::_internal::model<category_name>      & result
-          ,scalar_name                            const& scalar
-          ,color::_internal::model<category_name> const& right
-         )
-         {
-          color::operation::_internal::convex<category_name,scalar_name>::accumulate( result, scalar, right );
-         }
+     template< typename category_name, typename scalar_name >
+      void convex
+       (
+         color::_internal::model<category_name>      & result
+        ,scalar_name                            const& scalar
+        ,color::_internal::model<category_name> const& right
+       )
+       {
+        color::operation::_internal::convex<category_name,scalar_name>::process( result, scalar, right );
+       }
 
-       template< typename category_name, typename scalar_name >
-        void full
-         (
-           color::_internal::model<category_name>      & result
-          ,color::_internal::model<category_name> const& left
-          ,scalar_name                            const& scalar
-          ,color::_internal::model<category_name> const& right
-         )
-         {
-          color::operation::_internal::convex<category_name,scalar_name>::full( result, left, scalar, right );
-         }
+     template< typename category_name, typename scalar_name >
+      void convex
+       (
+         color::_internal::model<category_name>      & result
+        ,color::_internal::model<category_name> const& left
+        ,scalar_name                            const& scalar
+        ,color::_internal::model<category_name> const& right
+       )
+       {
+        color::operation::_internal::convex<category_name,scalar_name>::process( result, left, scalar, right );
+       }
 
-      }
 
     }
   }

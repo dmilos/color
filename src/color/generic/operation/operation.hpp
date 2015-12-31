@@ -5,5 +5,6 @@
 #include "./subtract.hpp"
 #include "./blend.hpp"
 #include "./fix.hpp"
+#include "./check.hpp"
 
 #include "./operator.hpp"

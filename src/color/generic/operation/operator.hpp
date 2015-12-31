@@ -24,7 +24,7 @@
         operator +( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const&  right )
          {
           ::color::_internal::model< category_name > result;
-          ::color::operation::addition::full( result, left, right );
+          ::color::operation::addition( result, left, right );
           return result;
          }
 
@@ -33,7 +33,7 @@
         ::color::_internal::model< category_name > &
         operator +=( ::color::_internal::model< category_name > & result, ::color::_internal::model< category_name > const&  right )
          {
-          ::color::operation::addition::accumulate( result, right );
+          ::color::operation::addition( result, right );
           return result;
          }
 
@@ -43,7 +43,7 @@
         operator -( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const&  right )
          {
           ::color::_internal::model< category_name > result;
-          ::color::operation::subtract::full( result,  left, right );
+          ::color::operation::subtract( result,  left, right );
           return result;
          }
 
@@ -57,7 +57,7 @@
          )
          {
           ::color::_internal::model< category_name > result;
-          ::color::operation::scale::full( result,  left, right );
+          ::color::operation::scale( result,  left, right );
           return result;
          }
 
@@ -71,7 +71,7 @@
          )
          {
           ::color::_internal::model< category_name > result;
-          ::color::operation::scale::full( result, right, left );
+          ::color::operation::scale( result, right, left );
           return result;
          }
 
@@ -85,7 +85,7 @@
          )
          {
           ::color::_internal::model< category_name > result;
-          ::color::operation::scale::full( result,  scalar_name(1) / right, left );
+          ::color::operation::scale( result,  scalar_name(1) / right, left );
           return result;
          }
 
@@ -95,7 +95,7 @@
         ::color::_internal::model< category_name > &
         operator -=( ::color::_internal::model< category_name > & result, scalar_name const&  left )
          {
-          ::color::operation::subtract::accumulate( result, left );
+          ::color::operation::subtract( result, left );
           return result;
          }
 
@@ -105,7 +105,7 @@
        ::color::_internal::model< category_name > &
         operator *=(::color::_internal::model< category_name > & result, scalar_name const&  scalar )
          {
-         ::color::operation::scale::accumulate( result, scalar );
+         ::color::operation::scale( result, scalar );
           return result;
          }
 
@@ -114,7 +114,7 @@
        ::color::_internal::model< category_name > &
         operator /=(::color::_internal::model< category_name > & result, scalar_name const&  scalar )
          {
-         ::color::operation::scale::accumulate( result, scalar_name(1) / scalar );
+         ::color::operation::scale( result, scalar_name(1) / scalar );
           return result;
          }
 
