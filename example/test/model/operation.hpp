@@ -39,14 +39,14 @@ template< typename category_name >
    color::operation::mix( u32b, 0.5, u32c );
    color::operation::mix<0>( u32a, u32b );
 
-   color::operation::fix::range( u32b );
-   color::operation::fix::range( u32a, u32b );
+   color::operation::fix( u32b );
+   color::operation::fix( u32a, u32b );
 
-   color::operation::fix::integrity( u32b );
-   color::operation::fix::integrity( u32a, u32b );
+   color::operation::clamp( u32b );
+   color::operation::clamp( u32a, u32b );
 
-   color::operation::check::range( u32b );
-   color::operation::check::integrity( u32b );
+   color::operation::overburn( u32b );
+   color::operation::integrity( u32b );
 
 
    u32a = u32b + u32c;

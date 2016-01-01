@@ -25,7 +25,7 @@ template< typename category_left_name, typename category_right_name>
        left.template set<1>( c1 );
        left.template set<2>( c2 );
 
-       if( false == color::operation::check::integrity( left ) )
+       if( false == color::operation::integrity( left ) )
         {
          continue;
         }
