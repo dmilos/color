@@ -16,18 +16,19 @@
         return color_parameter.template get<0>();
        }
 
-     //template< typename category_target_name, typename category_source_name = category_target_name >
+     //template< typename category_target_name, typename category_source_name = category_target_name, unsigned index_size = 0 >
      // inline
      // typename ::color::_internal::model< category_target_name >::component_const_type
-     // blue( ::color::_internal::model< category_source_name > const& color_parameter )
+     // blue( ::color::_internal::model< category_source_name > const& model )
      //  {
+     //   reformat<category_target_name>::process<1,index_size>( )
      //   return color_parameter.template get<0>();
      //  }
 
      //template< typename category_target_name, typename format_name = ::color::type::diverse_t >
      // inline
      // typename ::color::_internal::model< category_target_name >::component_const_type
-     // blue( ::color::_internal::model< category_source_name > const& color_parameter )
+     // blue( ::color::_internal::model< category_source_name > const& model )
      //  {
      //   return color_parameter.template get<0>();
      //  }

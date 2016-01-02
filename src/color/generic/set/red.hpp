@@ -17,7 +17,7 @@
         typename ::color::_internal::model< category_name >::component_input_const_type         component_parameter
        )
        {
-        // Do nothing!!!
+        // Do nothing to force specialization!!!
        }
 
      //template< typename category_source_name, typename category_target_name = category_source_name >
