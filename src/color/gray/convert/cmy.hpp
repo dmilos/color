@@ -14,7 +14,7 @@ namespace color
     namespace  _privateGray
      {
 
-      template< typename category_left_name, typename category_right_name, typename float_name = double >
+      template< typename category_left_name, typename category_right_name, typename scalar_name = double >
        struct convert_cmy2gray
         {
          public:
@@ -36,7 +36,7 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             float_name value =
+             scalar_name value =
                    0.2126 * ( 1 - normalize_type::template process<0> ( container_right_trait_type::template get<0>( right ) ) )
                  + 0.7152 * ( 1 - normalize_type::template process<1> ( container_right_trait_type::template get<1>( right ) ) )
                  + 0.0722 * ( 1 - normalize_type::template process<2> ( container_right_trait_type::template get<2>( right ) ) );

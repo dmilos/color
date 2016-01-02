@@ -8,15 +8,15 @@ namespace color
   namespace category
    {
 
-    class rgb_uint8    {};
-    class rgb_uint16   {};
-    class rgb_uint24   {};
-    class rgb_uint32   {};
-    class rgb_uint48   {};
-    class rgb_uint64   {};
-    class rgb_float    {};
-    class rgb_double   {};
-    class rgb_ldouble  {};
+    struct rgb_uint8    {};
+    struct rgb_uint16   {};
+    struct rgb_uint24   {};
+    struct rgb_uint32   {};
+    struct rgb_uint48   {};
+    struct rgb_uint64   {};
+    struct rgb_float    {};
+    struct rgb_double   {};
+    struct rgb_ldouble  {};
 
    }
  }

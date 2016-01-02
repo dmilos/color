@@ -5,14 +5,16 @@ namespace color
  {
   namespace category
    {
-    class gray_bool     {};
-    class gray_uint8    {};
-    class gray_uint16   {};
-    class gray_uint32   {};
-    class gray_uint64   {};
-    class gray_float    {};
-    class gray_double   {};
-    class gray_ldouble  {};
+
+    struct gray_bool     {};
+    struct gray_uint8    {};
+    struct gray_uint16   {};
+    struct gray_uint32   {};
+    struct gray_uint64   {};
+    struct gray_float    {};
+    struct gray_double   {};
+    struct gray_ldouble  {};
+
    }
  }
 

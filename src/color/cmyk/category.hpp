@@ -7,13 +7,15 @@ namespace color
  {
   namespace category
    {
-    class cmyk_uint8    {};
-    class cmyk_uint16   {};
-    class cmyk_uint32   {};
-    class cmyk_uint64   {};
-    class cmyk_float    {};
-    class cmyk_double   {};
-    class cmyk_ldouble  {};
+
+    struct cmyk_uint8    {};
+    struct cmyk_uint16   {};
+    struct cmyk_uint32   {};
+    struct cmyk_uint64   {};
+    struct cmyk_float    {};
+    struct cmyk_double   {};
+    struct cmyk_ldouble  {};
+
    }
  }
 

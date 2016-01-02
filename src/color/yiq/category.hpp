@@ -7,13 +7,15 @@ namespace color
  {
   namespace category
    {
-    class yiq_uint8    {};
-    class yiq_uint16   {};
-    class yiq_uint32   {};
-    class yiq_uint64   {};
-    class yiq_float    {};
-    class yiq_double   {};
-    class yiq_ldouble  {};
+
+    struct yiq_uint8    {};
+    struct yiq_uint16   {};
+    struct yiq_uint32   {};
+    struct yiq_uint64   {};
+    struct yiq_float    {};
+    struct yiq_double   {};
+    struct yiq_ldouble  {};
+
    }
  }
 

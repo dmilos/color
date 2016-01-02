@@ -1,7 +1,7 @@
 #ifndef color__internal_utility_bound_yuv
 #define color__internal_utility_bound_yuv
 
-// ::color::_internal::utility::bound::yuv_float< index_type, float_name >
+// ::color::_internal::utility::bound::yuv_float< index_type, scalar_name >
 
 
 #include "../type/traitp.hpp"
@@ -16,14 +16,14 @@ namespace color
       namespace bound
        {
 
-        template< typename index_name, typename float_name >
+        template< typename index_name, typename scalar_name >
          struct yuv_float
           {
            public:
-             typedef float_name  float_type;
+             typedef scalar_name  scalar_type;
              typedef index_name  index_type;
 
-             typedef ::color::_internal::utility::type::traitC< float_type >   trait_type;
+             typedef ::color::_internal::utility::type::traitC< scalar_type >   trait_type;
              typedef ::color::_internal::utility::type::index< index_type >    index_trait_type;
 
              typedef typename trait_type::instance_type          instance_type;

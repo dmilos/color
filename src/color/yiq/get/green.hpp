@@ -16,7 +16,7 @@
          namespace _internal
           {
 
-           template< typename category_name, typename float_name = double >
+           template< typename category_name, typename scalar_name = double >
             inline
             typename ::color::_internal::model< category_name >::component_const_type
             green( ::color::_internal::model< category_name > const& color_parameter  )
@@ -25,10 +25,10 @@
               typedef ::color::_internal::trait< category_name > trait_type;
               typedef typename trait_type::component_type     component_type;
 
-              float_name value =
-                          1 * ( color_parameter.template get<0>() - trait_type::template minimum<0>() ) / float_name( trait_type::template range<0>() )
-                 - 0.284399 * ( color_parameter.template get<1>() - trait_type::template minimum<1>() ) / float_name( trait_type::template range<1>() )
-                 - 0.771312 * ( color_parameter.template get<2>() - trait_type::template minimum<2>() ) / float_name( trait_type::template range<2>() )
+              scalar_name value =
+                          1 * ( color_parameter.template get<0>() - trait_type::template minimum<0>() ) / scalar_name( trait_type::template range<0>() )
+                 - 0.284399 * ( color_parameter.template get<1>() - trait_type::template minimum<1>() ) / scalar_name( trait_type::template range<1>() )
+                 - 0.771312 * ( color_parameter.template get<2>() - trait_type::template minimum<2>() ) / scalar_name( trait_type::template range<2>() )
                  + 0.527856;
 
               return component_type( value * trait_type::template range<0>() + trait_type::template minimum<0>() );

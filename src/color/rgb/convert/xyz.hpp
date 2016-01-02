@@ -16,13 +16,13 @@ namespace color
     namespace  _privateRGB
      {
 
-      template< typename category_left_name, typename category_right_name, typename float_name = double >
+      template< typename category_left_name, typename category_right_name, typename scalar_name = double >
        struct convert_xyz2rgb
         {
          public:
            typedef category_left_name category_left_type;
            typedef category_right_name category_right_type;
-           typedef float_name  float_type;
+           typedef scalar_name  scalar_type;
 
            typedef ::color::_internal::container<category_left_type>     container_left_trait_type;
            typedef ::color::_internal::container<category_right_type>    container_right_trait_type;
@@ -30,8 +30,8 @@ namespace color
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-           typedef ::color::_internal::diverse< category_left_type, float_type >    diverse_type;
-           typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+           typedef ::color::_internal::diverse< category_left_type, scalar_type >    diverse_type;
+           typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
            static void process
             (
@@ -39,13 +39,13 @@ namespace color
              ,container_right_const_input_type  right
             )
             { // TODO divide by 0.17697
-             static float_type b11 =  2.3646138465383655,   b12 = -0.896540570739668,    b13 = -0.4680732757986974;
-             static float_type b21 = -0.515166208447888,    b22 =  1.4264081038563887,   b23 =  0.08875810459149917;
-             static float_type b31 =  0.005203699075231192, b32 = -0.014408162665216047, b33 =  1.0092044635899848; 
+             static scalar_type b11 =  2.3646138465383655,   b12 = -0.896540570739668,    b13 = -0.4680732757986974;
+             static scalar_type b21 = -0.515166208447888,    b22 =  1.4264081038563887,   b23 =  0.08875810459149917;
+             static scalar_type b31 =  0.005203699075231192, b32 = -0.014408162665216047, b33 =  1.0092044635899848; 
 
-             float_type x = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-             float_type y = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-             float_type z = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+             scalar_type x = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+             scalar_type y = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+             scalar_type z = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( b11 * x + b12 * y + b13 * z ) );
              container_left_trait_type::template set<1>( left, diverse_type::template process<1>( b21 * x + b22 * y + b23 * z ) );

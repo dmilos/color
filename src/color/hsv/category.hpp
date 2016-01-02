@@ -8,13 +8,13 @@ namespace color
   namespace category
    {
 
-    class hsv_uint8    {};
-    class hsv_uint16   {};
-    class hsv_uint32   {};
-    class hsv_uint64   {};
-    class hsv_float    {};
-    class hsv_double   {};
-    class hsv_ldouble  {};
+    struct hsv_uint8    {};
+    struct hsv_uint16   {};
+    struct hsv_uint32   {};
+    struct hsv_uint64   {};
+    struct hsv_float    {};
+    struct hsv_double   {};
+    struct hsv_ldouble  {};
 
    }
  }

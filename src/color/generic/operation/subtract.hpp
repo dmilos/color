@@ -1,6 +1,7 @@
 #ifndef  color_generic_operation_subtract_123
 #define color_generic_operation_subtract_123
-
+// color::operation::subtract( result, right )
+// color::operation::subtract( result, left, right )
 
  namespace color
   {

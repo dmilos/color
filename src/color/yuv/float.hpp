@@ -34,7 +34,7 @@ namespace color
 
     template< >
      struct component< ::color::category::yuv_float >
-      : public ::color::_internal::utility::component::array< float, unsigned>
+      : public ::color::_internal::utility::component::array< float, unsigned >
       {
       };
 

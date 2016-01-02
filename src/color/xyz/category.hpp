@@ -8,13 +8,13 @@ namespace color
   namespace category
    {
 
-    class xyz_uint8    {};
-    class xyz_uint16   {};
-    class xyz_uint32   {};
-    class xyz_uint64   {};
-    class xyz_float    {};
-    class xyz_double   {};
-    class xyz_ldouble  {};
+    struct xyz_uint8    {};
+    struct xyz_uint16   {};
+    struct xyz_uint32   {};
+    struct xyz_uint64   {};
+    struct xyz_float    {};
+    struct xyz_double   {};
+    struct xyz_ldouble  {};
 
    }
  }

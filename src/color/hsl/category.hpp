@@ -7,13 +7,15 @@ namespace color
  {
   namespace category
    {
-    class hsl_uint8    {};
-    class hsl_uint16   {};
-    class hsl_uint32   {};
-    class hsl_uint64   {};
-    class hsl_float    {};
-    class hsl_double   {};
-    class hsl_ldouble  {};
+
+    struct hsl_uint8    {};
+    struct hsl_uint16   {};
+    struct hsl_uint32   {};
+    struct hsl_uint64   {};
+    struct hsl_float    {};
+    struct hsl_double   {};
+    struct hsl_ldouble  {};
+
    }
  }
 

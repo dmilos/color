@@ -9,7 +9,7 @@
     {
 
      // Actyaly set graynes of color. Do not miz with color::make::gray
-     template< typename category_name, typename float_name = double >
+     template< typename category_name, typename scalar_name = double >
       inline
       void
       gray

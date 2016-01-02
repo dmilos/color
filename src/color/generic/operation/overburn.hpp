@@ -1,7 +1,6 @@
 #ifndef color_generic_operation_overburn
 #define color_generic_operation_overburn
-// color::operation::overburn::range< category >( model )
-// color::operation::overburn::integrity< category >( model )
+// color::operation::overburn< category >( model )
 
 #include "../../_internal/model.hpp"
 
@@ -21,7 +20,6 @@ namespace color
           typedef ::color::_internal::model<category_type>          model_type;
           typedef ::color::_internal::bound<category_type>          bound_type;
           typedef ::color::_internal::container< category_name >    container_trait_type;
-          typedef ::color::_internal::component< category_name >    component_trait_type;
           typedef ::color::_internal::index<category_type>          index_trait_type;
 
           typedef typename index_trait_type::instance_type          index_type;

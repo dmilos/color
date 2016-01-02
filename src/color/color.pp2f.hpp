@@ -518,10 +518,10 @@ public:
 namespace color {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 struct diverse {
 public:
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 	typedef ::color::_internal::bound< category_name > bound_trait_type;
 	typedef ::color::_internal::component< category_name > component_trait_type;
 	typedef ::color::_internal::index< category_name > index_trait_type;
@@ -534,8 +534,8 @@ public:
 
 	static
 	component_return_type
-	process(float_type const& normal, index_input_const_type index) {
-		float_type divergent = normal;
+	process(scalar_type const& normal, index_input_const_type index) {
+		scalar_type divergent = normal;
 		divergent *= bound_trait_type::range(index);
 		divergent += bound_trait_type::minimum(index);
 		return component_instance_type(divergent);
@@ -544,8 +544,8 @@ public:
 	template< index_instance_type index_size >
 	static
 	component_return_type
-	process(float_type const& normal) {
-		float_type divergent = normal;
+	process(scalar_type const& normal) {
+		scalar_type divergent = normal;
 		divergent *= bound_trait_type::template range<index_size>();
 		divergent += bound_trait_type::template minimum<index_size>();
 		return component_instance_type(divergent);
@@ -557,10 +557,10 @@ public:
 namespace color {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 struct normalize {
 public:
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 	typedef ::color::_internal::bound< category_name > bound_trait_type;
 	typedef ::color::_internal::component< category_name > component_trait_type;
 	typedef ::color::_internal::index< category_name > index_trait_type;
@@ -572,9 +572,9 @@ public:
 	typedef typename index_trait_type::input_const_type index_input_const_type;
 
 	static
-	float_type
+	scalar_type
 	process(component_input_const_type divergent, index_input_const_type index) {
-		float_name normal = static_cast<component_instance_type>(divergent);
+		scalar_name normal = static_cast<component_instance_type>(divergent);
 		normal -= bound_trait_type::minimum(index);
 		normal /= bound_trait_type::range(index);
 		return normal;
@@ -582,9 +582,9 @@ public:
 
 	template< index_instance_type index_size >
 	static
-	float_type
+	scalar_type
 	process(component_input_const_type divergent) {
-		float_name normal = static_cast<component_instance_type>(divergent);
+		scalar_name normal = static_cast<component_instance_type>(divergent);
 		normal -= bound_trait_type::template minimum<index_size>();
 		normal /= bound_trait_type::template range<index_size>();
 		return normal;
@@ -601,16 +601,16 @@ template
 <
 typename category_left_name
 ,typename category_right_name
-,typename float_name = double
+,typename scalar_name = double
 >
 struct reformat {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	typedef typename ::color::_internal::component< category_left_name >::return_type left_component_return_type;
 	typedef typename ::color::_internal::index< category_left_name >::input_const_type left_index_const_input_type;
@@ -2628,7 +2628,7 @@ alpha(::color::_internal::model< category_name > const& color_parameter) {
 namespace color {
 namespace get {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 typename ::color::_internal::model< category_name >::component_const_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
@@ -2752,7 +2752,7 @@ alpha
 namespace color {
 namespace set {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 void
 gray
@@ -3768,14 +3768,14 @@ namespace _internal {
 namespace cmy {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 typename ::color::_internal::model< category_name >::component_const_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::_internal::trait< category_name > trait_type;
 	typedef typename trait_type::component_type component_type;
-	float_name value =
+	scalar_name value =
 		(1-0.2126) * (color_parameter.template get<0>() - trait_type::template minimum<0>()) / trait_type::template range<0>()
 	+ (1-0.7152) * (color_parameter.template get<1>() - trait_type::template minimum<1>()) / trait_type::template range<1>()
 	+ (1-0.0722) * (color_parameter.template get<2>() - trait_type::template minimum<2>()) / trait_type::template range<2>();
@@ -4611,7 +4611,7 @@ namespace _internal {
 namespace cmy {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 void
 gray
@@ -4622,11 +4622,11 @@ gray
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::_internal::trait< category_name > trait_type;
 	typedef typename trait_type::component_type component_type;
-	float_name value =
-		0.2126 * (float_name(1) - (color_parameter.template get<0>() - trait_type::template minimum<0>()) / trait_type::template range<0>())
-		+ 0.7152 * (float_name(1) - (color_parameter.template get<1>() - trait_type::template minimum<1>()) / trait_type::template range<1>())
-		+ 0.0722 * (float_name(1) - (color_parameter.template get<2>() - trait_type::template minimum<2>()) / trait_type::template range<2>());
-	value = float_name(component_parameter - trait_type::template minimum<0>()) / trait_type::template range<0>() / value;
+	scalar_name value =
+		0.2126 * (scalar_name(1) - (color_parameter.template get<0>() - trait_type::template minimum<0>()) / trait_type::template range<0>())
+		+ 0.7152 * (scalar_name(1) - (color_parameter.template get<1>() - trait_type::template minimum<1>()) / trait_type::template range<1>())
+		+ 0.0722 * (scalar_name(1) - (color_parameter.template get<2>() - trait_type::template minimum<2>()) / trait_type::template range<2>());
+	value = scalar_name(component_parameter - trait_type::template minimum<0>()) / trait_type::template range<0>() / value;
 	::color::operation::scale::accumulate(color_parameter, value);
 }
 
@@ -7042,14 +7042,14 @@ namespace _internal {
 namespace cmyk {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 typename ::color::_internal::model< category_name >::component_const_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::_internal::trait< category_name > trait_type;
 	typedef typename trait_type::component_type component_type;
-	float_name value =
+	scalar_name value =
 		(1-0.2126) * (color_parameter.template get<0>() - trait_type::template minimum<0>()) / trait_type::template range<0>()
 	+ (1-0.7152) * (color_parameter.template get<1>() - trait_type::template minimum<1>()) / trait_type::template range<1>()
 	+ (1-0.0722) * (color_parameter.template get<2>() - trait_type::template minimum<2>()) / trait_type::template range<2>();
@@ -7504,7 +7504,7 @@ namespace _internal {
 namespace cmyk {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 void
 gray
@@ -7515,11 +7515,11 @@ gray
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::_internal::trait< category_name > trait_type;
 	typedef typename trait_type::component_type component_type;
-	float_name value =
-		0.2126 * (float_name(1) - (color_parameter.template get<0>() - trait_type::template minimum<0>()) / trait_type::template range<0>())
-		+ 0.7152 * (float_name(1) - (color_parameter.template get<1>() - trait_type::template minimum<1>()) / trait_type::template range<1>())
-		+ 0.0722 * (float_name(1) - (color_parameter.template get<2>() - trait_type::template minimum<2>()) / trait_type::template range<2>());
-	value = float_name(component_parameter - trait_type::template minimum<0>()) / trait_type::template range<0>() / value;
+	scalar_name value =
+		0.2126 * (scalar_name(1) - (color_parameter.template get<0>() - trait_type::template minimum<0>()) / trait_type::template range<0>())
+		+ 0.7152 * (scalar_name(1) - (color_parameter.template get<1>() - trait_type::template minimum<1>()) / trait_type::template range<1>())
+		+ 0.0722 * (scalar_name(1) - (color_parameter.template get<2>() - trait_type::template minimum<2>()) / trait_type::template range<2>());
+	value = scalar_name(component_parameter - trait_type::template minimum<0>()) / trait_type::template range<0>() / value;
 	::color::operation::scale::accumulate(color_parameter, value);
 }
 
@@ -9854,12 +9854,12 @@ namespace color {
 namespace _internal {
 namespace _privateCMYK {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_cmy2cmyk {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -9867,29 +9867,29 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type k = std::min({ cc, cm, cy });
-		float_type c;
-		float_type m;
-		float_type y;
-		if(float_type(1) != k) {
+		scalar_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type k = std::min({ cc, cm, cy });
+		scalar_type c;
+		scalar_type m;
+		scalar_type y;
+		if(scalar_type(1) != k) {
 			c = (cc-k) / (1-k);
 			m = (cm-k) / (1-k);
 			y = (cy-k) / (1-k);
 		} else {
-			c = float_type(0);
-			m = float_type(0);
-			y = float_type(0);
+			c = scalar_type(0);
+			m = scalar_type(0);
+			y = scalar_type(0);
 		}
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
@@ -11487,7 +11487,7 @@ namespace color {
 namespace _internal {
 namespace _privateGray {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_cmy2gray {
 public:
 	typedef category_left_name category_left_type;
@@ -11507,7 +11507,7 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_name value =
+		scalar_name value =
 			0.2126 * (1 - normalize_type::template process<0> (container_right_trait_type::template get<0>(right)))
 			+ 0.7152 * (1 - normalize_type::template process<1> (container_right_trait_type::template get<1>(right)))
 			+ 0.0722 * (1 - normalize_type::template process<2> (container_right_trait_type::template get<2>(right)));
@@ -11579,12 +11579,12 @@ namespace color {
 namespace _internal {
 namespace _privateGray {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_cmyk2gray {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -11600,11 +11600,11 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
-		float_name value = (0.2126 * (1-c) + 0.7152 * (1-m) + 0.0722 * (1-y)) * (1-k);
+		scalar_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
+		scalar_name value = (0.2126 * (1-c) + 0.7152 * (1-m) + 0.0722 * (1-y)) * (1-k);
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
 	}
 };
@@ -12075,7 +12075,7 @@ namespace _internal {
 namespace hsl {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 void
 gray
@@ -14135,18 +14135,18 @@ namespace color {
 namespace _internal {
 namespace _privateHSL {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_gray2hsl {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::bound<category_left_type> bound_left_trait_type;
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, float_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -16388,7 +16388,7 @@ namespace color {
 namespace _internal {
 namespace _privateHSV {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_gray2hsv {
 public:
 	typedef category_left_name category_left_type;
@@ -16398,7 +16398,7 @@ public:
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, float_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -16478,12 +16478,12 @@ namespace color {
 namespace _internal {
 namespace _privateHSV {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_hsl2hsv {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -16491,19 +16491,19 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type ss = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type v = (2 * l + ss*(1 - fabs(2*l-1))) /2;
-		float_type s = 2*(v - l) / v;
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type ss = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type v = (2 * l + ss*(1 - fabs(2*l-1))) /2;
+		scalar_type s = 2*(v - l) / v;
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
@@ -18826,12 +18826,12 @@ namespace color {
 namespace _internal {
 namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_cmyk2rgb {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -18839,21 +18839,21 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
-		float_type r = (1-c) * (1-k);
-		float_type g = (1-m) * (1-k);
-		float_type b = (1-y) * (1-k);
+		scalar_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
+		scalar_type r = (1-c) * (1-k);
+		scalar_type g = (1-m) * (1-k);
+		scalar_type b = (1-y) * (1-k);
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
@@ -18925,7 +18925,7 @@ namespace color {
 namespace _internal {
 namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_gray2rgb {
 public:
 	typedef category_left_name category_left_type;
@@ -18934,7 +18934,7 @@ public:
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, float_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -19014,12 +19014,12 @@ namespace color {
 namespace _internal {
 namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_hsl2rgb {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -19027,32 +19027,32 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
-	typedef ::color::_internal::_privateRGB::convert_hsl2rgb<category_left_name, category_right_name, float_name> this_type;
+	typedef ::color::_internal::_privateRGB::convert_hsl2rgb<category_left_name, category_right_name, scalar_name> this_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type r;
-		float_type g;
-		float_type b;
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type r;
+		scalar_type g;
+		scalar_type b;
 		if(s == 0) {
 			r = l;
 			g = l;
 			b = l;
 		} else {
-			float_type q = l < float_type(0.5) ? (l * (1 + s)) : (l + s - l * s);
-			float_type p = float_type(2) * l - q;
-			r = this_type::value(p, q, h + (float_type(1) / float_type(3)) + (float_type(2) / float_type(3) < h ? -1 :0));
+			scalar_type q = l < scalar_type(0.5) ? (l * (1 + s)) : (l + s - l * s);
+			scalar_type p = scalar_type(2) * l - q;
+			r = this_type::value(p, q, h + (scalar_type(1) / scalar_type(3)) + (scalar_type(2) / scalar_type(3) < h ? -1 :0));
 			g = this_type::value(p, q, h);
-			b = this_type::value(p, q, h - (float_type(1) / float_type(3)) + (h < float_type(1) / float_type(3) ? +1 :0));
+			b = this_type::value(p, q, h - (scalar_type(1) / scalar_type(3)) + (h < scalar_type(1) / scalar_type(3) ? +1 :0));
 		}
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
@@ -19060,15 +19060,15 @@ public:
 	}
 
 private:
-	static float_type value(float_type const& p, float_type const& q, float_type const& t) {
-		if(t < float_type(1)/float_type(6)) {
-			return (p + (q - p) * float_type(6) * t);
+	static scalar_type value(scalar_type const& p, scalar_type const& q, scalar_type const& t) {
+		if(t < scalar_type(1)/scalar_type(6)) {
+			return (p + (q - p) * scalar_type(6) * t);
 		}
-		if(t < float_type(1)/float_type(2)) {
+		if(t < scalar_type(1)/scalar_type(2)) {
 			return (q);
 		}
-		if(t < float_type(2)/float_type(3)) {
-			return (p + (q - p) * ((float_type(2)/float_type(3)) - t) * float_type(6));
+		if(t < scalar_type(2)/scalar_type(3)) {
+			return (p + (q - p) * ((scalar_type(2)/scalar_type(3)) - t) * scalar_type(6));
 		}
 		return p ;
 	}
@@ -19139,12 +19139,12 @@ namespace color {
 namespace _internal {
 namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_hsv2rgb {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -19152,25 +19152,25 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
 		int region = int(6 * h);
-		float_type f = h * 6 - region ;
-		float_type p = v * (1 - s);
-		float_type q = v * (1 - f * s);
-		float_type t = v * (1 - (1 - f) * s);
-		float_type r;
-		float_type g;
-		float_type b;
+		scalar_type f = h * 6 - region ;
+		scalar_type p = v * (1 - s);
+		scalar_type q = v * (1 - f * s);
+		scalar_type t = v * (1 - (1 - f) * s);
+		scalar_type r;
+		scalar_type g;
+		scalar_type b;
 		switch(region % 6) {
 		case 0:
 			r = v, g = t, b = p;
@@ -19660,7 +19660,7 @@ namespace color {
 namespace _internal {
 namespace _privateXYZ {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_gray2xyz {
 public:
 	typedef category_left_name category_left_type;
@@ -19669,7 +19669,7 @@ public:
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, float_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -19746,12 +19746,12 @@ namespace color {
 namespace _internal {
 namespace _privateXYZ {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_rgb2xyz {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -19759,20 +19759,20 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static float_type b11 = 0.49000, b12 = 0.31000, b13 = 0.20000;
-		static float_type b21 = 0.17697, b22 = 0.81240, b23 = 0.01063;
-		static float_type b31 = 0.00000, b32 = 0.01000, b33 = 0.99000;
-		float_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		static scalar_type b11 = 0.49000, b12 = 0.31000, b13 = 0.20000;
+		static scalar_type b21 = 0.17697, b22 = 0.81240, b23 = 0.01063;
+		static scalar_type b31 = 0.00000, b32 = 0.01000, b33 = 0.99000;
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(b11 * r + b12 * g + b13 * b));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(b21 * r + b22 * g + b23 * b));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b31 * r + b32 * g + b33 * b));
@@ -19879,12 +19879,12 @@ namespace color {
 namespace _internal {
 namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_xyz2rgb {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -19892,20 +19892,20 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static float_type b11 = 2.3646138465383655, b12 = -0.896540570739668, b13 = -0.4680732757986974;
-		static float_type b21 = -0.515166208447888, b22 = 1.4264081038563887, b23 = 0.08875810459149917;
-		static float_type b31 = 0.005203699075231192, b32 = -0.014408162665216047, b33 = 1.0092044635899848;
-		float_type x = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type y = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type z = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		static scalar_type b11 = 2.3646138465383655, b12 = -0.896540570739668, b13 = -0.4680732757986974;
+		static scalar_type b21 = -0.515166208447888, b22 = 1.4264081038563887, b23 = 0.08875810459149917;
+		static scalar_type b31 = 0.005203699075231192, b32 = -0.014408162665216047, b33 = 1.0092044635899848;
+		scalar_type x = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type y = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type z = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(b11 * x + b12 * y + b13 * z));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(b21 * x + b22 * y + b23 * z));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b31 * x + b32 * y + b33 * z));
@@ -20157,7 +20157,7 @@ namespace _internal {
 namespace yiq {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 typename ::color::_internal::model< category_name >::component_const_type
 inphase(::color::_internal::model< category_name > const& color_parameter) {
@@ -20222,7 +20222,7 @@ namespace _internal {
 namespace yiq {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 typename ::color::_internal::model< category_name >::component_const_type
 quadrature(::color::_internal::model< category_name > const& color_parameter) {
@@ -20287,17 +20287,17 @@ namespace _internal {
 namespace yiq {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 typename ::color::_internal::model< category_name >::component_const_type
 red(::color::_internal::model< category_name > const& color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::_internal::trait< category_name > trait_type;
 	typedef typename trait_type::component_type component_type;
-	float_name value =
-		1 * (color_parameter.template get<0>() - trait_type::template minimum<0>()) / float_name(trait_type::template range<0>())
-		+ 0.999525 * (color_parameter.template get<1>() - trait_type::template minimum<1>()) / float_name(trait_type::template range<1>())
-		+ 0.739859 * (color_parameter.template get<2>() - trait_type::template minimum<2>()) / float_name(trait_type::template range<2>())
+	scalar_name value =
+		1 * (color_parameter.template get<0>() - trait_type::template minimum<0>()) / scalar_name(trait_type::template range<0>())
+		+ 0.999525 * (color_parameter.template get<1>() - trait_type::template minimum<1>()) / scalar_name(trait_type::template range<1>())
+		+ 0.739859 * (color_parameter.template get<2>() - trait_type::template minimum<2>()) / scalar_name(trait_type::template range<2>())
 		- 0.869692;
 	return component_type(value * trait_type::template range<0>() + trait_type::template minimum<0>());
 }
@@ -20356,17 +20356,17 @@ namespace _internal {
 namespace yiq {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 typename ::color::_internal::model< category_name >::component_const_type
 green(::color::_internal::model< category_name > const& color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::_internal::trait< category_name > trait_type;
 	typedef typename trait_type::component_type component_type;
-	float_name value =
-		1 * (color_parameter.template get<0>() - trait_type::template minimum<0>()) / float_name(trait_type::template range<0>())
-		- 0.284399 * (color_parameter.template get<1>() - trait_type::template minimum<1>()) / float_name(trait_type::template range<1>())
-		- 0.771312 * (color_parameter.template get<2>() - trait_type::template minimum<2>()) / float_name(trait_type::template range<2>())
+	scalar_name value =
+		1 * (color_parameter.template get<0>() - trait_type::template minimum<0>()) / scalar_name(trait_type::template range<0>())
+		- 0.284399 * (color_parameter.template get<1>() - trait_type::template minimum<1>()) / scalar_name(trait_type::template range<1>())
+		- 0.771312 * (color_parameter.template get<2>() - trait_type::template minimum<2>()) / scalar_name(trait_type::template range<2>())
 		+ 0.527856;
 	return component_type(value * trait_type::template range<0>() + trait_type::template minimum<0>());
 }
@@ -20425,17 +20425,17 @@ namespace _internal {
 namespace yiq {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 typename ::color::_internal::model< category_name >::component_const_type
 blue(::color::_internal::model< category_name > const& color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::_internal::trait< category_name > trait_type;
 	typedef typename trait_type::component_type component_type;
-	float_name value =
-		1.00000 * (color_parameter.template get<0>() - trait_type::template minimum<0>()) / float_name(trait_type::template range<0>())
-		- 1.15704 * (color_parameter.template get<1>() - trait_type::template minimum<1>()) / float_name(trait_type::template range<1>())
-		+ 2.03086 * (color_parameter.template get<2>() - trait_type::template minimum<2>()) / float_name(trait_type::template range<2>())
+	scalar_name value =
+		1.00000 * (color_parameter.template get<0>() - trait_type::template minimum<0>()) / scalar_name(trait_type::template range<0>())
+		- 1.15704 * (color_parameter.template get<1>() - trait_type::template minimum<1>()) / scalar_name(trait_type::template range<1>())
+		+ 2.03086 * (color_parameter.template get<2>() - trait_type::template minimum<2>()) / scalar_name(trait_type::template range<2>())
 		-0.436912;
 	return component_type(value * trait_type::template range<0>() + trait_type::template minimum<0>());
 }
@@ -20494,7 +20494,7 @@ namespace _internal {
 namespace yiq {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 typename ::color::_internal::model< category_name >::component_const_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
@@ -20856,7 +20856,7 @@ namespace _internal {
 namespace yiq {
 namespace _internal {
 
-template< typename category_name, typename float_name = double >
+template< typename category_name, typename scalar_name = double >
 inline
 void
 gray
@@ -20867,11 +20867,11 @@ gray
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::_internal::trait< category_name > trait_type;
 	typedef typename trait_type::component_type component_type;
-	float_name value =
-		0.2126 * (float_name(1) - (color_parameter.template get<0>() - trait_type::template minimum<0>()) / trait_type::template range<0>())
-		+ 0.7152 * (float_name(1) - (color_parameter.template get<1>() - trait_type::template minimum<1>()) / trait_type::template range<1>())
-		+ 0.0722 * (float_name(1) - (color_parameter.template get<2>() - trait_type::template minimum<2>()) / trait_type::template range<2>());
-	value = float_name(component_parameter - trait_type::template minimum<0>()) / trait_type::template range<0>() / value;
+	scalar_name value =
+		0.2126 * (scalar_name(1) - (color_parameter.template get<0>() - trait_type::template minimum<0>()) / trait_type::template range<0>())
+		+ 0.7152 * (scalar_name(1) - (color_parameter.template get<1>() - trait_type::template minimum<1>()) / trait_type::template range<1>())
+		+ 0.0722 * (scalar_name(1) - (color_parameter.template get<2>() - trait_type::template minimum<2>()) / trait_type::template range<2>());
+	value = scalar_name(component_parameter - trait_type::template minimum<0>()) / trait_type::template range<0>() / value;
 	::color::operation::scale::accumulate(color_parameter, value);
 }
 
@@ -22058,12 +22058,12 @@ namespace color {
 namespace _internal {
 namespace _privateYIQ {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_gray2yiq {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::bound<category_left_type> bound_left_trait_type;
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
@@ -22072,15 +22072,15 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
 		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
 		container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
@@ -22151,12 +22151,12 @@ namespace color {
 namespace _internal {
 namespace _privateYIQ {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_rgb2yiq {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -22164,23 +22164,23 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static float_type b11 = 0.2990000000000000000, b12 = 0.5870000000000000000, b13 = 0.1140000000000000000;
-		static float_type b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
-		static float_type b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 = 0.3111346431714933019;
-		static float_type const a1 = 1/1 , c1 = 0;
-		static float_type const a2 = 1/(b21 - b23 - b23), c2 = -(b22 + b23)/a2;
-		static float_type const a3 = 1/(b31 + b33 - b31), c3 = -b32/a3;
-		float_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		static scalar_type b11 = 0.2990000000000000000, b12 = 0.5870000000000000000, b13 = 0.1140000000000000000;
+		static scalar_type b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
+		static scalar_type b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 = 0.3111346431714933019;
+		static scalar_type const a1 = 1/1 , c1 = 0;
+		static scalar_type const a2 = 1/(b21 - b23 - b23), c2 = -(b22 + b23)/a2;
+		static scalar_type const a3 = 1/(b31 + b33 - b31), c3 = -b32/a3;
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(a1 * (b11 * r + b12 * g + b13 * b) + c1));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(a2 * (b21 * r + b22 * g + b23 * b) + c2));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(a3 * (b31 * r + b32 * g + b33 * b) + c3));
@@ -22287,12 +22287,12 @@ namespace color {
 namespace _internal {
 namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_yiq2rgb {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -22300,23 +22300,23 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static float_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
-		static float_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-		static float_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
-		static float_type const a1 = 1/(b11 + b12 + b13), c1 = 0;
-		static float_type const a2 = 1/(b21 - b22 - b23), c2 = -(b23 + b23) /a2;
-		static float_type const a3 = 1/(b31 - b32 + b33), c3 = -b32/a3;
-		float_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type i = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type q = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
+		static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
+		static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
+		static scalar_type const a1 = 1/(b11 + b12 + b13), c1 = 0;
+		static scalar_type const a2 = 1/(b21 - b22 - b23), c2 = -(b23 + b23) /a2;
+		static scalar_type const a3 = 1/(b31 - b32 + b33), c3 = -b32/a3;
+		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type i = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type q = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(a1 * (b11 * y + b12 * i + b13 * q) + c1));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(a2 * (b21 * y + b22 * i + b23 * q) + c2));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(a3 * (b31 * y + b32 * i + b33 * q) + c3));
@@ -23401,12 +23401,12 @@ namespace color {
 namespace _internal {
 namespace _privateYUV {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_gray2yuv {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::bound<category_left_type> bound_left_trait_type;
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
@@ -23415,15 +23415,15 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
 		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
 		container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
@@ -23494,12 +23494,12 @@ namespace color {
 namespace _internal {
 namespace _privateYUV {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_rgb2yuv {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -23507,25 +23507,25 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static float_type const Wr = 0.299000;
-		static float_type const Wb = 0.114000;
-		static float_type const Wg = 1.0-Wr-Wb;
-		static float_type const Umax = 0.436;
-		static float_type const Vmax = 0.615;
-		float_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type y = Wr * r + Wg * g + Wb * b;
-		float_type u = Umax * (b - y)/(1- Wb);
-		float_type v = Vmax * (r - y)/(1- Wr);
+		static scalar_type const Wr = 0.299000;
+		static scalar_type const Wb = 0.114000;
+		static scalar_type const Wg = 1.0-Wr-Wb;
+		static scalar_type const Umax = 0.436;
+		static scalar_type const Vmax = 0.615;
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type y = Wr * r + Wg * g + Wb * b;
+		scalar_type u = Umax * (b - y)/(1- Wb);
+		scalar_type v = Vmax * (r - y)/(1- Wr);
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(y));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(u));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
@@ -23632,12 +23632,12 @@ namespace color {
 namespace _internal {
 namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_yuv2rgb {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -23645,25 +23645,25 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static float_type const Wr = 0.299000;
-		static float_type const Wb = 0.114000;
-		static float_type const Wg = 1.0-Wr-Wb;
-		static float_type const Umax = 0.436;
-		static float_type const Vmax = 0.615;
-		float_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type u = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type r = y + v*((1-Wr)/Vmax);
-		float_type g = y- u*(Wb*(1-Wb)/Umax/Wg) - v*(Wr*(1-Wr)/Vmax/Wg);
-		float_type b = y+ u*((1-Wb)/Umax);
+		static scalar_type const Wr = 0.299000;
+		static scalar_type const Wb = 0.114000;
+		static scalar_type const Wg = 1.0-Wr-Wb;
+		static scalar_type const Umax = 0.436;
+		static scalar_type const Vmax = 0.615;
+		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type u = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type r = y + v*((1-Wr)/Vmax);
+		scalar_type g = y- u*(Wb*(1-Wb)/Umax/Wg) - v*(Wr*(1-Wr)/Vmax/Wg);
+		scalar_type b = y+ u*((1-Wb)/Umax);
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
@@ -23770,12 +23770,12 @@ namespace color {
 namespace _internal {
 namespace _privateHSV {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_rgb2hsv {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -23783,32 +23783,32 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type lo = std::min<float_type>({r,g,b});
-		float_type v = std::max<float_type>({r,g,b});
-		float_type delta = v - lo;
-		float_type h = 0;
-		float_type s = 0;
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type lo = std::min<scalar_type>({r,g,b});
+		scalar_type v = std::max<scalar_type>({r,g,b});
+		scalar_type delta = v - lo;
+		scalar_type h = 0;
+		scalar_type s = 0;
 		if((0 != v) && (0 != delta)) {
 			s = delta / v;
 			if(v == r) {
-				h = (float_type(60)/float_type(360)) * (g - b) / delta + (g < b ? float_type(1) : float_type(0));
+				h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
 			}
 			if(v == g) {
-				h = (float_type(60)/float_type(360)) * (b - r) / delta + (float_type(120)/float_type(360));
+				h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
 			}
 			if(v == b) {
-				h = (float_type(60)/float_type(360)) * (r - g) / delta + (float_type(240)/float_type(360));
+				h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
 			}
 		}
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
@@ -23917,12 +23917,12 @@ namespace color {
 namespace _internal {
 namespace _privateHSL {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_hsv2hsl {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -23930,19 +23930,19 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type ss = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type l = v * (2-ss) / 2;
-		float_type s = v*ss/(1- fabs(2 * l -1)) ;
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type ss = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type l = v * (2-ss) / 2;
+		scalar_type s = v*ss/(1- fabs(2 * l -1)) ;
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(l));
@@ -24014,12 +24014,12 @@ namespace color {
 namespace _internal {
 namespace _privateHSL {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_rgb2hsl {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -24027,33 +24027,33 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		const float_type hi = std::max<float_type>({ r, g, b });
-		const float_type lo = std::min<float_type>({ r, g, b });
-		float_type delta = hi - lo;
-		float_type h = 0;
-		float_type s = 0;
-		float_type l = (hi + lo) / float_type(2);
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		const scalar_type hi = std::max<scalar_type>({ r, g, b });
+		const scalar_type lo = std::min<scalar_type>({ r, g, b });
+		scalar_type delta = hi - lo;
+		scalar_type h = 0;
+		scalar_type s = 0;
+		scalar_type l = (hi + lo) / scalar_type(2);
 		if(0 != delta) {
 			s = delta / (1 - fabs(2*l - 1));
 			if(hi == r) {
-				h = (float_type(60)/float_type(360)) * (g - b) / delta + (g < b ? float_type(1) : float_type(0));
+				h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
 			}
 			if(hi == g) {
-				h = (float_type(60)/float_type(360)) * (b - r) / delta + (float_type(120)/float_type(360));
+				h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
 			}
 			if(hi == b) {
-				h = (float_type(60)/float_type(360)) * (r - g) / delta + (float_type(240)/float_type(360));
+				h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
 			}
 		}
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
@@ -24162,7 +24162,7 @@ namespace color {
 namespace _internal {
 namespace _privateGray {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_hsl2gray {
 public:
 	typedef category_left_name category_left_type;
@@ -24171,7 +24171,7 @@ public:
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, float_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -24250,7 +24250,7 @@ namespace color {
 namespace _internal {
 namespace _privateGray {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_hsv2gray {
 public:
 	typedef category_left_name category_left_type;
@@ -24259,7 +24259,7 @@ public:
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, float_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -24338,7 +24338,7 @@ namespace color {
 namespace _internal {
 namespace _privateGray {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_rgb2gray {
 public:
 	typedef category_left_name category_left_type;
@@ -24358,7 +24358,7 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_name value =
+		scalar_name value =
 			0.2126 * normalize_type::template process<0> (container_right_trait_type::template get<0>(right))
 		+ 0.7152 * normalize_type::template process<1> (container_right_trait_type::template get<1>(right))
 		+ 0.0722 * normalize_type::template process<2> (container_right_trait_type::template get<2>(right));
@@ -24431,7 +24431,7 @@ namespace color {
 namespace _internal {
 namespace _privateGray {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_yiq2gray {
 public:
 	typedef category_left_name category_left_type;
@@ -24440,7 +24440,7 @@ public:
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, float_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -24519,7 +24519,7 @@ namespace color {
 namespace _internal {
 namespace _privateGray {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_yuv2gray {
 public:
 	typedef category_left_name category_left_type;
@@ -24528,7 +24528,7 @@ public:
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, float_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -24645,19 +24645,19 @@ namespace color {
 namespace _internal {
 namespace _privateCMYK {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_gray2cmyk {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::bound<category_left_type> bound_left_trait_type;
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
 
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, float_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -24739,12 +24739,12 @@ namespace color {
 namespace _internal {
 namespace _privateCMYK {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_rgb2cmyk {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -24752,29 +24752,29 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type k = float_type(1) - std::max({ r, g, b });
-		float_type c;
-		float_type m;
-		float_type y;
-		if(float_type(1) != k) {
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type k = scalar_type(1) - std::max({ r, g, b });
+		scalar_type c;
+		scalar_type m;
+		scalar_type y;
+		if(scalar_type(1) != k) {
 			c = (1-r-k) / (1-k);
 			m = (1-g-k) / (1-k);
 			y = (1-b-k) / (1-k);
 		} else {
-			c = float_type(0);
-			m = float_type(0);
-			y = float_type(0);
+			c = scalar_type(0);
+			m = scalar_type(0);
+			y = scalar_type(0);
 		}
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
@@ -24883,12 +24883,12 @@ namespace color {
 namespace _internal {
 namespace _privateCMY {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_cmyk2cmy {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
@@ -24896,21 +24896,21 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::diverse< category_left_type, float_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type, scalar_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		float_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		float_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		float_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		float_type ck = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
-		float_type c = cc * (1-ck) + ck;
-		float_type m = cm * (1-ck) + ck;
-		float_type y = cy * (1-ck) + ck;
+		scalar_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type ck = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
+		scalar_type c = cc * (1-ck) + ck;
+		scalar_type m = cm * (1-ck) + ck;
+		scalar_type y = cy * (1-ck) + ck;
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
@@ -24982,18 +24982,18 @@ namespace color {
 namespace _internal {
 namespace _privateCMY {
 
-template< typename category_left_name, typename category_right_name, typename float_name = double >
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
 struct convert_gray2cmy {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef float_name float_type;
+	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::container<category_left_type> container_left_trait_type;
 	typedef ::color::_internal::container<category_right_type> container_right_trait_type;
 
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, float_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;

@@ -1,32 +1,45 @@
 <!doctype html>
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<title>Namespaces</title>
 	</head>
 	<body>
-	<dl>
-		<dt>color</dt>
-		<dd></dd>
-		<dt>color::operation</dt>
-		<dd></dd>
+		<h1 align="center"> Namespaces </h1>
+		<dl>
+			<dt>color</dt>
+			<dd>Main name space</dd>
 
-		<dt>color::get</dt>
-		<dd></dd>
+			<dt>color::operation</dt>
+			<dd>
+				All operations are situated here.
+			</dd>
+			<dt>color::category</dt>
+			<dd>
+				Contain all color categories. Category is pair of model and format.
+			</dd>
+            
+			<dt>color::get</dt>
+			<dd>
+				Get some property  of color
+			</dd>
 
-		<dt>color::set</dt>
-		<dd></dd>
+			<dt>color::set</dt>
+			<dd>
+				Set some property  of color
+			</dd>
 
-		<dt>color::make</dt>
-		<dd></dd>
-		<dt>color::operation::fix</dt>
-		<dd></dd>
-        
-		<dt>color::_internal</dt>
-		<dd></dd>
+			<dt>color::make</dt>
+			<dd>
+				Contain functions to make some specific color.
+			</dd>
 
-	</dl>
+			<dt>color::_internal</dt>
+			<dd>
+				Miscellaneous internal thing. Do not use class from here. It is highly probably that this might change from version to version
+			</dd>
 
-
-
+		</dl>
+	<hr>
 	</body>
 </html>

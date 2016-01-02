@@ -9,15 +9,15 @@ namespace color
   namespace category 
    {
     // empty class to take the name
-                                class generic_bool {};
-    template< unsigned length > class generic_number  {};
-    template< unsigned length > class generic_uint8   {};
-    template< unsigned length > class generic_uint16  {};
-    template< unsigned length > class generic_uint32  {};
-    template< unsigned length > class generic_uint64  {};
-    template< unsigned length > class generic_float   {};
-    template< unsigned length > class generic_double  {};
-    template< unsigned length > class generic_ldouble {};
+                                struct generic_bool {};
+    template< unsigned length > struct generic_number  {};
+    template< unsigned length > struct generic_uint8   {};
+    template< unsigned length > struct generic_uint16  {};
+    template< unsigned length > struct generic_uint32  {};
+    template< unsigned length > struct generic_uint64  {};
+    template< unsigned length > struct generic_float   {};
+    template< unsigned length > struct generic_double  {};
+    template< unsigned length > struct generic_ldouble {};
    }
 
  }

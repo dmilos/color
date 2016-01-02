@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_bound_yiq
-#define color__internal_utility_bound_yiq
+#ifndef color__internal_utility_bound_hsl
+#define color__internal_utility_bound_hsl
 
-// ::color::_internal::utility::bound::yiq_float< index_type, scalar_name >
+// ::color::_internal::utility::bound::hsl_float< index_type, scalar_name >
 
 
 #include "../type/traitp.hpp"
@@ -17,7 +17,7 @@ namespace color
        {
 
         template< typename index_name, typename scalar_name >
-         struct yiq_float
+         struct hsl_float
           {
            public:
              typedef scalar_name  scalar_type;
@@ -35,39 +35,39 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_const_type   maximum( )
                {
-                static instance_type max_list[] = { 1, 0.5957161349127745527, 0.5225910452916111683 };
+                static instance_type max_list[] = { 360, 100, 100 };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_const_type   maximum( index_input_const_type  index )
               {
-                static instance_type max_list[] = { 1, 0.5957161349127745527, 0.5225910452916111683 };
+                static instance_type max_list[] = { 360, 100, 100 };
                 return max_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_const_type   minimum( )
                {
-                static instance_type min_list[] = { 0, -0.5957161349127745527, -0.5225910452916111683 };
+                static instance_type min_list[] = { 0, 0, 0 };
                 return min_list[index];
                }
 
              static /*constexpr*/ return_const_type   minimum( index_input_const_type  index )
               {
-                static instance_type min_list[] = { 0, -0.5957161349127745527, -0.5225910452916111683 };
+                static instance_type min_list[] = { 0, 0, 0 };
                 return min_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_const_type   range()
                {
-                static instance_type range_list[] = { 1, 2*0.5957161349127745527, 2 * 0.5225910452916111683 };
+                static instance_type range_list[] = { 360, 100, 100 };
                 return range_list[index];
                }
 
              static /*constexpr*/ return_const_type   range(   index_input_const_type  index )
               {
-                static instance_type range_list[] = { 1, 2*0.5957161349127745527, 2*0.5225910452916111683 };
+                static instance_type range_list[] = { 360, 100, 100 };
                 return range_list[index];
               }
           };

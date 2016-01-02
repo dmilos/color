@@ -1,5 +1,7 @@
 #ifndef color_generic_operation_addition_123
 #define color_generic_operation_addition_123
+// color::operation::addition( result, right )
+// color::operation::addition( result, left, right )
 
 #include "../../_internal/trait.hpp"
 #include "../../_internal/model.hpp"

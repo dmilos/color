@@ -8,7 +8,7 @@
    namespace get
     {
 
-     template< typename category_name, typename float_name = double >
+     template< typename category_name, typename scalar_name = double >
       inline
       typename ::color::_internal::model< category_name >::component_const_type
       gray( ::color::_internal::model< category_name > const& color_parameter )

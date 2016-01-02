@@ -18,17 +18,17 @@ namespace color
      <
        typename category_left_name
       ,typename category_right_name
-      ,typename float_name = double
+      ,typename scalar_name = double
      >
      struct reformat
       {
        public:
          typedef  category_left_name   category_left_type;
          typedef  category_right_name  category_right_type;
-         typedef float_name            float_type;
+         typedef scalar_name            scalar_type;
 
-         typedef ::color::_internal::diverse< category_left_type, float_type >   diverse_type;
-         typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+         typedef ::color::_internal::diverse< category_left_type, scalar_type >   diverse_type;
+         typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
          typedef typename ::color::_internal::component< category_left_name >::return_type          left_component_return_type;
          typedef typename ::color::_internal::index< category_left_name >::input_const_type         left_index_const_input_type;

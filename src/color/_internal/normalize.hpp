@@ -13,11 +13,11 @@ namespace color
   namespace _internal
    {
 
-    template< typename category_name, typename float_name = double >
+    template< typename category_name, typename scalar_name = double >
      struct normalize
       {
        public:
-         typedef float_name float_type;
+         typedef scalar_name scalar_type;
          typedef ::color::_internal::bound< category_name >      bound_trait_type;
          typedef ::color::_internal::component< category_name >  component_trait_type;
          typedef ::color::_internal::index< category_name >      index_trait_type;
@@ -29,10 +29,10 @@ namespace color
          typedef typename index_trait_type::input_const_type    index_input_const_type;
 
          static
-         float_type
+         scalar_type
          process(  component_input_const_type divergent, index_input_const_type  index )
           {
-           float_name normal = static_cast<component_instance_type>( divergent ); 
+           scalar_name normal = static_cast<component_instance_type>( divergent ); 
 
            normal -= bound_trait_type::minimum( index );
            normal /= bound_trait_type::range( index );
@@ -41,10 +41,10 @@ namespace color
 
          template< index_instance_type index_size >
           static
-          float_type
+          scalar_type
           process( component_input_const_type divergent )
            {
-            float_name normal = static_cast<component_instance_type>( divergent ); 
+            scalar_name normal = static_cast<component_instance_type>( divergent ); 
 
             normal -= bound_trait_type::template minimum<index_size>( );
             normal /= bound_trait_type::template range<index_size>( );

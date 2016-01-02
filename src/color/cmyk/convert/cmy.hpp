@@ -14,13 +14,13 @@ namespace color
     namespace  _privateCMYK
      {
 
-      template< typename category_left_name, typename category_right_name, typename float_name = double >
+      template< typename category_left_name, typename category_right_name, typename scalar_name = double >
        struct convert_cmy2cmyk
         {
          public:
            typedef category_left_name category_left_type;
            typedef category_right_name category_right_type;
-           typedef float_name  float_type;
+           typedef scalar_name  scalar_type;
 
            typedef ::color::_internal::container<category_left_type>     container_left_trait_type;
            typedef ::color::_internal::container<category_right_type>    container_right_trait_type;
@@ -28,8 +28,8 @@ namespace color
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-           typedef ::color::_internal::diverse< category_left_type, float_type >    diverse_type;
-           typedef ::color::_internal::normalize< category_right_type, float_type > normalize_type;
+           typedef ::color::_internal::diverse< category_left_type, scalar_type >    diverse_type;
+           typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
            static void process
             (
@@ -37,16 +37,16 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             float_type cc = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-             float_type cm = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-             float_type cy = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+             scalar_type cc = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+             scalar_type cm = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+             scalar_type cy = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-             float_type k = std::min( { cc, cm, cy } );
-             float_type c;
-             float_type m;
-             float_type y;
+             scalar_type k = std::min( { cc, cm, cy } );
+             scalar_type c;
+             scalar_type m;
+             scalar_type y;
 
-             if( float_type(1) != k )
+             if( scalar_type(1) != k )
               {
                c = (cc-k) / ( 1-k );
                m = (cm-k) / ( 1-k );
@@ -54,9 +54,9 @@ namespace color
               }
              else
               {
-               c = float_type(0);
-               m = float_type(0);
-               y = float_type(0);
+               c = scalar_type(0);
+               m = scalar_type(0);
+               y = scalar_type(0);
               }
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( c ) );

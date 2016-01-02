@@ -8,13 +8,13 @@ namespace color
   namespace category
    {
 
-    class yuv_uint8    {};
-    class yuv_uint16   {};
-    class yuv_uint32   {};
-    class yuv_uint64   {};
-    class yuv_float    {};
-    class yuv_double   {};
-    class yuv_ldouble  {};
+    struct yuv_uint8    {};
+    struct yuv_uint16   {};
+    struct yuv_uint32   {};
+    struct yuv_uint64   {};
+    struct yuv_float    {};
+    struct yuv_double   {};
+    struct yuv_ldouble  {};
 
    }
  }
