@@ -4,7 +4,7 @@
 // ::color::compare::darker
 
 #include "../../gray/gray.hpp"
-#include "./operator.hpp"
+#include "./less_strict.hpp"
 
 
  namespace color
