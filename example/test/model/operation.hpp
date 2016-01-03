@@ -45,9 +45,21 @@ template< typename category_name >
    color::operation::clamp( u32b );
    color::operation::clamp( u32a, u32b );
 
-   color::operation::overburn( u32b );
-   color::operation::integrity( u32b );
+   color::check::overburn( u32b );
+   color::check::integrity( u32b );
 
+   color::operation::normalize( u32b, 1 );
+   color::operation::normalize<1>( u32b );
+
+   color::compare::equal( u32b, u32b );
+   color::compare::different( u32b, u32b  );
+   color::compare::less_strict( u32b, u32b  );
+   color::compare::great_strict( u32b, u32b  );
+   color::compare::less_or_equal( u32b, u32b  );
+   color::compare::great_or_equal( u32b, u32b  );
+
+   color::compare::darker( u32b, u32b  );
+   color::compare::lighter( u32b, u32b  );
 
    u32a = u32b + u32c;
    u32a = u32b - u32c;
@@ -58,6 +70,14 @@ template< typename category_name >
    u32a -= u32b;
    u32a /= 0.5;
    u32a *= 0.5;
+   
+   u32a == u32b;
+   u32a != u32b;
+   u32a > u32b;
+   u32a < u32b;
+   
+   u32a >= u32b;
+   u32a <= u32b;
 
    std::cout << std::endl;
    std::cout << "  function - " << __FUNCTION__ << std::endl;

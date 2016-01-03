@@ -1,12 +1,12 @@
-#ifndef color_generic_operation_overburn
-#define color_generic_operation_overburn
-// color::operation::overburn< category >( model )
+#ifndef color_generic_check_overburn
+#define color_generic_check_overburn
+// color::check::overburn< category >( model )
 
 #include "../../_internal/model.hpp"
 
 namespace color
  {
-  namespace operation
+  namespace check
    {
     namespace _internal
      {
@@ -24,24 +24,22 @@ namespace color
 
           typedef typename index_trait_type::instance_type          index_type;
 
-          typedef ::color::operation::_internal::overburn<category_type>   this_type;
-
-          static bool process( model_type const& m )
+          static index_type process( model_type const& m )
            {
             for( index_type index = 0; index < container_trait_type::size(); index ++ )
              {
               if( m.get( index ) <  bound_type::minimum( index ) )
                {
-                return true;
+                return index;
                 continue;
                }
               if(  bound_type::maximum( index ) < m.get( index ) )
                {
-                return true;
+                return index;
                 continue;
                }
              }
-            return false;
+            return container_trait_type::size();
            }
 
         };
@@ -49,9 +47,10 @@ namespace color
 
     template< typename category_name >
      inline
-     bool overburn( ::color::_internal::model<category_name> const& m )
+     typename ::color::_internal::index<category_name>::instance_type
+     overburn( ::color::_internal::model<category_name> const& m )
       {
-       return  ::color::operation::_internal::overburn<category_name>::process( m );
+       return  ::color::check::_internal::overburn<category_name>::process( m );
       }
 
    }

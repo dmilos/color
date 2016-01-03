@@ -6,7 +6,7 @@
 #include "./subtract.hpp"
 #include "./blend.hpp"
 #include "./fix.hpp"
-#include "./integrity.hpp"
-#include "./overburn.hpp"
 
 #include "./operator.hpp"
+
+#include "./normalize.hpp"

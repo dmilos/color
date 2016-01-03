@@ -25,7 +25,7 @@ template < template<typename> class color_left_name, template<typename> class co
    color_left_name<float>           lf;    color::make::black( lf   );
    color_left_name<double>          ld;    color::make::black( ld   );
    color_left_name<long double>     lld;   color::make::black( lld  );
-   
+
    color_right_name<bool>            rb;    color::make::gray50( rb   );
    color_right_name<std::uint8_t>    ru8;   color::make::gray50( ru8  );
    color_right_name<std::uint16_t>   ru16;  color::make::gray50( ru16 );
@@ -34,7 +34,7 @@ template < template<typename> class color_left_name, template<typename> class co
    color_right_name<float>           rf;    color::make::gray50( rf   );
    color_right_name<double>          rd;    color::make::gray50( rd   );
    color_right_name<long double>     rld;   color::make::gray50( rld  );
-   
+
 
    std::cout << "  "; lb = rb;    print(lb); lu8 = rb;    print(lu8); lu16 = rb;    print(lu16); lu32 = rb;    print(lu32); lu64 = rb;    print(lu64); lf = rb;    print(lf); ld = rb;   print(ld); lld = rb;    print(lld); std::cout << std::endl;
    std::cout << "  "; lb = ru8;   print(lb); lu8 = ru8;   print(lu8); lu16 = ru8;   print(lu16); lu32 = ru8;   print(lu32); lu64 = ru8;   print(lu64); lf = ru8;   print(lf); ld = ru8;  print(ld); lld = ru8;   print(lld); std::cout << std::endl;

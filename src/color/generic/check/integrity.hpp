@@ -1,12 +1,12 @@
-#ifndef color_generic_operation_integrity
-#define color_generic_operation_integrity
-// color::operation::integrity< category >( model )
+#ifndef color_generic_check_integrity
+#define color_generic_check_integrity
+// color::check::integrity< category >( model )
 
 #include "../../_internal/model.hpp"
 
 namespace color
  {
-  namespace operation
+  namespace check
    {
     namespace _internal
      {
@@ -32,7 +32,7 @@ namespace color
      inline
      bool integrity( ::color::_internal::model<category_name> const& m )
       {
-       return  ::color::operation::_internal::integrity<category_name>::process( m );
+       return  ::color::check::_internal::integrity<category_name>::process( m );
       }
 
    }

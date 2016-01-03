@@ -1,8 +1,8 @@
 #ifndef color__internal_normalize
 #define color__internal_normalize
 
-// ::color::_internal::normalize< >(   )
-// ::color::_internal::normalize< >(   )
+// ::color::_internal::normalize< >::process(   )
+// ::color::_internal::normalize< >::template process< >(   )
 
 #include "./component.hpp"
 #include "./index.hpp"
@@ -32,7 +32,7 @@ namespace color
          scalar_type
          process(  component_input_const_type divergent, index_input_const_type  index )
           {
-           scalar_name normal = static_cast<component_instance_type>( divergent ); 
+           scalar_name normal = static_cast<component_instance_type>( divergent );
 
            normal -= bound_trait_type::minimum( index );
            normal /= bound_trait_type::range( index );
@@ -44,7 +44,7 @@ namespace color
           scalar_type
           process( component_input_const_type divergent )
            {
-            scalar_name normal = static_cast<component_instance_type>( divergent ); 
+            scalar_name normal = static_cast<component_instance_type>( divergent );
 
             normal -= bound_trait_type::template minimum<index_size>( );
             normal /= bound_trait_type::template range<index_size>( );
