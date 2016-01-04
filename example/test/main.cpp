@@ -74,6 +74,8 @@ void make_image(std::string const& name, float y_plane = 0.5 )
   int width  = 1000;
   typedef unsigned char targa_header_struct[18];
 
+  typedef ::color::_internal::diverse< typename model_name::category_type, double  > diverse_type;
+
   targa_header_struct header;
 
   void targa_make_header(int height, int width, targa_header_struct header);
@@ -87,7 +89,9 @@ void make_image(std::string const& name, float y_plane = 0.5 )
     for (int x = 0; x < width; x++)
      {
       image[y * width + x].set<3>(255);
-      image[y * width + x] = model_name( { y / double(height), y_plane, x / double(width) } );
+      image[y * width + x] = model_name( { diverse_type::template process<0>( y / double(height) ),
+                                           diverse_type::template process<1>( y_plane ),
+                                           diverse_type::template process<2>( x / double(width) ) } );
      }
    }
 
@@ -99,11 +103,11 @@ void make_image(std::string const& name, float y_plane = 0.5 )
 int main(int argc, char const *argv[])
  {
 
+  make_image<color::hsl<double> >( "image-hsl.tga");
+  make_image<color::hsv<double> >( "image-hsv.tga");
   make_image<color::rgb<double> >( "image-rgb.tga");
   make_image<color::cmy<double> >( "image-cmy.tga");
   make_image<color::cmyk<double> >("image-cmyk.tga");
-  make_image<color::hsl<double> >( "image-hsl.tga");
-  make_image<color::hsv<double> >( "image-hsv.tga");
   make_image<color::xyz<double> >( "image-xyz.tga");
   make_image<color::yiq<double> >( "image-yiq.tga");
 
