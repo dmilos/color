@@ -34,8 +34,8 @@ Implemented Conversions:
 > | gray  |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |  :white_check_mark: |  :white_check_mark: |
 > | hsl   |      |      |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |      |
 > | hsv   |      |      |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |      |
-> | rgb   |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :ballot_box_with_check: | :white_check_mark: |  :white_check_mark: |
-> | xyz   |      |      |      |      |      |  :ballot_box_with_check: |  :white_check_mark: |      |      |
+> | rgb   |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: | :white_check_mark: |  :white_check_mark: |
+> | xyz   |      |      |      |      |      |  :white_check_mark: |  :white_check_mark: |      |      |
 > | yiq   | :white_check_mark: |      |  :white_check_mark: |      |      |  :white_check_mark: |      |  :white_check_mark: |      |
 > | yuv   | :white_check_mark: |      | :white_check_mark: |      |      |  :white_check_mark: |      |      |  :white_check_mark: |
 

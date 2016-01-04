@@ -17,9 +17,9 @@ template< typename category_left_name, typename category_right_name>
    long double e1 = 0;
    long double e2 = 0;
 
-   for (long double c0 = left_type::bound_type::template minimum<0>(); c0 <= left_type::bound_type::template maximum<0>(); c0 += 0.01 )
-    for (long double c1 = left_type::bound_type::template minimum<1>(); c1 <= left_type::bound_type::template maximum<1>(); c1 += 0.01 )
-     for (long double c2 = left_type::bound_type::template minimum<2>(); c2 <= left_type::bound_type::template maximum<2>(); c2 += 0.01 )
+   for (long double c0 = left_type::bound_type::template minimum<0>(); c0 <= left_type::bound_type::template maximum<0>(); c0 += left_type::bound_type::template range<0>() * 0.01 )
+    for (long double c1 = left_type::bound_type::template minimum<1>(); c1 <= left_type::bound_type::template maximum<1>(); c1 += left_type::bound_type::template range<1>() * 0.01 )
+     for (long double c2 = left_type::bound_type::template minimum<2>(); c2 <= left_type::bound_type::template maximum<2>(); c2 += left_type::bound_type::template range<2>() * 0.01 )
       {
        left.template set<0>( c0 );
        left.template set<1>( c1 );
@@ -79,13 +79,16 @@ template< typename category_left_name, typename category_middle_name, typename c
    ,color::_internal::model<category_right_name> & desno
   )
   {
+   typedef color::_internal::model< category_left_name> left_type;
+   typedef color::_internal::model< category_left_name> right_type;
+
    long double e0 = 0;
    long double e1 = 0;
    long double e2 = 0;
 
-   for( long double c0=0; c0 <= 1.0; c0 += 0.01  )
-    for( long double c1=0; c1 <= 1.0; c1 += 0.01  )
-     for( long double c2=0; c2 <= 1.0; c2 += 0.01  )
+   for (long double c0 = left_type::bound_type::template minimum<0>(); c0 <= left_type::bound_type::template maximum<0>(); c0 += left_type::bound_type::template range<0>() * 0.01 )
+    for (long double c1 = left_type::bound_type::template minimum<1>(); c1 <= left_type::bound_type::template maximum<1>(); c1 += left_type::bound_type::template range<1>() * 0.01 )
+     for (long double c2 = left_type::bound_type::template minimum<2>(); c2 <= left_type::bound_type::template maximum<2>(); c2 += left_type::bound_type::template range<2>() * 0.01 )
       {
        left.template set<0>( c0 );
        left.template set<1>( c1 );
@@ -118,6 +121,7 @@ template< typename category_left_name, typename category_middle_name, typename c
     if( 1e-5 < e1 ) goto label_failure;
     if( 1e-5 < e2 ) goto label_failure;
 
+    std::cout << "OK" <<std::endl;
     return;
 
     label_failure:
@@ -145,6 +149,7 @@ void check_conversion()
   color::hsv<long double >   hv;
   color::yiq<long double >   yi;
   color::yuv<long double >   yu;
+  color::xyz<long double >   x;
 
   check_conversion_back_and_forth( hl, r  );
   //check_conversion_back_and_forth( hv, r  );
@@ -156,6 +161,7 @@ void check_conversion()
   check_conversion_back_and_forth( c, hv );  /*check_conversion_back_and_forth( ck, hv );*/  check_conversion_back_and_forth( r, hv );
   check_conversion_back_and_forth( c, yi );  /*check_conversion_back_and_forth( ck, yi );*/  check_conversion_back_and_forth( r, yi );
   check_conversion_back_and_forth( c, yu );  /*check_conversion_back_and_forth( ck, yu );*/  check_conversion_back_and_forth( r, yu );
+  check_conversion_back_and_forth( c, x  );  /*check_conversion_back_and_forth( ck, x  );*/  check_conversion_back_and_forth( r, x  );
 
   check_conversion_back_and_forth( hl, c  );  check_conversion_back_and_forth( hv, c  );
   check_conversion_back_and_forth( hl, ck );  check_conversion_back_and_forth( hv, ck );
@@ -164,6 +170,7 @@ void check_conversion()
   check_conversion_back_and_forth( hl, hv );  check_conversion_back_and_forth( hv, hv );
   check_conversion_back_and_forth( hl, yi );  check_conversion_back_and_forth( hv, yi );
   check_conversion_back_and_forth( hl, yu );  check_conversion_back_and_forth( hv, yu );
+  check_conversion_back_and_forth( hl, x  );  check_conversion_back_and_forth( hv, x  );
 
   check_conversion_back_and_forth( yi, c  );  check_conversion_back_and_forth( yu, c  );
   check_conversion_back_and_forth( yi, ck );  check_conversion_back_and_forth( yu, ck );
@@ -172,6 +179,16 @@ void check_conversion()
   check_conversion_back_and_forth( yi, hv );  check_conversion_back_and_forth( yu, hv );
   check_conversion_back_and_forth( yi, yi );  check_conversion_back_and_forth( yu, yi );
   check_conversion_back_and_forth( yi, yu );  check_conversion_back_and_forth( yu, yu );
+  check_conversion_back_and_forth( yi, x  );  check_conversion_back_and_forth( yu, x  );
+
+  check_conversion_back_and_forth( x, c  );
+  check_conversion_back_and_forth( x, ck );
+  check_conversion_back_and_forth( x, r  );
+  check_conversion_back_and_forth( x, hl );
+  check_conversion_back_and_forth( x, hv );
+  check_conversion_back_and_forth( x, yi );
+  check_conversion_back_and_forth( x, yu );
+  check_conversion_back_and_forth( x, x  );
 
   //check_conversion_pass( c,  ck,  r ); check_conversion_pass(  c, ck, hl ); check_conversion_pass(  c, ck, hv );
   //check_conversion_pass( ck, ck,  r ); check_conversion_pass(  c, ck, hl ); check_conversion_pass(  c, ck, hv );

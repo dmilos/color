@@ -1,6 +1,7 @@
 #ifndef color_hsv_double
 #define color_hsv_double
 
+#include "../_internal/utility/bound/hsv.hpp"
 #include "../_internal/utility/type/index.hpp"
 #include "../_internal/utility/component/array.hpp"
 #include "../_internal/utility/container/array.hpp"
@@ -18,7 +19,7 @@ namespace color
 
     template< >
      struct bound< ::color::category::hsv_double >
-      : public ::color::_internal::utility::bound::general< double, unsigned >
+      : public ::color::_internal::utility::bound::hsv_scalar< unsigned, double >
       {
       };
 

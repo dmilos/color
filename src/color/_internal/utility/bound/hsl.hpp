@@ -1,7 +1,7 @@
 #ifndef color__internal_utility_bound_hsl
 #define color__internal_utility_bound_hsl
 
-// ::color::_internal::utility::bound::hsl_float< index_type, scalar_name >
+// ::color::_internal::utility::bound::hsl_scalar< index_type, scalar_name >
 
 
 #include "../type/traitp.hpp"
@@ -17,7 +17,7 @@ namespace color
        {
 
         template< typename index_name, typename scalar_name >
-         struct hsl_float
+         struct hsl_scalar
           {
            public:
              typedef scalar_name  scalar_type;

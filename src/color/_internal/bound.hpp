@@ -1,8 +1,9 @@
 #ifndef color_bound
 #define color_bound
-// color::bound< category >::maximum
-// color::bound< category >::minimum
-// color::bound< category >::bound
+
+// color::trait::bound< category >::maximum
+// color::trait::bound< category >::minimum
+// color::trait::bound< category >::bound
 
 #include "./index.hpp"
 #include "./component.hpp"
@@ -35,7 +36,7 @@ namespace color
          typedef ::color::_internal::utility::bound::general<component_instance_type, index_instance_type > general_type;
 
          typedef ::color::_internal::bound< category_name >  this_type;
-         
+
          using general_type::minimum;
          using general_type::maximum;
          using general_type::range;

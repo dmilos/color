@@ -38,10 +38,11 @@ namespace color
               container_left_input_type         left
              ,container_right_const_input_type  right
             )
-            { // TODO divide by 0.17697
-             static scalar_type b11 =  2.3646138465383655,   b12 = -0.896540570739668,    b13 = -0.4680732757986974;
-             static scalar_type b21 = -0.515166208447888,    b22 =  1.4264081038563887,   b23 =  0.08875810459149917;
-             static scalar_type b31 =  0.005203699075231192, b32 = -0.014408162665216047, b33 =  1.0092044635899848; 
+            {
+             static scalar_type mc = 0.17697;
+             static scalar_type b11 =  473041/scalar_type(200050)*mc,  b12 = -60980/scalar_type(68017)*mc,  b13 = -1591847/scalar_type(3400850)*mc;
+             static scalar_type b21 = -103059/scalar_type(200050)*mc,  b22 =  97020/scalar_type(68017)*mc,  b23 =   301853/scalar_type(3400850)*mc;
+             static scalar_type b31 =    1041/scalar_type(200050)*mc,  b32 =   -980/scalar_type(68017)*mc,  b33 =  3432153/scalar_type(3400850)*mc;
 
              scalar_type x = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              scalar_type y = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );

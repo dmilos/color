@@ -1,6 +1,7 @@
 #ifndef color_hsv_float
 #define color_hsv_float
 
+#include "../_internal/utility/bound/hsv.hpp"
 #include "../_internal/utility/type/index.hpp"
 #include "../_internal/utility/component/array.hpp"
 #include "../_internal/utility/container/array.hpp"
@@ -18,7 +19,7 @@ namespace color
 
     template< >
      struct bound< ::color::category::hsv_float >
-      : public ::color::_internal::utility::bound::general< float, unsigned >
+      : public ::color::_internal::utility::bound::hsv_scalar< unsigned, float >
       {
       };
 

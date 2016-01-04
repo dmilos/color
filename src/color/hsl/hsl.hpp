@@ -18,6 +18,8 @@
 #include "./set/set.hpp"
 #include "./make/make.hpp"
 #include "./convert/convert.hpp"
+#include "./check/check.hpp"
+
 
 namespace color
  {

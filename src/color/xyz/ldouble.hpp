@@ -1,6 +1,7 @@
 #ifndef color_xyz_ldouble
 #define color_xyz_ldouble
 
+#include "../_internal/utility/bound/xyz.hpp"
 #include "../_internal/utility/type/index.hpp"
 #include "../_internal/utility/component/array.hpp"
 #include "../_internal/utility/container/array.hpp"
@@ -18,10 +19,10 @@ namespace color
 
     template< >
      struct bound< ::color::category::xyz_ldouble >
-      : public ::color::_internal::utility::bound::general< long double, unsigned >
+      : public ::color::_internal::utility::bound::xyz_scalar< unsigned, long double >
       {
       };
-      
+
     template< >
      struct index< ::color::category::xyz_ldouble >
       : public color::_internal::utility::type::index< unsigned >
