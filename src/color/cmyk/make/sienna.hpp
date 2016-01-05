@@ -11,7 +11,7 @@
       inline
       void sienna( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x5fb77c00;
+        color_parameter.container() = 0x64;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void sienna( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffb77c00u;
+        color_parameter.container() = 0x5fb77c00u;
        }
 
       inline
       void sienna( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffb7ff7ccc0000ul;
+        color_parameter.container() = 0x5f5fb7ff7ccc0000ul;
        }
 
       inline

@@ -11,7 +11,7 @@
       inline
       void aqua( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xff;
+        color_parameter.container() = 0x3;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void aqua( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff0000ffu;
+        color_parameter.container() = 0xffu;
        }
 
       inline
       void aqua( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff00000000fffful;
+        color_parameter.container() = 0xfffful;
        }
 
       inline

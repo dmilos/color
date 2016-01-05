@@ -11,7 +11,7 @@
       inline
       void gold( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xff2800;
+        color_parameter.container() = 0x30;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void gold( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffff2800u;
+        color_parameter.container() = 0xff2800u;
        }
 
       inline
       void gold( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffffff28280000ul;
+        color_parameter.container() = 0xffff28280000ul;
        }
 
       inline

@@ -11,7 +11,7 @@
       inline
       void purple( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x7f00ff00;
+        color_parameter.container() = 0x4c;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void purple( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff00ff00u;
+        color_parameter.container() = 0x7f00ff00u;
        }
 
       inline
       void purple( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff0000ffff0000ul;
+        color_parameter.container() = 0x7fff0000ffff0000ul;
        }
 
       inline

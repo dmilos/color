@@ -11,7 +11,7 @@
       inline
       void moccasin( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x491a00;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void moccasin( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff491a00u;
+        color_parameter.container() = 0x491a00u;
        }
 
       inline
       void moccasin( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff4a491b1a0000ul;
+        color_parameter.container() = 0x4a491b1a0000ul;
        }
 
       inline

@@ -11,7 +11,7 @@
       inline
       void crimson( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x22b9e700;
+        color_parameter.container() = 0x28;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void crimson( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffb9e700u;
+        color_parameter.container() = 0x22b9e700u;
        }
 
       inline
       void crimson( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffba2de8b90000ul;
+        color_parameter.container() = 0x2322ba2de8b90000ul;
        }
 
       inline

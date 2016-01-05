@@ -11,7 +11,7 @@
       inline
       void silver( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x3f000000;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void silver( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff000000u;
+        color_parameter.container() = 0x3f000000u;
        }
 
       inline
       void silver( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff000000000000ul;
+        color_parameter.container() = 0x3fff000000000000ul;
        }
 
       inline

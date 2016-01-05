@@ -11,7 +11,7 @@
       inline
       void khaki( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xf6a0a00;
+        color_parameter.container() = 0x10;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void khaki( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff6a0a00u;
+        color_parameter.container() = 0xf6a0a00u;
        }
 
       inline
       void khaki( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff6aaa0aaa0000ul;
+        color_parameter.container() = 0xf0f6aaa0aaa0000ul;
        }
 
       inline

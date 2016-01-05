@@ -11,7 +11,7 @@
       inline
       void fuchsia( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xff00;
+        color_parameter.container() = 0xc;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void fuchsia( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff00ff00u;
+        color_parameter.container() = 0xff00u;
        }
 
       inline
       void fuchsia( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff0000ffff0000ul;
+        color_parameter.container() = 0xffff0000ul;
        }
 
       inline

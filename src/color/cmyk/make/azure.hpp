@@ -11,7 +11,7 @@
       inline
       void azure( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xf;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void azure( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff00000fu;
+        color_parameter.container() = 0xfu;
        }
 
       inline
       void azure( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff000000000f0ful;
+        color_parameter.container() = 0xf0ful;
        }
 
       inline

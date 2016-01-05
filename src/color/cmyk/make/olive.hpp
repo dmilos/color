@@ -11,7 +11,7 @@
       inline
       void olive( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x7fff0000;
+        color_parameter.container() = 0x70;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void olive( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffff0000u;
+        color_parameter.container() = 0x7fff0000u;
        }
 
       inline
       void olive( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffffff00000000ul;
+        color_parameter.container() = 0x7fffffff00000000ul;
        }
 
       inline

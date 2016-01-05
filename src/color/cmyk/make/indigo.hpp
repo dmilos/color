@@ -11,7 +11,7 @@
       inline
       void indigo( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x7d00ff6b;
+        color_parameter.container() = 0x4d;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void indigo( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff00ff6bu;
+        color_parameter.container() = 0x7d00ff6bu;
        }
 
       inline
       void indigo( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff0000ffff6c4eul;
+        color_parameter.container() = 0x7d7d0000ffff6c4eul;
        }
 
       inline

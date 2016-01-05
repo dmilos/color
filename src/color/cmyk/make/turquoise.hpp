@@ -11,7 +11,7 @@
       inline
       void turquoise( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x1f1200b6;
+        color_parameter.container() = 0x2;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void turquoise( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff1200b6u;
+        color_parameter.container() = 0x1f1200b6u;
        }
 
       inline
       void turquoise( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff12490000b6daul;
+        color_parameter.container() = 0x1f1f12490000b6daul;
        }
 
       inline

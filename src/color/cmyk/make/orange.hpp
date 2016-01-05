@@ -11,7 +11,7 @@
       inline
       void orange( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xff5900;
+        color_parameter.container() = 0x34;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void orange( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffff5900u;
+        color_parameter.container() = 0xff5900u;
        }
 
       inline
       void orange( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffffff59990000ul;
+        color_parameter.container() = 0xffff59990000ul;
        }
 
       inline

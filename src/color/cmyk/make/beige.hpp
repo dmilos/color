@@ -11,7 +11,7 @@
       inline
       void beige( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x91a0000;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void beige( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff1a0000u;
+        color_parameter.container() = 0x91a0000u;
        }
 
       inline
       void beige( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff1a1f00000000ul;
+        color_parameter.container() = 0xa091a1f00000000ul;
        }
 
       inline

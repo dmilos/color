@@ -11,7 +11,7 @@
       inline
       void plum( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x21004600;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void plum( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff004600u;
+        color_parameter.container() = 0x21004600u;
        }
 
       inline
       void plum( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff000046a80000ul;
+        color_parameter.container() = 0x2221000046a80000ul;
        }
 
       inline

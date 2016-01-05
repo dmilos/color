@@ -11,7 +11,7 @@
       inline
       void green( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x7fff00ff;
+        color_parameter.container() = 0x73;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void green( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffff00ffu;
+        color_parameter.container() = 0x7fff00ffu;
        }
 
       inline
       void green( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffffff0000fffful;
+        color_parameter.container() = 0x7fffffff0000fffful;
        }
 
       inline

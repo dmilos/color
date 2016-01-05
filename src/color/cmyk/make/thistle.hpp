@@ -11,7 +11,7 @@
       inline
       void thistle( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x27001d00;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void thistle( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff001d00u;
+        color_parameter.container() = 0x27001d00u;
        }
 
       inline
       void thistle( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff00001da10000ul;
+        color_parameter.container() = 0x272700001da10000ul;
        }
 
       inline

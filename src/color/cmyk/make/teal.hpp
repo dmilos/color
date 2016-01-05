@@ -11,7 +11,7 @@
       inline
       void teal( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x7f0000ff;
+        color_parameter.container() = 0x43;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void teal( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff0000ffu;
+        color_parameter.container() = 0x7f0000ffu;
        }
 
       inline
       void teal( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff00000000fffful;
+        color_parameter.container() = 0x7fff00000000fffful;
        }
 
       inline

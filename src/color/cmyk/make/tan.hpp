@@ -11,7 +11,7 @@
       inline
       void tan( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x2d542400;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void tan( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff542400u;
+        color_parameter.container() = 0x2d542400u;
        }
 
       inline
       void tan( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff555424920000ul;
+        color_parameter.container() = 0x2d2d555424920000ul;
        }
 
       inline

@@ -11,7 +11,7 @@
       inline
       void maroon( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x7fffff00;
+        color_parameter.container() = 0x7c;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void maroon( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffffff00u;
+        color_parameter.container() = 0x7fffff00u;
        }
 
       inline
       void maroon( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffffffffff0000ul;
+        color_parameter.container() = 0x7fffffffffff0000ul;
        }
 
       inline

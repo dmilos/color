@@ -11,7 +11,7 @@
       inline
       void pink( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x31b05900;
+        color_parameter.container() = 0x24;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void pink( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffb05900u;
+        color_parameter.container() = 0x31b05900u;
        }
 
       inline
       void pink( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffb15259e90000ul;
+        color_parameter.container() = 0x3231b15259e90000ul;
        }
 
       inline

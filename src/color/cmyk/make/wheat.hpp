@@ -11,7 +11,7 @@
       inline
       void wheat( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x9441700;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void wheat( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff441700u;
+        color_parameter.container() = 0x9441700u;
        }
 
       inline
       void wheat( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff44f618080000ul;
+        color_parameter.container() = 0xa0944f618080000ul;
        }
 
       inline

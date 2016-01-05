@@ -11,7 +11,7 @@
       inline
       void aquamarine( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x2a007f;
+        color_parameter.container() = 0x1;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void aquamarine( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff2a007fu;
+        color_parameter.container() = 0x2a007fu;
        }
 
       inline
       void aquamarine( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff2b2a00007ffful;
+        color_parameter.container() = 0x2b2a00007ffful;
        }
 
       inline

@@ -11,7 +11,7 @@
       inline
       void tomato( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xb89c00;
+        color_parameter.container() = 0x24;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void tomato( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffb89c00u;
+        color_parameter.container() = 0xb89c00u;
        }
 
       inline
       void tomato( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffb8b89c9c0000ul;
+        color_parameter.container() = 0xb8b89c9c0000ul;
        }
 
       inline

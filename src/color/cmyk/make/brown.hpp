@@ -11,7 +11,7 @@
       inline
       void brown( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x59bebe00;
+        color_parameter.container() = 0x68;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void brown( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffbebe00u;
+        color_parameter.container() = 0x59bebe00u;
        }
 
       inline
       void brown( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffbed5bed50000ul;
+        color_parameter.container() = 0x5a59bed5bed50000ul;
        }
 
       inline

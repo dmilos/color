@@ -11,7 +11,7 @@
       inline
       void snow( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x50500;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void snow( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff050500u;
+        color_parameter.container() = 0x50500u;
        }
 
       inline
       void snow( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff050505050000ul;
+        color_parameter.container() = 0x50505050000ul;
        }
 
       inline

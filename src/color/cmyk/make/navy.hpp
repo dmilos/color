@@ -11,7 +11,7 @@
       inline
       void navy( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x7f00ffff;
+        color_parameter.container() = 0x4f;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void navy( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff00ffffu;
+        color_parameter.container() = 0x7f00ffffu;
        }
 
       inline
       void navy( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff0000fffffffful;
+        color_parameter.container() = 0x7fff0000fffffffful;
        }
 
       inline

@@ -11,7 +11,7 @@
       inline
       void chocolate( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x2dda7f00;
+        color_parameter.container() = 0x24;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void chocolate( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffda7f00u;
+        color_parameter.container() = 0x2dda7f00u;
        }
 
       inline
       void chocolate( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffdb6c7fff0000ul;
+        color_parameter.container() = 0x2d2ddb6c7fff0000ul;
        }
 
       inline

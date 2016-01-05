@@ -11,7 +11,7 @@
       inline
       void orchid( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x25047b00;
+        color_parameter.container() = 0x4;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void orchid( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff047b00u;
+        color_parameter.container() = 0x25047b00u;
        }
 
       inline
       void orchid( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff04b27c790000ul;
+        color_parameter.container() = 0x252504b27c790000ul;
        }
 
       inline

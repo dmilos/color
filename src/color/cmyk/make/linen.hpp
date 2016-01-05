@@ -11,7 +11,7 @@
       inline
       void linen( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x5140a00;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void linen( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff140a00u;
+        color_parameter.container() = 0x5140a00u;
        }
 
       inline
       void linen( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff147a0a3d0000ul;
+        color_parameter.container() = 0x505147a0a3d0000ul;
        }
 
       inline

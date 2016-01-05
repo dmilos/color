@@ -23,13 +23,13 @@
       inline
       void white( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff000000u;
+        color_parameter.container() = 0x0u;
        }
 
       inline
       void white( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff000000000000ul;
+        color_parameter.container() = 0x0ul;
        }
 
       inline

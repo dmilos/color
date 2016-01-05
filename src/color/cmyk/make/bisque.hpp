@@ -11,7 +11,7 @@
       inline
       void bisque( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x3a1a00;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void bisque( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff3a1a00u;
+        color_parameter.container() = 0x3a1a00u;
        }
 
       inline
       void bisque( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff3b3a1b1a0000ul;
+        color_parameter.container() = 0x3b3a1b1a0000ul;
        }
 
       inline

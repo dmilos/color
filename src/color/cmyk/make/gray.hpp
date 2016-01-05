@@ -11,7 +11,7 @@
       inline
       void gray50( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x7f000000;
+        color_parameter.container() = 0x40;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void gray50( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff000000u;
+        color_parameter.container() = 0x7f000000u;
        }
 
       inline
       void gray50( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff000000000000ul;
+        color_parameter.container() = 0x7fff000000000000ul;
        }
 
       inline

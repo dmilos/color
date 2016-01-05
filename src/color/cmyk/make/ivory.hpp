@@ -11,7 +11,7 @@
       inline
       void ivory( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xf0000;
+        color_parameter.container() = 0x0;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void ivory( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff0f0000u;
+        color_parameter.container() = 0xf0000u;
        }
 
       inline
       void ivory( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff0f0f00000000ul;
+        color_parameter.container() = 0xf0f00000000ul;
        }
 
       inline

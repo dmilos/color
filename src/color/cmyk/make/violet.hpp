@@ -11,7 +11,7 @@
       inline
       void violet( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x10007300;
+        color_parameter.container() = 0x4;
        }
 
       inline
@@ -23,13 +23,13 @@
       inline
       void violet( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff007300u;
+        color_parameter.container() = 0x10007300u;
        }
 
       inline
       void violet( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff0000742a0000ul;
+        color_parameter.container() = 0x11100000742a0000ul;
        }
 
       inline
