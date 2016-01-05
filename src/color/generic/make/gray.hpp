@@ -12,7 +12,7 @@
       void gray50( ::color::_internal::model< category_name > & color_parameter )
        {
         typedef ::color::_internal::model< category_name > model_type;
-        typedef ::color::_internal::bound< category_name > bound_type;
+        typedef ::color::trait::bound< category_name > bound_type;
 
         typedef typename model_type::index_type index_type;
 

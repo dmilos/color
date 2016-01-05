@@ -13,7 +13,7 @@ namespace color
      scalar_name normalize
       (
        ::color::_internal::model<category_name>                     const& m
-       ,typename ::color::_internal::index<category_name>::input_const_type index
+       ,typename ::color::trait::index<category_name>::input_const_type index
       )
       {
        return ::color::_internal::normalize<category_name, scalar_name >::process( m[index], index ) ;

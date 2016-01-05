@@ -2,7 +2,7 @@
 #define  color_generic_operation_clamp_123
 
                 
-#include "../../_internal/bound.hpp"
+#include "../trait/bound.hpp"
 
  namespace color
   {
@@ -17,15 +17,15 @@
           public:
             typedef category_name  category_type;
 
-            typedef ::color::_internal::bound< category_type >   bound_type;
-            typedef ::color::_internal::container< category_type >   container_trait_type;
+            typedef ::color::trait::bound< category_type >   bound_type;
+            typedef ::color::trait::container< category_type >   container_trait_type;
+            typedef ::color::trait::component<category_type>  component_trait_type;
 
             typedef typename ::color::_internal::model<category_type>  model_type;
 
-            typedef ::color::_internal::component<category_type>  component_trait_type;
             typedef typename component_trait_type::instance_type  component_type;
 
-            typedef ::color::_internal::index<category_type>  index_trait_type;
+            typedef ::color::trait::index<category_type>  index_trait_type;
             typedef typename index_trait_type::instance_type  index_type;
 
             static void process( model_type &result )

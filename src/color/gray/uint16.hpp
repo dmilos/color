@@ -14,9 +14,10 @@
 #include "./category.hpp"
 
 
+
 namespace color
  {
-  namespace _internal
+  namespace trait
    {
 
     template< >

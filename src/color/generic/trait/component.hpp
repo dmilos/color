@@ -1,12 +1,13 @@
-#ifndef color__internal_component
-#define color__internal_component
-// color::_internal::component< category >
+#ifndef color_trait_component
+#define color_trait_component
+
+// color::trait::component< category >
 
 #include "./index.hpp"
 
 namespace color
  {
-  namespace _internal
+  namespace trait
    {
 
     template< typename category_name >
@@ -24,9 +25,9 @@ namespace color
          typedef instance_type const&   input_const_type;
          typedef instance_type      &   input_type;
 
-         typedef ::color::_internal::index< category_name >  index_trait_type;
-         typedef typename index_trait_type::instance_type    index_instance_type;
-         typedef typename index_trait_type::input_const_type index_input_const_type;
+         // typedef ::color::trait::index< category_name >      index_trait_type;
+         // typedef typename index_trait_type::instance_type    index_instance_type;
+         // typedef typename index_trait_type::input_const_type index_input_const_type;
 
       };
 

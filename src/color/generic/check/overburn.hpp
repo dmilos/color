@@ -18,9 +18,9 @@ namespace color
           typedef category_name category_type;
 
           typedef ::color::_internal::model<category_type>          model_type;
-          typedef ::color::_internal::bound<category_type>          bound_type;
-          typedef ::color::_internal::container< category_name >    container_trait_type;
-          typedef ::color::_internal::index<category_type>          index_trait_type;
+          typedef ::color::trait::bound<category_type>          bound_type;
+          typedef ::color::trait::container< category_name >    container_trait_type;
+          typedef ::color::trait::index<category_type>          index_trait_type;
 
           typedef typename index_trait_type::instance_type          index_type;
 
@@ -47,7 +47,7 @@ namespace color
 
     template< typename category_name >
      inline
-     typename ::color::_internal::index<category_name>::instance_type
+     typename ::color::trait::index<category_name>::instance_type
      overburn( ::color::_internal::model<category_name> const& m )
       {
        return  ::color::check::_internal::overburn<category_name>::process( m );

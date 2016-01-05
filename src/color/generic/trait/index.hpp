@@ -1,12 +1,13 @@
-#ifndef color__internal_index
-#define color__internal_index
-// color::_internal::index< category >
+#ifndef color_trait_index
+#define color_trait_index
 
-#include "./utility/type/index.hpp"
+// color::trait::index< category >
+
+#include "../../_internal/utility/type/index.hpp"
 
 namespace color
  {
-  namespace _internal
+  namespace trait
    {
 
     template< typename category_name >
@@ -27,7 +28,7 @@ namespace color
          typedef typename utility_type::input_const_type      input_const_type;
          typedef typename utility_type::input_type            input_type;
          typedef typename utility_type::output_type           output_type;
-     };
+      };
 
    }
  }

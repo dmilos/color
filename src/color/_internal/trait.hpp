@@ -1,10 +1,10 @@
 #ifndef color__internal_trait_
 #define color__internal_trait_
 
-#include "./index.hpp"
-#include "./component.hpp"
-#include "./container.hpp"
-#include "./bound.hpp"
+#include "../generic/trait/index.hpp"
+#include "../generic/trait/component.hpp"
+#include "../generic/trait/container.hpp"
+#include "../generic/trait/bound.hpp"
 
 namespace color
  {
@@ -13,16 +13,16 @@ namespace color
 
     template< typename category_name >
      struct trait
-      : public  ::color::_internal::index< category_name >
-      , public  ::color::_internal::container< category_name >
-      , public  ::color::_internal::component< category_name >
-      , public  ::color::_internal::bound< category_name >
+      : public  ::color::trait::index< category_name >
+      , public  ::color::trait::container< category_name >
+      , public  ::color::trait::component< category_name >
+      , public  ::color::trait::bound< category_name >
       {
        public:
-         typedef ::color::_internal::index< category_name >      index_trait_type;
-         typedef ::color::_internal::component< category_name >  component_trait_type;
-         typedef ::color::_internal::container< category_name >  container_trait_type;
-         typedef ::color::_internal::bound< category_name >      bound_trait_type;
+         typedef ::color::trait::index< category_name >      index_trait_type;
+         typedef ::color::trait::component< category_name >  component_trait_type;
+         typedef ::color::trait::container< category_name >  container_trait_type;
+         typedef ::color::trait::bound< category_name >      bound_trait_type;
 
          // Shortcuts.
          typedef typename index_trait_type::instance_type           index_type;

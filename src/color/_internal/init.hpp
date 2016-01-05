@@ -3,9 +3,9 @@
 
 // ::color::make::white( c )
 
-#include "./index.hpp"
-#include "./container.hpp"
-#include "./component.hpp"
+#include "../generic/trait/index.hpp"
+#include "../generic/trait/container.hpp"
+#include "../generic/trait/component.hpp"
 
 
  namespace color
@@ -16,13 +16,13 @@
      template< typename category_name >
       void init
        (
-          typename ::color::_internal::container< category_name >::output_type                                    container
-        , std::initializer_list< typename ::color::_internal::component< category_name >::instance_type > const&  ilist
+          typename ::color::trait::container< category_name >::output_type                                    container
+        , std::initializer_list< typename ::color::trait::component< category_name >::instance_type > const&  ilist
        )
        {
-        typedef ::color::_internal::container< category_name >                      container_trait_type;
+        typedef ::color::trait::container< category_name >                      container_trait_type;
 
-        typedef typename ::color::_internal::index< category_name >::instance_type     index_type;
+        typedef typename ::color::trait::index< category_name >::instance_type     index_type;
 
         auto ili = ilist.begin();
         index_type index=0;

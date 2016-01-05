@@ -68,7 +68,7 @@ void invoke()
  }
 
 template < typename model_name >
-void make_image(std::string const& name, float y_plane = 0.5 )
+void make_image(std::string const& name, float plane = 0.5, int side = 1 )
  {
   int height = 1000;
   int width  = 1000;
@@ -89,9 +89,24 @@ void make_image(std::string const& name, float y_plane = 0.5 )
     for (int x = 0; x < width; x++)
      {
       image[y * width + x].set<3>(255);
-      image[y * width + x] = model_name( { diverse_type::template process<0>( y / double(height) ),
-                                           diverse_type::template process<1>( y_plane ),
-                                           diverse_type::template process<2>( x / double(width) ) } );
+      switch( side )
+       {
+        case( 0 ):
+         image[y * width + x] = model_name( { diverse_type::template process<0>( plane  ),
+                                              diverse_type::template process<1>( y / double(height) ),
+                                              diverse_type::template process<2>( x / double(width) ) } );
+         break;
+        case( 1 ):
+          image[y * width + x] = model_name( { diverse_type::template process<0>( y / double(height) ),
+                                               diverse_type::template process<1>( plane ),
+                                               diverse_type::template process<2>( x / double(width) ) } );
+          break;
+        case( 2 ):
+          image[y * width + x] = model_name( { diverse_type::template process<0>( y / double(height) ),
+                                               diverse_type::template process<1>( x / double(width) ),
+                                               diverse_type::template process<2>( plane ) } );
+          break;
+       }
      }
    }
 
@@ -103,13 +118,17 @@ void make_image(std::string const& name, float y_plane = 0.5 )
 int main(int argc, char const *argv[])
  {
 
-  make_image<color::hsl<double> >( "image-hsl.tga");
-  make_image<color::hsv<double> >( "image-hsv.tga");
-  make_image<color::rgb<double> >( "image-rgb.tga");
-  make_image<color::cmy<double> >( "image-cmy.tga");
-  make_image<color::cmyk<double> >("image-cmyk.tga");
-  make_image<color::xyz<double> >( "image-xyz.tga");
-  make_image<color::yiq<double> >( "image-yiq.tga");
+  make_image<color::hsl<double> >( "image-hsl.tga" , 0.5 );
+  make_image<color::hsv<double> >( "image-hsv.tga" , 0.5 );
+  make_image<color::rgb<double> >( "image-rgb-0.tga" , 0.5, 0 );
+  make_image<color::rgb<double> >( "image-rgb-1.tga" , 0.5, 1 );
+  make_image<color::rgb<double> >( "image-rgb-2.tga" , 0.5, 2 );
+  make_image<color::cmy<double> >( "image-cmy.tga" , 0.5 );
+  make_image<color::cmyk<double> >("image-cmyk.tga", 0.5 );
+  make_image<color::xyz<double> >( "image-xyz-0.tga" , 0.5, 0 );
+  make_image<color::xyz<double> >( "image-xyz-1.tga" , 0.5, 1 );
+  make_image<color::xyz<double> >( "image-xyz-2.tga" , 0.5, 2 );
+  make_image<color::yiq<double> >( "image-yiq.tga" , 0.5 );
 
   make_image<color::yuv<double> >("image-yuv_0.0.tga", 0.0);
   make_image<color::yuv<double> >("image-yuv_0.1.tga", 0.1);

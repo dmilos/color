@@ -4,9 +4,9 @@
 // ::color::_internal::diverse< >(   )
 // ::color::_internal::diverse< >(   )
 
-#include "./component.hpp"
-#include "./index.hpp"
-#include "./bound.hpp"
+#include "../generic/trait/component.hpp"
+#include "../generic/trait/index.hpp"
+#include "../generic/trait/bound.hpp"
 
 namespace color
  {
@@ -18,9 +18,9 @@ namespace color
       {
        public:
          typedef scalar_name scalar_type;
-         typedef ::color::_internal::bound< category_name >      bound_trait_type;
-         typedef ::color::_internal::component< category_name >  component_trait_type;
-         typedef ::color::_internal::index< category_name >      index_trait_type;
+         typedef ::color::trait::bound< category_name >      bound_trait_type;
+         typedef ::color::trait::component< category_name >  component_trait_type;
+         typedef ::color::trait::index< category_name >      index_trait_type;
  
          typedef typename component_trait_type::instance_type    component_instance_type;
          typedef typename component_trait_type::return_type      component_return_type;

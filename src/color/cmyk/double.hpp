@@ -5,15 +5,19 @@
 #include "../_internal/utility/component/array.hpp"
 #include "../_internal/utility/container/array.hpp"
 
-#include "../_internal/bound.hpp"
-#include "../_internal/index.hpp"
-#include "../_internal/component.hpp"
-#include "../_internal/container.hpp"
+#include "../generic/trait/bound.hpp"
+#include "../generic/trait/index.hpp"
+#include "../generic/trait/component.hpp"
+#include "../generic/trait/container.hpp"
+
+
+
+
 
 
 namespace color
  {
-  namespace _internal
+  namespace trait
    {
 
     template< >

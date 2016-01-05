@@ -14,7 +14,7 @@
       alpha( ::color::_internal::model< category_name > const& color_parameter )
        {
         typedef ::color::_internal::model< category_name > model_type;
-        typedef ::color::_internal::bound< category_name > bound_type;
+        typedef ::color::trait::bound< category_name > bound_type;
 
         return bound_type::template maximum<0>();
        }

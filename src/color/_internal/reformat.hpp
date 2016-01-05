@@ -4,8 +4,8 @@
 // ::color::_internal::reformat< >(   )
 // ::color::_internal::reformat< >(   )
 
-#include "./component.hpp"
-#include "./index.hpp"
+#include "../generic/trait/component.hpp"
+#include "../generic/trait/index.hpp"
 #include "./diverse.hpp"
 #include "./normalize.hpp"
 
@@ -30,13 +30,13 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type, scalar_type >   diverse_type;
          typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
 
-         typedef typename ::color::_internal::component< category_left_name >::return_type          left_component_return_type;
-         typedef typename ::color::_internal::index< category_left_name >::input_const_type         left_index_const_input_type;
-         typedef typename ::color::_internal::index< category_left_name >::instance_type            left_index_instance_type;
+         typedef typename ::color::trait::component< category_left_name >::return_type          left_component_return_type;
+         typedef typename ::color::trait::index< category_left_name >::input_const_type         left_index_const_input_type;
+         typedef typename ::color::trait::index< category_left_name >::instance_type            left_index_instance_type;
 
-         typedef typename ::color::_internal::component< category_right_name >::input_const_type    right_component_const_input_type;
-         typedef typename ::color::_internal::index< category_right_name >::input_const_type        right_index_const_input_type;
-         typedef typename ::color::_internal::index< category_right_name >::instance_type           right_index_instance_type;
+         typedef typename ::color::trait::component< category_right_name >::input_const_type    right_component_const_input_type;
+         typedef typename ::color::trait::index< category_right_name >::input_const_type        right_index_const_input_type;
+         typedef typename ::color::trait::index< category_right_name >::instance_type           right_index_instance_type;
 
          static
          left_component_return_type

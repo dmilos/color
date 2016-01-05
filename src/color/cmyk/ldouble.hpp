@@ -5,9 +5,19 @@
 #include "../_internal/utility/component/array.hpp"
 #include "../_internal/utility/container/array.hpp"
 
+
+
+
+
+
+
+
+
+
+
 namespace color
  {
-  namespace _internal
+  namespace trait
    {
 
     template< >
