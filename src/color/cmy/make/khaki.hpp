@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.941176, 0.901961, 0.54902 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.941176, 0.901961, 0.54902 } ) - rgb(240,230,140) - #f0e68c
 
       inline
       void khaki( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

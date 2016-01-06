@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 1, 0.941176 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 1, 0.941176 } ) - rgb(255,255,240) - #fffff0
 
       inline
       void ivory( ::color::_internal::model< color::category::hsl_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void ivory( ::color::_internal::model< color::category::hsl_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0.166667, 1, 0.970588 } );
+        color_parameter.container() = std::array<float,3>( { 60, 100, 97.0588 } );
        }
 
       inline
       void ivory( ::color::_internal::model< color::category::hsl_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0.166667, 1, 0.970588 } );
+        color_parameter.container() = std::array<double,3>( { 60, 100, 97.0588 } );
        }
 
       inline
       void ivory( ::color::_internal::model< color::category::hsl_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0.166667, 1, 0.970588 } );
+        color_parameter.container() = std::array<long double,3>( { 60, 100, 97.0588 } );
        }
 
     }

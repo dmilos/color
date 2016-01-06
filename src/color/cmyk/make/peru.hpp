@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.803922, 0.521569, 0.247059 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.803922, 0.521569, 0.247059 } ) - rgb(205,133,63) - #cd853f
 
       inline
       void peru( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )

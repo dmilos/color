@@ -1,0 +1,56 @@
+#ifndef color_yuv_make_coral
+#define color_yuv_make_coral
+
+// ::color::make::coral( c )
+
+ namespace color
+  {
+   namespace make
+    { //RGB equivalents: std::array<double,3>( { 1, 0.5, 0.31 } ) - rgb(255,127,79) - #ff7f4f
+
+      inline
+      void coral( ::color::_internal::model< color::category::yuv_uint8 > & color_parameter )
+       {
+        color_parameter.container() = 0x94;
+       }
+
+      inline
+      void coral( ::color::_internal::model< color::category::yuv_uint16 > & color_parameter )
+       {
+        color_parameter.container() = 0xc133;
+       }
+
+      inline
+      void coral( ::color::_internal::model< color::category::yuv_uint32 > & color_parameter )
+       {
+        color_parameter.container() = 0xffc351a0u;
+       }
+
+      inline
+      void coral( ::color::_internal::model< color::category::yuv_uint64 > & color_parameter )
+       {
+        color_parameter.container() = 0xffffc3f35214a0b9ul;
+       }
+
+      inline
+      void coral( ::color::_internal::model< color::category::yuv_float > & color_parameter )
+       {
+        color_parameter.container() = std::array<float,3>( { 0.62784, -0.156409, 0.326503 } );
+       }
+
+      inline
+      void coral( ::color::_internal::model< color::category::yuv_double> & color_parameter )
+       {
+        color_parameter.container() = std::array<double,3>( { 0.62784, -0.156409, 0.326503 } );
+       }
+
+      inline
+      void coral( ::color::_internal::model< color::category::yuv_ldouble> & color_parameter )
+       {
+        color_parameter.container() = std::array<long double,3>( { 0.62784, -0.156409, 0.326503 } );
+       }
+
+    }
+  }
+
+#endif

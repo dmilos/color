@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.5, 1, 0.831373 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.5, 1, 0.831373 } ) - rgb(127,255,212) - #7fffd4
 
       inline
       void aquamarine( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

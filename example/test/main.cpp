@@ -147,8 +147,8 @@ int main(int argc, char const *argv[])
   extern void check_conversion();
   check_conversion();
 
-  //extern void make_test();
-  //make_test();
+  extern void make_test();
+  make_test();
 
   return 0;
  }

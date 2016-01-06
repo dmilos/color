@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.823529, 0.411765, 0.117647 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.823529, 0.411765, 0.117647 } ) - rgb(210,105,30) - #d2691e
 
       inline
       void chocolate( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )

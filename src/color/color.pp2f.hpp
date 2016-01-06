@@ -8494,6 +8494,216 @@ namespace color {
 }
 
 namespace color {
+	namespace _internal {
+		namespace utility {
+			namespace bound {
+
+				template< typename index_name >
+				struct bound2222 {
+					public:
+					typedef std::uint8_t unsigned_type;
+					typedef index_name index_type;
+
+					typedef ::color::_internal::utility::type::traitP< unsigned_type > trait_type;
+					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+					typedef typename trait_type::instance_type instance_type;
+					typedef typename trait_type::return_const_type return_const_type;
+
+					typedef typename index_trait_type::instance_type index_instance_type;
+					typedef typename index_trait_type::input_const_type index_input_const_type;
+
+					template< index_instance_type index >
+static return_const_type maximum() {
+	static instance_type max_list[] = { 3, 3, 3, 3 };
+	return max_list[index];
+}
+
+static return_const_type maximum(index_input_const_type index) {
+	static instance_type max_list[] = { 3, 3, 3, 3 };
+	return max_list[index];
+}
+
+template< index_instance_type index >
+static return_const_type minimum() {
+	static instance_type value=0;
+	return value;
+}
+
+static return_const_type minimum(index_input_const_type index) {
+	static instance_type value=0;
+	return value;
+}
+
+template< index_instance_type index >
+static return_const_type range() {
+	static instance_type max_list[] = { 3, 3, 3, 3 };
+	return max_list[index];
+}
+
+static return_const_type range(index_input_const_type index) {
+	static instance_type max_list[] = { 3, 3, 3, 3 };
+	return max_list[index];
+}
+				};
+
+			}
+		}
+	}
+}
+
+namespace color {
+	namespace _internal {
+		namespace utility {
+			namespace component {
+
+				template< typename index_name >
+				struct cnent2222
+				: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
+				};
+
+			}
+		}
+	}
+}
+
+namespace color {
+	namespace _internal {
+		namespace utility {
+			namespace container {
+
+				template< typename index_name >
+				struct cner2222 {
+					public:
+
+					typedef index_name index_type;
+
+					typedef std::uint8_t value_type;
+					typedef std::uint8_t instance_type;
+
+					typedef instance_type const const_type;
+					typedef instance_type const& return_const_type;
+					typedef instance_type & return_type;
+					typedef instance_type const& input_const_type;
+					typedef instance_type & input_type;
+					typedef instance_type & output_type;
+
+					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+					typedef typename index_trait_type::instance_type index_instance_type;
+					typedef typename index_trait_type::input_const_type index_input_const_type;
+					typedef typename index_trait_type::return_image_type index_return_image_type;
+
+					typedef ::color::_internal::utility::type::traitP< value_type > component_trait_type;
+
+					typedef typename component_trait_type::const_type component_const_type;
+					typedef typename component_trait_type::instance_type component_type;
+					typedef typename component_trait_type::return_const_type component_return_const_type;
+					typedef typename component_trait_type::input_const_type component_input_const_type;
+
+					typedef void set_return_type;
+
+static component_return_const_type get(input_const_type container, index_input_const_type index) {
+	switch(index) {
+	case(0):
+		return ((container >> 0) & 3);
+	case(1):
+		return ((container >> 2) & 3);
+	case(2):
+		return ((container >> 4) & 3);
+	case(3):
+		return ((container >> 4) & 3);
+	}
+	return 0;
+}
+
+template< index_instance_type index >
+static component_return_const_type get(input_const_type container) {
+	switch(index) {
+	case(0):
+		return ((container >> 0) & 3);
+	case(1):
+		return ((container >> 2) & 3);
+	case(2):
+		return ((container >> 4) & 3);
+	case(3):
+		return ((container >> 4) & 3);
+	}
+	return 0;
+}
+
+static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
+	switch(index) {
+	case(0) :
+		container = (container & ~(3 << (0))) | (((instance_type)value) << (0));
+		break;
+	case(1) :
+		container = (container & ~(3 << (2))) | (((instance_type)value) << (2));
+		break;
+	case(2) :
+		container = (container & ~(3 << (4))) | (((instance_type)value) << (4));
+		break;
+	case(3) :
+		container = (container & ~(3 << (6))) | (((instance_type)value) << (6));
+		break;
+	}
+}
+
+template< index_instance_type index >
+static set_return_type set(input_type container, component_input_const_type value) {
+	switch(index) {
+	case(0) :
+		container = (container & ~(3 << (0))) | (((instance_type)value) << (0));
+		break;
+	case(1) :
+		container = (container & ~(3 << (2))) | (((instance_type)value) << (2));
+		break;
+	case(2) :
+		container = (container & ~(3 << (4))) | (((instance_type)value) << (4));
+		break;
+	case(3) :
+		container = (container & ~(3 << (6))) | (((instance_type)value) << (6));
+		break;
+	}
+}
+
+static index_return_image_type size() {
+	static index_instance_type local_length = 4;
+	return local_length;
+}
+				};
+			}
+		}
+	}
+}
+
+namespace color {
+	namespace trait {
+
+		template< >
+		struct bound< ::color::category::cmyk_uint8 >
+		: public ::color::_internal::utility::bound::bound2222< unsigned > {
+		};
+
+		template< >
+		struct index< ::color::category::cmyk_uint8 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+		};
+
+		template< >
+		struct component< ::color::category::cmyk_uint8 >
+		: public ::color::_internal::utility::component::cnent2222< unsigned > {
+		};
+
+		template< >
+		struct container< ::color::category::cmyk_uint8 >
+		: public ::color::_internal::utility::container::cner2222< unsigned > {
+		};
+
+	}
+}
+
+namespace color {
 	namespace trait {
 
 		template< >
@@ -9692,7 +9902,7 @@ namespace color {
 
 		inline
 void black(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xff000000;
+	color_parameter.container() = 0xc0;
 }
 
 inline
@@ -9733,7 +9943,7 @@ namespace color {
 
 		inline
 void gray50(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7f000000;
+	color_parameter.container() = 0x40;
 }
 
 inline
@@ -9743,12 +9953,12 @@ void gray50(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void gray50(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff000000u;
+	color_parameter.container() = 0x7f000000u;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000000000000ul;
+	color_parameter.container() = 0x7fff000000000000ul;
 }
 
 inline
@@ -9784,12 +9994,12 @@ void white(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void white(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff000000u;
+	color_parameter.container() = 0x0u;
 }
 
 inline
 void white(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000000000000ul;
+	color_parameter.container() = 0x0ul;
 }
 
 inline
@@ -9815,7 +10025,7 @@ namespace color {
 
 		inline
 void red(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xffff00;
+	color_parameter.container() = 0x3c;
 }
 
 inline
@@ -9825,12 +10035,12 @@ void red(::color::_internal::model< color::category::cmyk_uint16 > & color_param
 
 inline
 void red(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffffff00u;
+	color_parameter.container() = 0xffff00u;
 }
 
 inline
 void red(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffffffffff0000ul;
+	color_parameter.container() = 0xffffffff0000ul;
 }
 
 inline
@@ -9856,7 +10066,7 @@ namespace color {
 
 		inline
 void green(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7fff00ff;
+	color_parameter.container() = 0x73;
 }
 
 inline
@@ -9866,12 +10076,12 @@ void green(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void green(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffff00ffu;
+	color_parameter.container() = 0x7fff00ffu;
 }
 
 inline
 void green(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffffff0000fffful;
+	color_parameter.container() = 0x7fffffff0000fffful;
 }
 
 inline
@@ -9897,7 +10107,7 @@ namespace color {
 
 		inline
 void blue(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xffff;
+	color_parameter.container() = 0xf;
 }
 
 inline
@@ -9907,12 +10117,12 @@ void blue(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void blue(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00ffffu;
+	color_parameter.container() = 0xffffu;
 }
 
 inline
 void blue(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff0000fffffffful;
+	color_parameter.container() = 0xfffffffful;
 }
 
 inline
@@ -9938,7 +10148,7 @@ namespace color {
 
 		inline
 void cyan(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xff;
+	color_parameter.container() = 0x3;
 }
 
 inline
@@ -9948,12 +10158,12 @@ void cyan(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void cyan(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0000ffu;
+	color_parameter.container() = 0xffu;
 }
 
 inline
 void cyan(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff00000000fffful;
+	color_parameter.container() = 0xfffful;
 }
 
 inline
@@ -9979,7 +10189,7 @@ namespace color {
 
 		inline
 void magenta(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xff00;
+	color_parameter.container() = 0xc;
 }
 
 inline
@@ -9989,12 +10199,12 @@ void magenta(::color::_internal::model< color::category::cmyk_uint16 > & color_p
 
 inline
 void magenta(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00ff00u;
+	color_parameter.container() = 0xff00u;
 }
 
 inline
 void magenta(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff0000ffff0000ul;
+	color_parameter.container() = 0xffff0000ul;
 }
 
 inline
@@ -10020,7 +10230,7 @@ namespace color {
 
 		inline
 void yellow(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xff0000;
+	color_parameter.container() = 0x30;
 }
 
 inline
@@ -10030,12 +10240,12 @@ void yellow(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void yellow(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffff0000u;
+	color_parameter.container() = 0xff0000u;
 }
 
 inline
 void yellow(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffffff00000000ul;
+	color_parameter.container() = 0xffff00000000ul;
 }
 
 inline
@@ -10061,7 +10271,7 @@ namespace color {
 
 		inline
 void aqua(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xff;
+	color_parameter.container() = 0x3;
 }
 
 inline
@@ -10071,12 +10281,12 @@ void aqua(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void aqua(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0000ffu;
+	color_parameter.container() = 0xffu;
 }
 
 inline
 void aqua(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff00000000fffful;
+	color_parameter.container() = 0xfffful;
 }
 
 inline
@@ -10102,7 +10312,7 @@ namespace color {
 
 		inline
 void fuchsia(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xff00;
+	color_parameter.container() = 0xc;
 }
 
 inline
@@ -10112,12 +10322,12 @@ void fuchsia(::color::_internal::model< color::category::cmyk_uint16 > & color_p
 
 inline
 void fuchsia(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00ff00u;
+	color_parameter.container() = 0xff00u;
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff0000ffff0000ul;
+	color_parameter.container() = 0xffff0000ul;
 }
 
 inline
@@ -10143,7 +10353,7 @@ namespace color {
 
 		inline
 void lime(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xff00ff;
+	color_parameter.container() = 0x33;
 }
 
 inline
@@ -10153,12 +10363,12 @@ void lime(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void lime(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffff00ffu;
+	color_parameter.container() = 0xff00ffu;
 }
 
 inline
 void lime(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffffff0000fffful;
+	color_parameter.container() = 0xffff0000fffful;
 }
 
 inline
@@ -10184,7 +10394,7 @@ namespace color {
 
 		inline
 void maroon(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7fffff00;
+	color_parameter.container() = 0x7c;
 }
 
 inline
@@ -10194,12 +10404,12 @@ void maroon(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void maroon(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffffff00u;
+	color_parameter.container() = 0x7fffff00u;
 }
 
 inline
 void maroon(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffffffffff0000ul;
+	color_parameter.container() = 0x7fffffffffff0000ul;
 }
 
 inline
@@ -10225,7 +10435,7 @@ namespace color {
 
 		inline
 void navy(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7f00ffff;
+	color_parameter.container() = 0x4f;
 }
 
 inline
@@ -10235,12 +10445,12 @@ void navy(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void navy(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00ffffu;
+	color_parameter.container() = 0x7f00ffffu;
 }
 
 inline
 void navy(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff0000fffffffful;
+	color_parameter.container() = 0x7fff0000fffffffful;
 }
 
 inline
@@ -10266,7 +10476,7 @@ namespace color {
 
 		inline
 void olive(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7fff0000;
+	color_parameter.container() = 0x70;
 }
 
 inline
@@ -10276,12 +10486,12 @@ void olive(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void olive(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffff0000u;
+	color_parameter.container() = 0x7fff0000u;
 }
 
 inline
 void olive(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffffff00000000ul;
+	color_parameter.container() = 0x7fffffff00000000ul;
 }
 
 inline
@@ -10307,7 +10517,7 @@ namespace color {
 
 		inline
 void orange(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xff5900;
+	color_parameter.container() = 0x34;
 }
 
 inline
@@ -10317,12 +10527,12 @@ void orange(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void orange(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffff5900u;
+	color_parameter.container() = 0xff5900u;
 }
 
 inline
 void orange(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffffff59990000ul;
+	color_parameter.container() = 0xffff59990000ul;
 }
 
 inline
@@ -10348,7 +10558,7 @@ namespace color {
 
 		inline
 void purple(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7f00ff00;
+	color_parameter.container() = 0x4c;
 }
 
 inline
@@ -10358,12 +10568,12 @@ void purple(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void purple(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00ff00u;
+	color_parameter.container() = 0x7f00ff00u;
 }
 
 inline
 void purple(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff0000ffff0000ul;
+	color_parameter.container() = 0x7fff0000ffff0000ul;
 }
 
 inline
@@ -10389,7 +10599,7 @@ namespace color {
 
 		inline
 void silver(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x3f000000;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -10399,12 +10609,12 @@ void silver(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void silver(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff000000u;
+	color_parameter.container() = 0x3f000000u;
 }
 
 inline
 void silver(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000000000000ul;
+	color_parameter.container() = 0x3fff000000000000ul;
 }
 
 inline
@@ -10430,7 +10640,7 @@ namespace color {
 
 		inline
 void teal(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7f0000ff;
+	color_parameter.container() = 0x43;
 }
 
 inline
@@ -10440,12 +10650,12 @@ void teal(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void teal(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0000ffu;
+	color_parameter.container() = 0x7f0000ffu;
 }
 
 inline
 void teal(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff00000000fffful;
+	color_parameter.container() = 0x7fff00000000fffful;
 }
 
 inline
@@ -10471,7 +10681,7 @@ namespace color {
 
 		inline
 void violet(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x10007300;
+	color_parameter.container() = 0x4;
 }
 
 inline
@@ -10481,12 +10691,12 @@ void violet(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void violet(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff007300u;
+	color_parameter.container() = 0x10007300u;
 }
 
 inline
 void violet(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff0000742a0000ul;
+	color_parameter.container() = 0x11100000742a0000ul;
 }
 
 inline
@@ -10512,7 +10722,7 @@ namespace color {
 
 		inline
 void aquamarine(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x2a007f;
+	color_parameter.container() = 0x1;
 }
 
 inline
@@ -10522,12 +10732,12 @@ void aquamarine(::color::_internal::model< color::category::cmyk_uint16 > & colo
 
 inline
 void aquamarine(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff2a007fu;
+	color_parameter.container() = 0x2a007fu;
 }
 
 inline
 void aquamarine(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff2b2a00007ffful;
+	color_parameter.container() = 0x2b2a00007ffful;
 }
 
 inline
@@ -10553,7 +10763,7 @@ namespace color {
 
 		inline
 void azure(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xf;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -10563,12 +10773,12 @@ void azure(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void azure(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00000fu;
+	color_parameter.container() = 0xfu;
 }
 
 inline
 void azure(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000000000f0ful;
+	color_parameter.container() = 0xf0ful;
 }
 
 inline
@@ -10594,7 +10804,7 @@ namespace color {
 
 		inline
 void beige(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x91a0000;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -10604,12 +10814,12 @@ void beige(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void beige(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff1a0000u;
+	color_parameter.container() = 0x91a0000u;
 }
 
 inline
 void beige(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff1a1f00000000ul;
+	color_parameter.container() = 0xa091a1f00000000ul;
 }
 
 inline
@@ -10635,7 +10845,7 @@ namespace color {
 
 		inline
 void bisque(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x3a1a00;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -10645,12 +10855,12 @@ void bisque(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void bisque(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff3a1a00u;
+	color_parameter.container() = 0x3a1a00u;
 }
 
 inline
 void bisque(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff3b3a1b1a0000ul;
+	color_parameter.container() = 0x3b3a1b1a0000ul;
 }
 
 inline
@@ -10676,7 +10886,7 @@ namespace color {
 
 		inline
 void brown(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x59bebe00;
+	color_parameter.container() = 0x68;
 }
 
 inline
@@ -10686,12 +10896,12 @@ void brown(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void brown(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffbebe00u;
+	color_parameter.container() = 0x59bebe00u;
 }
 
 inline
 void brown(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffbed5bed50000ul;
+	color_parameter.container() = 0x5a59bed5bed50000ul;
 }
 
 inline
@@ -10717,7 +10927,7 @@ namespace color {
 
 		inline
 void chocolate(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x2dda7f00;
+	color_parameter.container() = 0x24;
 }
 
 inline
@@ -10727,12 +10937,12 @@ void chocolate(::color::_internal::model< color::category::cmyk_uint16 > & color
 
 inline
 void chocolate(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffda7f00u;
+	color_parameter.container() = 0x2dda7f00u;
 }
 
 inline
 void chocolate(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffdb6c7fff0000ul;
+	color_parameter.container() = 0x2d2ddb6c7fff0000ul;
 }
 
 inline
@@ -10758,7 +10968,7 @@ namespace color {
 
 		inline
 void coral(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xaf7f00;
+	color_parameter.container() = 0x24;
 }
 
 inline
@@ -10768,12 +10978,12 @@ void coral(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void coral(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffaf7f00u;
+	color_parameter.container() = 0xaf7f00u;
 }
 
 inline
 void coral(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffb0a37fff0000ul;
+	color_parameter.container() = 0xb0a37fff0000ul;
 }
 
 inline
@@ -10799,7 +11009,7 @@ namespace color {
 
 		inline
 void crimson(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x22b9e700;
+	color_parameter.container() = 0x28;
 }
 
 inline
@@ -10809,12 +11019,12 @@ void crimson(::color::_internal::model< color::category::cmyk_uint16 > & color_p
 
 inline
 void crimson(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffb9e700u;
+	color_parameter.container() = 0x22b9e700u;
 }
 
 inline
 void crimson(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffba2de8b90000ul;
+	color_parameter.container() = 0x2322ba2de8b90000ul;
 }
 
 inline
@@ -10840,7 +11050,7 @@ namespace color {
 
 		inline
 void gainsboro(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x23000000;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -10850,12 +11060,12 @@ void gainsboro(::color::_internal::model< color::category::cmyk_uint16 > & color
 
 inline
 void gainsboro(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff000000u;
+	color_parameter.container() = 0x23000000u;
 }
 
 inline
 void gainsboro(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000000000000ul;
+	color_parameter.container() = 0x23d6000000000000ul;
 }
 
 inline
@@ -10881,7 +11091,7 @@ namespace color {
 
 		inline
 void gold(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xff2800;
+	color_parameter.container() = 0x30;
 }
 
 inline
@@ -10891,12 +11101,12 @@ void gold(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void gold(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffff2800u;
+	color_parameter.container() = 0xff2800u;
 }
 
 inline
 void gold(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffffff28280000ul;
+	color_parameter.container() = 0xffff28280000ul;
 }
 
 inline
@@ -10922,7 +11132,7 @@ namespace color {
 
 		inline
 void indigo(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7d00ff6b;
+	color_parameter.container() = 0x4d;
 }
 
 inline
@@ -10932,12 +11142,12 @@ void indigo(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void indigo(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00ff6bu;
+	color_parameter.container() = 0x7d00ff6bu;
 }
 
 inline
 void indigo(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff0000ffff6c4eul;
+	color_parameter.container() = 0x7d7d0000ffff6c4eul;
 }
 
 inline
@@ -10963,7 +11173,7 @@ namespace color {
 
 		inline
 void ivory(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xf0000;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -10973,12 +11183,12 @@ void ivory(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void ivory(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0f0000u;
+	color_parameter.container() = 0xf0000u;
 }
 
 inline
 void ivory(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff0f0f00000000ul;
+	color_parameter.container() = 0xf0f00000000ul;
 }
 
 inline
@@ -11004,7 +11214,7 @@ namespace color {
 
 		inline
 void khaki(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xf6a0a00;
+	color_parameter.container() = 0x10;
 }
 
 inline
@@ -11014,12 +11224,12 @@ void khaki(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void khaki(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff6a0a00u;
+	color_parameter.container() = 0xf6a0a00u;
 }
 
 inline
 void khaki(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff6aaa0aaa0000ul;
+	color_parameter.container() = 0xf0f6aaa0aaa0000ul;
 }
 
 inline
@@ -11045,7 +11255,7 @@ namespace color {
 
 		inline
 void lavender(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x5001414;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -11055,12 +11265,12 @@ void lavender(::color::_internal::model< color::category::cmyk_uint16 > & color_
 
 inline
 void lavender(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff001414u;
+	color_parameter.container() = 0x5001414u;
 }
 
 inline
 void lavender(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff0000147a147aul;
+	color_parameter.container() = 0x5050000147a147aul;
 }
 
 inline
@@ -11086,7 +11296,7 @@ namespace color {
 
 		inline
 void linen(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x5140a00;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -11096,12 +11306,12 @@ void linen(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void linen(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff140a00u;
+	color_parameter.container() = 0x5140a00u;
 }
 
 inline
 void linen(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff147a0a3d0000ul;
+	color_parameter.container() = 0x505147a0a3d0000ul;
 }
 
 inline
@@ -11127,7 +11337,7 @@ namespace color {
 
 		inline
 void moccasin(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x491a00;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -11137,12 +11347,12 @@ void moccasin(::color::_internal::model< color::category::cmyk_uint16 > & color_
 
 inline
 void moccasin(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff491a00u;
+	color_parameter.container() = 0x491a00u;
 }
 
 inline
 void moccasin(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff4a491b1a0000ul;
+	color_parameter.container() = 0x4a491b1a0000ul;
 }
 
 inline
@@ -11168,7 +11378,7 @@ namespace color {
 
 		inline
 void orchid(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x25047b00;
+	color_parameter.container() = 0x4;
 }
 
 inline
@@ -11178,12 +11388,12 @@ void orchid(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void orchid(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff047b00u;
+	color_parameter.container() = 0x25047b00u;
 }
 
 inline
 void orchid(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff04b27c790000ul;
+	color_parameter.container() = 0x252504b27c790000ul;
 }
 
 inline
@@ -11209,7 +11419,7 @@ namespace color {
 
 		inline
 void peru(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x31b05900;
+	color_parameter.container() = 0x24;
 }
 
 inline
@@ -11219,12 +11429,12 @@ void peru(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void peru(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffb05900u;
+	color_parameter.container() = 0x31b05900u;
 }
 
 inline
 void peru(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffb15259e90000ul;
+	color_parameter.container() = 0x3231b15259e90000ul;
 }
 
 inline
@@ -11250,7 +11460,7 @@ namespace color {
 
 		inline
 void pink(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x31b05900;
+	color_parameter.container() = 0x24;
 }
 
 inline
@@ -11260,12 +11470,12 @@ void pink(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void pink(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffb05900u;
+	color_parameter.container() = 0x31b05900u;
 }
 
 inline
 void pink(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffb15259e90000ul;
+	color_parameter.container() = 0x3231b15259e90000ul;
 }
 
 inline
@@ -11291,7 +11501,7 @@ namespace color {
 
 		inline
 void plum(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x21004600;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -11301,12 +11511,12 @@ void plum(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void plum(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff004600u;
+	color_parameter.container() = 0x21004600u;
 }
 
 inline
 void plum(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000046a80000ul;
+	color_parameter.container() = 0x2221000046a80000ul;
 }
 
 inline
@@ -11332,7 +11542,7 @@ namespace color {
 
 		inline
 void salmon(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x21004600;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -11342,12 +11552,12 @@ void salmon(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void salmon(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff004600u;
+	color_parameter.container() = 0x21004600u;
 }
 
 inline
 void salmon(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000046a80000ul;
+	color_parameter.container() = 0x2221000046a80000ul;
 }
 
 inline
@@ -11373,7 +11583,7 @@ namespace color {
 
 		inline
 void sienna(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x5fb77c00;
+	color_parameter.container() = 0x64;
 }
 
 inline
@@ -11383,12 +11593,12 @@ void sienna(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void sienna(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffb77c00u;
+	color_parameter.container() = 0x5fb77c00u;
 }
 
 inline
 void sienna(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffb7ff7ccc0000ul;
+	color_parameter.container() = 0x5f5fb7ff7ccc0000ul;
 }
 
 inline
@@ -11414,7 +11624,7 @@ namespace color {
 
 		inline
 void snow(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x50500;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -11424,12 +11634,12 @@ void snow(::color::_internal::model< color::category::cmyk_uint16 > & color_para
 
 inline
 void snow(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff050500u;
+	color_parameter.container() = 0x50500u;
 }
 
 inline
 void snow(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff050505050000ul;
+	color_parameter.container() = 0x50505050000ul;
 }
 
 inline
@@ -11455,7 +11665,7 @@ namespace color {
 
 		inline
 void tan(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x2d542400;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -11465,12 +11675,12 @@ void tan(::color::_internal::model< color::category::cmyk_uint16 > & color_param
 
 inline
 void tan(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff542400u;
+	color_parameter.container() = 0x2d542400u;
 }
 
 inline
 void tan(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff555424920000ul;
+	color_parameter.container() = 0x2d2d555424920000ul;
 }
 
 inline
@@ -11496,7 +11706,7 @@ namespace color {
 
 		inline
 void thistle(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x27001d00;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -11506,12 +11716,12 @@ void thistle(::color::_internal::model< color::category::cmyk_uint16 > & color_p
 
 inline
 void thistle(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff001d00u;
+	color_parameter.container() = 0x27001d00u;
 }
 
 inline
 void thistle(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff00001da10000ul;
+	color_parameter.container() = 0x272700001da10000ul;
 }
 
 inline
@@ -11537,7 +11747,7 @@ namespace color {
 
 		inline
 void tomato(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0xb89c00;
+	color_parameter.container() = 0x24;
 }
 
 inline
@@ -11547,12 +11757,12 @@ void tomato(::color::_internal::model< color::category::cmyk_uint16 > & color_pa
 
 inline
 void tomato(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffb89c00u;
+	color_parameter.container() = 0xb89c00u;
 }
 
 inline
 void tomato(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffb8b89c9c0000ul;
+	color_parameter.container() = 0xb8b89c9c0000ul;
 }
 
 inline
@@ -11578,7 +11788,7 @@ namespace color {
 
 		inline
 void turquoise(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x1f1200b6;
+	color_parameter.container() = 0x2;
 }
 
 inline
@@ -11588,12 +11798,12 @@ void turquoise(::color::_internal::model< color::category::cmyk_uint16 > & color
 
 inline
 void turquoise(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff1200b6u;
+	color_parameter.container() = 0x1f1200b6u;
 }
 
 inline
 void turquoise(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff12490000b6daul;
+	color_parameter.container() = 0x1f1f12490000b6daul;
 }
 
 inline
@@ -11619,7 +11829,7 @@ namespace color {
 
 		inline
 void wheat(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
-	color_parameter.container() = 0x9441700;
+	color_parameter.container() = 0x0;
 }
 
 inline
@@ -11629,12 +11839,12 @@ void wheat(::color::_internal::model< color::category::cmyk_uint16 > & color_par
 
 inline
 void wheat(::color::_internal::model< color::category::cmyk_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff441700u;
+	color_parameter.container() = 0x9441700u;
 }
 
 inline
 void wheat(::color::_internal::model< color::category::cmyk_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff44f618080000ul;
+	color_parameter.container() = 0xa0944f618080000ul;
 }
 
 inline
@@ -14963,17 +15173,17 @@ void gray50(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void gray50(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 0, 0, 50 });
 }
 
 inline
 void gray50(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 0, 0, 50 });
 }
 
 inline
 void gray50(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 0, 0, 50 });
 }
 
 	}
@@ -15004,17 +15214,17 @@ void white(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void white(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 1 });
+	color_parameter.container() = std::array<float,3>({ 0, 0, 100 });
 }
 
 inline
 void white(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 1 });
+	color_parameter.container() = std::array<double,3>({ 0, 0, 100 });
 }
 
 inline
 void white(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 1 });
+	color_parameter.container() = std::array<long double,3>({ 0, 0, 100 });
 }
 
 	}
@@ -15045,17 +15255,17 @@ void red(::color::_internal::model< color::category::hsl_uint64 > & color_parame
 
 inline
 void red(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 0, 100, 50 });
 }
 
 inline
 void red(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 0, 100, 50 });
 }
 
 inline
 void red(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 0, 100, 50 });
 }
 
 	}
@@ -15086,17 +15296,17 @@ void green(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void green(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.333333, 1, 0.25 });
+	color_parameter.container() = std::array<float,3>({ 120, 100, 25 });
 }
 
 inline
 void green(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.333333, 1, 0.25 });
+	color_parameter.container() = std::array<double,3>({ 120, 100, 25 });
 }
 
 inline
 void green(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.333333, 1, 0.25 });
+	color_parameter.container() = std::array<long double,3>({ 120, 100, 25 });
 }
 
 	}
@@ -15127,17 +15337,17 @@ void blue(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void blue(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.666667, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 240, 100, 50 });
 }
 
 inline
 void blue(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.666667, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 240, 100, 50 });
 }
 
 inline
 void blue(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.666667, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 240, 100, 50 });
 }
 
 	}
@@ -15168,17 +15378,17 @@ void cyan(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void cyan(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 180, 100, 50 });
 }
 
 inline
 void cyan(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 180, 100, 50 });
 }
 
 inline
 void cyan(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 180, 100, 50 });
 }
 
 	}
@@ -15209,17 +15419,17 @@ void magenta(::color::_internal::model< color::category::hsl_uint64 > & color_pa
 
 inline
 void magenta(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 300, 100, 50 });
 }
 
 inline
 void magenta(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 300, 100, 50 });
 }
 
 inline
 void magenta(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 300, 100, 50 });
 }
 
 	}
@@ -15250,17 +15460,17 @@ void yellow(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void yellow(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.166667, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 60, 100, 50 });
 }
 
 inline
 void yellow(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.166667, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 60, 100, 50 });
 }
 
 inline
 void yellow(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.166667, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 60, 100, 50 });
 }
 
 	}
@@ -15291,17 +15501,17 @@ void aqua(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void aqua(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 180, 100, 50 });
 }
 
 inline
 void aqua(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 180, 100, 50 });
 }
 
 inline
 void aqua(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 180, 100, 50 });
 }
 
 	}
@@ -15332,17 +15542,17 @@ void fuchsia(::color::_internal::model< color::category::hsl_uint64 > & color_pa
 
 inline
 void fuchsia(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 300, 100, 50 });
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 300, 100, 50 });
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 300, 100, 50 });
 }
 
 	}
@@ -15373,17 +15583,17 @@ void lime(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void lime(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.333333, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 120, 100, 50 });
 }
 
 inline
 void lime(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.333333, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 120, 100, 50 });
 }
 
 inline
 void lime(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.333333, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 120, 100, 50 });
 }
 
 	}
@@ -15414,17 +15624,17 @@ void maroon(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void maroon(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 1, 0.25 });
+	color_parameter.container() = std::array<float,3>({ 0, 100, 25 });
 }
 
 inline
 void maroon(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 1, 0.25 });
+	color_parameter.container() = std::array<double,3>({ 0, 100, 25 });
 }
 
 inline
 void maroon(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 1, 0.25 });
+	color_parameter.container() = std::array<long double,3>({ 0, 100, 25 });
 }
 
 	}
@@ -15455,17 +15665,17 @@ void navy(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void navy(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.666667, 1, 0.25 });
+	color_parameter.container() = std::array<float,3>({ 240, 100, 25 });
 }
 
 inline
 void navy(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.666667, 1, 0.25 });
+	color_parameter.container() = std::array<double,3>({ 240, 100, 25 });
 }
 
 inline
 void navy(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.666667, 1, 0.25 });
+	color_parameter.container() = std::array<long double,3>({ 240, 100, 25 });
 }
 
 	}
@@ -15496,17 +15706,17 @@ void olive(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void olive(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.166667, 1, 0.25 });
+	color_parameter.container() = std::array<float,3>({ 60, 100, 25 });
 }
 
 inline
 void olive(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.166667, 1, 0.25 });
+	color_parameter.container() = std::array<double,3>({ 60, 100, 25 });
 }
 
 inline
 void olive(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.166667, 1, 0.25 });
+	color_parameter.container() = std::array<long double,3>({ 60, 100, 25 });
 }
 
 	}
@@ -15537,17 +15747,17 @@ void orange(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void orange(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.108333, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 39, 100, 50 });
 }
 
 inline
 void orange(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.108333, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 39, 100, 50 });
 }
 
 inline
 void orange(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.108333, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 39, 100, 50 });
 }
 
 	}
@@ -15578,17 +15788,17 @@ void purple(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void purple(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 1, 0.25 });
+	color_parameter.container() = std::array<float,3>({ 300, 100, 25 });
 }
 
 inline
 void purple(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 1, 0.25 });
+	color_parameter.container() = std::array<double,3>({ 300, 100, 25 });
 }
 
 inline
 void purple(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 1, 0.25 });
+	color_parameter.container() = std::array<long double,3>({ 300, 100, 25 });
 }
 
 	}
@@ -15619,17 +15829,17 @@ void silver(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void silver(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 0.75 });
+	color_parameter.container() = std::array<float,3>({ 0, 0, 75 });
 }
 
 inline
 void silver(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 0.75 });
+	color_parameter.container() = std::array<double,3>({ 0, 0, 75 });
 }
 
 inline
 void silver(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 0.75 });
+	color_parameter.container() = std::array<long double,3>({ 0, 0, 75 });
 }
 
 	}
@@ -15660,17 +15870,17 @@ void teal(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void teal(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 1, 0.25 });
+	color_parameter.container() = std::array<float,3>({ 180, 100, 25 });
 }
 
 inline
 void teal(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 1, 0.25 });
+	color_parameter.container() = std::array<double,3>({ 180, 100, 25 });
 }
 
 inline
 void teal(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 1, 0.25 });
+	color_parameter.container() = std::array<long double,3>({ 180, 100, 25 });
 }
 
 	}
@@ -15701,17 +15911,17 @@ void violet(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void violet(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 0.760563, 0.721569 });
+	color_parameter.container() = std::array<float,3>({ 300, 76.0563, 72.1569 });
 }
 
 inline
 void violet(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 0.760563, 0.721569 });
+	color_parameter.container() = std::array<double,3>({ 300, 76.0563, 72.1569 });
 }
 
 inline
 void violet(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 0.760563, 0.721569 });
+	color_parameter.container() = std::array<long double,3>({ 300, 76.0563, 72.1569 });
 }
 
 	}
@@ -15742,17 +15952,17 @@ void aquamarine(::color::_internal::model< color::category::hsl_uint64 > & color
 
 inline
 void aquamarine(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.443791, 1, 0.75 });
+	color_parameter.container() = std::array<float,3>({ 159.765, 100, 75 });
 }
 
 inline
 void aquamarine(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.443791, 1, 0.75 });
+	color_parameter.container() = std::array<double,3>({ 159.765, 100, 75 });
 }
 
 inline
 void aquamarine(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.443791, 1, 0.75 });
+	color_parameter.container() = std::array<long double,3>({ 159.765, 100, 75 });
 }
 
 	}
@@ -15783,17 +15993,17 @@ void azure(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void azure(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 1, 0.970588 });
+	color_parameter.container() = std::array<float,3>({ 180, 100, 97.0588 });
 }
 
 inline
 void azure(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 1, 0.970588 });
+	color_parameter.container() = std::array<double,3>({ 180, 100, 97.0588 });
 }
 
 inline
 void azure(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 1, 0.970588 });
+	color_parameter.container() = std::array<long double,3>({ 180, 100, 97.0588 });
 }
 
 	}
@@ -15824,17 +16034,17 @@ void beige(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void beige(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.166667, 0.555556, 0.911765 });
+	color_parameter.container() = std::array<float,3>({ 60, 55.5556, 91.1765 });
 }
 
 inline
 void beige(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.166667, 0.555556, 0.911765 });
+	color_parameter.container() = std::array<double,3>({ 60, 55.5556, 91.1765 });
 }
 
 inline
 void beige(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.166667, 0.555556, 0.911765 });
+	color_parameter.container() = std::array<long double,3>({ 60, 55.5556, 91.1765 });
 }
 
 	}
@@ -15865,17 +16075,17 @@ void bisque(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void bisque(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0903955, 1, 0.884314 });
+	color_parameter.container() = std::array<float,3>({ 32.5424, 100, 88.4314 });
 }
 
 inline
 void bisque(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0903955, 1, 0.884314 });
+	color_parameter.container() = std::array<double,3>({ 32.5424, 100, 88.4314 });
 }
 
 inline
 void bisque(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0903955, 1, 0.884314 });
+	color_parameter.container() = std::array<long double,3>({ 32.5424, 100, 88.4314 });
 }
 
 	}
@@ -15906,17 +16116,17 @@ void brown(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void brown(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0.594203, 0.405882 });
+	color_parameter.container() = std::array<float,3>({ 0, 59.4203, 40.5882 });
 }
 
 inline
 void brown(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0.594203, 0.405882 });
+	color_parameter.container() = std::array<double,3>({ 0, 59.4203, 40.5882 });
 }
 
 inline
 void brown(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0.594203, 0.405882 });
+	color_parameter.container() = std::array<long double,3>({ 0, 59.4203, 40.5882 });
 }
 
 	}
@@ -15947,17 +16157,17 @@ void chocolate(::color::_internal::model< color::category::hsl_uint64 > & color_
 
 inline
 void chocolate(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0694444, 0.75, 0.470588 });
+	color_parameter.container() = std::array<float,3>({ 25, 75, 47.0588 });
 }
 
 inline
 void chocolate(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0694444, 0.75, 0.470588 });
+	color_parameter.container() = std::array<double,3>({ 25, 75, 47.0588 });
 }
 
 inline
 void chocolate(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0694444, 0.75, 0.470588 });
+	color_parameter.container() = std::array<long double,3>({ 25, 75, 47.0588 });
 }
 
 	}
@@ -15988,17 +16198,17 @@ void coral(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void coral(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0458937, 1, 0.655 });
+	color_parameter.container() = std::array<float,3>({ 16.5217, 100, 65.5 });
 }
 
 inline
 void coral(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0458937, 1, 0.655 });
+	color_parameter.container() = std::array<double,3>({ 16.5217, 100, 65.5 });
 }
 
 inline
 void coral(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0458937, 1, 0.655 });
+	color_parameter.container() = std::array<long double,3>({ 16.5217, 100, 65.5 });
 }
 
 	}
@@ -16029,17 +16239,17 @@ void crimson(::color::_internal::model< color::category::hsl_uint64 > & color_pa
 
 inline
 void crimson(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.966667, 0.833333, 0.470588 });
+	color_parameter.container() = std::array<float,3>({ 348, 83.3333, 47.0588 });
 }
 
 inline
 void crimson(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.966667, 0.833333, 0.470588 });
+	color_parameter.container() = std::array<double,3>({ 348, 83.3333, 47.0588 });
 }
 
 inline
 void crimson(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.966667, 0.833333, 0.470588 });
+	color_parameter.container() = std::array<long double,3>({ 348, 83.3333, 47.0588 });
 }
 
 	}
@@ -16070,17 +16280,17 @@ void gainsboro(::color::_internal::model< color::category::hsl_uint64 > & color_
 
 inline
 void gainsboro(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 0.86 });
+	color_parameter.container() = std::array<float,3>({ 0, 0, 86 });
 }
 
 inline
 void gainsboro(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 0.86 });
+	color_parameter.container() = std::array<double,3>({ 0, 0, 86 });
 }
 
 inline
 void gainsboro(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 0.86 });
+	color_parameter.container() = std::array<long double,3>({ 0, 0, 86 });
 }
 
 	}
@@ -16111,17 +16321,17 @@ void gold(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void gold(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.140523, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 50.5882, 100, 50 });
 }
 
 inline
 void gold(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.140523, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 50.5882, 100, 50 });
 }
 
 inline
 void gold(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.140523, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 50.5882, 100, 50 });
 }
 
 	}
@@ -16152,17 +16362,17 @@ void indigo(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void indigo(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.762821, 1, 0.254902 });
+	color_parameter.container() = std::array<float,3>({ 274.615, 100, 25.4902 });
 }
 
 inline
 void indigo(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.762821, 1, 0.254902 });
+	color_parameter.container() = std::array<double,3>({ 274.615, 100, 25.4902 });
 }
 
 inline
 void indigo(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.762821, 1, 0.254902 });
+	color_parameter.container() = std::array<long double,3>({ 274.615, 100, 25.4902 });
 }
 
 	}
@@ -16193,17 +16403,17 @@ void ivory(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void ivory(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.166667, 1, 0.970588 });
+	color_parameter.container() = std::array<float,3>({ 60, 100, 97.0588 });
 }
 
 inline
 void ivory(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.166667, 1, 0.970588 });
+	color_parameter.container() = std::array<double,3>({ 60, 100, 97.0588 });
 }
 
 inline
 void ivory(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.166667, 1, 0.970588 });
+	color_parameter.container() = std::array<long double,3>({ 60, 100, 97.0588 });
 }
 
 	}
@@ -16234,17 +16444,17 @@ void khaki(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void khaki(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.15, 0.769231, 0.745098 });
+	color_parameter.container() = std::array<float,3>({ 54, 76.9231, 74.5098 });
 }
 
 inline
 void khaki(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.15, 0.769231, 0.745098 });
+	color_parameter.container() = std::array<double,3>({ 54, 76.9231, 74.5098 });
 }
 
 inline
 void khaki(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.15, 0.769231, 0.745098 });
+	color_parameter.container() = std::array<long double,3>({ 54, 76.9231, 74.5098 });
 }
 
 	}
@@ -16275,17 +16485,17 @@ void lavender(::color::_internal::model< color::category::hsl_uint64 > & color_p
 
 inline
 void lavender(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.666667, 0.666667, 0.941176 });
+	color_parameter.container() = std::array<float,3>({ 240, 66.6667, 94.1176 });
 }
 
 inline
 void lavender(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.666667, 0.666667, 0.941176 });
+	color_parameter.container() = std::array<double,3>({ 240, 66.6667, 94.1176 });
 }
 
 inline
 void lavender(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.666667, 0.666667, 0.941176 });
+	color_parameter.container() = std::array<long double,3>({ 240, 66.6667, 94.1176 });
 }
 
 	}
@@ -16316,17 +16526,17 @@ void linen(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void linen(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0833333, 0.666667, 0.941176 });
+	color_parameter.container() = std::array<float,3>({ 30, 66.6667, 94.1176 });
 }
 
 inline
 void linen(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0833333, 0.666667, 0.941176 });
+	color_parameter.container() = std::array<double,3>({ 30, 66.6667, 94.1176 });
 }
 
 inline
 void linen(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0833333, 0.666667, 0.941176 });
+	color_parameter.container() = std::array<long double,3>({ 30, 66.6667, 94.1176 });
 }
 
 	}
@@ -16357,17 +16567,17 @@ void moccasin(::color::_internal::model< color::category::hsl_uint64 > & color_p
 
 inline
 void moccasin(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.105856, 1, 0.854902 });
+	color_parameter.container() = std::array<float,3>({ 38.1081, 100, 85.4902 });
 }
 
 inline
 void moccasin(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.105856, 1, 0.854902 });
+	color_parameter.container() = std::array<double,3>({ 38.1081, 100, 85.4902 });
 }
 
 inline
 void moccasin(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.105856, 1, 0.854902 });
+	color_parameter.container() = std::array<long double,3>({ 38.1081, 100, 85.4902 });
 }
 
 	}
@@ -16398,17 +16608,17 @@ void orchid(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void orchid(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.839623, 0.588889, 0.647059 });
+	color_parameter.container() = std::array<float,3>({ 302.264, 58.8889, 64.7059 });
 }
 
 inline
 void orchid(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.839623, 0.588889, 0.647059 });
+	color_parameter.container() = std::array<double,3>({ 302.264, 58.8889, 64.7059 });
 }
 
 inline
 void orchid(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.839623, 0.588889, 0.647059 });
+	color_parameter.container() = std::array<long double,3>({ 302.264, 58.8889, 64.7059 });
 }
 
 	}
@@ -16439,17 +16649,17 @@ void peru(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void peru(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0821596, 0.586777, 0.52549 });
+	color_parameter.container() = std::array<float,3>({ 29.5775, 58.6777, 52.549 });
 }
 
 inline
 void peru(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0821596, 0.586777, 0.52549 });
+	color_parameter.container() = std::array<double,3>({ 29.5775, 58.6777, 52.549 });
 }
 
 inline
 void peru(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0821596, 0.586777, 0.52549 });
+	color_parameter.container() = std::array<long double,3>({ 29.5775, 58.6777, 52.549 });
 }
 
 	}
@@ -16480,17 +16690,17 @@ void pink(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void pink(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0821596, 0.586778, 0.525491 });
+	color_parameter.container() = std::array<float,3>({ 29.5775, 58.6777, 52.549 });
 }
 
 inline
 void pink(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0821596, 0.586778, 0.52549 });
+	color_parameter.container() = std::array<double,3>({ 29.5775, 58.6778, 52.549 });
 }
 
 inline
 void pink(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0821596, 0.586778, 0.52549 });
+	color_parameter.container() = std::array<long double,3>({ 29.5775, 58.6778, 52.549 });
 }
 
 	}
@@ -16521,17 +16731,17 @@ void plum(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void plum(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 0.472868, 0.747059 });
+	color_parameter.container() = std::array<float,3>({ 300, 47.2868, 74.7059 });
 }
 
 inline
 void plum(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 0.472868, 0.747059 });
+	color_parameter.container() = std::array<double,3>({ 300, 47.2868, 74.7059 });
 }
 
 inline
 void plum(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 0.472868, 0.747059 });
+	color_parameter.container() = std::array<long double,3>({ 300, 47.2868, 74.7059 });
 }
 
 	}
@@ -16562,17 +16772,17 @@ void salmon(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void salmon(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 0.472869, 0.747059 });
+	color_parameter.container() = std::array<float,3>({ 300, 47.2869, 74.7059 });
 }
 
 inline
 void salmon(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 0.472869, 0.747059 });
+	color_parameter.container() = std::array<double,3>({ 300, 47.2869, 74.7059 });
 }
 
 inline
 void salmon(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 0.472869, 0.747059 });
+	color_parameter.container() = std::array<long double,3>({ 300, 47.2869, 74.7059 });
 }
 
 	}
@@ -16603,17 +16813,17 @@ void sienna(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void sienna(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0536232, 0.560976, 0.401961 });
+	color_parameter.container() = std::array<float,3>({ 19.3043, 56.0976, 40.1961 });
 }
 
 inline
 void sienna(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0536232, 0.560976, 0.401961 });
+	color_parameter.container() = std::array<double,3>({ 19.3043, 56.0976, 40.1961 });
 }
 
 inline
 void sienna(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0536232, 0.560976, 0.401961 });
+	color_parameter.container() = std::array<long double,3>({ 19.3043, 56.0976, 40.1961 });
 }
 
 	}
@@ -16644,17 +16854,17 @@ void snow(::color::_internal::model< color::category::hsl_uint64 > & color_param
 
 inline
 void snow(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 1, 0.990196 });
+	color_parameter.container() = std::array<float,3>({ 0, 100, 99.0196 });
 }
 
 inline
 void snow(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 1, 0.990196 });
+	color_parameter.container() = std::array<double,3>({ 0, 100, 99.0196 });
 }
 
 inline
 void snow(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 1, 0.990196 });
+	color_parameter.container() = std::array<long double,3>({ 0, 100, 99.0196 });
 }
 
 	}
@@ -16685,17 +16895,17 @@ void tan(::color::_internal::model< color::category::hsl_uint64 > & color_parame
 
 inline
 void tan(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0952381, 0.4375, 0.686275 });
+	color_parameter.container() = std::array<float,3>({ 34.2857, 43.75, 68.6274 });
 }
 
 inline
 void tan(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0952381, 0.4375, 0.686275 });
+	color_parameter.container() = std::array<double,3>({ 34.2857, 43.75, 68.6275 });
 }
 
 inline
 void tan(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0952381, 0.4375, 0.686275 });
+	color_parameter.container() = std::array<long double,3>({ 34.2857, 43.75, 68.6275 });
 }
 
 	}
@@ -16726,17 +16936,17 @@ void thistle(::color::_internal::model< color::category::hsl_uint64 > & color_pa
 
 inline
 void thistle(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 0.242718, 0.798039 });
+	color_parameter.container() = std::array<float,3>({ 300, 24.2718, 79.8039 });
 }
 
 inline
 void thistle(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 0.242718, 0.798039 });
+	color_parameter.container() = std::array<double,3>({ 300, 24.2718, 79.8039 });
 }
 
 inline
 void thistle(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 0.242718, 0.798039 });
+	color_parameter.container() = std::array<long double,3>({ 300, 24.2718, 79.8039 });
 }
 
 	}
@@ -16767,17 +16977,17 @@ void tomato(::color::_internal::model< color::category::hsl_uint64 > & color_par
 
 inline
 void tomato(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0253623, 1, 0.639216 });
+	color_parameter.container() = std::array<float,3>({ 9.13043, 100, 63.9216 });
 }
 
 inline
 void tomato(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0253623, 1, 0.639216 });
+	color_parameter.container() = std::array<double,3>({ 9.13043, 100, 63.9216 });
 }
 
 inline
 void tomato(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0253623, 1, 0.639216 });
+	color_parameter.container() = std::array<long double,3>({ 9.13043, 100, 63.9216 });
 }
 
 	}
@@ -16808,17 +17018,17 @@ void turquoise(::color::_internal::model< color::category::hsl_uint64 > & color_
 
 inline
 void turquoise(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.483333, 0.720721, 0.564706 });
+	color_parameter.container() = std::array<float,3>({ 174, 72.0721, 56.4706 });
 }
 
 inline
 void turquoise(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.483333, 0.720721, 0.564706 });
+	color_parameter.container() = std::array<double,3>({ 174, 72.0721, 56.4706 });
 }
 
 inline
 void turquoise(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.483333, 0.720721, 0.564706 });
+	color_parameter.container() = std::array<long double,3>({ 174, 72.0721, 56.4706 });
 }
 
 	}
@@ -16849,17 +17059,17 @@ void wheat(::color::_internal::model< color::category::hsl_uint64 > & color_para
 
 inline
 void wheat(::color::_internal::model< color::category::hsl_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.108586, 0.767442, 0.831373 });
+	color_parameter.container() = std::array<float,3>({ 39.0909, 76.7442, 83.1373 });
 }
 
 inline
 void wheat(::color::_internal::model< color::category::hsl_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.108586, 0.767442, 0.831373 });
+	color_parameter.container() = std::array<double,3>({ 39.0909, 76.7442, 83.1373 });
 }
 
 inline
 void wheat(::color::_internal::model< color::category::hsl_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.108586, 0.767442, 0.831373 });
+	color_parameter.container() = std::array<long double,3>({ 39.0909, 76.7442, 83.1373 });
 }
 
 	}
@@ -17275,17 +17485,17 @@ void gray50(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void gray50(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 0, 0, 50 });
 }
 
 inline
 void gray50(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 0, 0, 50 });
 }
 
 inline
 void gray50(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 0, 0, 50 });
 }
 
 	}
@@ -17316,17 +17526,17 @@ void white(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void white(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 1 });
+	color_parameter.container() = std::array<float,3>({ 0, 0, 100 });
 }
 
 inline
 void white(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 1 });
+	color_parameter.container() = std::array<double,3>({ 0, 0, 100 });
 }
 
 inline
 void white(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 1 });
+	color_parameter.container() = std::array<long double,3>({ 0, 0, 100 });
 }
 
 	}
@@ -17357,17 +17567,17 @@ void red(::color::_internal::model< color::category::hsv_uint64 > & color_parame
 
 inline
 void red(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 1, 1 });
+	color_parameter.container() = std::array<float,3>({ 0, 100, 100 });
 }
 
 inline
 void red(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 1, 1 });
+	color_parameter.container() = std::array<double,3>({ 0, 100, 100 });
 }
 
 inline
 void red(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 1, 1 });
+	color_parameter.container() = std::array<long double,3>({ 0, 100, 100 });
 }
 
 	}
@@ -17398,17 +17608,17 @@ void green(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void green(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.333333, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 120, 100, 50 });
 }
 
 inline
 void green(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.333333, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 120, 100, 50 });
 }
 
 inline
 void green(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.333333, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 120, 100, 50 });
 }
 
 	}
@@ -17439,17 +17649,17 @@ void blue(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void blue(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.666667, 1, 1 });
+	color_parameter.container() = std::array<float,3>({ 240, 100, 100 });
 }
 
 inline
 void blue(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.666667, 1, 1 });
+	color_parameter.container() = std::array<double,3>({ 240, 100, 100 });
 }
 
 inline
 void blue(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.666667, 1, 1 });
+	color_parameter.container() = std::array<long double,3>({ 240, 100, 100 });
 }
 
 	}
@@ -17480,17 +17690,17 @@ void cyan(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void cyan(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 1, 1 });
+	color_parameter.container() = std::array<float,3>({ 180, 100, 100 });
 }
 
 inline
 void cyan(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 1, 1 });
+	color_parameter.container() = std::array<double,3>({ 180, 100, 100 });
 }
 
 inline
 void cyan(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 1, 1 });
+	color_parameter.container() = std::array<long double,3>({ 180, 100, 100 });
 }
 
 	}
@@ -17521,17 +17731,17 @@ void magenta(::color::_internal::model< color::category::hsv_uint64 > & color_pa
 
 inline
 void magenta(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 1, 1 });
+	color_parameter.container() = std::array<float,3>({ 300, 100, 100 });
 }
 
 inline
 void magenta(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 1, 1 });
+	color_parameter.container() = std::array<double,3>({ 300, 100, 100 });
 }
 
 inline
 void magenta(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 1, 1 });
+	color_parameter.container() = std::array<long double,3>({ 300, 100, 100 });
 }
 
 	}
@@ -17562,17 +17772,17 @@ void yellow(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void yellow(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.166667, 1, 1 });
+	color_parameter.container() = std::array<float,3>({ 60, 100, 100 });
 }
 
 inline
 void yellow(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.166667, 1, 1 });
+	color_parameter.container() = std::array<double,3>({ 60, 100, 100 });
 }
 
 inline
 void yellow(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.166667, 1, 1 });
+	color_parameter.container() = std::array<long double,3>({ 60, 100, 100 });
 }
 
 	}
@@ -17603,17 +17813,17 @@ void aqua(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void aqua(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 1, 1 });
+	color_parameter.container() = std::array<float,3>({ 180, 100, 100 });
 }
 
 inline
 void aqua(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 1, 1 });
+	color_parameter.container() = std::array<double,3>({ 180, 100, 100 });
 }
 
 inline
 void aqua(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 1, 1 });
+	color_parameter.container() = std::array<long double,3>({ 180, 100, 100 });
 }
 
 	}
@@ -17644,17 +17854,17 @@ void fuchsia(::color::_internal::model< color::category::hsv_uint64 > & color_pa
 
 inline
 void fuchsia(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 1, 1 });
+	color_parameter.container() = std::array<float,3>({ 300, 100, 100 });
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 1, 1 });
+	color_parameter.container() = std::array<double,3>({ 300, 100, 100 });
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 1, 1 });
+	color_parameter.container() = std::array<long double,3>({ 300, 100, 100 });
 }
 
 	}
@@ -17685,17 +17895,17 @@ void lime(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void lime(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.333333, 1, 1 });
+	color_parameter.container() = std::array<float,3>({ 120, 100, 100 });
 }
 
 inline
 void lime(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.333333, 1, 1 });
+	color_parameter.container() = std::array<double,3>({ 120, 100, 100 });
 }
 
 inline
 void lime(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.333333, 1, 1 });
+	color_parameter.container() = std::array<long double,3>({ 120, 100, 100 });
 }
 
 	}
@@ -17726,17 +17936,17 @@ void maroon(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void maroon(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 0, 100, 50 });
 }
 
 inline
 void maroon(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 0, 100, 50 });
 }
 
 inline
 void maroon(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 0, 100, 50 });
 }
 
 	}
@@ -17767,17 +17977,17 @@ void navy(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void navy(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.666667, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 240, 100, 50 });
 }
 
 inline
 void navy(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.666667, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 240, 100, 50 });
 }
 
 inline
 void navy(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.666667, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 240, 100, 50 });
 }
 
 	}
@@ -17808,17 +18018,17 @@ void olive(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void olive(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.166667, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 60, 100, 50 });
 }
 
 inline
 void olive(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.166667, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 60, 100, 50 });
 }
 
 inline
 void olive(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.166667, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 60, 100, 50 });
 }
 
 	}
@@ -17849,17 +18059,17 @@ void orange(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void orange(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.108333, 1, 1 });
+	color_parameter.container() = std::array<float,3>({ 39, 100, 100 });
 }
 
 inline
 void orange(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.108333, 1, 1 });
+	color_parameter.container() = std::array<double,3>({ 39, 100, 100 });
 }
 
 inline
 void orange(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.108333, 1, 1 });
+	color_parameter.container() = std::array<long double,3>({ 39, 100, 100 });
 }
 
 	}
@@ -17890,17 +18100,17 @@ void purple(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void purple(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 300, 100, 50 });
 }
 
 inline
 void purple(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 300, 100, 50 });
 }
 
 inline
 void purple(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 300, 100, 50 });
 }
 
 	}
@@ -17931,17 +18141,17 @@ void silver(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void silver(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 0.75 });
+	color_parameter.container() = std::array<float,3>({ 0, 0, 75 });
 }
 
 inline
 void silver(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 0.75 });
+	color_parameter.container() = std::array<double,3>({ 0, 0, 75 });
 }
 
 inline
 void silver(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 0.75 });
+	color_parameter.container() = std::array<long double,3>({ 0, 0, 75 });
 }
 
 	}
@@ -17972,17 +18182,17 @@ void teal(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void teal(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 1, 0.5 });
+	color_parameter.container() = std::array<float,3>({ 180, 100, 50 });
 }
 
 inline
 void teal(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 1, 0.5 });
+	color_parameter.container() = std::array<double,3>({ 180, 100, 50 });
 }
 
 inline
 void teal(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 1, 0.5 });
+	color_parameter.container() = std::array<long double,3>({ 180, 100, 50 });
 }
 
 	}
@@ -18013,17 +18223,17 @@ void violet(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void violet(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 0.453782, 0.933333 });
+	color_parameter.container() = std::array<float,3>({ 300, 45.3782, 93.3333 });
 }
 
 inline
 void violet(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 0.453782, 0.933333 });
+	color_parameter.container() = std::array<double,3>({ 300, 45.3782, 93.3333 });
 }
 
 inline
 void violet(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 0.453782, 0.933333 });
+	color_parameter.container() = std::array<long double,3>({ 300, 45.3782, 93.3333 });
 }
 
 	}
@@ -18054,17 +18264,17 @@ void aquamarine(::color::_internal::model< color::category::hsv_uint64 > & color
 
 inline
 void aquamarine(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.443791, 0.5, 1 });
+	color_parameter.container() = std::array<float,3>({ 159.765, 50, 100 });
 }
 
 inline
 void aquamarine(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.443791, 0.5, 1 });
+	color_parameter.container() = std::array<double,3>({ 159.765, 50, 100 });
 }
 
 inline
 void aquamarine(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.443791, 0.5, 1 });
+	color_parameter.container() = std::array<long double,3>({ 159.765, 50, 100 });
 }
 
 	}
@@ -18095,17 +18305,17 @@ void azure(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void azure(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 0.0588235, 1 });
+	color_parameter.container() = std::array<float,3>({ 180, 5.88235, 100 });
 }
 
 inline
 void azure(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 0.0588235, 1 });
+	color_parameter.container() = std::array<double,3>({ 180, 5.88235, 100 });
 }
 
 inline
 void azure(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 0.0588235, 1 });
+	color_parameter.container() = std::array<long double,3>({ 180, 5.88235, 100 });
 }
 
 	}
@@ -18136,17 +18346,17 @@ void beige(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void beige(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.166667, 0.102041, 0.960784 });
+	color_parameter.container() = std::array<float,3>({ 60, 10.2041, 96.0784 });
 }
 
 inline
 void beige(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.166667, 0.102041, 0.960784 });
+	color_parameter.container() = std::array<double,3>({ 60, 10.2041, 96.0784 });
 }
 
 inline
 void beige(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.166667, 0.102041, 0.960784 });
+	color_parameter.container() = std::array<long double,3>({ 60, 10.2041, 96.0784 });
 }
 
 	}
@@ -18177,17 +18387,17 @@ void bisque(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void bisque(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0903955, 0.231373, 1 });
+	color_parameter.container() = std::array<float,3>({ 32.5424, 23.1373, 100 });
 }
 
 inline
 void bisque(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0903955, 0.231373, 1 });
+	color_parameter.container() = std::array<double,3>({ 32.5424, 23.1373, 100 });
 }
 
 inline
 void bisque(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0903955, 0.231373, 1 });
+	color_parameter.container() = std::array<long double,3>({ 32.5424, 23.1373, 100 });
 }
 
 	}
@@ -18218,17 +18428,17 @@ void brown(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void brown(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0.745455, 0.647059 });
+	color_parameter.container() = std::array<float,3>({ 0, 74.5455, 64.7059 });
 }
 
 inline
 void brown(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0.745455, 0.647059 });
+	color_parameter.container() = std::array<double,3>({ 0, 74.5455, 64.7059 });
 }
 
 inline
 void brown(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0.745455, 0.647059 });
+	color_parameter.container() = std::array<long double,3>({ 0, 74.5455, 64.7059 });
 }
 
 	}
@@ -18259,17 +18469,17 @@ void chocolate(::color::_internal::model< color::category::hsv_uint64 > & color_
 
 inline
 void chocolate(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0694444, 0.857143, 0.823529 });
+	color_parameter.container() = std::array<float,3>({ 25, 85.7143, 82.3529 });
 }
 
 inline
 void chocolate(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0694444, 0.857143, 0.823529 });
+	color_parameter.container() = std::array<double,3>({ 25, 85.7143, 82.3529 });
 }
 
 inline
 void chocolate(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0694444, 0.857143, 0.823529 });
+	color_parameter.container() = std::array<long double,3>({ 25, 85.7143, 82.3529 });
 }
 
 	}
@@ -18300,17 +18510,17 @@ void coral(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void coral(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0458937, 0.69, 1 });
+	color_parameter.container() = std::array<float,3>({ 16.5217, 69, 100 });
 }
 
 inline
 void coral(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0458937, 0.69, 1 });
+	color_parameter.container() = std::array<double,3>({ 16.5217, 69, 100 });
 }
 
 inline
 void coral(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0458937, 0.69, 1 });
+	color_parameter.container() = std::array<long double,3>({ 16.5217, 69, 100 });
 }
 
 	}
@@ -18341,17 +18551,17 @@ void crimson(::color::_internal::model< color::category::hsv_uint64 > & color_pa
 
 inline
 void crimson(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.966667, 0.909091, 0.862745 });
+	color_parameter.container() = std::array<float,3>({ 348, 90.9091, 86.2745 });
 }
 
 inline
 void crimson(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.966667, 0.909091, 0.862745 });
+	color_parameter.container() = std::array<double,3>({ 348, 90.9091, 86.2745 });
 }
 
 inline
 void crimson(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.966667, 0.909091, 0.862745 });
+	color_parameter.container() = std::array<long double,3>({ 348, 90.9091, 86.2745 });
 }
 
 	}
@@ -18382,17 +18592,17 @@ void gainsboro(::color::_internal::model< color::category::hsv_uint64 > & color_
 
 inline
 void gainsboro(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 0.86 });
+	color_parameter.container() = std::array<float,3>({ 0, 0, 86 });
 }
 
 inline
 void gainsboro(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 0.86 });
+	color_parameter.container() = std::array<double,3>({ 0, 0, 86 });
 }
 
 inline
 void gainsboro(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 0.86 });
+	color_parameter.container() = std::array<long double,3>({ 0, 0, 86 });
 }
 
 	}
@@ -18423,17 +18633,17 @@ void gold(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void gold(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.140523, 1, 1 });
+	color_parameter.container() = std::array<float,3>({ 50.5882, 100, 100 });
 }
 
 inline
 void gold(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.140523, 1, 1 });
+	color_parameter.container() = std::array<double,3>({ 50.5882, 100, 100 });
 }
 
 inline
 void gold(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.140523, 1, 1 });
+	color_parameter.container() = std::array<long double,3>({ 50.5882, 100, 100 });
 }
 
 	}
@@ -18464,17 +18674,17 @@ void indigo(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void indigo(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.762821, 1, 0.509804 });
+	color_parameter.container() = std::array<float,3>({ 274.615, 100, 50.9804 });
 }
 
 inline
 void indigo(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.762821, 1, 0.509804 });
+	color_parameter.container() = std::array<double,3>({ 274.615, 100, 50.9804 });
 }
 
 inline
 void indigo(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.762821, 1, 0.509804 });
+	color_parameter.container() = std::array<long double,3>({ 274.615, 100, 50.9804 });
 }
 
 	}
@@ -18505,17 +18715,17 @@ void ivory(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void ivory(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.166667, 0.0588235, 1 });
+	color_parameter.container() = std::array<float,3>({ 60, 5.88235, 100 });
 }
 
 inline
 void ivory(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.166667, 0.0588235, 1 });
+	color_parameter.container() = std::array<double,3>({ 60, 5.88235, 100 });
 }
 
 inline
 void ivory(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.166667, 0.0588235, 1 });
+	color_parameter.container() = std::array<long double,3>({ 60, 5.88235, 100 });
 }
 
 	}
@@ -18546,17 +18756,17 @@ void khaki(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void khaki(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.15, 0.416667, 0.941176 });
+	color_parameter.container() = std::array<float,3>({ 54, 41.6667, 94.1176 });
 }
 
 inline
 void khaki(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.15, 0.416667, 0.941176 });
+	color_parameter.container() = std::array<double,3>({ 54, 41.6667, 94.1176 });
 }
 
 inline
 void khaki(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.15, 0.416667, 0.941176 });
+	color_parameter.container() = std::array<long double,3>({ 54, 41.6667, 94.1176 });
 }
 
 	}
@@ -18587,17 +18797,17 @@ void lavender(::color::_internal::model< color::category::hsv_uint64 > & color_p
 
 inline
 void lavender(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.666667, 0.08, 0.980392 });
+	color_parameter.container() = std::array<float,3>({ 240, 8, 98.0392 });
 }
 
 inline
 void lavender(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.666667, 0.08, 0.980392 });
+	color_parameter.container() = std::array<double,3>({ 240, 8, 98.0392 });
 }
 
 inline
 void lavender(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.666667, 0.08, 0.980392 });
+	color_parameter.container() = std::array<long double,3>({ 240, 8, 98.0392 });
 }
 
 	}
@@ -18628,17 +18838,17 @@ void linen(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void linen(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0833333, 0.08, 0.980392 });
+	color_parameter.container() = std::array<float,3>({ 30, 8, 98.0392 });
 }
 
 inline
 void linen(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0833333, 0.08, 0.980392 });
+	color_parameter.container() = std::array<double,3>({ 30, 8, 98.0392 });
 }
 
 inline
 void linen(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0833333, 0.08, 0.980392 });
+	color_parameter.container() = std::array<long double,3>({ 30, 8, 98.0392 });
 }
 
 	}
@@ -18669,17 +18879,17 @@ void moccasin(::color::_internal::model< color::category::hsv_uint64 > & color_p
 
 inline
 void moccasin(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.105856, 0.290196, 1 });
+	color_parameter.container() = std::array<float,3>({ 38.1081, 29.0196, 100 });
 }
 
 inline
 void moccasin(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.105856, 0.290196, 1 });
+	color_parameter.container() = std::array<double,3>({ 38.1081, 29.0196, 100 });
 }
 
 inline
 void moccasin(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.105856, 0.290196, 1 });
+	color_parameter.container() = std::array<long double,3>({ 38.1081, 29.0196, 100 });
 }
 
 	}
@@ -18710,17 +18920,17 @@ void orchid(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void orchid(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.839623, 0.486239, 0.854902 });
+	color_parameter.container() = std::array<float,3>({ 302.264, 48.6239, 85.4902 });
 }
 
 inline
 void orchid(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.839623, 0.486239, 0.854902 });
+	color_parameter.container() = std::array<double,3>({ 302.264, 48.6239, 85.4902 });
 }
 
 inline
 void orchid(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.839623, 0.486239, 0.854902 });
+	color_parameter.container() = std::array<long double,3>({ 302.264, 48.6239, 85.4902 });
 }
 
 	}
@@ -18751,17 +18961,17 @@ void peru(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void peru(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0821596, 0.692683, 0.803922 });
+	color_parameter.container() = std::array<float,3>({ 29.5775, 69.2683, 80.3922 });
 }
 
 inline
 void peru(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0821596, 0.692683, 0.803922 });
+	color_parameter.container() = std::array<double,3>({ 29.5775, 69.2683, 80.3922 });
 }
 
 inline
 void peru(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0821596, 0.692683, 0.803922 });
+	color_parameter.container() = std::array<long double,3>({ 29.5775, 69.2683, 80.3922 });
 }
 
 	}
@@ -18792,17 +19002,17 @@ void pink(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void pink(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0821596, 0.692683, 0.803922 });
+	color_parameter.container() = std::array<float,3>({ 29.5775, 69.2683, 80.3922 });
 }
 
 inline
 void pink(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0821596, 0.692683, 0.803922 });
+	color_parameter.container() = std::array<double,3>({ 29.5775, 69.2683, 80.3922 });
 }
 
 inline
 void pink(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0821596, 0.692683, 0.803922 });
+	color_parameter.container() = std::array<long double,3>({ 29.5775, 69.2683, 80.3922 });
 }
 
 	}
@@ -18833,17 +19043,17 @@ void plum(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void plum(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 0.276018, 0.866667 });
+	color_parameter.container() = std::array<float,3>({ 300, 27.6018, 86.6667 });
 }
 
 inline
 void plum(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 0.276018, 0.866667 });
+	color_parameter.container() = std::array<double,3>({ 300, 27.6018, 86.6667 });
 }
 
 inline
 void plum(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 0.276018, 0.866667 });
+	color_parameter.container() = std::array<long double,3>({ 300, 27.6018, 86.6667 });
 }
 
 	}
@@ -18874,17 +19084,17 @@ void salmon(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void salmon(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 0.276018, 0.866667 });
+	color_parameter.container() = std::array<float,3>({ 300, 27.6018, 86.6667 });
 }
 
 inline
 void salmon(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 0.276018, 0.866667 });
+	color_parameter.container() = std::array<double,3>({ 300, 27.6018, 86.6667 });
 }
 
 inline
 void salmon(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 0.276018, 0.866667 });
+	color_parameter.container() = std::array<long double,3>({ 300, 27.6018, 86.6667 });
 }
 
 	}
@@ -18915,17 +19125,17 @@ void sienna(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void sienna(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0536232, 0.71875, 0.627451 });
+	color_parameter.container() = std::array<float,3>({ 19.3043, 71.875, 62.7451 });
 }
 
 inline
 void sienna(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0536232, 0.71875, 0.627451 });
+	color_parameter.container() = std::array<double,3>({ 19.3043, 71.875, 62.7451 });
 }
 
 inline
 void sienna(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0536232, 0.71875, 0.627451 });
+	color_parameter.container() = std::array<long double,3>({ 19.3043, 71.875, 62.7451 });
 }
 
 	}
@@ -18956,17 +19166,17 @@ void snow(::color::_internal::model< color::category::hsv_uint64 > & color_param
 
 inline
 void snow(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0.0196078, 1 });
+	color_parameter.container() = std::array<float,3>({ 0, 1.96078, 100 });
 }
 
 inline
 void snow(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0.0196078, 1 });
+	color_parameter.container() = std::array<double,3>({ 0, 1.96078, 100 });
 }
 
 inline
 void snow(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0.0196078, 1 });
+	color_parameter.container() = std::array<long double,3>({ 0, 1.96078, 100 });
 }
 
 	}
@@ -18997,17 +19207,17 @@ void tan(::color::_internal::model< color::category::hsv_uint64 > & color_parame
 
 inline
 void tan(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0952381, 0.333333, 0.823529 });
+	color_parameter.container() = std::array<float,3>({ 34.2857, 33.3333, 82.3529 });
 }
 
 inline
 void tan(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0952381, 0.333333, 0.823529 });
+	color_parameter.container() = std::array<double,3>({ 34.2857, 33.3333, 82.3529 });
 }
 
 inline
 void tan(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0952381, 0.333333, 0.823529 });
+	color_parameter.container() = std::array<long double,3>({ 34.2857, 33.3333, 82.3529 });
 }
 
 	}
@@ -19038,17 +19248,17 @@ void thistle(::color::_internal::model< color::category::hsv_uint64 > & color_pa
 
 inline
 void thistle(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.833333, 0.115741, 0.847059 });
+	color_parameter.container() = std::array<float,3>({ 300, 11.5741, 84.7059 });
 }
 
 inline
 void thistle(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.833333, 0.115741, 0.847059 });
+	color_parameter.container() = std::array<double,3>({ 300, 11.5741, 84.7059 });
 }
 
 inline
 void thistle(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.833333, 0.115741, 0.847059 });
+	color_parameter.container() = std::array<long double,3>({ 300, 11.5741, 84.7059 });
 }
 
 	}
@@ -19079,17 +19289,17 @@ void tomato(::color::_internal::model< color::category::hsv_uint64 > & color_par
 
 inline
 void tomato(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.0253623, 0.721569, 1 });
+	color_parameter.container() = std::array<float,3>({ 9.13043, 72.1569, 100 });
 }
 
 inline
 void tomato(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.0253623, 0.721569, 1 });
+	color_parameter.container() = std::array<double,3>({ 9.13043, 72.1569, 100 });
 }
 
 inline
 void tomato(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.0253623, 0.721569, 1 });
+	color_parameter.container() = std::array<long double,3>({ 9.13043, 72.1569, 100 });
 }
 
 	}
@@ -19120,17 +19330,17 @@ void turquoise(::color::_internal::model< color::category::hsv_uint64 > & color_
 
 inline
 void turquoise(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.483333, 0.714286, 0.878431 });
+	color_parameter.container() = std::array<float,3>({ 174, 71.4286, 87.8431 });
 }
 
 inline
 void turquoise(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.483333, 0.714286, 0.878431 });
+	color_parameter.container() = std::array<double,3>({ 174, 71.4286, 87.8431 });
 }
 
 inline
 void turquoise(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.483333, 0.714286, 0.878431 });
+	color_parameter.container() = std::array<long double,3>({ 174, 71.4286, 87.8431 });
 }
 
 	}
@@ -19161,17 +19371,17 @@ void wheat(::color::_internal::model< color::category::hsv_uint64 > & color_para
 
 inline
 void wheat(::color::_internal::model< color::category::hsv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.108586, 0.269388, 0.960784 });
+	color_parameter.container() = std::array<float,3>({ 39.0909, 26.9388, 96.0784 });
 }
 
 inline
 void wheat(::color::_internal::model< color::category::hsv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.108586, 0.269388, 0.960784 });
+	color_parameter.container() = std::array<double,3>({ 39.0909, 26.9388, 96.0784 });
 }
 
 inline
 void wheat(::color::_internal::model< color::category::hsv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.108586, 0.269388, 0.960784 });
+	color_parameter.container() = std::array<long double,3>({ 39.0909, 26.9388, 96.0784 });
 }
 
 	}
@@ -20390,38 +20600,79 @@ namespace color {
 	namespace make {
 
 		inline
+void black(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
+	color_parameter.container() = 0x0;
+}
+
+inline
+void black(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
+	color_parameter.container() = 0x0;
+}
+
+inline
+void black(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
+	color_parameter.container() = 0xff000000u;
+}
+
+inline
+void black(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
+	color_parameter.container() = 0xffff000000000000ul;
+}
+
+inline
+void black(::color::_internal::model< color::category::xyz_float > & color_parameter) {
+	color_parameter.container() = std::array<float,3>({ 0, 0, 0 });
+}
+
+inline
+void black(::color::_internal::model< color::category::xyz_double> & color_parameter) {
+	color_parameter.container() = std::array<double,3>({ 0, 0, 0 });
+}
+
+inline
+void black(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
+	color_parameter.container() = std::array<long double,3>({ 0, 0, 0 });
+}
+
+	}
+}
+
+namespace color {
+	namespace make {
+
+		inline
 void gray50(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
-	color_parameter.container() = 0;
+	color_parameter.container() = 0x1b;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
-	color_parameter.container() = 0x7def;
+	color_parameter.container() = 0xc6f7;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff7f7f7f;
+	color_parameter.container() = 0xffd0d0d0u;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
-	color_parameter.container() = std::uint64_t(0xffff7fff7fff7fffu);
+	color_parameter.container() = 0xffffd346d346d346ul;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::xyz_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({0.5,0.5,0.5});
+	color_parameter.container() = std::array<float,3>({ 15.9651, 15.9651, 15.9651 });
 }
 
 inline
 void gray50(::color::_internal::model< color::category::xyz_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({0.5,0.5,0.5});
+	color_parameter.container() = std::array<double,3>({ 15.9651, 15.9651, 15.9651 });
 }
 
 inline
 void gray50(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({0.5,0.5,0.5});
+	color_parameter.container() = std::array<long double,3>({ 15.9651, 15.9651, 15.9651 });
 }
 
 	}
@@ -20432,37 +20683,37 @@ namespace color {
 
 		inline
 void white(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
-	color_parameter.container() = 0xff;
+	color_parameter.container() = 0x3f;
 }
 
 inline
 void white(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
-	color_parameter.container() = 0xffff;
+	color_parameter.container() = 0x8def;
 }
 
 inline
 void white(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffffffff;
+	color_parameter.container() = 0xffa0a0a0u;
 }
 
 inline
 void white(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
-	color_parameter.container() = std::uint64_t(0xffffffffffffffffu);
+	color_parameter.container() = 0xffffa68da68da68dul;
 }
 
 inline
 void white(::color::_internal::model< color::category::xyz_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({1,1,1});
+	color_parameter.container() = std::array<float,3>({ 31.9301, 31.9301, 31.9301 });
 }
 
 inline
 void white(::color::_internal::model< color::category::xyz_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({1,1,1});
+	color_parameter.container() = std::array<double,3>({ 31.9301, 31.9301, 31.9301 });
 }
 
 inline
 void white(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({1,1,1});
+	color_parameter.container() = std::array<long double,3>({ 31.9301, 31.9301, 31.9301 });
 }
 
 	}
@@ -20473,37 +20724,37 @@ namespace color {
 
 		inline
 void red(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
-	color_parameter.container() = 0x07;
+	color_parameter.container() = 0x3b;
 }
 
 inline
 void red(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
-	color_parameter.container() = 0x003F;
+	color_parameter.container() = 0x3f5;
 }
 
 inline
 void red(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0000ff;
+	color_parameter.container() = 0xff00ffc2u;
 }
 
 inline
 void red(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
-	color_parameter.container() = std::uint64_t(0xffff00000000ffffu);
+	color_parameter.container() = 0xffff0000ffffc4cful;
 }
 
 inline
 void red(::color::_internal::model< color::category::xyz_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 1, 0, 0 });
+	color_parameter.container() = std::array<float,3>({ 15.6458, 5.65068, 0 });
 }
 
 inline
 void red(::color::_internal::model< color::category::xyz_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 1, 0, 0 });
+	color_parameter.container() = std::array<double,3>({ 15.6458, 5.65068, 0 });
 }
 
 inline
 void red(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 1, 0, 0 });
+	color_parameter.container() = std::array<long double,3>({ 15.6458, 5.65068, 0 });
 }
 
 	}
@@ -20514,37 +20765,37 @@ namespace color {
 
 		inline
 void green(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
-	color_parameter.container() = 0x38;
+	color_parameter.container() = 0x6;
 }
 
 inline
 void green(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
-	color_parameter.container() = 0x03E0;
+	color_parameter.container() = 0x4fb;
 }
 
 inline
 void green(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00ff00;
+	color_parameter.container() = 0xff0749dfu;
 }
 
 inline
 void green(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
-	color_parameter.container() = std::uint64_t(0xffff0000ffff0000u);
+	color_parameter.container() = 0xffff073b4b96e037ul;
 }
 
 inline
 void green(::color::_internal::model< color::category::xyz_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 1, 0 });
+	color_parameter.container() = std::array<float,3>({ 4.94917, 12.97, 0.159651 });
 }
 
 inline
 void green(::color::_internal::model< color::category::xyz_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 1, 0 });
+	color_parameter.container() = std::array<double,3>({ 4.94917, 12.97, 0.159651 });
 }
 
 inline
 void green(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 1, 0 });
+	color_parameter.container() = std::array<long double,3>({ 4.94917, 12.97, 0.159651 });
 }
 
 	}
@@ -20555,37 +20806,37 @@ namespace color {
 
 		inline
 void blue(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
-	color_parameter.container() = 0xC0;
+	color_parameter.container() = 0x7;
 }
 
 inline
 void blue(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
-	color_parameter.container() = 0x7C00;
+	color_parameter.container() = 0x8023;
 }
 
 inline
 void blue(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffff0000;
+	color_parameter.container() = 0xff920f20u;
 }
 
 inline
 void blue(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
-	color_parameter.container() = std::uint64_t(0xffffffff00000000u);
+	color_parameter.container() = 0xffff98150f60214ful;
 }
 
 inline
 void blue(::color::_internal::model< color::category::xyz_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 1 });
+	color_parameter.container() = std::array<float,3>({ 6.38603, 0.339417, 31.6108 });
 }
 
 inline
 void blue(::color::_internal::model< color::category::xyz_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 1 });
+	color_parameter.container() = std::array<double,3>({ 6.38603, 0.339417, 31.6108 });
 }
 
 inline
 void blue(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 1 });
+	color_parameter.container() = std::array<long double,3>({ 6.38603, 0.339417, 31.6108 });
 }
 
 	}
@@ -22249,22 +22500,22 @@ namespace color {
 
 		inline
 void black(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x0;
+	color_parameter.container() = 0x58;
 }
 
 inline
 void black(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x0;
+	color_parameter.container() = 0x7de0;
 }
 
 inline
 void black(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff000000u;
+	color_parameter.container() = 0xff7f7f00u;
 }
 
 inline
 void black(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000000000000ul;
+	color_parameter.container() = 0xffff7fff7fff0000ul;
 }
 
 inline
@@ -22290,37 +22541,37 @@ namespace color {
 
 		inline
 void gray50(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x3;
+	color_parameter.container() = 0x5b;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0xf;
+	color_parameter.container() = 0x7def;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00007fu;
+	color_parameter.container() = 0xff7f7f7fu;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000000007ffful;
+	color_parameter.container() = 0xffff7fff7fff7ffful;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::yiq_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 0, 1.38778e-17 });
+	color_parameter.container() = std::array<float,3>({ 0.5, 0, 0 });
 }
 
 inline
 void gray50(::color::_internal::model< color::category::yiq_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 0, 1.38778e-17 });
+	color_parameter.container() = std::array<double,3>({ 0.5, 0, 0 });
 }
 
 inline
 void gray50(::color::_internal::model< color::category::yiq_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 0, 1.38778e-17 });
+	color_parameter.container() = std::array<long double,3>({ 0.5, 0, 0 });
 }
 
 	}
@@ -22331,37 +22582,37 @@ namespace color {
 
 		inline
 void white(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7;
+	color_parameter.container() = 0x5f;
 }
 
 inline
 void white(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x1f;
+	color_parameter.container() = 0x7dff;
 }
 
 inline
 void white(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0000ffu;
+	color_parameter.container() = 0xff7f7fffu;
 }
 
 inline
 void white(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff00000000fffful;
+	color_parameter.container() = 0xffff7fff7ffffffful;
 }
 
 inline
 void white(::color::_internal::model< color::category::yiq_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 1, 0, 2.77556e-17 });
+	color_parameter.container() = std::array<float,3>({ 1, 0, 0 });
 }
 
 inline
 void white(::color::_internal::model< color::category::yiq_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 1, 0, 2.77556e-17 });
+	color_parameter.container() = std::array<double,3>({ 1, 0, 0 });
 }
 
 inline
 void white(::color::_internal::model< color::category::yiq_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 1, 0, 2.77556e-17 });
+	color_parameter.container() = std::array<long double,3>({ 1, 0, 0 });
 }
 
 	}
@@ -22372,22 +22623,22 @@ namespace color {
 
 		inline
 void red(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x22;
+	color_parameter.container() = 0xba;
 }
 
 inline
 void red(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x3649;
+	color_parameter.container() = 0xb3e9;
 }
 
 inline
 void red(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff35974cu;
+	color_parameter.container() = 0xffb3ff4cu;
 }
 
 inline
 void red(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff362198804c8aul;
+	color_parameter.container() = 0xffffb3caffff4c8aul;
 }
 
 inline
@@ -22413,37 +22664,37 @@ namespace color {
 
 		inline
 void green(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0xfc;
+	color_parameter.container() = 0x12;
 }
 
 inline
 void green(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x8312;
+	color_parameter.container() = 0x3d69;
 }
 
 inline
 void green(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff7bbb95u;
+	color_parameter.container() = 0xff3f624au;
 }
 
 inline
 void green(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff7a38b9be9645ul;
+	color_parameter.container() = 0xffff3fff62834b22ul;
 }
 
 inline
 void green(::color::_internal::model< color::category::yiq_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.587, -0.274453, -0.522591 });
+	color_parameter.container() = std::array<float,3>({ 0.2935, -0.137226, -0.261296 });
 }
 
 inline
 void green(::color::_internal::model< color::category::yiq_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.587, -0.274453, -0.522591 });
+	color_parameter.container() = std::array<double,3>({ 0.2935, -0.137226, -0.261296 });
 }
 
 inline
 void green(::color::_internal::model< color::category::yiq_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.587, -0.274453, -0.522591 });
+	color_parameter.container() = std::array<long double,3>({ 0.2935, -0.137226, -0.261296 });
 }
 
 	}
@@ -22454,22 +22705,22 @@ namespace color {
 
 		inline
 void blue(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x30;
+	color_parameter.container() = 0x88;
 }
 
 inline
 void blue(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x4ee3;
+	color_parameter.container() = 0xc8e3;
 }
 
 inline
 void blue(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff4faf1du;
+	color_parameter.container() = 0xffcb3a1du;
 }
 
 inline
 void blue(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff4fa6adc31d2eul;
+	color_parameter.container() = 0xffffcc343af81d2eul;
 }
 
 inline
@@ -22495,22 +22746,22 @@ namespace color {
 
 		inline
 void cyan(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x24;
+	color_parameter.container() = 0x4;
 }
 
 inline
 void cyan(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0xcdd5;
+	color_parameter.container() = 0x4815;
 }
 
 inline
 void cyan(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffcb69b2u;
+	color_parameter.container() = 0xff4b00b2u;
 }
 
 inline
 void cyan(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffc9df6780b374ul;
+	color_parameter.container() = 0xffff4c340000b374ul;
 }
 
 inline
@@ -22536,22 +22787,22 @@ namespace color {
 
 		inline
 void magenta(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x4a;
+	color_parameter.container() = 0xea;
 }
 
 inline
 void magenta(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x810c;
+	color_parameter.container() = 0xfecc;
 }
 
 inline
 void magenta(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff854569u;
+	color_parameter.container() = 0xffffba69u;
 }
 
 inline
 void magenta(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff85c8464269b9ul;
+	color_parameter.container() = 0xffffffffbaf769b9ul;
 }
 
 inline
@@ -22577,22 +22828,22 @@ namespace color {
 
 		inline
 void yellow(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x16;
+	color_parameter.container() = 0x2e;
 }
 
 inline
 void yellow(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0xb53b;
+	color_parameter.container() = 0x32fb;
 }
 
 inline
 void yellow(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffb151e1u;
+	color_parameter.container() = 0xff33c4e1u;
 }
 
 inline
 void yellow(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffb05a523de2d0ul;
+	color_parameter.container() = 0xffff33cac506e2d0ul;
 }
 
 inline
@@ -22618,22 +22869,22 @@ namespace color {
 
 		inline
 void aqua(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x24;
+	color_parameter.container() = 0x4;
 }
 
 inline
 void aqua(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0xcdd5;
+	color_parameter.container() = 0x4815;
 }
 
 inline
 void aqua(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffcb69b2u;
+	color_parameter.container() = 0xff4b00b2u;
 }
 
 inline
 void aqua(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffc9df6780b374ul;
+	color_parameter.container() = 0xffff4c340000b374ul;
 }
 
 inline
@@ -22659,22 +22910,22 @@ namespace color {
 
 		inline
 void fuchsia(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x4a;
+	color_parameter.container() = 0xea;
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x810c;
+	color_parameter.container() = 0xfecc;
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff854569u;
+	color_parameter.container() = 0xffffba69u;
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff85c8464269b9ul;
+	color_parameter.container() = 0xffffffffbaf769b9ul;
 }
 
 inline
@@ -22700,22 +22951,22 @@ namespace color {
 
 		inline
 void lime(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0xfc;
+	color_parameter.container() = 0xc;
 }
 
 inline
 void lime(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x8312;
+	color_parameter.container() = 0x112;
 }
 
 inline
 void lime(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff7bbb95u;
+	color_parameter.container() = 0xff004495u;
 }
 
 inline
 void lime(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff7a38b9be9645ul;
+	color_parameter.container() = 0xffff000045079645ul;
 }
 
 inline
@@ -22741,22 +22992,22 @@ namespace color {
 
 		inline
 void maroon(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x11;
+	color_parameter.container() = 0x69;
 }
 
 inline
 void maroon(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x1924;
+	color_parameter.container() = 0x96e4;
 }
 
 inline
 void maroon(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff1a4b26u;
+	color_parameter.container() = 0xff99bf26u;
 }
 
 inline
 void maroon(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff1b104c402645ul;
+	color_parameter.container() = 0xffff99e4bfff2645ul;
 }
 
 inline
@@ -22782,22 +23033,22 @@ namespace color {
 
 		inline
 void navy(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x38;
+	color_parameter.container() = 0x50;
 }
 
 inline
 void navy(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x2781;
+	color_parameter.container() = 0xa161;
 }
 
 inline
 void navy(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff27d80eu;
+	color_parameter.container() = 0xffa55d0eu;
 }
 
 inline
 void navy(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff27d3d6e20e97ul;
+	color_parameter.container() = 0xffffa6195d7b0e97ul;
 }
 
 inline
@@ -22823,22 +23074,22 @@ namespace color {
 
 		inline
 void olive(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0xb;
+	color_parameter.container() = 0x63;
 }
 
 inline
 void olive(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0xdc8d;
+	color_parameter.container() = 0x5a6d;
 }
 
 inline
 void olive(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffd92870u;
+	color_parameter.container() = 0xff59a170u;
 }
 
 inline
 void olive(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffd82d291e7168ul;
+	color_parameter.container() = 0xffff59e5a2837168ul;
 }
 
 inline
@@ -22864,22 +23115,22 @@ namespace color {
 
 		inline
 void orange(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x14;
+	color_parameter.container() = 0x6c;
 }
 
 inline
 void orange(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0xe195;
+	color_parameter.container() = 0x5f55;
 }
 
 inline
 void orange(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffe06aadu;
+	color_parameter.container() = 0xff60d8adu;
 }
 
 inline
 void orange(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffdf2d6ad5ae37ul;
+	color_parameter.container() = 0xffff6097d9aaae37ul;
 }
 
 inline
@@ -22905,22 +23156,22 @@ namespace color {
 
 		inline
 void purple(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x1;
+	color_parameter.container() = 0xa1;
 }
 
 inline
 void purple(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x4086;
+	color_parameter.container() = 0xbe66;
 }
 
 inline
 void purple(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff422234u;
+	color_parameter.container() = 0xffbf9c34u;
 }
 
 inline
 void purple(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff42e4232134dcul;
+	color_parameter.container() = 0xffffbfff9d7b34dcul;
 }
 
 inline
@@ -22946,37 +23197,37 @@ namespace color {
 
 		inline
 void silver(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x5;
+	color_parameter.container() = 0x5d;
 }
 
 inline
 void silver(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x17;
+	color_parameter.container() = 0x7df7;
 }
 
 inline
 void silver(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0000bfu;
+	color_parameter.container() = 0xff7f7fbfu;
 }
 
 inline
 void silver(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff00000000bffful;
+	color_parameter.container() = 0xffff7fff7fffbffful;
 }
 
 inline
 void silver(::color::_internal::model< color::category::yiq_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.75, 0, 2.08167e-17 });
+	color_parameter.container() = std::array<float,3>({ 0.75, 0, 0 });
 }
 
 inline
 void silver(::color::_internal::model< color::category::yiq_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.75, 0, 2.08167e-17 });
+	color_parameter.container() = std::array<double,3>({ 0.75, 0, 0 });
 }
 
 inline
 void silver(::color::_internal::model< color::category::yiq_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.75, 0, 2.08167e-17 });
+	color_parameter.container() = std::array<long double,3>({ 0.75, 0, 0 });
 }
 
 	}
@@ -22987,22 +23238,22 @@ namespace color {
 
 		inline
 void teal(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x32;
+	color_parameter.container() = 0x4a;
 }
 
 inline
 void teal(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0xeaea;
+	color_parameter.container() = 0x64ea;
 }
 
 inline
 void teal(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffe6b559u;
+	color_parameter.container() = 0xff653f59u;
 }
 
 inline
 void teal(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffe4f0b3c059baul;
+	color_parameter.container() = 0xffff661a3fff59baul;
 }
 
 inline
@@ -23028,22 +23279,22 @@ namespace color {
 
 		inline
 void violet(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
-	color_parameter.container() = 0x4;
+	color_parameter.container() = 0xa4;
 }
 
 inline
 void violet(::color::_internal::model< color::category::yiq_uint16 > & color_parameter) {
-	color_parameter.container() = 0x3475;
+	color_parameter.container() = 0xb255;
 }
 
 inline
 void violet(::color::_internal::model< color::category::yiq_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff381daeu;
+	color_parameter.container() = 0xffb598aeu;
 }
 
 inline
 void violet(::color::_internal::model< color::category::yiq_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff38a91dc1af49ul;
+	color_parameter.container() = 0xffffb63598f9af49ul;
 }
 
 inline
@@ -23759,22 +24010,22 @@ namespace color {
 
 		inline
 void black(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x0;
+	color_parameter.container() = 0x58;
 }
 
 inline
 void black(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x0;
+	color_parameter.container() = 0x7de0;
 }
 
 inline
 void black(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff000000u;
+	color_parameter.container() = 0xff7f7f00u;
 }
 
 inline
 void black(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000000000000ul;
+	color_parameter.container() = 0xffff7fff7fff0000ul;
 }
 
 inline
@@ -23800,22 +24051,22 @@ namespace color {
 
 		inline
 void gray50(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x3;
+	color_parameter.container() = 0x5b;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0xf;
+	color_parameter.container() = 0x7def;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00007fu;
+	color_parameter.container() = 0xff7f7f7fu;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff000000007ffful;
+	color_parameter.container() = 0xffff7fff7fff7ffful;
 }
 
 inline
@@ -23841,22 +24092,22 @@ namespace color {
 
 		inline
 void white(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7;
+	color_parameter.container() = 0x5f;
 }
 
 inline
 void white(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x1f;
+	color_parameter.container() = 0x7dff;
 }
 
 inline
 void white(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0000ffu;
+	color_parameter.container() = 0xff7f7fffu;
 }
 
 inline
 void white(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff00000000fffful;
+	color_parameter.container() = 0xffff7fff7ffffffful;
 }
 
 inline
@@ -23882,22 +24133,22 @@ namespace color {
 
 		inline
 void red(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x7a;
+	color_parameter.container() = 0xd2;
 }
 
 inline
 void red(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x9b89;
+	color_parameter.container() = 0xfd49;
 }
 
 inline
 void red(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff9cdb4cu;
+	color_parameter.container() = 0xffff544cu;
 }
 
 inline
 void red(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff9d70da564c8aul;
+	color_parameter.container() = 0xffffffff54cd4c8aul;
 }
 
 inline
@@ -23923,37 +24174,37 @@ namespace color {
 
 		inline
 void green(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0xf4;
+	color_parameter.container() = 0x12;
 }
 
 inline
 void green(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x8312;
+	color_parameter.container() = 0x4949;
 }
 
 inline
 void green(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff7db795u;
+	color_parameter.container() = 0xff4a554au;
 }
 
 inline
 void green(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff7c2bb60e9645ul;
+	color_parameter.container() = 0xffff4a6855984b22ul;
 }
 
 inline
 void green(::color::_internal::model< color::category::yuv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.587, -0.288862, -0.514986 });
+	color_parameter.container() = std::array<float,3>({ 0.2935, -0.144431, -0.257493 });
 }
 
 inline
 void green(::color::_internal::model< color::category::yuv_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.587, -0.288862, -0.514986 });
+	color_parameter.container() = std::array<double,3>({ 0.2935, -0.144431, -0.257493 });
 }
 
 inline
 void green(::color::_internal::model< color::category::yuv_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.587, -0.288862, -0.514986 });
+	color_parameter.container() = std::array<long double,3>({ 0.2935, -0.144431, -0.257493 });
 }
 
 	}
@@ -23964,22 +24215,22 @@ namespace color {
 
 		inline
 void blue(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x18;
+	color_parameter.container() = 0x78;
 }
 
 inline
 void blue(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0xe9a3;
+	color_parameter.container() = 0x6be3;
 }
 
 inline
 void blue(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffe76f1du;
+	color_parameter.container() = 0xff6aff1du;
 }
 
 inline
 void blue(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffe6666f9d1d2eul;
+	color_parameter.container() = 0xffff6b2effff1d2eul;
 }
 
 inline
@@ -24005,22 +24256,22 @@ namespace color {
 
 		inline
 void cyan(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0xcc;
+	color_parameter.container() = 0x24;
 }
 
 inline
 void cyan(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x6895;
+	color_parameter.container() = 0x295;
 }
 
 inline
 void cyan(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff6425b2u;
+	color_parameter.container() = 0xff00aab2u;
 }
 
 inline
 void cyan(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff629025aab374ul;
+	color_parameter.container() = 0xffff0000ab31b374ul;
 }
 
 inline
@@ -24046,22 +24297,22 @@ namespace color {
 
 		inline
 void magenta(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x52;
+	color_parameter.container() = 0xaa;
 }
 
 inline
 void magenta(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x810c;
+	color_parameter.container() = 0xe72c;
 }
 
 inline
 void magenta(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff834969u;
+	color_parameter.container() = 0xffead369u;
 }
 
 inline
 void magenta(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff83d549f269b9ul;
+	color_parameter.container() = 0xffffeb2ed4cc69b9ul;
 }
 
 inline
@@ -24087,22 +24338,22 @@ namespace color {
 
 		inline
 void yellow(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x2e;
+	color_parameter.container() = 0x46;
 }
 
 inline
 void yellow(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x1a7b;
+	color_parameter.container() = 0x901b;
 }
 
 inline
 void yellow(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff1991e1u;
+	color_parameter.container() = 0xff9400e1u;
 }
 
 inline
 void yellow(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff199a9063e2d0ul;
+	color_parameter.container() = 0xffff94d00000e2d0ul;
 }
 
 inline
@@ -24128,22 +24379,22 @@ namespace color {
 
 		inline
 void aqua(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0xcc;
+	color_parameter.container() = 0x24;
 }
 
 inline
 void aqua(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x6895;
+	color_parameter.container() = 0x295;
 }
 
 inline
 void aqua(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff6425b2u;
+	color_parameter.container() = 0xff00aab2u;
 }
 
 inline
 void aqua(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff629025aab374ul;
+	color_parameter.container() = 0xffff0000ab31b374ul;
 }
 
 inline
@@ -24169,22 +24420,22 @@ namespace color {
 
 		inline
 void fuchsia(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x52;
+	color_parameter.container() = 0xaa;
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x810c;
+	color_parameter.container() = 0xe72c;
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff834969u;
+	color_parameter.container() = 0xffead369u;
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff83d549f269b9ul;
+	color_parameter.container() = 0xffffeb2ed4cc69b9ul;
 }
 
 inline
@@ -24210,22 +24461,22 @@ namespace color {
 
 		inline
 void lime(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0xf4;
+	color_parameter.container() = 0xc;
 }
 
 inline
 void lime(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x8312;
+	color_parameter.container() = 0x14b2;
 }
 
 inline
 void lime(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff7db795u;
+	color_parameter.container() = 0xff142b95u;
 }
 
 inline
 void lime(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff7c2bb60e9645ul;
+	color_parameter.container() = 0xffff14d02b329645ul;
 }
 
 inline
@@ -24251,27 +24502,27 @@ namespace color {
 
 		inline
 void maroon(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x1;
+	color_parameter.container() = 0x91;
 }
 
 inline
 void maroon(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x4fc4;
+	color_parameter.container() = 0xbd84;
 }
 
 inline
 void maroon(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff4eee26u;
+	color_parameter.container() = 0xffbf6926u;
 }
 
 inline
 void maroon(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff4eb8ed2b2645ul;
+	color_parameter.container() = 0xffffbfff6a662645ul;
 }
 
 inline
 void maroon(::color::_internal::model< color::category::yuv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.1495, -0.0735689, 0.3075 });
+	color_parameter.container() = std::array<float,3>({ 0.1495, -0.0735688, 0.3075 });
 }
 
 inline
@@ -24292,22 +24543,22 @@ namespace color {
 
 		inline
 void navy(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x8;
+	color_parameter.container() = 0x68;
 }
 
 inline
 void navy(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0xf4c1;
+	color_parameter.container() = 0x72e1;
 }
 
 inline
 void navy(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xfff4370eu;
+	color_parameter.container() = 0xff75bf0eu;
 }
 
 inline
 void navy(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xfffff33337ce0e97ul;
+	color_parameter.container() = 0xffff7597bfff0e97ul;
 }
 
 inline
@@ -24333,22 +24584,22 @@ namespace color {
 
 		inline
 void olive(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x3b;
+	color_parameter.container() = 0x4b;
 }
 
 inline
 void olive(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0xf4d;
+	color_parameter.container() = 0x88ed;
 }
 
 inline
 void olive(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0cc970u;
+	color_parameter.container() = 0xff893f70u;
 }
 
 inline
 void olive(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff0ccdc8327168ul;
+	color_parameter.container() = 0xffff8a673fff7168ul;
 }
 
 inline
@@ -24374,22 +24625,22 @@ namespace color {
 
 		inline
 void orange(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x34;
+	color_parameter.container() = 0x84;
 }
 
 inline
 void orange(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x46d5;
+	color_parameter.container() = 0xb475;
 }
 
 inline
 void orange(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff47abadu;
+	color_parameter.container() = 0xffb91dadu;
 }
 
 inline
 void orange(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff47beaa45ae37ul;
+	color_parameter.container() = 0xffffba531daeae37ul;
 }
 
 inline
@@ -24415,22 +24666,22 @@ namespace color {
 
 		inline
 void purple(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x9;
+	color_parameter.container() = 0xa1;
 }
 
 inline
 void purple(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x4086;
+	color_parameter.container() = 0xb286;
 }
 
 inline
 void purple(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff412434u;
+	color_parameter.container() = 0xffb4a934u;
 }
 
 inline
 void purple(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff41ea24f934dcul;
+	color_parameter.container() = 0xffffb596aa6634dcul;
 }
 
 inline
@@ -24456,22 +24707,22 @@ namespace color {
 
 		inline
 void silver(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x5;
+	color_parameter.container() = 0x5d;
 }
 
 inline
 void silver(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x17;
+	color_parameter.container() = 0x7df7;
 }
 
 inline
 void silver(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0000bfu;
+	color_parameter.container() = 0xff7f7fbfu;
 }
 
 inline
 void silver(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff00000000bffful;
+	color_parameter.container() = 0xffff7fff7fffbffful;
 }
 
 inline
@@ -24497,27 +24748,27 @@ namespace color {
 
 		inline
 void teal(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x2;
+	color_parameter.container() = 0x22;
 }
 
 inline
 void teal(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0xb44a;
+	color_parameter.container() = 0x3e4a;
 }
 
 inline
 void teal(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffb21259u;
+	color_parameter.container() = 0xff3f9559u;
 }
 
 inline
 void teal(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffffb14812d559baul;
+	color_parameter.container() = 0xffff3fff959859baul;
 }
 
 inline
 void teal(::color::_internal::model< color::category::yuv_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.3505, 0.0735689, -0.3075 });
+	color_parameter.container() = std::array<float,3>({ 0.3505, 0.0735688, -0.3075 });
 }
 
 inline
@@ -24538,22 +24789,22 @@ namespace color {
 
 		inline
 void violet(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
-	color_parameter.container() = 0x4;
+	color_parameter.container() = 0xa4;
 }
 
 inline
 void violet(::color::_internal::model< color::category::yuv_uint16 > & color_parameter) {
-	color_parameter.container() = 0x3475;
+	color_parameter.container() = 0xaa75;
 }
 
 inline
 void violet(::color::_internal::model< color::category::yuv_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff371faeu;
+	color_parameter.container() = 0xffaca3aeu;
 }
 
 inline
 void violet(::color::_internal::model< color::category::yuv_uint64 > & color_parameter) {
-	color_parameter.container() = 0xffff37d51f51af49ul;
+	color_parameter.container() = 0xffffad64a3eaaf49ul;
 }
 
 inline

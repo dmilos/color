@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.5, 0.5, 0 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.5, 0.5, 0 } ) - rgb(127,127,0) - #7f7f00
 
       inline
       void olive( ::color::_internal::model< color::category::yuv_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x3b;
+        color_parameter.container() = 0x4b;
        }
 
       inline
       void olive( ::color::_internal::model< color::category::yuv_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xf4d;
+        color_parameter.container() = 0x88ed;
        }
 
       inline
       void olive( ::color::_internal::model< color::category::yuv_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff0cc970u;
+        color_parameter.container() = 0xff893f70u;
        }
 
       inline
       void olive( ::color::_internal::model< color::category::yuv_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff0ccdc8327168ul;
+        color_parameter.container() = 0xffff8a673fff7168ul;
        }
 
       inline
@@ -54,4 +54,3 @@
   }
 
 #endif
-

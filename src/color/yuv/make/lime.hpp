@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0, 1, 0 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0, 1, 0 } ) - rgb(0,255,0) - #00ff00
 
       inline
       void lime( ::color::_internal::model< color::category::yuv_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xf4;
+        color_parameter.container() = 0xc;
        }
 
       inline
       void lime( ::color::_internal::model< color::category::yuv_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x8312;
+        color_parameter.container() = 0x14b2;
        }
 
       inline
       void lime( ::color::_internal::model< color::category::yuv_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff7db795u;
+        color_parameter.container() = 0xff142b95u;
        }
 
       inline
       void lime( ::color::_internal::model< color::category::yuv_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff7c2bb60e9645ul;
+        color_parameter.container() = 0xffff14d02b329645ul;
        }
 
       inline
@@ -54,4 +54,3 @@
   }
 
 #endif
-

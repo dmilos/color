@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.5, 1, 0.831373 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.5, 1, 0.831373 } ) - rgb(127,255,212) - #7fffd4
 
       inline
       void aquamarine( ::color::_internal::model< color::category::hsv_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void aquamarine( ::color::_internal::model< color::category::hsv_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0.443791, 0.5, 1 } );
+        color_parameter.container() = std::array<float,3>( { 159.765, 50, 100 } );
        }
 
       inline
       void aquamarine( ::color::_internal::model< color::category::hsv_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0.443791, 0.5, 1 } );
+        color_parameter.container() = std::array<double,3>( { 159.765, 50, 100 } );
        }
 
       inline
       void aquamarine( ::color::_internal::model< color::category::hsv_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0.443791, 0.5, 1 } );
+        color_parameter.container() = std::array<long double,3>( { 159.765, 50, 100 } );
        }
 
     }

@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0.894118, 0.768627 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0.894118, 0.768627 } ) - rgb(255,228,196) - #ffe4c4
 
       inline
       void bisque( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.86, 0.86, 0.86 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.86, 0.86, 0.86 } ) - rgb(219,219,219) - #dbdbdb
 
       inline
       void gainsboro( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0, 0, 1 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0, 0, 1 } ) - rgb(0,0,255) - #0000ff
 
       inline
       void blue( ::color::_internal::model< color::category::yuv_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x18;
+        color_parameter.container() = 0x78;
        }
 
       inline
       void blue( ::color::_internal::model< color::category::yuv_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xe9a3;
+        color_parameter.container() = 0x6be3;
        }
 
       inline
       void blue( ::color::_internal::model< color::category::yuv_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffe76f1du;
+        color_parameter.container() = 0xff6aff1du;
        }
 
       inline
       void blue( ::color::_internal::model< color::category::yuv_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffe6666f9d1d2eul;
+        color_parameter.container() = 0xffff6b2effff1d2eul;
        }
 
       inline
@@ -54,4 +54,3 @@
   }
 
 #endif
-

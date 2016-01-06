@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0.388235, 0.278431 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0.388235, 0.278431 } ) - rgb(255,99,71) - #ff6347
 
       inline
       void tomato( ::color::_internal::model< color::category::hsv_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void tomato( ::color::_internal::model< color::category::hsv_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0.0253623, 0.721569, 1 } );
+        color_parameter.container() = std::array<float,3>( { 9.13043, 72.1569, 100 } );
        }
 
       inline
       void tomato( ::color::_internal::model< color::category::hsv_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0.0253623, 0.721569, 1 } );
+        color_parameter.container() = std::array<double,3>( { 9.13043, 72.1569, 100 } );
        }
 
       inline
       void tomato( ::color::_internal::model< color::category::hsv_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0.0253623, 0.721569, 1 } );
+        color_parameter.container() = std::array<long double,3>( { 9.13043, 72.1569, 100 } );
        }
 
     }

@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.25098, 0.878431, 0.815686 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.25098, 0.878431, 0.815686 } ) - rgb(64,224,208) - #40e0d0
 
       inline
       void turquoise( ::color::_internal::model< color::category::hsv_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void turquoise( ::color::_internal::model< color::category::hsv_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0.483333, 0.714286, 0.878431 } );
+        color_parameter.container() = std::array<float,3>( { 174, 71.4286, 87.8431 } );
        }
 
       inline
       void turquoise( ::color::_internal::model< color::category::hsv_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0.483333, 0.714286, 0.878431 } );
+        color_parameter.container() = std::array<double,3>( { 174, 71.4286, 87.8431 } );
        }
 
       inline
       void turquoise( ::color::_internal::model< color::category::hsv_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0.483333, 0.714286, 0.878431 } );
+        color_parameter.container() = std::array<long double,3>( { 174, 71.4286, 87.8431 } );
        }
 
     }

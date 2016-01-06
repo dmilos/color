@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0, 1, 1 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0, 1, 1 } ) - rgb(0,255,255) - #00ffff
 
       inline
       void aqua( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x24;
+        color_parameter.container() = 0x4;
        }
 
       inline
       void aqua( ::color::_internal::model< color::category::yiq_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xcdd5;
+        color_parameter.container() = 0x4815;
        }
 
       inline
       void aqua( ::color::_internal::model< color::category::yiq_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffcb69b2u;
+        color_parameter.container() = 0xff4b00b2u;
        }
 
       inline
       void aqua( ::color::_internal::model< color::category::yiq_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffc9df6780b374ul;
+        color_parameter.container() = 0xffff4c340000b374ul;
        }
 
       inline
@@ -54,4 +54,3 @@
   }
 
 #endif
-

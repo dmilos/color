@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.823529, 0.705882, 0.54902 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.823529, 0.705882, 0.54902 } ) - rgb(210,180,140) - #d2b48c
 
       inline
       void tan( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

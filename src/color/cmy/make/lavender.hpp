@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.901961, 0.901961, 0.980392 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.901961, 0.901961, 0.980392 } ) - rgb(230,230,250) - #e6e6fa
 
       inline
       void lavender( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

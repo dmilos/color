@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.960784, 0.870588, 0.701961 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.960784, 0.870588, 0.701961 } ) - rgb(245,222,179) - #f5deb3
 
       inline
       void wheat( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )

@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.75, 0.75, 0.75 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.75, 0.75, 0.75 } ) - rgb(191,191,191) - #bfbfbf
 
       inline
       void silver( ::color::_internal::model< color::category::yuv_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x5;
+        color_parameter.container() = 0x5d;
        }
 
       inline
       void silver( ::color::_internal::model< color::category::yuv_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x17;
+        color_parameter.container() = 0x7df7;
        }
 
       inline
       void silver( ::color::_internal::model< color::category::yuv_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff0000bfu;
+        color_parameter.container() = 0xff7f7fbfu;
        }
 
       inline
       void silver( ::color::_internal::model< color::category::yuv_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff00000000bffful;
+        color_parameter.container() = 0xffff7fff7fffbffful;
        }
 
       inline
@@ -54,4 +54,3 @@
   }
 
 #endif
-

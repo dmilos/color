@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.933333, 0.509804, 0.933333 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.933333, 0.509804, 0.933333 } ) - rgb(238,130,238) - #ee82ee
 
       inline
       void violet( ::color::_internal::model< color::category::yuv_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x4;
+        color_parameter.container() = 0xa4;
        }
 
       inline
       void violet( ::color::_internal::model< color::category::yuv_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x3475;
+        color_parameter.container() = 0xaa75;
        }
 
       inline
       void violet( ::color::_internal::model< color::category::yuv_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff371faeu;
+        color_parameter.container() = 0xffaca3aeu;
        }
 
       inline
       void violet( ::color::_internal::model< color::category::yuv_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff37d51f51af49ul;
+        color_parameter.container() = 0xffffad64a3eaaf49ul;
        }
 
       inline
@@ -54,4 +54,3 @@
   }
 
 #endif
-

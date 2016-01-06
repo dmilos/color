@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0.65, 0 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0.65, 0 } ) - rgb(255,165,0) - #ffa500
 
       inline
       void orange( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

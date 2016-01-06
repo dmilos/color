@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0, 1 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0, 1 } ) - rgb(255,0,255) - #ff00ff
 
       inline
       void fuchsia( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x4a;
+        color_parameter.container() = 0xea;
        }
 
       inline
       void fuchsia( ::color::_internal::model< color::category::yiq_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x810c;
+        color_parameter.container() = 0xfecc;
        }
 
       inline
       void fuchsia( ::color::_internal::model< color::category::yiq_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff854569u;
+        color_parameter.container() = 0xffffba69u;
        }
 
       inline
       void fuchsia( ::color::_internal::model< color::category::yiq_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff85c8464269b9ul;
+        color_parameter.container() = 0xffffffffbaf769b9ul;
        }
 
       inline
@@ -54,4 +54,3 @@
   }
 
 #endif
-

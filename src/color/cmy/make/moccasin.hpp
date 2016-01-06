@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0.894118, 0.709804 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0.894118, 0.709804 } ) - rgb(255,228,181) - #ffe4b5
 
       inline
       void moccasin( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

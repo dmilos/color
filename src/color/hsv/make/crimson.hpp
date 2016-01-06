@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.862745, 0.0784314, 0.235294 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.862745, 0.0784314, 0.235294 } ) - rgb(220,20,60) - #dc143c
 
       inline
       void crimson( ::color::_internal::model< color::category::hsv_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void crimson( ::color::_internal::model< color::category::hsv_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0.966667, 0.909091, 0.862745 } );
+        color_parameter.container() = std::array<float,3>( { 348, 90.9091, 86.2745 } );
        }
 
       inline
       void crimson( ::color::_internal::model< color::category::hsv_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0.966667, 0.909091, 0.862745 } );
+        color_parameter.container() = std::array<double,3>( { 348, 90.9091, 86.2745 } );
        }
 
       inline
       void crimson( ::color::_internal::model< color::category::hsv_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0.966667, 0.909091, 0.862745 } );
+        color_parameter.container() = std::array<long double,3>( { 348, 90.9091, 86.2745 } );
        }
 
     }

@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.847059, 0.74902, 0.847059 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.847059, 0.74902, 0.847059 } ) - rgb(216,191,216) - #d8bfd8
 
       inline
       void thistle( ::color::_internal::model< color::category::hsl_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void thistle( ::color::_internal::model< color::category::hsl_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0.833333, 0.242718, 0.798039 } );
+        color_parameter.container() = std::array<float,3>( { 300, 24.2718, 79.8039 } );
        }
 
       inline
       void thistle( ::color::_internal::model< color::category::hsl_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0.833333, 0.242718, 0.798039 } );
+        color_parameter.container() = std::array<double,3>( { 300, 24.2718, 79.8039 } );
        }
 
       inline
       void thistle( ::color::_internal::model< color::category::hsl_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0.833333, 0.242718, 0.798039 } );
+        color_parameter.container() = std::array<long double,3>( { 300, 24.2718, 79.8039 } );
        }
 
     }

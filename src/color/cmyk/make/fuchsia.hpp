@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0, 1 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0, 1 } ) - rgb(255,0,255) - #ff00ff
 
       inline
       void fuchsia( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )

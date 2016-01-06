@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.854902, 0.439216, 0.839216 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.854902, 0.439216, 0.839216 } ) - rgb(218,112,214) - #da70d6
 
       inline
       void orchid( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )

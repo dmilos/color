@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.866667, 0.627451, 0.866667 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.866667, 0.627451, 0.866667 } ) - rgb(221,160,221) - #dda0dd
 
       inline
       void salmon( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

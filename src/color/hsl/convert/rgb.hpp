@@ -60,7 +60,6 @@ namespace color
                 {
                  h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
                 }
-
                if( hi == b ) 
                 {
                  h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));

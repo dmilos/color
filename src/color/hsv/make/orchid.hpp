@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.854902, 0.439216, 0.839216 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.854902, 0.439216, 0.839216 } ) - rgb(218,112,214) - #da70d6
 
       inline
       void orchid( ::color::_internal::model< color::category::hsv_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void orchid( ::color::_internal::model< color::category::hsv_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0.839623, 0.486239, 0.854902 } );
+        color_parameter.container() = std::array<float,3>( { 302.264, 48.6239, 85.4902 } );
        }
 
       inline
       void orchid( ::color::_internal::model< color::category::hsv_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0.839623, 0.486239, 0.854902 } );
+        color_parameter.container() = std::array<double,3>( { 302.264, 48.6239, 85.4902 } );
        }
 
       inline
       void orchid( ::color::_internal::model< color::category::hsv_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0.839623, 0.486239, 0.854902 } );
+        color_parameter.container() = std::array<long double,3>( { 302.264, 48.6239, 85.4902 } );
        }
 
     }

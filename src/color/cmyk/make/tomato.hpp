@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0.388235, 0.278431 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0.388235, 0.278431 } ) - rgb(255,99,71) - #ff6347
 
       inline
       void tomato( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )

@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0.5, 0.31 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0.5, 0.31 } ) - rgb(255,127,79) - #ff7f4f
 
       inline
       void coral( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

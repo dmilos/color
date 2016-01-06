@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0, 1 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0, 1 } ) - rgb(255,0,255) - #ff00ff
 
       inline
       void magenta( ::color::_internal::model< color::category::yuv_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x52;
+        color_parameter.container() = 0xaa;
        }
 
       inline
       void magenta( ::color::_internal::model< color::category::yuv_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x810c;
+        color_parameter.container() = 0xe72c;
        }
 
       inline
       void magenta( ::color::_internal::model< color::category::yuv_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff834969u;
+        color_parameter.container() = 0xffead369u;
        }
 
       inline
       void magenta( ::color::_internal::model< color::category::yuv_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff83d549f269b9ul;
+        color_parameter.container() = 0xffffeb2ed4cc69b9ul;
        }
 
       inline
@@ -54,4 +54,3 @@
   }
 
 #endif
-

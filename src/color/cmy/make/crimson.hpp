@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.862745, 0.0784314, 0.235294 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.862745, 0.0784314, 0.235294 } ) - rgb(220,20,60) - #dc143c
 
       inline
       void crimson( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0.65, 0 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0.65, 0 } ) - rgb(255,165,0) - #ffa500
 
       inline
       void orange( ::color::_internal::model< color::category::yuv_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x34;
+        color_parameter.container() = 0x84;
        }
 
       inline
       void orange( ::color::_internal::model< color::category::yuv_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x46d5;
+        color_parameter.container() = 0xb475;
        }
 
       inline
       void orange( ::color::_internal::model< color::category::yuv_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff47abadu;
+        color_parameter.container() = 0xffb91dadu;
        }
 
       inline
       void orange( ::color::_internal::model< color::category::yuv_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff47beaa45ae37ul;
+        color_parameter.container() = 0xffffba531daeae37ul;
        }
 
       inline
@@ -54,4 +54,3 @@
   }
 
 #endif
-

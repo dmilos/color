@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.941176, 0.901961, 0.54902 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.941176, 0.901961, 0.54902 } ) - rgb(240,230,140) - #f0e68c
 
       inline
       void khaki( ::color::_internal::model< color::category::hsv_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void khaki( ::color::_internal::model< color::category::hsv_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0.15, 0.416667, 0.941176 } );
+        color_parameter.container() = std::array<float,3>( { 54, 41.6667, 94.1176 } );
        }
 
       inline
       void khaki( ::color::_internal::model< color::category::hsv_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0.15, 0.416667, 0.941176 } );
+        color_parameter.container() = std::array<double,3>( { 54, 41.6667, 94.1176 } );
        }
 
       inline
       void khaki( ::color::_internal::model< color::category::hsv_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0.15, 0.416667, 0.941176 } );
+        color_parameter.container() = std::array<long double,3>( { 54, 41.6667, 94.1176 } );
        }
 
     }

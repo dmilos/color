@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0, 0 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0, 0 } ) - rgb(255,0,0) - #ff0000
 
       inline
       void red( ::color::_internal::model< color::category::hsl_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void red( ::color::_internal::model< color::category::hsl_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0, 1, 0.5 } );
+        color_parameter.container() = std::array<float,3>( { 0, 100, 50 } );
        }
 
       inline
       void red( ::color::_internal::model< color::category::hsl_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0, 1, 0.5 } );
+        color_parameter.container() = std::array<double,3>( { 0, 100, 50 } );
        }
 
       inline
       void red( ::color::_internal::model< color::category::hsl_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0, 1, 0.5 } );
+        color_parameter.container() = std::array<long double,3>( { 0, 100, 50 } );
        }
 
     }

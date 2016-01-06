@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.980392, 0.941176, 0.901961 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.980392, 0.941176, 0.901961 } ) - rgb(250,240,230) - #faf0e6
 
       inline
       void linen( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )

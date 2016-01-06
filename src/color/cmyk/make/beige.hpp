@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.960784, 0.960784, 0.862745 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.960784, 0.960784, 0.862745 } ) - rgb(245,245,220) - #f5f5dc
 
       inline
       void beige( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )

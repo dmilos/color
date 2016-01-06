@@ -6,30 +6,30 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0, 0.5, 0.5 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0, 0.5, 0.5 } ) - rgb(0,127,127) - #007f7f
 
       inline
       void teal( ::color::_internal::model< color::category::yiq_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x32;
+        color_parameter.container() = 0x4a;
        }
 
       inline
       void teal( ::color::_internal::model< color::category::yiq_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xeaea;
+        color_parameter.container() = 0x64ea;
        }
 
       inline
       void teal( ::color::_internal::model< color::category::yiq_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffe6b559u;
+        color_parameter.container() = 0xff653f59u;
        }
 
       inline
       void teal( ::color::_internal::model< color::category::yiq_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffe4f0b3c059baul;
+        color_parameter.container() = 0xffff661a3fff59baul;
        }
 
       inline
@@ -54,4 +54,3 @@
   }
 
 #endif
-

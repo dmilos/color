@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 1, 0.5, 0.31 } ) 
+    { //RGB equivalents: std::array<double,3>( { 1, 0.5, 0.31 } ) - rgb(255,127,79) - #ff7f4f
 
       inline
       void coral( ::color::_internal::model< color::category::hsv_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void coral( ::color::_internal::model< color::category::hsv_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0.0458937, 0.69, 1 } );
+        color_parameter.container() = std::array<float,3>( { 16.5217, 69, 100 } );
        }
 
       inline
       void coral( ::color::_internal::model< color::category::hsv_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0.0458937, 0.69, 1 } );
+        color_parameter.container() = std::array<double,3>( { 16.5217, 69, 100 } );
        }
 
       inline
       void coral( ::color::_internal::model< color::category::hsv_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0.0458937, 0.69, 1 } );
+        color_parameter.container() = std::array<long double,3>( { 16.5217, 69, 100 } );
        }
 
     }

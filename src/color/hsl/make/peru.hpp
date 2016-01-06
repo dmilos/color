@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.803922, 0.521569, 0.247059 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.803922, 0.521569, 0.247059 } ) - rgb(205,133,63) - #cd853f
 
       inline
       void peru( ::color::_internal::model< color::category::hsl_uint8 > & color_parameter )
@@ -35,19 +35,19 @@
       inline
       void peru( ::color::_internal::model< color::category::hsl_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 0.0821596, 0.586777, 0.52549 } );
+        color_parameter.container() = std::array<float,3>( { 29.5775, 58.6777, 52.549 } );
        }
 
       inline
       void peru( ::color::_internal::model< color::category::hsl_double> & color_parameter )
        {
-        color_parameter.container() = std::array<double,3>( { 0.0821596, 0.586777, 0.52549 } );
+        color_parameter.container() = std::array<double,3>( { 29.5775, 58.6777, 52.549 } );
        }
 
       inline
       void peru( ::color::_internal::model< color::category::hsl_ldouble> & color_parameter )
        {
-        color_parameter.container() = std::array<long double,3>( { 0.0821596, 0.586777, 0.52549 } );
+        color_parameter.container() = std::array<long double,3>( { 29.5775, 58.6777, 52.549 } );
        }
 
     }

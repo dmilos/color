@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0, 0, 0.5 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0, 0, 0.5 } ) - rgb(0,0,127) - #00007f
 
       inline
       void navy( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )

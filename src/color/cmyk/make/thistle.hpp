@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.847059, 0.74902, 0.847059 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0.847059, 0.74902, 0.847059 } ) - rgb(216,191,216) - #d8bfd8
 
       inline
       void thistle( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
