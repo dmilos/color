@@ -29,12 +29,12 @@ Available color models: CMY, CMYK, GRAY, HSL, HSV, RGB, XYZ, YIQ, YUV
 Implemented Conversions:
 > | l = r | cmy  | cmyk | gray | hsl  | hsv  | rgb  | xyz  | yiq  | yuv  |
 > |-------|------|------|------|------|------|------|------|------|------|
-> | cmy   |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |  :white_check_mark: |      | :white_check_mark: | :white_check_mark: |
-> | cmyk  |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |  :white_check_mark: |      |      |      |
-> | gray  |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |  :white_check_mark: |  :white_check_mark: |
-> | hsl   |      |      |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |      |
-> | hsv   |      |      |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |      |
-> | rgb   |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: | :white_check_mark: |  :white_check_mark: |
+> | cmy   | :white_check_mark: |  :white_check_mark: |  :white_check_mark: | :white_check_mark: | :white_check_mark: |  :white_check_mark: |      | :white_check_mark: | :white_check_mark: |
+> | cmyk  | :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |  :white_check_mark: |      |      |      |
+> | gray  | :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |  :white_check_mark: |  :white_check_mark: |
+> | hsl   | :white_check_mark: |      |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |      |
+> | hsv   | :white_check_mark: |      |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |      |
+> | rgb   | :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: | :white_check_mark: |  :white_check_mark: |
 > | xyz   |      |      |      |      |      |  :white_check_mark: |  :white_check_mark: |      |      |
 > | yiq   | :white_check_mark: |      |  :white_check_mark: |      |      |  :white_check_mark: |      |  :white_check_mark: |      |
 > | yuv   | :white_check_mark: |      | :white_check_mark: |      |      |  :white_check_mark: |      |      |  :white_check_mark: |
