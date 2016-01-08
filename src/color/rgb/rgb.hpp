@@ -18,6 +18,7 @@
 //#include "./set/set.hpp"
 #include "./make/make.hpp"
 #include "./convert/convert.hpp"
+#include "./akin/akin.hpp"
 
 namespace color
  {
