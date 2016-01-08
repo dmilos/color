@@ -117,7 +117,7 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 
 int main(int argc, char const *argv[])
  {
-
+  /*
   make_image<color::hsl<double> >( "image-hsl.tga" , 0.5 );
   make_image<color::hsv<double> >( "image-hsv.tga" , 0.5 );
   make_image<color::rgb<double> >( "image-rgb-0.tga" , 0.5, 0 );
@@ -141,14 +141,17 @@ int main(int argc, char const *argv[])
   make_image<color::yuv<double> >("image-yuv_0.8.tga", 0.8);
   make_image<color::yuv<double> >("image-yuv_0.9.tga", 0.9);
   make_image<color::yuv<double> >("image-yuv_1.0.tga", 1.0);
-
+  */
   //invoke();
 
-  extern void check_conversion();
-  check_conversion();
+  //extern void check_conversion();
+  //check_conversion();
+  //
+  //extern void make_test();
+  //make_test();
 
-  extern void make_test();
-  make_test();
+  extern void print_bound();
+  print_bound();
 
   return 0;
  }

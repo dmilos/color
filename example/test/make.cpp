@@ -154,8 +154,8 @@ void print_header( std::string const& model, std::string const& name, color::rgb
   ss                                                                                                      << std::endl;
   ss << "#endif"                                                                                          << std::endl;
 
-  std::cout << ss.str();
-  std::cout << "-------" << std:: endl;
+  //std::cout << ss.str();
+  //std::cout << "-------" << std:: endl;
 
    {
     std::ofstream ofs( ( "./gen-"+ model +"/"+name + ".hpp" ). c_str() );
