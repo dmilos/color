@@ -3,6 +3,8 @@
 // color::operation::scale( )
 // color::operation::scale( )
 
+#include "../../_internal/model.hpp"
+
  namespace color
   {
    namespace operation
@@ -17,18 +19,20 @@
             typedef scalar_name    scalar_type;
             typedef scalar_type  const&  scalar_const_input_type;
 
-            typedef color::_internal::trait< category_type >   trait_type;
+            typedef ::color::trait::container< category_type >   container_trait_type;
+
+            typedef ::color::trait::index<category_type>         index_trait_type;
 
             typedef typename color::_internal::model<category_type>  model_type;
-            typedef model_type &  model_input_type;
+
+            typedef model_type &       model_input_type;
             typedef model_type const&  model_const_input_type;
 
-            typedef typename trait_type::component_type component_type;
-            typedef typename trait_type::index_type  index_type;
+            typedef typename index_trait_type::instance_type  index_type;
 
             static void process( model_input_type  result, scalar_const_input_type const& scalar )
              {
-              for( index_type index = 0; index < trait_type::size(); index ++ )
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, result.get( index ) * scalar );
                }
@@ -36,7 +40,7 @@
 
             static void process(  model_input_type  result, scalar_const_input_type scalar, model_const_input_type right )
              {
-              for( index_type index = 0; index < trait_type::size(); index ++ )
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, scalar * right.get( index ) );
                }

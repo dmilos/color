@@ -7,11 +7,19 @@
 #include "./convert.hpp"
 #include "./init.hpp"
 
+/**
+ * @namespace color
+ * Main namespace for this library
+ */
 namespace color
  {
   namespace _internal
    {
 
+    /**
+     * @class model
+     * Model for all color models.
+     */
     template< typename category_name >
      class model
       {

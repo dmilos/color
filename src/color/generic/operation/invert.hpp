@@ -1,6 +1,8 @@
 #ifndef  color_generic_operation_invert_123
 #define color_generic_operation_invert_123
 
+#include "../../_internal/model.hpp"
+
 // ::color::operation::_internal::invert<category_name>::component<>( )
 // ::color::operation::_internal::invert<category_name>::process( )
 // ::color::operation::_internal::invert<category_name>::process( )
@@ -18,18 +20,20 @@
           public:
             typedef category_name  category_type;
 
-
-            typedef color::_internal::trait< category_type >   trait_type;
+            typedef ::color::trait::index<category_type>         index_trait_type;
+            typedef ::color::trait::bound<category_type>         bound_type;
+            typedef ::color::trait::component< category_name >   component_trait_type;
+            typedef ::color::trait::container< category_name >   container_trait_type;
 
             typedef typename color::_internal::model<category_type>  model_type;
 
-            typedef typename trait_type::component_type component_type;
-            typedef typename trait_type::component_input_const_type component_input_const_type;
 
-            typedef typename trait_type::index_type              index_type;
-            typedef typename trait_type::index_input_const_type  index_input_const_type;
+            typedef typename component_trait_type::input_const_type component_input_const_type;
+            typedef typename component_trait_type::return_type      component_return_type;
 
-            typedef typename trait_type::component_return_type  component_return_type;
+            typedef typename index_trait_type::instance_type     index_type;
+            typedef typename index_trait_type::input_const_type  index_input_const_type;
+
 
             static component_return_type
             component
@@ -38,7 +42,7 @@
               ,index_input_const_type     index
              )
              {
-                return trait_type::range(index) - component;
+                return bound_type::range(index) - component;
              }
 
             template< index_type index_size >
@@ -46,12 +50,12 @@
              component_return_type
              component( component_input_const_type component )
              {
-              return trait_type::template range<index_size>() - component;
+              return bound_type::template range<index_size>() - component;
              }
 
             static void process( model_type &result )
              {
-              for( index_type index = 0; index < trait_type::size(); index ++ )
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, component( result.get( index ), index ) );
                }
@@ -59,7 +63,7 @@
 
             static void process(  model_type &result, model_type const& right )
              {
-              for( index_type index = 0; index < trait_type::size(); index ++ )
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, component( right.get( index ), index ) );
                }

@@ -1,7 +1,10 @@
 #ifndef color_operation_normalize
 #define color_operation_normalize
 
+#include "../../_internal/model.hpp"
 #include "../../_internal/normalize.hpp"
+#include "../trait/index.hpp"
+
 
 namespace color
  {

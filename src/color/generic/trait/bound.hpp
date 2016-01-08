@@ -13,9 +13,20 @@
 
 namespace color
  {
+  /**
+   * @namespace trait
+   * Traits of models
+   */
   namespace trait
    {
-
+    /**
+     * @class bound
+     * Bounds or limits.
+     * Expected to have:
+     * - bound::minimum
+     * - bound::maximum
+     * - bound::range
+     */
     template< typename category_name >
      struct bound
       : public ::color::_internal::utility::bound::general

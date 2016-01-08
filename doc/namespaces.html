@@ -7,36 +7,43 @@
 	<body>
 		<h1 align="center"> Namespaces </h1>
 		<dl>
-			<dt>color</dt>
-			<dd>Main name space</dd>
-
-			<dt>color::operation</dt>
-			<dd>
-				All operations are situated here.
+			<dt><code>color</code></dt>
+			<dd>Main name space. Usually contain color model classes, but also might contain other useful things.
+				For more details see .
 			</dd>
-			<dt>color::category</dt>
+
+			<dt><code>color::operation</code></dt>
+			<dd>
+				All operations are situated here. Some operations are not designed to be used in this form e.g. <code>color::operation:addition</code>
+				<br>For more details see <a href="" >operations</a>.
+			</dd>
+			<dt><code>color::category</code></dt>
 			<dd>
 				Contain all color categories. Category is pair of model and format.
-			</dd>
-            
-			<dt>color::get</dt>
-			<dd>
-				Get some property  of color
+				<br>For more details see <a href="./category.html">category</a>.
 			</dd>
 
-			<dt>color::set</dt>
+			<dt><code>color::get</code></dt>
 			<dd>
-				Set some property  of color
+				Get some property of color by the name. Depend of used color model this operation might be instant like getting red from RGB or require some calculation, get red from HSV model.
+				<br>For more details see <a href="./get.html">get</a>.
 			</dd>
 
-			<dt>color::make</dt>
+			<dt><code>color::set</code></dt>
 			<dd>
-				Contain functions to make some specific color.
+				Set some property of color. Similarly  to get this operation might be instant or need calculation.
+				<br>For more details see <a href="./set.html">set</a>.
 			</dd>
 
-			<dt>color::_internal</dt>
+			<dt><code>color::make</code></dt>
 			<dd>
-				Miscellaneous internal thing. Do not use class from here. It is highly probably that this might change from version to version
+				Make color by given name.
+				<br>For more details see <a href="./make.html">make</a>.
+			</dd>
+
+			<dt><code>color::_internal</code></dt>
+			<dd>
+				Miscellaneous internal things. Do not use entities from here. It is highly probably that this might change from version to version or from one commit to another.
 			</dd>
 
 		</dl>

@@ -15,7 +15,10 @@
 
 namespace color
  {
-  // name space to hold all categories and their manipulator
+  /**
+   * @namespace color::category 
+   * To hold all categories and their manipulator.
+   */  
   namespace category 
    {
     // empty
