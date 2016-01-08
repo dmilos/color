@@ -144,14 +144,14 @@ int main(int argc, char const *argv[])
   */
   //invoke();
 
-  //extern void check_conversion();
-  //check_conversion();
-  //
-  //extern void make_test();
-  //make_test();
+  extern void check_conversion();
+  check_conversion();
+  
+  extern void make_test();
+  make_test();
 
-  extern void print_bound();
-  print_bound();
+  //extern void print_bound();
+  //print_bound();
 
   return 0;
  }

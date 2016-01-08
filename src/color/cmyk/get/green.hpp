@@ -3,7 +3,7 @@
 
 // ::color::get::green( c )
 
-
+#include "../../generic/akin/rgb.hpp"
 
  namespace color
   {
@@ -16,16 +16,19 @@
          namespace _internal
           {
 
-           template< typename category_name >
+           template< typename category_name, typename scalar_name = double >
             inline
-            typename ::color::_internal::model< category_name >::component_const_type
+            typename ::color::_internal::model< typename ::color::akin::rgb<category_name>::akin_type >::component_const_type
             green( ::color::_internal::model< category_name > const& color_parameter  )
              {
-              typedef ::color::_internal::model< category_name > model_type;
-              typedef ::color::_internal::trait< category_name > trait_type;
-              typedef typename trait_type::component_type     component_type;
+              typedef scalar_name scalar_type;
 
-              return ( trait_type::template range<1>() - ( color_parameter.template get<1>() - trait_type::template minimum<1>() ) ) + trait_type::template  minimum<1>(); 
+              typedef typename ::color::akin::rgb<category_name >::akin_type     akin_type;
+
+              typedef  ::color::operation::_internal::invert< category_name > invert_type; 
+              typedef  ::color::_internal::reformat< akin_type, category_name, scalar_name > reformat_type;
+
+              return reformat_type::template process<1,1>( invert_type::template component<1>( color_parameter.template get<1>() ) );
              }
 
           }

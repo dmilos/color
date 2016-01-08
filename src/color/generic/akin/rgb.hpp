@@ -7,6 +7,7 @@ namespace color
  {
   namespace akin
    {
+
     template< typename category_name >
      struct rgb
       {

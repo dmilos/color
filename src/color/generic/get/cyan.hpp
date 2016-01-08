@@ -7,7 +7,7 @@
   {
    namespace get
     {
-
+     // Dubious, ans has to be removed
      template< typename category_name >
       inline
       typename ::color::_internal::model< category_name >::component_const_type
