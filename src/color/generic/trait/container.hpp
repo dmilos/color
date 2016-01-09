@@ -19,7 +19,7 @@ namespace color
 
          typedef instance_type const    const_type;
 
-         typedef instance_type const    return_const_type;
+         typedef instance_type const    return_image_type;
          typedef instance_type const&   return_const_ref_type;
          typedef instance_type      &   return_type;
          typedef instance_type      &   return_ref_type;
@@ -37,7 +37,7 @@ namespace color
 
          typedef ::color::trait::component< category_name >      component_trait_type;
          typedef typename component_trait_type::const_type           component_const_type;
-         typedef typename component_trait_type::return_const_type    component_return_const_type;
+         typedef typename component_trait_type::return_image_type    component_return_const_type;
          typedef typename component_trait_type::input_const_type     component_input_const_type;
          typedef typename component_trait_type::instance_type        component_type;
 

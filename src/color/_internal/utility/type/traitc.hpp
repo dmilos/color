@@ -12,6 +12,7 @@ namespace color
       namespace type
        {
 
+
         template < typename type_name >
          struct traitC // for types in container
           {
@@ -20,13 +21,14 @@ namespace color
 
              typedef  instance_type  const    const_type;
 
-             typedef  instance_type  const&   return_const_type;     //!< Will be returned but must be constant
-             typedef  instance_type           return_type;           //!< May be able to modify with/out effect of real modification
-           //typedef  instance_type       &   return_original_type;  //!< Return original object wit ability to modify them
+             typedef  instance_type  const&   return_image_type;
+             typedef  instance_type           return_type;
+           //typedef  instance_type       &   return_original_type;
 
              typedef  instance_type  const&   input_const_type;
-             typedef  instance_type       &   input_type;        //!< Input parameter. Modifiable but might have no external effect
-           //typedef  instance_type       &   output_type;       //!< Output parameter. Must be modifiable.
+             typedef  instance_type       &   input_type;
+           //typedef  instance_type       &   output_type;
+
           };
 
        }

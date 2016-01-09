@@ -3,6 +3,8 @@
 
 // ::color::get::blue( c )
 
+
+
  namespace color
   {
    namespace get

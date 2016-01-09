@@ -12,6 +12,7 @@ namespace color
       namespace type
        {
 
+        // Referent type trait point
         template< typename index_name >
          struct index
           {
@@ -21,7 +22,7 @@ namespace color
              typedef  instance_type  const    const_type;     //!< constant instance
 
              typedef  instance_type  const&   return_image_type;     //!< Return type that can not be changed. Might or might not be reference
-             typedef  instance_type  const&   return_direct_type;     //!< Return type that can not be changed. Must be reference
+             typedef  instance_type           return_type;           //!< Return type that can be changed, but without effect.
              typedef  instance_type       &   return_original_type;  //!< Return original object with ability to modify them
 
              typedef  instance_type  const&   input_const_type, param_const_input_type;   //!< Input type that can not be changed

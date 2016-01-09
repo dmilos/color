@@ -60,7 +60,7 @@ public:
 	typedef unsigned char instance_type;
 	typedef instance_type const const_type;
 
-	typedef instance_type const return_const_type;
+	typedef instance_type const return_image_type;
 	typedef instance_type const return_const_ref_type;
 	typedef instance_type return_type;
 	typedef instance_type return_ref_type;
@@ -83,7 +83,7 @@ public:
 
 	typedef instance_type const const_type;
 
-	typedef instance_type const return_const_type;
+	typedef instance_type const return_image_type;
 	typedef instance_type const& return_const_ref_type;
 	typedef instance_type & return_type;
 	typedef instance_type & return_ref_type;
@@ -100,7 +100,7 @@ public:
 
 	typedef ::color::trait::component< category_name > component_trait_type;
 	typedef typename component_trait_type::const_type component_const_type;
-	typedef typename component_trait_type::return_const_type component_return_const_type;
+	typedef typename component_trait_type::return_image_type component_return_const_type;
 	typedef typename component_trait_type::input_const_type component_input_const_type;
 	typedef typename component_trait_type::instance_type component_type;
 
@@ -364,7 +364,7 @@ public:
 
 	typedef instance_type const const_type;
 
-	typedef instance_type const& return_const_type;
+	typedef instance_type const& return_image_type;
 	typedef instance_type return_type;
 
 	typedef instance_type const& input_const_type;
@@ -392,7 +392,7 @@ public:
 	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 	typedef typename component_trait_type::instance_type component_instance_type;
-	typedef typename component_trait_type::return_const_type component_return_const_type;
+	typedef typename component_trait_type::return_image_type component_return_const_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
 	typedef typename index_trait_type::input_const_type index_input_const_type;
@@ -490,14 +490,14 @@ public:
 
 	typedef typename component_trait_type::instance_type component_type;
 	typedef typename component_trait_type::const_type component_const_type;
-	typedef typename component_trait_type::return_const_type component_return_const_type;
+	typedef typename component_trait_type::return_image_type component_return_const_type;
 	typedef typename component_trait_type::return_type component_return_type;
 	typedef typename component_trait_type::input_const_type component_input_const_type;
 	typedef typename component_trait_type::input_type component_input_type;
 
 	typedef typename container_trait_type::instance_type container_type;
 	typedef typename container_trait_type::const_type container_const_type;
-	typedef typename container_trait_type::return_const_type container_return_const_type;
+	typedef typename container_trait_type::return_image_type container_return_const_type;
 	typedef typename container_trait_type::return_type container_return_type;
 	typedef typename container_trait_type::input_const_type container_input_const_type;
 	typedef typename container_trait_type::input_type container_input_type;
@@ -3071,7 +3071,7 @@ namespace color {
 
 					typedef typename utility_trait_type::instance_type instance_type;
 					typedef typename utility_trait_type::const_type const_type;
-					typedef typename utility_trait_type::return_const_type return_const_type;
+					typedef typename utility_trait_type::return_image_type return_image_type;
 					typedef typename utility_trait_type::return_type return_type;
 					typedef typename utility_trait_type::input_const_type input_const_type;
 					typedef typename utility_trait_type::input_type input_type;
@@ -3099,7 +3099,7 @@ namespace color {
 
 					typedef instance_type const const_type;
 
-					typedef instance_type const return_const_type;
+					typedef instance_type const return_image_type;
 					typedef instance_type return_type;
 
 					typedef instance_type const& input_const_type;
@@ -3127,7 +3127,7 @@ namespace color {
 					typedef bool instance_type;
 
 					typedef instance_type const const_type;
-					typedef instance_type const& return_const_type;
+					typedef instance_type const& return_image_type;
 					typedef instance_type & return_type;
 					typedef instance_type const& input_const_type;
 					typedef instance_type & input_type;
@@ -3141,7 +3141,7 @@ namespace color {
 
 					typedef ::color::_internal::utility::type::traitC< value_type > component_trait_type;
 
-					typedef typename component_trait_type::return_const_type component_return_const_type;
+					typedef typename component_trait_type::return_image_type component_return_const_type;
 					typedef typename component_trait_type::input_const_type component_input_const_type;
 					typedef typename component_trait_type::instance_type component_type;
 
@@ -3210,7 +3210,7 @@ namespace color {
 
 					typedef typename utility_trait_type::instance_type instance_type;
 					typedef typename utility_trait_type::const_type const_type;
-					typedef typename utility_trait_type::return_const_type return_const_type;
+					typedef typename utility_trait_type::return_image_type return_image_type;
 					typedef typename utility_trait_type::return_type return_type;
 					typedef typename utility_trait_type::input_const_type input_const_type;
 					typedef typename utility_trait_type::input_type input_type;
@@ -3242,7 +3242,7 @@ namespace color {
 					typedef color::_internal::utility::container::Unsigned<unsigned_name,value_name,index_name,length,width> this_type;
 
 					typedef instance_type const const_type;
-					typedef instance_type const& return_const_type;
+					typedef instance_type const& return_image_type;
 					typedef instance_type & return_type;
 					typedef instance_type const& input_const_type;
 					typedef instance_type & input_type;
@@ -3258,7 +3258,7 @@ namespace color {
 
 					typedef typename component_trait_type::const_type component_const_type;
 					typedef typename component_trait_type::instance_type component_type;
-					typedef typename component_trait_type::return_const_type component_return_const_type;
+					typedef typename component_trait_type::return_image_type component_return_const_type;
 					typedef typename component_trait_type::input_const_type component_input_const_type;
 
 					typedef void set_return_type;
@@ -3286,7 +3286,7 @@ static index_return_image_type size() {
 	return local_length;
 }
 private:
-static return_const_type mask() {
+static return_image_type mask() {
 	static instance_type local_mask = (((instance_type(1) << (width-1)) - instance_type(1))<< 1) + instance_type(1);
 	return local_mask;
 }
@@ -3408,7 +3408,7 @@ namespace color {
 					typedef std::array< value_name, length> instance_type;
 
 					typedef instance_type const const_type;
-					typedef instance_type const& return_const_type;
+					typedef instance_type const& return_image_type;
 					typedef instance_type & return_type;
 					typedef instance_type const& input_const_type;
 					typedef instance_type & input_type;
@@ -3425,7 +3425,7 @@ namespace color {
 
 					typedef typename component_trait_type::instance_type component_type;
 					typedef typename component_trait_type::const_type component_const_type;
-					typedef typename component_trait_type::return_const_type component_return_const_type;
+					typedef typename component_trait_type::return_image_type component_return_const_type;
 					typedef typename component_trait_type::input_const_type component_input_const_type;
 
 					typedef void set_return_type;
@@ -4814,40 +4814,40 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_const_type return_const_type;
+					typedef typename trait_type::return_image_type return_image_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 
 					template< index_instance_type index >
-static return_const_type maximum() {
+static return_image_type maximum() {
 	static instance_type max_list[] = { 7, 7, 3 };
 	return max_list[index];
 }
 
-static return_const_type maximum(index_input_const_type index) {
+static return_image_type maximum(index_input_const_type index) {
 	static instance_type max_list[] = { 7, 7, 3 };
 	return max_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type minimum() {
+static return_image_type minimum() {
 	static instance_type value=0;
 	return value;
 }
 
-static return_const_type minimum(index_input_const_type index) {
+static return_image_type minimum(index_input_const_type index) {
 	static instance_type value=0;
 	return value;
 }
 
 template< index_instance_type index >
-static return_const_type range() {
+static return_image_type range() {
 	static instance_type max_list[] = { 7, 7, 3 };
 	return max_list[index];
 }
 
-static return_const_type range(index_input_const_type index) {
+static return_image_type range(index_input_const_type index) {
 	static instance_type max_list[] = { 7, 7, 3 };
 	return max_list[index];
 }
@@ -4888,7 +4888,7 @@ namespace color {
 					typedef std::uint8_t instance_type;
 
 					typedef instance_type const const_type;
-					typedef instance_type const& return_const_type;
+					typedef instance_type const& return_image_type;
 					typedef instance_type & return_type;
 					typedef instance_type const& input_const_type;
 					typedef instance_type & input_type;
@@ -4904,7 +4904,7 @@ namespace color {
 
 					typedef typename component_trait_type::const_type component_const_type;
 					typedef typename component_trait_type::instance_type component_type;
-					typedef typename component_trait_type::return_const_type component_return_const_type;
+					typedef typename component_trait_type::return_image_type component_return_const_type;
 					typedef typename component_trait_type::input_const_type component_input_const_type;
 
 					typedef void set_return_type;
@@ -5014,40 +5014,40 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_const_type return_const_type;
+					typedef typename trait_type::return_image_type return_image_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 
 					template< index_instance_type index >
-static return_const_type maximum() {
+static return_image_type maximum() {
 	static instance_type max_list[] = { 31, 31, 63 };
 	return max_list[index];
 }
 
-static return_const_type maximum(index_input_const_type index) {
+static return_image_type maximum(index_input_const_type index) {
 	static instance_type max_list[] = { 31, 31, 63 };
 	return max_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type minimum() {
+static return_image_type minimum() {
 	static instance_type value=0;
 	return value;
 }
 
-static return_const_type minimum(index_input_const_type index) {
+static return_image_type minimum(index_input_const_type index) {
 	static instance_type value=0;
 	return value;
 }
 
 template< index_instance_type index >
-static return_const_type range() {
+static return_image_type range() {
 	static instance_type max_list[] = { 31, 31, 63 };
 	return max_list[index];
 }
 
-static return_const_type range(index_input_const_type index) {
+static return_image_type range(index_input_const_type index) {
 	static instance_type max_list[] = { 31, 31, 63 };
 	return max_list[index];
 }
@@ -5087,7 +5087,7 @@ namespace color {
 					typedef std::uint16_t instance_type;
 
 					typedef instance_type const const_type;
-					typedef instance_type const& return_const_type;
+					typedef instance_type const& return_image_type;
 					typedef instance_type & return_type;
 					typedef instance_type const& input_const_type;
 					typedef instance_type & input_type;
@@ -5103,7 +5103,7 @@ namespace color {
 
 					typedef typename component_trait_type::const_type component_const_type;
 					typedef typename component_trait_type::instance_type component_type;
-					typedef typename component_trait_type::return_const_type component_return_const_type;
+					typedef typename component_trait_type::return_image_type component_return_const_type;
 					typedef typename component_trait_type::input_const_type component_input_const_type;
 
 					typedef void set_return_type;
@@ -5213,7 +5213,7 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename component_trait_type::instance_type component_instance_type;
-					typedef typename component_trait_type::return_const_type component_return_const_type;
+					typedef typename component_trait_type::return_image_type component_return_const_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
 					typedef typename index_trait_type::input_const_type index_input_const_type;
@@ -8508,40 +8508,40 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_const_type return_const_type;
+					typedef typename trait_type::return_image_type return_image_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 
 					template< index_instance_type index >
-static return_const_type maximum() {
+static return_image_type maximum() {
 	static instance_type max_list[] = { 3, 3, 3, 3 };
 	return max_list[index];
 }
 
-static return_const_type maximum(index_input_const_type index) {
+static return_image_type maximum(index_input_const_type index) {
 	static instance_type max_list[] = { 3, 3, 3, 3 };
 	return max_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type minimum() {
+static return_image_type minimum() {
 	static instance_type value=0;
 	return value;
 }
 
-static return_const_type minimum(index_input_const_type index) {
+static return_image_type minimum(index_input_const_type index) {
 	static instance_type value=0;
 	return value;
 }
 
 template< index_instance_type index >
-static return_const_type range() {
+static return_image_type range() {
 	static instance_type max_list[] = { 3, 3, 3, 3 };
 	return max_list[index];
 }
 
-static return_const_type range(index_input_const_type index) {
+static return_image_type range(index_input_const_type index) {
 	static instance_type max_list[] = { 3, 3, 3, 3 };
 	return max_list[index];
 }
@@ -8582,7 +8582,7 @@ namespace color {
 					typedef std::uint8_t instance_type;
 
 					typedef instance_type const const_type;
-					typedef instance_type const& return_const_type;
+					typedef instance_type const& return_image_type;
 					typedef instance_type & return_type;
 					typedef instance_type const& input_const_type;
 					typedef instance_type & input_type;
@@ -8598,7 +8598,7 @@ namespace color {
 
 					typedef typename component_trait_type::const_type component_const_type;
 					typedef typename component_trait_type::instance_type component_type;
-					typedef typename component_trait_type::return_const_type component_return_const_type;
+					typedef typename component_trait_type::return_image_type component_return_const_type;
 					typedef typename component_trait_type::input_const_type component_input_const_type;
 
 					typedef void set_return_type;
@@ -14671,40 +14671,40 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_const_type return_const_type;
+					typedef typename trait_type::return_image_type return_image_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 
 					template< index_instance_type index >
-static return_const_type maximum() {
+static return_image_type maximum() {
 	static instance_type max_list[] = { 360, 100, 100 };
 	return max_list[index];
 }
 
-static return_const_type maximum(index_input_const_type index) {
+static return_image_type maximum(index_input_const_type index) {
 	static instance_type max_list[] = { 360, 100, 100 };
 	return max_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type minimum() {
+static return_image_type minimum() {
 	static instance_type min_list[] = { 0, 0, 0 };
 	return min_list[index];
 }
 
-static return_const_type minimum(index_input_const_type index) {
+static return_image_type minimum(index_input_const_type index) {
 	static instance_type min_list[] = { 0, 0, 0 };
 	return min_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type range() {
+static return_image_type range() {
 	static instance_type range_list[] = { 360, 100, 100 };
 	return range_list[index];
 }
 
-static return_const_type range(index_input_const_type index) {
+static return_image_type range(index_input_const_type index) {
 	static instance_type range_list[] = { 360, 100, 100 };
 	return range_list[index];
 }
@@ -17299,40 +17299,40 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_const_type return_const_type;
+					typedef typename trait_type::return_image_type return_image_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 
 					template< index_instance_type index >
-static return_const_type maximum() {
+static return_image_type maximum() {
 	static instance_type max_list[] = { 360, 100, 100 };
 	return max_list[index];
 }
 
-static return_const_type maximum(index_input_const_type index) {
+static return_image_type maximum(index_input_const_type index) {
 	static instance_type max_list[] = { 360, 100, 100 };
 	return max_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type minimum() {
+static return_image_type minimum() {
 	static instance_type min_list[] = { 0, 0, 0 };
 	return min_list[index];
 }
 
-static return_const_type minimum(index_input_const_type index) {
+static return_image_type minimum(index_input_const_type index) {
 	static instance_type min_list[] = { 0, 0, 0 };
 	return min_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type range() {
+static return_image_type range() {
 	static instance_type range_list[] = { 360, 100, 100 };
 	return range_list[index];
 }
 
-static return_const_type range(index_input_const_type index) {
+static return_image_type range(index_input_const_type index) {
 	static instance_type range_list[] = { 360, 100, 100 };
 	return range_list[index];
 }
@@ -20476,40 +20476,40 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_const_type return_const_type;
+					typedef typename trait_type::return_image_type return_image_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 
 					template< index_instance_type index >
-static return_const_type maximum() {
+static return_image_type maximum() {
 	static instance_type max_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
 	return max_list[index];
 }
 
-static return_const_type maximum(index_input_const_type index) {
+static return_image_type maximum(index_input_const_type index) {
 	static instance_type max_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
 	return max_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type minimum() {
+static return_image_type minimum() {
 	static instance_type min_list[] = { 0, 0, 0 };
 	return min_list[index];
 }
 
-static return_const_type minimum(index_input_const_type index) {
+static return_image_type minimum(index_input_const_type index) {
 	static instance_type min_list[] = { 0, 0, 0 };
 	return min_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type range() {
+static return_image_type range() {
 	static instance_type range_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
 	return range_list[index];
 }
 
-static return_const_type range(index_input_const_type index) {
+static return_image_type range(index_input_const_type index) {
 	static instance_type range_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
 	return range_list[index];
 }
@@ -21293,40 +21293,40 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_const_type return_const_type;
+					typedef typename trait_type::return_image_type return_image_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 
 					template< index_instance_type index >
-static return_const_type maximum() {
+static return_image_type maximum() {
 	static instance_type max_list[] = { 1, 0.5957161349127745527, 0.5225910452916111683 };
 	return max_list[index];
 }
 
-static return_const_type maximum(index_input_const_type index) {
+static return_image_type maximum(index_input_const_type index) {
 	static instance_type max_list[] = { 1, 0.5957161349127745527, 0.5225910452916111683 };
 	return max_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type minimum() {
+static return_image_type minimum() {
 	static instance_type min_list[] = { 0, -0.5957161349127745527, -0.5225910452916111683 };
 	return min_list[index];
 }
 
-static return_const_type minimum(index_input_const_type index) {
+static return_image_type minimum(index_input_const_type index) {
 	static instance_type min_list[] = { 0, -0.5957161349127745527, -0.5225910452916111683 };
 	return min_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type range() {
+static return_image_type range() {
 	static instance_type range_list[] = { 1, 2*0.5957161349127745527, 2 * 0.5225910452916111683 };
 	return range_list[index];
 }
 
-static return_const_type range(index_input_const_type index) {
+static return_image_type range(index_input_const_type index) {
 	static instance_type range_list[] = { 1, 2*0.5957161349127745527, 2*0.5225910452916111683 };
 	return range_list[index];
 }
@@ -23886,40 +23886,40 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_const_type return_const_type;
+					typedef typename trait_type::return_image_type return_image_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 
 					template< index_instance_type index >
-static return_const_type maximum() {
+static return_image_type maximum() {
 	static instance_type max_list[] = { 1, 0.436, 0.615 };
 	return max_list[index];
 }
 
-static return_const_type maximum(index_input_const_type index) {
+static return_image_type maximum(index_input_const_type index) {
 	static instance_type max_list[] = { 1, 0.436, 0.615 };
 	return max_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type minimum() {
+static return_image_type minimum() {
 	static instance_type min_list[] = { 0, -0.436, -0.615 };
 	return min_list[index];
 }
 
-static return_const_type minimum(index_input_const_type index) {
+static return_image_type minimum(index_input_const_type index) {
 	static instance_type min_list[] = { 0, -0.436, -0.615 };
 	return min_list[index];
 }
 
 template< index_instance_type index >
-static return_const_type range() {
+static return_image_type range() {
 	static instance_type range_list[] = { 1, 2*0.436, 2 * 0.615 };
 	return range_list[index];
 }
 
-static return_const_type range(index_input_const_type index) {
+static return_image_type range(index_input_const_type index) {
 	static instance_type range_list[] = { 1, 2*0.436, 2*0.615 };
 	return range_list[index];
 }

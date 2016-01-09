@@ -27,45 +27,45 @@ namespace color
              typedef ::color::_internal::utility::type::index< index_type >    index_trait_type;
 
              typedef typename trait_type::instance_type          instance_type;
-             typedef typename trait_type::return_const_type      return_const_type;
+             typedef typename trait_type::return_image_type      return_image_type;
 
              typedef typename index_trait_type::instance_type    index_instance_type;
              typedef typename index_trait_type::input_const_type index_input_const_type;
 
              template< index_instance_type index >
-              static /*constexpr*/ return_const_type   maximum( )
+              static /*constexpr*/ return_image_type   maximum( )
                {
                 static instance_type max_list[] = { 360, 100, 100 };
                 return max_list[index];
                }
 
-             static /*constexpr*/ return_const_type   maximum( index_input_const_type  index )
+             static /*constexpr*/ return_image_type   maximum( index_input_const_type  index )
               {
                 static instance_type max_list[] = { 360, 100, 100 };
                 return max_list[index];
               }
 
              template< index_instance_type index >
-              static /*constexpr*/ return_const_type   minimum( )
+              static /*constexpr*/ return_image_type   minimum( )
                {
                 static instance_type min_list[] = { 0, 0, 0 };
                 return min_list[index];
                }
 
-             static /*constexpr*/ return_const_type   minimum( index_input_const_type  index )
+             static /*constexpr*/ return_image_type   minimum( index_input_const_type  index )
               {
                 static instance_type min_list[] = { 0, 0, 0 };
                 return min_list[index];
               }
 
              template< index_instance_type index >
-              static /*constexpr*/ return_const_type   range()
+              static /*constexpr*/ return_image_type   range()
                {
                 static instance_type range_list[] = { 360, 100, 100 };
                 return range_list[index];
                }
 
-             static /*constexpr*/ return_const_type   range(   index_input_const_type  index )
+             static /*constexpr*/ return_image_type   range(   index_input_const_type  index )
               {
                 static instance_type range_list[] = { 360, 100, 100 };
                 return range_list[index];

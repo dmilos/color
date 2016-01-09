@@ -1,6 +1,8 @@
 #ifndef color_operation_normalize
 #define color_operation_normalize
 
+// color::operation::normalize<scalar_name, >
+
 #include "../../_internal/model.hpp"
 #include "../../_internal/normalize.hpp"
 #include "../trait/index.hpp"
@@ -11,6 +13,9 @@ namespace color
   namespace operation
    {
 
+    /***
+     * \desc Fit value between 0 and 1
+     */
     template< typename scalar_name = double, typename category_name >
      inline
      scalar_name normalize

@@ -4,6 +4,11 @@
 // ::color::get::blue( c )
 
 #include "../../generic/akin/rgb.hpp"
+#include "../../rgb/akin/cmyk.hpp"
+
+#include "../category.hpp"
+#include "../../generic/operation/invert.hpp"
+#include "../../_internal/reformat.hpp"
 
  namespace color
   {

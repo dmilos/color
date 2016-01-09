@@ -4,6 +4,11 @@
 // ::color::get::green( c )
 
 #include "../../generic/akin/rgb.hpp"
+#include "../../rgb/akin/cmyk.hpp"
+
+#include "../category.hpp"
+#include "../../generic/operation/invert.hpp"
+#include "../../_internal/reformat.hpp"
 
  namespace color
   {
@@ -18,7 +23,7 @@
 
            template< typename category_name, typename scalar_name = double >
             inline
-            typename ::color::_internal::model< typename ::color::akin::rgb<category_name>::akin_type >::component_const_type
+            typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
             green( ::color::_internal::model< category_name > const& color_parameter  )
              {
               typedef scalar_name scalar_type;

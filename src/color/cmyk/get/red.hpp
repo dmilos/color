@@ -3,7 +3,12 @@
 
 // ::color::get::red( c )
 
-#include "../../generic/akin/rgb.hpp"
+#include "../../rgb/akin/cmyk.hpp"
+#include "../../rgb/trait/component.hpp"
+
+#include "../category.hpp"
+#include "../../generic/operation/invert.hpp"
+#include "../../_internal/reformat.hpp"
 
  namespace color
   {
@@ -18,16 +23,16 @@
 
            template< typename category_name, typename scalar_name = double>
             inline
-            typename ::color::_internal::model< typename ::color::akin::rgb<category_name>::akin_type >::component_const_type
-            red( ::color::_internal::model< category_name > const& color_parameter  )
+            typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+            red( ::color::_internal::model< category_name > const& color_parameter )
              {
               typedef scalar_name scalar_type;
-
+              
               typedef typename ::color::akin::rgb<category_name >::akin_type     akin_type;
-
+              
               typedef  ::color::operation::_internal::invert< category_name > invert_type; 
               typedef  ::color::_internal::reformat< akin_type, category_name, scalar_name > reformat_type;
-
+              
               return reformat_type::template process<0,0>( invert_type::template component<0>( color_parameter.template get<0>() ) );
              }
 

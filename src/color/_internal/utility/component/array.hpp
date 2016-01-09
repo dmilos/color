@@ -26,7 +26,7 @@ namespace color
 
              typedef typename utility_trait_type::instance_type          instance_type;
              typedef typename utility_trait_type::const_type             const_type;
-             typedef typename utility_trait_type::return_const_type      return_const_type;
+             typedef typename utility_trait_type::return_image_type      return_image_type;
              typedef typename utility_trait_type::return_type            return_type;
              typedef typename utility_trait_type::input_const_type       input_const_type;
              typedef typename utility_trait_type::input_type             input_type;

@@ -28,7 +28,7 @@ namespace color
               typedef color::_internal::utility::container::Unsigned<unsigned_name,value_name,index_name,length,width> this_type;
 
               typedef instance_type const      const_type;
-              typedef instance_type const&     return_const_type;
+              typedef instance_type const&     return_image_type;
               typedef instance_type      &     return_type;
               typedef instance_type const&     input_const_type;
               typedef instance_type      &     input_type;
@@ -44,7 +44,7 @@ namespace color
 
               typedef typename component_trait_type::const_type           component_const_type;
               typedef typename component_trait_type::instance_type        component_type;
-              typedef typename component_trait_type::return_const_type    component_return_const_type;
+              typedef typename component_trait_type::return_image_type    component_return_const_type;
               typedef typename component_trait_type::input_const_type     component_input_const_type;
 
               typedef void set_return_type;
@@ -77,7 +77,7 @@ namespace color
                 return local_length;
                }
              private:
-               static /*constexpr*/ return_const_type mask()
+               static /*constexpr*/ return_image_type mask()
                 {
                  static instance_type local_mask = ((( instance_type(1) << (width-1)) - instance_type(1) )<< 1) + instance_type(1);
                  return local_mask;
