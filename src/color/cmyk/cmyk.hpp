@@ -4,20 +4,14 @@
 #include "../_internal/model.hpp"
 
 #include "./category.hpp"
+#include "./akin/akin.hpp"
+#include "./trait/trait.hpp"
 
-
-#include "./uint8.hpp"
-#include "./uint16.hpp"
-#include "./uint32.hpp"
-#include "./uint64.hpp"
-#include "./float.hpp"
-#include "./double.hpp"
-#include "./ldouble.hpp"
-
-#include "./get/get.hpp"
-#include "./set/set.hpp"
+//#include "./get/get.hpp"
+//#include "./set/set.hpp"
 #include "./make/make.hpp"
 #include "./convert/convert.hpp"
+
 
 namespace color
  {
@@ -29,6 +23,7 @@ namespace color
       {
        typedef color::category::cmyk_uint32 category_type;
       };
+
 
     template<> struct pick_cmyk< std::uint8_t   >{ typedef ::color::category::cmyk_uint8   category_type; };
     template<> struct pick_cmyk< std::uint16_t  >{ typedef ::color::category::cmyk_uint16  category_type; };
