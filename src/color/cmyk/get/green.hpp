@@ -3,8 +3,8 @@
 
 // ::color::get::green( c )
 
-#include "../../generic/akin/rgb.hpp"
 #include "../../rgb/akin/cmyk.hpp"
+#include "../../rgb/trait/component.hpp"
 
 #include "../category.hpp"
 #include "../../generic/operation/invert.hpp"

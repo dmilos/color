@@ -150,8 +150,8 @@ int main(int argc, char const *argv[])
   extern void make_test();
   make_test();
 
-  //extern void print_bound();
-  //print_bound();
+  extern void print_bound();
+  print_bound();
 
   return 0;
  }

@@ -4,25 +4,20 @@
 #include "../_internal/model.hpp"
 
 #include "./category.hpp"
+#include "./akin/akin.hpp"
+#include "./trait/trait.hpp"
 
-
-#include "./uint8.hpp"
-#include "./uint16.hpp"
-#include "./uint32.hpp"
-#include "./uint64.hpp"
-#include "./float.hpp"
-#include "./double.hpp"
-#include "./ldouble.hpp"
-
-
-
+//#include "./get/get.hpp"
+//#include "./set/set.hpp"
 #include "./make/make.hpp"
 #include "./convert/convert.hpp"
+
 
 namespace color
  {
   namespace _internal
    {
+
     template< typename type_name >
      struct pick_yuv
       {

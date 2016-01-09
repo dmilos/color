@@ -1,5 +1,5 @@
-#ifndef color_akin_rgb
-#define color_akin_rgb
+#ifndef color_generic_akin_rgb
+#define color_generic_akin_rgb
 
 // color::akin::rgb< non_rgb_category >::akin_cetegory_type;
 
