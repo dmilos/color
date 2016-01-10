@@ -16,7 +16,7 @@
          namespace _internal
           {
 
-           template< typename category_name, typename scalar_name = double >
+           template< typename category_name >
             inline
             void
             gray

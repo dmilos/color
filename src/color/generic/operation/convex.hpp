@@ -2,6 +2,7 @@
 #define color_generic_operation_convex_123
 
 #include "../../_internal/model.hpp"
+#include "../../generic/trait/scalar.hpp"
 
  namespace color
   {
@@ -10,12 +11,14 @@
      namespace _internal
       {
 
-       template< typename category_name, typename scalar_name >
+       template< typename category_name >
         struct convex
          {
           public:
             typedef category_name  category_type;
-            typedef scalar_name    scalar_type;
+
+            typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
+
             typedef scalar_type  const&  scalar_const_input_type;
 
             typedef ::color::trait::index<category_type>         index_trait_type;
@@ -55,7 +58,7 @@
         ,color::_internal::model<category_name> const& right
        )
        {
-        color::operation::_internal::convex<category_name,scalar_name>::process( result, scalar, right );
+        color::operation::_internal::convex<category_name>::process( result, scalar, right );
        }
 
      template< typename category_name, typename scalar_name >
@@ -67,7 +70,7 @@
         ,color::_internal::model<category_name> const& right
        )
        {
-        color::operation::_internal::convex<category_name,scalar_name>::process( result, left, scalar, right );
+        color::operation::_internal::convex<category_name>::process( result, left, scalar, right );
        }
 
 

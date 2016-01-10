@@ -3,7 +3,7 @@
 
 #include "../../generic/trait/component.hpp"
 #include "../../generic/trait/container.hpp"
-
+#include "../../generic/trait/scalar.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -19,15 +19,16 @@
        namespace _privateYIQ
         {
 
-         template< typename category_name, typename scalar_name = double >
+         template< typename category_name >
           inline
           typename ::color::_internal::model< category_name >::component_const_type
           blue( ::color::_internal::model< category_name > const& color_parameter  )
            {
-            typedef ::color::_internal::normalize< category_name, scalar_name > normalize_type;
-            typedef ::color::_internal::diverse< category_name, scalar_name >   diverse_type;
+            typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
+            typedef ::color::_internal::normalize< category_name > normalize_type;
+            typedef ::color::_internal::diverse< category_name >   diverse_type;
 
-            scalar_name value =
+            scalar_type value =
                   1.00000 * normalize_type::template process<0>( color_parameter.template get<0>() )
                -  1.15704 * normalize_type::template process<1>( color_parameter.template get<1>() )
                +  2.03086 * normalize_type::template process<2>( color_parameter.template get<2>() )

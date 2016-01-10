@@ -1,6 +1,8 @@
 #ifndef color_yiq_get_red
 #define color_yiq_get_red
 
+#include "../../generic/trait/scalar.hpp"
+
 // ::color::get::red( c )
 /*
     Start
@@ -36,24 +38,25 @@
        namespace _privateYIQ
         {
 
-         template< typename category_name, typename scalar_name = double >
+         template< typename category_name >
           inline
           typename ::color::_internal::model< category_name >::component_const_type
           red( ::color::_internal::model< category_name > const& color_parameter  )
            {
-            typedef ::color::_internal::normalize< category_name, scalar_name > normalize_type;
-            typedef ::color::_internal::diverse< category_name, scalar_name >   diverse_type;
-         
-            scalar_name value =
+            typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
+            typedef ::color::_internal::normalize< category_name > normalize_type;
+            typedef ::color::_internal::diverse< category_name >   diverse_type;
+
+            scalar_type value =
                         1 * normalize_type::template process<0>( color_parameter.template get<0>() )
                + 0.999525 * normalize_type::template process<1>( color_parameter.template get<1>() )
                + 0.739859 * normalize_type::template process<2>( color_parameter.template get<2>() )
                - 0.869692;
-         
+
             // BUG !!!
             return diverse_type::template process<0>( value );
            }
-         
+
         }
       }
 

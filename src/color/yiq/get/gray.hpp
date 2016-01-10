@@ -14,7 +14,7 @@
        namespace _privateYIQ
         {
 
-         template< typename category_name, typename scalar_name = double >
+         template< typename category_name >
           inline
           typename ::color::_internal::model< category_name >::component_const_type
           gray( ::color::_internal::model< category_name > const& color_parameter  )

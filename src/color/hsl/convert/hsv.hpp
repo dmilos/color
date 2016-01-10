@@ -28,8 +28,8 @@ namespace color
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-           typedef ::color::_internal::diverse< category_left_type, scalar_type >    diverse_type;
-           typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type; 
+           typedef ::color::_internal::diverse< category_left_type >    diverse_type;
+           typedef ::color::_internal::normalize< category_right_type > normalize_type; 
 
            static void process
             (

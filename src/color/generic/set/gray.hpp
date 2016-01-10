@@ -8,8 +8,8 @@
    namespace set
     {
 
-     // Actyaly set graynes of color. Do not miz with color::make::gray
-     template< typename category_name, typename scalar_name = double >
+     // Actyaly set graynes of color. Do not mix with color::make::gray
+     template< typename category_name >
       inline
       void
       gray

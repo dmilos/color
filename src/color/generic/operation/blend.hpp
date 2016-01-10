@@ -5,6 +5,7 @@
 // color::operation::blend<alpha_index>( result, upper )
 
 
+#include "../../generic/trait/scalar.hpp"
 #include "../../_internal/model.hpp"
 
  namespace color
@@ -17,15 +18,14 @@
        template
          <
            typename category_name
-          ,typename scalar_name
          >
         struct blend
          {
           public:
             typedef category_name  category_type;
-            typedef scalar_name     scalar_type;
+            typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
-            typedef ::color::operation::_internal::blend<category_type,scalar_type> this_type;
+            typedef ::color::operation::_internal::blend<category_type> this_type;
 
             typedef ::color::trait::container< category_type >   container_trait_type;
             typedef ::color::trait::index< category_type >       index_trait_type;
@@ -33,8 +33,8 @@
 
             typedef typename index_trait_type::instance_type        index_type;
 
-            typedef ::color::_internal::normalize< category_type, scalar_type > normalize_type;
-            typedef ::color::_internal::diverse< category_type, scalar_type >   diverse_type;
+            typedef ::color::_internal::normalize< category_type > normalize_type;
+            typedef ::color::_internal::diverse< category_type >   diverse_type;
 
             static void accumulate( model_type &result, scalar_type const& alpha, model_type const& upper )
              {
@@ -92,17 +92,17 @@
 
       }
 
-     template< unsigned alpha_index, typename category_name, typename scalar_name = double >
+     template< unsigned alpha_index, typename category_name >
       void blend
        (
          ::color::_internal::model<category_name>      & result
         ,::color::_internal::model<category_name> const& upper
        )
        {
-        color::operation::_internal::blend<category_name,scalar_name>::template accumulate< alpha_index >( result, upper );
+        color::operation::_internal::blend<category_name>::template accumulate< alpha_index >( result, upper );
        }
 
-     template< unsigned alpha_index, typename category_name, typename scalar_name = double >
+     template< unsigned alpha_index, typename category_name >
       void blend
        (
          ::color::_internal::model<category_name>      & result
@@ -110,10 +110,10 @@
         ,::color::_internal::model<category_name> const& upper
        )
        {
-        color::operation::_internal::blend<category_name,scalar_name>::template accumulate< alpha_index >( result, lower, upper );
+        color::operation::_internal::blend<category_name>::template accumulate< alpha_index >( result, lower, upper );
        }
        
-     template< unsigned alpha_index, typename category_name, typename scalar_name = double >
+     template< unsigned alpha_index, typename category_name >
       ::color::_internal::model<category_name>
       mix
        (
@@ -121,7 +121,7 @@
         ,::color::_internal::model<category_name> const& upper
        )
        {
-        return color::operation::_internal::blend<category_name,scalar_name>::template mix< alpha_index >( lower, upper );
+        return color::operation::_internal::blend<category_name>::template mix< alpha_index >( lower, upper );
        }
        
 
@@ -133,7 +133,7 @@
         ,::color::_internal::model<category_name> const& upper
        )
        {
-        color::operation::_internal::blend<category_name,scalar_name>::accumulate( result, alpha, upper );
+        color::operation::_internal::blend<category_name>::accumulate( result, alpha, upper );
        }
 
      template< typename category_name, typename scalar_name = double >
@@ -145,7 +145,7 @@
         ,::color::_internal::model<category_name> const& upper
        )
        {
-        color::operation::_internal::blend<category_name,scalar_name>::accumulate( result, lower, alpha, upper );
+        color::operation::_internal::blend<category_name>::accumulate( result, lower, alpha, upper );
        }
 
      template< typename category_name, typename scalar_name = double >
@@ -157,7 +157,7 @@
         ,::color::_internal::model<category_name> const& upper
        )
        {
-        return color::operation::_internal::blend<category_name,scalar_name>::mix( lower, alpha, upper );
+        return color::operation::_internal::blend<category_name>::mix( lower, alpha, upper );
        }
 
 

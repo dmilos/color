@@ -27,8 +27,8 @@ namespace color
          typedef  category_right_name  category_right_type;
          typedef scalar_name            scalar_type;
 
-         typedef ::color::_internal::diverse< category_left_type, scalar_type >   diverse_type;
-         typedef ::color::_internal::normalize< category_right_type, scalar_type > normalize_type;
+         typedef ::color::_internal::diverse< category_left_type >   diverse_type;
+         typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
          typedef typename ::color::trait::component< category_left_name >::return_type          left_component_return_type;
          typedef typename ::color::trait::index< category_left_name >::input_const_type         left_index_const_input_type;

@@ -1,11 +1,12 @@
 #ifndef color_operation_normalize
 #define color_operation_normalize
 
-// color::operation::normalize<scalar_name, >
+// color::operation::normalize<category_name>
 
 #include "../../_internal/model.hpp"
 #include "../../_internal/normalize.hpp"
 #include "../trait/index.hpp"
+#include "../trait/scalar.hpp"
 
 
 namespace color
@@ -16,30 +17,31 @@ namespace color
     /***
      * \desc Fit value between 0 and 1
      */
-    template< typename scalar_name = double, typename category_name >
+    template< typename category_name >
      inline
-     scalar_name normalize
+     typename ::color::trait::scalar< category_name >::instance_type
+     normalize
       (
        ::color::_internal::model<category_name>                     const& m
        ,typename ::color::trait::index<category_name>::input_const_type index
       )
       {
-       return ::color::_internal::normalize<category_name, scalar_name >::process( m[index], index ) ;
+       return ::color::_internal::normalize<category_name>::process( m[index], index ) ;
       }
       
     template
      <
        unsigned index_size
-      ,typename scalar_name = double
       ,typename category_name 
       >
      inline
-     scalar_name normalize
+     typename ::color::trait::scalar< category_name >::instance_type
+     normalize
       (
        ::color::_internal::model<category_name>                     const& m
       )
      {
-      return  ::color::_internal::normalize<category_name, scalar_name >::template process<index_size>( m.template get<index_size>()  ) ;
+      return  ::color::_internal::normalize<category_name>::template process<index_size>( m.template get<index_size>() );
      }
 
 

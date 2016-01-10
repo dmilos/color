@@ -8,8 +8,8 @@
 
 #include "./gray.hpp"
 
-#include "./yellow.hpp"
-#include "./magenta.hpp"
-#include "./cyan.hpp"
+
+
+
 
 #endif

@@ -3,6 +3,8 @@
 
 // ::color::get::inphase( c )
 
+#include "../../generic/trait/scalar.hpp"
+
  namespace color
   {
    namespace get
@@ -14,22 +16,23 @@
          namespace _internal
           {
 
-           template< typename category_name, scalar_name = double >
+           template< typename category_name >
             inline
             typename ::color::_internal::model< category_name >::component_const_type
             inphase( ::color::_internal::model< category_name > const& color_parameter  )
              {
+              typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
               typedef ::color::_internal::model< category_name > model_type;
               typedef ::color::_internal::trait< category_name > trait_type;
               typedef typename trait_type::component_type     component_type;
 
-              scalar_name value =
-                   0.596 * ( color_parameter.template get<0>() - trait_type::template minimum<0>() ) / scalar_name( trait_type::template range<0>() )
-                 - 0.274 * ( color_parameter.template get<1>() - trait_type::template minimum<1>() ) / scalar_name( trait_type::template range<1>() )
-                 - 0.322 * ( color_parameter.template get<2>() - trait_type::template minimum<2>() ) / scalar_name( trait_type::template range<2>() )
+              scalar_type value =
+                   0.596 * ( color_parameter.template get<0>() - trait_type::template minimum<0>() ) / scalar_type( trait_type::template range<0>() )
+                 - 0.274 * ( color_parameter.template get<1>() - trait_type::template minimum<1>() ) / scalar_type( trait_type::template range<1>() )
+                 - 0.322 * ( color_parameter.template get<2>() - trait_type::template minimum<2>() ) / scalar_type( trait_type::template range<2>() )
                  ;
 
-              value = value / scalar_name(0.5957 * 2) + scalar_name(0.5);
+              value = value / scalar_type(0.5957 * 2) + scalar_type(0.5);
 
               return component_type( value * trait_type::template range<0>() + trait_type::template minimum<0>() );
              }
