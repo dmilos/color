@@ -7,7 +7,10 @@
 #include <initializer_list>
 #include <array>
 
+#if defined COLOR_USE_PP2FILE
+#include "color.pp2f.hpp"
+#else
 #include "color.body.hpp"
-
+#endif
 
 #endif

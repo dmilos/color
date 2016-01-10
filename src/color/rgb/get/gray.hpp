@@ -3,6 +3,13 @@
 
 // ::color::get::gray( c )
 
+#include "../../gray/akin/cmy.hpp"
+#include "../../gray/trait/component.hpp"
+
+#include "../category.hpp"
+
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
 #include "../../generic/trait/scalar.hpp"
 
 
@@ -19,20 +26,25 @@
 
            template< typename category_name >
             inline
-            typename ::color::_internal::model< category_name >::component_const_type
+            typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
             gray( ::color::_internal::model< category_name > const& color_parameter  )
              {
-              typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;      
-              typedef ::color::_internal::model< category_name > model_type;
+              typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
+
+              typedef typename ::color::akin::gray<category_name >::akin_type     akin_type;
+
               typedef ::color::_internal::trait< category_name > trait_type;
               typedef typename trait_type::component_type component_type;
 
+              typedef ::color::_internal::diverse< akin_type >    diverse_type;
+              typedef ::color::_internal::normalize< category_name > normalize_type;
+ 
               scalar_type value =
-                   0.2126 * ( color_parameter.template get<0>() - trait_type::template minimum<0>() ) / scalar_type( trait_type::template range<0>() )
-                 + 0.7152 * ( color_parameter.template get<1>() - trait_type::template minimum<1>() ) / scalar_type( trait_type::template range<1>() )
-                 + 0.0722 * ( color_parameter.template get<2>() - trait_type::template minimum<2>() ) / scalar_type( trait_type::template range<2>() );
+                   0.2126 * normalize_type::template process<0>( color_parameter.template get<0>() )
+                 + 0.7152 * normalize_type::template process<1>( color_parameter.template get<1>() )
+                 + 0.0722 * normalize_type::template process<2>( color_parameter.template get<2>() );
 
-              return component_type( value * trait_type::template range<0>() + trait_type::template minimum<0>() );
+              return diverse_type::template process<0>( value );
              }
 
           }
@@ -92,4 +104,4 @@
     }
   }
 
-#endif 
+#endif

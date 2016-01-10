@@ -140,7 +140,9 @@
     <ClInclude Include="..\..\src\color\cmy\trait\index\uint64.hpp" />
     <ClInclude Include="..\..\src\color\cmy\trait\index\uint8.hpp" />
     <ClInclude Include="..\..\src\color\cmy\trait\trait.hpp" />
+    <ClInclude Include="..\..\src\color\color.body.hpp" />
     <ClInclude Include="..\..\src\color\color.hpp" />
+    <ClInclude Include="..\..\src\color\color.pp2f.hpp" />
     <ClInclude Include="..\..\src\color\generic\akin\akin.hpp" />
     <ClInclude Include="..\..\src\color\generic\akin\cmy.hpp" />
     <ClInclude Include="..\..\src\color\generic\akin\cmyk.hpp" />
@@ -418,6 +420,7 @@
     <ClInclude Include="..\..\src\color\yiq\akin\rgb.hpp" />
     <ClInclude Include="..\..\src\color\yiq\akin\yiq.hpp" />
     <ClInclude Include="..\..\src\color\yiq\akin\yuv.hpp" />
+    <ClInclude Include="..\..\src\color\yiq\category.hpp" />
     <ClInclude Include="..\..\src\color\yiq\convert\cmy.hpp" />
     <ClInclude Include="..\..\src\color\yiq\convert\cmyk.hpp" />
     <ClInclude Include="..\..\src\color\yiq\convert\convert.hpp" />

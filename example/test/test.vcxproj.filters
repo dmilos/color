@@ -1848,6 +1848,15 @@
     <ClInclude Include="..\..\src\color\yuv\trait\trait.hpp">
       <Filter>Source Files\src\yuv\trait</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\category.hpp">
+      <Filter>Source Files\src\yiq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\color.body.hpp">
+      <Filter>Source Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\color.pp2f.hpp">
+      <Filter>Source Files\src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
