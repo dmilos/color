@@ -46,8 +46,8 @@
       void
       gray
        (
-                   ::color::_internal::model< ::color::category::yiq_uint8 >                                            & color_parameter
-         ,typename ::color::trait::component< ::color::category::yiq_uint8 >::input_const_type         component_parameter
+          ::color::_internal::model< ::color::category::yiq_uint8 >                                            & color_parameter
+         ,::color::trait::component< ::color::category::yiq_uint8 >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::_privateYIQ::gray<::color::category::yiq_uint8>( color_parameter, component_parameter );
@@ -57,8 +57,8 @@
       void
       gray
        (
-                  ::color::_internal::model< ::color::category::yiq_uint16 >                                   & color_parameter
-        ,typename ::color::trait::component< ::color::category::yiq_uint16 >::input_const_type         component_parameter
+         ::color::_internal::model< ::color::category::yiq_uint16 >                                   & color_parameter
+        ,::color::trait::component< ::color::category::yiq_uint16 >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::_privateYIQ::gray<::color::category::yiq_uint16>( color_parameter, component_parameter );
@@ -68,8 +68,8 @@
       void
       gray
        (
-                  ::color::_internal::model< ::color::category::yiq_uint32 >                                   & color_parameter
-        ,typename ::color::trait::component< ::color::category::yiq_uint32 >::input_const_type         component_parameter
+         ::color::_internal::model< ::color::category::yiq_uint32 >                                   & color_parameter
+        ,::color::trait::component< ::color::category::yiq_uint32 >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::_privateYIQ::gray<::color::category::yiq_uint32>( color_parameter, component_parameter );
@@ -79,8 +79,8 @@
       void
       gray
        (
-                  ::color::_internal::model< ::color::category::yiq_uint64 >                                   & color_parameter
-        ,typename ::color::trait::component< ::color::category::yiq_uint64 >::input_const_type         component_parameter
+         ::color::_internal::model< ::color::category::yiq_uint64 >                                   & color_parameter
+        ,::color::trait::component< ::color::category::yiq_uint64 >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::_privateYIQ::gray<::color::category::yiq_uint64>( color_parameter, component_parameter );
@@ -90,8 +90,8 @@
       void
       gray
        (
-                  ::color::_internal::model< ::color::category::yiq_float >                                   & color_parameter
-        ,typename ::color::trait::component< ::color::category::yiq_float >::input_const_type         component_parameter
+         ::color::_internal::model< ::color::category::yiq_float >                                   & color_parameter
+        ,::color::trait::component< ::color::category::yiq_float >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::_privateYIQ::gray<::color::category::yiq_float>( color_parameter, component_parameter );
@@ -101,8 +101,8 @@
       void
       gray
        (
-                  ::color::_internal::model< ::color::category::yiq_double >                                   & color_parameter
-        ,typename ::color::trait::component< ::color::category::yiq_double >::input_const_type         component_parameter
+         ::color::_internal::model< ::color::category::yiq_double >                                   & color_parameter
+        ,::color::trait::component< ::color::category::yiq_double >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::_privateYIQ::gray<::color::category::yiq_double>( color_parameter, component_parameter );
@@ -112,8 +112,8 @@
       void
       gray
        (
-                  ::color::_internal::model< ::color::category::yiq_ldouble >                                   & color_parameter
-        ,typename ::color::trait::component< ::color::category::yiq_ldouble >::input_const_type         component_parameter
+         ::color::_internal::model< ::color::category::yiq_ldouble >                                   & color_parameter
+        ,::color::trait::component< ::color::category::yiq_ldouble >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::_privateYIQ::gray<::color::category::yiq_ldouble>( color_parameter, component_parameter );

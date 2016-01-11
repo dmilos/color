@@ -52,6 +52,7 @@ void print_generic_header( std::string const& name )
 
    {
     std::ofstream ofs( ( "./gen/"+name + ".hpp" ). c_str() );
+    //std::ofstream ofs( ( "../../src/color/generic/make/"+name + ".hpp" ). c_str() );
     ofs <<  ss.str();
    }
 
@@ -159,6 +160,7 @@ void print_header( std::string const& model, std::string const& name, color::rgb
 
    {
     std::ofstream ofs( ( "./gen-"+ model +"/"+name + ".hpp" ). c_str() );
+    //std::ofstream ofs( ( "../../src/color/"+ model +"/make/"+name + ".hpp" ). c_str() );
     ofs <<  ss.str();
    }
 
