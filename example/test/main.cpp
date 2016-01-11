@@ -74,7 +74,7 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
   int width  = 1000;
   typedef unsigned char targa_header_struct[18];
 
-  typedef ::color::_internal::diverse< typename model_name::category_type, double  > diverse_type;
+  typedef ::color::_internal::diverse< typename model_name::category_type > diverse_type;
 
   targa_header_struct header;
 

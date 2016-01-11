@@ -24,11 +24,10 @@
             gray
              (
                        ::color::_internal::model< category_name >                                   & color_parameter,
-              typename ::color::_internal::model< category_name >::component_input_const_type         component_parameter
+              typename ::color::trait::component< category_name >::input_const_type         component_parameter
              )
              {
               typedef ::color::trait::scalar< category_name >::instance_type scalar_type;
-              typedef ::color::_internal::model< category_name > model_type;
               typedef ::color::_internal::trait< category_name > trait_type;
 
               scalar_type value =
@@ -50,7 +49,7 @@
       gray
        (
          ::color::_internal::model< ::color::category::rgb_uint8 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::rgb_uint8 >::component_input_const_type         component_parameter
+        ,typename ::color::trait::component< ::color::category::rgb_uint8 >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::rgb::_internal::gray<::color::category::rgb_uint8>( color_parameter, component_parameter );
@@ -61,7 +60,7 @@
       gray
        (
          ::color::_internal::model< ::color::category::rgb_uint16 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::rgb_uint16 >::component_input_const_type         component_parameter
+        ,typename ::color::trait::component< ::color::category::rgb_uint16 >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::rgb::_internal::gray<::color::category::rgb_uint16>( color_parameter, component_parameter );
@@ -72,7 +71,7 @@
       gray
        (
          ::color::_internal::model< ::color::category::rgb_uint32 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::rgb_uint32 >::component_input_const_type         component_parameter
+        ,typename ::color::trait::component< ::color::category::rgb_uint32 >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::rgb::_internal::gray<::color::category::rgb_uint32>( color_parameter, component_parameter );
@@ -83,7 +82,7 @@
       gray
        (
          ::color::_internal::model< ::color::category::rgb_uint64 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::rgb_uint64 >::component_input_const_type         component_parameter
+        ,typename :color::trait::component< ::color::category::rgb_uint64 >::input_const_type         component_parameter
        )
        {
         ::color::set::_internal::rgb::_internal::gray<::color::category::rgb_uint64>( color_parameter, component_parameter );
@@ -93,8 +92,8 @@
       void
       gray
        (
-         ::color::_internal::model< ::color::category::rgb_float >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::rgb_float >::component_input_const_type         component_parameter
+         ::color::_internal::model< ::color::category::rgb_float >                                         & color_parameter,
+        ,typename ::color::trait::component< ::color::category::rgb_float >::input_const_type     component_parameter
        )
        {
         ::color::set::_internal::rgb::_internal::gray<::color::category::rgb_float>( color_parameter, component_parameter );
@@ -104,8 +103,8 @@
       void
       gray
        (
-         ::color::_internal::model< ::color::category::rgb_double >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::rgb_double >::component_input_const_type         component_parameter
+         ::color::_internal::model< ::color::category::rgb_double >                                       & color_parameter,
+        ,typename ::color::trait::component< ::color::category::rgb_double >::input_const_type    component_parameter
        )
        {
         ::color::set::_internal::rgb::_internal::gray<::color::category::rgb_double>( color_parameter, component_parameter );
@@ -115,8 +114,8 @@
       void
       gray
        (
-         ::color::_internal::model< ::color::category::rgb_ldouble >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::rgb_ldouble >::component_input_const_type         component_parameter
+         ::color::_internal::model< ::color::category::rgb_ldouble >                                        & color_parameter
+        ,typename ::color::trait::component< ::color::category::rgb_ldouble >::input_const_type     component_parameter
        )
        {
         ::color::set::_internal::rgb::_internal::gray<::color::category::rgb_ldouble>( color_parameter, component_parameter );

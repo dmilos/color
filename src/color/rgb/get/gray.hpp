@@ -3,7 +3,7 @@
 
 // ::color::get::gray( c )
 
-#include "../../gray/akin/cmy.hpp"
+#include "../../gray/akin/gray.hpp"
 #include "../../gray/trait/component.hpp"
 
 #include "../category.hpp"
