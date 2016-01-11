@@ -34,12 +34,11 @@
             typedef ::color::_internal::diverse< akin_type >       diverse_type;
             typedef ::color::_internal::normalize< category_name > normalize_type;
  
-            scalar_type value = /* TODO */
-                   0.2126 * normalize_type::template process<0>( color_parameter.template get<0>() )
-                 + 0.7152 * normalize_type::template process<1>( color_parameter.template get<1>() )
-                 + 0.0722 * normalize_type::template process<2>( color_parameter.template get<2>() );
+            scalar_type c = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+            scalar_type k = normalize_type::template process<3>( container_right_trait_type::template get<3>( right ) );
 
-            return diverse_type::template process<0>( value );
+            scalar_type r = (scalar_type(1)-c) * (scalar_type(1)-k);
+            return diverse_type::template process<0>( r );
            }
 
         }
