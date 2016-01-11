@@ -7,7 +7,7 @@
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
-//#include "./get/get.hpp"
+#include "./get/get.hpp"
 //#include "./set/set.hpp"
 #include "./make/make.hpp"
 #include "./convert/convert.hpp"

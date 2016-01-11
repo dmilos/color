@@ -12,11 +12,9 @@
 *.idb
 *.*~
 *.ilk
-/example/test/Debug
 /example/Debug
 doc/doxygen/html
-example/test/*.tga
-example/test/test
+
 example/convert_cmy2gray
 example/convert_cmy2rgb
 example/convert_gray2cmy
@@ -51,3 +49,7 @@ example/ctor_hsv
 example/ctor_yuv
 
 example/test/gen*
+example/test/*.tga
+example/test/test
+example/test/Debug
+example/test/*.pp2f?.*
