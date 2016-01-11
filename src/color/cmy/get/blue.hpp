@@ -4,14 +4,13 @@
 // ::color::get::blue( c )
 
 #include "../../rgb/akin/cmy.hpp"
-
 #include "../../rgb/trait/component.hpp"
 
 #include "../category.hpp"
+
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
 #include "../../generic/trait/scalar.hpp"
-
 
 
  namespace color

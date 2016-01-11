@@ -3,7 +3,7 @@
 
 // ::color::get::green( c )
 
-#include "../../rgb/akin/rgb.hpp"
+#include "../../rgb/akin/cmyk.hpp"
 #include "../../rgb/trait/component.hpp"
 
 #include "../category.hpp"
