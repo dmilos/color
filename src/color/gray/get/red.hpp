@@ -35,8 +35,8 @@
       red( ::color::_internal::model< ::color::category::gray_uint16 > const& color_parameter )
        {
         typedef ::color::category::gray_uint16  category_type;
-        typedef typename ::color::akin::rgb<category_type>::akin_type                   akin_type;
-        typedef typename ::color::trait::scalar<category_type>::instance_type           scalar_type; 
+        typedef ::color::akin::rgb<category_type>::akin_type                   akin_type;
+        typedef ::color::trait::scalar<category_type>::instance_type           scalar_type; 
         typedef  ::color::_internal::reformat< akin_type, category_type, scalar_type >  reformat_type;
 
         return reformat_type::template process<0,0>( color_parameter.template get<0>()  );
@@ -47,9 +47,9 @@
       red( ::color::_internal::model< ::color::category::gray_uint32 > const& color_parameter )
        {
         typedef ::color::category::gray_uint32  category_type;
-        typedef typename ::color::akin::rgb<category_type>::akin_type                   akin_type;
-        typedef typename ::color::trait::scalar<category_type>::instance_type           scalar_type; 
-        typedef  ::color::_internal::reformat< akin_type, category_type, scalar_type >  reformat_type;
+        typedef ::color::akin::rgb<category_type>::akin_type                   akin_type;
+        typedef ::color::trait::scalar<category_type>::instance_type           scalar_type; 
+        typedef ::color::_internal::reformat< akin_type, category_type, scalar_type >  reformat_type;
 
         return reformat_type::template process<0,0>( color_parameter.template get<0>()  );
        }
@@ -59,9 +59,9 @@
       red( ::color::_internal::model< ::color::category::gray_uint64 > const& color_parameter )
        {
         typedef ::color::category::gray_uint64  category_type;
-        typedef typename ::color::akin::rgb<category_type>::akin_type                   akin_type;
-        typedef typename ::color::trait::scalar<category_type>::instance_type           scalar_type; 
-        typedef  ::color::_internal::reformat< akin_type, category_type, scalar_type >  reformat_type;
+        typedef ::color::akin::rgb<category_type>::akin_type                   akin_type;
+        typedef ::color::trait::scalar<category_type>::instance_type           scalar_type; 
+        typedef ::color::_internal::reformat< akin_type, category_type, scalar_type >  reformat_type;
 
         return reformat_type::template process<0,0>( color_parameter.template get<0>()  );
        }
@@ -71,9 +71,9 @@
       red( ::color::_internal::model< ::color::category::gray_float > const& color_parameter )
        {
         typedef ::color::category::gray_float  category_type;
-        typedef typename ::color::akin::rgb<category_type>::akin_type                   akin_type;
-        typedef typename ::color::trait::scalar< category_type>::instance_type           scalar_type; 
-        typedef  ::color::_internal::reformat< akin_type,  category_type, scalar_type >  reformat_type;
+        typedef ::color::akin::rgb<category_type>::akin_type                   akin_type;
+        typedef ::color::trait::scalar< category_type>::instance_type           scalar_type; 
+        typedef ::color::_internal::reformat< akin_type,  category_type, scalar_type >  reformat_type;
 
         return reformat_type::template process<0,0>( color_parameter.template get<0>()  );
        }
@@ -83,9 +83,9 @@
       red( ::color::_internal::model< ::color::category::gray_double > const& color_parameter )
        {
         typedef ::color::category::gray_double  category_type;
-        typedef typename ::color::akin::rgb< category_type>::akin_type                   akin_type;
-        typedef typename ::color::trait::scalar< category_type>::instance_type           scalar_type; 
-        typedef  ::color::_internal::reformat< akin_type,  category_type, scalar_type >  reformat_type;
+        typedef ::color::akin::rgb< category_type>::akin_type                   akin_type;
+        typedef ::color::trait::scalar< category_type>::instance_type           scalar_type; 
+        typedef ::color::_internal::reformat< akin_type,  category_type, scalar_type >  reformat_type;
 
         return reformat_type::template process<0,0>( color_parameter.template get<0>()  );
        }
@@ -95,9 +95,9 @@
       red( ::color::_internal::model< ::color::category::gray_ldouble > const& color_parameter )
        {
         typedef ::color::category::gray_ldouble  category_type;
-        typedef typename ::color::akin::rgb< category_type>::akin_type                   akin_type;
-        typedef typename ::color::trait::scalar< category_type>::instance_type           scalar_type; 
-        typedef  ::color::_internal::reformat< akin_type,  category_type, scalar_type >  reformat_type;
+        typedef ::color::akin::rgb< category_type>::akin_type                   akin_type;
+        typedef ::color::trait::scalar< category_type>::instance_type           scalar_type; 
+        typedef ::color::_internal::reformat< akin_type,  category_type, scalar_type >  reformat_type;
 
         return reformat_type::template process<0,0>( color_parameter.template get<0>()  );
        }
