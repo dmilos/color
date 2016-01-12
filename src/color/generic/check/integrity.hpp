@@ -21,7 +21,7 @@ namespace color
 
           static bool process( model_type const& m )
            {
-            // TODO. Model specific
+            //Model specific.
             return true;
            }
 

@@ -7,8 +7,4 @@
 
 #include "./gray.hpp"
 
-
-
-
-
 #endif

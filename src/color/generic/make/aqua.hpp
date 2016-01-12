@@ -24,8 +24,8 @@
        {
         typedef ::color::_internal::model< category_name > model_type;
         static model_type dummy;
-        // TODO Will call every time, That is no good.
-        ::color::make::aqua( dummy );
+        static std::once_flag onceFlag;
+        std::call_once ( onceFlag, [&](){ ::color::make::aqua( dummy ); } );
 
         // Do nothing to force specialization
         return dummy;

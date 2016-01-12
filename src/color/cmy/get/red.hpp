@@ -13,7 +13,6 @@
 #include "../../generic/trait/scalar.hpp"
 
 
-
  namespace color
   {
    namespace get

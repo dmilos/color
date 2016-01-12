@@ -26,7 +26,7 @@ namespace color
 
          // Shortcuts.
          typedef typename index_trait_type::instance_type           index_type;
-       // TODO  typedef typename index_trait_type::const_type       index_const_type;
+         typedef typename index_trait_type::const_type              index_const_type;
          typedef typename index_trait_type::return_image_type       index_return_image_type;
          typedef typename index_trait_type::input_const_type        index_input_const_type;
          typedef typename index_trait_type::input_type              index_input_type;

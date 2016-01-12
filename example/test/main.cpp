@@ -13,6 +13,7 @@
 
 void invoke()
  {
+  ::color::make::aqua< color::category::rgb_uint8 >();
   test_invoke< color::category::rgb_uint8   >();
   test_invoke< color::category::rgb_uint16  >();
   test_invoke< color::category::rgb_uint32  >();

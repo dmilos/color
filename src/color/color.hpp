@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <initializer_list>
 #include <array>
+#include <mutex>
 
 #if defined COLOR_USE_PP2FILE
 #include "color.pp2f.hpp"
