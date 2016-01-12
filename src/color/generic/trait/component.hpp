@@ -10,7 +10,7 @@ namespace color
   namespace trait
    {
 
-    template< typename category_name >
+    template< typename category_name , unsigned index_size = 0 >
      struct component
       {
        public:

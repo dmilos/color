@@ -99,7 +99,7 @@ namespace color
 
               static /*constexpr*/ index_return_image_type size()
                {
-                static index_instance_type local_length = 4;
+                static const index_instance_type local_length = 4;
                 return local_length;
                }
            };

@@ -26,13 +26,18 @@ namespace color
        public:
         typedef category_name category_type;
 
+        typedef ::color::trait::index< category_name >      index_trait_type;
+        typedef ::color::trait::component< category_name >  component_trait_type;
+        typedef ::color::trait::container< category_name >  container_trait_type;
+        typedef ::color::trait::bound< category_name >      bound_trait_type, bound_type;
+
         typedef ::color::_internal::trait<category_type> trait_type;
       //typedef ::color::_internal::model<category_type>  this_type;
 
-        typedef typename trait_type::index_type                   index_type;
-      // TODO typedef typename trait_type::index_const_type             index_const_type;
-        typedef typename trait_type::index_input_const_type       index_input_const_type;
-        typedef typename trait_type::index_return_image_type      index_return_image_type;
+        typedef typename index_trait_type::instance_type          index_type;
+        typedef typename index_trait_type::const_type             index_const_type;
+        typedef typename index_trait_type::input_const_type       index_input_const_type;
+        typedef typename index_trait_type::return_image_type      index_return_image_type;
 
         typedef typename trait_type::component_type               component_type;
         typedef typename trait_type::component_const_type         component_const_type;
@@ -41,15 +46,14 @@ namespace color
         typedef typename trait_type::component_input_const_type   component_input_const_type;
         typedef typename trait_type::component_input_type         component_input_type;
 
-        typedef typename trait_type::container_type                   container_type;
-        typedef typename trait_type::container_const_type             container_const_type;
+        typedef typename trait_type::container_type               container_type;
+        typedef typename trait_type::container_const_type         container_const_type;
         typedef typename trait_type::container_return_const_type  container_return_const_type;
-        typedef typename trait_type::container_input_const_type       container_input_const_type;
-        typedef typename trait_type::container_return_type            container_return_type;
+        typedef typename trait_type::container_input_const_type   container_input_const_type;
+        typedef typename trait_type::container_return_type        container_return_type;
 
         typedef typename trait_type::set_return_type              set_return_type;
 
-        typedef ::color::trait::bound<category_type> bound_type;
 
                  model( )
                  {
@@ -83,40 +87,40 @@ namespace color
         component_return_const_type
         get( index_input_const_type index )const
          {
-          return trait_type::get( this->m_container, index );
+          return container_trait_type::get( this->m_container, index );
          }
 
         template< index_type index >
          component_return_const_type
          get()const
           {
-           return trait_type::template get<index>( this->m_container );
+           return container_trait_type::template get<index>( this->m_container );
           }
 
         //component_return_type
         //get( index_input_const_type index )
         // {
-        //  return trait_type::get( m_container, index );
+        //  return container_trait_type::get( m_container, index );
         // }
 
         //template< index_type index >
         // component_return_type
         // get()
         //  {
-        //   return trait_type::get<index>( m_container );
+        //   return container_trait_type::get<index>( m_container );
         //  }
 
         set_return_type
         set( index_input_const_type index, component_input_const_type component )
          {
-          return trait_type::set( this->m_container, index, component );
+          return container_trait_type::set( this->m_container, index, component );
          }
 
         template< index_type index >
         set_return_type
         set( component_input_const_type component )
          {
-          /*return*/ trait_type::template set<index>( this->m_container, component );
+          /*return*/ container_trait_type::template set<index>( this->m_container, component );
          }
 
         component_return_const_type operator[]( index_input_const_type index )const
@@ -138,9 +142,9 @@ namespace color
           return this->m_container;
          }
 
-        static index_return_image_type       size()
+        static /*constexpr*/ unsigned       size()
          {
-          return trait_type::size();
+          return container_trait_type::size();
          }
 
         private:

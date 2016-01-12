@@ -8,9 +8,9 @@
    namespace get
     {
 
-     template< typename category_name, typename result >
+     template< typename category_name >
       inline
-      typename ::color::_internal::model< category_name >::component_const_type
+      typename ::color::trait::component< category_name >::return_image_type
       blue( ::color::_internal::model< category_name > const& color_parameter )
        {
         return color_parameter.template get<0>();

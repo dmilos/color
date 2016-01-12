@@ -5,8 +5,13 @@
 // color::operation::blend<alpha_index>( result, upper )
 
 
+#include "../../generic/trait/index.hpp"
+#include "../../generic/trait/container.hpp"
 #include "../../generic/trait/scalar.hpp"
 #include "../../_internal/model.hpp"
+#include "../../generic/get/alpha.hpp"
+#include "../../generic/set/alpha.hpp"
+
 
  namespace color
   {
@@ -58,8 +63,8 @@
             template< index_type alpha_index >
              static void accumulate( model_type &result, model_type const& lower, model_type const& upper )
               {
-               scalar_type aU = normalize_type::template process<alpha_index>( upper.template get<alpha_index>() );
-               scalar_type aL = normalize_type::template process<alpha_index>( lower.template get<alpha_index>() );
+               scalar_type aU = normalize_type::template process<alpha_index>( ::color::get::alpha( upper ) );
+               scalar_type aL = normalize_type::template process<alpha_index>( ::color::get::alpha( lower ) );
 
                scalar_type divisor = aU + aL*( scalar_type(1) - aU );
 
@@ -71,7 +76,7 @@
                  result.set( index, cL * lower.get( index ) + cU * upper.get( index ) );
                 }
 
-               result.template set<alpha_index>( diverse_type::template process<alpha_index>( divisor ) );
+               ::color::set::alpha( result, diverse_type::template process<alpha_index>( divisor ) );
               }
 
             static model_type mix( model_type const& lower, scalar_type const& alpha, model_type const& upper )

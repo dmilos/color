@@ -3,7 +3,9 @@
 
 // ::color::get::gray( c )
 
-
+#include "../../_internal/model.hpp"
+#include "../category.hpp"
+#include "../trait/component.hpp"
 
  namespace color
   {
@@ -11,49 +13,49 @@
     {
 
       inline
-      ::color::_internal::model< color::category::gray_uint8 >::component_const_type
+      ::color::trait::component< color::category::gray_uint8 >::return_type
       gray( ::color::_internal::model< color::category::gray_uint8 > const& color_parameter )
        {
         return color_parameter.template get<0>();
        }
 
       inline
-      ::color::_internal::model< color::category::gray_uint16 >::component_const_type
+      ::color::trait::component< color::category::gray_uint16 >::return_type
       gray( ::color::_internal::model< color::category::gray_uint16 > const& color_parameter )
        {
         return color_parameter.template get<0>();
        }
 
       inline
-      ::color::_internal::model< color::category::gray_uint32 >::component_const_type
+      ::color::trait::component< color::category::gray_uint32 >::return_type
       gray( ::color::_internal::model< color::category::gray_uint32 > const& color_parameter )
        {
         return color_parameter.template get<0>();
        }
 
       inline
-      ::color::_internal::model< color::category::gray_uint64 >::component_const_type
+      ::color::trait::component< color::category::gray_uint64 >::return_type
       gray( ::color::_internal::model< color::category::gray_uint64 > const& color_parameter )
        {
         return color_parameter.template get<0>();
        }
 
       inline
-      ::color::_internal::model< color::category::gray_float >::component_const_type
+      ::color::trait::component< color::category::gray_float >::return_type
       gray( ::color::_internal::model< color::category::gray_float > const& color_parameter )
        {
         return color_parameter.template get<0>();
        };
 
       inline
-      ::color::_internal::model< color::category::gray_double >::component_const_type
+      ::color::trait::component< color::category::gray_double >::return_type
       gray( ::color::_internal::model< color::category::gray_double > const& color_parameter )
        {
         return color_parameter.template get<0>();
        }
 
       inline
-      ::color::_internal::model< color::category::gray_ldouble >::component_const_type
+      ::color::trait::component< color::category::gray_ldouble >::return_type
       gray( ::color::_internal::model< color::category::gray_ldouble > const& color_parameter )
        {
         return color_parameter.template get<0>();

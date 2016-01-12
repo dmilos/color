@@ -150,7 +150,7 @@ public:
 namespace color {
 namespace trait {
 
-template< typename category_name >
+template< typename category_name , unsigned index_size = 0 >
 struct component {
 public:
 	typedef unsigned char instance_type;
@@ -877,12 +877,17 @@ class model {
 public:
 	typedef category_name category_type;
 
+	typedef ::color::trait::index< category_name > index_trait_type;
+	typedef ::color::trait::component< category_name > component_trait_type;
+	typedef ::color::trait::container< category_name > container_trait_type;
+	typedef ::color::trait::bound< category_name > bound_trait_type, bound_type;
+
 	typedef ::color::_internal::trait<category_type> trait_type;
 
-	typedef typename trait_type::index_type index_type;
-
-	typedef typename trait_type::index_input_const_type index_input_const_type;
-	typedef typename trait_type::index_return_image_type index_return_image_type;
+	typedef typename index_trait_type::instance_type index_type;
+	typedef typename index_trait_type::const_type index_const_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::return_image_type index_return_image_type;
 
 	typedef typename trait_type::component_type component_type;
 	typedef typename trait_type::component_const_type component_const_type;
@@ -898,8 +903,6 @@ public:
 	typedef typename trait_type::container_return_type container_return_type;
 
 	typedef typename trait_type::set_return_type set_return_type;
-
-	typedef ::color::trait::bound<category_type> bound_type;
 
 	model() {
 	}
@@ -925,23 +928,23 @@ public:
 
 	component_return_const_type
 	get(index_input_const_type index)const {
-		return trait_type::get(this->m_container, index);
+		return container_trait_type::get(this->m_container, index);
 	}
 
 	template< index_type index >
 	component_return_const_type
 	get()const {
-		return trait_type::template get<index>(this->m_container);
+		return container_trait_type::template get<index>(this->m_container);
 	}
 	set_return_type
 	set(index_input_const_type index, component_input_const_type component) {
-		return trait_type::set(this->m_container, index, component);
+		return container_trait_type::set(this->m_container, index, component);
 	}
 
 	template< index_type index >
 	set_return_type
 	set(component_input_const_type component) {
-		trait_type::template set<index>(this->m_container, component);
+		container_trait_type::template set<index>(this->m_container, component);
 	}
 
 	component_return_const_type operator[](index_input_const_type index)const {
@@ -955,8 +958,8 @@ public:
 		return this->m_container;
 	}
 
-	static index_return_image_type size() {
-		return trait_type::size();
+	static unsigned size() {
+		return container_trait_type::size();
 	}
 
 private:
@@ -2060,7 +2063,7 @@ public:
 	}
 
 	static index_return_image_type size() {
-		static index_instance_type local_length = 1;
+		static const index_instance_type local_length = 1;
 		return local_length;
 	}
 };
@@ -2135,7 +2138,7 @@ public:
 	}
 
 	static index_return_image_type size() {
-		static index_instance_type local_length = length;
+		static const index_instance_type local_length = length;
 		return local_length;
 	}
 };
@@ -2232,7 +2235,7 @@ public:
 	}
 
 	static index_return_image_type size() {
-		static index_instance_type local_length = length;
+		static const index_instance_type local_length = length;
 		return local_length;
 	}
 private:
@@ -2360,49 +2363,280 @@ struct index< ::color::category::gray_uint8 >
 }
 
 namespace color {
+namespace akin {
+
+template< >struct rgb< ::color::category::gray_uint8 > {
+	typedef ::color::category::rgb_uint8 akin_type;
+};
+template< >struct rgb< ::color::category::gray_uint16 > {
+	typedef ::color::category::rgb_uint16 akin_type;
+};
+template< >struct rgb< ::color::category::gray_uint32 > {
+	typedef ::color::category::rgb_uint32 akin_type;
+};
+template< >struct rgb< ::color::category::gray_uint64 > {
+	typedef ::color::category::rgb_uint64 akin_type;
+};
+template< >struct rgb< ::color::category::gray_float > {
+	typedef ::color::category::rgb_float akin_type;
+};
+template< >struct rgb< ::color::category::gray_double > {
+	typedef ::color::category::rgb_double akin_type;
+};
+template< >struct rgb< ::color::category::gray_ldouble > {
+	typedef ::color::category::rgb_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::rgb_double >
+		: public ::color::_internal::utility::component::array< double, unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::rgb_float >
+		: public ::color::_internal::utility::component::array< float, unsigned> {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::rgb_ldouble >
+		: public ::color::_internal::utility::component::array< long double, unsigned> {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace utility {
+namespace component {
+
+template< typename index_name >
+struct cnent556
+		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
+};
+
+}
+}
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::rgb_uint16 >
+		: public ::color::_internal::utility::component::cnent556< unsigned> {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::rgb_uint32 >
+		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned> {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::rgb_uint64 >
+		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace utility {
+namespace component {
+
+template< typename index_name >
+struct cnent332
+		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
+};
+
+}
+}
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::rgb_uint8 >
+		: public ::color::_internal::utility::component::cnent332< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::rgb_double >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::rgb_float >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::rgb_ldouble >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::rgb_uint16 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::rgb_uint32 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::rgb_uint64 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::rgb_uint8 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+
+namespace color {
 namespace get {
 
 inline
-::color::_internal::model< ::color::category::gray_uint8 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint8 >::akin_type >::return_type
 red(::color::_internal::model< ::color::category::gray_uint8 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_uint8 category_type;
+	typedef ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<0,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_uint16 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint16 >::akin_type >::return_type
 red(::color::_internal::model< ::color::category::gray_uint16 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_uint16 category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<0,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_uint32 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint32 >::akin_type >::return_type
 red(::color::_internal::model< ::color::category::gray_uint32 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_uint32 category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<0,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_uint64 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint64 >::akin_type >::return_type
 red(::color::_internal::model< ::color::category::gray_uint64 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_uint64 category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<0,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_float >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_float >::akin_type >::return_type
 red(::color::_internal::model< ::color::category::gray_float > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_float category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar< category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<0,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_double >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_double >::akin_type >::return_type
 red(::color::_internal::model< ::color::category::gray_double > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_double category_type;
+	typedef typename ::color::akin::rgb< category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar< category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<0,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_ldouble >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_ldouble >::akin_type >::return_type
 red(::color::_internal::model< ::color::category::gray_ldouble > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_ldouble category_type;
+	typedef typename ::color::akin::rgb< category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar< category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<0,0>(color_parameter.template get<0>());
+}
 
 }
 }
@@ -2411,46 +2645,74 @@ namespace color {
 namespace get {
 
 inline
-::color::_internal::model< ::color::category::gray_uint8 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint8 >::akin_type >::return_type
 green(::color::_internal::model< ::color::category::gray_uint8 > const& color_parameter) {
-	return color_parameter.template get<0>();
+	typedef ::color::category::gray_uint8 category_type;
+	typedef ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<1,0>(color_parameter.template get<0>());
 }
 
 inline
-::color::_internal::model< ::color::category::gray_uint16 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint16 >::akin_type >::return_type
 green(::color::_internal::model< ::color::category::gray_uint16 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_uint16 category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<1,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< color::category::gray_uint32 >::component_const_type
-green(::color::_internal::model< color::category::gray_uint32 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint32 >::akin_type >::return_type
+green(::color::_internal::model< ::color::category::gray_uint32 > const& color_parameter) {
+	typedef ::color::category::gray_uint32 category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<1,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_uint64 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint64 >::akin_type >::return_type
 green(::color::_internal::model< ::color::category::gray_uint64 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_uint64 category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<1,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_float >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_float >::akin_type >::return_type
 green(::color::_internal::model< ::color::category::gray_float > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_float category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar< category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<1,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_double >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_double >::akin_type >::return_type
 green(::color::_internal::model< ::color::category::gray_double > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_double category_type;
+	typedef typename ::color::akin::rgb< category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar< category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<1,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_ldouble >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_ldouble >::akin_type >::return_type
 green(::color::_internal::model< ::color::category::gray_ldouble > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_ldouble category_type;
+	typedef typename ::color::akin::rgb< category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar< category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<1,0>(color_parameter.template get<0>());
+}
 
 }
 }
@@ -2459,46 +2721,74 @@ namespace color {
 namespace get {
 
 inline
-::color::_internal::model< ::color::category::gray_uint8 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint8 >::akin_type >::return_type
 blue(::color::_internal::model< ::color::category::gray_uint8 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_uint8 category_type;
+	typedef ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<2,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_uint16 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint16 >::akin_type >::return_type
 blue(::color::_internal::model< ::color::category::gray_uint16 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_uint16 category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<2,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_uint32 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint32 >::akin_type >::return_type
 blue(::color::_internal::model< ::color::category::gray_uint32 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_uint32 category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<2,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_uint64 >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_uint64 >::akin_type >::return_type
 blue(::color::_internal::model< ::color::category::gray_uint64 > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_uint64 category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<2,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_float >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_float >::akin_type >::return_type
 blue(::color::_internal::model< ::color::category::gray_float > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_float category_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar< category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<2,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_double >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_double >::akin_type >::return_type
 blue(::color::_internal::model< ::color::category::gray_double > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_double category_type;
+	typedef typename ::color::akin::rgb< category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar< category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<2,0>(color_parameter.template get<0>());
+}
 
 inline
-::color::_internal::model< ::color::category::gray_ldouble >::component_const_type
+::color::trait::component< ::color::akin::rgb< ::color::category::gray_ldouble >::akin_type >::return_type
 blue(::color::_internal::model< ::color::category::gray_ldouble > const& color_parameter) {
-	return color_parameter.template get<0>();
-};
+	typedef ::color::category::gray_ldouble category_type;
+	typedef typename ::color::akin::rgb< category_type>::akin_type akin_type;
+	typedef typename ::color::trait::scalar< category_type>::instance_type scalar_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<2,0>(color_parameter.template get<0>());
+}
 
 }
 }
@@ -2507,43 +2797,43 @@ namespace color {
 namespace get {
 
 inline
-::color::_internal::model< color::category::gray_uint8 >::component_const_type
+::color::trait::component< color::category::gray_uint8 >::return_type
 gray(::color::_internal::model< color::category::gray_uint8 > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::gray_uint16 >::component_const_type
+::color::trait::component< color::category::gray_uint16 >::return_type
 gray(::color::_internal::model< color::category::gray_uint16 > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::gray_uint32 >::component_const_type
+::color::trait::component< color::category::gray_uint32 >::return_type
 gray(::color::_internal::model< color::category::gray_uint32 > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::gray_uint64 >::component_const_type
+::color::trait::component< color::category::gray_uint64 >::return_type
 gray(::color::_internal::model< color::category::gray_uint64 > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::gray_float >::component_const_type
+::color::trait::component< color::category::gray_float >::return_type
 gray(::color::_internal::model< color::category::gray_float > const& color_parameter) {
 	return color_parameter.template get<0>();
 };
 
 inline
-::color::_internal::model< color::category::gray_double >::component_const_type
+::color::trait::component< color::category::gray_double >::return_type
 gray(::color::_internal::model< color::category::gray_double > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::gray_ldouble >::component_const_type
+::color::trait::component< color::category::gray_ldouble >::return_type
 gray(::color::_internal::model< color::category::gray_ldouble > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
@@ -3127,21 +3417,6 @@ struct component< ::color::category::cmy_ldouble >
 }
 
 namespace color {
-namespace _internal {
-namespace utility {
-namespace component {
-
-template< typename index_name >
-struct cnent556
-		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
-};
-
-}
-}
-}
-}
-
-namespace color {
 namespace trait {
 
 template< >
@@ -3170,21 +3445,6 @@ struct component< ::color::category::cmy_uint64 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
 };
 
-}
-}
-
-namespace color {
-namespace _internal {
-namespace utility {
-namespace component {
-
-template< typename index_name >
-struct cnent332
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
-};
-
-}
-}
 }
 }
 
@@ -3321,7 +3581,7 @@ public:
 	}
 
 	static index_return_image_type size() {
-		static index_instance_type local_length = 3;
+		static const index_instance_type local_length = 3;
 		return local_length;
 	}
 };
@@ -3456,80 +3716,6 @@ template< >struct rgb< ::color::category::cmy_double > {
 };
 template< >struct rgb< ::color::category::cmy_ldouble > {
 	typedef ::color::category::rgb_ldouble akin_type;
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::rgb_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::rgb_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::rgb_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::rgb_uint16 >
-		: public ::color::_internal::utility::component::cnent556< unsigned> {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::rgb_uint32 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned> {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::rgb_uint64 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::rgb_uint8 >
-		: public ::color::_internal::utility::component::cnent332< unsigned > {
 };
 
 }
@@ -4329,6 +4515,52 @@ void subtract
 
 }
 }
+
+namespace color {
+namespace place {
+
+template< typename category_name >
+inline
+
+typename ::color::trait::index< category_name >::instance_type
+alpha() {
+	return ::color::trait::container< category_name >::size();
+}
+
+}
+}
+
+namespace color {
+namespace get {
+
+template< typename category_name >
+inline
+typename ::color::trait::component< category_name >::return_image_type
+alpha(::color::_internal::model< category_name > const& color_parameter) {
+	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::trait::bound< category_name > bound_type;
+	return bound_type::template maximum< 0 >();
+}
+
+}
+}
+
+namespace color {
+namespace set {
+
+template< typename category_name >
+inline
+void
+alpha
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+) {
+};
+
+}
+}
+
 namespace color {
 namespace operation {
 namespace _internal {
@@ -4370,15 +4602,15 @@ public:
 
 	template< index_type alpha_index >
 	static void accumulate(model_type &result, model_type const& lower, model_type const& upper) {
-		scalar_type aU = normalize_type::template process<alpha_index>(upper.template get<alpha_index>());
-		scalar_type aL = normalize_type::template process<alpha_index>(lower.template get<alpha_index>());
+		scalar_type aU = normalize_type::template process<alpha_index>(::color::get::alpha(upper));
+		scalar_type aL = normalize_type::template process<alpha_index>(::color::get::alpha(lower));
 		scalar_type divisor = aU + aL*(scalar_type(1) - aU);
 		scalar_type cU = aU/divisor;
 		scalar_type cL = aL * (scalar_type(1) - aU) / divisor;
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, cL * lower.get(index) + cU * upper.get(index));
 		}
-		result.template set<alpha_index>(diverse_type::template process<alpha_index>(divisor));
+		::color::set::alpha(result, diverse_type::template process<alpha_index>(divisor));
 	}
 
 	static model_type mix(model_type const& lower, scalar_type const& alpha, model_type const& upper) {
@@ -9554,34 +9786,6 @@ namespace color {
 namespace color {
 	namespace akin {
 
-		template< >struct rgb< ::color::category::gray_uint8 > {
-			typedef ::color::category::rgb_uint8 akin_type;
-		};
-		template< >struct rgb< ::color::category::gray_uint16 > {
-			typedef ::color::category::rgb_uint16 akin_type;
-		};
-		template< >struct rgb< ::color::category::gray_uint32 > {
-			typedef ::color::category::rgb_uint32 akin_type;
-		};
-		template< >struct rgb< ::color::category::gray_uint64 > {
-			typedef ::color::category::rgb_uint64 akin_type;
-		};
-		template< >struct rgb< ::color::category::gray_float > {
-			typedef ::color::category::rgb_float akin_type;
-		};
-		template< >struct rgb< ::color::category::gray_double > {
-			typedef ::color::category::rgb_double akin_type;
-		};
-		template< >struct rgb< ::color::category::gray_ldouble > {
-			typedef ::color::category::rgb_ldouble akin_type;
-		};
-
-	}
-}
-
-namespace color {
-	namespace akin {
-
 		template< >struct rgb< ::color::category::hsl_uint8 > {
 			typedef ::color::category::rgb_uint8 akin_type;
 		};
@@ -9851,77 +10055,6 @@ namespace color {
 		template< >
 		struct container< ::color::category::rgb_uint64 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
-		};
-
-	}
-}
-
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::rgb_double >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::rgb_float >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::rgb_ldouble >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::rgb_uint16 >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::rgb_uint32 >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::rgb_uint64 >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::rgb_uint8 >
-		: public ::color::_internal::utility::type::index< unsigned > {
 		};
 
 	}
@@ -19221,7 +19354,7 @@ static set_return_type set(input_type container, component_input_const_type valu
 }
 
 static index_return_image_type size() {
-	static index_instance_type local_length = 3;
+	static const index_instance_type local_length = 3;
 	return local_length;
 }
 				};
@@ -26353,10 +26486,11 @@ namespace color {
 
 		template< typename category_name >
 		inline
-		typename ::color::_internal::model< category_name >::component_return_const_type
+		typename ::color::trait::component< category_name >::return_image_type
 red(::color::_internal::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
+
 	}
 }
 
@@ -26365,7 +26499,7 @@ namespace color {
 
 		template< typename category_name >
 		inline
-		typename ::color::_internal::model< category_name >::component_const_type
+		typename ::color::trait::component< category_name >::return_image_type
 green(::color::_internal::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
@@ -26376,9 +26510,9 @@ green(::color::_internal::model< category_name > const& color_parameter) {
 namespace color {
 	namespace get {
 
-		template< typename category_name, typename result >
+		template< typename category_name >
 		inline
-		typename ::color::_internal::model< category_name >::component_const_type
+		typename ::color::trait::component< category_name >::return_image_type
 blue(::color::_internal::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
@@ -26391,22 +26525,7 @@ namespace color {
 
 		template< typename category_name >
 		inline
-		typename ::color::_internal::model< category_name >::component_return_const_type
-alpha(::color::_internal::model< category_name > const& color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
-	typedef ::color::trait::bound< category_name > bound_type;
-	return bound_type::template maximum<0>();
-}
-
-	}
-}
-
-namespace color {
-	namespace get {
-
-		template< typename category_name >
-		inline
-		typename ::color::_internal::model< category_name >::component_const_type
+		typename ::color::trait::component< category_name >::return_image_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
@@ -27489,22 +27608,6 @@ namespace color {
 		inline
 		void
 		blue
-		(
-			::color::_internal::model< category_name > & color_parameter,
-			typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
-) {
-};
-
-	}
-}
-
-namespace color {
-	namespace set {
-
-		template< typename category_name >
-		inline
-		void
-		alpha
 		(
 			::color::_internal::model< category_name > & color_parameter,
 			typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
