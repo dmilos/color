@@ -42,7 +42,10 @@ namespace color
              scalar_type y = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
              scalar_type k = normalize_type::template process<3>( container_right_trait_type::template get<3>( right ) );
 
-             scalar_name value = ( 0.2126 * (1-c) + 0.7152 * (1-m) + 0.0722 * (1-y) ) * (1-k);
+            scalar_type value =
+               ( 0.2126729 * (1-c) 
+               + 0.7151522 * (1-m) 
+               + 0.0721750 * (1-y) ) * (1-k);
 
              container_left_trait_type::template set<0>( left,  diverse_type::template process<0>( value ) );
             }

@@ -8,8 +8,7 @@
 
 #include "../category.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+#include "../../_internal/reformat.hpp"
 #include "../../generic/trait/scalar.hpp"
 
 
@@ -28,18 +27,10 @@
           gray( ::color::_internal::model< category_name > const& color_parameter  )
            {
             typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
-
             typedef typename ::color::akin::gray<category_name >::akin_type     akin_type;
+            typedef ::color::_internal::reformat< akin_type, category_name, scalar_type >  reformat_type;
 
-            typedef ::color::_internal::diverse< akin_type >    diverse_type;
-            typedef ::color::_internal::normalize< category_name > normalize_type;
- 
-            scalar_type value = /* TODO */
-                 0.2126 * normalize_type::template process<0>( color_parameter.template get<0>() )
-               + 0.7152 * normalize_type::template process<1>( color_parameter.template get<1>() )
-               + 0.0722 * normalize_type::template process<2>( color_parameter.template get<2>() );
-
-            return diverse_type::template process<0>( value );
+            return reformat_type::template process<0,0>( color_parameter.template get<0>() );
            }
 
         }

@@ -37,9 +37,9 @@ namespace color
             )
             {
              scalar_name value = 
-                   0.2126 * normalize_type::template process<0> ( container_right_trait_type::template get<0>( right ) )
-                 + 0.7152 * normalize_type::template process<1> ( container_right_trait_type::template get<1>( right ) )
-                 + 0.0722 * normalize_type::template process<2> ( container_right_trait_type::template get<2>( right ) );
+                   0.2126729 * normalize_type::template process<0> ( container_right_trait_type::template get<0>( right ) )
+                 + 0.7151522 * normalize_type::template process<1> ( container_right_trait_type::template get<1>( right ) )
+                 + 0.0721750 * normalize_type::template process<2> ( container_right_trait_type::template get<2>( right ) );
 
              container_left_trait_type::template set<0>( left,  diverse_type::template process<0>( value ) );
            }

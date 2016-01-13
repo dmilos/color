@@ -130,4 +130,3 @@ namespace color
  }
 
 #endif
-// TODO

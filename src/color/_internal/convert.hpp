@@ -39,9 +39,11 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           static const index_type min_common_size = std::min< index_type >( container_left_trait_type::size(), container_right_trait_type::size() );
-           component_left_type value;
            typedef  ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
+
+           static const index_type min_common_size = std::min< index_type >( container_left_trait_type::size(), container_right_trait_type::size() );
+
+           component_left_type value;
 
            for( index_type index=0; index < min_common_size; ++index )
             {

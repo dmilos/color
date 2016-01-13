@@ -35,9 +35,9 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>(  container_right_trait_type::template get<0>( right ) ) );
-             container_left_trait_type::template set<1>( left, reformat_type::template process<1,0>(  container_right_trait_type::template get<0>( right ) ) );
-             container_left_trait_type::template set<2>( left, reformat_type::template process<2,0>(  container_right_trait_type::template get<0>( right ) ) );
+             container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( container_right_trait_type::template get<0>( right ) ) );
+             container_left_trait_type::template set<1>( left, reformat_type::template process<1,0>( container_right_trait_type::template get<0>( right ) ) );
+             container_left_trait_type::template set<2>( left, reformat_type::template process<2,0>( container_right_trait_type::template get<0>( right ) ) );
             }
         };
      }
