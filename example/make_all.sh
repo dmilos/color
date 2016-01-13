@@ -33,11 +33,16 @@ g++ -fexceptions -std=c++11 -g -I../src make_red_in_rgb.cpp             -o  make
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_gray.cpp            -o  make_red_in_gray
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_cmy.cpp             -o  make_red_in_cmy
 
+g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_cmy.cpp       -o  extract_gray_from_cmy
+g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_cmyk.cpp      -o  extract_gray_from_cmyk
+g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_rgb.cpp       -o  extract_gray_from_rgb
+g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_hsl.cpp       -o  extract_gray_from_hsl
+g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_yuv.cpp       -o  extract_gray_from_yuv
+g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_yiq.cpp       -o  extract_gray_from_yiq
+
 
 #g++ -fexceptions -std=c++11 -g -I../src extract_blue_from_cmy.cpp       -o  extract_blue_from_cmy
 #g++ -fexceptions -std=c++11 -g -I../src extract_blue_from_rgb.cpp       -o  extract_blue_from_rgb
-#g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_cmy.cpp       -o  extract_gray_from_cmy
-#g++ -fexceptions -std=c++11 -g -I../src extract_gray_from_rgb.cpp       -o  extract_gray_from_rgb
 #g++ -fexceptions -std=c++11 -g -I../src extract_green_from_cmy.cpp      -o  extract_green_from_cmy
 #g++ -fexceptions -std=c++11 -g -I../src extract_green_from_rgb.cpp      -o  extract_green_from_rgb
 #g++ -fexceptions -std=c++11 -g -I../src extract_red_from_cmy.cpp        -o  extract_red_from_cmy
