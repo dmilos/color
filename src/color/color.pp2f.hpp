@@ -2493,6 +2493,26 @@ struct component< ::color::category::rgb_uint8 >
 
 }
 }
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::rgb_uint24 >
+		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::rgb_uint48 >
+		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+};
+
+}
+}
 
 namespace color {
 namespace trait {
@@ -2559,6 +2579,26 @@ namespace trait {
 
 template< >
 struct index< ::color::category::rgb_uint8 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::rgb_uint24 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::rgb_uint48 >
 		: public ::color::_internal::utility::type::index< unsigned > {
 };
 
@@ -9988,6 +10028,28 @@ template< > struct convert<::color::category::cmyk_ldouble,::color::category::gr
 }
 
 namespace color {
+
+	namespace type {
+
+		typedef std::array< std::uint8_t, 3 > uint24_t;
+
+	}
+
+}
+
+namespace color {
+
+	namespace type {
+
+		typedef std::array< std::uint8_t, 6 > uint48_t, uint48c_t;
+
+		typedef std::array< std::uint16_t, 3 > uint48s_t;
+
+	}
+
+}
+
+namespace color {
 	namespace akin {
 
 		template< >struct rgb< ::color::category::hsl_uint8 > {
@@ -10200,6 +10262,26 @@ namespace color {
 
 	}
 }
+namespace color {
+	namespace trait {
+
+		template< >
+		struct bound< ::color::category::rgb_uint24 >
+		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+		};
+
+	}
+}
+namespace color {
+	namespace trait {
+
+		template< >
+		struct bound< ::color::category::rgb_uint48 >
+		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+		};
+
+	}
+}
 
 namespace color {
 	namespace trait {
@@ -10259,6 +10341,26 @@ namespace color {
 		template< >
 		struct container< ::color::category::rgb_uint64 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
+		};
+
+	}
+}
+namespace color {
+	namespace trait {
+
+		template< >
+		struct container< ::color::category::rgb_uint24 >
+		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+		};
+
+	}
+}
+namespace color {
+	namespace trait {
+
+		template< >
+		struct container< ::color::category::rgb_uint48 >
+		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 		};
 
 	}
@@ -25056,6 +25158,14 @@ namespace color {
 		template<> struct pick_rgb< long double > {
 			typedef ::color::category::rgb_ldouble category_type;
 		};
+
+		template<> struct pick_rgb< ::color::type::uint24_t > {
+			typedef ::color::category::rgb_uint24 category_type;
+		};
+		template<> struct pick_rgb< ::color::type::uint48_t > {
+			typedef ::color::category::rgb_uint48 category_type;
+		};
+
 	}
 
 	template< typename type_name >

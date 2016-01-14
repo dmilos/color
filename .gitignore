@@ -52,6 +52,7 @@ example/extract_gray_from_hsl
 example/extract_gray_from_yiq
 example/extract_gray_from_yuv
 
+example/test/out/
 
 example/test/gen*
 example/test/*.tga

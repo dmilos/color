@@ -1,6 +1,8 @@
 #ifndef color__internal_utility_container_array
 #define color__internal_utility_container_array
 
+// ::color::_internal::utility::container::array<value_name, length>
+
 #include "../type/index.hpp"
 #include "../type/traitc.hpp"
 

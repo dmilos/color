@@ -9,8 +9,8 @@ All color classes fulfils next very restricted conditions:
 
 Code sample:
 ```c++
-        color::rgb<float>          f; //!< This will pack ONLY three consecutive floats in memory
-        color::rgb<std::uint32_t>  u; //!< Just one std::uint32_t for all.
+        color::rgb<float>          f( { 1.0, 0.55, 0.0 } ); //!< This will pack ONLY three consecutive floats in memory
+        color::rgb<std::uint32_t>  u( { 127,  255, 212 } ); //!< Just one std::uint32_t for all.
 
         f = u; //!< Perform direct conversion from packed uint32_t to float.
 
@@ -19,7 +19,7 @@ Code sample:
         f = d; //!< Reformat RGB from double to float
         u = f; //!< Reformat RGB from float to packed uint32_t
 
-        color::hsl<std::uint32_t>     h( { 192, 64, 92  } );
+        color::hsl<std::uint32_t>     h( { 192, 64, 92  } ); //!< Keep HSL in std::uint32_t
 
         h = f; //!< This is the way how to convert from RGB(float) to HSL(std::uint32_t).
 ```

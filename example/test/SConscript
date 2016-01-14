@@ -26,14 +26,25 @@ settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.
 #settings.accumulate( 'pp2f', { 'output' : 'asd.pp2f', 'extension' : 'pp2f',  )
 
 # Accumulate source
+envObject = nucleotide.Environment( settings ).native()
+
+
+
 source = []
-source +=   [ 'main.cpp', 'conversion.cpp', 'targa.cpp', 'make.cpp', 'bound.cpp' ]
+source +=   [
+     envObject.StaticObject( target =  './out/main'       + envObject[ 'OBJSUFFIX' ],  source = './main.cpp' )
+   , envObject.StaticObject( target =  './out/conversion' + envObject[ 'OBJSUFFIX' ],  source = './conversion.cpp' )
+   , envObject.StaticObject( target =  './out/targa'      + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp' )
+   , envObject.StaticObject( target =  './out/make'       + envObject[ 'OBJSUFFIX' ],  source = './make.cpp' )
+   , envObject.StaticObject( target =  './out/bound'      + envObject[ 'OBJSUFFIX' ],  source = './bound.cpp' )
+   , envObject.StaticObject( target =  './out/sizeof'     + envObject[ 'OBJSUFFIX' ],  source = './sizeof.cpp' )
+  ]
 
 # Make native environment
 envProgram = nucleotide.Environment( settings ).native()
 
 # Create program
-program = envProgram.Program( target =  'test' + envProgram['PROGSUFFIX'], source = source  )
+program = envProgram.Program( target =  './out/test' + envProgram['PROGSUFFIX'], source = source  )
 
 # ... and return!
 Return( 'program' )
