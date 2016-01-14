@@ -9,4 +9,6 @@
 
 #include "./gray.hpp"
 
+#include "./hue.hpp"
+
 #endif

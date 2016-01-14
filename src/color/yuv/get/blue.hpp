@@ -31,16 +31,22 @@
 
             typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
 
-
             typedef ::color::_internal::diverse< akin_type >       diverse_type;
             typedef ::color::_internal::normalize< category_name > normalize_type;
  
-            scalar_type value = /* TODO */
-                   0.2126 * normalize_type::template process<0>( color_parameter.template get<0>() )
-                 + 0.7152 * normalize_type::template process<1>( color_parameter.template get<1>() )
-                 + 0.0722 * normalize_type::template process<2>( color_parameter.template get<2>() );
+            static scalar_type const Wb = 0.114;
+            static scalar_type const Umax = 0.436;
 
-            return diverse_type::template process<0>( value );
+            static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax),          b33 = 0;
+
+            scalar_type y = normalize_type::template process<0>( color_parameter.template get<0>() );
+            scalar_type u = normalize_type::template process<1>( color_parameter.template get<1>() );
+
+            u = ( u - scalar_type(0.5) ) * scalar_type(2) * Umax;
+
+            scalar_type b = y + u * b32;
+
+            return diverse_type::template process<0>( diverse_type::template process<2>( b ) );
            }
 
         }

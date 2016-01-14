@@ -36,7 +36,7 @@ namespace color
               container_left_input_type         left
              ,container_right_const_input_type  right
             )
-            { // TODO. I hope that is enought exact
+            {
              static scalar_type const b11 = 0.2990000000000000000, b12 =  0.5870000000000000000, b13 =  0.1140000000000000000;
              static scalar_type const b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
              static scalar_type const b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 =  0.3111346431714933019;

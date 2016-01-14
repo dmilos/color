@@ -21142,11 +21142,16 @@ red(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
-	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
-	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
-	return diverse_type::template process<0>(value);
+	static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
+	static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
+	static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
+	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
+	scalar_type i = normalize_type::template process<1>(color_parameter.template get<1>());
+	scalar_type q = normalize_type::template process<2>(color_parameter.template get<2>());
+	i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
+	q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
+	scalar_type r = b11 * y + b12 * i + b13 * q;
+	return diverse_type::template process<0>(r);
 }
 
 			}
@@ -21210,11 +21215,16 @@ green(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
-	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
-	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
-	return diverse_type::template process<0>(value);
+	static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
+	static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
+	static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
+	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
+	scalar_type i = normalize_type::template process<1>(color_parameter.template get<1>());
+	scalar_type q = normalize_type::template process<2>(color_parameter.template get<2>());
+	i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
+	q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
+	scalar_type g = b21 * y + b22 * i + b23 * q;
+	return diverse_type::template process<0>(g);
 }
 
 			}
@@ -21278,12 +21288,16 @@ blue(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	scalar_type value =
-	1.00000 * normalize_type::template process<0>(color_parameter.template get<0>())
-	- 1.15704 * normalize_type::template process<1>(color_parameter.template get<1>())
-	+ 2.03086 * normalize_type::template process<2>(color_parameter.template get<2>())
-	-0.436912;
-	return diverse_type::template process<0>(value);
+	static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
+	static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
+	static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
+	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
+	scalar_type i = normalize_type::template process<1>(color_parameter.template get<1>());
+	scalar_type q = normalize_type::template process<2>(color_parameter.template get<2>());
+	i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
+	q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
+	scalar_type b = b31 * y + b32 * i + b33 * q;
+	return diverse_type::template process<0>(b);
 }
 
 			}
@@ -23675,11 +23689,14 @@ red(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
-	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
-	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
-	return diverse_type::template process<0>(value);
+	static scalar_type const Wr = 0.299;
+	static scalar_type const Vmax = 0.615;
+	static scalar_type const b11 = 1, b12 = 0, b13 = (1 - Wr) / Vmax;
+	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
+	scalar_type v = normalize_type::template process<2>(color_parameter.template get<2>());
+	v = (v - scalar_type(0.5)) * scalar_type(2) * Vmax;
+	scalar_type r = y + v * b13;
+	return diverse_type::template process<0>(r);
 }
 
 			}
@@ -23743,11 +23760,19 @@ green(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
-	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
-	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
-	return diverse_type::template process<0>(value);
+	static scalar_type const Wr = 0.299;
+	static scalar_type const Wb = 0.114;
+	static scalar_type const Wg = 1.0-Wr-Wb;
+	static scalar_type const Umax = 0.436;
+	static scalar_type const Vmax = 0.615;
+	static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg, b23 = -Wr*(1 - Wr) / Vmax / Wg;
+	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
+	scalar_type u = normalize_type::template process<1>(color_parameter.template get<1>());
+	scalar_type v = normalize_type::template process<2>(color_parameter.template get<2>());
+	u = (u - scalar_type(0.5)) * scalar_type(2) * Umax;
+	v = (v - scalar_type(0.5)) * scalar_type(2) * Vmax;
+	scalar_type g = y + u * b22 + v * b23;
+	return diverse_type::template process<0>(diverse_type::template process<1>(g));
 }
 
 			}
@@ -23811,11 +23836,14 @@ blue(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
-	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
-	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
-	return diverse_type::template process<0>(value);
+	static scalar_type const Wb = 0.114;
+	static scalar_type const Umax = 0.436;
+	static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax), b33 = 0;
+	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
+	scalar_type u = normalize_type::template process<1>(color_parameter.template get<1>());
+	u = (u - scalar_type(0.5)) * scalar_type(2) * Umax;
+	scalar_type b = y + u * b32;
+	return diverse_type::template process<0>(diverse_type::template process<2>(b));
 }
 
 			}
