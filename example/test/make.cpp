@@ -225,13 +225,14 @@ template < template<typename> class color_name >
 
 void make_test()
  {
-  print_all_header< color::cmy>(  "cmy");
-  print_all_header< color::cmyk>( "cmyk");
-  print_all_header< color::hsv>(  "hsv");
-  print_all_header< color::hsl>(  "hsl");
-  print_all_header< color::yiq>(  "yiq");
-  print_all_header< color::xyz>(  "xyz");
-  print_all_header< color::yuv>(  "yuv");
-  //print_all_header< color::rgb>("rgb");
+  print_all_header< color::cmy>(  "cmy"  );
+  print_all_header< color::cmyk>( "cmyk" );
+  print_all_header< color::gray>( "gray" );
+  print_all_header< color::hsv>(  "hsv"  );
+  print_all_header< color::hsl>(  "hsl"  );
+  print_all_header< color::yiq>(  "yiq"  );
+  print_all_header< color::xyz>(  "xyz"  );
+  print_all_header< color::yuv>(  "yuv"  );
+  //print_all_header< color::rgb>("rgb"  );
  }
 

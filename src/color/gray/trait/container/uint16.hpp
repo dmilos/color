@@ -1,5 +1,5 @@
-#ifndef color_gray_trait_container_uint8
-#define color_gray_trait_container_uint8
+#ifndef color_gray_trait_container_uint16
+#define color_gray_trait_container_uint16
 
 #include "../../category.hpp"
 

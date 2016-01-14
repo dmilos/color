@@ -23,13 +23,13 @@
       inline
       void gray50( ::color::_internal::model< color::category::gray_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0x7fffff;
+        color_parameter.container() = 0x7FFFFFFF;
        }
 
       inline
       void gray50( ::color::_internal::model< color::category::gray_uint64 > & color_parameter )
        {
-        color_parameter.container() = std::uint64_t( 0x7fffffffffffu );
+        color_parameter.container() = std::uint64_t( 0x7fffffffffffffffu );
        }
 
       inline

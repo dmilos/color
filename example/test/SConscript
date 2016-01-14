@@ -5,7 +5,8 @@ import nucleotide
 Import('settings')
 
 name_full = 'test'
-directory_pdb = '.'
+directory_pdb = './out'
+directory_obj = './out'
 
 settings.set_custom( 'RTL', 'dynamic' ) 
 settings.set_custom( 'architecture', 'i386' )
@@ -32,12 +33,12 @@ envObject = nucleotide.Environment( settings ).native()
 
 source = []
 source +=   [
-     envObject.StaticObject( target =  './out/main'       + envObject[ 'OBJSUFFIX' ],  source = './main.cpp' )
-   , envObject.StaticObject( target =  './out/conversion' + envObject[ 'OBJSUFFIX' ],  source = './conversion.cpp' )
-   , envObject.StaticObject( target =  './out/targa'      + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp' )
-   , envObject.StaticObject( target =  './out/make'       + envObject[ 'OBJSUFFIX' ],  source = './make.cpp' )
-   , envObject.StaticObject( target =  './out/bound'      + envObject[ 'OBJSUFFIX' ],  source = './bound.cpp' )
-   , envObject.StaticObject( target =  './out/sizeof'     + envObject[ 'OBJSUFFIX' ],  source = './sizeof.cpp' )
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'main'      ) + envObject[ 'OBJSUFFIX' ],  source = './main.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'conversion') + envObject[ 'OBJSUFFIX' ],  source = './conversion.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'     ) + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'make'      ) + envObject[ 'OBJSUFFIX' ],  source = './make.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'bound'     ) + envObject[ 'OBJSUFFIX' ],  source = './bound.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'sizeof'    ) + envObject[ 'OBJSUFFIX' ],  source = './sizeof.cpp' )
   ]
 
 # Make native environment

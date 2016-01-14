@@ -3,7 +3,7 @@
 
 #include "../../category.hpp"
 
-#include "../../../_internal/utility/component/cnent556.hpp"
+#include "../../../_internal/utility/component/cnent655.hpp"
 
 #include "../../../generic/trait/component.hpp"
 
@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct component< ::color::category::rgb_uint16 >
-      : public ::color::_internal::utility::component::cnent556< unsigned>
+      : public ::color::_internal::utility::component::cnent655< unsigned>
       {
       };
 

@@ -19,7 +19,7 @@ template< typename category_name >
    color::make::black(c);
    color::make::gray50(c);
 
-   std::cout << "  ( double )alpha: "<< ( double )color::get::alpha(c)     << ",";
+   std::cout << "  ( double )alpha: "<< ( double )color::get::alpha( c )   << ",";
    std::cout << "  ( double )gray:  "<< ( double )color::get::gray( c )    << ",";
    std::cout << "  ( double )red:   "<< ( double )color::get::red( c )     << ",";
    std::cout << "  ( double )green: "<< ( double )color::get::green( c )   << ",";

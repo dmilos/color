@@ -3,7 +3,7 @@
 
 #include "../../category.hpp"
 
-#include "../../../_internal/utility/bound/556.hpp"
+#include "../../../_internal/utility/bound/655.hpp"
 
 #include "../../../generic/trait/bound.hpp"
 
@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct bound< ::color::category::rgb_uint16 >
-      : public ::color::_internal::utility::bound::bound556< unsigned >
+      : public ::color::_internal::utility::bound::bound655< unsigned >
       {
       };
 

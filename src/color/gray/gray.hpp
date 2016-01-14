@@ -17,6 +17,7 @@ namespace color
  {
   namespace _internal
    {
+
     template< typename type_name >
      struct pick_gray
       {

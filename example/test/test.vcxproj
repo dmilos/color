@@ -592,7 +592,7 @@
     <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir)</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c</NMakeCleanCommandLine>
-    <OutDir>$(SolutionDir)\</OutDir>
+    <OutDir>$(SolutionDir)\out</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
