@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0.803922, 0.521569, 0.247059 } ) 
+    { //RGB equivalent std::array<double,3>( { 0.803922, 0.521569, 0.247059 } ) - rgb(205,133,63) - #cd853f
 
       inline
       void pink( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void pink( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x3e18;
+        color_parameter.container() = 0x3c32;
        }
 
       inline

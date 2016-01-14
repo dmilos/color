@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0, 0.5, 0.5 } ) 
+    { //RGB equivalent std::array<double,3>( { 0, 0.5, 0.5 } ) - rgb(0,127,127) - #007f7f
 
       inline
       void teal( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void teal( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x7de0;
+        color_parameter.container() = 0x7bc0;
        }
 
       inline

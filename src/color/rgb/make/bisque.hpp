@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 255.0/255.0, 228.0/255.0, 196.0/255.0 } ) 
+    { //RGB equivalent std::array<double,3>( { 255.0/255.0, 228.0/255.0, 196.0/255.0 } ) - rgb(255,228,196) - #ffe4c4
 
       inline
       void bisque( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void bisque( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xc37f;
+        color_parameter.container() = 0xbeff;
        }
 
       inline

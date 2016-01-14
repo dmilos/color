@@ -233,6 +233,6 @@ void make_test()
   print_all_header< color::yiq>(  "yiq"  );
   print_all_header< color::xyz>(  "xyz"  );
   print_all_header< color::yuv>(  "yuv"  );
-  //print_all_header< color::rgb>("rgb"  );
+  print_all_header< color::rgb>(  "rgb"  );
  }
 

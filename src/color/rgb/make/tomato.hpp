@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 255.0/255,  99.0/255,  71.0/255.0 } ) 
+    { //RGB equivalent std::array<double,3>( { 255.0/255,  99.0/255,  71.0/255.0 } ) - rgb(255,99,71) - #ff6347
 
       inline
       void tomato( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void tomato( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x459f;
+        color_parameter.container() = 0x433f;
        }
 
       inline

@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 64.0/255.0, 224.0/255.0, 208.0/255.0 } ) 
+    { //RGB equivalents: std::array<double,3>( { 64.0/255.0, 224.0/255.0, 208.0/255.0 } ) - rgb(64,224,208) - #40e0d0
 
       inline
       void turquoise( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void turquoise( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xcf67;
+        color_parameter.container() = 0xcecf;
        }
 
       inline

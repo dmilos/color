@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 210.0/255.0, 180.0/255.0, 140.0/255.0 } ) 
+    { //RGB equivalent std::array<double,3>( { 210.0/255.0, 180.0/255.0, 140.0/255.0 } ) - rgb(210,180,140) - #d2b48c
 
       inline
       void tan( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void tan( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x8ab9;
+        color_parameter.container() = 0x8d73;
        }
 
       inline

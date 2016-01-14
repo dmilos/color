@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 216.0/255.0, 191.0/255.0, 216.0/255.0 } ) 
+    { //RGB equivalent std::array<double,3>( { 216.0/255.0, 191.0/255.0, 216.0/255.0 } ) - rgb(216,191,216) - #d8bfd8
 
       inline
       void thistle( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void thistle( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xd6fa;
+        color_parameter.container() = 0xd5f5;
        }
 
       inline

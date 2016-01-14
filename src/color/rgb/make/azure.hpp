@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 240.0/255.0, 1, 1 } ) 
+    { //RGB equivalents: std::array<double,3>( { 240.0/255.0, 1, 1 } ) - rgb(240,255,255) - #f0ffff
 
       inline
       void azure( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void azure( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xfffd;
+        color_parameter.container() = 0xfffb;
        }
 
       inline

@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 75.0/255.0, 0.0/255.0, 130.0/255.0 } ) 
+    { //RGB equivalent std::array<double,3>( { 75.0/255.0, 0.0/255.0, 130.0/255.0 } ) - rgb(75,0,130) - #4b0082
 
       inline
       void indigo( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void indigo( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x8009;
+        color_parameter.container() = 0x7812;
        }
 
       inline

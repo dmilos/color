@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 250.0/255.0, 240.0/255.0, 230.0/255.0 } ) 
+    { //RGB equivalents: std::array<double,3>( { 250.0/255.0, 240.0/255.0, 230.0/255.0 } ) - rgb(250,240,230) - #faf0e6
 
       inline
       void linen( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void linen( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xe3be;
+        color_parameter.container() = 0xdf7d;
        }
 
       inline

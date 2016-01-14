@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 255.0/255.0, 250.0/255.0, 250.0/255.0 } ) 
+    { //RGB equivalent std::array<double,3>( { 255.0/255.0, 250.0/255.0, 250.0/255.0 } ) - rgb(255,250,250) - #fffafa
 
       inline
       void snow( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void snow( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xf7df;
+        color_parameter.container() = 0xf7bf;
        }
 
       inline

@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 210.0/255.0, 105.0/255.0, 30.0/255.0 } ) 
+    { //RGB equivalent std::array<double,3>( { 210.0/255.0, 105.0/255.0, 30.0/255.0 } ) - rgb(210,105,30) - #d2691e
 
       inline
       void chocolate( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void chocolate( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x1d99;
+        color_parameter.container() = 0x1b33;
        }
 
       inline

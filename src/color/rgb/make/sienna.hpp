@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 160.0/255.0,  82.0/255.0,  45.0/255.0 } ) 
+    { //RGB equivalent std::array<double,3>( { 160.0/255.0,  82.0/255.0,  45.0/255.0 } ) - rgb(160,82,45) - #a0522d
 
       inline
       void sienna( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void sienna( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x2d33;
+        color_parameter.container() = 0x2a67;
        }
 
       inline

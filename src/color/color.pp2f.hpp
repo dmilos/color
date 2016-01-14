@@ -1617,169 +1617,22 @@ struct bound< ::color::category::gray_ldouble >
 
 }
 }
-
-namespace color {
-namespace _internal {
-namespace utility {
-namespace type {
-
-template < typename type_name >
-struct traitP {
-public:
-	typedef type_name instance_type;
-
-	typedef instance_type const const_type;
-
-	typedef instance_type const return_image_type;
-	typedef instance_type return_type;
-
-	typedef instance_type const& input_const_type;
-	typedef instance_type input_type;
-
-};
-
-}
-}
-}
-}
-
-namespace color {
-namespace _internal {
-namespace utility {
-namespace bound {
-
-template< typename index_name >
-struct bound556 {
-public:
-	typedef std::uint16_t unsigned_type;
-	typedef index_name index_type;
-
-	typedef ::color::_internal::utility::type::traitP< unsigned_type > trait_type;
-	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
-
-	typedef typename trait_type::instance_type instance_type;
-	typedef typename trait_type::return_image_type return_image_type;
-
-	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
-
-	template< index_instance_type index >
-	static return_image_type maximum() {
-		static instance_type max_list[] = { 31, 31, 63 };
-		return max_list[index];
-	}
-
-	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { 31, 31, 63 };
-		return max_list[index];
-	}
-
-	template< index_instance_type index >
-	static return_image_type minimum() {
-		static instance_type value=0;
-		return value;
-	}
-
-	static return_image_type minimum(index_input_const_type index) {
-		static instance_type value=0;
-		return value;
-	}
-
-	template< index_instance_type index >
-	static return_image_type range() {
-		static instance_type max_list[] = { 31, 31, 63 };
-		return max_list[index];
-	}
-
-	static return_image_type range(index_input_const_type index) {
-		static instance_type max_list[] = { 31, 31, 63 };
-		return max_list[index];
-	}
-};
-
-}
-}
-}
-}
-
 namespace color {
 namespace trait {
 
 template< >
 struct bound< ::color::category::gray_uint16 >
-		: public ::color::_internal::utility::bound::bound556< unsigned > {
+		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
 }
-
-namespace color {
-namespace _internal {
-namespace utility {
-namespace bound {
-
-template< typename container_name, unsigned width_size, typename index_name >
-struct intrinsic {
-public:
-	typedef container_name container_type;
-	typedef index_name index_type;
-
-	typedef ::color::_internal::utility::type::traitC< container_type > component_trait_type;
-	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
-
-	typedef typename component_trait_type::instance_type component_instance_type;
-	typedef typename component_trait_type::return_image_type component_return_const_type;
-
-	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
-
-	typedef ::color::_internal::utility::bound::intrinsic< container_name, width_size, index_name > this_type;
-
-	template< index_instance_type index >
-	static component_return_const_type maximum() {
-		static const component_instance_type component = (((container_type(1) << (width_size-1)) - container_name(1)) << 1) + container_type(1);
-		return component;
-	}
-
-	static component_return_const_type maximum(index_input_const_type index) {
-		static const component_instance_type component = (((container_type(1) << (width_size-1)) - container_type(1)) << 1) + container_type(1);
-		return component;
-	}
-
-	template< index_instance_type index >
-	static component_return_const_type minimum() {
-		static const component_instance_type component = 0;
-		return component;
-	}
-
-	static component_return_const_type minimum(index_input_const_type index) {
-		static const component_instance_type component = 0;
-		return component;
-	}
-
-	template< index_instance_type index >
-	static component_return_const_type range() {
-		static const component_instance_type component = this_type::template maximum<index>() - this_type::template minimum<index>();
-		return component;
-	}
-
-	static component_return_const_type range(index_input_const_type index) {
-		static const component_instance_type component = this_type::maximum(index) - this_type::minimum(index);
-		return component;
-	}
-};
-
-}
-}
-}
-}
-
 namespace color {
 namespace trait {
 
 template< >
 struct bound< ::color::category::gray_uint32 >
-		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 8, unsigned > {
+		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -1789,77 +1642,17 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::gray_uint64 >
-		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 16, unsigned > {
+		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
 }
-
-namespace color {
-namespace _internal {
-namespace utility {
-namespace bound {
-
-template< typename index_name >
-struct bound332 {
-public:
-	typedef std::uint8_t unsigned_type;
-	typedef index_name index_type;
-
-	typedef ::color::_internal::utility::type::traitP< unsigned_type > trait_type;
-	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
-
-	typedef typename trait_type::instance_type instance_type;
-	typedef typename trait_type::return_image_type return_image_type;
-
-	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
-
-	template< index_instance_type index >
-	static return_image_type maximum() {
-		static instance_type max_list[] = { 7, 7, 3 };
-		return max_list[index];
-	}
-
-	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { 7, 7, 3 };
-		return max_list[index];
-	}
-
-	template< index_instance_type index >
-	static return_image_type minimum() {
-		static instance_type value=0;
-		return value;
-	}
-
-	static return_image_type minimum(index_input_const_type index) {
-		static instance_type value=0;
-		return value;
-	}
-
-	template< index_instance_type index >
-	static return_image_type range() {
-		static instance_type max_list[] = { 7, 7, 3 };
-		return max_list[index];
-	}
-
-	static return_image_type range(index_input_const_type index) {
-		static instance_type max_list[] = { 7, 7, 3 };
-		return max_list[index];
-	}
-};
-
-}
-}
-}
-}
-
 namespace color {
 namespace trait {
 
 template< >
 struct bound< ::color::category::gray_uint8 >
-		: public ::color::_internal::utility::bound::bound332< unsigned > {
+		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -1940,6 +1733,31 @@ struct component< ::color::category::gray_ldouble >
 namespace color {
 namespace _internal {
 namespace utility {
+namespace type {
+
+template < typename type_name >
+struct traitP {
+public:
+	typedef type_name instance_type;
+
+	typedef instance_type const const_type;
+
+	typedef instance_type const return_image_type;
+	typedef instance_type return_type;
+
+	typedef instance_type const& input_const_type;
+	typedef instance_type input_type;
+
+};
+
+}
+}
+}
+}
+
+namespace color {
+namespace _internal {
+namespace utility {
 namespace component {
 
 template< typename unsigned_name, typename index_name >
@@ -1993,7 +1811,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_uint64 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
+		: public ::color::_internal::utility::component::Unsigned< std::uint64_t, unsigned> {
 };
 
 }
@@ -2280,6 +2098,16 @@ struct container< ::color::category::gray_uint64 >
 
 }
 }
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::gray_uint8 >
+		: public ::color::_internal::utility::container::Unsigned< std::uint8_t, std::uint8_t, unsigned, 1, 8 > {
+};
+
+}
+}
 
 namespace color {
 namespace trait {
@@ -2427,7 +2255,7 @@ namespace utility {
 namespace component {
 
 template< typename index_name >
-struct cnent556
+struct cnent655
 		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
 };
 
@@ -2441,7 +2269,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint16 >
-		: public ::color::_internal::utility::component::cnent556< unsigned> {
+		: public ::color::_internal::utility::component::cnent655< unsigned> {
 };
 
 }
@@ -2886,22 +2714,22 @@ namespace make {
 
 inline
 void black(::color::_internal::model< color::category::gray_uint8 > & color_parameter) {
-	color_parameter.container() = 0;
+	color_parameter.container() = 0x0;
 }
 
 inline
 void black(::color::_internal::model< color::category::gray_uint16 > & color_parameter) {
-	color_parameter.container() = 0;
+	color_parameter.container() = 0x0;
 }
 
 inline
 void black(::color::_internal::model< color::category::gray_uint32 > & color_parameter) {
-	color_parameter.container() = 0;
+	color_parameter.container() = 0x0u;
 }
 
 inline
 void black(::color::_internal::model< color::category::gray_uint64 > & color_parameter) {
-	color_parameter.container() = std::uint64_t(0);
+	color_parameter.container() = std::uint64_t(0x0ul);
 }
 
 inline
@@ -2937,12 +2765,12 @@ void gray50(::color::_internal::model< color::category::gray_uint16 > & color_pa
 
 inline
 void gray50(::color::_internal::model< color::category::gray_uint32 > & color_parameter) {
-	color_parameter.container() = 0x7fffff;
+	color_parameter.container() = 0x7FFFFFFF;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::gray_uint64 > & color_parameter) {
-	color_parameter.container() = std::uint64_t(0x7fffffffffffu);
+	color_parameter.container() = std::uint64_t(0x7fffffffffffffffu);
 }
 
 inline
@@ -3009,37 +2837,37 @@ namespace make {
 
 inline
 void red(::color::_internal::model< color::category::gray_uint8 > & color_parameter) {
-	color_parameter.container() = 0x07;
+	color_parameter.container() = 0x36;
 }
 
 inline
 void red(::color::_internal::model< color::category::gray_uint16 > & color_parameter) {
-	color_parameter.container() = 0x003F;
+	color_parameter.container() = 0x3671;
 }
 
 inline
 void red(::color::_internal::model< color::category::gray_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff0000ff;
+	color_parameter.container() = 0x3671bb2eu;
 }
 
 inline
 void red(::color::_internal::model< color::category::gray_uint64 > & color_parameter) {
-	color_parameter.container() = std::uint64_t(0xffff00000000ffffu);
+	color_parameter.container() = std::uint64_t(0x3671bb2e3ed7ac00ul);
 }
 
 inline
 void red(::color::_internal::model< color::category::gray_float > & color_parameter) {
-	color_parameter.container() = std::array<float,1>({ 0.2126 });
+	color_parameter.container() = std::array<float,1>({ 0.2126729 });
 }
 
 inline
 void red(::color::_internal::model< color::category::gray_double> & color_parameter) {
-	color_parameter.container() = std::array<double,1>({ 0.2126 });
+	color_parameter.container() = std::array<double,1>({ 0.2126729 });
 }
 
 inline
 void red(::color::_internal::model< color::category::gray_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,1>({ 0.2126 });
+	color_parameter.container() = std::array<long double,1>({ 0.2126729 });
 }
 
 }
@@ -3050,37 +2878,37 @@ namespace make {
 
 inline
 void green(::color::_internal::model< color::category::gray_uint8 > & color_parameter) {
-	color_parameter.container() = 0x38;
+	color_parameter.container() = 0x5b;
 }
 
 inline
 void green(::color::_internal::model< color::category::gray_uint16 > & color_parameter) {
-	color_parameter.container() = 0x03E0;
+	color_parameter.container() = 0x5b89;
 }
 
 inline
 void green(::color::_internal::model< color::category::gray_uint32 > & color_parameter) {
-	color_parameter.container() = 0xff00ff00;
+	color_parameter.container() = 0x5b8a1b76u;
 }
 
 inline
 void green(::color::_internal::model< color::category::gray_uint64 > & color_parameter) {
-	color_parameter.container() = std::uint64_t(0xffff0000ffff0000u);
+	color_parameter.container() = std::uint64_t(0x5b8a1b7754cb3400ul);
 }
 
 inline
 void green(::color::_internal::model< color::category::gray_float > & color_parameter) {
-	color_parameter.container() = std::array<float,1>({ 0.7152 });
+	color_parameter.container() = std::array<float,1>({ 0.7151522/2 });
 }
 
 inline
 void green(::color::_internal::model< color::category::gray_double> & color_parameter) {
-	color_parameter.container() = std::array<double,1>({ 0.7152 });
+	color_parameter.container() = std::array<double,1>({ 0.7151522/2 });
 }
 
 inline
 void green(::color::_internal::model< color::category::gray_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,1>({ 0.7152 });
+	color_parameter.container() = std::array<long double,1>({ 0.7151522/2 });
 }
 
 }
@@ -3091,37 +2919,37 @@ namespace make {
 
 inline
 void blue(::color::_internal::model< color::category::gray_uint8 > & color_parameter) {
-	color_parameter.container() = 0xC0;
+	color_parameter.container() = 0x12;
 }
 
 inline
 void blue(::color::_internal::model< color::category::gray_uint16 > & color_parameter) {
-	color_parameter.container() = 0x7C00;
+	color_parameter.container() = 0x1279;
 }
 
 inline
 void blue(::color::_internal::model< color::category::gray_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffff0000;
+	color_parameter.container() = 0x127a0f90u;
 }
 
 inline
 void blue(::color::_internal::model< color::category::gray_uint64 > & color_parameter) {
-	color_parameter.container() = std::uint64_t(0xffffffff00000000u);
+	color_parameter.container() = std::uint64_t(0x127a0f9096bb9900ul);
 }
 
 inline
 void blue(::color::_internal::model< color::category::gray_float > & color_parameter) {
-	color_parameter.container() = std::array<float,1>({ 0.0722 });
+	color_parameter.container() = std::array<float,1>({ 0.0721750 });
 }
 
 inline
 void blue(::color::_internal::model< color::category::gray_double> & color_parameter) {
-	color_parameter.container() = std::array<double,1>({ 0.0722 });
+	color_parameter.container() = std::array<double,1>({ 0.0721750 });
 }
 
 inline
 void blue(::color::_internal::model< color::category::gray_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,1>({ 0.0722 });
+	color_parameter.container() = std::array<long double,1>({ 0.0721750 });
 }
 
 }
@@ -3383,6 +3211,65 @@ struct bound< ::color::category::cmy_ldouble >
 }
 
 namespace color {
+namespace _internal {
+namespace utility {
+namespace bound {
+
+template< typename index_name >
+struct bound556 {
+public:
+	typedef std::uint16_t unsigned_type;
+	typedef index_name index_type;
+
+	typedef ::color::_internal::utility::type::traitP< unsigned_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
+
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 31, 31, 63 };
+		return max_list[index];
+	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 31, 31, 63 };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type value=0;
+		return value;
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type value=0;
+		return value;
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type max_list[] = { 31, 31, 63 };
+		return max_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type max_list[] = { 31, 31, 63 };
+		return max_list[index];
+	}
+};
+
+}
+}
+}
+}
+
+namespace color {
 namespace trait {
 
 template< >
@@ -3390,6 +3277,67 @@ struct bound< ::color::category::cmy_uint16 >
 		: public ::color::_internal::utility::bound::bound556< unsigned > {
 };
 
+}
+}
+
+namespace color {
+namespace _internal {
+namespace utility {
+namespace bound {
+
+template< typename container_name, unsigned width_size, typename index_name >
+struct intrinsic {
+public:
+	typedef container_name container_type;
+	typedef index_name index_type;
+
+	typedef ::color::_internal::utility::type::traitC< container_type > component_trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename component_trait_type::instance_type component_instance_type;
+	typedef typename component_trait_type::return_image_type component_return_const_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
+
+	typedef ::color::_internal::utility::bound::intrinsic< container_name, width_size, index_name > this_type;
+
+	template< index_instance_type index >
+	static component_return_const_type maximum() {
+		static const component_instance_type component = (((container_type(1) << (width_size-1)) - container_name(1)) << 1) + container_type(1);
+		return component;
+	}
+
+	static component_return_const_type maximum(index_input_const_type index) {
+		static const component_instance_type component = (((container_type(1) << (width_size-1)) - container_type(1)) << 1) + container_type(1);
+		return component;
+	}
+
+	template< index_instance_type index >
+	static component_return_const_type minimum() {
+		static const component_instance_type component = 0;
+		return component;
+	}
+
+	static component_return_const_type minimum(index_input_const_type index) {
+		static const component_instance_type component = 0;
+		return component;
+	}
+
+	template< index_instance_type index >
+	static component_return_const_type range() {
+		static const component_instance_type component = this_type::template maximum<index>() - this_type::template minimum<index>();
+		return component;
+	}
+
+	static component_return_const_type range(index_input_const_type index) {
+		static const component_instance_type component = this_type::maximum(index) - this_type::minimum(index);
+		return component;
+	}
+};
+
+}
+}
 }
 }
 
@@ -3411,6 +3359,65 @@ struct bound< ::color::category::cmy_uint64 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 16, unsigned > {
 };
 
+}
+}
+
+namespace color {
+namespace _internal {
+namespace utility {
+namespace bound {
+
+template< typename index_name >
+struct bound332 {
+public:
+	typedef std::uint8_t unsigned_type;
+	typedef index_name index_type;
+
+	typedef ::color::_internal::utility::type::traitP< unsigned_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
+
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 7, 7, 3 };
+		return max_list[index];
+	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 7, 7, 3 };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type value=0;
+		return value;
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type value=0;
+		return value;
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type max_list[] = { 7, 7, 3 };
+		return max_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type max_list[] = { 7, 7, 3 };
+		return max_list[index];
+	}
+};
+
+}
+}
 }
 }
 
@@ -3453,6 +3460,21 @@ struct component< ::color::category::cmy_ldouble >
 		: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
+}
+}
+
+namespace color {
+namespace _internal {
+namespace utility {
+namespace component {
+
+template< typename index_name >
+struct cnent556
+		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
+};
+
+}
+}
 }
 }
 
@@ -3657,6 +3679,117 @@ namespace trait {
 template< >
 struct container< ::color::category::cmy_uint64 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace utility {
+namespace container {
+
+template< typename index_name >
+struct cner332 {
+public:
+
+	typedef index_name index_type;
+
+	typedef std::uint8_t value_type;
+	typedef std::uint8_t instance_type;
+
+	typedef instance_type const const_type;
+	typedef instance_type const& return_image_type;
+	typedef instance_type & return_type;
+	typedef instance_type const& input_const_type;
+	typedef instance_type & input_type;
+	typedef instance_type & output_type;
+
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::return_image_type index_return_image_type;
+
+	typedef ::color::_internal::utility::type::traitP< value_type > component_trait_type;
+
+	typedef typename component_trait_type::const_type component_const_type;
+	typedef typename component_trait_type::instance_type component_type;
+	typedef typename component_trait_type::return_image_type component_return_const_type;
+	typedef typename component_trait_type::input_const_type component_input_const_type;
+
+	typedef void set_return_type;
+
+	static component_return_const_type get(input_const_type container, index_input_const_type index) {
+		switch(index) {
+		case(0):
+			return ((container >> 0) & 7);
+		case(1):
+			return ((container >> 3) & 7);
+		case(2):
+			return ((container >> 5) & 3);
+		}
+		return 0;
+	}
+
+	template< index_instance_type index >
+	static component_return_const_type get(input_const_type container) {
+		switch(index) {
+		case(0):
+			return ((container >> 0) & 7);
+		case(1):
+			return ((container >> 3) & 7);
+		case(2):
+			return ((container >> 6) & 3);
+		}
+		return 0;
+	}
+
+	static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
+		switch(index) {
+		case(0) :
+			container = (container & ~(7 << (0))) | (((instance_type)value) << (0));
+			break;
+		case(1) :
+			container = (container & ~(7 << (3))) | (((instance_type)value) << (3));
+			break;
+		case(2) :
+			container = (container & ~(3 << (6))) | (((instance_type)value) << (6));
+			break;
+		}
+	}
+
+	template< index_instance_type index >
+	static set_return_type set(input_type container, component_input_const_type value) {
+		switch(index) {
+		case(0) :
+			container = (container & ~(7 << (0))) | (((instance_type)value) << (0));
+			break;
+		case(1) :
+			container = (container & ~(7 << (3))) | (((instance_type)value) << (3));
+			break;
+		case(2) :
+			container = (container & ~(3 << (6))) | (((instance_type)value) << (6));
+			break;
+		}
+	}
+
+	static index_return_image_type size() {
+		static const index_instance_type local_length = 3;
+		return local_length;
+	}
+};
+}
+}
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::cmy_uint8 >
+		: public ::color::_internal::utility::container::cner332< unsigned > {
 };
 
 }
@@ -7486,84 +7619,205 @@ namespace color {
 }
 
 namespace color {
-	namespace trait {
+	namespace _internal {
+		namespace utility {
+			namespace container {
 
-		template< >
-		struct index< ::color::category::cmyk_double >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+				template< typename index_name >
+				struct cner2222 {
+					public:
 
+					typedef index_name index_type;
+
+					typedef std::uint8_t value_type;
+					typedef std::uint8_t instance_type;
+
+					typedef instance_type const const_type;
+					typedef instance_type const& return_image_type;
+					typedef instance_type & return_type;
+					typedef instance_type const& input_const_type;
+					typedef instance_type & input_type;
+					typedef instance_type & output_type;
+
+					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+					typedef typename index_trait_type::instance_type index_instance_type;
+					typedef typename index_trait_type::input_const_type index_input_const_type;
+					typedef typename index_trait_type::return_image_type index_return_image_type;
+
+					typedef ::color::_internal::utility::type::traitP< value_type > component_trait_type;
+
+					typedef typename component_trait_type::const_type component_const_type;
+					typedef typename component_trait_type::instance_type component_type;
+					typedef typename component_trait_type::return_image_type component_return_const_type;
+					typedef typename component_trait_type::input_const_type component_input_const_type;
+
+					typedef void set_return_type;
+
+static component_return_const_type get(input_const_type container, index_input_const_type index) {
+	switch(index) {
+	case(0):
+		return ((container >> 0) & 3);
+	case(1):
+		return ((container >> 2) & 3);
+	case(2):
+		return ((container >> 4) & 3);
+	case(3):
+		return ((container >> 4) & 3);
 	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::cmyk_float >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::cmyk_ldouble >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::cmyk_uint16 >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::cmyk_uint32 >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::cmyk_uint64 >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct index< ::color::category::cmyk_uint8 >
-		: public ::color::_internal::utility::type::index< unsigned > {
-		};
-
-	}
+	return 0;
 }
 
-namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateCMYK {
+template< index_instance_type index >
+static component_return_const_type get(input_const_type container) {
+	switch(index) {
+	case(0):
+		return ((container >> 0) & 3);
+	case(1):
+		return ((container >> 2) & 3);
+	case(2):
+		return ((container >> 4) & 3);
+	case(3):
+		return ((container >> 4) & 3);
+	}
+	return 0;
+}
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
+static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
+	switch(index) {
+	case(0) :
+		container = (container & ~(3 << (0))) | (((instance_type)value) << (0));
+		break;
+	case(1) :
+		container = (container & ~(3 << (2))) | (((instance_type)value) << (2));
+		break;
+	case(2) :
+		container = (container & ~(3 << (4))) | (((instance_type)value) << (4));
+		break;
+	case(3) :
+		container = (container & ~(3 << (6))) | (((instance_type)value) << (6));
+		break;
+	}
+}
+
+template< index_instance_type index >
+static set_return_type set(input_type container, component_input_const_type value) {
+	switch(index) {
+	case(0) :
+		container = (container & ~(3 << (0))) | (((instance_type)value) << (0));
+		break;
+	case(1) :
+		container = (container & ~(3 << (2))) | (((instance_type)value) << (2));
+		break;
+	case(2) :
+		container = (container & ~(3 << (4))) | (((instance_type)value) << (4));
+		break;
+	case(3) :
+		container = (container & ~(3 << (6))) | (((instance_type)value) << (6));
+		break;
+	}
+}
+
+static index_return_image_type size() {
+	static const index_instance_type local_length = 4;
+	return local_length;
+}
+				};
+			}
+		}
+	}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::cmyk_uint8 >
+		: public ::color::_internal::utility::container::cner2222< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::cmyk_double >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::cmyk_float >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::cmyk_ldouble >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::cmyk_uint16 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::cmyk_uint32 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::cmyk_uint64 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::cmyk_uint8 >
+		: public ::color::_internal::utility::type::index< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace get {
+namespace _internal {
+namespace _privateCMYK {
+
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
@@ -7574,14 +7828,14 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 	scalar_type y = normalize_type::template process<2>(color_parameter.template get<2>());
 	scalar_type k = normalize_type::template process<3>(color_parameter.template get<3>());
 	scalar_type value =
-	(0.2126729 * (1-c)
-	 + 0.7151522 * (1-m)
-	 + 0.0721750 * (1-y)) * (1-k);
+		(0.2126729 * (1-c)
+		 + 0.7151522 * (1-m)
+		 + 0.0721750 * (1-y)) * (1-k);
 	return diverse_type::template process<0>(value);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::cmyk_uint8 >::akin_type >::return_type
@@ -7625,44 +7879,44 @@ gray(::color::_internal::model< color::category::cmyk_ldouble > const& color_par
 	return ::color::get::_internal::_privateCMYK::gray<color::category::cmyk_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct rgb< ::color::category::cmyk_uint8 > {
-			typedef ::color::category::rgb_uint8 akin_type;
-		};
-		template< >struct rgb< ::color::category::cmyk_uint16 > {
-			typedef ::color::category::rgb_uint16 akin_type;
-		};
-		template< >struct rgb< ::color::category::cmyk_uint32 > {
-			typedef ::color::category::rgb_uint32 akin_type;
-		};
-		template< >struct rgb< ::color::category::cmyk_uint64 > {
-			typedef ::color::category::rgb_uint64 akin_type;
-		};
-		template< >struct rgb< ::color::category::cmyk_float > {
-			typedef ::color::category::rgb_float akin_type;
-		};
-		template< >struct rgb< ::color::category::cmyk_double > {
-			typedef ::color::category::rgb_double akin_type;
-		};
-		template< >struct rgb< ::color::category::cmyk_ldouble > {
-			typedef ::color::category::rgb_ldouble akin_type;
-		};
+template< >struct rgb< ::color::category::cmyk_uint8 > {
+	typedef ::color::category::rgb_uint8 akin_type;
+};
+template< >struct rgb< ::color::category::cmyk_uint16 > {
+	typedef ::color::category::rgb_uint16 akin_type;
+};
+template< >struct rgb< ::color::category::cmyk_uint32 > {
+	typedef ::color::category::rgb_uint32 akin_type;
+};
+template< >struct rgb< ::color::category::cmyk_uint64 > {
+	typedef ::color::category::rgb_uint64 akin_type;
+};
+template< >struct rgb< ::color::category::cmyk_float > {
+	typedef ::color::category::rgb_float akin_type;
+};
+template< >struct rgb< ::color::category::cmyk_double > {
+	typedef ::color::category::rgb_double akin_type;
+};
+template< >struct rgb< ::color::category::cmyk_ldouble > {
+	typedef ::color::category::rgb_ldouble akin_type;
+};
 
-	}
+}
 }
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateCMYK {
+namespace get {
+namespace _internal {
+namespace _privateCMYK {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 red(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
@@ -7674,8 +7928,8 @@ red(::color::_internal::model< category_name > const& color_parameter) {
 	return diverse_type::template process<0>(r);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint8>::akin_type >::return_type
@@ -7719,17 +7973,17 @@ red(::color::_internal::model< color::category::cmyk_ldouble > const& color_para
 	return ::color::get::_internal::_privateCMYK::red<color::category::cmyk_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateCMYK {
+namespace get {
+namespace _internal {
+namespace _privateCMYK {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 green(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
@@ -7741,8 +7995,8 @@ green(::color::_internal::model< category_name > const& color_parameter) {
 	return diverse_type::template process<1>(g);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint8>::akin_type >::return_type
@@ -7786,17 +8040,17 @@ green(::color::_internal::model< color::category::cmyk_ldouble > const& color_pa
 	return ::color::get::_internal::_privateCMYK::green<color::category::cmyk_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateCMYK {
+namespace get {
+namespace _internal {
+namespace _privateCMYK {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 blue(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
@@ -7808,8 +8062,8 @@ blue(::color::_internal::model< category_name > const& color_parameter) {
 	return diverse_type::template process<2>(b);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint8>::akin_type >::return_type
@@ -7853,13 +8107,13 @@ blue(::color::_internal::model< color::category::cmyk_ldouble > const& color_par
 	return ::color::get::_internal::_privateCMYK::blue<color::category::cmyk_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void black(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc0;
 }
@@ -7894,13 +8148,13 @@ void black(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0, 0, 0, 1 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gray50(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x40;
 }
@@ -7935,13 +8189,13 @@ void gray50(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 0, 0, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void white(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -7976,13 +8230,13 @@ void white(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0, 0, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void red(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3c;
 }
@@ -8017,13 +8271,13 @@ void red(::color::_internal::model< color::category::cmyk_ldouble> & color_param
 	color_parameter.container() = std::array<long double,4>({ 0, 1, 1, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void green(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x73;
 }
@@ -8058,13 +8312,13 @@ void green(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 1, 0, 1, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void blue(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0xf;
 }
@@ -8099,13 +8353,13 @@ void blue(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 1, 1, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void cyan(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3;
 }
@@ -8140,13 +8394,13 @@ void cyan(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 1, 0, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void magenta(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc;
 }
@@ -8181,13 +8435,13 @@ void magenta(::color::_internal::model< color::category::cmyk_ldouble> & color_p
 	color_parameter.container() = std::array<long double,4>({ 0, 1, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void yellow(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x30;
 }
@@ -8222,13 +8476,13 @@ void yellow(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 0, 1, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void aqua(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3;
 }
@@ -8263,13 +8517,13 @@ void aqua(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 1, 0, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void fuchsia(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc;
 }
@@ -8304,13 +8558,13 @@ void fuchsia(::color::_internal::model< color::category::cmyk_ldouble> & color_p
 	color_parameter.container() = std::array<long double,4>({ 0, 1, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void lime(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x33;
 }
@@ -8345,13 +8599,13 @@ void lime(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 1, 0, 1, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void maroon(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7c;
 }
@@ -8386,13 +8640,13 @@ void maroon(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 1, 1, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void navy(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x4f;
 }
@@ -8427,13 +8681,13 @@ void navy(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 1, 1, 0, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void olive(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x70;
 }
@@ -8468,13 +8722,13 @@ void olive(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0, 0, 1, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void orange(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x34;
 }
@@ -8509,13 +8763,13 @@ void orange(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 0.35, 1, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void purple(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x4c;
 }
@@ -8550,13 +8804,13 @@ void purple(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 1, 0, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void silver(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -8591,13 +8845,13 @@ void silver(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 0, 0, 0.25 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void teal(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x43;
 }
@@ -8632,13 +8886,13 @@ void teal(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 1, 0, 0, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void violet(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x4;
 }
@@ -8673,13 +8927,13 @@ void violet(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 0.453782, 0, 0.0666667 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void aquamarine(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x1;
 }
@@ -8714,13 +8968,13 @@ void aquamarine(::color::_internal::model< color::category::cmyk_ldouble> & colo
 	color_parameter.container() = std::array<long double,4>({ 0.5, 0, 0.168627, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void azure(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -8755,13 +9009,13 @@ void azure(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0.0588235, 0, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void beige(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -8796,13 +9050,13 @@ void beige(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0, 0, 0.102041, 0.0392157 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void bisque(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -8837,13 +9091,13 @@ void bisque(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 0.105882, 0.231373, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void brown(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x68;
 }
@@ -8878,13 +9132,13 @@ void brown(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0, 0.745455, 0.745455, 0.352941 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void chocolate(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x24;
 }
@@ -8919,13 +9173,13 @@ void chocolate(::color::_internal::model< color::category::cmyk_ldouble> & color
 	color_parameter.container() = std::array<long double,4>({ 0, 0.5, 0.857143, 0.176471 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void coral(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x24;
 }
@@ -8960,13 +9214,13 @@ void coral(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0, 0.5, 0.69, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void crimson(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x28;
 }
@@ -9001,13 +9255,13 @@ void crimson(::color::_internal::model< color::category::cmyk_ldouble> & color_p
 	color_parameter.container() = std::array<long double,4>({ 0, 0.909091, 0.727273, 0.137255 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gainsboro(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9042,13 +9296,13 @@ void gainsboro(::color::_internal::model< color::category::cmyk_ldouble> & color
 	color_parameter.container() = std::array<long double,4>({ 0, 0, 0, 0.14 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gold(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x30;
 }
@@ -9083,13 +9337,13 @@ void gold(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 0, 0.156863, 1, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void indigo(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x4d;
 }
@@ -9124,13 +9378,13 @@ void indigo(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0.423077, 1, 0, 0.490196 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void ivory(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9165,13 +9419,13 @@ void ivory(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0, 0, 0.0588235, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void khaki(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x10;
 }
@@ -9206,13 +9460,13 @@ void khaki(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0, 0.0416667, 0.416667, 0.0588235 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void lavender(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9247,13 +9501,13 @@ void lavender(::color::_internal::model< color::category::cmyk_ldouble> & color_
 	color_parameter.container() = std::array<long double,4>({ 0.08, 0.08, 0, 0.0196078 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void linen(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9288,13 +9542,13 @@ void linen(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0, 0.04, 0.08, 0.0196078 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void moccasin(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9329,13 +9583,13 @@ void moccasin(::color::_internal::model< color::category::cmyk_ldouble> & color_
 	color_parameter.container() = std::array<long double,4>({ 0, 0.105882, 0.290196, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void orchid(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x4;
 }
@@ -9370,13 +9624,13 @@ void orchid(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 0.486239, 0.0183486, 0.145098 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void peru(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x24;
 }
@@ -9411,13 +9665,13 @@ void peru(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 0, 0.35122, 0.692683, 0.196078 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void pink(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x24;
 }
@@ -9452,13 +9706,13 @@ void pink(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 0, 0.351219, 0.692683, 0.196078 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void plum(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9493,13 +9747,13 @@ void plum(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 0, 0.276018, 0, 0.133333 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void salmon(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9534,13 +9788,13 @@ void salmon(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 0.276018, 0, 0.133333 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void sienna(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x64;
 }
@@ -9575,13 +9829,13 @@ void sienna(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 0.4875, 0.71875, 0.372549 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void snow(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9616,13 +9870,13 @@ void snow(::color::_internal::model< color::category::cmyk_ldouble> & color_para
 	color_parameter.container() = std::array<long double,4>({ 0, 0.0196078, 0.0196078, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void tan(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9657,13 +9911,13 @@ void tan(::color::_internal::model< color::category::cmyk_ldouble> & color_param
 	color_parameter.container() = std::array<long double,4>({ 0, 0.142857, 0.333333, 0.176471 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void thistle(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9698,13 +9952,13 @@ void thistle(::color::_internal::model< color::category::cmyk_ldouble> & color_p
 	color_parameter.container() = std::array<long double,4>({ 0, 0.115741, 0, 0.152941 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void tomato(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x24;
 }
@@ -9739,13 +9993,13 @@ void tomato(::color::_internal::model< color::category::cmyk_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,4>({ 0, 0.611765, 0.721569, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void turquoise(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x2;
 }
@@ -9780,13 +10034,13 @@ void turquoise(::color::_internal::model< color::category::cmyk_ldouble> & color
 	color_parameter.container() = std::array<long double,4>({ 0.714286, 0, 0.0714286, 0.121569 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void wheat(::color::_internal::model< color::category::cmyk_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -9821,58 +10075,58 @@ void wheat(::color::_internal::model< color::category::cmyk_ldouble> & color_par
 	color_parameter.container() = std::array<long double,4>({ 0, 0.0938776, 0.269388, 0.0392157 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateCMYK {
+namespace _internal {
+namespace _privateCMYK {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_cmy2cmyk {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmy2cmyk {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type k = std::min({ cc, cm, cy });
-	scalar_type c;
-	scalar_type m;
-	scalar_type y;
-	if(scalar_type(1) != k) {
-		c = (cc-k) / (1-k);
-		m = (cm-k) / (1-k);
-		y = (cy-k) / (1-k);
-	} else {
-		c = scalar_type(0);
-		m = scalar_type(0);
-		y = scalar_type(0);
-	}
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
-	container_left_trait_type::template set<3>(left, diverse_type::template process<3>(k));
-}
-			};
-
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type k = std::min({ cc, cm, cy });
+		scalar_type c;
+		scalar_type m;
+		scalar_type y;
+		if(scalar_type(1) != k) {
+			c = (cc-k) / (1-k);
+			m = (cm-k) / (1-k);
+			y = (cy-k) / (1-k);
+		} else {
+			c = scalar_type(0);
+			m = scalar_type(0);
+			y = scalar_type(0);
 		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
+		container_left_trait_type::template set<3>(left, diverse_type::template process<3>(k));
+	}
+};
+
+}
 
 template< > struct convert<::color::category::cmyk_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint8,::color::category::cmy_uint8 > {};
 template< > struct convert<::color::category::cmyk_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint8,::color::category::cmy_uint16 > {};
@@ -9930,43 +10184,43 @@ template< > struct convert<::color::category::cmyk_ldouble,::color::category::cm
 template< > struct convert<::color::category::cmyk_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_ldouble,::color::category::cmy_double > {};
 template< > struct convert<::color::category::cmyk_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_ldouble,::color::category::cmy_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateCMYK {
+namespace _internal {
+namespace _privateCMYK {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_gray2cmyk {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_gray2cmyk {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-				typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	container_left_trait_type::template set<0>(left, bound_left_trait_type::template minimum<0>());
-	container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
-	container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
-	container_left_trait_type::template set<3>(left, reformat_type::template process<3,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, bound_left_trait_type::template minimum<0>());
+		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
+		container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
+		container_left_trait_type::template set<3>(left, reformat_type::template process<3,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::cmyk_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint8,::color::category::gray_uint8 > {};
 template< > struct convert<::color::category::cmyk_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint8,::color::category::gray_uint16 > {};
@@ -10024,353 +10278,523 @@ template< > struct convert<::color::category::cmyk_ldouble,::color::category::gr
 template< > struct convert<::color::category::cmyk_ldouble,::color::category::gray_double > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_ldouble,::color::category::gray_double > {};
 template< > struct convert<::color::category::cmyk_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_ldouble,::color::category::gray_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
 
-	namespace type {
+namespace type {
 
-		typedef std::array< std::uint8_t, 3 > uint24_t;
+typedef std::array< std::uint8_t, 3 > uint24_t;
 
-	}
+}
 
 }
 
 namespace color {
 
-	namespace type {
+namespace type {
 
-		typedef std::array< std::uint8_t, 6 > uint48_t, uint48c_t;
+typedef std::array< std::uint8_t, 6 > uint48_t, uint48c_t;
 
-		typedef std::array< std::uint16_t, 3 > uint48s_t;
+typedef std::array< std::uint16_t, 3 > uint48s_t;
 
-	}
+}
 
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct rgb< ::color::category::hsl_uint8 > {
-			typedef ::color::category::rgb_uint8 akin_type;
-		};
-		template< >struct rgb< ::color::category::hsl_uint16 > {
-			typedef ::color::category::rgb_uint16 akin_type;
-		};
-		template< >struct rgb< ::color::category::hsl_uint32 > {
-			typedef ::color::category::rgb_uint32 akin_type;
-		};
-		template< >struct rgb< ::color::category::hsl_uint64 > {
-			typedef ::color::category::rgb_uint64 akin_type;
-		};
-		template< >struct rgb< ::color::category::hsl_float > {
-			typedef ::color::category::rgb_float akin_type;
-		};
-		template< >struct rgb< ::color::category::hsl_double > {
-			typedef ::color::category::rgb_double akin_type;
-		};
-		template< >struct rgb< ::color::category::hsl_ldouble > {
-			typedef ::color::category::rgb_ldouble akin_type;
-		};
+template< >struct rgb< ::color::category::hsl_uint8 > {
+	typedef ::color::category::rgb_uint8 akin_type;
+};
+template< >struct rgb< ::color::category::hsl_uint16 > {
+	typedef ::color::category::rgb_uint16 akin_type;
+};
+template< >struct rgb< ::color::category::hsl_uint32 > {
+	typedef ::color::category::rgb_uint32 akin_type;
+};
+template< >struct rgb< ::color::category::hsl_uint64 > {
+	typedef ::color::category::rgb_uint64 akin_type;
+};
+template< >struct rgb< ::color::category::hsl_float > {
+	typedef ::color::category::rgb_float akin_type;
+};
+template< >struct rgb< ::color::category::hsl_double > {
+	typedef ::color::category::rgb_double akin_type;
+};
+template< >struct rgb< ::color::category::hsl_ldouble > {
+	typedef ::color::category::rgb_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct rgb< ::color::category::hsv_uint8 > {
-			typedef ::color::category::rgb_uint8 akin_type;
-		};
-		template< >struct rgb< ::color::category::hsv_uint16 > {
-			typedef ::color::category::rgb_uint16 akin_type;
-		};
-		template< >struct rgb< ::color::category::hsv_uint32 > {
-			typedef ::color::category::rgb_uint32 akin_type;
-		};
-		template< >struct rgb< ::color::category::hsv_uint64 > {
-			typedef ::color::category::rgb_uint64 akin_type;
-		};
-		template< >struct rgb< ::color::category::hsv_float > {
-			typedef ::color::category::rgb_float akin_type;
-		};
-		template< >struct rgb< ::color::category::hsv_double > {
-			typedef ::color::category::rgb_double akin_type;
-		};
-		template< >struct rgb< ::color::category::hsv_ldouble > {
-			typedef ::color::category::rgb_ldouble akin_type;
-		};
+template< >struct rgb< ::color::category::hsv_uint8 > {
+	typedef ::color::category::rgb_uint8 akin_type;
+};
+template< >struct rgb< ::color::category::hsv_uint16 > {
+	typedef ::color::category::rgb_uint16 akin_type;
+};
+template< >struct rgb< ::color::category::hsv_uint32 > {
+	typedef ::color::category::rgb_uint32 akin_type;
+};
+template< >struct rgb< ::color::category::hsv_uint64 > {
+	typedef ::color::category::rgb_uint64 akin_type;
+};
+template< >struct rgb< ::color::category::hsv_float > {
+	typedef ::color::category::rgb_float akin_type;
+};
+template< >struct rgb< ::color::category::hsv_double > {
+	typedef ::color::category::rgb_double akin_type;
+};
+template< >struct rgb< ::color::category::hsv_ldouble > {
+	typedef ::color::category::rgb_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct rgb< ::color::category::rgb_uint8 > {
-			typedef ::color::category::rgb_uint8 akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_uint16 > {
-			typedef ::color::category::rgb_uint16 akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_uint32 > {
-			typedef ::color::category::rgb_uint32 akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_uint64 > {
-			typedef ::color::category::rgb_uint64 akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_float > {
-			typedef ::color::category::rgb_float akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_double > {
-			typedef ::color::category::rgb_double akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_ldouble > {
-			typedef ::color::category::rgb_ldouble akin_type;
-		};
+template< >struct rgb< ::color::category::rgb_uint8 > {
+	typedef ::color::category::rgb_uint8 akin_type;
+};
+template< >struct rgb< ::color::category::rgb_uint16 > {
+	typedef ::color::category::rgb_uint16 akin_type;
+};
+template< >struct rgb< ::color::category::rgb_uint32 > {
+	typedef ::color::category::rgb_uint32 akin_type;
+};
+template< >struct rgb< ::color::category::rgb_uint64 > {
+	typedef ::color::category::rgb_uint64 akin_type;
+};
+template< >struct rgb< ::color::category::rgb_float > {
+	typedef ::color::category::rgb_float akin_type;
+};
+template< >struct rgb< ::color::category::rgb_double > {
+	typedef ::color::category::rgb_double akin_type;
+};
+template< >struct rgb< ::color::category::rgb_ldouble > {
+	typedef ::color::category::rgb_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct rgb< ::color::category::yiq_uint8 > {
-			typedef ::color::category::rgb_uint8 akin_type;
-		};
-		template< >struct rgb< ::color::category::yiq_uint16 > {
-			typedef ::color::category::rgb_uint16 akin_type;
-		};
-		template< >struct rgb< ::color::category::yiq_uint32 > {
-			typedef ::color::category::rgb_uint32 akin_type;
-		};
-		template< >struct rgb< ::color::category::yiq_uint64 > {
-			typedef ::color::category::rgb_uint64 akin_type;
-		};
-		template< >struct rgb< ::color::category::yiq_float > {
-			typedef ::color::category::rgb_float akin_type;
-		};
-		template< >struct rgb< ::color::category::yiq_double > {
-			typedef ::color::category::rgb_double akin_type;
-		};
-		template< >struct rgb< ::color::category::yiq_ldouble > {
-			typedef ::color::category::rgb_ldouble akin_type;
-		};
+template< >struct rgb< ::color::category::yiq_uint8 > {
+	typedef ::color::category::rgb_uint8 akin_type;
+};
+template< >struct rgb< ::color::category::yiq_uint16 > {
+	typedef ::color::category::rgb_uint16 akin_type;
+};
+template< >struct rgb< ::color::category::yiq_uint32 > {
+	typedef ::color::category::rgb_uint32 akin_type;
+};
+template< >struct rgb< ::color::category::yiq_uint64 > {
+	typedef ::color::category::rgb_uint64 akin_type;
+};
+template< >struct rgb< ::color::category::yiq_float > {
+	typedef ::color::category::rgb_float akin_type;
+};
+template< >struct rgb< ::color::category::yiq_double > {
+	typedef ::color::category::rgb_double akin_type;
+};
+template< >struct rgb< ::color::category::yiq_ldouble > {
+	typedef ::color::category::rgb_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct rgb< ::color::category::yuv_uint8 > {
-			typedef ::color::category::rgb_uint8 akin_type;
-		};
-		template< >struct rgb< ::color::category::yuv_uint16 > {
-			typedef ::color::category::rgb_uint16 akin_type;
-		};
-		template< >struct rgb< ::color::category::yuv_uint32 > {
-			typedef ::color::category::rgb_uint32 akin_type;
-		};
-		template< >struct rgb< ::color::category::yuv_uint64 > {
-			typedef ::color::category::rgb_uint64 akin_type;
-		};
-		template< >struct rgb< ::color::category::yuv_float > {
-			typedef ::color::category::rgb_float akin_type;
-		};
-		template< >struct rgb< ::color::category::yuv_double > {
-			typedef ::color::category::rgb_double akin_type;
-		};
-		template< >struct rgb< ::color::category::yuv_ldouble > {
-			typedef ::color::category::rgb_ldouble akin_type;
-		};
+template< >struct rgb< ::color::category::yuv_uint8 > {
+	typedef ::color::category::rgb_uint8 akin_type;
+};
+template< >struct rgb< ::color::category::yuv_uint16 > {
+	typedef ::color::category::rgb_uint16 akin_type;
+};
+template< >struct rgb< ::color::category::yuv_uint32 > {
+	typedef ::color::category::rgb_uint32 akin_type;
+};
+template< >struct rgb< ::color::category::yuv_uint64 > {
+	typedef ::color::category::rgb_uint64 akin_type;
+};
+template< >struct rgb< ::color::category::yuv_float > {
+	typedef ::color::category::rgb_float akin_type;
+};
+template< >struct rgb< ::color::category::yuv_double > {
+	typedef ::color::category::rgb_double akin_type;
+};
+template< >struct rgb< ::color::category::yuv_ldouble > {
+	typedef ::color::category::rgb_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_double >
+template< >
+struct bound< ::color::category::rgb_double >
 		: public ::color::_internal::utility::bound::general< double, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_float >
+template< >
+struct bound< ::color::category::rgb_float >
 		: public ::color::_internal::utility::bound::general< float, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_ldouble >
+template< >
+struct bound< ::color::category::rgb_ldouble >
 		: public ::color::_internal::utility::bound::general< long double, unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace _internal {
+namespace utility {
+namespace bound {
 
-		template< >
-		struct bound< ::color::category::rgb_uint16 >
-		: public ::color::_internal::utility::bound::bound556< unsigned > {
-		};
+template< typename index_name >
+struct bound655 {
+public:
+	typedef std::uint16_t unsigned_type;
+	typedef index_name index_type;
 
+	typedef ::color::_internal::utility::type::traitP< unsigned_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
+
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 63, 31, 31 };
+		return max_list[index];
 	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 63, 31, 31 };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type value=0;
+		return value;
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type value=0;
+		return value;
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type max_list[] = { 63, 31, 31 };
+		return max_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type max_list[] = { 63, 31, 31 };
+		return max_list[index];
+	}
+};
+
+}
+}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_uint32 >
+template< >
+struct bound< ::color::category::rgb_uint16 >
+		: public ::color::_internal::utility::bound::bound655< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct bound< ::color::category::rgb_uint32 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 8, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_uint64 >
+template< >
+struct bound< ::color::category::rgb_uint64 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 16, unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_uint8 >
+template< >
+struct bound< ::color::category::rgb_uint8 >
 		: public ::color::_internal::utility::bound::bound332< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_uint24 >
+template< >
+struct bound< ::color::category::rgb_uint24 >
 		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_uint48 >
+template< >
+struct bound< ::color::category::rgb_uint48 >
 		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::rgb_double >
+template< >
+struct container< ::color::category::rgb_double >
 		: public ::color::_internal::utility::container::array< double, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::rgb_float >
+template< >
+struct container< ::color::category::rgb_float >
 		: public ::color::_internal::utility::container::array< float, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::rgb_ldouble >
+template< >
+struct container< ::color::category::rgb_ldouble >
 		: public ::color::_internal::utility::container::array< long double, 3 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace _internal {
+namespace utility {
+namespace container {
 
-		template< >
-		struct container< ::color::category::rgb_uint16 >
-		: public ::color::_internal::utility::container::cner556< unsigned > {
-		};
+template< typename index_name >
+struct cner655 {
+public:
 
+	typedef index_name index_type;
+
+	typedef std::uint8_t value_type;
+	typedef std::uint16_t instance_type;
+
+	typedef instance_type const const_type;
+	typedef instance_type const& return_image_type;
+	typedef instance_type & return_type;
+	typedef instance_type const& input_const_type;
+	typedef instance_type & input_type;
+	typedef instance_type & output_type;
+
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::return_image_type index_return_image_type;
+
+	typedef ::color::_internal::utility::type::traitP< value_type > component_trait_type;
+
+	typedef typename component_trait_type::const_type component_const_type;
+	typedef typename component_trait_type::instance_type component_type;
+	typedef typename component_trait_type::return_image_type component_return_const_type;
+	typedef typename component_trait_type::input_const_type component_input_const_type;
+
+	typedef void set_return_type;
+
+	static component_return_const_type get(input_const_type container, index_input_const_type index) {
+		switch(index) {
+		case(0):
+			return ((container >> 0) & 63);
+		case(1):
+			return ((container >> 5) & 31);
+		case(2):
+			return ((container >> 10) & 31);
+		}
+		return 0;
 	}
+
+	template< index_instance_type index >
+	static component_return_const_type get(input_const_type container) {
+		switch(index) {
+		case(0):
+			return ((container >> 0) & 63);
+		case(1):
+			return ((container >> 5) & 31);
+		case(2):
+			return ((container >> 10) & 31);
+		}
+		return 0;
+	}
+
+	static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
+		switch(index) {
+		case(0) :
+			container = (container & ~(63 << (0))) | (((instance_type)value) << (0));
+			break;
+		case(1) :
+			container = (container & ~(31 << (6))) | (((instance_type)value) << (6));
+			break;
+		case(2) :
+			container = (container & ~(31 << (11))) | (((instance_type)value) << (11));
+			break;
+		}
+	}
+
+	template< index_instance_type index >
+	static set_return_type set(input_type container, component_input_const_type value) {
+		switch(index) {
+		case(0) :
+			container = (container & ~(63 << (0))) | (((instance_type)value) << (0));
+			break;
+		case(1) :
+			container = (container & ~(31 << (6))) | (((instance_type)value) << (6));
+			break;
+		case(2) :
+			container = (container & ~(31 << (11))) | (((instance_type)value) << (11));
+			break;
+		}
+	}
+
+	static index_return_image_type size() {
+		static const index_instance_type local_length = 3;
+		return local_length;
+	}
+};
+}
+}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::rgb_uint32 >
+template< >
+struct container< ::color::category::rgb_uint16 >
+		: public ::color::_internal::utility::container::cner655< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::rgb_uint32 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3, 8 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::rgb_uint64 >
+template< >
+struct container< ::color::category::rgb_uint64 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
-		};
+};
 
-	}
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::rgb_uint8 >
+		: public ::color::_internal::utility::container::cner332< unsigned > {
+};
+
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::rgb_uint24 >
+template< >
+struct container< ::color::category::rgb_uint24 >
 		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::rgb_uint48 >
+template< >
+struct container< ::color::category::rgb_uint48 >
 		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
+namespace get {
 
-		inline
-		::color::_internal::model< color::category::rgb_uint8 >::component_const_type
+inline
+::color::_internal::model< color::category::rgb_uint8 >::component_const_type
 red(::color::_internal::model< color::category::rgb_uint8 > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
@@ -10411,14 +10835,14 @@ red(::color::_internal::model< color::category::rgb_ldouble > const& color_param
 	return color_parameter.template get<0>();
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
+namespace get {
 
-		inline
-		::color::_internal::model< color::category::rgb_uint8 >::component_const_type
+inline
+::color::_internal::model< color::category::rgb_uint8 >::component_const_type
 green(::color::_internal::model< color::category::rgb_uint8 > const& color_parameter) {
 	return color_parameter.template get<1>();
 }
@@ -10459,14 +10883,14 @@ green(::color::_internal::model< color::category::rgb_ldouble > const& color_par
 	return color_parameter.template get<1>();
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
+namespace get {
 
-		inline
-		::color::_internal::model< color::category::rgb_uint8 >::component_const_type
+inline
+::color::_internal::model< color::category::rgb_uint8 >::component_const_type
 blue(::color::_internal::model< color::category::rgb_uint8 > const& color_parameter) {
 	return color_parameter.template get<2>();
 }
@@ -10507,31 +10931,31 @@ blue(::color::_internal::model< color::category::rgb_ldouble > const& color_para
 	return color_parameter.template get<2>();
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateRGB {
+namespace get {
+namespace _internal {
+namespace _privateRGB {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
 	scalar_type value =
-	0.2126729 * normalize_type::template process<0>(color_parameter.template get<0>())
+		0.2126729 * normalize_type::template process<0>(color_parameter.template get<0>())
 	+ 0.7151522 * normalize_type::template process<1>(color_parameter.template get<1>())
 	+ 0.0721750 * normalize_type::template process<2>(color_parameter.template get<2>());
 	return diverse_type::template process<0>(value);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::rgb_uint8 >::akin_type >::return_type
@@ -10576,13 +11000,13 @@ gray(::color::_internal::model< ::color::category::rgb_ldouble > const& color_pa
 	return ::color::get::_internal::_privateRGB::gray< ::color::category::rgb_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void black(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -10617,20 +11041,20 @@ void black(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gray50(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x5b;
 }
 
 inline
 void gray50(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x7def;
+	color_parameter.container() = 0x7bdf;
 }
 
 inline
@@ -10658,13 +11082,13 @@ void gray50(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.5, 0.5, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void white(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xff;
 }
@@ -10699,20 +11123,20 @@ void white(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 1, 1, 1 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void red(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7;
 }
 
 inline
 void red(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x1f;
+	color_parameter.container() = 0x3f;
 }
 
 inline
@@ -10740,20 +11164,20 @@ void red(::color::_internal::model< color::category::rgb_ldouble> & color_parame
 	color_parameter.container() = std::array<long double,3>({ 1, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void green(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x18;
 }
 
 inline
 void green(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x1e0;
+	color_parameter.container() = 0x3c0;
 }
 
 inline
@@ -10781,20 +11205,20 @@ void green(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 0.5, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void blue(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 3 << 6;
 }
 
 inline
 void blue(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xfc00;
+	color_parameter.container() = 0xf800;
 }
 
 inline
@@ -10822,20 +11246,20 @@ void blue(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 1 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void cyan(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = (3 << 6) + (7 << 3);
 }
 
 inline
 void cyan(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xffe0;
+	color_parameter.container() = 0xffc0;
 }
 
 inline
@@ -10863,13 +11287,13 @@ void cyan(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0, 1, 1 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void magenta(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc7;
 }
@@ -10904,20 +11328,20 @@ void magenta(::color::_internal::model< color::category::rgb_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 1, 0, 1 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void yellow(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3f;
 }
 
 inline
 void yellow(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x3ff;
+	color_parameter.container() = 0x7ff;
 }
 
 inline
@@ -10945,20 +11369,20 @@ void yellow(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 1, 1, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void aqua(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = (3 << 6) + (7 << 3);
 }
 
 inline
 void aqua(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xffe0;
+	color_parameter.container() = 0xffc0;
 }
 
 inline
@@ -10986,20 +11410,20 @@ void aqua(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0, 1, 1 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void fuchsia(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc7;
 }
 
 inline
 void fuchsia(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xfc1f;
+	color_parameter.container() = 0xf83f;
 }
 
 inline
@@ -11027,20 +11451,20 @@ void fuchsia(::color::_internal::model< color::category::rgb_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 1, 0, 1 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void lime(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x38;
 }
 
 inline
 void lime(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x3e0;
+	color_parameter.container() = 0x7c0;
 }
 
 inline
@@ -11068,13 +11492,13 @@ void lime(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0, 1, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void maroon(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3;
 }
@@ -11109,20 +11533,20 @@ void maroon(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.5, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void navy(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x40;
 }
 
 inline
 void navy(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x7c00;
+	color_parameter.container() = 0x7800;
 }
 
 inline
@@ -11150,20 +11574,20 @@ void navy(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void olive(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x1b;
 }
 
 inline
 void olive(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x1ef;
+	color_parameter.container() = 0x3df;
 }
 
 inline
@@ -11191,20 +11615,20 @@ void olive(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0.5, 0.5, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void orange(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x27;
 }
 
 inline
 void orange(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x29f;
+	color_parameter.container() = 0x53f;
 }
 
 inline
@@ -11232,20 +11656,20 @@ void orange(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 1, 0.65, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void purple(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x43;
 }
 
 inline
 void purple(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x7c0f;
+	color_parameter.container() = 0x781f;
 }
 
 inline
@@ -11273,20 +11697,20 @@ void purple(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.5, 0, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void silver(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xad;
 }
 
 inline
 void silver(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xbef7;
+	color_parameter.container() = 0xbdef;
 }
 
 inline
@@ -11314,20 +11738,20 @@ void silver(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.75, 0.75, 0.75 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void teal(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x58;
 }
 
 inline
 void teal(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x7de0;
+	color_parameter.container() = 0x7bc0;
 }
 
 inline
@@ -11355,25 +11779,25 @@ void teal(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0, 0.5, 0.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void violet(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x9e;
 }
 
 inline
 void violet(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xe9fc;
+	color_parameter.container() = 0xe3fa;
 }
 
 inline
 void violet(::color::_internal::model< color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = 0xffEE82EE;
+	color_parameter.container() = 0xffee82eeu;
 }
 
 inline
@@ -11396,20 +11820,20 @@ void violet(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 238/255.0, 130/255.0, 238/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void aquamarine(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xbb;
 }
 
 inline
 void aquamarine(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xd3ef;
+	color_parameter.container() = 0xcfdf;
 }
 
 inline
@@ -11437,20 +11861,20 @@ void aquamarine(::color::_internal::model< color::category::rgb_ldouble> & color
 	color_parameter.container() = std::array<long double,3>({ 0.5, 1, 212.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void azure(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xfe;
 }
 
 inline
 void azure(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xfffd;
+	color_parameter.container() = 0xfffb;
 }
 
 inline
@@ -11478,20 +11902,20 @@ void azure(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 240.0/255.0, 1, 1 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void beige(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb6;
 }
 
 inline
 void beige(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xdbbd;
+	color_parameter.container() = 0xd77c;
 }
 
 inline
@@ -11519,20 +11943,20 @@ void beige(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 245.0/255.0, 245.0/255.0, 220.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void bisque(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb7;
 }
 
 inline
 void bisque(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xc37f;
+	color_parameter.container() = 0xbeff;
 }
 
 inline
@@ -11560,20 +11984,20 @@ void bisque(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 255.0/255.0, 228.0/255.0, 196.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void brown(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc;
 }
 
 inline
 void brown(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x28b4;
+	color_parameter.container() = 0x2968;
 }
 
 inline
@@ -11601,20 +12025,20 @@ void brown(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 165.0/255.0, 42.0/255.0, 42.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void chocolate(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x15;
 }
 
 inline
 void chocolate(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x1d99;
+	color_parameter.container() = 0x1b33;
 }
 
 inline
@@ -11642,20 +12066,20 @@ void chocolate(::color::_internal::model< color::category::rgb_ldouble> & color_
 	color_parameter.container() = std::array<long double,3>({ 210.0/255.0, 105.0/255.0, 30.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void coral(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x1f;
 }
 
 inline
 void coral(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x4dff;
+	color_parameter.container() = 0x4bff;
 }
 
 inline
@@ -11683,20 +12107,20 @@ void coral(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 1, 0.5, 0.31 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void crimson(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x6;
 }
 
 inline
 void crimson(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x385a;
+	color_parameter.container() = 0x38b6;
 }
 
 inline
@@ -11724,20 +12148,20 @@ void crimson(::color::_internal::model< color::category::rgb_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 220.0/255.0, 20.0/255.0, 60.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gainsboro(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb6;
 }
 
 inline
 void gainsboro(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xdb5a;
+	color_parameter.container() = 0xd6b6;
 }
 
 inline
@@ -11765,20 +12189,20 @@ void gainsboro(::color::_internal::model< color::category::rgb_ldouble> & color_
 	color_parameter.container() = std::array<long double,3>({ 0.86, 0.86, 0.86 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gold(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x2f;
 }
 
 inline
 void gold(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x35f;
+	color_parameter.container() = 0x6bf;
 }
 
 inline
@@ -11806,20 +12230,20 @@ void gold(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 255.0/255.0, 215.0/255.0, 0.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void indigo(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x42;
 }
 
 inline
 void indigo(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x8009;
+	color_parameter.container() = 0x7812;
 }
 
 inline
@@ -11847,13 +12271,13 @@ void indigo(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 75.0/255.0, 0.0/255.0, 130.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void ivory(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xbf;
 }
@@ -11888,20 +12312,20 @@ void ivory(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 1, 1, 240.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void khaki(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x76;
 }
 
 inline
 void khaki(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x8b7d;
+	color_parameter.container() = 0x8efb;
 }
 
 inline
@@ -11929,20 +12353,20 @@ void khaki(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 240.0/255.0, 230.0/255.0, 140.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void lavender(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb6;
 }
 
 inline
 void lavender(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xf77b;
+	color_parameter.container() = 0xf6f8;
 }
 
 inline
@@ -11970,20 +12394,20 @@ void lavender(::color::_internal::model< color::category::rgb_ldouble> & color_p
 	color_parameter.container() = std::array<long double,3>({ 230.0/255.0, 230.0/255.0, 250.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void linen(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb6;
 }
 
 inline
 void linen(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xe3be;
+	color_parameter.container() = 0xdf7d;
 }
 
 inline
@@ -12011,13 +12435,13 @@ void linen(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 250.0/255.0, 240.0/255.0, 230.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void moccasin(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb7;
 }
@@ -12052,20 +12476,20 @@ void moccasin(::color::_internal::model< color::category::rgb_ldouble> & color_p
 	color_parameter.container() = std::array<long double,3>({ 255.0/255.0, 228.0/255.0, 181.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void orchid(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x9d;
 }
 
 inline
 void orchid(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xd1ba;
+	color_parameter.container() = 0xd375;
 }
 
 inline
@@ -12093,20 +12517,20 @@ void orchid(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 218.0/255.0, 112.0/255.0, 214.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void peru(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x1d;
 }
 
 inline
 void peru(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x3e18;
+	color_parameter.container() = 0x3c32;
 }
 
 inline
@@ -12134,20 +12558,20 @@ void peru(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 205.0/255.0, 133.0/255.0, 63.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void pink(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x1d;
 }
 
 inline
 void pink(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x3e18;
+	color_parameter.container() = 0x3c32;
 }
 
 inline
@@ -12175,20 +12599,20 @@ void pink(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.803922, 0.521569, 0.247059 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void plum(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa6;
 }
 
 inline
 void plum(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xda7a;
+	color_parameter.container() = 0xd4f6;
 }
 
 inline
@@ -12216,20 +12640,20 @@ void plum(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 221.0/255.0, 160.0/255.0, 221.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void salmon(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa6;
 }
 
 inline
 void salmon(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xda7a;
+	color_parameter.container() = 0xd4f6;
 }
 
 inline
@@ -12257,20 +12681,20 @@ void salmon(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.866667, 0.627451, 0.866667 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void sienna(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x14;
 }
 
 inline
 void sienna(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x2d33;
+	color_parameter.container() = 0x2a67;
 }
 
 inline
@@ -12298,20 +12722,20 @@ void sienna(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 160.0/255.0, 82.0/255.0, 45.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void snow(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb7;
 }
 
 inline
 void snow(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xf7df;
+	color_parameter.container() = 0xf7bf;
 }
 
 inline
@@ -12339,20 +12763,20 @@ void snow(::color::_internal::model< color::category::rgb_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 255.0/255.0, 250.0/255.0, 250.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void tan(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x65;
 }
 
 inline
 void tan(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x8ab9;
+	color_parameter.container() = 0x8d73;
 }
 
 inline
@@ -12380,20 +12804,20 @@ void tan(::color::_internal::model< color::category::rgb_ldouble> & color_parame
 	color_parameter.container() = std::array<long double,3>({ 210.0/255.0, 180.0/255.0, 140.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void thistle(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xad;
 }
 
 inline
 void thistle(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xd6fa;
+	color_parameter.container() = 0xd5f5;
 }
 
 inline
@@ -12421,20 +12845,20 @@ void thistle(::color::_internal::model< color::category::rgb_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 216.0/255.0, 191.0/255.0, 216.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void tomato(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0x17;
 }
 
 inline
 void tomato(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0x459f;
+	color_parameter.container() = 0x433f;
 }
 
 inline
@@ -12462,20 +12886,20 @@ void tomato(::color::_internal::model< color::category::rgb_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 255.0/255, 99.0/255, 71.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void turquoise(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb1;
 }
 
 inline
 void turquoise(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xcf67;
+	color_parameter.container() = 0xcecf;
 }
 
 inline
@@ -12503,20 +12927,20 @@ void turquoise(::color::_internal::model< color::category::rgb_ldouble> & color_
 	color_parameter.container() = std::array<long double,3>({ 64.0/255.0, 224.0/255.0, 208.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void wheat(::color::_internal::model< color::category::rgb_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb6;
 }
 
 inline
 void wheat(::color::_internal::model< color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = 0xb35d;
+	color_parameter.container() = 0xaebc;
 }
 
 inline
@@ -12544,39 +12968,39 @@ void wheat(::color::_internal::model< color::category::rgb_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 245.0/255.0, 222.0/255.0, 179.0/255.0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateRGB {
+namespace _internal {
+namespace _privateRGB {
 
-			template< typename category_left_name, typename category_right_name >
-			struct convert_cmy2rgb {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name >
+struct convert_cmy2rgb {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
-	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-	container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
-	container_left_trait_type::template set<1>(left, reformat_type::template process<1,1>(invert_type::template component<1>(container_right_trait_type::template get<1>(right))));
-	container_left_trait_type::template set<2>(left, reformat_type::template process<2,2>(invert_type::template component<2>(container_right_trait_type::template get<2>(right))));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
+		typedef ::color::operation::_internal::invert< category_right_type > invert_type;
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+		container_left_trait_type::template set<1>(left, reformat_type::template process<1,1>(invert_type::template component<1>(container_right_trait_type::template get<1>(right))));
+		container_left_trait_type::template set<2>(left, reformat_type::template process<2,2>(invert_type::template component<2>(container_right_trait_type::template get<2>(right))));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::rgb_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint8,::color::category::cmy_uint8 > {};
 template< > struct convert<::color::category::rgb_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint8,::color::category::cmy_uint16 > {};
@@ -12634,48 +13058,48 @@ template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy
 template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_ldouble,::color::category::cmy_double > {};
 template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_ldouble,::color::category::cmy_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateRGB {
+namespace _internal {
+namespace _privateRGB {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_cmyk2rgb {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmyk2rgb {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
-	scalar_type r = (1-c) * (1-k);
-	scalar_type g = (1-m) * (1-k);
-	scalar_type b = (1-y) * (1-k);
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
+		scalar_type r = (1-c) * (1-k);
+		scalar_type g = (1-m) * (1-k);
+		scalar_type b = (1-y) * (1-k);
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::rgb_uint8,::color::category::cmyk_uint8 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint8,::color::category::cmyk_uint8 > {};
 template< > struct convert<::color::category::rgb_uint8,::color::category::cmyk_uint16 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint8,::color::category::cmyk_uint16 > {};
@@ -12733,38 +13157,38 @@ template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy
 template< > struct convert<::color::category::rgb_ldouble,::color::category::cmyk_double > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_ldouble,::color::category::cmyk_double > {};
 template< > struct convert<::color::category::rgb_ldouble,::color::category::cmyk_ldouble> : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_ldouble,::color::category::cmyk_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateRGB {
+namespace _internal {
+namespace _privateRGB {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_gray2rgb {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_gray2rgb {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
-	container_left_trait_type::template set<1>(left, reformat_type::template process<1,0>(container_right_trait_type::template get<0>(right)));
-	container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(container_right_trait_type::template get<0>(right)));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
+		container_left_trait_type::template set<1>(left, reformat_type::template process<1,0>(container_right_trait_type::template get<0>(right)));
+		container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(container_right_trait_type::template get<0>(right)));
+	}
+};
 }
-			};
-		}
 
 template< > struct convert<::color::category::rgb_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint8,::color::category::gray_uint8 > {};
 template< > struct convert<::color::category::rgb_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint8,::color::category::gray_uint16 > {};
@@ -12822,555 +13246,566 @@ template< > struct convert<::color::category::rgb_ldouble,::color::category::gra
 template< > struct convert<::color::category::rgb_ldouble,::color::category::gray_double > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_ldouble,::color::category::gray_double > {};
 template< > struct convert<::color::category::rgb_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_ldouble,::color::category::gray_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsl< ::color::category::cmy_uint8 > {
-			typedef ::color::category::hsl_uint8 akin_type;
-		};
-		template< >struct hsl< ::color::category::cmy_uint16 > {
-			typedef ::color::category::hsl_uint16 akin_type;
-		};
-		template< >struct hsl< ::color::category::cmy_uint32 > {
-			typedef ::color::category::hsl_uint32 akin_type;
-		};
-		template< >struct hsl< ::color::category::cmy_uint64 > {
-			typedef ::color::category::hsl_uint64 akin_type;
-		};
-		template< >struct hsl< ::color::category::cmy_float > {
-			typedef ::color::category::hsl_float akin_type;
-		};
-		template< >struct hsl< ::color::category::cmy_double > {
-			typedef ::color::category::hsl_double akin_type;
-		};
-		template< >struct hsl< ::color::category::cmy_ldouble > {
-			typedef ::color::category::hsl_ldouble akin_type;
-		};
+template< >struct hsl< ::color::category::cmy_uint8 > {
+	typedef ::color::category::hsl_uint8 akin_type;
+};
+template< >struct hsl< ::color::category::cmy_uint16 > {
+	typedef ::color::category::hsl_uint16 akin_type;
+};
+template< >struct hsl< ::color::category::cmy_uint32 > {
+	typedef ::color::category::hsl_uint32 akin_type;
+};
+template< >struct hsl< ::color::category::cmy_uint64 > {
+	typedef ::color::category::hsl_uint64 akin_type;
+};
+template< >struct hsl< ::color::category::cmy_float > {
+	typedef ::color::category::hsl_float akin_type;
+};
+template< >struct hsl< ::color::category::cmy_double > {
+	typedef ::color::category::hsl_double akin_type;
+};
+template< >struct hsl< ::color::category::cmy_ldouble > {
+	typedef ::color::category::hsl_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsl< ::color::category::cmyk_uint8 > {
-			typedef ::color::category::hsl_uint8 akin_type;
-		};
-		template< >struct hsl< ::color::category::cmyk_uint16 > {
-			typedef ::color::category::hsl_uint16 akin_type;
-		};
-		template< >struct hsl< ::color::category::cmyk_uint32 > {
-			typedef ::color::category::hsl_uint32 akin_type;
-		};
-		template< >struct hsl< ::color::category::cmyk_uint64 > {
-			typedef ::color::category::hsl_uint64 akin_type;
-		};
-		template< >struct hsl< ::color::category::cmyk_float > {
-			typedef ::color::category::hsl_float akin_type;
-		};
-		template< >struct hsl< ::color::category::cmyk_double > {
-			typedef ::color::category::hsl_double akin_type;
-		};
-		template< >struct hsl< ::color::category::cmyk_ldouble > {
-			typedef ::color::category::hsl_ldouble akin_type;
-		};
+template< >struct hsl< ::color::category::cmyk_uint8 > {
+	typedef ::color::category::hsl_uint8 akin_type;
+};
+template< >struct hsl< ::color::category::cmyk_uint16 > {
+	typedef ::color::category::hsl_uint16 akin_type;
+};
+template< >struct hsl< ::color::category::cmyk_uint32 > {
+	typedef ::color::category::hsl_uint32 akin_type;
+};
+template< >struct hsl< ::color::category::cmyk_uint64 > {
+	typedef ::color::category::hsl_uint64 akin_type;
+};
+template< >struct hsl< ::color::category::cmyk_float > {
+	typedef ::color::category::hsl_float akin_type;
+};
+template< >struct hsl< ::color::category::cmyk_double > {
+	typedef ::color::category::hsl_double akin_type;
+};
+template< >struct hsl< ::color::category::cmyk_ldouble > {
+	typedef ::color::category::hsl_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsl< ::color::category::gray_uint8 > {
-			typedef ::color::category::hsl_uint8 akin_type;
-		};
-		template< >struct hsl< ::color::category::gray_uint16 > {
-			typedef ::color::category::hsl_uint16 akin_type;
-		};
-		template< >struct hsl< ::color::category::gray_uint32 > {
-			typedef ::color::category::hsl_uint32 akin_type;
-		};
-		template< >struct hsl< ::color::category::gray_uint64 > {
-			typedef ::color::category::hsl_uint64 akin_type;
-		};
-		template< >struct hsl< ::color::category::gray_float > {
-			typedef ::color::category::hsl_float akin_type;
-		};
-		template< >struct hsl< ::color::category::gray_double > {
-			typedef ::color::category::hsl_double akin_type;
-		};
-		template< >struct hsl< ::color::category::gray_ldouble > {
-			typedef ::color::category::hsl_ldouble akin_type;
-		};
+template< >struct hsl< ::color::category::gray_uint8 > {
+	typedef ::color::category::hsl_uint8 akin_type;
+};
+template< >struct hsl< ::color::category::gray_uint16 > {
+	typedef ::color::category::hsl_uint16 akin_type;
+};
+template< >struct hsl< ::color::category::gray_uint32 > {
+	typedef ::color::category::hsl_uint32 akin_type;
+};
+template< >struct hsl< ::color::category::gray_uint64 > {
+	typedef ::color::category::hsl_uint64 akin_type;
+};
+template< >struct hsl< ::color::category::gray_float > {
+	typedef ::color::category::hsl_float akin_type;
+};
+template< >struct hsl< ::color::category::gray_double > {
+	typedef ::color::category::hsl_double akin_type;
+};
+template< >struct hsl< ::color::category::gray_ldouble > {
+	typedef ::color::category::hsl_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsl< ::color::category::hsl_uint8 > {
-			typedef ::color::category::hsl_uint8 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_uint16 > {
-			typedef ::color::category::hsl_uint16 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_uint32 > {
-			typedef ::color::category::hsl_uint32 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_uint64 > {
-			typedef ::color::category::hsl_uint64 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_float > {
-			typedef ::color::category::hsl_float akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_double > {
-			typedef ::color::category::hsl_double akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_ldouble > {
-			typedef ::color::category::hsl_ldouble akin_type;
-		};
+template< >struct hsl< ::color::category::hsl_uint8 > {
+	typedef ::color::category::hsl_uint8 akin_type;
+};
+template< >struct hsl< ::color::category::hsl_uint16 > {
+	typedef ::color::category::hsl_uint16 akin_type;
+};
+template< >struct hsl< ::color::category::hsl_uint32 > {
+	typedef ::color::category::hsl_uint32 akin_type;
+};
+template< >struct hsl< ::color::category::hsl_uint64 > {
+	typedef ::color::category::hsl_uint64 akin_type;
+};
+template< >struct hsl< ::color::category::hsl_float > {
+	typedef ::color::category::hsl_float akin_type;
+};
+template< >struct hsl< ::color::category::hsl_double > {
+	typedef ::color::category::hsl_double akin_type;
+};
+template< >struct hsl< ::color::category::hsl_ldouble > {
+	typedef ::color::category::hsl_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsl< ::color::category::hsv_uint8 > {
-			typedef ::color::category::hsl_uint8 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsv_uint16 > {
-			typedef ::color::category::hsl_uint16 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsv_uint32 > {
-			typedef ::color::category::hsl_uint32 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsv_uint64 > {
-			typedef ::color::category::hsl_uint64 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsv_float > {
-			typedef ::color::category::hsl_float akin_type;
-		};
-		template< >struct hsl< ::color::category::hsv_double > {
-			typedef ::color::category::hsl_double akin_type;
-		};
-		template< >struct hsl< ::color::category::hsv_ldouble > {
-			typedef ::color::category::hsl_ldouble akin_type;
-		};
+template< >struct hsl< ::color::category::hsv_uint8 > {
+	typedef ::color::category::hsl_uint8 akin_type;
+};
+template< >struct hsl< ::color::category::hsv_uint16 > {
+	typedef ::color::category::hsl_uint16 akin_type;
+};
+template< >struct hsl< ::color::category::hsv_uint32 > {
+	typedef ::color::category::hsl_uint32 akin_type;
+};
+template< >struct hsl< ::color::category::hsv_uint64 > {
+	typedef ::color::category::hsl_uint64 akin_type;
+};
+template< >struct hsl< ::color::category::hsv_float > {
+	typedef ::color::category::hsl_float akin_type;
+};
+template< >struct hsl< ::color::category::hsv_double > {
+	typedef ::color::category::hsl_double akin_type;
+};
+template< >struct hsl< ::color::category::hsv_ldouble > {
+	typedef ::color::category::hsl_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsl< ::color::category::rgb_uint8 > {
-			typedef ::color::category::hsl_uint8 akin_type;
-		};
-		template< >struct hsl< ::color::category::rgb_uint16 > {
-			typedef ::color::category::hsl_uint16 akin_type;
-		};
-		template< >struct hsl< ::color::category::rgb_uint32 > {
-			typedef ::color::category::hsl_uint32 akin_type;
-		};
-		template< >struct hsl< ::color::category::rgb_uint64 > {
-			typedef ::color::category::hsl_uint64 akin_type;
-		};
-		template< >struct hsl< ::color::category::rgb_float > {
-			typedef ::color::category::hsl_float akin_type;
-		};
-		template< >struct hsl< ::color::category::rgb_double > {
-			typedef ::color::category::hsl_double akin_type;
-		};
-		template< >struct hsl< ::color::category::rgb_ldouble > {
-			typedef ::color::category::hsl_ldouble akin_type;
-		};
+template< >struct hsl< ::color::category::rgb_uint8 > {
+	typedef ::color::category::hsl_uint8 akin_type;
+};
+template< >struct hsl< ::color::category::rgb_uint16 > {
+	typedef ::color::category::hsl_uint16 akin_type;
+};
+template< >struct hsl< ::color::category::rgb_uint32 > {
+	typedef ::color::category::hsl_uint32 akin_type;
+};
+template< >struct hsl< ::color::category::rgb_uint64 > {
+	typedef ::color::category::hsl_uint64 akin_type;
+};
+template< >struct hsl< ::color::category::rgb_float > {
+	typedef ::color::category::hsl_float akin_type;
+};
+template< >struct hsl< ::color::category::rgb_double > {
+	typedef ::color::category::hsl_double akin_type;
+};
+template< >struct hsl< ::color::category::rgb_ldouble > {
+	typedef ::color::category::hsl_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsl< ::color::category::yiq_uint8 > {
-			typedef ::color::category::hsl_uint8 akin_type;
-		};
-		template< >struct hsl< ::color::category::yiq_uint16 > {
-			typedef ::color::category::hsl_uint16 akin_type;
-		};
-		template< >struct hsl< ::color::category::yiq_uint32 > {
-			typedef ::color::category::hsl_uint32 akin_type;
-		};
-		template< >struct hsl< ::color::category::yiq_uint64 > {
-			typedef ::color::category::hsl_uint64 akin_type;
-		};
-		template< >struct hsl< ::color::category::yiq_float > {
-			typedef ::color::category::hsl_float akin_type;
-		};
-		template< >struct hsl< ::color::category::yiq_double > {
-			typedef ::color::category::hsl_double akin_type;
-		};
-		template< >struct hsl< ::color::category::yiq_ldouble > {
-			typedef ::color::category::hsl_ldouble akin_type;
-		};
+template< >struct hsl< ::color::category::yiq_uint8 > {
+	typedef ::color::category::hsl_uint8 akin_type;
+};
+template< >struct hsl< ::color::category::yiq_uint16 > {
+	typedef ::color::category::hsl_uint16 akin_type;
+};
+template< >struct hsl< ::color::category::yiq_uint32 > {
+	typedef ::color::category::hsl_uint32 akin_type;
+};
+template< >struct hsl< ::color::category::yiq_uint64 > {
+	typedef ::color::category::hsl_uint64 akin_type;
+};
+template< >struct hsl< ::color::category::yiq_float > {
+	typedef ::color::category::hsl_float akin_type;
+};
+template< >struct hsl< ::color::category::yiq_double > {
+	typedef ::color::category::hsl_double akin_type;
+};
+template< >struct hsl< ::color::category::yiq_ldouble > {
+	typedef ::color::category::hsl_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace utility {
-			namespace bound {
+namespace _internal {
+namespace utility {
+namespace bound {
 
-				template< typename index_name, typename scalar_name >
-				struct hsl_scalar {
-					public:
-					typedef scalar_name scalar_type;
-					typedef index_name index_type;
+template< typename index_name, typename scalar_name >
+struct hsl_scalar {
+public:
+	typedef scalar_name scalar_type;
+	typedef index_name index_type;
 
-					typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
-					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
-					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_image_type return_image_type;
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
 
-					typedef typename index_trait_type::instance_type index_instance_type;
-					typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
 
-					template< index_instance_type index >
-static return_image_type maximum() {
-	static instance_type max_list[] = { 360, 100, 100 };
-	return max_list[index];
-}
-
-static return_image_type maximum(index_input_const_type index) {
-	static instance_type max_list[] = { 360, 100, 100 };
-	return max_list[index];
-}
-
-template< index_instance_type index >
-static return_image_type minimum() {
-	static instance_type min_list[] = { 0, 0, 0 };
-	return min_list[index];
-}
-
-static return_image_type minimum(index_input_const_type index) {
-	static instance_type min_list[] = { 0, 0, 0 };
-	return min_list[index];
-}
-
-template< index_instance_type index >
-static return_image_type range() {
-	static instance_type range_list[] = { 360, 100, 100 };
-	return range_list[index];
-}
-
-static return_image_type range(index_input_const_type index) {
-	static instance_type range_list[] = { 360, 100, 100 };
-	return range_list[index];
-}
-				};
-
-			}
-		}
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 360, 100, 100 };
+		return max_list[index];
 	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 360, 100, 100 };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { 0, 0, 0 };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { 0, 0, 0 };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { 360, 100, 100 };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { 360, 100, 100 };
+		return range_list[index];
+	}
+};
+
+}
+}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsl_double >
+template< >
+struct bound< ::color::category::hsl_double >
 		: public ::color::_internal::utility::bound::hsl_scalar< unsigned, double > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsl_float >
+template< >
+struct bound< ::color::category::hsl_float >
 		: public ::color::_internal::utility::bound::hsl_scalar< unsigned, float > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsl_ldouble >
+template< >
+struct bound< ::color::category::hsl_ldouble >
 		: public ::color::_internal::utility::bound::hsl_scalar< unsigned, long double > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsl_uint16 >
+template< >
+struct bound< ::color::category::hsl_uint16 >
 		: public ::color::_internal::utility::bound::bound556< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsl_uint32 >
+template< >
+struct bound< ::color::category::hsl_uint32 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 8, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsl_uint64 >
+template< >
+struct bound< ::color::category::hsl_uint64 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 16, unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsl_uint8 >
+template< >
+struct bound< ::color::category::hsl_uint8 >
 		: public ::color::_internal::utility::bound::bound332< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsl_double >
+template< >
+struct component< ::color::category::hsl_double >
 		: public ::color::_internal::utility::component::array< double, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsl_float >
+template< >
+struct component< ::color::category::hsl_float >
 		: public ::color::_internal::utility::component::array< float, unsigned> {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsl_ldouble >
+template< >
+struct component< ::color::category::hsl_ldouble >
 		: public ::color::_internal::utility::component::array< long double, unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsl_uint16 >
+template< >
+struct component< ::color::category::hsl_uint16 >
 		: public ::color::_internal::utility::component::cnent556< unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsl_uint32 >
+template< >
+struct component< ::color::category::hsl_uint32 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned> {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsl_uint64 >
+template< >
+struct component< ::color::category::hsl_uint64 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsl_uint8 >
+template< >
+struct component< ::color::category::hsl_uint8 >
 		: public ::color::_internal::utility::component::cnent332< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsl_double >
+template< >
+struct container< ::color::category::hsl_double >
 		: public ::color::_internal::utility::container::array< double, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsl_float >
+template< >
+struct container< ::color::category::hsl_float >
 		: public ::color::_internal::utility::container::array< float, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsl_ldouble >
+template< >
+struct container< ::color::category::hsl_ldouble >
 		: public ::color::_internal::utility::container::array< long double, 3 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsl_uint16 >
+template< >
+struct container< ::color::category::hsl_uint16 >
 		: public ::color::_internal::utility::container::cner556< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsl_uint32 >
+template< >
+struct container< ::color::category::hsl_uint32 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3, 8 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsl_uint64 >
+template< >
+struct container< ::color::category::hsl_uint64 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsl_double >
+template< >
+struct container< ::color::category::hsl_uint8 >
+		: public ::color::_internal::utility::container::cner332< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::hsl_double >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsl_float >
+template< >
+struct index< ::color::category::hsl_float >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsl_ldouble >
+template< >
+struct index< ::color::category::hsl_ldouble >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsl_uint16 >
+template< >
+struct index< ::color::category::hsl_uint16 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsl_uint32 >
+template< >
+struct index< ::color::category::hsl_uint32 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsl_uint64 >
+template< >
+struct index< ::color::category::hsl_uint64 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsl_uint8 >
+template< >
+struct index< ::color::category::hsl_uint8 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateHSL {
+namespace get {
+namespace _internal {
+namespace _privateHSL {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
@@ -13378,8 +13813,8 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 	return reformat_type::template process<0,2>(color_parameter.template get<2>());
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsl_uint8 >::akin_type >::return_type
@@ -13423,31 +13858,31 @@ gray(::color::_internal::model< color::category::hsl_ldouble > const& color_para
 	return ::color::get::_internal::_privateHSL::gray<color::category::hsl_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateHSL {
+namespace get {
+namespace _internal {
+namespace _privateHSL {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 red(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
 	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
+		0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
 	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
 	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
 	return diverse_type::template process<0>(value);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint8>::akin_type >::return_type
@@ -13491,31 +13926,31 @@ red(::color::_internal::model< color::category::hsl_ldouble > const& color_param
 	return ::color::get::_internal::_privateHSL::red<color::category::hsl_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateHSL {
+namespace get {
+namespace _internal {
+namespace _privateHSL {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 green(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
 	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
+		0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
 	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
 	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
 	return diverse_type::template process<0>(value);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint8>::akin_type >::return_type
@@ -13559,31 +13994,31 @@ green(::color::_internal::model< color::category::hsl_ldouble > const& color_par
 	return ::color::get::_internal::_privateHSL::green<color::category::hsl_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateHSL {
+namespace get {
+namespace _internal {
+namespace _privateHSL {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 blue(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
 	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
+		0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
 	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
 	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
 	return diverse_type::template process<0>(value);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint8>::akin_type >::return_type
@@ -13627,13 +14062,13 @@ blue(::color::_internal::model< color::category::hsl_ldouble > const& color_para
 	return ::color::get::_internal::_privateHSL::blue<color::category::hsl_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void black(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -13668,13 +14103,13 @@ void black(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gray50(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x40;
 }
@@ -13709,13 +14144,13 @@ void gray50(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void white(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc0;
 }
@@ -13750,13 +14185,13 @@ void white(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void red(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x78;
 }
@@ -13791,13 +14226,13 @@ void red(::color::_internal::model< color::category::hsl_ldouble> & color_parame
 	color_parameter.container() = std::array<long double,3>({ 0, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void green(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3a;
 }
@@ -13832,13 +14267,13 @@ void green(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 120, 100, 25 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void blue(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7c;
 }
@@ -13873,13 +14308,13 @@ void blue(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 240, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void cyan(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7b;
 }
@@ -13914,13 +14349,13 @@ void cyan(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 180, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void magenta(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7d;
 }
@@ -13955,13 +14390,13 @@ void magenta(::color::_internal::model< color::category::hsl_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 300, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void yellow(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x79;
 }
@@ -13996,13 +14431,13 @@ void yellow(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 60, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void aqua(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7b;
 }
@@ -14037,13 +14472,13 @@ void aqua(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 180, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void fuchsia(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7d;
 }
@@ -14078,13 +14513,13 @@ void fuchsia(::color::_internal::model< color::category::hsl_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 300, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void lime(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7a;
 }
@@ -14119,13 +14554,13 @@ void lime(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 120, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void maroon(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x38;
 }
@@ -14160,13 +14595,13 @@ void maroon(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0, 100, 25 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void navy(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3c;
 }
@@ -14201,13 +14636,13 @@ void navy(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 240, 100, 25 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void olive(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x39;
 }
@@ -14242,13 +14677,13 @@ void olive(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 60, 100, 25 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void orange(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x78;
 }
@@ -14283,13 +14718,13 @@ void orange(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 39, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void purple(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3d;
 }
@@ -14324,13 +14759,13 @@ void purple(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 300, 100, 25 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void silver(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x80;
 }
@@ -14365,13 +14800,13 @@ void silver(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 75 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void teal(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3b;
 }
@@ -14406,13 +14841,13 @@ void teal(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 180, 100, 25 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void violet(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xad;
 }
@@ -14447,13 +14882,13 @@ void violet(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 300, 76.0563, 72.1569 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void aquamarine(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xbb;
 }
@@ -14488,13 +14923,13 @@ void aquamarine(::color::_internal::model< color::category::hsl_ldouble> & color
 	color_parameter.container() = std::array<long double,3>({ 159.765, 100, 75 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void azure(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xbb;
 }
@@ -14529,13 +14964,13 @@ void azure(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 180, 100, 97.0588 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void beige(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x99;
 }
@@ -14570,13 +15005,13 @@ void beige(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 60, 55.5556, 91.1765 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void bisque(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb0;
 }
@@ -14611,13 +15046,13 @@ void bisque(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 32.5424, 100, 88.4314 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void brown(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x60;
 }
@@ -14652,13 +15087,13 @@ void brown(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 59.4203, 40.5882 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void chocolate(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x68;
 }
@@ -14693,13 +15128,13 @@ void chocolate(::color::_internal::model< color::category::hsl_ldouble> & color_
 	color_parameter.container() = std::array<long double,3>({ 25, 75, 47.0588 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void coral(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x78;
 }
@@ -14734,13 +15169,13 @@ void coral(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 16.5217, 100, 65.5 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void crimson(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x6e;
 }
@@ -14775,13 +15210,13 @@ void crimson(::color::_internal::model< color::category::hsl_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 348, 83.3333, 47.0588 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gainsboro(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x80;
 }
@@ -14816,13 +15251,13 @@ void gainsboro(::color::_internal::model< color::category::hsl_ldouble> & color_
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 86 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gold(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x78;
 }
@@ -14857,13 +15292,13 @@ void gold(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 50.5882, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void indigo(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3d;
 }
@@ -14898,13 +15333,13 @@ void indigo(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 274.615, 100, 25.4902 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void ivory(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb9;
 }
@@ -14939,13 +15374,13 @@ void ivory(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 60, 100, 97.0588 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void khaki(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa9;
 }
@@ -14980,13 +15415,13 @@ void khaki(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 54, 76.9231, 74.5098 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void lavender(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa4;
 }
@@ -15021,13 +15456,13 @@ void lavender(::color::_internal::model< color::category::hsl_ldouble> & color_p
 	color_parameter.container() = std::array<long double,3>({ 240, 66.6667, 94.1176 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void linen(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa0;
 }
@@ -15062,13 +15497,13 @@ void linen(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 30, 66.6667, 94.1176 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void moccasin(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb8;
 }
@@ -15103,13 +15538,13 @@ void moccasin(::color::_internal::model< color::category::hsl_ldouble> & color_p
 	color_parameter.container() = std::array<long double,3>({ 38.1081, 100, 85.4902 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void orchid(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x65;
 }
@@ -15144,13 +15579,13 @@ void orchid(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 302.264, 58.8889, 64.7059 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void peru(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x60;
 }
@@ -15185,13 +15620,13 @@ void peru(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 29.5775, 58.6777, 52.549 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void pink(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x60;
 }
@@ -15226,13 +15661,13 @@ void pink(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 29.5775, 58.6778, 52.549 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void plum(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x9d;
 }
@@ -15267,13 +15702,13 @@ void plum(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 300, 47.2868, 74.7059 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void salmon(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x9d;
 }
@@ -15308,13 +15743,13 @@ void salmon(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 300, 47.2869, 74.7059 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void sienna(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x58;
 }
@@ -15349,13 +15784,13 @@ void sienna(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 19.3043, 56.0976, 40.1961 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void snow(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb8;
 }
@@ -15390,13 +15825,13 @@ void snow(::color::_internal::model< color::category::hsl_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0, 100, 99.0196 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void tan(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x98;
 }
@@ -15431,13 +15866,13 @@ void tan(::color::_internal::model< color::category::hsl_ldouble> & color_parame
 	color_parameter.container() = std::array<long double,3>({ 34.2857, 43.75, 68.6275 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void thistle(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x8d;
 }
@@ -15472,13 +15907,13 @@ void thistle(::color::_internal::model< color::category::hsl_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 300, 24.2718, 79.8039 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void tomato(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x70;
 }
@@ -15513,13 +15948,13 @@ void tomato(::color::_internal::model< color::category::hsl_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 9.13043, 100, 63.9216 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void turquoise(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0x6b;
 }
@@ -15554,13 +15989,13 @@ void turquoise(::color::_internal::model< color::category::hsl_ldouble> & color_
 	color_parameter.container() = std::array<long double,3>({ 174, 72.0721, 56.4706 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void wheat(::color::_internal::model< color::category::hsl_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa8;
 }
@@ -15595,62 +16030,62 @@ void wheat(::color::_internal::model< color::category::hsl_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 39.0909, 76.7442, 83.1373 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateHSL {
+namespace _internal {
+namespace _privateHSL {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_cmy2hsl {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmy2hsl {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type r = scalar_type(1) - normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type g = scalar_type(1) - normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type b = scalar_type(1) - normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	const scalar_type hi = std::max<scalar_type>({ r, g, b });
-	const scalar_type lo = std::min<scalar_type>({ r, g, b });
-	scalar_type delta = hi - lo;
-	scalar_type h = 0;
-	scalar_type s = 0;
-	scalar_type l = (hi + lo) / scalar_type(2);
-	if(0 != delta) {
-		s = delta / (1 - fabs(2*l - 1));
-		if(hi == r) {
-			h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type r = scalar_type(1) - normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = scalar_type(1) - normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = scalar_type(1) - normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		const scalar_type hi = std::max<scalar_type>({ r, g, b });
+		const scalar_type lo = std::min<scalar_type>({ r, g, b });
+		scalar_type delta = hi - lo;
+		scalar_type h = 0;
+		scalar_type s = 0;
+		scalar_type l = (hi + lo) / scalar_type(2);
+		if(0 != delta) {
+			s = delta / (1 - fabs(2*l - 1));
+			if(hi == r) {
+				h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
+			}
+			if(hi == g) {
+				h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
+			}
+			if(hi == b) {
+				h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
+			}
 		}
-		if(hi == g) {
-			h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
-		}
-		if(hi == b) {
-			h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
-		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(l));
 	}
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(l));
-}
-			};
+};
 
-		}
+}
 
 template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_uint8 > {};
 template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_uint16 > {};
@@ -15708,41 +16143,41 @@ template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy
 template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_double > {};
 template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateHSL {
+namespace _internal {
+namespace _privateHSL {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_gray2hsl {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_gray2hsl {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	container_left_trait_type::template set<0>(left, bound_left_trait_type::template minimum<0>());
-	container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
-	container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(container_right_trait_type::template get<0>(right)));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, bound_left_trait_type::template minimum<0>());
+		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
+		container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(container_right_trait_type::template get<0>(right)));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::hsl_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint8,::color::category::gray_uint8 > {};
 template< > struct convert<::color::category::hsl_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint8,::color::category::gray_uint16 > {};
@@ -15800,597 +16235,608 @@ template< > struct convert<::color::category::hsl_ldouble,::color::category::gra
 template< > struct convert<::color::category::hsl_ldouble,::color::category::gray_double > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_ldouble,::color::category::gray_double > {};
 template< > struct convert<::color::category::hsl_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_ldouble,::color::category::gray_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsv< ::color::category::cmy_uint8 > {
-			typedef ::color::category::hsv_uint8 akin_type;
-		};
-		template< >struct hsv< ::color::category::cmy_uint16 > {
-			typedef ::color::category::hsv_uint16 akin_type;
-		};
-		template< >struct hsv< ::color::category::cmy_uint32 > {
-			typedef ::color::category::hsv_uint32 akin_type;
-		};
-		template< >struct hsv< ::color::category::cmy_uint64 > {
-			typedef ::color::category::hsv_uint64 akin_type;
-		};
-		template< >struct hsv< ::color::category::cmy_float > {
-			typedef ::color::category::hsv_float akin_type;
-		};
-		template< >struct hsv< ::color::category::cmy_double > {
-			typedef ::color::category::hsv_double akin_type;
-		};
-		template< >struct hsv< ::color::category::cmy_ldouble > {
-			typedef ::color::category::hsv_ldouble akin_type;
-		};
+template< >struct hsv< ::color::category::cmy_uint8 > {
+	typedef ::color::category::hsv_uint8 akin_type;
+};
+template< >struct hsv< ::color::category::cmy_uint16 > {
+	typedef ::color::category::hsv_uint16 akin_type;
+};
+template< >struct hsv< ::color::category::cmy_uint32 > {
+	typedef ::color::category::hsv_uint32 akin_type;
+};
+template< >struct hsv< ::color::category::cmy_uint64 > {
+	typedef ::color::category::hsv_uint64 akin_type;
+};
+template< >struct hsv< ::color::category::cmy_float > {
+	typedef ::color::category::hsv_float akin_type;
+};
+template< >struct hsv< ::color::category::cmy_double > {
+	typedef ::color::category::hsv_double akin_type;
+};
+template< >struct hsv< ::color::category::cmy_ldouble > {
+	typedef ::color::category::hsv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsv< ::color::category::cmyk_uint8 > {
-			typedef ::color::category::hsv_uint8 akin_type;
-		};
-		template< >struct hsv< ::color::category::cmyk_uint16 > {
-			typedef ::color::category::hsv_uint16 akin_type;
-		};
-		template< >struct hsv< ::color::category::cmyk_uint32 > {
-			typedef ::color::category::hsv_uint32 akin_type;
-		};
-		template< >struct hsv< ::color::category::cmyk_uint64 > {
-			typedef ::color::category::hsv_uint64 akin_type;
-		};
-		template< >struct hsv< ::color::category::cmyk_float > {
-			typedef ::color::category::hsv_float akin_type;
-		};
-		template< >struct hsv< ::color::category::cmyk_double > {
-			typedef ::color::category::hsv_double akin_type;
-		};
-		template< >struct hsv< ::color::category::cmyk_ldouble > {
-			typedef ::color::category::hsv_ldouble akin_type;
-		};
+template< >struct hsv< ::color::category::cmyk_uint8 > {
+	typedef ::color::category::hsv_uint8 akin_type;
+};
+template< >struct hsv< ::color::category::cmyk_uint16 > {
+	typedef ::color::category::hsv_uint16 akin_type;
+};
+template< >struct hsv< ::color::category::cmyk_uint32 > {
+	typedef ::color::category::hsv_uint32 akin_type;
+};
+template< >struct hsv< ::color::category::cmyk_uint64 > {
+	typedef ::color::category::hsv_uint64 akin_type;
+};
+template< >struct hsv< ::color::category::cmyk_float > {
+	typedef ::color::category::hsv_float akin_type;
+};
+template< >struct hsv< ::color::category::cmyk_double > {
+	typedef ::color::category::hsv_double akin_type;
+};
+template< >struct hsv< ::color::category::cmyk_ldouble > {
+	typedef ::color::category::hsv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsv< ::color::category::gray_uint8 > {
-			typedef ::color::category::hsv_uint8 akin_type;
-		};
-		template< >struct hsv< ::color::category::gray_uint16 > {
-			typedef ::color::category::hsv_uint16 akin_type;
-		};
-		template< >struct hsv< ::color::category::gray_uint32 > {
-			typedef ::color::category::hsv_uint32 akin_type;
-		};
-		template< >struct hsv< ::color::category::gray_uint64 > {
-			typedef ::color::category::hsv_uint64 akin_type;
-		};
-		template< >struct hsv< ::color::category::gray_float > {
-			typedef ::color::category::hsv_float akin_type;
-		};
-		template< >struct hsv< ::color::category::gray_double > {
-			typedef ::color::category::hsv_double akin_type;
-		};
-		template< >struct hsv< ::color::category::gray_ldouble > {
-			typedef ::color::category::hsv_ldouble akin_type;
-		};
+template< >struct hsv< ::color::category::gray_uint8 > {
+	typedef ::color::category::hsv_uint8 akin_type;
+};
+template< >struct hsv< ::color::category::gray_uint16 > {
+	typedef ::color::category::hsv_uint16 akin_type;
+};
+template< >struct hsv< ::color::category::gray_uint32 > {
+	typedef ::color::category::hsv_uint32 akin_type;
+};
+template< >struct hsv< ::color::category::gray_uint64 > {
+	typedef ::color::category::hsv_uint64 akin_type;
+};
+template< >struct hsv< ::color::category::gray_float > {
+	typedef ::color::category::hsv_float akin_type;
+};
+template< >struct hsv< ::color::category::gray_double > {
+	typedef ::color::category::hsv_double akin_type;
+};
+template< >struct hsv< ::color::category::gray_ldouble > {
+	typedef ::color::category::hsv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsv< ::color::category::hsl_uint8 > {
-			typedef ::color::category::hsv_uint8 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsl_uint16 > {
-			typedef ::color::category::hsv_uint16 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsl_uint32 > {
-			typedef ::color::category::hsv_uint32 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsl_uint64 > {
-			typedef ::color::category::hsv_uint64 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsl_float > {
-			typedef ::color::category::hsv_float akin_type;
-		};
-		template< >struct hsv< ::color::category::hsl_double > {
-			typedef ::color::category::hsv_double akin_type;
-		};
-		template< >struct hsv< ::color::category::hsl_ldouble > {
-			typedef ::color::category::hsv_ldouble akin_type;
-		};
+template< >struct hsv< ::color::category::hsl_uint8 > {
+	typedef ::color::category::hsv_uint8 akin_type;
+};
+template< >struct hsv< ::color::category::hsl_uint16 > {
+	typedef ::color::category::hsv_uint16 akin_type;
+};
+template< >struct hsv< ::color::category::hsl_uint32 > {
+	typedef ::color::category::hsv_uint32 akin_type;
+};
+template< >struct hsv< ::color::category::hsl_uint64 > {
+	typedef ::color::category::hsv_uint64 akin_type;
+};
+template< >struct hsv< ::color::category::hsl_float > {
+	typedef ::color::category::hsv_float akin_type;
+};
+template< >struct hsv< ::color::category::hsl_double > {
+	typedef ::color::category::hsv_double akin_type;
+};
+template< >struct hsv< ::color::category::hsl_ldouble > {
+	typedef ::color::category::hsv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsv< ::color::category::hsv_uint8 > {
-			typedef ::color::category::hsv_uint8 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_uint16 > {
-			typedef ::color::category::hsv_uint16 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_uint32 > {
-			typedef ::color::category::hsv_uint32 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_uint64 > {
-			typedef ::color::category::hsv_uint64 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_float > {
-			typedef ::color::category::hsv_float akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_double > {
-			typedef ::color::category::hsv_double akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_ldouble > {
-			typedef ::color::category::hsv_ldouble akin_type;
-		};
+template< >struct hsv< ::color::category::hsv_uint8 > {
+	typedef ::color::category::hsv_uint8 akin_type;
+};
+template< >struct hsv< ::color::category::hsv_uint16 > {
+	typedef ::color::category::hsv_uint16 akin_type;
+};
+template< >struct hsv< ::color::category::hsv_uint32 > {
+	typedef ::color::category::hsv_uint32 akin_type;
+};
+template< >struct hsv< ::color::category::hsv_uint64 > {
+	typedef ::color::category::hsv_uint64 akin_type;
+};
+template< >struct hsv< ::color::category::hsv_float > {
+	typedef ::color::category::hsv_float akin_type;
+};
+template< >struct hsv< ::color::category::hsv_double > {
+	typedef ::color::category::hsv_double akin_type;
+};
+template< >struct hsv< ::color::category::hsv_ldouble > {
+	typedef ::color::category::hsv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsv< ::color::category::rgb_uint8 > {
-			typedef ::color::category::hsv_uint8 akin_type;
-		};
-		template< >struct hsv< ::color::category::rgb_uint16 > {
-			typedef ::color::category::hsv_uint16 akin_type;
-		};
-		template< >struct hsv< ::color::category::rgb_uint32 > {
-			typedef ::color::category::hsv_uint32 akin_type;
-		};
-		template< >struct hsv< ::color::category::rgb_uint64 > {
-			typedef ::color::category::hsv_uint64 akin_type;
-		};
-		template< >struct hsv< ::color::category::rgb_float > {
-			typedef ::color::category::hsv_float akin_type;
-		};
-		template< >struct hsv< ::color::category::rgb_double > {
-			typedef ::color::category::hsv_double akin_type;
-		};
-		template< >struct hsv< ::color::category::rgb_ldouble > {
-			typedef ::color::category::hsv_ldouble akin_type;
-		};
+template< >struct hsv< ::color::category::rgb_uint8 > {
+	typedef ::color::category::hsv_uint8 akin_type;
+};
+template< >struct hsv< ::color::category::rgb_uint16 > {
+	typedef ::color::category::hsv_uint16 akin_type;
+};
+template< >struct hsv< ::color::category::rgb_uint32 > {
+	typedef ::color::category::hsv_uint32 akin_type;
+};
+template< >struct hsv< ::color::category::rgb_uint64 > {
+	typedef ::color::category::hsv_uint64 akin_type;
+};
+template< >struct hsv< ::color::category::rgb_float > {
+	typedef ::color::category::hsv_float akin_type;
+};
+template< >struct hsv< ::color::category::rgb_double > {
+	typedef ::color::category::hsv_double akin_type;
+};
+template< >struct hsv< ::color::category::rgb_ldouble > {
+	typedef ::color::category::hsv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsv< ::color::category::yiq_uint8 > {
-			typedef ::color::category::hsv_uint8 akin_type;
-		};
-		template< >struct hsv< ::color::category::yiq_uint16 > {
-			typedef ::color::category::hsv_uint16 akin_type;
-		};
-		template< >struct hsv< ::color::category::yiq_uint32 > {
-			typedef ::color::category::hsv_uint32 akin_type;
-		};
-		template< >struct hsv< ::color::category::yiq_uint64 > {
-			typedef ::color::category::hsv_uint64 akin_type;
-		};
-		template< >struct hsv< ::color::category::yiq_float > {
-			typedef ::color::category::hsv_float akin_type;
-		};
-		template< >struct hsv< ::color::category::yiq_double > {
-			typedef ::color::category::hsv_double akin_type;
-		};
-		template< >struct hsv< ::color::category::yiq_ldouble > {
-			typedef ::color::category::hsv_ldouble akin_type;
-		};
+template< >struct hsv< ::color::category::yiq_uint8 > {
+	typedef ::color::category::hsv_uint8 akin_type;
+};
+template< >struct hsv< ::color::category::yiq_uint16 > {
+	typedef ::color::category::hsv_uint16 akin_type;
+};
+template< >struct hsv< ::color::category::yiq_uint32 > {
+	typedef ::color::category::hsv_uint32 akin_type;
+};
+template< >struct hsv< ::color::category::yiq_uint64 > {
+	typedef ::color::category::hsv_uint64 akin_type;
+};
+template< >struct hsv< ::color::category::yiq_float > {
+	typedef ::color::category::hsv_float akin_type;
+};
+template< >struct hsv< ::color::category::yiq_double > {
+	typedef ::color::category::hsv_double akin_type;
+};
+template< >struct hsv< ::color::category::yiq_ldouble > {
+	typedef ::color::category::hsv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct hsv< ::color::category::yuv_uint8 > {
-			typedef ::color::category::hsv_uint8 akin_type;
-		};
-		template< >struct hsv< ::color::category::yuv_uint16 > {
-			typedef ::color::category::hsv_uint16 akin_type;
-		};
-		template< >struct hsv< ::color::category::yuv_uint32 > {
-			typedef ::color::category::hsv_uint32 akin_type;
-		};
-		template< >struct hsv< ::color::category::yuv_uint64 > {
-			typedef ::color::category::hsv_uint64 akin_type;
-		};
-		template< >struct hsv< ::color::category::yuv_float > {
-			typedef ::color::category::hsv_float akin_type;
-		};
-		template< >struct hsv< ::color::category::yuv_double > {
-			typedef ::color::category::hsv_double akin_type;
-		};
-		template< >struct hsv< ::color::category::yuv_ldouble > {
-			typedef ::color::category::hsv_ldouble akin_type;
-		};
+template< >struct hsv< ::color::category::yuv_uint8 > {
+	typedef ::color::category::hsv_uint8 akin_type;
+};
+template< >struct hsv< ::color::category::yuv_uint16 > {
+	typedef ::color::category::hsv_uint16 akin_type;
+};
+template< >struct hsv< ::color::category::yuv_uint32 > {
+	typedef ::color::category::hsv_uint32 akin_type;
+};
+template< >struct hsv< ::color::category::yuv_uint64 > {
+	typedef ::color::category::hsv_uint64 akin_type;
+};
+template< >struct hsv< ::color::category::yuv_float > {
+	typedef ::color::category::hsv_float akin_type;
+};
+template< >struct hsv< ::color::category::yuv_double > {
+	typedef ::color::category::hsv_double akin_type;
+};
+template< >struct hsv< ::color::category::yuv_ldouble > {
+	typedef ::color::category::hsv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace utility {
-			namespace bound {
+namespace _internal {
+namespace utility {
+namespace bound {
 
-				template< typename index_name, typename scalar_name >
-				struct hsv_scalar {
-					public:
-					typedef scalar_name scalar_type;
-					typedef index_name index_type;
+template< typename index_name, typename scalar_name >
+struct hsv_scalar {
+public:
+	typedef scalar_name scalar_type;
+	typedef index_name index_type;
 
-					typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
-					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
-					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_image_type return_image_type;
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
 
-					typedef typename index_trait_type::instance_type index_instance_type;
-					typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
 
-					template< index_instance_type index >
-static return_image_type maximum() {
-	static instance_type max_list[] = { 360, 100, 100 };
-	return max_list[index];
-}
-
-static return_image_type maximum(index_input_const_type index) {
-	static instance_type max_list[] = { 360, 100, 100 };
-	return max_list[index];
-}
-
-template< index_instance_type index >
-static return_image_type minimum() {
-	static instance_type min_list[] = { 0, 0, 0 };
-	return min_list[index];
-}
-
-static return_image_type minimum(index_input_const_type index) {
-	static instance_type min_list[] = { 0, 0, 0 };
-	return min_list[index];
-}
-
-template< index_instance_type index >
-static return_image_type range() {
-	static instance_type range_list[] = { 360, 100, 100 };
-	return range_list[index];
-}
-
-static return_image_type range(index_input_const_type index) {
-	static instance_type range_list[] = { 360, 100, 100 };
-	return range_list[index];
-}
-				};
-
-			}
-		}
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 360, 100, 100 };
+		return max_list[index];
 	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 360, 100, 100 };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { 0, 0, 0 };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { 0, 0, 0 };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { 360, 100, 100 };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { 360, 100, 100 };
+		return range_list[index];
+	}
+};
+
+}
+}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsv_double >
+template< >
+struct bound< ::color::category::hsv_double >
 		: public ::color::_internal::utility::bound::hsv_scalar< unsigned, double > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsv_float >
+template< >
+struct bound< ::color::category::hsv_float >
 		: public ::color::_internal::utility::bound::hsv_scalar< unsigned, float > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsv_ldouble >
+template< >
+struct bound< ::color::category::hsv_ldouble >
 		: public ::color::_internal::utility::bound::hsv_scalar< unsigned, long double > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsv_uint16 >
+template< >
+struct bound< ::color::category::hsv_uint16 >
 		: public ::color::_internal::utility::bound::bound556< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsv_uint32 >
+template< >
+struct bound< ::color::category::hsv_uint32 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 8, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsv_uint64 >
+template< >
+struct bound< ::color::category::hsv_uint64 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 16, unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::hsv_uint8 >
+template< >
+struct bound< ::color::category::hsv_uint8 >
 		: public ::color::_internal::utility::bound::bound332< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsv_double >
+template< >
+struct component< ::color::category::hsv_double >
 		: public ::color::_internal::utility::component::array< double, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsv_float >
+template< >
+struct component< ::color::category::hsv_float >
 		: public ::color::_internal::utility::component::array< float, unsigned> {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsv_ldouble >
+template< >
+struct component< ::color::category::hsv_ldouble >
 		: public ::color::_internal::utility::component::array< long double, unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsv_uint16 >
+template< >
+struct component< ::color::category::hsv_uint16 >
 		: public ::color::_internal::utility::component::cnent556< unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsv_uint32 >
+template< >
+struct component< ::color::category::hsv_uint32 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned> {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsv_uint64 >
+template< >
+struct component< ::color::category::hsv_uint64 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::hsv_uint8 >
+template< >
+struct component< ::color::category::hsv_uint8 >
 		: public ::color::_internal::utility::component::cnent332< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsv_double >
+template< >
+struct container< ::color::category::hsv_double >
 		: public ::color::_internal::utility::container::array< double, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsv_float >
+template< >
+struct container< ::color::category::hsv_float >
 		: public ::color::_internal::utility::container::array< float, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsv_ldouble >
+template< >
+struct container< ::color::category::hsv_ldouble >
 		: public ::color::_internal::utility::container::array< long double, 3 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsv_uint16 >
+template< >
+struct container< ::color::category::hsv_uint16 >
 		: public ::color::_internal::utility::container::cner556< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsv_uint32 >
+template< >
+struct container< ::color::category::hsv_uint32 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3, 8 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::hsv_uint64 >
+template< >
+struct container< ::color::category::hsv_uint64 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsv_double >
+template< >
+struct container< ::color::category::hsv_uint8 >
+		: public ::color::_internal::utility::container::cner332< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::hsv_double >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsv_float >
+template< >
+struct index< ::color::category::hsv_float >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsv_ldouble >
+template< >
+struct index< ::color::category::hsv_ldouble >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsv_uint16 >
+template< >
+struct index< ::color::category::hsv_uint16 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsv_uint32 >
+template< >
+struct index< ::color::category::hsv_uint32 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsv_uint64 >
+template< >
+struct index< ::color::category::hsv_uint64 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::hsv_uint8 >
+template< >
+struct index< ::color::category::hsv_uint8 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateHSV {
+namespace get {
+namespace _internal {
+namespace _privateHSV {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
 	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
+		0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
 	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
 	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
 	return diverse_type::template process<0>(value);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsv_uint8 >::akin_type >::return_type
@@ -16434,31 +16880,31 @@ gray(::color::_internal::model< color::category::hsv_ldouble > const& color_para
 	return ::color::get::_internal::_privateHSV::gray<color::category::hsv_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateHSV {
+namespace get {
+namespace _internal {
+namespace _privateHSV {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 red(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
 	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
+		0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
 	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
 	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
 	return diverse_type::template process<0>(value);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint8>::akin_type >::return_type
@@ -16502,31 +16948,31 @@ red(::color::_internal::model< color::category::hsv_ldouble > const& color_param
 	return ::color::get::_internal::_privateHSV::red<color::category::hsv_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateHSV {
+namespace get {
+namespace _internal {
+namespace _privateHSV {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 green(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
 	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
+		0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
 	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
 	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
 	return diverse_type::template process<0>(value);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint8>::akin_type >::return_type
@@ -16570,31 +17016,31 @@ green(::color::_internal::model< color::category::hsv_ldouble > const& color_par
 	return ::color::get::_internal::_privateHSV::green<color::category::hsv_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateHSV {
+namespace get {
+namespace _internal {
+namespace _privateHSV {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 blue(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
 	scalar_type value =
-	0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
+		0.2126 * normalize_type::template process<0>(color_parameter.template get<0>())
 	+ 0.7152 * normalize_type::template process<1>(color_parameter.template get<1>())
 	+ 0.0722 * normalize_type::template process<2>(color_parameter.template get<2>());
 	return diverse_type::template process<0>(value);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint8>::akin_type >::return_type
@@ -16638,13 +17084,13 @@ blue(::color::_internal::model< color::category::hsv_ldouble > const& color_para
 	return ::color::get::_internal::_privateHSV::blue<color::category::hsv_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void black(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -16679,13 +17125,13 @@ void black(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gray50(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x40;
 }
@@ -16720,13 +17166,13 @@ void gray50(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void white(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc0;
 }
@@ -16761,13 +17207,13 @@ void white(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void red(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xf8;
 }
@@ -16802,13 +17248,13 @@ void red(::color::_internal::model< color::category::hsv_ldouble> & color_parame
 	color_parameter.container() = std::array<long double,3>({ 0, 100, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void green(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7a;
 }
@@ -16843,13 +17289,13 @@ void green(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 120, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void blue(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xfc;
 }
@@ -16884,13 +17330,13 @@ void blue(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 240, 100, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void cyan(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xfb;
 }
@@ -16925,13 +17371,13 @@ void cyan(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 180, 100, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void magenta(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xfd;
 }
@@ -16966,13 +17412,13 @@ void magenta(::color::_internal::model< color::category::hsv_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 300, 100, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void yellow(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xf9;
 }
@@ -17007,13 +17453,13 @@ void yellow(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 60, 100, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void aqua(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xfb;
 }
@@ -17048,13 +17494,13 @@ void aqua(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 180, 100, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void fuchsia(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xfd;
 }
@@ -17089,13 +17535,13 @@ void fuchsia(::color::_internal::model< color::category::hsv_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 300, 100, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void lime(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xfa;
 }
@@ -17130,13 +17576,13 @@ void lime(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 120, 100, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void maroon(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x78;
 }
@@ -17171,13 +17617,13 @@ void maroon(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void navy(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7c;
 }
@@ -17212,13 +17658,13 @@ void navy(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 240, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void olive(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x79;
 }
@@ -17253,13 +17699,13 @@ void olive(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 60, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void orange(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xf8;
 }
@@ -17294,13 +17740,13 @@ void orange(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 39, 100, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void purple(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7d;
 }
@@ -17335,13 +17781,13 @@ void purple(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 300, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void silver(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x80;
 }
@@ -17376,13 +17822,13 @@ void silver(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 75 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void teal(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7b;
 }
@@ -17417,13 +17863,13 @@ void teal(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 180, 100, 50 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void violet(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x9d;
 }
@@ -17458,13 +17904,13 @@ void violet(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 300, 45.3782, 93.3333 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void aquamarine(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xdb;
 }
@@ -17499,13 +17945,13 @@ void aquamarine(::color::_internal::model< color::category::hsv_ldouble> & color
 	color_parameter.container() = std::array<long double,3>({ 159.765, 50, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void azure(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc3;
 }
@@ -17540,13 +17986,13 @@ void azure(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 180, 5.88235, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void beige(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x81;
 }
@@ -17581,13 +18027,13 @@ void beige(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 60, 10.2041, 96.0784 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void bisque(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc8;
 }
@@ -17622,13 +18068,13 @@ void bisque(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 32.5424, 23.1373, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void brown(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x68;
 }
@@ -17663,13 +18109,13 @@ void brown(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 74.5455, 64.7059 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void chocolate(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb0;
 }
@@ -17704,13 +18150,13 @@ void chocolate(::color::_internal::model< color::category::hsv_ldouble> & color_
 	color_parameter.container() = std::array<long double,3>({ 25, 85.7143, 82.3529 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void coral(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xe0;
 }
@@ -17745,13 +18191,13 @@ void coral(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 16.5217, 69, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void crimson(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xb6;
 }
@@ -17786,13 +18232,13 @@ void crimson(::color::_internal::model< color::category::hsv_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 348, 90.9091, 86.2745 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gainsboro(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x80;
 }
@@ -17827,13 +18273,13 @@ void gainsboro(::color::_internal::model< color::category::hsv_ldouble> & color_
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 86 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gold(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xf8;
 }
@@ -17868,13 +18314,13 @@ void gold(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 50.5882, 100, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void indigo(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7d;
 }
@@ -17909,13 +18355,13 @@ void indigo(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 274.615, 100, 50.9804 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void ivory(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc1;
 }
@@ -17950,13 +18396,13 @@ void ivory(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 60, 5.88235, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void khaki(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x91;
 }
@@ -17991,13 +18437,13 @@ void khaki(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 54, 41.6667, 94.1176 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void lavender(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x84;
 }
@@ -18032,13 +18478,13 @@ void lavender(::color::_internal::model< color::category::hsv_ldouble> & color_p
 	color_parameter.container() = std::array<long double,3>({ 240, 8, 98.0392 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void linen(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x80;
 }
@@ -18073,13 +18519,13 @@ void linen(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 30, 8, 98.0392 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void moccasin(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xd0;
 }
@@ -18114,13 +18560,13 @@ void moccasin(::color::_internal::model< color::category::hsv_ldouble> & color_p
 	color_parameter.container() = std::array<long double,3>({ 38.1081, 29.0196, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void orchid(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x9d;
 }
@@ -18155,13 +18601,13 @@ void orchid(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 302.264, 48.6239, 85.4902 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void peru(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa0;
 }
@@ -18196,13 +18642,13 @@ void peru(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 29.5775, 69.2683, 80.3922 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void pink(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa0;
 }
@@ -18237,13 +18683,13 @@ void pink(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 29.5775, 69.2683, 80.3922 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void plum(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x8d;
 }
@@ -18278,13 +18724,13 @@ void plum(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 300, 27.6018, 86.6667 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void salmon(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x8d;
 }
@@ -18319,13 +18765,13 @@ void salmon(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 300, 27.6018, 86.6667 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void sienna(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x68;
 }
@@ -18360,13 +18806,13 @@ void sienna(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 19.3043, 71.875, 62.7451 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void snow(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc0;
 }
@@ -18401,13 +18847,13 @@ void snow(::color::_internal::model< color::category::hsv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0, 1.96078, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void tan(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x90;
 }
@@ -18442,13 +18888,13 @@ void tan(::color::_internal::model< color::category::hsv_ldouble> & color_parame
 	color_parameter.container() = std::array<long double,3>({ 34.2857, 33.3333, 82.3529 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void thistle(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x85;
 }
@@ -18483,13 +18929,13 @@ void thistle(::color::_internal::model< color::category::hsv_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 300, 11.5741, 84.7059 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void tomato(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xe8;
 }
@@ -18524,13 +18970,13 @@ void tomato(::color::_internal::model< color::category::hsv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 9.13043, 72.1569, 100 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void turquoise(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xab;
 }
@@ -18565,13 +19011,13 @@ void turquoise(::color::_internal::model< color::category::hsv_ldouble> & color_
 	color_parameter.container() = std::array<long double,3>({ 174, 71.4286, 87.8431 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void wheat(::color::_internal::model< color::category::hsv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x88;
 }
@@ -18606,61 +19052,61 @@ void wheat(::color::_internal::model< color::category::hsv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 39.0909, 26.9388, 96.0784 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateHSV {
+namespace _internal {
+namespace _privateHSV {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_cmy2hsv {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmy2hsv {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type r = scalar_type(1) - normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type g = scalar_type(1) - normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type b = scalar_type(1) - normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type lo = std::min<scalar_type>({r,g,b});
-	scalar_type v = std::max<scalar_type>({r,g,b});
-	scalar_type delta = v - lo;
-	scalar_type h = 0;
-	scalar_type s = 0;
-	if((0 != v) && (0 != delta)) {
-		s = delta / v;
-		if(v == r) {
-			h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type r = scalar_type(1) - normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = scalar_type(1) - normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = scalar_type(1) - normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type lo = std::min<scalar_type>({r,g,b});
+		scalar_type v = std::max<scalar_type>({r,g,b});
+		scalar_type delta = v - lo;
+		scalar_type h = 0;
+		scalar_type s = 0;
+		if((0 != v) && (0 != delta)) {
+			s = delta / v;
+			if(v == r) {
+				h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
+			}
+			if(v == g) {
+				h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
+			}
+			if(v == b) {
+				h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
+			}
 		}
-		if(v == g) {
-			h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
-		}
-		if(v == b) {
-			h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
-		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
 	}
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
-}
-			};
+};
 
-		}
+}
 
 template< > struct convert<::color::category::hsv_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint8,::color::category::cmy_uint8 > {};
 template< > struct convert<::color::category::hsv_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint8,::color::category::cmy_uint16 > {};
@@ -18718,39 +19164,39 @@ template< > struct convert<::color::category::hsv_ldouble,::color::category::cmy
 template< > struct convert<::color::category::hsv_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_ldouble,::color::category::cmy_double > {};
 template< > struct convert<::color::category::hsv_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_ldouble,::color::category::cmy_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateHSV {
+namespace _internal {
+namespace _privateHSV {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_gray2hsv {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_gray2hsv {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	container_left_trait_type::template set<0>(left, bound_left_trait_type::template minimum<0>());
-	container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
-	container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(container_right_trait_type::template get<0>(right)));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, bound_left_trait_type::template minimum<0>());
+		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
+		container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(container_right_trait_type::template get<0>(right)));
+	}
+};
 }
-			};
-		}
 
 template< > struct convert<::color::category::hsv_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint8,::color::category::gray_uint8 > {};
 template< > struct convert<::color::category::hsv_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint8,::color::category::gray_uint16 > {};
@@ -18808,46 +19254,46 @@ template< > struct convert<::color::category::hsv_ldouble,::color::category::gra
 template< > struct convert<::color::category::hsv_ldouble,::color::category::gray_double > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_ldouble,::color::category::gray_double > {};
 template< > struct convert<::color::category::hsv_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_ldouble,::color::category::gray_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateHSV {
+namespace _internal {
+namespace _privateHSV {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_hsl2hsv {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsl2hsv {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type ss = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type v = (2 * l + ss*(1 - fabs(2*l-1))) /2;
-	scalar_type s = 2*(v - l) / v;
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type ss = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type v = (2 * l + ss*(1 - fabs(2*l-1))) /2;
+		scalar_type s = 2*(v - l) / v;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::hsv_uint8,::color::category::hsl_uint8 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint8,::color::category::hsl_uint8 > {};
 template< > struct convert<::color::category::hsv_uint8,::color::category::hsl_uint16 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint8,::color::category::hsl_uint16 > {};
@@ -18905,61 +19351,61 @@ template< > struct convert<::color::category::hsv_ldouble,::color::category::hsl
 template< > struct convert<::color::category::hsv_ldouble,::color::category::hsl_double > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_ldouble,::color::category::hsl_double > {};
 template< > struct convert<::color::category::hsv_ldouble,::color::category::hsl_ldouble> : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_ldouble,::color::category::hsl_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateHSV {
+namespace _internal {
+namespace _privateHSV {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_rgb2hsv {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_rgb2hsv {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type lo = std::min<scalar_type>({r,g,b});
-	scalar_type v = std::max<scalar_type>({r,g,b});
-	scalar_type delta = v - lo;
-	scalar_type h = 0;
-	scalar_type s = 0;
-	if((0 != v) && (0 != delta)) {
-		s = delta / v;
-		if(v == r) {
-			h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type lo = std::min<scalar_type>({r,g,b});
+		scalar_type v = std::max<scalar_type>({r,g,b});
+		scalar_type delta = v - lo;
+		scalar_type h = 0;
+		scalar_type s = 0;
+		if((0 != v) && (0 != delta)) {
+			s = delta / v;
+			if(v == r) {
+				h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
+			}
+			if(v == g) {
+				h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
+			}
+			if(v == b) {
+				h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
+			}
 		}
-		if(v == g) {
-			h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
-		}
-		if(v == b) {
-			h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
-		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
 	}
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
-}
-			};
+};
 
-		}
+}
 
 template< > struct convert<::color::category::hsv_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint8,::color::category::rgb_uint8 > {};
 template< > struct convert<::color::category::hsv_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint8,::color::category::rgb_uint16 > {};
@@ -19017,82 +19463,82 @@ template< > struct convert<::color::category::hsv_ldouble,::color::category::rgb
 template< > struct convert<::color::category::hsv_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_ldouble,::color::category::rgb_double > {};
 template< > struct convert<::color::category::hsv_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_ldouble,::color::category::rgb_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
+namespace _internal {
 
-		template< typename type_name >
-		struct pick_hsv {
-			typedef color::category::hsv_uint32 category_type;
-		};
+template< typename type_name >
+struct pick_hsv {
+	typedef color::category::hsv_uint32 category_type;
+};
 
-		template<> struct pick_hsv< std::uint8_t > {
-			typedef ::color::category::hsv_uint8 category_type;
-		};
-		template<> struct pick_hsv< std::uint16_t > {
-			typedef ::color::category::hsv_uint16 category_type;
-		};
-		template<> struct pick_hsv< std::uint32_t > {
-			typedef ::color::category::hsv_uint32 category_type;
-		};
-		template<> struct pick_hsv< std::uint64_t > {
-			typedef ::color::category::hsv_uint64 category_type;
-		};
-		template<> struct pick_hsv< float > {
-			typedef ::color::category::hsv_float category_type;
-		};
-		template<> struct pick_hsv< double > {
-			typedef ::color::category::hsv_double category_type;
-		};
-		template<> struct pick_hsv< long double > {
-			typedef ::color::category::hsv_ldouble category_type;
-		};
-	}
+template<> struct pick_hsv< std::uint8_t > {
+	typedef ::color::category::hsv_uint8 category_type;
+};
+template<> struct pick_hsv< std::uint16_t > {
+	typedef ::color::category::hsv_uint16 category_type;
+};
+template<> struct pick_hsv< std::uint32_t > {
+	typedef ::color::category::hsv_uint32 category_type;
+};
+template<> struct pick_hsv< std::uint64_t > {
+	typedef ::color::category::hsv_uint64 category_type;
+};
+template<> struct pick_hsv< float > {
+	typedef ::color::category::hsv_float category_type;
+};
+template<> struct pick_hsv< double > {
+	typedef ::color::category::hsv_double category_type;
+};
+template<> struct pick_hsv< long double > {
+	typedef ::color::category::hsv_ldouble category_type;
+};
+}
 
-	template< typename type_name >
-	using hsv = color::_internal::model< typename color::_internal::pick_hsv< type_name >::category_type >;
+template< typename type_name >
+using hsv = color::_internal::model< typename color::_internal::pick_hsv< type_name >::category_type >;
 
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateHSL {
+namespace _internal {
+namespace _privateHSL {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_hsv2hsl {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsv2hsl {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type ss = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type l = v * (2-ss) / 2;
-	scalar_type s = v*ss/(1- fabs(2 * l -1));
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(l));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type ss = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type l = v * (2-ss) / 2;
+		scalar_type s = v*ss/(1- fabs(2 * l -1));
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(l));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::hsl_uint8,::color::category::hsv_uint8 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint8,::color::category::hsv_uint8 > {};
 template< > struct convert<::color::category::hsl_uint8,::color::category::hsv_uint16 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint8,::color::category::hsv_uint16 > {};
@@ -19150,62 +19596,62 @@ template< > struct convert<::color::category::hsl_ldouble,::color::category::hsv
 template< > struct convert<::color::category::hsl_ldouble,::color::category::hsv_double > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_ldouble,::color::category::hsv_double > {};
 template< > struct convert<::color::category::hsl_ldouble,::color::category::hsv_ldouble> : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_ldouble,::color::category::hsv_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateHSL {
+namespace _internal {
+namespace _privateHSL {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_rgb2hsl {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_rgb2hsl {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	const scalar_type hi = std::max<scalar_type>({ r, g, b });
-	const scalar_type lo = std::min<scalar_type>({ r, g, b });
-	scalar_type delta = hi - lo;
-	scalar_type h = 0;
-	scalar_type s = 0;
-	scalar_type l = (hi + lo) / scalar_type(2);
-	if(0 != delta) {
-		s = delta / (1 - fabs(2*l - 1));
-		if(hi == r) {
-			h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		const scalar_type hi = std::max<scalar_type>({ r, g, b });
+		const scalar_type lo = std::min<scalar_type>({ r, g, b });
+		scalar_type delta = hi - lo;
+		scalar_type h = 0;
+		scalar_type s = 0;
+		scalar_type l = (hi + lo) / scalar_type(2);
+		if(0 != delta) {
+			s = delta / (1 - fabs(2*l - 1));
+			if(hi == r) {
+				h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
+			}
+			if(hi == g) {
+				h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
+			}
+			if(hi == b) {
+				h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
+			}
 		}
-		if(hi == g) {
-			h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
-		}
-		if(hi == b) {
-			h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
-		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(l));
 	}
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(l));
-}
-			};
+};
 
-		}
+}
 
 template< > struct convert<::color::category::hsl_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint8,::color::category::rgb_uint8 > {};
 template< > struct convert<::color::category::hsl_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint8,::color::category::rgb_uint16 > {};
@@ -19263,110 +19709,110 @@ template< > struct convert<::color::category::hsl_ldouble,::color::category::rgb
 template< > struct convert<::color::category::hsl_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_ldouble,::color::category::rgb_double > {};
 template< > struct convert<::color::category::hsl_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_ldouble,::color::category::rgb_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
+namespace _internal {
 
-		template< typename type_name >
-		struct pick_hsl {
-			typedef color::category::hsl_uint32 category_type;
-		};
+template< typename type_name >
+struct pick_hsl {
+	typedef color::category::hsl_uint32 category_type;
+};
 
-		template<> struct pick_hsl< std::uint8_t > {
-			typedef ::color::category::hsl_uint8 category_type;
-		};
-		template<> struct pick_hsl< std::uint16_t > {
-			typedef ::color::category::hsl_uint16 category_type;
-		};
-		template<> struct pick_hsl< std::uint32_t > {
-			typedef ::color::category::hsl_uint32 category_type;
-		};
-		template<> struct pick_hsl< std::uint64_t > {
-			typedef ::color::category::hsl_uint64 category_type;
-		};
-		template<> struct pick_hsl< float > {
-			typedef ::color::category::hsl_float category_type;
-		};
-		template<> struct pick_hsl< double > {
-			typedef ::color::category::hsl_double category_type;
-		};
-		template<> struct pick_hsl< long double > {
-			typedef ::color::category::hsl_ldouble category_type;
-		};
-	}
+template<> struct pick_hsl< std::uint8_t > {
+	typedef ::color::category::hsl_uint8 category_type;
+};
+template<> struct pick_hsl< std::uint16_t > {
+	typedef ::color::category::hsl_uint16 category_type;
+};
+template<> struct pick_hsl< std::uint32_t > {
+	typedef ::color::category::hsl_uint32 category_type;
+};
+template<> struct pick_hsl< std::uint64_t > {
+	typedef ::color::category::hsl_uint64 category_type;
+};
+template<> struct pick_hsl< float > {
+	typedef ::color::category::hsl_float category_type;
+};
+template<> struct pick_hsl< double > {
+	typedef ::color::category::hsl_double category_type;
+};
+template<> struct pick_hsl< long double > {
+	typedef ::color::category::hsl_ldouble category_type;
+};
+}
 
-	template< typename type_name >
-	using hsl = color::_internal::model< typename color::_internal::pick_hsl< type_name >::category_type >;
+template< typename type_name >
+using hsl = color::_internal::model< typename color::_internal::pick_hsl< type_name >::category_type >;
 
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateRGB {
+namespace _internal {
+namespace _privateRGB {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_hsl2rgb {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsl2rgb {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				typedef ::color::_internal::_privateRGB::convert_hsl2rgb<category_left_name, category_right_name, scalar_name> this_type;
+	typedef ::color::_internal::_privateRGB::convert_hsl2rgb<category_left_name, category_right_name, scalar_name> this_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type r;
-	scalar_type g;
-	scalar_type b;
-	if(s == 0) {
-		r = l;
-		g = l;
-		b = l;
-	} else {
-		scalar_type q = l < scalar_type(0.5) ? (l * (1 + s)) : (l + s - l * s);
-		scalar_type p = scalar_type(2) * l - q;
-		r = this_type::value(p, q, h + (scalar_type(1) / scalar_type(3)) + (scalar_type(2) / scalar_type(3) < h ? -1 :0));
-		g = this_type::value(p, q, h);
-		b = this_type::value(p, q, h - (scalar_type(1) / scalar_type(3)) + (h < scalar_type(1) / scalar_type(3) ? +1 :0));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type r;
+		scalar_type g;
+		scalar_type b;
+		if(s == 0) {
+			r = l;
+			g = l;
+			b = l;
+		} else {
+			scalar_type q = l < scalar_type(0.5) ? (l * (1 + s)) : (l + s - l * s);
+			scalar_type p = scalar_type(2) * l - q;
+			r = this_type::value(p, q, h + (scalar_type(1) / scalar_type(3)) + (scalar_type(2) / scalar_type(3) < h ? -1 :0));
+			g = this_type::value(p, q, h);
+			b = this_type::value(p, q, h - (scalar_type(1) / scalar_type(3)) + (h < scalar_type(1) / scalar_type(3) ? +1 :0));
+		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
 	}
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
-}
 
 private:
-static scalar_type value(scalar_type const& p, scalar_type const& q, scalar_type const& t) {
-	if(t < scalar_type(1)/scalar_type(6)) {
-		return (p + (q - p) * scalar_type(6) * t);
-	}
-	if(t < scalar_type(1)/scalar_type(2)) {
-		return (q);
-	}
-	if(t < scalar_type(2)/scalar_type(3)) {
-		return (p + (q - p) * ((scalar_type(2)/scalar_type(3)) - t) * scalar_type(6));
-	}
-	return p ;
-}
-			};
-
+	static scalar_type value(scalar_type const& p, scalar_type const& q, scalar_type const& t) {
+		if(t < scalar_type(1)/scalar_type(6)) {
+			return (p + (q - p) * scalar_type(6) * t);
 		}
+		if(t < scalar_type(1)/scalar_type(2)) {
+			return (q);
+		}
+		if(t < scalar_type(2)/scalar_type(3)) {
+			return (p + (q - p) * ((scalar_type(2)/scalar_type(3)) - t) * scalar_type(6));
+		}
+		return p ;
+	}
+};
+
+}
 
 template< > struct convert<::color::category::rgb_uint8,::color::category::hsl_uint8 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint8,::color::category::hsl_uint8 > {};
 template< > struct convert<::color::category::rgb_uint8,::color::category::hsl_uint16 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint8,::color::category::hsl_uint16 > {};
@@ -19424,72 +19870,72 @@ template< > struct convert<::color::category::rgb_ldouble,::color::category::hsl
 template< > struct convert<::color::category::rgb_ldouble,::color::category::hsl_double > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_ldouble,::color::category::hsl_double > {};
 template< > struct convert<::color::category::rgb_ldouble,::color::category::hsl_ldouble> : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_ldouble,::color::category::hsl_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateRGB {
+namespace _internal {
+namespace _privateRGB {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_hsv2rgb {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsv2rgb {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	int region = int(6 * h);
-	scalar_type f = h * 6 - region ;
-	scalar_type p = v * (1 - s);
-	scalar_type q = v * (1 - f * s);
-	scalar_type t = v * (1 - (1 - f) * s);
-	scalar_type r;
-	scalar_type g;
-	scalar_type b;
-	switch(region % 6) {
-	case 0:
-		r = v, g = t, b = p;
-		break;
-	case 1:
-		r = q, g = v, b = p;
-		break;
-	case 2:
-		r = p, g = v, b = t;
-		break;
-	case 3:
-		r = p, g = q, b = v;
-		break;
-	case 4:
-		r = t, g = p, b = v;
-		break;
-	case 5:
-		r = v, g = p, b = q;
-		break;
-	}
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
-}
-			};
-
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		int region = int(6 * h);
+		scalar_type f = h * 6 - region ;
+		scalar_type p = v * (1 - s);
+		scalar_type q = v * (1 - f * s);
+		scalar_type t = v * (1 - (1 - f) * s);
+		scalar_type r;
+		scalar_type g;
+		scalar_type b;
+		switch(region % 6) {
+		case 0:
+			r = v, g = t, b = p;
+			break;
+		case 1:
+			r = q, g = v, b = p;
+			break;
+		case 2:
+			r = p, g = v, b = t;
+			break;
+		case 3:
+			r = p, g = q, b = v;
+			break;
+		case 4:
+			r = t, g = p, b = v;
+			break;
+		case 5:
+			r = v, g = p, b = q;
+			break;
 		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+	}
+};
+
+}
 
 template< > struct convert<::color::category::rgb_uint8,::color::category::hsv_uint8 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint8,::color::category::hsv_uint8 > {};
 template< > struct convert<::color::category::rgb_uint8,::color::category::hsv_uint16 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint8,::color::category::hsv_uint16 > {};
@@ -19547,365 +19993,265 @@ template< > struct convert<::color::category::rgb_ldouble,::color::category::hsv
 template< > struct convert<::color::category::rgb_ldouble,::color::category::hsv_double > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_ldouble,::color::category::hsv_double > {};
 template< > struct convert<::color::category::rgb_ldouble,::color::category::hsv_ldouble> : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_ldouble,::color::category::hsv_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace category {
+namespace category {
 
-		struct xyz_uint8 {};
-		struct xyz_uint16 {};
-		struct xyz_uint32 {};
-		struct xyz_uint64 {};
-		struct xyz_float {};
-		struct xyz_double {};
-		struct xyz_ldouble {};
+struct xyz_uint8 {};
+struct xyz_uint16 {};
+struct xyz_uint32 {};
+struct xyz_uint64 {};
+struct xyz_float {};
+struct xyz_double {};
+struct xyz_ldouble {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace utility {
-			namespace container {
+namespace trait {
 
-				template< typename index_name >
-				struct cner332 {
-					public:
-
-					typedef index_name index_type;
-
-					typedef std::uint8_t value_type;
-					typedef std::uint8_t instance_type;
-
-					typedef instance_type const const_type;
-					typedef instance_type const& return_image_type;
-					typedef instance_type & return_type;
-					typedef instance_type const& input_const_type;
-					typedef instance_type & input_type;
-					typedef instance_type & output_type;
-
-					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
-
-					typedef typename index_trait_type::instance_type index_instance_type;
-					typedef typename index_trait_type::input_const_type index_input_const_type;
-					typedef typename index_trait_type::return_image_type index_return_image_type;
-
-					typedef ::color::_internal::utility::type::traitP< value_type > component_trait_type;
-
-					typedef typename component_trait_type::const_type component_const_type;
-					typedef typename component_trait_type::instance_type component_type;
-					typedef typename component_trait_type::return_image_type component_return_const_type;
-					typedef typename component_trait_type::input_const_type component_input_const_type;
-
-					typedef void set_return_type;
-
-static component_return_const_type get(input_const_type container, index_input_const_type index) {
-	switch(index) {
-	case(0):
-		return ((container >> 0) & 7);
-	case(1):
-		return ((container >> 3) & 7);
-	case(2):
-		return ((container >> 5) & 3);
-	}
-	return 0;
-}
-
-template< index_instance_type index >
-static component_return_const_type get(input_const_type container) {
-	switch(index) {
-	case(0):
-		return ((container >> 0) & 7);
-	case(1):
-		return ((container >> 3) & 7);
-	case(2):
-		return ((container >> 6) & 3);
-	}
-	return 0;
-}
-
-static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
-	switch(index) {
-	case(0) :
-		container = (container & ~(7 << (0))) | (((instance_type)value) << (0));
-		break;
-	case(1) :
-		container = (container & ~(7 << (3))) | (((instance_type)value) << (3));
-		break;
-	case(2) :
-		container = (container & ~(3 << (6))) | (((instance_type)value) << (6));
-		break;
-	}
-}
-
-template< index_instance_type index >
-static set_return_type set(input_type container, component_input_const_type value) {
-	switch(index) {
-	case(0) :
-		container = (container & ~(7 << (0))) | (((instance_type)value) << (0));
-		break;
-	case(1) :
-		container = (container & ~(7 << (3))) | (((instance_type)value) << (3));
-		break;
-	case(2) :
-		container = (container & ~(3 << (6))) | (((instance_type)value) << (6));
-		break;
-	}
-}
-
-static index_return_image_type size() {
-	static const index_instance_type local_length = 3;
-	return local_length;
-}
-				};
-			}
-		}
-	}
-}
-
-namespace color {
-	namespace trait {
-
-		template< >
-		struct bound< ::color::category::xyz_uint8 >
+template< >
+struct bound< ::color::category::xyz_uint8 >
 		: public ::color::_internal::utility::bound::bound332< unsigned > {
-		};
+};
 
-		template< >
-		struct index< ::color::category::xyz_uint8 >
+template< >
+struct index< ::color::category::xyz_uint8 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-		template< >
-		struct component< ::color::category::xyz_uint8 >
+template< >
+struct component< ::color::category::xyz_uint8 >
 		: public ::color::_internal::utility::component::cnent332< unsigned > {
-		};
+};
 
-		template< >
-		struct container< ::color::category::xyz_uint8 >
+template< >
+struct container< ::color::category::xyz_uint8 >
 		: public ::color::_internal::utility::container::cner332< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::xyz_uint16 >
+template< >
+struct bound< ::color::category::xyz_uint16 >
 		: public ::color::_internal::utility::bound::bound556< unsigned > {
-		};
+};
 
-		template< >
-		struct index< ::color::category::xyz_uint16 >
+template< >
+struct index< ::color::category::xyz_uint16 >
 		: public color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-		template< >
-		struct component< ::color::category::xyz_uint16 >
+template< >
+struct component< ::color::category::xyz_uint16 >
 		: public ::color::_internal::utility::component::cnent556< unsigned> {
-		};
+};
 
-		template< >
-		struct container< ::color::category::xyz_uint16 >
+template< >
+struct container< ::color::category::xyz_uint16 >
 		: public ::color::_internal::utility::container::cner556< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::xyz_uint32 >
+template< >
+struct bound< ::color::category::xyz_uint32 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 8, unsigned > {
-		};
+};
 
-		template< >
-		struct index< ::color::category::xyz_uint32 >
+template< >
+struct index< ::color::category::xyz_uint32 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-		template< >
-		struct component< ::color::category::xyz_uint32 >
+template< >
+struct component< ::color::category::xyz_uint32 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned> {
-		};
+};
 
-		template< >
-		struct container< ::color::category::xyz_uint32 >
+template< >
+struct container< ::color::category::xyz_uint32 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3, 8 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::xyz_uint64 >
+template< >
+struct bound< ::color::category::xyz_uint64 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 16, unsigned > {
-		};
+};
 
-		template< >
-		struct index< ::color::category::xyz_uint64 >
+template< >
+struct index< ::color::category::xyz_uint64 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-		template< >
-		struct component< ::color::category::xyz_uint64 >
+template< >
+struct component< ::color::category::xyz_uint64 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
-		};
+};
 
-		template< >
-		struct container< ::color::category::xyz_uint64 >
+template< >
+struct container< ::color::category::xyz_uint64 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace utility {
-			namespace bound {
+namespace _internal {
+namespace utility {
+namespace bound {
 
-				template< typename index_name, typename scalar_name >
-				struct xyz_scalar {
-					public:
-					typedef scalar_name scalar_type;
-					typedef index_name index_type;
+template< typename index_name, typename scalar_name >
+struct xyz_scalar {
+public:
+	typedef scalar_name scalar_type;
+	typedef index_name index_type;
 
-					typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
-					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
-					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_image_type return_image_type;
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
 
-					typedef typename index_trait_type::instance_type index_instance_type;
-					typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
 
-					template< index_instance_type index >
-static return_image_type maximum() {
-	static instance_type max_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
-	return max_list[index];
-}
-
-static return_image_type maximum(index_input_const_type index) {
-	static instance_type max_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
-	return max_list[index];
-}
-
-template< index_instance_type index >
-static return_image_type minimum() {
-	static instance_type min_list[] = { 0, 0, 0 };
-	return min_list[index];
-}
-
-static return_image_type minimum(index_input_const_type index) {
-	static instance_type min_list[] = { 0, 0, 0 };
-	return min_list[index];
-}
-
-template< index_instance_type index >
-static return_image_type range() {
-	static instance_type range_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
-	return range_list[index];
-}
-
-static return_image_type range(index_input_const_type index) {
-	static instance_type range_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
-	return range_list[index];
-}
-				};
-
-			}
-		}
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
+		return max_list[index];
 	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { 0, 0, 0 };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { 0, 0, 0 };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { 1/scalar_type(0.17697), 1/scalar_type(0.17697), 1/scalar_type(0.17697) };
+		return range_list[index];
+	}
+};
+
+}
+}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::xyz_float >
+template< >
+struct bound< ::color::category::xyz_float >
 		: public ::color::_internal::utility::bound::xyz_scalar< unsigned, float > {
-		};
+};
 
-		template< >
-		struct index< ::color::category::xyz_float >
+template< >
+struct index< ::color::category::xyz_float >
 		: public color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-		template< >
-		struct component< ::color::category::xyz_float >
+template< >
+struct component< ::color::category::xyz_float >
 		: public ::color::_internal::utility::component::array< float, unsigned> {
-		};
+};
 
-		template< >
-		struct container< ::color::category::xyz_float >
+template< >
+struct container< ::color::category::xyz_float >
 		: public ::color::_internal::utility::container::array< float, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::xyz_double >
+template< >
+struct bound< ::color::category::xyz_double >
 		: public ::color::_internal::utility::bound::xyz_scalar< unsigned, double > {
-		};
+};
 
-		template< >
-		struct index< ::color::category::xyz_double >
+template< >
+struct index< ::color::category::xyz_double >
 		: public color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-		template< >
-		struct component< ::color::category::xyz_double >
+template< >
+struct component< ::color::category::xyz_double >
 		: public ::color::_internal::utility::component::array< double, unsigned > {
-		};
+};
 
-		template< >
-		struct container< ::color::category::xyz_double >
+template< >
+struct container< ::color::category::xyz_double >
 		: public ::color::_internal::utility::container::array< double, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::xyz_ldouble >
+template< >
+struct bound< ::color::category::xyz_ldouble >
 		: public ::color::_internal::utility::bound::xyz_scalar< unsigned, long double > {
-		};
+};
 
-		template< >
-		struct index< ::color::category::xyz_ldouble >
+template< >
+struct index< ::color::category::xyz_ldouble >
 		: public color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-		template< >
-		struct component< ::color::category::xyz_ldouble >
+template< >
+struct component< ::color::category::xyz_ldouble >
 		: public ::color::_internal::utility::component::array< long double, unsigned> {
-		};
+};
 
-		template< >
-		struct container< ::color::category::xyz_ldouble >
+template< >
+struct container< ::color::category::xyz_ldouble >
 		: public ::color::_internal::utility::container::array< long double, 3 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void black(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
@@ -19940,13 +20286,13 @@ void black(::color::_internal::model< color::category::xyz_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gray50(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x1b;
 }
@@ -19981,13 +20327,13 @@ void gray50(::color::_internal::model< color::category::xyz_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 15.9651, 15.9651, 15.9651 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void white(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3f;
 }
@@ -20022,13 +20368,13 @@ void white(::color::_internal::model< color::category::xyz_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 31.9301, 31.9301, 31.9301 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void red(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3b;
 }
@@ -20063,13 +20409,13 @@ void red(::color::_internal::model< color::category::xyz_ldouble> & color_parame
 	color_parameter.container() = std::array<long double,3>({ 15.6458, 5.65068, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void green(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x6;
 }
@@ -20104,13 +20450,13 @@ void green(::color::_internal::model< color::category::xyz_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 4.94917, 12.97, 0.159651 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void blue(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7;
 }
@@ -20145,35 +20491,35 @@ void blue(::color::_internal::model< color::category::xyz_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 6.38603, 0.339417, 31.6108 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateXYZ {
+namespace _internal {
+namespace _privateXYZ {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_gray2xyz {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_gray2xyz {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+	}
+};
 }
-			};
-		}
 
 template< > struct convert<::color::category::xyz_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_uint8 > {};
 template< > struct convert<::color::category::xyz_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_uint16 > {};
@@ -20231,48 +20577,48 @@ template< > struct convert<::color::category::xyz_ldouble,::color::category::gra
 template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_double > {};
 template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateXYZ {
+namespace _internal {
+namespace _privateXYZ {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_rgb2xyz {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_rgb2xyz {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	static scalar_type mc = 0.17697;
-	static scalar_type b11 = 0.49000/mc, b12 = 0.31000/mc, b13 = 0.20000/mc;
-	static scalar_type b21 = 0.17697/mc, b22 = 0.81240/mc, b23 = 0.01063/mc;
-	static scalar_type b31 = 0.00000/mc, b32 = 0.01000/mc, b33 = 0.99000/mc;
-	scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(b11 * r + b12 * g + b13 * b));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(b21 * r + b22 * g + b23 * b));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b31 * r + b32 * g + b33 * b));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type mc = 0.17697;
+		static scalar_type b11 = 0.49000/mc, b12 = 0.31000/mc, b13 = 0.20000/mc;
+		static scalar_type b21 = 0.17697/mc, b22 = 0.81240/mc, b23 = 0.01063/mc;
+		static scalar_type b31 = 0.00000/mc, b32 = 0.01000/mc, b33 = 0.99000/mc;
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(b11 * r + b12 * g + b13 * b));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(b21 * r + b22 * g + b23 * b));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b31 * r + b32 * g + b33 * b));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::xyz_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint8,::color::category::rgb_uint8 > {};
 template< > struct convert<::color::category::xyz_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint8,::color::category::rgb_uint16 > {};
@@ -20330,83 +20676,83 @@ template< > struct convert<::color::category::xyz_ldouble,::color::category::rgb
 template< > struct convert<::color::category::xyz_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_ldouble,::color::category::rgb_double > {};
 template< > struct convert<::color::category::xyz_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_ldouble,::color::category::rgb_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		template< typename type_name >
-		struct pick_xyz {
-			typedef color::category::xyz_uint32 category_type;
-		};
+namespace _internal {
+template< typename type_name >
+struct pick_xyz {
+	typedef color::category::xyz_uint32 category_type;
+};
 
-		template<> struct pick_xyz< std::uint8_t > {
-			typedef ::color::category::xyz_uint8 category_type;
-		};
-		template<> struct pick_xyz< std::uint16_t > {
-			typedef ::color::category::xyz_uint16 category_type;
-		};
-		template<> struct pick_xyz< std::uint32_t > {
-			typedef ::color::category::xyz_uint32 category_type;
-		};
-		template<> struct pick_xyz< std::uint64_t > {
-			typedef ::color::category::xyz_uint64 category_type;
-		};
-		template<> struct pick_xyz< float > {
-			typedef ::color::category::xyz_float category_type;
-		};
-		template<> struct pick_xyz< double > {
-			typedef ::color::category::xyz_double category_type;
-		};
-		template<> struct pick_xyz< long double > {
-			typedef ::color::category::xyz_ldouble category_type;
-		};
-	}
+template<> struct pick_xyz< std::uint8_t > {
+	typedef ::color::category::xyz_uint8 category_type;
+};
+template<> struct pick_xyz< std::uint16_t > {
+	typedef ::color::category::xyz_uint16 category_type;
+};
+template<> struct pick_xyz< std::uint32_t > {
+	typedef ::color::category::xyz_uint32 category_type;
+};
+template<> struct pick_xyz< std::uint64_t > {
+	typedef ::color::category::xyz_uint64 category_type;
+};
+template<> struct pick_xyz< float > {
+	typedef ::color::category::xyz_float category_type;
+};
+template<> struct pick_xyz< double > {
+	typedef ::color::category::xyz_double category_type;
+};
+template<> struct pick_xyz< long double > {
+	typedef ::color::category::xyz_ldouble category_type;
+};
+}
 
-	template< typename type_name >
-	using xyz = color::_internal::model< typename color::_internal::pick_xyz< type_name >::category_type >;
+template< typename type_name >
+using xyz = color::_internal::model< typename color::_internal::pick_xyz< type_name >::category_type >;
 
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateRGB {
+namespace _internal {
+namespace _privateRGB {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_xyz2rgb {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_xyz2rgb {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	static scalar_type mc = 0.17697;
-	static scalar_type b11 = 473041/scalar_type(200050)*mc, b12 = -60980/scalar_type(68017)*mc, b13 = -1591847/scalar_type(3400850)*mc;
-	static scalar_type b21 = -103059/scalar_type(200050)*mc, b22 = 97020/scalar_type(68017)*mc, b23 = 301853/scalar_type(3400850)*mc;
-	static scalar_type b31 = 1041/scalar_type(200050)*mc, b32 = -980/scalar_type(68017)*mc, b33 = 3432153/scalar_type(3400850)*mc;
-	scalar_type x = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type y = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type z = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(b11 * x + b12 * y + b13 * z));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(b21 * x + b22 * y + b23 * z));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b31 * x + b32 * y + b33 * z));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type mc = 0.17697;
+		static scalar_type b11 = 473041/scalar_type(200050)*mc, b12 = -60980/scalar_type(68017)*mc, b13 = -1591847/scalar_type(3400850)*mc;
+		static scalar_type b21 = -103059/scalar_type(200050)*mc, b22 = 97020/scalar_type(68017)*mc, b23 = 301853/scalar_type(3400850)*mc;
+		static scalar_type b31 = 1041/scalar_type(200050)*mc, b32 = -980/scalar_type(68017)*mc, b33 = 3432153/scalar_type(3400850)*mc;
+		scalar_type x = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type y = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type z = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(b11 * x + b12 * y + b13 * z));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(b21 * x + b22 * y + b23 * z));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b31 * x + b32 * y + b33 * z));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::rgb_uint8,::color::category::xyz_uint8 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint8,::color::category::xyz_uint8 > {};
 template< > struct convert<::color::category::rgb_uint8,::color::category::xyz_uint16 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint8,::color::category::xyz_uint16 > {};
@@ -20464,580 +20810,591 @@ template< > struct convert<::color::category::rgb_ldouble,::color::category::xyz
 template< > struct convert<::color::category::rgb_ldouble,::color::category::xyz_double > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_ldouble,::color::category::xyz_double > {};
 template< > struct convert<::color::category::rgb_ldouble,::color::category::xyz_ldouble> : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_ldouble,::color::category::xyz_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yiq< ::color::category::cmy_uint8 > {
-			typedef ::color::category::yiq_uint8 akin_type;
-		};
-		template< >struct yiq< ::color::category::cmy_uint16 > {
-			typedef ::color::category::yiq_uint16 akin_type;
-		};
-		template< >struct yiq< ::color::category::cmy_uint32 > {
-			typedef ::color::category::yiq_uint32 akin_type;
-		};
-		template< >struct yiq< ::color::category::cmy_uint64 > {
-			typedef ::color::category::yiq_uint64 akin_type;
-		};
-		template< >struct yiq< ::color::category::cmy_float > {
-			typedef ::color::category::yiq_float akin_type;
-		};
-		template< >struct yiq< ::color::category::cmy_double > {
-			typedef ::color::category::yiq_double akin_type;
-		};
-		template< >struct yiq< ::color::category::cmy_ldouble > {
-			typedef ::color::category::yiq_ldouble akin_type;
-		};
+template< >struct yiq< ::color::category::cmy_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::cmy_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::cmy_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::cmy_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::cmy_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::cmy_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::cmy_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yiq< ::color::category::cmyk_uint8 > {
-			typedef ::color::category::yiq_uint8 akin_type;
-		};
-		template< >struct yiq< ::color::category::cmyk_uint16 > {
-			typedef ::color::category::yiq_uint16 akin_type;
-		};
-		template< >struct yiq< ::color::category::cmyk_uint32 > {
-			typedef ::color::category::yiq_uint32 akin_type;
-		};
-		template< >struct yiq< ::color::category::cmyk_uint64 > {
-			typedef ::color::category::yiq_uint64 akin_type;
-		};
-		template< >struct yiq< ::color::category::cmyk_float > {
-			typedef ::color::category::yiq_float akin_type;
-		};
-		template< >struct yiq< ::color::category::cmyk_double > {
-			typedef ::color::category::yiq_double akin_type;
-		};
-		template< >struct yiq< ::color::category::cmyk_ldouble > {
-			typedef ::color::category::yiq_ldouble akin_type;
-		};
+template< >struct yiq< ::color::category::cmyk_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::cmyk_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::cmyk_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::cmyk_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::cmyk_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::cmyk_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::cmyk_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yiq< ::color::category::gray_uint8 > {
-			typedef ::color::category::yiq_uint8 akin_type;
-		};
-		template< >struct yiq< ::color::category::gray_uint16 > {
-			typedef ::color::category::yiq_uint16 akin_type;
-		};
-		template< >struct yiq< ::color::category::gray_uint32 > {
-			typedef ::color::category::yiq_uint32 akin_type;
-		};
-		template< >struct yiq< ::color::category::gray_uint64 > {
-			typedef ::color::category::yiq_uint64 akin_type;
-		};
-		template< >struct yiq< ::color::category::gray_float > {
-			typedef ::color::category::yiq_float akin_type;
-		};
-		template< >struct yiq< ::color::category::gray_double > {
-			typedef ::color::category::yiq_double akin_type;
-		};
-		template< >struct yiq< ::color::category::gray_ldouble > {
-			typedef ::color::category::yiq_ldouble akin_type;
-		};
+template< >struct yiq< ::color::category::gray_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::gray_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::gray_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::gray_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::gray_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::gray_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::gray_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yiq< ::color::category::hsl_uint8 > {
-			typedef ::color::category::yiq_uint8 akin_type;
-		};
-		template< >struct yiq< ::color::category::hsl_uint16 > {
-			typedef ::color::category::yiq_uint16 akin_type;
-		};
-		template< >struct yiq< ::color::category::hsl_uint32 > {
-			typedef ::color::category::yiq_uint32 akin_type;
-		};
-		template< >struct yiq< ::color::category::hsl_uint64 > {
-			typedef ::color::category::yiq_uint64 akin_type;
-		};
-		template< >struct yiq< ::color::category::hsl_float > {
-			typedef ::color::category::yiq_float akin_type;
-		};
-		template< >struct yiq< ::color::category::hsl_double > {
-			typedef ::color::category::yiq_double akin_type;
-		};
-		template< >struct yiq< ::color::category::hsl_ldouble > {
-			typedef ::color::category::yiq_ldouble akin_type;
-		};
+template< >struct yiq< ::color::category::hsl_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::hsl_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::hsl_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::hsl_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::hsl_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::hsl_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::hsl_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yiq< ::color::category::hsv_uint8 > {
-			typedef ::color::category::yiq_uint8 akin_type;
-		};
-		template< >struct yiq< ::color::category::hsv_uint16 > {
-			typedef ::color::category::yiq_uint16 akin_type;
-		};
-		template< >struct yiq< ::color::category::hsv_uint32 > {
-			typedef ::color::category::yiq_uint32 akin_type;
-		};
-		template< >struct yiq< ::color::category::hsv_uint64 > {
-			typedef ::color::category::yiq_uint64 akin_type;
-		};
-		template< >struct yiq< ::color::category::hsv_float > {
-			typedef ::color::category::yiq_float akin_type;
-		};
-		template< >struct yiq< ::color::category::hsv_double > {
-			typedef ::color::category::yiq_double akin_type;
-		};
-		template< >struct yiq< ::color::category::hsv_ldouble > {
-			typedef ::color::category::yiq_ldouble akin_type;
-		};
+template< >struct yiq< ::color::category::hsv_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::hsv_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::hsv_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::hsv_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::hsv_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::hsv_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::hsv_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yiq< ::color::category::rgb_uint8 > {
-			typedef ::color::category::yiq_uint8 akin_type;
-		};
-		template< >struct yiq< ::color::category::rgb_uint16 > {
-			typedef ::color::category::yiq_uint16 akin_type;
-		};
-		template< >struct yiq< ::color::category::rgb_uint32 > {
-			typedef ::color::category::yiq_uint32 akin_type;
-		};
-		template< >struct yiq< ::color::category::rgb_uint64 > {
-			typedef ::color::category::yiq_uint64 akin_type;
-		};
-		template< >struct yiq< ::color::category::rgb_float > {
-			typedef ::color::category::yiq_float akin_type;
-		};
-		template< >struct yiq< ::color::category::rgb_double > {
-			typedef ::color::category::yiq_double akin_type;
-		};
-		template< >struct yiq< ::color::category::rgb_ldouble > {
-			typedef ::color::category::yiq_ldouble akin_type;
-		};
+template< >struct yiq< ::color::category::rgb_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::rgb_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::rgb_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::rgb_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::rgb_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::rgb_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::rgb_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yiq< ::color::category::yiq_uint8 > {
-			typedef ::color::category::yiq_uint8 akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_uint16 > {
-			typedef ::color::category::yiq_uint16 akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_uint32 > {
-			typedef ::color::category::yiq_uint32 akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_uint64 > {
-			typedef ::color::category::yiq_uint64 akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_float > {
-			typedef ::color::category::yiq_float akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_double > {
-			typedef ::color::category::yiq_double akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_ldouble > {
-			typedef ::color::category::yiq_ldouble akin_type;
-		};
+template< >struct yiq< ::color::category::yiq_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::yiq_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::yiq_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::yiq_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::yiq_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::yiq_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::yiq_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yiq< ::color::category::yuv_uint8 > {
-			typedef ::color::category::yiq_uint8 akin_type;
-		};
-		template< >struct yiq< ::color::category::yuv_uint16 > {
-			typedef ::color::category::yiq_uint16 akin_type;
-		};
-		template< >struct yiq< ::color::category::yuv_uint32 > {
-			typedef ::color::category::yiq_uint32 akin_type;
-		};
-		template< >struct yiq< ::color::category::yuv_uint64 > {
-			typedef ::color::category::yiq_uint64 akin_type;
-		};
-		template< >struct yiq< ::color::category::yuv_float > {
-			typedef ::color::category::yiq_float akin_type;
-		};
-		template< >struct yiq< ::color::category::yuv_double > {
-			typedef ::color::category::yiq_double akin_type;
-		};
-		template< >struct yiq< ::color::category::yuv_ldouble > {
-			typedef ::color::category::yiq_ldouble akin_type;
-		};
+template< >struct yiq< ::color::category::yuv_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::yuv_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::yuv_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::yuv_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::yuv_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::yuv_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::yuv_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace utility {
-			namespace bound {
+namespace _internal {
+namespace utility {
+namespace bound {
 
-				template< typename index_name, typename scalar_name >
-				struct yiq_scalar {
-					public:
-					typedef scalar_name scalar_type;
-					typedef index_name index_type;
+template< typename index_name, typename scalar_name >
+struct yiq_scalar {
+public:
+	typedef scalar_name scalar_type;
+	typedef index_name index_type;
 
-					typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
-					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
-					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_image_type return_image_type;
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
 
-					typedef typename index_trait_type::instance_type index_instance_type;
-					typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
 
-					template< index_instance_type index >
-static return_image_type maximum() {
-	static instance_type max_list[] = { 1, 0.5957161349127745527, 0.5225910452916111683 };
-	return max_list[index];
-}
-
-static return_image_type maximum(index_input_const_type index) {
-	static instance_type max_list[] = { 1, 0.5957161349127745527, 0.5225910452916111683 };
-	return max_list[index];
-}
-
-template< index_instance_type index >
-static return_image_type minimum() {
-	static instance_type min_list[] = { 0, -0.5957161349127745527, -0.5225910452916111683 };
-	return min_list[index];
-}
-
-static return_image_type minimum(index_input_const_type index) {
-	static instance_type min_list[] = { 0, -0.5957161349127745527, -0.5225910452916111683 };
-	return min_list[index];
-}
-
-template< index_instance_type index >
-static return_image_type range() {
-	static instance_type range_list[] = { 1, 2*0.5957161349127745527, 2 * 0.5225910452916111683 };
-	return range_list[index];
-}
-
-static return_image_type range(index_input_const_type index) {
-	static instance_type range_list[] = { 1, 2*0.5957161349127745527, 2*0.5225910452916111683 };
-	return range_list[index];
-}
-				};
-
-			}
-		}
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 1, 0.5957161349127745527, 0.5225910452916111683 };
+		return max_list[index];
 	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 1, 0.5957161349127745527, 0.5225910452916111683 };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { 0, -0.5957161349127745527, -0.5225910452916111683 };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { 0, -0.5957161349127745527, -0.5225910452916111683 };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { 1, 2*0.5957161349127745527, 2 * 0.5225910452916111683 };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { 1, 2*0.5957161349127745527, 2*0.5225910452916111683 };
+		return range_list[index];
+	}
+};
+
+}
+}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yiq_double >
+template< >
+struct bound< ::color::category::yiq_double >
 		: public ::color::_internal::utility::bound::yiq_scalar< unsigned, double > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yiq_float >
+template< >
+struct bound< ::color::category::yiq_float >
 		: public ::color::_internal::utility::bound::yiq_scalar< unsigned, float > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yiq_ldouble >
+template< >
+struct bound< ::color::category::yiq_ldouble >
 		: public ::color::_internal::utility::bound::yiq_scalar< unsigned, long double > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yiq_uint16 >
+template< >
+struct bound< ::color::category::yiq_uint16 >
 		: public ::color::_internal::utility::bound::bound556< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yiq_uint32 >
+template< >
+struct bound< ::color::category::yiq_uint32 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 8, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yiq_uint64 >
+template< >
+struct bound< ::color::category::yiq_uint64 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 16, unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yiq_uint8 >
+template< >
+struct bound< ::color::category::yiq_uint8 >
 		: public ::color::_internal::utility::bound::bound332< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yiq_double >
+template< >
+struct component< ::color::category::yiq_double >
 		: public ::color::_internal::utility::component::array< double, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yiq_float >
+template< >
+struct component< ::color::category::yiq_float >
 		: public ::color::_internal::utility::component::array< float, unsigned> {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yiq_ldouble >
+template< >
+struct component< ::color::category::yiq_ldouble >
 		: public ::color::_internal::utility::component::array< long double, unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yiq_uint16 >
+template< >
+struct component< ::color::category::yiq_uint16 >
 		: public ::color::_internal::utility::component::cnent556< unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yiq_uint32 >
+template< >
+struct component< ::color::category::yiq_uint32 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned> {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yiq_uint64 >
+template< >
+struct component< ::color::category::yiq_uint64 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yiq_uint8 >
+template< >
+struct component< ::color::category::yiq_uint8 >
 		: public ::color::_internal::utility::component::cnent332< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yiq_double >
+template< >
+struct container< ::color::category::yiq_double >
 		: public ::color::_internal::utility::container::array< double, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yiq_float >
+template< >
+struct container< ::color::category::yiq_float >
 		: public ::color::_internal::utility::container::array< float, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yiq_ldouble >
+template< >
+struct container< ::color::category::yiq_ldouble >
 		: public ::color::_internal::utility::container::array< long double, 3 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yiq_uint16 >
+template< >
+struct container< ::color::category::yiq_uint16 >
 		: public ::color::_internal::utility::container::cner556< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yiq_uint32 >
+template< >
+struct container< ::color::category::yiq_uint32 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3, 8 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yiq_uint64 >
+template< >
+struct container< ::color::category::yiq_uint64 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yiq_double >
+template< >
+struct container< ::color::category::yiq_uint8 >
+		: public ::color::_internal::utility::container::cner332< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::yiq_double >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yiq_float >
+template< >
+struct index< ::color::category::yiq_float >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yiq_ldouble >
+template< >
+struct index< ::color::category::yiq_ldouble >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yiq_uint16 >
+template< >
+struct index< ::color::category::yiq_uint16 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yiq_uint32 >
+template< >
+struct index< ::color::category::yiq_uint32 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yiq_uint64 >
+template< >
+struct index< ::color::category::yiq_uint64 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yiq_uint8 >
+template< >
+struct index< ::color::category::yiq_uint8 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
+namespace get {
 
-		inline
-		::color::_internal::model< color::category::yiq_uint8 >::component_const_type
+inline
+::color::_internal::model< color::category::yiq_uint8 >::component_const_type
 inphase(::color::_internal::model< color::category::yiq_uint8 > const& color_parameter) {
 	return color_parameter.template get<1>();
 }
@@ -21078,14 +21435,14 @@ inphase(::color::_internal::model< color::category::yiq_ldouble > const& color_p
 	return color_parameter.template get<1>();
 };
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
+namespace get {
 
-		inline
-		::color::_internal::model< color::category::yiq_uint8 >::component_const_type
+inline
+::color::_internal::model< color::category::yiq_uint8 >::component_const_type
 quadrature(::color::_internal::model< color::category::yiq_uint8 > const& color_parameter) {
 	return color_parameter.template get<2>();
 }
@@ -21126,17 +21483,17 @@ quadrature(::color::_internal::model< color::category::yiq_ldouble > const& colo
 	return color_parameter.template get<2>();
 };
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateYIQ {
+namespace get {
+namespace _internal {
+namespace _privateYIQ {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 red(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
@@ -21154,8 +21511,8 @@ red(::color::_internal::model< category_name > const& color_parameter) {
 	return diverse_type::template process<0>(r);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint8>::akin_type >::return_type
@@ -21199,17 +21556,17 @@ red(::color::_internal::model< color::category::yiq_ldouble > const& color_param
 	return ::color::get::_internal::_privateYIQ::red<color::category::yiq_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateYIQ {
+namespace get {
+namespace _internal {
+namespace _privateYIQ {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 green(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
@@ -21227,8 +21584,8 @@ green(::color::_internal::model< category_name > const& color_parameter) {
 	return diverse_type::template process<0>(g);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint8>::akin_type >::return_type
@@ -21272,17 +21629,17 @@ green(::color::_internal::model< color::category::yiq_ldouble > const& color_par
 	return ::color::get::_internal::_privateYIQ::green<color::category::yiq_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateYIQ {
+namespace get {
+namespace _internal {
+namespace _privateYIQ {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 blue(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
@@ -21300,8 +21657,8 @@ blue(::color::_internal::model< category_name > const& color_parameter) {
 	return diverse_type::template process<0>(b);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint8>::akin_type >::return_type
@@ -21345,17 +21702,17 @@ blue(::color::_internal::model< color::category::yiq_ldouble > const& color_para
 	return ::color::get::_internal::_privateYIQ::blue<color::category::yiq_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace privateYIQ {
+namespace get {
+namespace _internal {
+namespace privateYIQ {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
@@ -21363,8 +21720,8 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yiq_uint8 >::akin_type >::return_type
@@ -21408,27 +21765,27 @@ gray(::color::_internal::model< color::category::yiq_ldouble > const& color_para
 	return ::color::get::_internal::privateYIQ::gray<color::category::yiq_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace set {
-		namespace _internal {
-			namespace _privateYIQ {
+namespace set {
+namespace _internal {
+namespace _privateYIQ {
 
-				template< typename category_name >
-				inline
-				void
-				red
-				(
-					::color::_internal::model< category_name > & color_parameter,
-					typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+template< typename category_name >
+inline
+void
+red
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
 ) {
 	color_parameter.template set<0>(component_parameter);
 }
 
-			}
-		}
+}
+}
 
 inline
 void
@@ -21500,27 +21857,27 @@ red
 	::color::set::_internal::_privateYIQ::red<::color::category::yiq_ldouble>(color_parameter, component_parameter);
 };
 
-	}
+}
 }
 
 namespace color {
-	namespace set {
-		namespace _internal {
-			namespace _privateYIQ {
+namespace set {
+namespace _internal {
+namespace _privateYIQ {
 
-				template< typename category_name >
-				inline
-				void
-				green
-				(
-					::color::_internal::model< category_name > & color_parameter,
-					typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+template< typename category_name >
+inline
+void
+green
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
 ) {
 	color_parameter.template set<0>(component_parameter);
 }
 
-			}
-		}
+}
+}
 
 inline
 void
@@ -21592,27 +21949,27 @@ green
 	::color::set::_internal::_privateYIQ::green<::color::category::yiq_ldouble>(color_parameter, component_parameter);
 };
 
-	}
+}
 }
 
 namespace color {
-	namespace set {
-		namespace _internal {
-			namespace _privateYIQ {
+namespace set {
+namespace _internal {
+namespace _privateYIQ {
 
-				template< typename category_name >
-				inline
-				void
-				blue
-				(
-					::color::_internal::model< category_name > & color_parameter,
-					typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+template< typename category_name >
+inline
+void
+blue
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
 ) {
 	color_parameter.template set<0>(component_parameter);
 }
 
-			}
-		}
+}
+}
 
 inline
 void
@@ -21684,35 +22041,35 @@ blue
 	::color::set::_internal::_privateYIQ::blue<::color::category::yiq_ldouble>(color_parameter, component_parameter);
 };
 
-	}
+}
 }
 
 namespace color {
-	namespace set {
-		namespace _internal {
-			namespace _privateYIQ {
+namespace set {
+namespace _internal {
+namespace _privateYIQ {
 
-				template< typename category_name >
-				inline
-				void
-				gray
-				(
-					::color::_internal::model< category_name > & color_parameter
-					,typename ::color::trait::component< category_name >::input_const_type component_parameter
+template< typename category_name >
+inline
+void
+gray
+(
+	::color::_internal::model< category_name > & color_parameter
+	,typename ::color::trait::component< category_name >::input_const_type component_parameter
 ) {
 	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::trait::bound< category_name > bound_type;
 	scalar_type value =
-	0.2126 * (scalar_type(1) - (color_parameter.template get<0>() - bound_type::template minimum<0>()) / bound_type::template range<0>())
-	+ 0.7152 * (scalar_type(1) - (color_parameter.template get<1>() - bound_type::template minimum<1>()) / bound_type::template range<1>())
-	+ 0.0722 * (scalar_type(1) - (color_parameter.template get<2>() - bound_type::template minimum<2>()) / bound_type::template range<2>());
+		0.2126 * (scalar_type(1) - (color_parameter.template get<0>() - bound_type::template minimum<0>()) / bound_type::template range<0>())
+		+ 0.7152 * (scalar_type(1) - (color_parameter.template get<1>() - bound_type::template minimum<1>()) / bound_type::template range<1>())
+		+ 0.0722 * (scalar_type(1) - (color_parameter.template get<2>() - bound_type::template minimum<2>()) / bound_type::template range<2>());
 	value = scalar_type(component_parameter - bound_type::template minimum<0>()) / bound_type::template range<0>() / value;
 	::color::operation::scale(color_parameter, value);
 }
 
-			}
-		}
+}
+}
 
 inline
 void
@@ -21784,13 +22141,13 @@ gray
 	::color::set::_internal::_privateYIQ::gray<::color::category::yiq_ldouble>(color_parameter, component_parameter);
 };
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void black(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x58;
 }
@@ -21825,13 +22182,13 @@ void black(::color::_internal::model< color::category::yiq_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gray50(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x5b;
 }
@@ -21866,13 +22223,13 @@ void gray50(::color::_internal::model< color::category::yiq_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.5, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void white(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x5f;
 }
@@ -21907,13 +22264,13 @@ void white(::color::_internal::model< color::category::yiq_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 1, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void red(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0xba;
 }
@@ -21948,13 +22305,13 @@ void red(::color::_internal::model< color::category::yiq_ldouble> & color_parame
 	color_parameter.container() = std::array<long double,3>({ 0.299, 0.595716, 0.211456 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void green(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x12;
 }
@@ -21989,13 +22346,13 @@ void green(::color::_internal::model< color::category::yiq_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0.2935, -0.137226, -0.261296 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void blue(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x88;
 }
@@ -22030,13 +22387,13 @@ void blue(::color::_internal::model< color::category::yiq_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.114, -0.321263, 0.311135 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void cyan(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x4;
 }
@@ -22071,13 +22428,13 @@ void cyan(::color::_internal::model< color::category::yiq_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.701, -0.595716, -0.211456 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void magenta(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0xea;
 }
@@ -22112,13 +22469,13 @@ void magenta(::color::_internal::model< color::category::yiq_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 0.413, 0.274453, 0.522591 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void yellow(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x2e;
 }
@@ -22153,13 +22510,13 @@ void yellow(::color::_internal::model< color::category::yiq_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.886, 0.321263, -0.311135 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void aqua(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x4;
 }
@@ -22194,13 +22551,13 @@ void aqua(::color::_internal::model< color::category::yiq_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.701, -0.595716, -0.211456 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void fuchsia(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0xea;
 }
@@ -22235,13 +22592,13 @@ void fuchsia(::color::_internal::model< color::category::yiq_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 0.413, 0.274453, 0.522591 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void lime(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc;
 }
@@ -22276,13 +22633,13 @@ void lime(::color::_internal::model< color::category::yiq_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.587, -0.274453, -0.522591 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void maroon(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x69;
 }
@@ -22317,13 +22674,13 @@ void maroon(::color::_internal::model< color::category::yiq_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.1495, 0.297858, 0.105728 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void navy(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x50;
 }
@@ -22358,13 +22715,13 @@ void navy(::color::_internal::model< color::category::yiq_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.057, -0.160632, 0.155567 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void olive(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x63;
 }
@@ -22399,13 +22756,13 @@ void olive(::color::_internal::model< color::category::yiq_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0.443, 0.160632, -0.155567 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void orange(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x6c;
 }
@@ -22440,13 +22797,13 @@ void orange(::color::_internal::model< color::category::yiq_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.68055, 0.417322, -0.128228 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void purple(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa1;
 }
@@ -22481,13 +22838,13 @@ void purple(::color::_internal::model< color::category::yiq_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.2065, 0.137226, 0.261296 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void silver(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x5d;
 }
@@ -22522,13 +22879,13 @@ void silver(::color::_internal::model< color::category::yiq_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.75, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void teal(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0x4a;
 }
@@ -22563,13 +22920,13 @@ void teal(::color::_internal::model< color::category::yiq_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.3505, -0.297858, -0.105728 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void violet(::color::_internal::model< color::category::yiq_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa4;
 }
@@ -22604,53 +22961,53 @@ void violet(::color::_internal::model< color::category::yiq_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.684722, 0.116239, 0.221333 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateYIQ {
+namespace _internal {
+namespace _privateYIQ {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_cmy2yiq {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmy2yiq {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	static scalar_type const b11 = 0.2990000000000000000, b12 = 0.5870000000000000000, b13 = 0.1140000000000000000;
-	static scalar_type const b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
-	static scalar_type const b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 = 0.3111346431714933019;
-	static scalar_type const b32n = -b32;
-	scalar_type r = scalar_type(1) - normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type g = scalar_type(1) - normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type b = scalar_type(1) - normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type y = b11 * r + b12 * g + b13 * b;
-	scalar_type i = b21 * r + b22 * g + b23 * b;
-	scalar_type q = b31 * r + b32 * g + b33 * b;
-	i = (i / b21 + scalar_type(1)) / scalar_type(2);
-	q = (q / b32n + scalar_type(1)) / scalar_type(2);
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(y));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(i));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(q));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type const b11 = 0.2990000000000000000, b12 = 0.5870000000000000000, b13 = 0.1140000000000000000;
+		static scalar_type const b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
+		static scalar_type const b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 = 0.3111346431714933019;
+		static scalar_type const b32n = -b32;
+		scalar_type r = scalar_type(1) - normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = scalar_type(1) - normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = scalar_type(1) - normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type y = b11 * r + b12 * g + b13 * b;
+		scalar_type i = b21 * r + b22 * g + b23 * b;
+		scalar_type q = b31 * r + b32 * g + b33 * b;
+		i = (i / b21 + scalar_type(1)) / scalar_type(2);
+		q = (q / b32n + scalar_type(1)) / scalar_type(2);
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(y));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(i));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(q));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::yiq_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint8,::color::category::cmy_uint8 > {};
 template< > struct convert<::color::category::yiq_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint8,::color::category::cmy_uint16 > {};
@@ -22708,42 +23065,42 @@ template< > struct convert<::color::category::yiq_ldouble,::color::category::cmy
 template< > struct convert<::color::category::yiq_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_ldouble,::color::category::cmy_double > {};
 template< > struct convert<::color::category::yiq_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_ldouble,::color::category::cmy_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateYIQ {
+namespace _internal {
+namespace _privateYIQ {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_gray2yiq {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_gray2yiq {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
-	container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
-	container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
+		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
+		container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
+	}
+};
 }
-			};
-		}
 
 template< > struct convert<::color::category::yiq_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint8,::color::category::gray_uint8 > {};
 template< > struct convert<::color::category::yiq_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint8,::color::category::gray_uint16 > {};
@@ -22801,53 +23158,53 @@ template< > struct convert<::color::category::yiq_ldouble,::color::category::gra
 template< > struct convert<::color::category::yiq_ldouble,::color::category::gray_double > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_ldouble,::color::category::gray_double > {};
 template< > struct convert<::color::category::yiq_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_ldouble,::color::category::gray_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateYIQ {
+namespace _internal {
+namespace _privateYIQ {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_rgb2yiq {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_rgb2yiq {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	static scalar_type const b11 = 0.2990000000000000000, b12 = 0.5870000000000000000, b13 = 0.1140000000000000000;
-	static scalar_type const b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
-	static scalar_type const b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 = 0.3111346431714933019;
-	static scalar_type const b32n = -b32;
-	scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type y = b11 * r + b12 * g + b13 * b;
-	scalar_type i = b21 * r + b22 * g + b23 * b;
-	scalar_type q = b31 * r + b32 * g + b33 * b;
-	i = (i / b21 + scalar_type(1)) / scalar_type(2);
-	q = (q / b32n + scalar_type(1)) / scalar_type(2);
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(y));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(i));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(q));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type const b11 = 0.2990000000000000000, b12 = 0.5870000000000000000, b13 = 0.1140000000000000000;
+		static scalar_type const b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
+		static scalar_type const b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 = 0.3111346431714933019;
+		static scalar_type const b32n = -b32;
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type y = b11 * r + b12 * g + b13 * b;
+		scalar_type i = b21 * r + b22 * g + b23 * b;
+		scalar_type q = b31 * r + b32 * g + b33 * b;
+		i = (i / b21 + scalar_type(1)) / scalar_type(2);
+		q = (q / b32n + scalar_type(1)) / scalar_type(2);
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(y));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(i));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(q));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::yiq_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint8,::color::category::rgb_uint8 > {};
 template< > struct convert<::color::category::yiq_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint8,::color::category::rgb_uint16 > {};
@@ -22905,88 +23262,88 @@ template< > struct convert<::color::category::yiq_ldouble,::color::category::rgb
 template< > struct convert<::color::category::yiq_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_ldouble,::color::category::rgb_double > {};
 template< > struct convert<::color::category::yiq_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_ldouble,::color::category::rgb_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
+namespace _internal {
 
-		template< typename type_name >
-		struct pick_yiq {
-			typedef color::category::yiq_uint32 category_type;
-		};
+template< typename type_name >
+struct pick_yiq {
+	typedef color::category::yiq_uint32 category_type;
+};
 
-		template<> struct pick_yiq< std::uint8_t > {
-			typedef ::color::category::yiq_uint8 category_type;
-		};
-		template<> struct pick_yiq< std::uint16_t > {
-			typedef ::color::category::yiq_uint16 category_type;
-		};
-		template<> struct pick_yiq< std::uint32_t > {
-			typedef ::color::category::yiq_uint32 category_type;
-		};
-		template<> struct pick_yiq< std::uint64_t > {
-			typedef ::color::category::yiq_uint64 category_type;
-		};
-		template<> struct pick_yiq< float > {
-			typedef ::color::category::yiq_float category_type;
-		};
-		template<> struct pick_yiq< double > {
-			typedef ::color::category::yiq_double category_type;
-		};
-		template<> struct pick_yiq< long double > {
-			typedef ::color::category::yiq_ldouble category_type;
-		};
-	}
+template<> struct pick_yiq< std::uint8_t > {
+	typedef ::color::category::yiq_uint8 category_type;
+};
+template<> struct pick_yiq< std::uint16_t > {
+	typedef ::color::category::yiq_uint16 category_type;
+};
+template<> struct pick_yiq< std::uint32_t > {
+	typedef ::color::category::yiq_uint32 category_type;
+};
+template<> struct pick_yiq< std::uint64_t > {
+	typedef ::color::category::yiq_uint64 category_type;
+};
+template<> struct pick_yiq< float > {
+	typedef ::color::category::yiq_float category_type;
+};
+template<> struct pick_yiq< double > {
+	typedef ::color::category::yiq_double category_type;
+};
+template<> struct pick_yiq< long double > {
+	typedef ::color::category::yiq_ldouble category_type;
+};
+}
 
-	template< typename type_name >
-	using yiq = color::_internal::model< typename color::_internal::pick_yiq< type_name >::category_type >;
+template< typename type_name >
+using yiq = color::_internal::model< typename color::_internal::pick_yiq< type_name >::category_type >;
 
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateRGB {
+namespace _internal {
+namespace _privateRGB {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_yiq2rgb {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_yiq2rgb {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
-	static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-	static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
-	scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type i = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type q = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
-	q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
-	scalar_type r = b11 * y + b12 * i + b13 * q;
-	scalar_type g = b21 * y + b22 * i + b23 * q;
-	scalar_type b = b31 * y + b32 * i + b33 * q;
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
+		static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
+		static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
+		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type i = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type q = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
+		q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
+		scalar_type r = b11 * y + b12 * i + b13 * q;
+		scalar_type g = b21 * y + b22 * i + b23 * q;
+		scalar_type b = b31 * y + b32 * i + b33 * q;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::rgb_uint8,::color::category::yiq_uint8 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint8,::color::category::yiq_uint8 > {};
 template< > struct convert<::color::category::rgb_uint8,::color::category::yiq_uint16 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint8,::color::category::yiq_uint16 > {};
@@ -23044,583 +23401,594 @@ template< > struct convert<::color::category::rgb_ldouble,::color::category::yiq
 template< > struct convert<::color::category::rgb_ldouble,::color::category::yiq_double > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_ldouble,::color::category::yiq_double > {};
 template< > struct convert<::color::category::rgb_ldouble,::color::category::yiq_ldouble> : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_ldouble,::color::category::yiq_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yuv< ::color::category::cmy_uint8 > {
-			typedef ::color::category::yuv_uint8 akin_type;
-		};
-		template< >struct yuv< ::color::category::cmy_uint16 > {
-			typedef ::color::category::yuv_uint16 akin_type;
-		};
-		template< >struct yuv< ::color::category::cmy_uint32 > {
-			typedef ::color::category::yuv_uint32 akin_type;
-		};
-		template< >struct yuv< ::color::category::cmy_uint64 > {
-			typedef ::color::category::yuv_uint64 akin_type;
-		};
-		template< >struct yuv< ::color::category::cmy_float > {
-			typedef ::color::category::yuv_float akin_type;
-		};
-		template< >struct yuv< ::color::category::cmy_double > {
-			typedef ::color::category::yuv_double akin_type;
-		};
-		template< >struct yuv< ::color::category::cmy_ldouble > {
-			typedef ::color::category::yuv_ldouble akin_type;
-		};
+template< >struct yuv< ::color::category::cmy_uint8 > {
+	typedef ::color::category::yuv_uint8 akin_type;
+};
+template< >struct yuv< ::color::category::cmy_uint16 > {
+	typedef ::color::category::yuv_uint16 akin_type;
+};
+template< >struct yuv< ::color::category::cmy_uint32 > {
+	typedef ::color::category::yuv_uint32 akin_type;
+};
+template< >struct yuv< ::color::category::cmy_uint64 > {
+	typedef ::color::category::yuv_uint64 akin_type;
+};
+template< >struct yuv< ::color::category::cmy_float > {
+	typedef ::color::category::yuv_float akin_type;
+};
+template< >struct yuv< ::color::category::cmy_double > {
+	typedef ::color::category::yuv_double akin_type;
+};
+template< >struct yuv< ::color::category::cmy_ldouble > {
+	typedef ::color::category::yuv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yuv< ::color::category::cmyk_uint8 > {
-			typedef ::color::category::yuv_uint8 akin_type;
-		};
-		template< >struct yuv< ::color::category::cmyk_uint16 > {
-			typedef ::color::category::yuv_uint16 akin_type;
-		};
-		template< >struct yuv< ::color::category::cmyk_uint32 > {
-			typedef ::color::category::yuv_uint32 akin_type;
-		};
-		template< >struct yuv< ::color::category::cmyk_uint64 > {
-			typedef ::color::category::yuv_uint64 akin_type;
-		};
-		template< >struct yuv< ::color::category::cmyk_float > {
-			typedef ::color::category::yuv_float akin_type;
-		};
-		template< >struct yuv< ::color::category::cmyk_double > {
-			typedef ::color::category::yuv_double akin_type;
-		};
-		template< >struct yuv< ::color::category::cmyk_ldouble > {
-			typedef ::color::category::yuv_ldouble akin_type;
-		};
+template< >struct yuv< ::color::category::cmyk_uint8 > {
+	typedef ::color::category::yuv_uint8 akin_type;
+};
+template< >struct yuv< ::color::category::cmyk_uint16 > {
+	typedef ::color::category::yuv_uint16 akin_type;
+};
+template< >struct yuv< ::color::category::cmyk_uint32 > {
+	typedef ::color::category::yuv_uint32 akin_type;
+};
+template< >struct yuv< ::color::category::cmyk_uint64 > {
+	typedef ::color::category::yuv_uint64 akin_type;
+};
+template< >struct yuv< ::color::category::cmyk_float > {
+	typedef ::color::category::yuv_float akin_type;
+};
+template< >struct yuv< ::color::category::cmyk_double > {
+	typedef ::color::category::yuv_double akin_type;
+};
+template< >struct yuv< ::color::category::cmyk_ldouble > {
+	typedef ::color::category::yuv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yuv< ::color::category::gray_uint8 > {
-			typedef ::color::category::yuv_uint8 akin_type;
-		};
-		template< >struct yuv< ::color::category::gray_uint16 > {
-			typedef ::color::category::yuv_uint16 akin_type;
-		};
-		template< >struct yuv< ::color::category::gray_uint32 > {
-			typedef ::color::category::yuv_uint32 akin_type;
-		};
-		template< >struct yuv< ::color::category::gray_uint64 > {
-			typedef ::color::category::yuv_uint64 akin_type;
-		};
-		template< >struct yuv< ::color::category::gray_float > {
-			typedef ::color::category::yuv_float akin_type;
-		};
-		template< >struct yuv< ::color::category::gray_double > {
-			typedef ::color::category::yuv_double akin_type;
-		};
-		template< >struct yuv< ::color::category::gray_ldouble > {
-			typedef ::color::category::yuv_ldouble akin_type;
-		};
+template< >struct yuv< ::color::category::gray_uint8 > {
+	typedef ::color::category::yuv_uint8 akin_type;
+};
+template< >struct yuv< ::color::category::gray_uint16 > {
+	typedef ::color::category::yuv_uint16 akin_type;
+};
+template< >struct yuv< ::color::category::gray_uint32 > {
+	typedef ::color::category::yuv_uint32 akin_type;
+};
+template< >struct yuv< ::color::category::gray_uint64 > {
+	typedef ::color::category::yuv_uint64 akin_type;
+};
+template< >struct yuv< ::color::category::gray_float > {
+	typedef ::color::category::yuv_float akin_type;
+};
+template< >struct yuv< ::color::category::gray_double > {
+	typedef ::color::category::yuv_double akin_type;
+};
+template< >struct yuv< ::color::category::gray_ldouble > {
+	typedef ::color::category::yuv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yuv< ::color::category::hsl_uint8 > {
-			typedef ::color::category::yuv_uint8 akin_type;
-		};
-		template< >struct yuv< ::color::category::hsl_uint16 > {
-			typedef ::color::category::yuv_uint16 akin_type;
-		};
-		template< >struct yuv< ::color::category::hsl_uint32 > {
-			typedef ::color::category::yuv_uint32 akin_type;
-		};
-		template< >struct yuv< ::color::category::hsl_uint64 > {
-			typedef ::color::category::yuv_uint64 akin_type;
-		};
-		template< >struct yuv< ::color::category::hsl_float > {
-			typedef ::color::category::yuv_float akin_type;
-		};
-		template< >struct yuv< ::color::category::hsl_double > {
-			typedef ::color::category::yuv_double akin_type;
-		};
-		template< >struct yuv< ::color::category::hsl_ldouble > {
-			typedef ::color::category::yuv_ldouble akin_type;
-		};
+template< >struct yuv< ::color::category::hsl_uint8 > {
+	typedef ::color::category::yuv_uint8 akin_type;
+};
+template< >struct yuv< ::color::category::hsl_uint16 > {
+	typedef ::color::category::yuv_uint16 akin_type;
+};
+template< >struct yuv< ::color::category::hsl_uint32 > {
+	typedef ::color::category::yuv_uint32 akin_type;
+};
+template< >struct yuv< ::color::category::hsl_uint64 > {
+	typedef ::color::category::yuv_uint64 akin_type;
+};
+template< >struct yuv< ::color::category::hsl_float > {
+	typedef ::color::category::yuv_float akin_type;
+};
+template< >struct yuv< ::color::category::hsl_double > {
+	typedef ::color::category::yuv_double akin_type;
+};
+template< >struct yuv< ::color::category::hsl_ldouble > {
+	typedef ::color::category::yuv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yuv< ::color::category::hsv_uint8 > {
-			typedef ::color::category::yuv_uint8 akin_type;
-		};
-		template< >struct yuv< ::color::category::hsv_uint16 > {
-			typedef ::color::category::yuv_uint16 akin_type;
-		};
-		template< >struct yuv< ::color::category::hsv_uint32 > {
-			typedef ::color::category::yuv_uint32 akin_type;
-		};
-		template< >struct yuv< ::color::category::hsv_uint64 > {
-			typedef ::color::category::yuv_uint64 akin_type;
-		};
-		template< >struct yuv< ::color::category::hsv_float > {
-			typedef ::color::category::yuv_float akin_type;
-		};
-		template< >struct yuv< ::color::category::hsv_double > {
-			typedef ::color::category::yuv_double akin_type;
-		};
-		template< >struct yuv< ::color::category::hsv_ldouble > {
-			typedef ::color::category::yuv_ldouble akin_type;
-		};
+template< >struct yuv< ::color::category::hsv_uint8 > {
+	typedef ::color::category::yuv_uint8 akin_type;
+};
+template< >struct yuv< ::color::category::hsv_uint16 > {
+	typedef ::color::category::yuv_uint16 akin_type;
+};
+template< >struct yuv< ::color::category::hsv_uint32 > {
+	typedef ::color::category::yuv_uint32 akin_type;
+};
+template< >struct yuv< ::color::category::hsv_uint64 > {
+	typedef ::color::category::yuv_uint64 akin_type;
+};
+template< >struct yuv< ::color::category::hsv_float > {
+	typedef ::color::category::yuv_float akin_type;
+};
+template< >struct yuv< ::color::category::hsv_double > {
+	typedef ::color::category::yuv_double akin_type;
+};
+template< >struct yuv< ::color::category::hsv_ldouble > {
+	typedef ::color::category::yuv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yuv< ::color::category::rgb_uint8 > {
-			typedef ::color::category::yuv_uint8 akin_type;
-		};
-		template< >struct yuv< ::color::category::rgb_uint16 > {
-			typedef ::color::category::yuv_uint16 akin_type;
-		};
-		template< >struct yuv< ::color::category::rgb_uint32 > {
-			typedef ::color::category::yuv_uint32 akin_type;
-		};
-		template< >struct yuv< ::color::category::rgb_uint64 > {
-			typedef ::color::category::yuv_uint64 akin_type;
-		};
-		template< >struct yuv< ::color::category::rgb_float > {
-			typedef ::color::category::yuv_float akin_type;
-		};
-		template< >struct yuv< ::color::category::rgb_double > {
-			typedef ::color::category::yuv_double akin_type;
-		};
-		template< >struct yuv< ::color::category::rgb_ldouble > {
-			typedef ::color::category::yuv_ldouble akin_type;
-		};
+template< >struct yuv< ::color::category::rgb_uint8 > {
+	typedef ::color::category::yuv_uint8 akin_type;
+};
+template< >struct yuv< ::color::category::rgb_uint16 > {
+	typedef ::color::category::yuv_uint16 akin_type;
+};
+template< >struct yuv< ::color::category::rgb_uint32 > {
+	typedef ::color::category::yuv_uint32 akin_type;
+};
+template< >struct yuv< ::color::category::rgb_uint64 > {
+	typedef ::color::category::yuv_uint64 akin_type;
+};
+template< >struct yuv< ::color::category::rgb_float > {
+	typedef ::color::category::yuv_float akin_type;
+};
+template< >struct yuv< ::color::category::rgb_double > {
+	typedef ::color::category::yuv_double akin_type;
+};
+template< >struct yuv< ::color::category::rgb_ldouble > {
+	typedef ::color::category::yuv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yuv< ::color::category::yiq_uint8 > {
-			typedef ::color::category::yuv_uint8 akin_type;
-		};
-		template< >struct yuv< ::color::category::yiq_uint16 > {
-			typedef ::color::category::yuv_uint16 akin_type;
-		};
-		template< >struct yuv< ::color::category::yiq_uint32 > {
-			typedef ::color::category::yuv_uint32 akin_type;
-		};
-		template< >struct yuv< ::color::category::yiq_uint64 > {
-			typedef ::color::category::yuv_uint64 akin_type;
-		};
-		template< >struct yuv< ::color::category::yiq_float > {
-			typedef ::color::category::yuv_float akin_type;
-		};
-		template< >struct yuv< ::color::category::yiq_double > {
-			typedef ::color::category::yuv_double akin_type;
-		};
-		template< >struct yuv< ::color::category::yiq_ldouble > {
-			typedef ::color::category::yuv_ldouble akin_type;
-		};
+template< >struct yuv< ::color::category::yiq_uint8 > {
+	typedef ::color::category::yuv_uint8 akin_type;
+};
+template< >struct yuv< ::color::category::yiq_uint16 > {
+	typedef ::color::category::yuv_uint16 akin_type;
+};
+template< >struct yuv< ::color::category::yiq_uint32 > {
+	typedef ::color::category::yuv_uint32 akin_type;
+};
+template< >struct yuv< ::color::category::yiq_uint64 > {
+	typedef ::color::category::yuv_uint64 akin_type;
+};
+template< >struct yuv< ::color::category::yiq_float > {
+	typedef ::color::category::yuv_float akin_type;
+};
+template< >struct yuv< ::color::category::yiq_double > {
+	typedef ::color::category::yuv_double akin_type;
+};
+template< >struct yuv< ::color::category::yiq_ldouble > {
+	typedef ::color::category::yuv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace akin {
+namespace akin {
 
-		template< >struct yuv< ::color::category::yuv_uint8 > {
-			typedef ::color::category::yuv_uint8 akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_uint16 > {
-			typedef ::color::category::yuv_uint16 akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_uint32 > {
-			typedef ::color::category::yuv_uint32 akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_uint64 > {
-			typedef ::color::category::yuv_uint64 akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_float > {
-			typedef ::color::category::yuv_float akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_double > {
-			typedef ::color::category::yuv_double akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_ldouble > {
-			typedef ::color::category::yuv_ldouble akin_type;
-		};
+template< >struct yuv< ::color::category::yuv_uint8 > {
+	typedef ::color::category::yuv_uint8 akin_type;
+};
+template< >struct yuv< ::color::category::yuv_uint16 > {
+	typedef ::color::category::yuv_uint16 akin_type;
+};
+template< >struct yuv< ::color::category::yuv_uint32 > {
+	typedef ::color::category::yuv_uint32 akin_type;
+};
+template< >struct yuv< ::color::category::yuv_uint64 > {
+	typedef ::color::category::yuv_uint64 akin_type;
+};
+template< >struct yuv< ::color::category::yuv_float > {
+	typedef ::color::category::yuv_float akin_type;
+};
+template< >struct yuv< ::color::category::yuv_double > {
+	typedef ::color::category::yuv_double akin_type;
+};
+template< >struct yuv< ::color::category::yuv_ldouble > {
+	typedef ::color::category::yuv_ldouble akin_type;
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace utility {
-			namespace bound {
+namespace _internal {
+namespace utility {
+namespace bound {
 
-				template< typename index_name, typename scalar_name >
-				struct yuv_scalar {
-					public:
-					typedef scalar_name scalar_type;
-					typedef index_name index_type;
+template< typename index_name, typename scalar_name >
+struct yuv_scalar {
+public:
+	typedef scalar_name scalar_type;
+	typedef index_name index_type;
 
-					typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
-					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
-					typedef typename trait_type::instance_type instance_type;
-					typedef typename trait_type::return_image_type return_image_type;
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
 
-					typedef typename index_trait_type::instance_type index_instance_type;
-					typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
 
-					template< index_instance_type index >
-static return_image_type maximum() {
-	static instance_type max_list[] = { 1, 0.436, 0.615 };
-	return max_list[index];
-}
-
-static return_image_type maximum(index_input_const_type index) {
-	static instance_type max_list[] = { 1, 0.436, 0.615 };
-	return max_list[index];
-}
-
-template< index_instance_type index >
-static return_image_type minimum() {
-	static instance_type min_list[] = { 0, -0.436, -0.615 };
-	return min_list[index];
-}
-
-static return_image_type minimum(index_input_const_type index) {
-	static instance_type min_list[] = { 0, -0.436, -0.615 };
-	return min_list[index];
-}
-
-template< index_instance_type index >
-static return_image_type range() {
-	static instance_type range_list[] = { 1, 2*0.436, 2 * 0.615 };
-	return range_list[index];
-}
-
-static return_image_type range(index_input_const_type index) {
-	static instance_type range_list[] = { 1, 2*0.436, 2*0.615 };
-	return range_list[index];
-}
-				};
-
-			}
-		}
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 1, 0.436, 0.615 };
+		return max_list[index];
 	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 1, 0.436, 0.615 };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { 0, -0.436, -0.615 };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { 0, -0.436, -0.615 };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { 1, 2*0.436, 2 * 0.615 };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { 1, 2*0.436, 2*0.615 };
+		return range_list[index];
+	}
+};
+
+}
+}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yuv_double >
+template< >
+struct bound< ::color::category::yuv_double >
 		: public ::color::_internal::utility::bound::yuv_scalar< unsigned, double > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yuv_float >
+template< >
+struct bound< ::color::category::yuv_float >
 		: public ::color::_internal::utility::bound::yuv_scalar< unsigned, float > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yuv_ldouble >
+template< >
+struct bound< ::color::category::yuv_ldouble >
 		: public ::color::_internal::utility::bound::yuv_scalar< unsigned, long double > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yuv_uint16 >
+template< >
+struct bound< ::color::category::yuv_uint16 >
 		: public ::color::_internal::utility::bound::bound556< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yuv_uint32 >
+template< >
+struct bound< ::color::category::yuv_uint32 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 8, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yuv_uint64 >
+template< >
+struct bound< ::color::category::yuv_uint64 >
 		: public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 16, unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct bound< ::color::category::yuv_uint8 >
+template< >
+struct bound< ::color::category::yuv_uint8 >
 		: public ::color::_internal::utility::bound::bound332< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yuv_double >
+template< >
+struct component< ::color::category::yuv_double >
 		: public ::color::_internal::utility::component::array< double, unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yuv_float >
+template< >
+struct component< ::color::category::yuv_float >
 		: public ::color::_internal::utility::component::array< float, unsigned> {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yuv_ldouble >
+template< >
+struct component< ::color::category::yuv_ldouble >
 		: public ::color::_internal::utility::component::array< long double, unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yuv_uint16 >
+template< >
+struct component< ::color::category::yuv_uint16 >
 		: public ::color::_internal::utility::component::cnent556< unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yuv_uint32 >
+template< >
+struct component< ::color::category::yuv_uint32 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned> {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yuv_uint64 >
+template< >
+struct component< ::color::category::yuv_uint64 >
 		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct component< ::color::category::yuv_uint8 >
+template< >
+struct component< ::color::category::yuv_uint8 >
 		: public ::color::_internal::utility::component::cnent332< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yuv_double >
+template< >
+struct container< ::color::category::yuv_double >
 		: public ::color::_internal::utility::container::array< double, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yuv_float >
+template< >
+struct container< ::color::category::yuv_float >
 		: public ::color::_internal::utility::container::array< float, 3 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yuv_ldouble >
+template< >
+struct container< ::color::category::yuv_ldouble >
 		: public ::color::_internal::utility::container::array< long double, 3 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yuv_uint16 >
+template< >
+struct container< ::color::category::yuv_uint16 >
 		: public ::color::_internal::utility::container::cner556< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yuv_uint32 >
+template< >
+struct container< ::color::category::yuv_uint32 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3, 8 > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct container< ::color::category::yuv_uint64 >
+template< >
+struct container< ::color::category::yuv_uint64 >
 		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yuv_double >
+template< >
+struct container< ::color::category::yuv_uint8 >
+		: public ::color::_internal::utility::container::cner332< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct index< ::color::category::yuv_double >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yuv_float >
+template< >
+struct index< ::color::category::yuv_float >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yuv_ldouble >
+template< >
+struct index< ::color::category::yuv_ldouble >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yuv_uint16 >
+template< >
+struct index< ::color::category::yuv_uint16 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yuv_uint32 >
+template< >
+struct index< ::color::category::yuv_uint32 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yuv_uint64 >
+template< >
+struct index< ::color::category::yuv_uint64 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 namespace color {
-	namespace trait {
+namespace trait {
 
-		template< >
-		struct index< ::color::category::yuv_uint8 >
+template< >
+struct index< ::color::category::yuv_uint8 >
 		: public ::color::_internal::utility::type::index< unsigned > {
-		};
+};
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateYUV {
+namespace get {
+namespace _internal {
+namespace _privateYUV {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
@@ -23628,8 +23996,8 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yuv_uint8 >::akin_type >::return_type
@@ -23673,17 +24041,17 @@ gray(::color::_internal::model< color::category::yuv_ldouble > const& color_para
 	return ::color::get::_internal::_privateYUV::gray<color::category::yuv_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateYUV {
+namespace get {
+namespace _internal {
+namespace _privateYUV {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 red(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
@@ -23699,8 +24067,8 @@ red(::color::_internal::model< category_name > const& color_parameter) {
 	return diverse_type::template process<0>(r);
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yuv_uint8>::akin_type >::return_type
@@ -23744,17 +24112,17 @@ red(::color::_internal::model< ::color::category::yuv_ldouble > const& color_par
 	return ::color::get::_internal::_privateYUV::red<color::category::yuv_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateYUV {
+namespace get {
+namespace _internal {
+namespace _privateYUV {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 green(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
@@ -23775,8 +24143,8 @@ green(::color::_internal::model< category_name > const& color_parameter) {
 	return diverse_type::template process<0>(diverse_type::template process<1>(g));
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yuv_uint8>::akin_type >::return_type
@@ -23820,17 +24188,17 @@ green(::color::_internal::model< color::category::yuv_ldouble > const& color_par
 	return ::color::get::_internal::_privateYUV::green<color::category::yuv_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
-		namespace _internal {
-			namespace _privateYUV {
+namespace get {
+namespace _internal {
+namespace _privateYUV {
 
-				template< typename category_name >
-				inline
-				typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 blue(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
@@ -23846,8 +24214,8 @@ blue(::color::_internal::model< category_name > const& color_parameter) {
 	return diverse_type::template process<0>(diverse_type::template process<2>(b));
 }
 
-			}
-		}
+}
+}
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yuv_uint8>::akin_type >::return_type
@@ -23891,13 +24259,13 @@ blue(::color::_internal::model< ::color::category::yuv_ldouble > const& color_pa
 	return ::color::get::_internal::_privateYUV::blue<color::category::yuv_ldouble>(color_parameter);
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void black(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x58;
 }
@@ -23932,13 +24300,13 @@ void black(::color::_internal::model< color::category::yuv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void gray50(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x5b;
 }
@@ -23973,13 +24341,13 @@ void gray50(::color::_internal::model< color::category::yuv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.5, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void white(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x5f;
 }
@@ -24014,13 +24382,13 @@ void white(::color::_internal::model< color::category::yuv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 1, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void red(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xd2;
 }
@@ -24055,13 +24423,13 @@ void red(::color::_internal::model< color::category::yuv_ldouble> & color_parame
 	color_parameter.container() = std::array<long double,3>({ 0.299, -0.147138, 0.615 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void green(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x12;
 }
@@ -24096,13 +24464,13 @@ void green(::color::_internal::model< color::category::yuv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0.2935, -0.144431, -0.257493 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void blue(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x78;
 }
@@ -24137,13 +24505,13 @@ void blue(::color::_internal::model< color::category::yuv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.114, 0.436, -0.100014 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void cyan(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x24;
 }
@@ -24178,13 +24546,13 @@ void cyan(::color::_internal::model< color::category::yuv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.701, 0.147138, -0.615 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void magenta(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xaa;
 }
@@ -24219,13 +24587,13 @@ void magenta(::color::_internal::model< color::category::yuv_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 0.413, 0.288862, 0.514986 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void yellow(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x46;
 }
@@ -24260,13 +24628,13 @@ void yellow(::color::_internal::model< color::category::yuv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.886, -0.436, 0.100014 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void aqua(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x24;
 }
@@ -24301,13 +24669,13 @@ void aqua(::color::_internal::model< color::category::yuv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.701, 0.147138, -0.615 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void fuchsia(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xaa;
 }
@@ -24342,13 +24710,13 @@ void fuchsia(::color::_internal::model< color::category::yuv_ldouble> & color_pa
 	color_parameter.container() = std::array<long double,3>({ 0.413, 0.288862, 0.514986 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void lime(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xc;
 }
@@ -24383,13 +24751,13 @@ void lime(::color::_internal::model< color::category::yuv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.587, -0.288862, -0.514986 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void maroon(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x91;
 }
@@ -24424,13 +24792,13 @@ void maroon(::color::_internal::model< color::category::yuv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.1495, -0.0735688, 0.3075 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void navy(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x68;
 }
@@ -24465,13 +24833,13 @@ void navy(::color::_internal::model< color::category::yuv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.057, 0.218, -0.0500071 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void olive(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x4b;
 }
@@ -24506,13 +24874,13 @@ void olive(::color::_internal::model< color::category::yuv_ldouble> & color_para
 	color_parameter.container() = std::array<long double,3>({ 0.443, -0.218, 0.0500071 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void orange(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x84;
 }
@@ -24547,13 +24915,13 @@ void orange(::color::_internal::model< color::category::yuv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.68055, -0.334898, 0.280259 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void purple(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa1;
 }
@@ -24588,13 +24956,13 @@ void purple(::color::_internal::model< color::category::yuv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.2065, 0.144431, 0.257493 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void silver(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x5d;
 }
@@ -24629,13 +24997,13 @@ void silver(::color::_internal::model< color::category::yuv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.75, 0, 0 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void teal(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0x22;
 }
@@ -24670,13 +25038,13 @@ void teal(::color::_internal::model< color::category::yuv_ldouble> & color_param
 	color_parameter.container() = std::array<long double,3>({ 0.3505, 0.0735688, -0.3075 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		inline
+inline
 void violet(::color::_internal::model< color::category::yuv_uint8 > & color_parameter) {
 	color_parameter.container() = 0xa4;
 }
@@ -24711,52 +25079,52 @@ void violet(::color::_internal::model< color::category::yuv_ldouble> & color_par
 	color_parameter.container() = std::array<long double,3>({ 0.684722, 0.122342, 0.218112 });
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateYUV {
+namespace _internal {
+namespace _privateYUV {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_cmy2yuv {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmy2yuv {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	static scalar_type const Wr = 0.299;
-	static scalar_type const Wb = 0.114;
-	static scalar_type const Wg = 1.0-Wr-Wb;
-	static scalar_type const Umax = 0.436;
-	static scalar_type const Vmax = 0.615;
-	scalar_type r = scalar_type(1) - normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type g = scalar_type(1) - normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type b = scalar_type(1) - normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type y = Wr * r + Wg * g + Wb * b;
-	scalar_type u = ((b - y) / (1 - Wb) + scalar_type(1)) / scalar_type(2);
-	scalar_type v = ((r - y) / (1 - Wr) + scalar_type(1)) / scalar_type(2);
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(y));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(u));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type const Wr = 0.299;
+		static scalar_type const Wb = 0.114;
+		static scalar_type const Wg = 1.0-Wr-Wb;
+		static scalar_type const Umax = 0.436;
+		static scalar_type const Vmax = 0.615;
+		scalar_type r = scalar_type(1) - normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = scalar_type(1) - normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = scalar_type(1) - normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type y = Wr * r + Wg * g + Wb * b;
+		scalar_type u = ((b - y) / (1 - Wb) + scalar_type(1)) / scalar_type(2);
+		scalar_type v = ((r - y) / (1 - Wr) + scalar_type(1)) / scalar_type(2);
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(y));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(u));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_uint8 > {};
 template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_uint16 > {};
@@ -24814,42 +25182,42 @@ template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy
 template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_double > {};
 template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateYUV {
+namespace _internal {
+namespace _privateYUV {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_gray2yuv {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_gray2yuv {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
-	container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
-	container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
+		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
+		container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
+	}
+};
 }
-			};
-		}
 
 template< > struct convert<::color::category::yuv_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint8,::color::category::gray_uint8 > {};
 template< > struct convert<::color::category::yuv_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint8,::color::category::gray_uint16 > {};
@@ -24907,52 +25275,52 @@ template< > struct convert<::color::category::yuv_ldouble,::color::category::gra
 template< > struct convert<::color::category::yuv_ldouble,::color::category::gray_double > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_ldouble,::color::category::gray_double > {};
 template< > struct convert<::color::category::yuv_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_ldouble,::color::category::gray_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateYUV {
+namespace _internal {
+namespace _privateYUV {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_rgb2yuv {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_rgb2yuv {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	static scalar_type const Wr = 0.299;
-	static scalar_type const Wb = 0.114;
-	static scalar_type const Wg = 1.0-Wr-Wb;
-	static scalar_type const Umax = 0.436;
-	static scalar_type const Vmax = 0.615;
-	scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type y = Wr * r + Wg * g + Wb * b;
-	scalar_type u = ((b - y) / (1 - Wb) + scalar_type(1)) / scalar_type(2);
-	scalar_type v = ((r - y) / (1 - Wr) + scalar_type(1)) / scalar_type(2);
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(y));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(u));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type const Wr = 0.299;
+		static scalar_type const Wb = 0.114;
+		static scalar_type const Wg = 1.0-Wr-Wb;
+		static scalar_type const Umax = 0.436;
+		static scalar_type const Vmax = 0.615;
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type y = Wr * r + Wg * g + Wb * b;
+		scalar_type u = ((b - y) / (1 - Wb) + scalar_type(1)) / scalar_type(2);
+		scalar_type v = ((r - y) / (1 - Wr) + scalar_type(1)) / scalar_type(2);
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(y));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(u));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::yuv_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint8,::color::category::rgb_uint8 > {};
 template< > struct convert<::color::category::yuv_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint8,::color::category::rgb_uint16 > {};
@@ -25010,93 +25378,93 @@ template< > struct convert<::color::category::yuv_ldouble,::color::category::rgb
 template< > struct convert<::color::category::yuv_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_ldouble,::color::category::rgb_double > {};
 template< > struct convert<::color::category::yuv_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_ldouble,::color::category::rgb_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
+namespace _internal {
 
-		template< typename type_name >
-		struct pick_yuv {
-			typedef color::category::yuv_uint32 category_type;
-		};
+template< typename type_name >
+struct pick_yuv {
+	typedef color::category::yuv_uint32 category_type;
+};
 
-		template<> struct pick_yuv< std::uint8_t > {
-			typedef ::color::category::yuv_uint8 category_type;
-		};
-		template<> struct pick_yuv< std::uint16_t > {
-			typedef ::color::category::yuv_uint16 category_type;
-		};
-		template<> struct pick_yuv< std::uint32_t > {
-			typedef ::color::category::yuv_uint32 category_type;
-		};
-		template<> struct pick_yuv< std::uint64_t > {
-			typedef ::color::category::yuv_uint64 category_type;
-		};
-		template<> struct pick_yuv< float > {
-			typedef ::color::category::yuv_float category_type;
-		};
-		template<> struct pick_yuv< double > {
-			typedef ::color::category::yuv_double category_type;
-		};
-		template<> struct pick_yuv< long double > {
-			typedef ::color::category::yuv_ldouble category_type;
-		};
-	}
+template<> struct pick_yuv< std::uint8_t > {
+	typedef ::color::category::yuv_uint8 category_type;
+};
+template<> struct pick_yuv< std::uint16_t > {
+	typedef ::color::category::yuv_uint16 category_type;
+};
+template<> struct pick_yuv< std::uint32_t > {
+	typedef ::color::category::yuv_uint32 category_type;
+};
+template<> struct pick_yuv< std::uint64_t > {
+	typedef ::color::category::yuv_uint64 category_type;
+};
+template<> struct pick_yuv< float > {
+	typedef ::color::category::yuv_float category_type;
+};
+template<> struct pick_yuv< double > {
+	typedef ::color::category::yuv_double category_type;
+};
+template<> struct pick_yuv< long double > {
+	typedef ::color::category::yuv_ldouble category_type;
+};
+}
 
-	template< typename type_name >
-	using yuv = color::_internal::model< typename color::_internal::pick_yuv< type_name >::category_type >;
+template< typename type_name >
+using yuv = color::_internal::model< typename color::_internal::pick_yuv< type_name >::category_type >;
 
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateRGB {
+namespace _internal {
+namespace _privateRGB {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_yuv2rgb {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_yuv2rgb {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	static scalar_type const Wr = 0.299;
-	static scalar_type const Wb = 0.114;
-	static scalar_type const Wg = 1.0-Wr-Wb;
-	static scalar_type const Umax = 0.436;
-	static scalar_type const Vmax = 0.615;
-	static scalar_type const b11 = 1, b12 = 0, b13 = (1 - Wr) / Vmax;
-	static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg, b23 = -Wr*(1 - Wr) / Vmax / Wg;
-	static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax), b33 = 0;
-	scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type u = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	u = (u - scalar_type(0.5)) * scalar_type(2) * Umax;
-	v = (v - scalar_type(0.5)) * scalar_type(2) * Vmax;
-	scalar_type r = y + v * b13;
-	scalar_type g = y + u * b22 + v * b23;
-	scalar_type b = y + u * b32;
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type const Wr = 0.299;
+		static scalar_type const Wb = 0.114;
+		static scalar_type const Wg = 1.0-Wr-Wb;
+		static scalar_type const Umax = 0.436;
+		static scalar_type const Vmax = 0.615;
+		static scalar_type const b11 = 1, b12 = 0, b13 = (1 - Wr) / Vmax;
+		static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg, b23 = -Wr*(1 - Wr) / Vmax / Wg;
+		static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax), b33 = 0;
+		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type u = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		u = (u - scalar_type(0.5)) * scalar_type(2) * Umax;
+		v = (v - scalar_type(0.5)) * scalar_type(2) * Vmax;
+		scalar_type r = y + v * b13;
+		scalar_type g = y + u * b22 + v * b23;
+		scalar_type b = y + u * b32;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::rgb_uint8,::color::category::yuv_uint8 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint8,::color::category::yuv_uint8 > {};
 template< > struct convert<::color::category::rgb_uint8,::color::category::yuv_uint16 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint8,::color::category::yuv_uint16 > {};
@@ -25154,102 +25522,102 @@ template< > struct convert<::color::category::rgb_ldouble,::color::category::yuv
 template< > struct convert<::color::category::rgb_ldouble,::color::category::yuv_double > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_ldouble,::color::category::yuv_double > {};
 template< > struct convert<::color::category::rgb_ldouble,::color::category::yuv_ldouble> : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_ldouble,::color::category::yuv_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
+namespace _internal {
 
-		template< typename type_name >
-		struct pick_rgb {
-			typedef color::category::rgb_uint32 category_type;
-		};
+template< typename type_name >
+struct pick_rgb {
+	typedef color::category::rgb_uint32 category_type;
+};
 
-		template<> struct pick_rgb< std::uint8_t > {
-			typedef ::color::category::rgb_uint8 category_type;
-		};
-		template<> struct pick_rgb< std::uint16_t > {
-			typedef ::color::category::rgb_uint16 category_type;
-		};
-		template<> struct pick_rgb< std::uint32_t > {
-			typedef ::color::category::rgb_uint32 category_type;
-		};
-		template<> struct pick_rgb< std::uint64_t > {
-			typedef ::color::category::rgb_uint64 category_type;
-		};
-		template<> struct pick_rgb< float > {
-			typedef ::color::category::rgb_float category_type;
-		};
-		template<> struct pick_rgb< double > {
-			typedef ::color::category::rgb_double category_type;
-		};
-		template<> struct pick_rgb< long double > {
-			typedef ::color::category::rgb_ldouble category_type;
-		};
+template<> struct pick_rgb< std::uint8_t > {
+	typedef ::color::category::rgb_uint8 category_type;
+};
+template<> struct pick_rgb< std::uint16_t > {
+	typedef ::color::category::rgb_uint16 category_type;
+};
+template<> struct pick_rgb< std::uint32_t > {
+	typedef ::color::category::rgb_uint32 category_type;
+};
+template<> struct pick_rgb< std::uint64_t > {
+	typedef ::color::category::rgb_uint64 category_type;
+};
+template<> struct pick_rgb< float > {
+	typedef ::color::category::rgb_float category_type;
+};
+template<> struct pick_rgb< double > {
+	typedef ::color::category::rgb_double category_type;
+};
+template<> struct pick_rgb< long double > {
+	typedef ::color::category::rgb_ldouble category_type;
+};
 
-		template<> struct pick_rgb< ::color::type::uint24_t > {
-			typedef ::color::category::rgb_uint24 category_type;
-		};
-		template<> struct pick_rgb< ::color::type::uint48_t > {
-			typedef ::color::category::rgb_uint48 category_type;
-		};
+template<> struct pick_rgb< ::color::type::uint24_t > {
+	typedef ::color::category::rgb_uint24 category_type;
+};
+template<> struct pick_rgb< ::color::type::uint48_t > {
+	typedef ::color::category::rgb_uint48 category_type;
+};
 
-	}
+}
 
-	template< typename type_name >
-	using rgb = color::_internal::model< typename color::_internal::pick_rgb< type_name >::category_type >;
+template< typename type_name >
+using rgb = color::_internal::model< typename color::_internal::pick_rgb< type_name >::category_type >;
 
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateCMYK {
+namespace _internal {
+namespace _privateCMYK {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_rgb2cmyk {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_rgb2cmyk {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type k = scalar_type(1) - std::max({ r, g, b });
-	scalar_type c;
-	scalar_type m;
-	scalar_type y;
-	if(scalar_type(1) != k) {
-		c = (1-r-k) / (1-k);
-		m = (1-g-k) / (1-k);
-		y = (1-b-k) / (1-k);
-	} else {
-		c = scalar_type(0);
-		m = scalar_type(0);
-		y = scalar_type(0);
-	}
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
-	container_left_trait_type::template set<3>(left, diverse_type::template process<3>(k));
-}
-			};
-
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type k = scalar_type(1) - std::max({ r, g, b });
+		scalar_type c;
+		scalar_type m;
+		scalar_type y;
+		if(scalar_type(1) != k) {
+			c = (1-r-k) / (1-k);
+			m = (1-g-k) / (1-k);
+			y = (1-b-k) / (1-k);
+		} else {
+			c = scalar_type(0);
+			m = scalar_type(0);
+			y = scalar_type(0);
 		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
+		container_left_trait_type::template set<3>(left, diverse_type::template process<3>(k));
+	}
+};
+
+}
 
 template< > struct convert<::color::category::cmyk_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint8,::color::category::rgb_uint8 > {};
 template< > struct convert<::color::category::cmyk_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint8,::color::category::rgb_uint16 > {};
@@ -25307,84 +25675,84 @@ template< > struct convert<::color::category::cmyk_ldouble,::color::category::rg
 template< > struct convert<::color::category::cmyk_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_ldouble,::color::category::rgb_double > {};
 template< > struct convert<::color::category::cmyk_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_ldouble,::color::category::rgb_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
+namespace _internal {
 
-		template< typename type_name >
-		struct pick_cmyk {
-			typedef color::category::cmyk_uint32 category_type;
-		};
+template< typename type_name >
+struct pick_cmyk {
+	typedef color::category::cmyk_uint32 category_type;
+};
 
-		template<> struct pick_cmyk< std::uint8_t > {
-			typedef ::color::category::cmyk_uint8 category_type;
-		};
-		template<> struct pick_cmyk< std::uint16_t > {
-			typedef ::color::category::cmyk_uint16 category_type;
-		};
-		template<> struct pick_cmyk< std::uint32_t > {
-			typedef ::color::category::cmyk_uint32 category_type;
-		};
-		template<> struct pick_cmyk< std::uint64_t > {
-			typedef ::color::category::cmyk_uint64 category_type;
-		};
-		template<> struct pick_cmyk< float > {
-			typedef ::color::category::cmyk_float category_type;
-		};
-		template<> struct pick_cmyk< double > {
-			typedef ::color::category::cmyk_double category_type;
-		};
-		template<> struct pick_cmyk< long double > {
-			typedef ::color::category::cmyk_ldouble category_type;
-		};
-	}
+template<> struct pick_cmyk< std::uint8_t > {
+	typedef ::color::category::cmyk_uint8 category_type;
+};
+template<> struct pick_cmyk< std::uint16_t > {
+	typedef ::color::category::cmyk_uint16 category_type;
+};
+template<> struct pick_cmyk< std::uint32_t > {
+	typedef ::color::category::cmyk_uint32 category_type;
+};
+template<> struct pick_cmyk< std::uint64_t > {
+	typedef ::color::category::cmyk_uint64 category_type;
+};
+template<> struct pick_cmyk< float > {
+	typedef ::color::category::cmyk_float category_type;
+};
+template<> struct pick_cmyk< double > {
+	typedef ::color::category::cmyk_double category_type;
+};
+template<> struct pick_cmyk< long double > {
+	typedef ::color::category::cmyk_ldouble category_type;
+};
+}
 
-	template< typename type_name >
-	using cmyk = color::_internal::model< typename color::_internal::pick_cmyk< type_name >::category_type >;
+template< typename type_name >
+using cmyk = color::_internal::model< typename color::_internal::pick_cmyk< type_name >::category_type >;
 
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateCMY {
+namespace _internal {
+namespace _privateCMY {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_cmyk2cmy {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmyk2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type ck = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
-	scalar_type c = cc * (1-ck) + ck;
-	scalar_type m = cm * (1-ck) + ck;
-	scalar_type y = cy * (1-ck) + ck;
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type ck = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
+		scalar_type c = cc * (1-ck) + ck;
+		scalar_type m = cm * (1-ck) + ck;
+		scalar_type y = cy * (1-ck) + ck;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::cmy_uint8,::color::category::cmyk_uint8 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint8,::color::category::cmyk_uint8 > {};
 template< > struct convert<::color::category::cmy_uint8,::color::category::cmyk_uint16 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint8,::color::category::cmyk_uint16 > {};
@@ -25442,40 +25810,40 @@ template< > struct convert<::color::category::cmy_ldouble,::color::category::cmy
 template< > struct convert<::color::category::cmy_ldouble,::color::category::cmyk_double > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_ldouble,::color::category::cmyk_double > {};
 template< > struct convert<::color::category::cmy_ldouble,::color::category::cmyk_ldouble> : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_ldouble,::color::category::cmyk_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateCMY {
+namespace _internal {
+namespace _privateCMY {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_gray2cmy {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_gray2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-				typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
-	container_left_trait_type::template set<1>(left, reformat_type::template process<1,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
-	container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+		container_left_trait_type::template set<1>(left, reformat_type::template process<1,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+		container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+	}
+};
 }
-			};
-		}
 
 template< > struct convert<::color::category::cmy_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint8,::color::category::gray_uint8 > {};
 template< > struct convert<::color::category::cmy_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint8,::color::category::gray_uint16 > {};
@@ -25533,74 +25901,74 @@ template< > struct convert<::color::category::cmy_ldouble,::color::category::gra
 template< > struct convert<::color::category::cmy_ldouble,::color::category::gray_double > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_ldouble,::color::category::gray_double > {};
 template< > struct convert<::color::category::cmy_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_ldouble,::color::category::gray_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateCMY {
+namespace _internal {
+namespace _privateCMY {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_hsl2cmy {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsl2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				typedef ::color::_internal::_privateCMY::convert_hsl2cmy<category_left_name, category_right_name, scalar_name> this_type;
+	typedef ::color::_internal::_privateCMY::convert_hsl2cmy<category_left_name, category_right_name, scalar_name> this_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type r;
-	scalar_type g;
-	scalar_type b;
-	if(s == 0) {
-		r = l;
-		g = l;
-		b = l;
-	} else {
-		scalar_type q = l < scalar_type(0.5) ? (l * (1 + s)) : (l + s - l * s);
-		scalar_type p = scalar_type(2) * l - q;
-		r = this_type::value(p, q, h + (scalar_type(1) / scalar_type(3)) + (scalar_type(2) / scalar_type(3) < h ? -1 :0));
-		g = this_type::value(p, q, h);
-		b = this_type::value(p, q, h - (scalar_type(1) / scalar_type(3)) + (h < scalar_type(1) / scalar_type(3) ? +1 :0));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type r;
+		scalar_type g;
+		scalar_type b;
+		if(s == 0) {
+			r = l;
+			g = l;
+			b = l;
+		} else {
+			scalar_type q = l < scalar_type(0.5) ? (l * (1 + s)) : (l + s - l * s);
+			scalar_type p = scalar_type(2) * l - q;
+			r = this_type::value(p, q, h + (scalar_type(1) / scalar_type(3)) + (scalar_type(2) / scalar_type(3) < h ? -1 :0));
+			g = this_type::value(p, q, h);
+			b = this_type::value(p, q, h - (scalar_type(1) / scalar_type(3)) + (h < scalar_type(1) / scalar_type(3) ? +1 :0));
+		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
 	}
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
-}
 
 private:
-static scalar_type value(scalar_type const& p, scalar_type const& q, scalar_type const& t) {
-	if(t < scalar_type(1)/scalar_type(6)) {
-		return (p + (q - p) * scalar_type(6) * t);
-	}
-	if(t < scalar_type(1)/scalar_type(2)) {
-		return (q);
-	}
-	if(t < scalar_type(2)/scalar_type(3)) {
-		return (p + (q - p) * ((scalar_type(2)/scalar_type(3)) - t) * scalar_type(6));
-	}
-	return p ;
-}
-			};
-
+	static scalar_type value(scalar_type const& p, scalar_type const& q, scalar_type const& t) {
+		if(t < scalar_type(1)/scalar_type(6)) {
+			return (p + (q - p) * scalar_type(6) * t);
 		}
+		if(t < scalar_type(1)/scalar_type(2)) {
+			return (q);
+		}
+		if(t < scalar_type(2)/scalar_type(3)) {
+			return (p + (q - p) * ((scalar_type(2)/scalar_type(3)) - t) * scalar_type(6));
+		}
+		return p ;
+	}
+};
+
+}
 
 template< > struct convert<::color::category::cmy_uint8,::color::category::hsl_uint8 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint8,::color::category::hsl_uint8 > {};
 template< > struct convert<::color::category::cmy_uint8,::color::category::hsl_uint16 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint8,::color::category::hsl_uint16 > {};
@@ -25658,72 +26026,72 @@ template< > struct convert<::color::category::cmy_ldouble,::color::category::hsl
 template< > struct convert<::color::category::cmy_ldouble,::color::category::hsl_double > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_ldouble,::color::category::hsl_double > {};
 template< > struct convert<::color::category::cmy_ldouble,::color::category::hsl_ldouble> : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_ldouble,::color::category::hsl_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateCMY {
+namespace _internal {
+namespace _privateCMY {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_hsv2cmy {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsv2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	int region = int(6 * h);
-	scalar_type f = h * 6 - region ;
-	scalar_type p = v * (scalar_type(1) - s);
-	scalar_type q = v * (scalar_type(1) - f * s);
-	scalar_type t = v * (scalar_type(1) - (1 - f) * s);
-	scalar_type r;
-	scalar_type g;
-	scalar_type b;
-	switch(region % 6) {
-	case 0:
-		r = v, g = t, b = p;
-		break;
-	case 1:
-		r = q, g = v, b = p;
-		break;
-	case 2:
-		r = p, g = v, b = t;
-		break;
-	case 3:
-		r = p, g = q, b = v;
-		break;
-	case 4:
-		r = t, g = p, b = v;
-		break;
-	case 5:
-		r = v, g = p, b = q;
-		break;
-	}
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
-}
-			};
-
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		int region = int(6 * h);
+		scalar_type f = h * 6 - region ;
+		scalar_type p = v * (scalar_type(1) - s);
+		scalar_type q = v * (scalar_type(1) - f * s);
+		scalar_type t = v * (scalar_type(1) - (1 - f) * s);
+		scalar_type r;
+		scalar_type g;
+		scalar_type b;
+		switch(region % 6) {
+		case 0:
+			r = v, g = t, b = p;
+			break;
+		case 1:
+			r = q, g = v, b = p;
+			break;
+		case 2:
+			r = p, g = v, b = t;
+			break;
+		case 3:
+			r = p, g = q, b = v;
+			break;
+		case 4:
+			r = t, g = p, b = v;
+			break;
+		case 5:
+			r = v, g = p, b = q;
+			break;
 		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
+	}
+};
+
+}
 
 template< > struct convert<::color::category::cmy_uint8,::color::category::hsv_uint8 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint8,::color::category::hsv_uint8 > {};
 template< > struct convert<::color::category::cmy_uint8,::color::category::hsv_uint16 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint8,::color::category::hsv_uint16 > {};
@@ -25781,39 +26149,39 @@ template< > struct convert<::color::category::cmy_ldouble,::color::category::hsv
 template< > struct convert<::color::category::cmy_ldouble,::color::category::hsv_double > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_ldouble,::color::category::hsv_double > {};
 template< > struct convert<::color::category::cmy_ldouble,::color::category::hsv_ldouble> : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_ldouble,::color::category::hsv_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateCMY {
+namespace _internal {
+namespace _privateCMY {
 
-			template< typename category_left_name, typename category_right_name >
-			struct convert_rgb2cmy {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name >
+struct convert_rgb2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
-	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-	container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
-	container_left_trait_type::template set<1>(left, reformat_type::template process<1,1>(invert_type::template component<1>(container_right_trait_type::template get<1>(right))));
-	container_left_trait_type::template set<2>(left, reformat_type::template process<2,2>(invert_type::template component<2>(container_right_trait_type::template get<2>(right))));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
+		typedef ::color::operation::_internal::invert< category_right_type > invert_type;
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+		container_left_trait_type::template set<1>(left, reformat_type::template process<1,1>(invert_type::template component<1>(container_right_trait_type::template get<1>(right))));
+		container_left_trait_type::template set<2>(left, reformat_type::template process<2,2>(invert_type::template component<2>(container_right_trait_type::template get<2>(right))));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::cmy_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint8,::color::category::rgb_uint8 > {};
 template< > struct convert<::color::category::cmy_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint8,::color::category::rgb_uint16 > {};
@@ -25871,52 +26239,52 @@ template< > struct convert<::color::category::cmy_ldouble,::color::category::rgb
 template< > struct convert<::color::category::cmy_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_ldouble,::color::category::rgb_double > {};
 template< > struct convert<::color::category::cmy_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_ldouble,::color::category::rgb_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateCMY {
+namespace _internal {
+namespace _privateCMY {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_yiq2cmy {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_yiq2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
-	static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-	static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
-	scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type i = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type q = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
-	q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
-	scalar_type r = b11 * y + b12 * i + b13 * q;
-	scalar_type g = b21 * y + b22 * i + b23 * q;
-	scalar_type b = b31 * y + b32 * i + b33 * q;
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
+		static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
+		static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
+		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type i = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type q = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
+		q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
+		scalar_type r = b11 * y + b12 * i + b13 * q;
+		scalar_type g = b21 * y + b22 * i + b23 * q;
+		scalar_type b = b31 * y + b32 * i + b33 * q;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::cmy_uint8,::color::category::yiq_uint8 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint8,::color::category::yiq_uint8 > {};
 template< > struct convert<::color::category::cmy_uint8,::color::category::yiq_uint16 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint8,::color::category::yiq_uint16 > {};
@@ -25974,57 +26342,57 @@ template< > struct convert<::color::category::cmy_ldouble,::color::category::yiq
 template< > struct convert<::color::category::cmy_ldouble,::color::category::yiq_double > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_ldouble,::color::category::yiq_double > {};
 template< > struct convert<::color::category::cmy_ldouble,::color::category::yiq_ldouble> : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_ldouble,::color::category::yiq_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateCMY {
+namespace _internal {
+namespace _privateCMY {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_yuv2cmy {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_yuv2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	static scalar_type const Wr = 0.299;
-	static scalar_type const Wb = 0.114;
-	static scalar_type const Wg = 1.0-Wr-Wb;
-	static scalar_type const Umax = 0.436;
-	static scalar_type const Vmax = 0.615;
-	static scalar_type const b11 = 1, b12 = 0, b13 = (1 - Wr) / Vmax;
-	static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg, b23 = -Wr*(1 - Wr) / Vmax / Wg;
-	static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax), b33 = 0;
-	scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type u = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	u = (u - scalar_type(0.5)) * scalar_type(2) * Umax;
-	v = (v - scalar_type(0.5)) * scalar_type(2) * Vmax;
-	scalar_type r = y + v * b13;
-	scalar_type g = y + u * b22 + v * b23;
-	scalar_type b = y + u * b32 ;
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
-	container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
-	container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type const Wr = 0.299;
+		static scalar_type const Wb = 0.114;
+		static scalar_type const Wg = 1.0-Wr-Wb;
+		static scalar_type const Umax = 0.436;
+		static scalar_type const Vmax = 0.615;
+		static scalar_type const b11 = 1, b12 = 0, b13 = (1 - Wr) / Vmax;
+		static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg, b23 = -Wr*(1 - Wr) / Vmax / Wg;
+		static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax), b33 = 0;
+		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type u = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		u = (u - scalar_type(0.5)) * scalar_type(2) * Umax;
+		v = (v - scalar_type(0.5)) * scalar_type(2) * Vmax;
+		scalar_type r = y + v * b13;
+		scalar_type g = y + u * b22 + v * b23;
+		scalar_type b = y + u * b32 ;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::cmy_uint8,::color::category::yuv_uint8 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint8,::color::category::yuv_uint8 > {};
 template< > struct convert<::color::category::cmy_uint8,::color::category::yuv_uint16 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint8,::color::category::yuv_uint16 > {};
@@ -26082,77 +26450,77 @@ template< > struct convert<::color::category::cmy_ldouble,::color::category::yuv
 template< > struct convert<::color::category::cmy_ldouble,::color::category::yuv_double > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_ldouble,::color::category::yuv_double > {};
 template< > struct convert<::color::category::cmy_ldouble,::color::category::yuv_ldouble> : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_ldouble,::color::category::yuv_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
+namespace _internal {
 
-		template< typename type_name >
-		struct pick_cmy {
-			typedef color::category::cmy_uint32 category_type;
-		};
+template< typename type_name >
+struct pick_cmy {
+	typedef color::category::cmy_uint32 category_type;
+};
 
-		template<> struct pick_cmy< std::uint8_t > {
-			typedef ::color::category::cmy_uint8 category_type;
-		};
-		template<> struct pick_cmy< std::uint16_t > {
-			typedef ::color::category::cmy_uint16 category_type;
-		};
-		template<> struct pick_cmy< std::uint32_t > {
-			typedef ::color::category::cmy_uint32 category_type;
-		};
-		template<> struct pick_cmy< std::uint64_t > {
-			typedef ::color::category::cmy_uint64 category_type;
-		};
-		template<> struct pick_cmy< float > {
-			typedef ::color::category::cmy_float category_type;
-		};
-		template<> struct pick_cmy< double > {
-			typedef ::color::category::cmy_double category_type;
-		};
-		template<> struct pick_cmy< long double > {
-			typedef ::color::category::cmy_ldouble category_type;
-		};
-	}
+template<> struct pick_cmy< std::uint8_t > {
+	typedef ::color::category::cmy_uint8 category_type;
+};
+template<> struct pick_cmy< std::uint16_t > {
+	typedef ::color::category::cmy_uint16 category_type;
+};
+template<> struct pick_cmy< std::uint32_t > {
+	typedef ::color::category::cmy_uint32 category_type;
+};
+template<> struct pick_cmy< std::uint64_t > {
+	typedef ::color::category::cmy_uint64 category_type;
+};
+template<> struct pick_cmy< float > {
+	typedef ::color::category::cmy_float category_type;
+};
+template<> struct pick_cmy< double > {
+	typedef ::color::category::cmy_double category_type;
+};
+template<> struct pick_cmy< long double > {
+	typedef ::color::category::cmy_ldouble category_type;
+};
+}
 
-	template< typename type_name >
-	using cmy = color::_internal::model< typename color::_internal::pick_cmy< type_name >::category_type >;
+template< typename type_name >
+using cmy = color::_internal::model< typename color::_internal::pick_cmy< type_name >::category_type >;
 
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateGray {
+namespace _internal {
+namespace _privateGray {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_cmy2gray {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmy2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_name value =
-	0.2126729 * (1 - normalize_type::template process<0> (container_right_trait_type::template get<0>(right)))
-	+ 0.7151522 * (1 - normalize_type::template process<1> (container_right_trait_type::template get<1>(right)))
-	+ 0.0721750 * (1 - normalize_type::template process<2> (container_right_trait_type::template get<2>(right)));
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_name value =
+			0.2126729 * (1 - normalize_type::template process<0> (container_right_trait_type::template get<0>(right)))
+			+ 0.7151522 * (1 - normalize_type::template process<1> (container_right_trait_type::template get<1>(right)))
+			+ 0.0721750 * (1 - normalize_type::template process<2> (container_right_trait_type::template get<2>(right)));
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+	}
+};
 }
-			};
-		}
 
 template< > struct convert<::color::category::gray_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint8,::color::category::cmy_uint8 > {};
 template< > struct convert<::color::category::gray_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint8,::color::category::cmy_uint16 > {};
@@ -26210,46 +26578,46 @@ template< > struct convert<::color::category::gray_ldouble,::color::category::cm
 template< > struct convert<::color::category::gray_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_ldouble,::color::category::cmy_double > {};
 template< > struct convert<::color::category::gray_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_ldouble,::color::category::cmy_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateGray {
+namespace _internal {
+namespace _privateGray {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_cmyk2gray {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
-				typedef scalar_name scalar_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmyk2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-	scalar_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-	scalar_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-	scalar_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
-	scalar_type value =
-	(0.2126729 * (1-c)
-	 + 0.7151522 * (1-m)
-	 + 0.0721750 * (1-y)) * (1-k);
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
+		scalar_type value =
+			(0.2126729 * (1-c)
+			 + 0.7151522 * (1-m)
+			 + 0.0721750 * (1-y)) * (1-k);
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+	}
+};
 }
-			};
-		}
 
 template< > struct convert<::color::category::gray_uint8,::color::category::cmyk_uint8 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint8,::color::category::cmyk_uint8 > {};
 template< > struct convert<::color::category::gray_uint8,::color::category::cmyk_uint16 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint8,::color::category::cmyk_uint16 > {};
@@ -26307,37 +26675,37 @@ template< > struct convert<::color::category::gray_ldouble,::color::category::cm
 template< > struct convert<::color::category::gray_ldouble,::color::category::cmyk_double > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_ldouble,::color::category::cmyk_double > {};
 template< > struct convert<::color::category::gray_ldouble,::color::category::cmyk_ldouble> : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_ldouble,::color::category::cmyk_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateGray {
+namespace _internal {
+namespace _privateGray {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_hsl2gray {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsl2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	container_left_trait_type::template set<0>(left, reformat_type::template process<0,2>(container_right_trait_type::template get<2>(right)));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,2>(container_right_trait_type::template get<2>(right)));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::gray_uint8,::color::category::hsl_uint8 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint8,::color::category::hsl_uint8 > {};
 template< > struct convert<::color::category::gray_uint8,::color::category::hsl_uint16 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint8,::color::category::hsl_uint16 > {};
@@ -26395,37 +26763,37 @@ template< > struct convert<::color::category::gray_ldouble,::color::category::hs
 template< > struct convert<::color::category::gray_ldouble,::color::category::hsl_double > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_ldouble,::color::category::hsl_double > {};
 template< > struct convert<::color::category::gray_ldouble,::color::category::hsl_ldouble> : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_ldouble,::color::category::hsl_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateGray {
+namespace _internal {
+namespace _privateGray {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_hsv2gray {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsv2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	container_left_trait_type::template set<0>(left, reformat_type::template process<0,2>(container_right_trait_type::template get<2>(right)));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,2>(container_right_trait_type::template get<2>(right)));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::gray_uint8,::color::category::hsv_uint8 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint8,::color::category::hsv_uint8 > {};
 template< > struct convert<::color::category::gray_uint8,::color::category::hsv_uint16 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint8,::color::category::hsv_uint16 > {};
@@ -26483,42 +26851,42 @@ template< > struct convert<::color::category::gray_ldouble,::color::category::hs
 template< > struct convert<::color::category::gray_ldouble,::color::category::hsv_double > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_ldouble,::color::category::hsv_double > {};
 template< > struct convert<::color::category::gray_ldouble,::color::category::hsv_ldouble> : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_ldouble,::color::category::hsv_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateGray {
+namespace _internal {
+namespace _privateGray {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_rgb2gray {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_rgb2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::diverse< category_left_type > diverse_type;
-				typedef ::color::_internal::normalize< category_right_type > normalize_type;
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	scalar_name value =
-	0.2126729 * normalize_type::template process<0> (container_right_trait_type::template get<0>(right))
-	+ 0.7151522 * normalize_type::template process<1> (container_right_trait_type::template get<1>(right))
-	+ 0.0721750 * normalize_type::template process<2> (container_right_trait_type::template get<2>(right));
-	container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_name value =
+			0.2126729 * normalize_type::template process<0> (container_right_trait_type::template get<0>(right))
+		+ 0.7151522 * normalize_type::template process<1> (container_right_trait_type::template get<1>(right))
+		+ 0.0721750 * normalize_type::template process<2> (container_right_trait_type::template get<2>(right));
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::gray_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint8,::color::category::rgb_uint8 > {};
 template< > struct convert<::color::category::gray_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint8,::color::category::rgb_uint16 > {};
@@ -26576,37 +26944,37 @@ template< > struct convert<::color::category::gray_ldouble,::color::category::rg
 template< > struct convert<::color::category::gray_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_ldouble,::color::category::rgb_double > {};
 template< > struct convert<::color::category::gray_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_ldouble,::color::category::rgb_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateGray {
+namespace _internal {
+namespace _privateGray {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_yiq2gray {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_yiq2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::gray_uint8,::color::category::yiq_uint8 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint8,::color::category::yiq_uint8 > {};
 template< > struct convert<::color::category::gray_uint8,::color::category::yiq_uint16 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint8,::color::category::yiq_uint16 > {};
@@ -26664,37 +27032,37 @@ template< > struct convert<::color::category::gray_ldouble,::color::category::yi
 template< > struct convert<::color::category::gray_ldouble,::color::category::yiq_double > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_ldouble,::color::category::yiq_double > {};
 template< > struct convert<::color::category::gray_ldouble,::color::category::yiq_ldouble> : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_ldouble,::color::category::yiq_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		namespace _privateGray {
+namespace _internal {
+namespace _privateGray {
 
-			template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-			struct convert_yuv2gray {
-				public:
-				typedef category_left_name category_left_type;
-				typedef category_right_name category_right_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_yuv2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
 
-				typedef ::color::trait::container<category_left_type> container_left_trait_type;
-				typedef ::color::trait::container<category_right_type> container_right_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-				typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
 
-				typedef typename container_left_trait_type::input_type container_left_input_type;
-				typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-				static void process
-				(
-					container_left_input_type left
-					,container_right_const_input_type right
-) {
-	container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
+	}
+};
+
 }
-			};
-
-		}
 
 template< > struct convert<::color::category::gray_uint8,::color::category::yuv_uint8 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint8,::color::category::yuv_uint8 > {};
 template< > struct convert<::color::category::gray_uint8,::color::category::yuv_uint16 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint8,::color::category::yuv_uint16 > {};
@@ -26752,123 +27120,137 @@ template< > struct convert<::color::category::gray_ldouble,::color::category::yu
 template< > struct convert<::color::category::gray_ldouble,::color::category::yuv_double > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_ldouble,::color::category::yuv_double > {};
 template< > struct convert<::color::category::gray_ldouble,::color::category::yuv_ldouble> : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_ldouble,::color::category::yuv_ldouble> {};
 
-	}
+}
 }
 
 namespace color {
-	namespace _internal {
-		template< typename type_name >
-		struct pick_gray {
-			typedef color::category::gray_uint32 category_type;
-		};
+namespace _internal {
 
-		template<> struct pick_gray< bool > {
-			typedef ::color::category::gray_bool category_type;
-		};
-		template<> struct pick_gray< std::uint8_t > {
-			typedef ::color::category::gray_uint8 category_type;
-		};
-		template<> struct pick_gray< std::uint16_t > {
-			typedef ::color::category::gray_uint16 category_type;
-		};
-		template<> struct pick_gray< std::uint32_t > {
-			typedef ::color::category::gray_uint32 category_type;
-		};
-		template<> struct pick_gray< std::uint64_t > {
-			typedef ::color::category::gray_uint64 category_type;
-		};
-		template<> struct pick_gray< float > {
-			typedef ::color::category::gray_float category_type;
-		};
-		template<> struct pick_gray< double > {
-			typedef ::color::category::gray_double category_type;
-		};
-		template<> struct pick_gray< long double > {
-			typedef ::color::category::gray_ldouble category_type;
-		};
-	}
+template< typename type_name >
+struct pick_gray {
+	typedef color::category::gray_uint32 category_type;
+};
 
-	template< typename type_name >
-	using gray = color::_internal::model< typename color::_internal::pick_gray< type_name >::category_type >;
+template<> struct pick_gray< bool > {
+	typedef ::color::category::gray_bool category_type;
+};
+template<> struct pick_gray< std::uint8_t > {
+	typedef ::color::category::gray_uint8 category_type;
+};
+template<> struct pick_gray< std::uint16_t > {
+	typedef ::color::category::gray_uint16 category_type;
+};
+template<> struct pick_gray< std::uint32_t > {
+	typedef ::color::category::gray_uint32 category_type;
+};
+template<> struct pick_gray< std::uint64_t > {
+	typedef ::color::category::gray_uint64 category_type;
+};
+template<> struct pick_gray< float > {
+	typedef ::color::category::gray_float category_type;
+};
+template<> struct pick_gray< double > {
+	typedef ::color::category::gray_double category_type;
+};
+template<> struct pick_gray< long double > {
+	typedef ::color::category::gray_ldouble category_type;
+};
+}
+
+template< typename type_name >
+using gray = color::_internal::model< typename color::_internal::pick_gray< type_name >::category_type >;
 
 }
 
 namespace color {
-	namespace compare {
-		template < typename category_name >
+namespace compare {
+template < typename category_name >
 bool darker(color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right) {
 	return color::gray<float>(left) < color::gray<float>(right);
 }
-	}
+}
 }
 
 namespace color {
-	namespace compare {
-		template < typename category_name >
+namespace compare {
+template < typename category_name >
 bool lighter(color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right) {
 	return color::gray<float>(left) > color::gray<float>(right);
 }
-	}
+}
 }
 
 namespace color {
-	namespace get {
+namespace get {
 
-		template< typename category_name >
-		inline
-		typename ::color::trait::component< category_name >::return_image_type
+template< typename category_name >
+inline
+typename ::color::trait::component< category_name >::return_image_type
 red(::color::_internal::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
+namespace get {
 
-		template< typename category_name >
-		inline
-		typename ::color::trait::component< category_name >::return_image_type
+template< typename category_name >
+inline
+typename ::color::trait::component< category_name >::return_image_type
 green(::color::_internal::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
+namespace get {
 
-		template< typename category_name >
-		inline
-		typename ::color::trait::component< category_name >::return_image_type
+template< typename category_name >
+inline
+typename ::color::trait::component< category_name >::return_image_type
 blue(::color::_internal::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace get {
+namespace get {
 
-		template< typename category_name >
-		inline
-		typename ::color::trait::component< category_name >::return_image_type
+template< typename category_name >
+inline
+typename ::color::trait::component< category_name >::return_image_type
 gray(::color::_internal::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace get {
 
-		template< typename category_name >
-		inline
-		void
+template< typename category_name >
+inline
+typename ::color::trait::component< category_name >::return_image_type
+hue(::color::_internal::model< category_name > const& color_parameter) {
+	return color_parameter.template get<0>();
+}
+
+}
+}
+
+namespace color {
+namespace make {
+
+template< typename category_name >
+inline
+void
 black(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::trait::bound< category_name > bound_type;
@@ -26892,13 +27274,13 @@ black() {
 	return color;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void gray50(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::trait::bound< category_name > bound_type;
@@ -26918,13 +27300,13 @@ gray50() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void white(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef ::color::trait::bound< category_name > bound_type;
@@ -26944,13 +27326,13 @@ white() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void red(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -26965,13 +27347,13 @@ red() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void green(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -26986,13 +27368,13 @@ green() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void blue(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27007,13 +27389,13 @@ blue() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void cyan(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27028,13 +27410,13 @@ cyan() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void magenta(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27049,13 +27431,13 @@ magenta() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void yellow(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
@@ -27071,13 +27453,13 @@ yellow() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void aqua(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
@@ -27096,13 +27478,13 @@ aqua() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void fuchsia(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27117,13 +27499,13 @@ fuchsia() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void lime(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27138,13 +27520,13 @@ lime() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void maroon(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27159,13 +27541,13 @@ maroon() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void navy(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27180,13 +27562,13 @@ navy() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void olive(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27201,13 +27583,13 @@ olive() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void orange(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27222,13 +27604,13 @@ orange() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void purple(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27243,13 +27625,13 @@ purple() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void silver(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27264,13 +27646,13 @@ silver() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void teal(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
@@ -27286,12 +27668,12 @@ teal() {
 	return dummy;
 }
 
-	}
+}
 }
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void violet(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
@@ -27307,13 +27689,13 @@ violet() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void aquamarine(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
@@ -27329,13 +27711,13 @@ aquamarine() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void azure(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27350,13 +27732,13 @@ azure() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void beige(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27371,13 +27753,13 @@ beige() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void bisque(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27392,13 +27774,13 @@ bisque() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void brown(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27413,13 +27795,13 @@ brown() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void chocolate(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27434,13 +27816,13 @@ chocolate() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void coral(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27455,13 +27837,13 @@ coral() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void crimson(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27476,13 +27858,13 @@ crimson() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void gainsboro(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27497,13 +27879,13 @@ gainsboro() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void gold(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27518,13 +27900,13 @@ gold() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void indigo(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27539,13 +27921,13 @@ indigo() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void ivory(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27560,13 +27942,13 @@ ivory() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void khaki(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27581,13 +27963,13 @@ khaki() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void lavender(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27602,13 +27984,13 @@ lavender() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void linen(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27623,13 +28005,13 @@ linen() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void moccasin(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27644,13 +28026,13 @@ moccasin() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void orchid(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27665,13 +28047,13 @@ orchid() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void peru(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27686,13 +28068,13 @@ peru() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void pink(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27707,13 +28089,13 @@ pink() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void plum(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27728,13 +28110,13 @@ plum() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void salmon(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27749,13 +28131,13 @@ salmon() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void sienna(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27770,13 +28152,13 @@ sienna() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void snow(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27791,13 +28173,13 @@ snow() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void tan(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 }
@@ -27812,13 +28194,13 @@ tan() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void thistle(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
@@ -27834,13 +28216,13 @@ thistle() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void tomato(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
@@ -27856,13 +28238,13 @@ tomato() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void turquoise(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
@@ -27878,13 +28260,13 @@ turquoise() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace make {
+namespace make {
 
-		template< typename category_name >
+template< typename category_name >
 void wheat(::color::_internal::model< category_name > & color_parameter) {
 	typedef ::color::_internal::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
@@ -27900,70 +28282,70 @@ wheat() {
 	return dummy;
 }
 
-	}
+}
 }
 
 namespace color {
-	namespace set {
+namespace set {
 
-		template< typename category_name >
-		inline
-		void
-		red
-		(
-			::color::_internal::model< category_name > & color_parameter,
-			typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+template< typename category_name >
+inline
+void
+red
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
 ) {
 }
-	}
+}
 }
 
 namespace color {
-	namespace set {
+namespace set {
 
-		template< typename category_name >
-		inline
-		void
-		green
-		(
-			::color::_internal::model< category_name > & color_parameter,
-			typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
-) {
-};
-
-	}
-}
-
-namespace color {
-	namespace set {
-
-		template< typename category_name >
-		inline
-		void
-		blue
-		(
-			::color::_internal::model< category_name > & color_parameter,
-			typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+template< typename category_name >
+inline
+void
+green
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
 ) {
 };
 
-	}
+}
 }
 
 namespace color {
-	namespace set {
+namespace set {
 
-		template< typename category_name >
-		inline
-		void
-		gray
-		(
-			::color::_internal::model< category_name > & color_parameter,
-			typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+template< typename category_name >
+inline
+void
+blue
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
 ) {
 };
 
-	}
+}
+}
+
+namespace color {
+namespace set {
+
+template< typename category_name >
+inline
+void
+gray
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+) {
+};
+
+}
 }
 
 using namespace ::color::operation::arithmetic;

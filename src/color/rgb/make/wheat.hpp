@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 245.0/255.0, 222.0/255.0, 179.0/255.0 } ) 
+    { //RGB equivalents: std::array<double,3>( { 245.0/255.0, 222.0/255.0, 179.0/255.0 } ) - rgb(245,222,179) - #f5deb3
 
       inline
       void wheat( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void wheat( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xb35d;
+        color_parameter.container() = 0xaebc;
        }
 
       inline

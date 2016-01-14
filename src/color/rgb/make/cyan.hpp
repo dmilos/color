@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 0, 1, 1 } ) 
+    { //RGB equivalents: std::array<double,3>( { 0, 1, 1 } ) - rgb(0,255,255) - #00ffff
 
       inline
       void cyan( ::color::_internal::model< color::category::rgb_uint8 > & color_parameter )
@@ -17,7 +17,7 @@
       inline
       void cyan( ::color::_internal::model< color::category::rgb_uint16 > & color_parameter )
        {// Same as Aqua
-        color_parameter.container() = 0xffe0;
+        color_parameter.container() = 0xffc0;
        }
 
       inline
