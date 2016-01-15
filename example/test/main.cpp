@@ -177,6 +177,9 @@ int main(int argc, char const *argv[])
   extern void check_sizeof();
   check_sizeof();
 
+  void test_selfie();
+  test_selfie();
+
   return 0;
  }
 

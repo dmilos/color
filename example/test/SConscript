@@ -8,7 +8,7 @@ name_full = 'test'
 directory_pdb = './out'
 directory_obj = './out'
 
-settings.set_custom( 'RTL', 'dynamic' ) 
+settings.set_custom( 'RTL', 'dynamic' )
 settings.set_custom( 'architecture', 'i386' )
 settings.set_custom( 'configuration', 'debug' )
 
@@ -39,6 +39,7 @@ source +=   [
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'make'      ) + envObject[ 'OBJSUFFIX' ],  source = './make.cpp' )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'bound'     ) + envObject[ 'OBJSUFFIX' ],  source = './bound.cpp' )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'sizeof'    ) + envObject[ 'OBJSUFFIX' ],  source = './sizeof.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'selfie.cpp'    ) + envObject[ 'OBJSUFFIX' ],  source = './selfie.cpp' )
   ]
 
 # Make native environment

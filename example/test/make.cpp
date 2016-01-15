@@ -96,8 +96,8 @@ void print_header( std::string const& model, std::string const& name, color::rgb
   ss << " - ";
   ss << "rgb(" << std::setbase(10) <<(unsigned)r32[0] << "," << (unsigned)r32[1] << "," << (unsigned)r32[2] << ")" ;
   ss << " - ";
-  ss << "#" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') << (unsigned)r32[0] 
-            << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') << (unsigned)r32[1] 
+  ss << "#" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') << (unsigned)r32[0]
+            << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') << (unsigned)r32[1]
             << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') << (unsigned)r32[2] ;
   ss << std::endl;
 
@@ -172,8 +172,10 @@ template < template<typename> class color_name >
 
     color::rgb<double>  r;
 
-    color::make::aqua       ( r );  print_header<color_name>(  name, "aqua",    r );
     color::make::black      ( r );  print_header<color_name>(  name, "black",   r );
+    color::make::white      ( r );  print_header<color_name>(  name, "white",   r );
+
+    color::make::aqua       ( r );  print_header<color_name>(  name, "aqua",    r );
     color::make::blue       ( r );  print_header<color_name>(  name, "blue",    r );
     color::make::cyan       ( r );  print_header<color_name>(  name, "cyan",    r );
     color::make::fuchsia    ( r );  print_header<color_name>(  name, "fuchsia", r );
@@ -190,7 +192,6 @@ template < template<typename> class color_name >
     color::make::silver     ( r );  print_header<color_name>(  name, "silver",  r );
     color::make::teal       ( r );  print_header<color_name>(  name, "teal",    r );
     color::make::violet     ( r );  print_header<color_name>(  name, "violet",  r );
-    color::make::white      ( r );  print_header<color_name>(  name, "white",   r );
     color::make::yellow     ( r );  print_header<color_name>(  name, "yellow",  r );
 
     color::make::aquamarine ( r );  print_header<color_name>(  name, "aquamarine",  r );
