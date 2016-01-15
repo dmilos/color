@@ -291,33 +291,6 @@
     <ClInclude Include="..\..\src\color\rgb\get\yellow.hpp">
       <Filter>Source Files\src\rgb\get</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\set\alpha.hpp">
-      <Filter>Source Files\src\rgb\set</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\set\blue.hpp">
-      <Filter>Source Files\src\rgb\set</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\set\cyan.hpp">
-      <Filter>Source Files\src\rgb\set</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\set\gray.hpp">
-      <Filter>Source Files\src\rgb\set</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\set\green.hpp">
-      <Filter>Source Files\src\rgb\set</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\set\magenta.hpp">
-      <Filter>Source Files\src\rgb\set</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\set\red.hpp">
-      <Filter>Source Files\src\rgb\set</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\set\set.hpp">
-      <Filter>Source Files\src\rgb\set</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\set\yellow.hpp">
-      <Filter>Source Files\src\rgb\set</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\cmy\set\alpha.hpp">
       <Filter>Source Files\src\cmy\set</Filter>
     </ClInclude>
@@ -1857,6 +1830,21 @@
     <ClInclude Include="..\..\src\color\color.pp2f.hpp">
       <Filter>Source Files\src</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\set\gray.hpp">
+      <Filter>Source Files\src\rgb\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\set\green.hpp">
+      <Filter>Source Files\src\rgb\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\set\blue.hpp">
+      <Filter>Source Files\src\rgb\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\set\red.hpp">
+      <Filter>Source Files\src\rgb\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\rgb\set\set.hpp">
+      <Filter>Source Files\src\rgb\set</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -1869,6 +1857,9 @@
       <Filter>Source Files\main</Filter>
     </ClCompile>
     <ClCompile Include="conversion.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="selfie.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
   </ItemGroup>
