@@ -180,6 +180,9 @@ int main(int argc, char const *argv[])
   void test_selfie();
   test_selfie();
 
+  void test_set();
+  test_set();
+
   return 0;
  }
 

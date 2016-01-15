@@ -174,21 +174,20 @@ template < template<typename> class color_name >
 
     color::make::black      ( r );  print_header<color_name>(  name, "black",   r );
     color::make::white      ( r );  print_header<color_name>(  name, "white",   r );
-
-    color::make::aqua       ( r );  print_header<color_name>(  name, "aqua",    r );
+    color::make::red        ( r );  print_header<color_name>(  name, "red",     r );
+    color::make::lime       ( r );  print_header<color_name>(  name, "lime",    r );
     color::make::blue       ( r );  print_header<color_name>(  name, "blue",    r );
+    color::make::aqua       ( r );  print_header<color_name>(  name, "aqua",    r );
     color::make::cyan       ( r );  print_header<color_name>(  name, "cyan",    r );
     color::make::fuchsia    ( r );  print_header<color_name>(  name, "fuchsia", r );
     color::make::gray50     ( r );  print_header<color_name>(  name, "gray50",  r );
     color::make::green      ( r );  print_header<color_name>(  name, "green",   r );
-    color::make::lime       ( r );  print_header<color_name>(  name, "lime",    r );
     color::make::magenta    ( r );  print_header<color_name>(  name, "magenta", r );
     color::make::maroon     ( r );  print_header<color_name>(  name, "maroon",  r );
     color::make::navy       ( r );  print_header<color_name>(  name, "navy",    r );
     color::make::olive      ( r );  print_header<color_name>(  name, "olive",   r );
     color::make::orange     ( r );  print_header<color_name>(  name, "orange",  r );
     color::make::purple     ( r );  print_header<color_name>(  name, "purple",  r );
-    color::make::red        ( r );  print_header<color_name>(  name, "red",     r );
     color::make::silver     ( r );  print_header<color_name>(  name, "silver",  r );
     color::make::teal       ( r );  print_header<color_name>(  name, "teal",    r );
     color::make::violet     ( r );  print_header<color_name>(  name, "violet",  r );

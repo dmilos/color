@@ -5,12 +5,13 @@
 
 namespace color
  {
-  
+
   namespace type
    {
-    struct normal_t {};
-   }
 
+    struct normal_t {};
+
+   }
  }
 
 #endif

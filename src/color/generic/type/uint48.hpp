@@ -5,7 +5,6 @@
 
 namespace color
  {
-  
   namespace type
    {
 
@@ -16,7 +15,6 @@ namespace color
     typedef std::array< std::uint16_t, 3 > uint48s_t;
 
    }
-
  }
 
-#endif 
+#endif

@@ -6,6 +6,8 @@
 #include "../../generic/operation/operation.hpp"
 #include "../../generic/trait/scalar.hpp"
 
+#include "../../_internal/normalize.hpp"
+
  
  namespace color
   {
@@ -23,19 +25,20 @@
             void
             gray
              (
-                       ::color::_internal::model< category_name >                                   & color_parameter,
-              typename ::color::trait::component< category_name >::input_const_type         component_parameter
+                       ::color::_internal::model< category_name >                                     & color_parameter,
+              typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::input_const_type         component_parameter
              )
              {
               typedef ::color::trait::scalar< category_name >::instance_type scalar_type;
-              typedef ::color::_internal::trait< category_name > trait_type;
+              typedef typename ::color::akin::gray<category_name >::akin_type     akin_type;
+              typedef ::color::_internal::normalize< akin_type > normalize_type; 
 
               scalar_type value =
-                   ( 0.2126 * ( color_parameter.template get<0>() - trait_type::template minimum<0>() ) ) / trait_type::template range<0>()
-                 + ( 0.7152 * ( color_parameter.template get<1>() - trait_type::template minimum<1>() ) ) / trait_type::template range<1>()
-                 + ( 0.0722 * ( color_parameter.template get<2>() - trait_type::template minimum<2>() ) ) / trait_type::template range<2>();
+                   ( 0.2126729 * normalize_type::template process<0>( color_parameter.template get<0>() ) 
+                 + ( 0.7151522 * normalize_type::template process<0>( color_parameter.template get<1>() ) 
+                 + ( 0.0721750 * normalize_type::template process<0>( color_parameter.template get<2>() ) ;
 
-              value = scalar_type( component_parameter - trait_type::template minimum<0>() ) / trait_type::template range<0>()  / value;
+              value = normalize_type::template process<0>( component_parameter )  / value;
 
               ::color::operation::scale( color_parameter, value );
              }
