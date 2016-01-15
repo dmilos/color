@@ -29,7 +29,7 @@
               typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::input_const_type         component_parameter
              )
              {
-              typedef ::color::trait::scalar< category_name >::instance_type scalar_type;
+              typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
               typedef typename ::color::akin::gray<category_name >::akin_type     akin_type;
               typedef ::color::_internal::normalize< akin_type > normalize_type; 
 
