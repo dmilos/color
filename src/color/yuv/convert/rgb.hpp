@@ -2,7 +2,11 @@
 #define color_yuv_convert_rgb
 
 #include "../../_internal/convert.hpp"
-#include "../../rgb/rgb.hpp"
+#include "../../rgb/category.hpp"
+#include "../../rgb/trait/container.hpp"
+
+#include "../category.hpp"
+#include "../constant.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -31,17 +35,19 @@ namespace color
            typedef ::color::_internal::diverse< category_left_type >    diverse_type;
            typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+           typedef ::color::constant::yuv< category_left_name >  yuv_const_type;
+
            static void process
             (
               container_left_input_type         left
              ,container_right_const_input_type  right
             )
             {
-             static scalar_type const Wr = 0.299;
-             static scalar_type const Wb = 0.114;
-             static scalar_type const Wg = 1.0-Wr-Wb;
-             static scalar_type const Umax = 0.436;
-             static scalar_type const Vmax = 0.615;
+             static scalar_type const Wr   = yuv_const_type::Wr();
+             static scalar_type const Wb   = yuv_const_type::Wb();
+             static scalar_type const Wg   = yuv_const_type::Wg();
+             static scalar_type const Umax = yuv_const_type::Umax();
+             static scalar_type const Vmax = yuv_const_type::Vmax();
 
              scalar_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              scalar_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );

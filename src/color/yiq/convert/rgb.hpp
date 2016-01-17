@@ -2,7 +2,11 @@
 #define color_yiq_convert_rgb
 
 #include "../../_internal/convert.hpp"
-#include "../../rgb/rgb.hpp"
+#include "../../rgb/trait/container.hpp"
+#include "../../rgb/category.hpp"
+
+#include "../category.hpp"
+#include "../constant.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -25,6 +29,8 @@ namespace color
            typedef ::color::trait::container<category_left_type>     container_left_trait_type;
            typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
+           typedef ::color::constant::yiq< category_right_name > yiq_const_type; 
+
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
@@ -37,9 +43,9 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             static scalar_type const b11 = 0.2990000000000000000, b12 =  0.5870000000000000000, b13 =  0.1140000000000000000;
-             static scalar_type const b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
-             static scalar_type const b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 =  0.3111346431714933019;
+             static scalar_type b11 = yiq_const_type::b11(), b12 = yiq_const_type::b12(), b13 = yiq_const_type::b13();
+             static scalar_type b21 = yiq_const_type::b21(), b22 = yiq_const_type::b22(), b23 = yiq_const_type::b23();
+             static scalar_type b31 = yiq_const_type::b31(), b32 = yiq_const_type::b32(), b33 = yiq_const_type::b33();
              static scalar_type const                              b32n = -b32;
 
              scalar_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );

@@ -7,6 +7,7 @@
 #include "../../rgb/trait/component.hpp"
 
 #include "../category.hpp"
+#include "../constant.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -29,16 +30,18 @@
            {
             typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
 
-            typedef typename ::color::akin::rgb<category_name >::akin_type     akin_type;
+            typedef typename ::color::akin::rgb<category_name>::akin_type     akin_type;
 
             typedef ::color::_internal::diverse< akin_type >       diverse_type;
             typedef ::color::_internal::normalize< category_name > normalize_type;
 
-            static scalar_type const Wr = 0.299;
-            static scalar_type const Wb = 0.114;
-            static scalar_type const Wg = 1.0-Wr-Wb;
-            static scalar_type const Umax = 0.436;
-            static scalar_type const Vmax = 0.615;
+            typedef ::color::constant::yuv< category_name >  yuv_const_type; 
+
+            static scalar_type const Wr   = yuv_const_type::Wr();
+            static scalar_type const Wb   = yuv_const_type::Wb();
+            static scalar_type const Wg   = yuv_const_type::Wg();
+            static scalar_type const Umax = yuv_const_type::Umax();
+            static scalar_type const Vmax = yuv_const_type::Vmax();
 
             static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg,  b23 = -Wr*(1 - Wr) / Vmax / Wg;
 

@@ -5,6 +5,7 @@
 
 #include "../../gray/akin/cmy.hpp"
 #include "../../gray/trait/component.hpp"
+#include "../../gray/constant.hpp"
 
 #include "../category.hpp"
 
@@ -34,10 +35,12 @@
             typedef ::color::_internal::diverse< akin_type >       diverse_type;
             typedef ::color::_internal::normalize< category_name > normalize_type;
 
+            typedef  ::color::constant::gray< akin_type > gray_const_type;
+
             scalar_type value =
-               0.2126729 * ( 1 - normalize_type::template process<0>( color_parameter.template get<0>() ) )
-             + 0.7151522 * ( 1 - normalize_type::template process<1>( color_parameter.template get<1>() ) )
-             + 0.0721750 * ( 1 - normalize_type::template process<2>( color_parameter.template get<2>() ) );
+               gray_const_type::Rc() * ( 1 - normalize_type::template process<0>( color_parameter.template get<0>() ) )
+             + gray_const_type::Gc() * ( 1 - normalize_type::template process<1>( color_parameter.template get<1>() ) )
+             + gray_const_type::Bc() * ( 1 - normalize_type::template process<2>( color_parameter.template get<2>() ) );
 
             return diverse_type::template process<0>( value );
            }
@@ -98,4 +101,4 @@
     }
   }
 
-#endif 
+#endif

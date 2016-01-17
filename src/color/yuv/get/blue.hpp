@@ -7,6 +7,7 @@
 #include "../../rgb/trait/component.hpp"
 
 #include "../category.hpp"
+#include "../constant.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -27,15 +28,17 @@
           typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
           blue( ::color::_internal::model< category_name > const& color_parameter  )
            {
-            typedef typename ::color::akin::rgb<category_name >::akin_type     akin_type;
-
             typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
+
+            typedef typename ::color::akin::rgb<category_name >::akin_type     akin_type;
 
             typedef ::color::_internal::diverse< akin_type >       diverse_type;
             typedef ::color::_internal::normalize< category_name > normalize_type;
  
-            static scalar_type const Wb = 0.114;
-            static scalar_type const Umax = 0.436;
+            typedef ::color::constant::yuv< category_name >  yuv_const_type; 
+
+            static scalar_type const Wb   = yuv_const_type::Wb();
+            static scalar_type const Umax = yuv_const_type::Umax();
 
             static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax),          b33 = 0;
 

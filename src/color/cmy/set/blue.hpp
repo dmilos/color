@@ -3,39 +3,39 @@
 
 // ::color::set::blue( c, val )
 
+#include "../../rgb/akin/cmy.hpp"
+#include "../../rgb/trait/component.hpp"
+
+#include "../category.hpp"
+
+#include "../../generic/operation/invert.hpp"
+#include "../../_internal/reformat.hpp"
+#include "../../generic/trait/scalar.hpp"
+
  namespace color
   {
    namespace set
     {
-     namespace _internal
+     namespace _privateCMY
       {
-       namespace cmy
-        {
-         namespace _internal
-          {
 
-           template< typename category_name >
-            inline
-            void
-            blue
-             ( 
-                       ::color::_internal::model< category_name >                                   & color_parameter,
-              typename ::color::_internal::model< category_name >::component_input_const_type         component_parameter
-             )
-             {
-              typedef ::color::_internal::model< category_name > model_type;
-              typedef ::color::_internal::trait< category_name > trait_type;
-              typedef typename  trait_type::component_type component_type;
+       template< typename category_name >
+        inline
+        void
+        blue
+         ( 
+                    ::color::_internal::model< category_name >                                   & color_parameter
+          ,typename ::color::_internal::model< category_name >::component_input_const_type         component_parameter
+         )
+         {
+          typedef typename ::color::akin::rgb<category_name >::akin_type     akin_type;
 
-              component_type new_component;;
+          typedef  ::color::operation::_internal::invert< akin_type > invert_type; 
+          typedef  ::color::_internal::reformat<category_name, akin_type > reformat_type;
 
-              new_component = ( trait_type::template range<2>() - ( component_parameter - trait_type::template minimum<2>() ) ) + trait_type::template  minimum<2>();
+          color_parameter.template set<2>( reformat_type::template process<2,2>( invert_type::template component<2>( component_parameter ) ) );
+         }
 
-              color_parameter.template set<2>( new_component );
-             }
-
-          }
-        }
       }
 
       inline
@@ -46,7 +46,7 @@
          ::color::_internal::model< ::color::category::cmy_uint8 >::component_input_const_type         component_parameter
        )
        {
-        ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint8>( color_parameter, component_parameter );
+        ::color::set::_privateCMY::blue<::color::category::cmy_uint8>( color_parameter, component_parameter );
        };
 
       inline
@@ -57,7 +57,7 @@
          ::color::_internal::model< ::color::category::cmy_uint16 >::component_input_const_type         component_parameter
        )
        {
-        ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint16>( color_parameter, component_parameter );
+        ::color::set::_privateCMY::blue<::color::category::cmy_uint16>( color_parameter, component_parameter );
        };
 
       inline
@@ -68,7 +68,7 @@
          ::color::_internal::model< ::color::category::cmy_uint32 >::component_input_const_type         component_parameter
        )
        {
-        ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint32>( color_parameter, component_parameter );
+        ::color::set::_privateCMY::blue<::color::category::cmy_uint32>( color_parameter, component_parameter );
        };
 
       inline
@@ -79,7 +79,7 @@
          ::color::_internal::model< ::color::category::cmy_uint64 >::component_input_const_type         component_parameter
        )
        {
-        ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint64>( color_parameter, component_parameter );
+        ::color::set::_privateCMY::blue<::color::category::cmy_uint64>( color_parameter, component_parameter );
        };
 
       inline
@@ -90,7 +90,7 @@
          ::color::_internal::model< ::color::category::cmy_float >::component_input_const_type         component_parameter
        )
        {
-        ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_float>( color_parameter, component_parameter );
+        ::color::set::_privateCMY::blue<::color::category::cmy_float>( color_parameter, component_parameter );
        };
 
       inline
@@ -101,7 +101,7 @@
          ::color::_internal::model< ::color::category::cmy_double >::component_input_const_type         component_parameter
        )
        {
-        ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_double>( color_parameter, component_parameter );
+        ::color::set::_privateCMY::blue<::color::category::cmy_double>( color_parameter, component_parameter );
        };
 
       inline
@@ -112,7 +112,7 @@
          ::color::_internal::model< ::color::category::cmy_ldouble >::component_input_const_type         component_parameter
        )
        {
-        ::color::set::_internal::cmy::_internal::blue<::color::category::cmy_ldouble>( color_parameter, component_parameter );
+        ::color::set::_privateCMY::blue<::color::category::cmy_ldouble>( color_parameter, component_parameter );
        };
 
     }

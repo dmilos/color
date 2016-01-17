@@ -3,7 +3,7 @@
 
 // ::color::get::gray( c )
 
-#include "../../gray/akin/gray.hpp"
+#include "../../gray/akin/cmyk.hpp"
 #include "../../gray/trait/component.hpp"
 
 #include "../category.hpp"
@@ -34,7 +34,7 @@
             typedef ::color::_internal::diverse< akin_type >    diverse_type;
             typedef ::color::_internal::normalize< category_name > normalize_type;
  
-            scalar_type value =
+            scalar_type value = /* TODO */
                  0.2126 * normalize_type::template process<0>( color_parameter.template get<0>() )
                + 0.7152 * normalize_type::template process<1>( color_parameter.template get<1>() )
                + 0.0722 * normalize_type::template process<2>( color_parameter.template get<2>() );

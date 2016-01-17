@@ -25,7 +25,7 @@
          template< typename category_name >
           inline
           typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
-          red( ::color::_internal::model< category_name > const& color_parameter  )
+          red( ::color::_internal::model< category_name > const& color_parameter )
            {
             typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
 

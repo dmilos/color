@@ -4,6 +4,9 @@
 #include "../../_internal/convert.hpp"
 #include "../../cmy/cmy.hpp"
 
+#include "../category.hpp"
+#include "../constant.hpp"
+
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
 
@@ -30,6 +33,8 @@ namespace color
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+           typedef  ::color::constant::gray< category_left_name > gray_const_type;
+
            static void process
             (
               container_left_input_type         left
@@ -37,9 +42,9 @@ namespace color
             )
             {
              scalar_name value =
-                   0.2126729 * ( 1 - normalize_type::template process<0> ( container_right_trait_type::template get<0>( right ) ) )
-                 + 0.7151522 * ( 1 - normalize_type::template process<1> ( container_right_trait_type::template get<1>( right ) ) )
-                 + 0.0721750 * ( 1 - normalize_type::template process<2> ( container_right_trait_type::template get<2>( right ) ) );
+                   gray_const_type::Rc() * ( 1 - normalize_type::template process<0> ( container_right_trait_type::template get<0>( right ) ) )
+                 + gray_const_type::Gc() * ( 1 - normalize_type::template process<1> ( container_right_trait_type::template get<1>( right ) ) )
+                 + gray_const_type::Bc() * ( 1 - normalize_type::template process<2> ( container_right_trait_type::template get<2>( right ) ) );
 
              container_left_trait_type::template set<0>( left,  diverse_type::template process<0>( value ) );
             }

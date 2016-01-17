@@ -4,6 +4,9 @@
 #include "../../_internal/convert.hpp"
 #include "../../cmyk/cmyk.hpp"
 
+#include "../category.hpp"
+#include "../constant.hpp"
+
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
 
@@ -20,7 +23,7 @@ namespace color
          public:
            typedef category_left_name category_left_type;
            typedef category_right_name category_right_type;
-           typedef scalar_name scalar_type; 
+           typedef scalar_name scalar_type;
 
            typedef ::color::trait::container<category_left_type>     container_left_trait_type;
            typedef ::color::trait::container<category_right_type>    container_right_trait_type;
@@ -30,6 +33,8 @@ namespace color
 
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+
+           typedef  ::color::constant::gray< category_left_name > gray_const_type;
 
            static void process
             (
@@ -43,9 +48,9 @@ namespace color
              scalar_type k = normalize_type::template process<3>( container_right_trait_type::template get<3>( right ) );
 
             scalar_type value =
-               ( 0.2126729 * (1-c) 
-               + 0.7151522 * (1-m) 
-               + 0.0721750 * (1-y) ) * (1-k);
+               ( gray_const_type::Rc() * (1-c)
+               + gray_const_type::Gc() * (1-m)
+               + gray_const_type::Bc() * (1-y) ) * (1-k);
 
              container_left_trait_type::template set<0>( left,  diverse_type::template process<0>( value ) );
             }

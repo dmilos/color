@@ -1,6 +1,3 @@
-#ifndef color_color_body
-#define color_color_body
-
 
 #include "./generic/generic.hpp"
 #include "./generic/operation/operation.hpp"
@@ -17,5 +14,3 @@
 
 using namespace ::color::operation::arithmetic;
 using namespace ::color::compare;
-
-#endif

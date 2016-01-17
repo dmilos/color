@@ -11,7 +11,7 @@
 //#include "./set/set.hpp"
 #include "./make/make.hpp"
 #include "./convert/convert.hpp"
-
+#include "./constant.hpp"
 
 namespace color
  {

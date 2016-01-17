@@ -7,6 +7,7 @@
 #include "../../rgb/trait/component.hpp"
 
 #include "../category.hpp"
+#include "../constant.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -28,15 +29,14 @@
           green( ::color::_internal::model< category_name > const& color_parameter  )
            {
             typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
+            typedef typename ::color::akin::rgb<category_name >::akin_type          akin_type;
 
-            typedef typename ::color::akin::rgb<category_name >::akin_type     akin_type;
+            typedef ::color::constant::yiq< category_name > yiq_const_type;
 
             typedef ::color::_internal::diverse< akin_type >       diverse_type;
             typedef ::color::_internal::normalize< category_name > normalize_type;
- 
-            static scalar_type b11 = 1,                     b12 =  0.9562948323208939905, b13 =  0.6210251254447287141;
-            static scalar_type b21 = 1,                     b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-            static scalar_type b31 = 1,                     b32 = -1.1069899085671282160, b33 =  1.7046149754988293290;
+
+            static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
 
             scalar_type y = normalize_type::template process<0>( color_parameter.template get<0>() );
             scalar_type i = normalize_type::template process<1>( color_parameter.template get<1>() );
@@ -45,9 +45,9 @@
             i = ( scalar_type(2) * i - scalar_type(1) ) * 0.5957161349127745527;
             q = ( scalar_type(2) * q - scalar_type(1) ) * 0.5225910452916111683;
 
-            scalar_type g = b21 * y + b22 * i + b23 * q;
+            scalar_type g = a21 * y + a22 * i + a23 * q;
 
-            return diverse_type::template process<0>( g );
+            return diverse_type::template process<1>( g );
            }
 
         }

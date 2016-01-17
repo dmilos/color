@@ -6,3 +6,4 @@
 #include "./operation/operation.hpp"
 #include "./set/set.hpp"
 #include "./trait/trait.hpp"
+#include "./constant.hpp"

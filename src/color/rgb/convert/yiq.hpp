@@ -2,7 +2,9 @@
 #define color_rgb_convert_yiq
 
 #include "../../_internal/convert.hpp"
-#include "../../yiq/yiq.hpp"
+#include "../../yiq/trait/container.hpp"
+#include "../../yiq/category.hpp"
+#include "../../yiq/constant.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -28,6 +30,8 @@ namespace color
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+           typedef ::color::constant::yiq< category_right_name > yiq_const_type;
+
            typedef ::color::_internal::diverse< category_left_type >    diverse_type;
            typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
@@ -37,9 +41,9 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             static scalar_type b11 = 1,                     b12 =  0.9562948323208939905, b13 =  0.6210251254447287141;
-             static scalar_type b21 = 1,                     b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-             static scalar_type b31 = 1,                     b32 = -1.1069899085671282160, b33 =  1.7046149754988293290;
+             static scalar_type a11 = yiq_const_type::a11(), a12 = yiq_const_type::a12(), a13 = yiq_const_type::a13();
+             static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
+             static scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
 
              scalar_type y = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              scalar_type i = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
@@ -48,9 +52,9 @@ namespace color
              i = ( scalar_type(2) * i - scalar_type(1) ) * 0.5957161349127745527;
              q = ( scalar_type(2) * q - scalar_type(1) ) * 0.5225910452916111683;
 
-             scalar_type r = b11 * y + b12 * i + b13 * q;
-             scalar_type g = b21 * y + b22 * i + b23 * q;
-             scalar_type b = b31 * y + b32 * i + b33 * q;
+             scalar_type r = a11 * y + a12 * i + a13 * q;
+             scalar_type g = a21 * y + a22 * i + a23 * q;
+             scalar_type b = a31 * y + a32 * i + a33 * q;
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( r ) );
              container_left_trait_type::template set<1>( left, diverse_type::template process<1>( g ) );

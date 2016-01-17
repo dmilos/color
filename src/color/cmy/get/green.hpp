@@ -31,7 +31,7 @@
 
             typedef typename ::color::akin::rgb<category_name >::akin_type     akin_type;
 
-            typedef  ::color::operation::_internal::invert< category_name > invert_type; 
+            typedef  ::color::operation::_internal::invert< category_name > invert_type;
             typedef  ::color::_internal::reformat< akin_type, category_name, scalar_type > reformat_type;
 
             return reformat_type::template process<1,1>( invert_type::template component<1>( color_parameter.template get<1>() ) );
@@ -44,49 +44,49 @@
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint8 >::akin_type >::return_type
       green( ::color::_internal::model< ::color::category::cmy_uint8 > const& color_parameter )
        {
-        return ::color::get::_internal::cmy::_internal::green<::color::category::cmy_uint8>( color_parameter );
+        return ::color::get::_internal::_privateCMY::green<::color::category::cmy_uint8>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint16 >::akin_type >::return_type
       green( ::color::_internal::model< ::color::category::cmy_uint16 > const& color_parameter )
        {
-        return ::color::get::_internal::cmy::_internal::green<::color::category::cmy_uint16>( color_parameter );
+        return ::color::get::_internal::_privateCMY::green<::color::category::cmy_uint16>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint32 >::akin_type >::return_type
       green( ::color::_internal::model< ::color::category::cmy_uint32 > const& color_parameter )
        {
-        return ::color::get::_internal::cmy::_internal::green<::color::category::cmy_uint32>( color_parameter );
+        return ::color::get::_internal::_privateCMY::green<::color::category::cmy_uint32>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint64 >::akin_type >::return_type
       green( ::color::_internal::model< ::color::category::cmy_uint64 > const& color_parameter )
        {
-        return ::color::get::_internal::cmy::_internal::green<::color::category::cmy_uint64>( color_parameter );
+        return ::color::get::_internal::_privateCMY::green<::color::category::cmy_uint64>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_float >::akin_type >::return_type
       green( ::color::_internal::model< ::color::category::cmy_float > const& color_parameter )
        {
-        return ::color::get::_internal::cmy::_internal::green<color::category::cmy_float>( color_parameter );
+        return ::color::get::_internal::_privateCMY::green<color::category::cmy_float>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_double >::akin_type >::return_type
       green( ::color::_internal::model< ::color::category::cmy_double > const& color_parameter )
        {
-        return ::color::get::_internal::cmy::_internal::green<::color::category::cmy_double>( color_parameter );
+        return ::color::get::_internal::_privateCMY::green<::color::category::cmy_double>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_ldouble >::akin_type >::return_type
       green( ::color::_internal::model< color::category::cmy_ldouble > const& color_parameter )
        {
-        return ::color::get::_internal::cmy::_internal::green<::color::category::cmy_ldouble>( color_parameter );
+        return ::color::get::_internal::_privateCMY::green<::color::category::cmy_ldouble>( color_parameter );
        }
 
 

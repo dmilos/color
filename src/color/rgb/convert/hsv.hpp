@@ -36,7 +36,7 @@ namespace color
               container_left_input_type         left
              ,container_right_const_input_type  right
             )
-            { // TODO divide by 0.17697
+            {
              scalar_type h = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              scalar_type s = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
              scalar_type v = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
