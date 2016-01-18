@@ -1,7 +1,7 @@
 #ifndef color_akin_hsv
 #define color_akin_hsv
 
-// color::akin::hsv< non_hsv_category >::akin_type;
+// ::color::akin::hsv< non_hsv_category >::akin_type;
 
 namespace color
  {

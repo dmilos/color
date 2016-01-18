@@ -49,42 +49,42 @@
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint16 >::akin_type >::return_type
-      blue( ::color::_internal::model< color::category::cmy_uint16 > const& color_parameter )
+      blue( ::color::_internal::model< ::color::category::cmy_uint16 > const& color_parameter )
        {
         return ::color::get::_internal::_privateCMY::blue<color::category::cmy_uint16>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint32 >::akin_type >::return_type
-      blue( ::color::_internal::model< color::category::cmy_uint32 > const& color_parameter )
+      blue( ::color::_internal::model< ::color::category::cmy_uint32 > const& color_parameter )
        {
         return ::color::get::_internal::_privateCMY::blue<color::category::cmy_uint32>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint64 >::akin_type >::return_type
-      blue( ::color::_internal::model< color::category::cmy_uint64 > const& color_parameter )
+      blue( ::color::_internal::model< ::color::category::cmy_uint64 > const& color_parameter )
        {
         return ::color::get::_internal::_privateCMY::blue<color::category::cmy_uint64>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_float >::akin_type >::return_type
-      blue( ::color::_internal::model< color::category::cmy_float > const& color_parameter )
+      blue( ::color::_internal::model< ::color::category::cmy_float > const& color_parameter )
        {
         return ::color::get::_internal::_privateCMY::blue<color::category::cmy_float>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_double >::akin_type >::return_type
-      blue( ::color::_internal::model< color::category::cmy_double > const& color_parameter )
+      blue( ::color::_internal::model< ::color::category::cmy_double > const& color_parameter )
        {
         return ::color::get::_internal::_privateCMY::blue<color::category::cmy_double>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_ldouble >::akin_type >::return_type
-      blue( ::color::_internal::model< color::category::cmy_ldouble > const& color_parameter )
+      blue( ::color::_internal::model< ::color::category::cmy_ldouble > const& color_parameter )
        {
         return ::color::get::_internal::_privateCMY::blue<color::category::cmy_ldouble>( color_parameter );
        }

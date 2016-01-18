@@ -2,6 +2,8 @@
 #define color_contant_yiq
 
 // ::color::constant::yiq< typename ::color::akin::yiq< category_name >::akin_type >::()
+// ::color::constant::yiq< category_name >::q_max()
+
 
 #include "./category.hpp"
 #include "./trait/scalar.hpp"
@@ -20,7 +22,7 @@ namespace color
 
          typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
-         typedef  color::constant::yiq<category_type> this_type;
+         typedef ::color::constant::yiq<category_type> this_type;
 
          // to RGB
          static /* constexpr*/ scalar_type const a11(){ return  1.0000000000000000000; }
@@ -43,6 +45,14 @@ namespace color
          static /* constexpr*/ scalar_type const b31(){ return  0.2114564021201178664; }
          static /* constexpr*/ scalar_type const b32(){ return -0.5225910452916111683; }
          static /* constexpr*/ scalar_type const b33(){ return  0.3111346431714933019; }
+
+         static /* constexpr*/ scalar_type const i_min()  { return  -0.5957161349127745527; }
+         static /* constexpr*/ scalar_type const i_max()  { return   0.5957161349127745527; }
+         static /* constexpr*/ scalar_type const i_range(){ return 2*0.5957161349127745527; }
+
+         static /* constexpr*/ scalar_type const q_min()  { return - 0.5225910452916111683; }
+         static /* constexpr*/ scalar_type const q_max()  { return   0.5225910452916111683; }
+         static /* constexpr*/ scalar_type const q_range(){ return 2*0.5225910452916111683; }
 
       };
 

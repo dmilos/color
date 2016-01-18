@@ -1,7 +1,7 @@
 #ifndef color__internal_utility_index
 #define color__internal_utility_index
 
-// color::_internal::utility::type::index< index_name >
+// ::color::_internal::utility::type::index< index_name >
 
 namespace color
  {

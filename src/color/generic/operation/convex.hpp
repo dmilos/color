@@ -53,24 +53,24 @@
      template< typename category_name, typename scalar_name >
       void convex
        (
-         color::_internal::model<category_name>      & result
+         ::color::_internal::model<category_name>      & result
         ,scalar_name                            const& scalar
         ,color::_internal::model<category_name> const& right
        )
        {
-        color::operation::_internal::convex<category_name>::process( result, scalar, right );
+        ::color::operation::_internal::convex<category_name>::process( result, scalar, right );
        }
 
      template< typename category_name, typename scalar_name >
       void convex
        (
-         color::_internal::model<category_name>      & result
+         ::color::_internal::model<category_name>      & result
         ,color::_internal::model<category_name> const& left
         ,scalar_name                            const& scalar
         ,color::_internal::model<category_name> const& right
        )
        {
-        color::operation::_internal::convex<category_name>::process( result, left, scalar, right );
+        ::color::operation::_internal::convex<category_name>::process( result, left, scalar, right );
        }
 
 

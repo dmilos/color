@@ -1,6 +1,6 @@
 #ifndef color__internal_model_87845cb9_e99c_4016_b1e9_148e6e094f40
 #define color__internal_model_87845cb9_e99c_4016_b1e9_148e6e094f40
-// color::_internal::model< category >
+// ::color::_internal::model< category >
 
 
 #include "./trait.hpp"

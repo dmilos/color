@@ -1,7 +1,7 @@
 #ifndef color_yuv_category_
 #define color_yuv_category_
 
-// color::category::yuv_ABC;
+// ::color::category::yuv_ABC;
 
 namespace color
  {

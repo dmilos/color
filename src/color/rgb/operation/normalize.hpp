@@ -1,7 +1,7 @@
 #ifndef color_rgb_operation_normalize
 #define color_rgb_operation_normalize
 
-// color::operation::normalize<::color::category::rgb_* >
+// ::color::operation::normalize<::color::category::rgb_* >
 
 #include "../../generic/operation/normalize.hpp"
 #include "../category.hpp"

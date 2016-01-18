@@ -21,7 +21,7 @@ namespace color
     template< typename type_name >
      struct pick_gray
       {
-       typedef color::category::gray_uint32 category_type;
+       typedef ::color::category::gray_uint32 category_type;
       };
 
     template<> struct pick_gray< bool           >{ typedef ::color::category::gray_bool    category_type; };
@@ -35,7 +35,7 @@ namespace color
    }
 
   template< typename type_name >
-   using gray = color::_internal::model< typename color::_internal::pick_gray< type_name >::category_type >;
+   using gray = ::color::_internal::model< typename ::color::_internal::pick_gray< type_name >::category_type >;
 
  }
 

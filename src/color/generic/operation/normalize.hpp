@@ -1,7 +1,7 @@
 #ifndef color_operation_normalize
 #define color_operation_normalize
 
-// color::operation::normalize<category_name>
+// ::color::operation::normalize<category_name>
 
 #include "../../_internal/model.hpp"
 #include "../../_internal/normalize.hpp"

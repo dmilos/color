@@ -84,7 +84,7 @@
 
       inline
       ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_ldouble >::akin_type >::return_type
-      green( ::color::_internal::model< color::category::cmy_ldouble > const& color_parameter )
+      green( ::color::_internal::model< ::color::category::cmy_ldouble > const& color_parameter )
        {
         return ::color::get::_internal::_privateCMY::green<::color::category::cmy_ldouble>( color_parameter );
        }

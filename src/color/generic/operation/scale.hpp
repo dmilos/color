@@ -1,7 +1,7 @@
 #ifndef  color_generic_operation_scale_123
 #define color_generic_operation_scale_123
-// color::operation::scale( )
-// color::operation::scale( )
+// ::color::operation::scale( )
+// ::color::operation::scale( )
 
 #include "../../_internal/model.hpp"
 

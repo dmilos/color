@@ -1,7 +1,7 @@
 #ifndef  color_generic_operation_operator_123
 #define color_generic_operation_operator_123
-// using namespace  color::operation::arithmetic
-// using namespace  color::operation::compare
+// using namespace  ::color::operation::arithmetic
+// using namespace  ::color::operation::compare
 
 
 #include "./addition.hpp"

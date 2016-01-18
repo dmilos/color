@@ -21,7 +21,7 @@ namespace color
     template< typename type_name >
      struct pick_cmyk
       {
-       typedef color::category::cmyk_uint32 category_type;
+       typedef ::color::category::cmyk_uint32 category_type;
       };
 
 
@@ -35,7 +35,7 @@ namespace color
    }
 
   template< typename type_name >
-   using cmyk = color::_internal::model< typename color::_internal::pick_cmyk< type_name >::category_type >;
+   using cmyk = ::color::_internal::model< typename ::color::_internal::pick_cmyk< type_name >::category_type >;
 
  }
 

@@ -104,7 +104,7 @@
 
       inline
       ::color::trait::component< ::color::akin::rgb<::color::category::yuv_ldouble>::akin_type >::return_type
-      green( ::color::_internal::model< color::category::yuv_ldouble > const& color_parameter )
+      green( ::color::_internal::model< ::color::category::yuv_ldouble > const& color_parameter )
        {
         return ::color::get::_internal::_privateYUV::green<color::category::yuv_ldouble>( color_parameter );
        }

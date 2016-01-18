@@ -1,7 +1,7 @@
 #ifndef color_rgb_category_
 #define color_rgb_category_
 
-// color::category::rgb_ABC;
+// ::color::category::rgb_ABC;
 
 namespace color
  {

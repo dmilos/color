@@ -1,7 +1,7 @@
 #ifndef color_generic_akin_rgb
 #define color_generic_akin_rgb
 
-// color::akin::rgb< non_rgb_category >::akin_cetegory_type;
+// ::color::akin::rgb< non_rgb_category >::akin_cetegory_type;
 
 namespace color
  {

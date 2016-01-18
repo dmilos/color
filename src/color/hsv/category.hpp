@@ -1,7 +1,7 @@
 #ifndef color_hsv_category_
 #define color_hsv_category_
 
-// color::category::hsv_ABC;
+// ::color::category::hsv_ABC;
 
 namespace color
  {

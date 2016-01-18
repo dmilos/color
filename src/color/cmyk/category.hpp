@@ -1,7 +1,7 @@
 #ifndef color_cmyk_category_
 #define color_cmyk_category_
 
-// color::category::cmyk_ABC;
+// ::color::category::cmyk_ABC;
 
 namespace color
  {

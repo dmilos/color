@@ -75,7 +75,7 @@
 
       inline
       ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_float>::akin_type >::return_type
-      red( ::color::_internal::model< color::category::cmyk_float > const& color_parameter )
+      red( ::color::_internal::model< ::color::category::cmyk_float > const& color_parameter )
        {
         return ::color::get::_internal::_privateCMYK::red<color::category::cmyk_float>( color_parameter );
        }

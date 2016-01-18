@@ -38,49 +38,49 @@
 
       inline
       ::color::trait::component< ::color::akin::gray< ::color::category::yuv_uint8 >::akin_type >::return_type
-      gray( ::color::_internal::model< color::category::yuv_uint8 > const& color_parameter )
+      gray( ::color::_internal::model< ::color::category::yuv_uint8 > const& color_parameter )
        {
         return ::color::get::_internal::_privateYUV::gray<color::category::yuv_uint8>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::gray< ::color::category::yuv_uint16 >::akin_type >::return_type
-      gray( ::color::_internal::model< color::category::yuv_uint16 > const& color_parameter )
+      gray( ::color::_internal::model< ::color::category::yuv_uint16 > const& color_parameter )
        {
         return ::color::get::_internal::_privateYUV::gray<color::category::yuv_uint16>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::gray< ::color::category::yuv_uint32 >::akin_type >::return_type
-      gray( ::color::_internal::model< color::category::yuv_uint32 > const& color_parameter )
+      gray( ::color::_internal::model< ::color::category::yuv_uint32 > const& color_parameter )
        {
         return ::color::get::_internal::_privateYUV::gray<color::category::yuv_uint32>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::gray< ::color::category::yuv_uint64 >::akin_type >::return_type
-      gray( ::color::_internal::model< color::category::yuv_uint64 > const& color_parameter )
+      gray( ::color::_internal::model< ::color::category::yuv_uint64 > const& color_parameter )
        {
         return ::color::get::_internal::_privateYUV::gray<color::category::yuv_uint64>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::gray< ::color::category::yuv_float >::akin_type >::return_type
-      gray( ::color::_internal::model< color::category::yuv_float > const& color_parameter )
+      gray( ::color::_internal::model< ::color::category::yuv_float > const& color_parameter )
        {
         return ::color::get::_internal::_privateYUV::gray<color::category::yuv_float>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::gray< ::color::category::yuv_double >::akin_type >::return_type
-      gray( ::color::_internal::model< color::category::yuv_double > const& color_parameter )
+      gray( ::color::_internal::model< ::color::category::yuv_double > const& color_parameter )
        {
         return ::color::get::_internal::_privateYUV::gray<color::category::yuv_double>( color_parameter );
        }
 
       inline
       ::color::trait::component< ::color::akin::gray< ::color::category::yuv_ldouble >::akin_type >::return_type
-      gray( ::color::_internal::model< color::category::yuv_ldouble > const& color_parameter )
+      gray( ::color::_internal::model< ::color::category::yuv_ldouble > const& color_parameter )
        {
         return ::color::get::_internal::_privateYUV::gray<color::category::yuv_ldouble>( color_parameter );
        }

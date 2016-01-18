@@ -76,7 +76,7 @@
          ::color::_internal::model<category_name>      & result
        )
        {
-        color::operation::_internal::clamp<category_name>::process( result );
+        ::color::operation::_internal::clamp<category_name>::process( result );
        }
 
      template< typename category_name >

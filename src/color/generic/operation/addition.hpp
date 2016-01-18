@@ -1,7 +1,7 @@
 #ifndef color_generic_operation_addition_123
 #define color_generic_operation_addition_123
-// color::operation::addition( result, right )
-// color::operation::addition( result, left, right )
+// ::color::operation::addition( result, right )
+// ::color::operation::addition( result, left, right )
 
 #include "../../_internal/trait.hpp"
 #include "../../_internal/model.hpp"
@@ -51,7 +51,7 @@
         ,::color::_internal::model<category_name> const& right
        )
        {
-        color::operation::_internal::addition<category_name>::process( result, right );
+        ::color::operation::_internal::addition<category_name>::process( result, right );
        }
 
      template< typename category_name >

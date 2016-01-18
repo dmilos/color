@@ -25,7 +25,7 @@ namespace color
               typedef index_name     index_type;
               typedef unsigned_name  instance_type;
               
-              typedef color::_internal::utility::container::Unsigned<unsigned_name,value_name,index_name,length,width> this_type;
+              typedef ::color::_internal::utility::container::Unsigned<unsigned_name,value_name,index_name,length,width> this_type;
 
               typedef instance_type const      const_type;
               typedef instance_type const&     return_image_type;

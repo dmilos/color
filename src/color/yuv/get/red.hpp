@@ -86,7 +86,7 @@
 
       inline
       ::color::trait::component< ::color::akin::rgb<::color::category::yuv_float>::akin_type >::return_type
-      red( ::color::_internal::model< color::category::yuv_float > const& color_parameter )
+      red( ::color::_internal::model< ::color::category::yuv_float > const& color_parameter )
        {
         return ::color::get::_internal::_privateYUV::red<color::category::yuv_float>( color_parameter );
        }

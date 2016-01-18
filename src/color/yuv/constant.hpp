@@ -20,7 +20,7 @@ namespace color
 
          typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
-         typedef  color::constant::yuv<category_type> this_type;
+         typedef  ::color::constant::yuv<category_type> this_type;
 
          static /* constexpr*/ scalar_type const half(){ return  0.5; }
          static /* constexpr*/ scalar_type const one() { return  1; }
@@ -29,7 +29,17 @@ namespace color
          static /* constexpr*/ scalar_type const Wg()  { return  this_type::one() - this_type::Wr()-this_type::Wb(); }
          static /* constexpr*/ scalar_type const Umax(){ return  0.436; }
          static /* constexpr*/ scalar_type const Vmax(){ return  0.615; }
-      };
+
+         static /* constexpr*/ scalar_type const u_min()  { return  -this_type::Umax(); }
+         static /* constexpr*/ scalar_type const u_max()  { return   this_type::Umax(); }
+         static /* constexpr*/ scalar_type const u_range(){ return 2*this_type::Umax(); }
+
+         static /* constexpr*/ scalar_type const v_min()  { return  -this_type::Vmax(); }
+         static /* constexpr*/ scalar_type const v_max()  { return   this_type::Vmax(); }
+         static /* constexpr*/ scalar_type const v_range(){ return 2*this_type::Vmax(); }
+
+
+         };
 
    }
  }

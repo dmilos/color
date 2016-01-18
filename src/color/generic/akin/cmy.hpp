@@ -1,7 +1,7 @@
 #ifndef color_akin_cmy
 #define color_akin_cmy
 
-// color::akin::cmy< non_cmy_category >::akin_cetegory_type;
+// ::color::akin::cmy< non_cmy_category >::akin_cetegory_type;
 
 namespace color
  {

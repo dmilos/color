@@ -1,7 +1,7 @@
 #ifndef color_yiq_category_
 #define color_yiq_category_
 
-// color::category::yiq_ABC;
+// ::color::category::yiq_ABC;
 
 namespace color
  {

@@ -1,6 +1,6 @@
 #ifndef color_generic_check_overburn
 #define color_generic_check_overburn
-// color::check::overburn< category >( model )
+// ::color::check::overburn< category >( model )
 
 #include "../../_internal/model.hpp"
 

@@ -12,9 +12,9 @@
    namespace compare
     {
      template < typename category_name >
-      bool darker( color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right )
+      bool darker( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right )
        {
-        return color::gray<float>( left ) < color::gray<float>( right );
+        return ::color::gray<float>( left ) < ::color::gray<float>( right );
        }
     }
   }

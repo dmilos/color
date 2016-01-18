@@ -1,7 +1,7 @@
 #ifndef  color_generic_operation_subtract_123
 #define color_generic_operation_subtract_123
-// color::operation::subtract( result, right )
-// color::operation::subtract( result, left, right )
+// ::color::operation::subtract( result, right )
+// ::color::operation::subtract( result, left, right )
 
 #include "../../_internal/model.hpp"
 
@@ -47,22 +47,22 @@
      template< typename category_name >
       void subtract
        (
-         color::_internal::model<category_name>      & result
+         ::color::_internal::model<category_name>      & result
         ,color::_internal::model<category_name> const& right
        )
        {
-        color::operation::_internal::subtract<category_name>::process( result, right );
+        ::color::operation::_internal::subtract<category_name>::process( result, right );
        }
 
      template< typename category_name >
       void subtract
        (
-         color::_internal::model<category_name>      & result
+         ::color::_internal::model<category_name>      & result
         ,color::_internal::model<category_name> const& left
         ,color::_internal::model<category_name> const& right
        )
        {
-        color::operation::_internal::subtract<category_name>::process( result, left, right );
+        ::color::operation::_internal::subtract<category_name>::process( result, left, right );
        }
 
     }

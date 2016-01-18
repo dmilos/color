@@ -21,7 +21,7 @@ namespace color
     template< typename type_name >
      struct pick_hsl
       {
-       typedef color::category::hsl_uint32 category_type;
+       typedef ::color::category::hsl_uint32 category_type;
       };
 
 
@@ -35,7 +35,7 @@ namespace color
    }
 
   template< typename type_name >
-   using hsl = color::_internal::model< typename color::_internal::pick_hsl< type_name >::category_type >;
+   using hsl = ::color::_internal::model< typename ::color::_internal::pick_hsl< type_name >::category_type >;
 
  }
 

@@ -20,7 +20,7 @@ namespace color
 
          typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
-         typedef  color::constant::gray<category_type> this_type;
+         typedef  ::color::constant::gray<category_type> this_type;
 
          static /* constexpr*/ scalar_type const Rc()  { return  0.2126729; }
          static /* constexpr*/ scalar_type const Gc()  { return  0.7151522; }

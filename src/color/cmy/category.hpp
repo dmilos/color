@@ -1,7 +1,7 @@
 #ifndef color_cmy_category_
 #define color_cmy_category_
 
-// color::category::cmy_ABC;
+// ::color::category::cmy_ABC;
 
 namespace color
  {

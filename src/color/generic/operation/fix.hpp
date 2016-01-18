@@ -1,7 +1,7 @@
 #ifndef color_generic_operation_fix
 #define color_generic_operation_fix
 
-// color::operation::fix< category >( )
+// ::color::operation::fix< category >( )
 
 #include "../../_internal/model.hpp"
 

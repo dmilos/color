@@ -28,7 +28,7 @@ namespace color
 
     template< >
      struct index< ::color::category::xyz_float >
-      : public color::_internal::utility::type::index< unsigned >
+      : public ::color::_internal::utility::type::index< unsigned >
       {
       };
 

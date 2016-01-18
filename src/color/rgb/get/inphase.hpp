@@ -55,22 +55,22 @@
       }
 
       inline
-      ::color::_internal::model< color::category::rgb_uint8 >::component_const_type
-      inphase( ::color::_internal::model< color::category::rgb_uint8 > const& color_parameter )
+      ::color::_internal::model< ::color::category::rgb_uint8 >::component_const_type
+      inphase( ::color::_internal::model< ::color::category::rgb_uint8 > const& color_parameter )
        {
         return ::color::get::_internal::_privateRGB::inphase<color::category::rgb_uint8>( color_parameter );
        }
 
       inline
-      ::color::_internal::model< color::category::rgb_uint16 >::component_const_type
-      inphase( ::color::_internal::model< color::category::rgb_uint16 > const& color_parameter )
+      ::color::_internal::model< ::color::category::rgb_uint16 >::component_const_type
+      inphase( ::color::_internal::model< ::color::category::rgb_uint16 > const& color_parameter )
        {
         return ::color::get::_internal::_privateRGB::inphase<color::category::rgb_uint16>( color_parameter );
        }
 
       inline
-      ::color::_internal::model< color::category::rgb_uint32 >::component_const_type
-      inphase( ::color::_internal::model< color::category::rgb_uint32 > const& color_parameter )
+      ::color::_internal::model< ::color::category::rgb_uint32 >::component_const_type
+      inphase( ::color::_internal::model< ::color::category::rgb_uint32 > const& color_parameter )
        {
         return ::color::get::_internal::_privateRGB::inphase<color::category::rgb_uint32>( color_parameter );
        }

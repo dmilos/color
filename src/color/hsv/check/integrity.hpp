@@ -1,6 +1,6 @@
 #ifndef color_hsv_check_integrity
 #define color_hsv_check_integrity
-// color::check::integrity< category >( model )
+// ::color::check::integrity< category >( model )
 
 #include "../../generic/check/integrity.hpp"
 #include "../category.hpp"
