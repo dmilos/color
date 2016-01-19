@@ -115,17 +115,20 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
         case( 0 ):
          image[y * width + x] = model_name( { diverse_type::template process<0>( plane  ),
                                               diverse_type::template process<1>( y / double(height) ),
-                                              diverse_type::template process<2>( x / double(width) ) } );
+                                              diverse_type::template process<2>( x / double(width) )
+                                              , 0.5 } );
          break;
         case( 1 ):
           image[y * width + x] = model_name( { diverse_type::template process<0>( y / double(height) ),
                                                diverse_type::template process<1>( plane ),
-                                               diverse_type::template process<2>( x / double(width) ) } );
+                                               diverse_type::template process<2>( x / double(width) )
+                                               , 0.5 } );
           break;
         case( 2 ):
           image[y * width + x] = model_name( { diverse_type::template process<0>( y / double(height) ),
                                                diverse_type::template process<1>( x / double(width) ),
-                                               diverse_type::template process<2>( plane ) } );
+                                               diverse_type::template process<2>( plane )
+                                               , 0.5 } );
           break;
        }
      }

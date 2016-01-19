@@ -25,6 +25,7 @@ template< typename category_name >
    color::operation::invert( u32a );
    color::operation::scale( u32a, 0.5 );
    color::operation::scale( u32a, 0.5, u32b );
+
    color::operation::convex( u32a, 0.5, u32b );
    color::operation::convex( u32a, u32b, 0.5, u32c );
 
@@ -39,14 +40,18 @@ template< typename category_name >
    color::operation::mix( u32b, 0.5, u32c );
    color::operation::mix<0>( u32a, u32b );
 
-   color::operation::fix( u32b );
-   color::operation::fix( u32a, u32b );
+   color::fix::integrity( u32b );
+   color::fix::integrity( u32a, u32b );
 
-   color::operation::clamp( u32b );
-   color::operation::clamp( u32a, u32b );
+   color::fix::overburn( u32b );
+   color::fix::overburn( u32a, u32b );
+
+   color::fix::unique( u32b );
+   color::fix::unique( u32a, u32b );
 
    color::check::overburn( u32b );
    color::check::integrity( u32b );
+   color::check::unique( u32b );
 
    color::operation::normalize( u32b, 1 );
    color::operation::normalize<1>( u32b );

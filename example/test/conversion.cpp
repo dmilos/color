@@ -21,9 +21,9 @@ template< typename category_left_name, typename category_right_name>
     for (long double c1 = left_type::bound_type::template minimum<1>(); c1 <= left_type::bound_type::template maximum<1>(); c1 += left_type::bound_type::template range<1>() * 0.01 )
      for (long double c2 = left_type::bound_type::template minimum<2>(); c2 <= left_type::bound_type::template maximum<2>(); c2 += left_type::bound_type::template range<2>() * 0.01 )
       {
-       left.template set<0>( 0.10999999999999999 );
-       left.template set<1>( 0.10999999999999999 );
-       left.template set<2>( 0.10999999999999999 );
+       left.template set<0>( c0 );
+       left.template set<1>( c1 );
+       left.template set<2>( c2 );
 
        if( 4 == left.size() )
         {
