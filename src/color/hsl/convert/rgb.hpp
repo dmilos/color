@@ -2,7 +2,11 @@
 #define color_hsl_convert_rgb
 
 #include "../../_internal/convert.hpp"
-#include "../../rgb/rgb.hpp"
+#include "../../rgb/trait/container.hpp"
+#include "../../rgb/trait/component.hpp"
+#include "../../rgb/trait/index.hpp"
+#include "../../rgb/trait/bound.hpp"
+#include "../../rgb/category.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -21,6 +25,8 @@ namespace color
            typedef category_left_name category_left_type;
            typedef category_right_name category_right_type;
            typedef scalar_name scalar_type;
+
+           typedef ::color::trait::scalar<category_left_name> scalar_trait_type;
 
            typedef ::color::trait::container<category_left_type>     container_left_trait_type;
            typedef ::color::trait::container<category_right_type>    container_right_trait_type;
@@ -49,7 +55,7 @@ namespace color
              scalar_type s = 0;
              scalar_type l = (hi + lo) / scalar_type(2);
 
-             if( 0 != delta )
+             if( false == scalar_trait_type::is_small( delta ) )
               {
                s = delta / ( 1 - fabs( 2*l - 1 ) );
                if( hi == r )

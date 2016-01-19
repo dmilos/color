@@ -59,3 +59,4 @@ example/test/*.tga
 example/test/test
 example/test/Debug
 example/test/*.pp2f?.*
+example/test/res

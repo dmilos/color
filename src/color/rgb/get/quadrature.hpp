@@ -42,11 +42,11 @@
 
             scalar_type value =
                + yiq_const_type::b31() * normalize_type::template process<0>( color_parameter.template get<0>() )
-               - yiq_const_type::b32() * normalize_type::template process<1>( color_parameter.template get<1>() )
+               + yiq_const_type::b32() * normalize_type::template process<1>( color_parameter.template get<1>() )
                + yiq_const_type::b33() * normalize_type::template process<2>( color_parameter.template get<2>() )
                ;
 
-            value = value / scalar_type( 0.5225910452916111683 * 2) + scalar_type(0.5);
+            value = value / yiq_const_type::q_range() + scalar_type(0.5);
             return diverse_type::template process<2>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */value /* ) */);
            }
 

@@ -29,7 +29,7 @@
             typedef ::color::_internal::model< category_name > model_type;
             typedef ::color::trait::bound< category_name >     bound_type;
 
-            scalar_type value = 
+            scalar_type value =  // TODO
                  0.2126 * ( scalar_type(1) - ( color_parameter.template get<0>() - bound_type::template minimum<0>() ) / bound_type::template range<0>())
                + 0.7152 * ( scalar_type(1) - ( color_parameter.template get<1>() - bound_type::template minimum<1>() ) / bound_type::template range<1>())
                + 0.0722 * ( scalar_type(1) - ( color_parameter.template get<2>() - bound_type::template minimum<2>() ) / bound_type::template range<2>());

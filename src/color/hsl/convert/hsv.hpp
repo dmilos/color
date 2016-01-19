@@ -42,7 +42,8 @@ namespace color
              scalar_type v  = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
              scalar_type l = v * ( 2-ss ) / 2;
-             scalar_type s = v*ss/( 1- fabs( 2 * l -1 ) );
+             // TODO
+             scalar_type s = v*ss/( 1- fabs( 2 * l - 1 ) );
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );
              container_left_trait_type::template set<1>( left, diverse_type::template process<1>( s ) );

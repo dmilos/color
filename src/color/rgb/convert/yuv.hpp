@@ -2,7 +2,10 @@
 #define color_rgb_convert_yuv
 
 #include "../../_internal/convert.hpp"
-#include "../../yuv/yuv.hpp"
+#include "../../yuv/trait/container.hpp"
+#include "../../yuv/category.hpp"
+#include "../../yuv/constant.hpp"
+
 
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
@@ -28,6 +31,8 @@ namespace color
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+           typedef ::color::constant::yuv< category_right_name > yuv_const_type; 
+
            typedef ::color::_internal::diverse< category_left_type >    diverse_type;
            typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
@@ -37,11 +42,11 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             static scalar_type const Wr = 0.299;
-             static scalar_type const Wb = 0.114;
-             static scalar_type const Wg = 1.0-Wr-Wb;
-             static scalar_type const Umax = 0.436;
-             static scalar_type const Vmax = 0.615;
+             static scalar_type const Wr   = yuv_const_type::Wr();
+             static scalar_type const Wb   = yuv_const_type::Wb();
+             static scalar_type const Wg   = yuv_const_type::Wg();
+             static scalar_type const Umax = yuv_const_type::Umax();
+             static scalar_type const Vmax = yuv_const_type::Vmax();
 
              static scalar_type const b11 = 1, b12 = 0,                          b13 =  (1 - Wr) / Vmax;
              static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg,  b23 = -Wr*(1 - Wr) / Vmax / Wg;

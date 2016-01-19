@@ -54,6 +54,11 @@ namespace color
          static /* constexpr*/ scalar_type const q_max()  { return   0.5225910452916111683; }
          static /* constexpr*/ scalar_type const q_range(){ return 2*0.5225910452916111683; }
 
+         static scalar_type i_deverse  ( scalar_type const& normal ){ return this_type::i_range() * normal + this_type::i_min(); }
+         static scalar_type i_normalize( scalar_type const& divert ){ return ( divert + this_type::i_min() ) /this_type::i_range(); }
+
+         static scalar_type q_deverse  ( scalar_type const& normal ){ return this_type::q_range() * normal + this_type::q_min(); }
+         static scalar_type q_normalize( scalar_type const& divert ){ return ( divert + this_type::q_min() ) /this_type::q_range(); }
       };
 
    }

@@ -22,6 +22,8 @@ namespace color
            typedef category_right_name category_right_type;
            typedef scalar_name  scalar_type;
 
+           typedef ::color::trait::scalar<category_left_name> scalar_trait_type;
+
            typedef ::color::trait::container<category_left_type>     container_left_trait_type;
            typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
@@ -49,7 +51,8 @@ namespace color
              scalar_type s = 0;
 
 
-             if( ( 0 != v ) && ( 0 != delta ) )
+             if(    ( false == scalar_trait_type::is_small( v ) )
+                 && ( false == scalar_trait_type::is_small( delta ) ) )
               {
                s = delta / v;
 

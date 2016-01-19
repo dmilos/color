@@ -49,8 +49,8 @@ namespace color
              scalar_type i = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
              scalar_type q = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-             i = ( scalar_type(2) * i - scalar_type(1) ) * 0.5957161349127745527;
-             q = ( scalar_type(2) * q - scalar_type(1) ) * yiq_const_type::q_max();
+             i = yiq_const_type::i_deverse( i );
+             q = yiq_const_type::q_deverse( q );
 
              scalar_type r = a11 * y + a12 * i + a13 * q;
              scalar_type g = a21 * y + a22 * i + a23 * q;

@@ -42,7 +42,7 @@
             scalar_type i = normalize_type::template process<1>( color_parameter.template get<1>() );
             scalar_type q = normalize_type::template process<2>( color_parameter.template get<2>() );
 
-            i = ( scalar_type(2) * i - scalar_type(1) ) * 0.5957161349127745527;
+            i = ( scalar_type(2) * i - scalar_type(1) ) * yiq_const_type::i_max();
             q = ( scalar_type(2) * q - scalar_type(1) ) * yiq_const_type::q_max();
 
             scalar_type r = a11 * y + a12 * i + a13 * q;

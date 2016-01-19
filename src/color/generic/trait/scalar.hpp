@@ -14,9 +14,13 @@ namespace color
        public:
         typedef double instance_type;
 
+        static bool is_small( instance_type const& value )
+         {
+          return ( -1e-6 < value ) && ( value < 1e-6 );
+         }
       };
 
    }
  }
 
-#endif 
+#endif

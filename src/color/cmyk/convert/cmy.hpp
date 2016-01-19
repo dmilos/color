@@ -22,6 +22,8 @@ namespace color
            typedef category_right_name category_right_type;
            typedef scalar_name  scalar_type;
 
+           typedef ::color::trait::scalar< category_left_name > scalar_trait_type;
+
            typedef ::color::trait::container<category_left_type>     container_left_trait_type;
            typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
@@ -42,21 +44,15 @@ namespace color
              scalar_type cy = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
              scalar_type k = std::min( { cc, cm, cy } );
-             scalar_type c;
-             scalar_type m;
-             scalar_type y;
+             scalar_type c = scalar_type(0);
+             scalar_type m = scalar_type(0);
+             scalar_type y = scalar_type(0);
 
-             if( scalar_type(1) != k )
+             if( false == scalar_trait_type::is_small( 1 - k ) )
               {
                c = (cc-k) / ( 1-k );
                m = (cm-k) / ( 1-k );
                y = (cy-k) / ( 1-k );
-              }
-             else
-              {
-               c = scalar_type(0);
-               m = scalar_type(0);
-               y = scalar_type(0);
               }
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( c ) );

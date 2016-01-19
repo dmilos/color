@@ -21,11 +21,17 @@ template< typename category_left_name, typename category_right_name>
     for (long double c1 = left_type::bound_type::template minimum<1>(); c1 <= left_type::bound_type::template maximum<1>(); c1 += left_type::bound_type::template range<1>() * 0.01 )
      for (long double c2 = left_type::bound_type::template minimum<2>(); c2 <= left_type::bound_type::template maximum<2>(); c2 += left_type::bound_type::template range<2>() * 0.01 )
       {
-       left.template set<0>( c0 );
-       left.template set<1>( c1 );
-       left.template set<2>( c2 );
+       left.template set<0>( 0.10999999999999999 );
+       left.template set<1>( 0.10999999999999999 );
+       left.template set<2>( 0.10999999999999999 );
 
-       if( false == color::check::integrity( left ) )
+       if( 4 == left.size() )
+        {
+         left.template set<3>( 0.5 );
+        }
+
+
+       if( false == color::check::unique( left ) )
         {
          continue;
         }
@@ -37,16 +43,28 @@ template< typename category_left_name, typename category_right_name>
        if( e0 < fabs( left.template get<0>() - c0 ) )
         {
          e0 = fabs( left.template get<0>() - c0 );
+         if( 0.1 < e0 )
+          {
+           e0 = e0;
+          }
         }
 
        if( e1 < fabs( left.template get<1>() - c1 ) )
         {
          e1 = fabs( left.template get<1>() - c1 );
+         if( 0.1 < e1 )
+          {
+           e1 = e1;
+          }
         }
 
        if( e2 < fabs( left.template get<2>() - c2 ) )
         {
          e2 = fabs( left.template get<2>() - c2 );
+         if( 0.1 < e2 )
+          {
+           e2 = e2;
+          }
         }
      }
 
@@ -93,6 +111,11 @@ template< typename category_left_name, typename category_middle_name, typename c
        left.template set<0>( c0 );
        left.template set<1>( c1 );
        left.template set<2>( c2 );
+
+       if( false == color::check::unique( left ) )
+        {
+         continue;
+        }
 
        middle = left;
 
@@ -143,7 +166,7 @@ template< typename category_left_name, typename category_middle_name, typename c
 void check_conversion()
  {
   color::cmy<long double >   c;
-  color::cmyk<long double >  ck;
+  color::cmyk<long double >  ck({0,0,0,0.5});
   color::rgb<long double >   r;
   color::hsl<long double >   hl;
   color::hsv<long double >   hv;
@@ -151,17 +174,14 @@ void check_conversion()
   color::yuv<long double >   yu;
   color::xyz<long double >   x;
 
-  check_conversion_back_and_forth( hl, r  );
-  //check_conversion_back_and_forth( hv, r  );
-
-  check_conversion_back_and_forth( c, c  );  /*check_conversion_back_and_forth( ck, c  );*/  check_conversion_back_and_forth( r, c  );
-  check_conversion_back_and_forth( c, ck );  /*check_conversion_back_and_forth( ck, ck );*/  check_conversion_back_and_forth( r, ck );
-  check_conversion_back_and_forth( c, r  );  /*check_conversion_back_and_forth( ck, r  );*/  check_conversion_back_and_forth( r, r  );
-  check_conversion_back_and_forth( c, hl );  /*check_conversion_back_and_forth( ck, hl );*/  check_conversion_back_and_forth( r, hl );
-  check_conversion_back_and_forth( c, hv );  /*check_conversion_back_and_forth( ck, hv );*/  check_conversion_back_and_forth( r, hv );
-  check_conversion_back_and_forth( c, yi );  /*check_conversion_back_and_forth( ck, yi );*/  check_conversion_back_and_forth( r, yi );
-  check_conversion_back_and_forth( c, yu );  /*check_conversion_back_and_forth( ck, yu );*/  check_conversion_back_and_forth( r, yu );
-  check_conversion_back_and_forth( c, x  );  /*check_conversion_back_and_forth( ck, x  );*/  check_conversion_back_and_forth( r, x  );
+  check_conversion_back_and_forth( c, c  );  check_conversion_back_and_forth( ck, c  );  check_conversion_back_and_forth( r, c  );
+  check_conversion_back_and_forth( c, ck );  check_conversion_back_and_forth( ck, ck );  check_conversion_back_and_forth( r, ck );
+  check_conversion_back_and_forth( c, r  );  check_conversion_back_and_forth( ck, r  );  check_conversion_back_and_forth( r, r  );
+  check_conversion_back_and_forth( c, hl );  check_conversion_back_and_forth( ck, hl );  check_conversion_back_and_forth( r, hl );
+  check_conversion_back_and_forth( c, hv );  check_conversion_back_and_forth( ck, hv );  check_conversion_back_and_forth( r, hv );
+  check_conversion_back_and_forth( c, yi );  check_conversion_back_and_forth( ck, yi );  check_conversion_back_and_forth( r, yi );
+  check_conversion_back_and_forth( c, yu );  check_conversion_back_and_forth( ck, yu );  check_conversion_back_and_forth( r, yu );
+  check_conversion_back_and_forth( c, x  );  check_conversion_back_and_forth( ck, x  );  check_conversion_back_and_forth( r, x  );
 
   check_conversion_back_and_forth( hl, c  );  check_conversion_back_and_forth( hv, c  );
   check_conversion_back_and_forth( hl, ck );  check_conversion_back_and_forth( hv, ck );

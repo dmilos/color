@@ -46,7 +46,7 @@
                + yiq_const_type::b33() * ( 1 - normalize_type::template process<2>( color_parameter.template get<2>() ) )
                ;
 
-            value = value / scalar_type( 0.5225910452916111683 * 2) + scalar_type(0.5);
+            value = yiq_const_type::q_normalize( value );
 
             return diverse_type::template process<2>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */value /* ) */);
            }
