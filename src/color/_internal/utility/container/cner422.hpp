@@ -22,8 +22,8 @@ namespace color
 
               typedef index_name     index_type;
 
-              typedef std::uint8_t  value_type;
-              typedef std::uint8_t  instance_type;
+              typedef std::uint8_t   value_type;
+              typedef std::uint8_t   instance_type;
 
 
 
@@ -85,12 +85,12 @@ namespace color
               template< index_instance_type index >
                static set_return_type set( input_type container, component_input_const_type value )
                 {
-                switch( index )
-                 {
-                  case(0) : container = ( container & ~(  7 << (  0 ) ) )  |  ( ((instance_type)value) << (  0 ) ); break;
-                  case(1) : container = ( container & ~(  3 << (  4 ) ) )  |  ( ((instance_type)value) << (  4 ) ); break;
-                  case(2) : container = ( container & ~(  3 << (  6 ) ) )  |  ( ((instance_type)value) << (  6 ) ); break;
-                 }
+                 switch( index )
+                  {
+                   case(0) : container = ( container & ~(  7 << (  0 ) ) )  |  ( ((instance_type)value) << (  0 ) ); break;
+                   case(1) : container = ( container & ~(  3 << (  4 ) ) )  |  ( ((instance_type)value) << (  4 ) ); break;
+                   case(2) : container = ( container & ~(  3 << (  6 ) ) )  |  ( ((instance_type)value) << (  6 ) ); break;
+                  }
                 }
 
               static /*constexpr*/ index_return_image_type size()

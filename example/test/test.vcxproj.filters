@@ -244,6 +244,18 @@
     <Filter Include="Source Files\src\hsv\check">
       <UniqueIdentifier>{094fbb6f-6059-47cf-b49d-3fd4efe32209}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\cmyk\fix">
+      <UniqueIdentifier>{6c04ac9b-8722-44af-96a9-08fe4633eb42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\generic\fix">
+      <UniqueIdentifier>{0dd1c80c-5124-4abc-bb0a-e6f52450830f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\hsl\fix">
+      <UniqueIdentifier>{a314b60a-fe13-4dfb-8395-3e3dace43b86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\hsv\fix">
+      <UniqueIdentifier>{c81ef610-c5a3-4ed1-80c0-75b6ea820334}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\color\color.hpp">
@@ -1779,9 +1791,6 @@
     <ClInclude Include="..\..\src\color\hsl\check\integrity.hpp">
       <Filter>Source Files\src\hsl\check</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\hsl\check\overburn.hpp">
-      <Filter>Source Files\src\hsl\check</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\hsl\check\unique.hpp">
       <Filter>Source Files\src\hsl\check</Filter>
     </ClInclude>
@@ -1796,6 +1805,42 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\hsv\check\unique.hpp">
       <Filter>Source Files\src\hsv\check</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\fix\fix.hpp">
+      <Filter>Source Files\src\cmyk\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\fix\unique.hpp">
+      <Filter>Source Files\src\cmyk\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\fix\fix.hpp">
+      <Filter>Source Files\src\generic\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\fix\integrity.hpp">
+      <Filter>Source Files\src\generic\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\fix\overburn.hpp">
+      <Filter>Source Files\src\generic\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\fix\unique.hpp">
+      <Filter>Source Files\src\generic\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\fix\fix.hpp">
+      <Filter>Source Files\src\hsl\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\fix\integrity.hpp">
+      <Filter>Source Files\src\hsl\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\fix\unique.hpp">
+      <Filter>Source Files\src\hsl\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\fix\fix.hpp">
+      <Filter>Source Files\src\hsv\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\fix\integrity.hpp">
+      <Filter>Source Files\src\hsv\fix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\fix\unique.hpp">
+      <Filter>Source Files\src\hsv\fix</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,7 @@
 #include "./make/make.hpp"
 #include "./convert/convert.hpp"
 #include "./check/check.hpp"
-
+#include "./fix/fix.hpp"
 
 namespace color
  {

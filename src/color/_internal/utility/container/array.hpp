@@ -27,8 +27,6 @@ namespace color
 
 
 
-
-
               typedef instance_type const      const_type;
               typedef instance_type const&     return_image_type;
               typedef instance_type      &     return_type;

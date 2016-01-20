@@ -88,12 +88,12 @@ namespace color
               template< index_instance_type index >
                static set_return_type set( input_type container, component_input_const_type value )
                 {
-                switch( index )
-                 {
-                  case(0) : container = ( container & ~(  3 << ( 0 ) ) )  |  ( ((instance_type)value) << ( 0 ) ); break;
-                  case(1) : container = ( container & ~(  3 << ( 2 ) ) )  |  ( ((instance_type)value) << ( 2 ) ); break;
-                  case(2) : container = ( container & ~(  3 << ( 4 ) ) )  |  ( ((instance_type)value) << ( 4 ) ); break;
-                  case(3) : container = ( container & ~(  3 << ( 6 ) ) )  |  ( ((instance_type)value) << ( 6 ) ); break;
+                 switch( index )
+                  {
+                   case(0) : container = ( container & ~(  3 << ( 0 ) ) )  |  ( ((instance_type)value) << ( 0 ) ); break;
+                   case(1) : container = ( container & ~(  3 << ( 2 ) ) )  |  ( ((instance_type)value) << ( 2 ) ); break;
+                   case(2) : container = ( container & ~(  3 << ( 4 ) ) )  |  ( ((instance_type)value) << ( 4 ) ); break;
+                   case(3) : container = ( container & ~(  3 << ( 6 ) ) )  |  ( ((instance_type)value) << ( 6 ) ); break;
                  }
                 }
 

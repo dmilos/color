@@ -11,57 +11,35 @@ namespace color
    {
     namespace _internal
      {
+      namespace _privateHSV
+       {
 
-      template<>
-       struct unique< ::color::category::hsv_float>
-        {
-         public:
-          typedef ::color::category::hsv_float category_type;
+        template< typename category_name >
+         struct unique
+          {
+           public:
+            typedef category_name category_type;
 
-          typedef ::color::_internal::model<category_type>          model_type;
-          typedef ::color::trait::bound< category_type >        bound_type;
+            typedef ::color::_internal::model<category_type>          model_type;
+            typedef ::color::trait::bound< category_type >        bound_type;
 
-          static bool process( model_type const& m )
-           {
-            if( m.template get<1>() == bound_type::template minimum<2>() ) { return false; }
-            if( m.template get<2>() == bound_type::template minimum<2>() ) { return false; }
-            return true;
-           }
-        };
+            static bool process( model_type const& m )
+             {
+              if( m.template get<1>() == bound_type::template minimum<2>() ) { return false; }
+              if( m.template get<2>() == bound_type::template minimum<2>() ) { return false; }
+              return true;
+             }
+          };
 
-      template<>
-       struct unique< ::color::category::hsv_double >
-        {
-         public:
-          typedef ::color::category::hsv_double category_type;
+       }
 
-          typedef ::color::_internal::model<category_type>          model_type;
-          typedef ::color::trait::bound< category_type >        bound_type;
-
-          static bool process( model_type const& m )
-           {
-            if( m.template get<1>() == bound_type::template minimum<1>() ) { return false; }
-            if( m.template get<2>() == bound_type::template minimum<2>() ) { return false; }
-            return true;
-           }
-        };
-
-      template<>
-       struct unique< ::color::category::hsv_ldouble >
-        {
-         public:
-          typedef ::color::category::hsv_ldouble category_type;
-
-          typedef ::color::_internal::model<category_type>          model_type;
-          typedef ::color::trait::bound< category_type >        bound_type;
-
-          static bool process( model_type const& m )
-           {
-            if( m.template get<1>() == bound_type::template minimum<1>() ) { return false; }
-            if( m.template get<2>() == bound_type::template minimum<2>() ) { return false; }
-            return true;
-           }
-        };
+      template<> struct unique< ::color::category::hsv_uint8   > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_uint8   >{ };
+      template<> struct unique< ::color::category::hsv_uint16  > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_uint16  >{ };
+      template<> struct unique< ::color::category::hsv_uint32  > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_uint32  >{ };
+      template<> struct unique< ::color::category::hsv_uint64  > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_uint64  >{ };
+      template<> struct unique< ::color::category::hsv_float   > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_float   >{ };
+      template<> struct unique< ::color::category::hsv_double  > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_double  >{ };
+      template<> struct unique< ::color::category::hsv_ldouble > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_ldouble >{ };
 
      }
    }

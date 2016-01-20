@@ -34,6 +34,31 @@ void invoke()
   test_operation< color::category::rgb_double  >();
   test_operation< color::category::rgb_ldouble >();
 
+  test_operation< color::category::cmyk_uint8   >();
+  test_operation< color::category::cmyk_uint16  >();
+  test_operation< color::category::cmyk_uint32  >();
+  test_operation< color::category::cmyk_uint64  >();
+  test_operation< color::category::cmyk_float   >();
+  test_operation< color::category::cmyk_double  >();
+  test_operation< color::category::cmyk_ldouble >();
+
+  test_operation< color::category::hsl_uint8   >();
+  test_operation< color::category::hsl_uint16  >();
+  test_operation< color::category::hsl_uint32  >();
+  test_operation< color::category::hsl_uint64  >();
+  test_operation< color::category::hsl_float   >();
+  test_operation< color::category::hsl_double  >();
+  test_operation< color::category::hsl_ldouble >();
+
+  test_operation< color::category::hsv_uint8   >();
+  test_operation< color::category::hsv_uint16  >();
+  test_operation< color::category::hsv_uint32  >();
+  test_operation< color::category::hsv_uint64  >();
+  test_operation< color::category::hsv_float   >();
+  test_operation< color::category::hsv_double  >();
+  test_operation< color::category::hsv_ldouble >();
+
+
   /*test_make< color::category::rgb_uint8   >();
   test_make< color::category::rgb_uint16  >();
   test_make< color::category::rgb_uint32  >();

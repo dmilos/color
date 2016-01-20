@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_container_cner556
-#define color__internal_utility_container_cner556
+#ifndef color__internal_utility_container_cnerAAA2
+#define color__internal_utility_container_cnerAAA2
 
-// ::color::_internal::utility::container::cner556< index_name >
+// ::color::_internal::utility::container::cnerAAA2< index_name >
 
 #include "../type/index.hpp"
 #include "../type/traitp.hpp"
@@ -16,14 +16,14 @@ namespace color
        {
 
         template<  typename index_name >
-          struct cner556
+          struct cnerAAA2
            {
             public:
 
               typedef index_name     index_type;
 
-              typedef std::uint8_t  value_type;
-              typedef std::uint16_t  instance_type;
+              typedef std::uint8_t   value_type;
+              typedef std::uint32_t  instance_type;
 
 
 
@@ -53,9 +53,10 @@ namespace color
                {
                 switch( index )
                  {
-                  case( 0 ): return ( ( container >>  0 ) & 31 );
-                  case( 1 ): return ( ( container >>  5 ) & 31 );
-                  case( 2 ): return ( ( container >> 10 ) & 63 );
+                  case( 0 ): return ( ( container >>  0 ) & 1023 );
+                  case( 1 ): return ( ( container >> 10 ) & 1023 );
+                  case( 2 ): return ( ( container >> 20 ) & 1023 );
+                  case( 3 ): return ( ( container >> 30 ) &    3 );
                  }
                 return 0;
                }
@@ -65,9 +66,10 @@ namespace color
                 {
                  switch( index )
                   {
-                   case( 0 ): return ( ( container >>  0 ) & 31 );
-                   case( 1 ): return ( ( container >>  5 ) & 31 );
-                   case( 2 ): return ( ( container >> 10 ) & 63 );
+                   case( 0 ): return ( ( container >>  0 ) & 1023 );
+                   case( 1 ): return ( ( container >> 10 ) & 1023 );
+                   case( 2 ): return ( ( container >> 20 ) & 1023 );
+                   case( 3 ): return ( ( container >> 30 ) &    3 );
                   }
                  return 0;
                 }
@@ -76,9 +78,10 @@ namespace color
                {
                 switch( index )
                  {
-                  case(0) : container = ( container & ~(  31 << (  0 ) ) )  |  ( ((instance_type)value) << (  0) ); break;
-                  case(1) : container = ( container & ~(  31 << (  5 ) ) )  |  ( ((instance_type)value) << (  5) ); break;
-                  case(2) : container = ( container & ~(  63 << ( 10 ) ) )  |  ( ((instance_type)value) << ( 10) ); break;
+                  case(0) : container = ( container & ~( 1023 << (  0 ) ) )  |  ( ((instance_type)value) << (  0 ) ); break;
+                  case(1) : container = ( container & ~( 1023 << ( 10 ) ) )  |  ( ((instance_type)value) << ( 10 ) ); break;
+                  case(2) : container = ( container & ~( 1023 << ( 20 ) ) )  |  ( ((instance_type)value) << ( 20 ) ); break;
+                  case(3) : container = ( container & ~(    3 << ( 30 ) ) )  |  ( ((instance_type)value) << ( 30 ) ); break;
                  }
                }
 
@@ -87,15 +90,16 @@ namespace color
                 {
                  switch( index )
                   {
-                   case(0) : container = ( container & ~(  31 << (  0 ) ) )  |  ( ((instance_type)value) << (  0) ); break;
-                   case(1) : container = ( container & ~(  31 << (  5 ) ) )  |  ( ((instance_type)value) << (  5) ); break;
-                   case(2) : container = ( container & ~(  63 << ( 10 ) ) )  |  ( ((instance_type)value) << ( 10) ); break;
+                   case(0) : container = ( container & ~( 1023 << (  0 ) ) )  |  ( ((instance_type)value) << (  0 ) ); break;
+                   case(1) : container = ( container & ~( 1023 << ( 10 ) ) )  |  ( ((instance_type)value) << ( 10 ) ); break;
+                   case(2) : container = ( container & ~( 1023 << ( 20 ) ) )  |  ( ((instance_type)value) << ( 20 ) ); break;
+                   case(3) : container = ( container & ~(    3 << ( 30 ) ) )  |  ( ((instance_type)value) << ( 30 ) ); break;
                   }
                 }
 
               static /*constexpr*/ index_return_image_type size()
                {
-                static const index_instance_type local_length = 3;
+                static const index_instance_type local_length = 4;
                 return local_length;
                }
            };

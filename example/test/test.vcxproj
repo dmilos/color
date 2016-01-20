@@ -31,6 +31,8 @@
     <ClInclude Include="..\..\src\color\cmyk\convert\xyz.hpp" />
     <ClInclude Include="..\..\src\color\cmyk\convert\yiq.hpp" />
     <ClInclude Include="..\..\src\color\cmyk\convert\yuv.hpp" />
+    <ClInclude Include="..\..\src\color\cmyk\fix\fix.hpp" />
+    <ClInclude Include="..\..\src\color\cmyk\fix\unique.hpp" />
     <ClInclude Include="..\..\src\color\cmyk\get\blue.hpp" />
     <ClInclude Include="..\..\src\color\cmyk\get\cyan.hpp" />
     <ClInclude Include="..\..\src\color\cmyk\get\get.hpp" />
@@ -161,6 +163,10 @@
     <ClInclude Include="..\..\src\color\generic\compare\less_or_equal.hpp" />
     <ClInclude Include="..\..\src\color\generic\compare\less_strict.hpp" />
     <ClInclude Include="..\..\src\color\generic\compare\lighter.hpp" />
+    <ClInclude Include="..\..\src\color\generic\fix\fix.hpp" />
+    <ClInclude Include="..\..\src\color\generic\fix\integrity.hpp" />
+    <ClInclude Include="..\..\src\color\generic\fix\overburn.hpp" />
+    <ClInclude Include="..\..\src\color\generic\fix\unique.hpp" />
     <ClInclude Include="..\..\src\color\generic\generic.hpp" />
     <ClInclude Include="..\..\src\color\generic\get\alpha.hpp" />
     <ClInclude Include="..\..\src\color\generic\get\blue.hpp" />
@@ -279,7 +285,6 @@
     <ClInclude Include="..\..\src\color\hsl\category.hpp" />
     <ClInclude Include="..\..\src\color\hsl\check\check.hpp" />
     <ClInclude Include="..\..\src\color\hsl\check\integrity.hpp" />
-    <ClInclude Include="..\..\src\color\hsl\check\overburn.hpp" />
     <ClInclude Include="..\..\src\color\hsl\check\unique.hpp" />
     <ClInclude Include="..\..\src\color\hsl\convert\cmy.hpp" />
     <ClInclude Include="..\..\src\color\hsl\convert\cmyk.hpp" />
@@ -291,6 +296,9 @@
     <ClInclude Include="..\..\src\color\hsl\convert\yiq.hpp" />
     <ClInclude Include="..\..\src\color\hsl\convert\yuv.hpp" />
     <ClInclude Include="..\..\src\color\hsl\double.hpp" />
+    <ClInclude Include="..\..\src\color\hsl\fix\fix.hpp" />
+    <ClInclude Include="..\..\src\color\hsl\fix\integrity.hpp" />
+    <ClInclude Include="..\..\src\color\hsl\fix\unique.hpp" />
     <ClInclude Include="..\..\src\color\hsl\float.hpp" />
     <ClInclude Include="..\..\src\color\hsl\get\get.hpp" />
     <ClInclude Include="..\..\src\color\hsl\get\gray.hpp" />
@@ -324,6 +332,9 @@
     <ClInclude Include="..\..\src\color\hsv\convert\rgb.hpp" />
     <ClInclude Include="..\..\src\color\hsv\convert\xyz.hpp" />
     <ClInclude Include="..\..\src\color\hsv\convert\yiq.hpp" />
+    <ClInclude Include="..\..\src\color\hsv\fix\fix.hpp" />
+    <ClInclude Include="..\..\src\color\hsv\fix\integrity.hpp" />
+    <ClInclude Include="..\..\src\color\hsv\fix\unique.hpp" />
     <ClInclude Include="..\..\src\color\hsv\hsv.hpp" />
     <ClInclude Include="..\..\src\color\hsv\make\black.hpp" />
     <ClInclude Include="..\..\src\color\hsv\make\blue.hpp" />
