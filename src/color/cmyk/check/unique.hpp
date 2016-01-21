@@ -4,6 +4,7 @@
 
 #include "../../generic/trait/scalar.hpp"
 #include "../../generic/check/unique.hpp"
+#include "../../generic/trait/bound.hpp"
 #include "../category.hpp"
 
 namespace color

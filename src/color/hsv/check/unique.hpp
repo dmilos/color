@@ -25,7 +25,7 @@ namespace color
 
             static bool process( model_type const& m )
              {
-              if( m.template get<1>() == bound_type::template minimum<2>() ) { return false; }
+              if( m.template get<2>() == bound_type::template maximum<2>() ) { return false; }
               if( m.template get<2>() == bound_type::template minimum<2>() ) { return false; }
               return true;
              }

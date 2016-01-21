@@ -2,6 +2,7 @@
 #define  color_hsl_fix_unique
 
 #include "../category.hpp"
+#include "../trait/bound.hpp"
 #include "../../generic/fix/unique.hpp"
 
 
@@ -19,17 +20,45 @@
            {
             public:
               typedef category_name  category_type;
-       
+
               typedef typename ::color::_internal::model<category_type>  model_type;
-       
+              typedef typename ::color::trait::bound<category_type>      bound_type;
+
               static void process( model_type &result )
                {
-                // TODO
+                if( result.template get<2>() == bound_type::template minimum<2>() )
+                 {
+                  result.template set<0>( bound_type::template minimum<0>() );
+                  result.template set<1>( bound_type::template minimum<1>() );
+                  return;
+                 }
+
+                if( result.template get<2>() == bound_type::template maximum<2>() )
+                 {
+                  result.template set<0>( bound_type::template minimum<0>() );
+                  return;
+                 }
                }
        
               static void process(  model_type &result, model_type const& right )
                {
-                // TODO
+                if( result.template get<2>() == bound_type::template minimum<2>() )
+                 {
+                  result.template set<0>( bound_type::template minimum<0>() );
+                  result.template set<1>( bound_type::template minimum<1>() );
+                  result.template set<2>( right.template get<2>() );
+                  return;
+                 }
+
+                if( result.template get<2>() == bound_type::template maximum<2>() )
+                 {
+                  result.template set<0>( bound_type::template minimum<0>() );
+                  result.template set<1>( right.template get<1>() );
+                  result.template set<2>( right.template get<2>() );
+                  return;
+                 }
+                result = right;
+                return;
                }
        
            };

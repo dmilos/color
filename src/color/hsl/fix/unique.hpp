@@ -24,12 +24,46 @@
 
             static void process( model_type &result )
              {
-              // TODO
+              if(   ( result.template get<2>() == bound_type::template maximum<2>() )
+                  ||( result.template get<2>() == bound_type::template minimum<2>() )
+                )
+               {
+                result.template set<0>( bound_type::template minimum<0>();
+                result.template set<1>( bound_type::template minimum<1>();
+                return;
+               }
+
+              if( result.template get<1>() == bound_type::template maximum<2>() )
+               {
+                result.template set<0>( bound_type::template minimum<0>();
+                return;
+               }
+
              }
 
             static void process(  model_type &result, model_type const& right )
              {
-              // TODO
+              if(   ( right.template get<2>() == bound_type::template maximum<2>() )
+                  ||( right.template get<2>() == bound_type::template minimum<2>() )
+                )
+               {
+                result.template set<0>( bound_type::template minimum<0>() );
+                result.template set<1>( bound_type::template minimum<1>() );
+                result.template set<2>( right.template get<2>() );
+                return;
+               }
+
+              if( m.template get<1>() == bound_type::template maximum<2>() )
+               {
+                result.template set<0>( bound_type::template minimum<0>() );
+                result.template set<1>( right.template get<1>() );
+                result.template set<2>( right.template get<2>() );
+                return;
+               }
+
+              result = right;
+              return;
+
              }
 
          };

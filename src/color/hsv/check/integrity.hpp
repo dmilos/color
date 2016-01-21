@@ -25,7 +25,7 @@ namespace color
           static bool process( model_type const& m )
            {
             if( m.template get<0>() < bound_type::template minimum<0>() ) { return false; }
-            if( bound_type::template minimum<0>() < m.template get<0>() ) { return false; }
+            if( bound_type::template maximum<0>() < m.template get<0>() ) { return false; }
             return true;
            }
         };
@@ -42,7 +42,7 @@ namespace color
           static bool process( model_type const& m )
            {
             if( m.template get<0>() < bound_type::template minimum<0>() ) { return false; }
-            if( bound_type::template minimum<0>() < m.template get<0>() ) { return false; }
+            if( bound_type::template maximum<0>() < m.template get<0>() ) { return false; }
             return true;
            }
         };
@@ -59,7 +59,7 @@ namespace color
           static bool process( model_type const& m )
            {
             if( m.template get<0>() < bound_type::template minimum<0>() ) { return false; }
-            if( bound_type::template minimum<0>() < m.template get<0>() ) { return false; }
+            if( bound_type::template maximum<0>() < m.template get<0>() ) { return false; }
             return true;
            }
         };

@@ -26,22 +26,41 @@
 
               static void process( model_type &result )
                {
-                // TODO
+                if( result.template get<0>() < bound_type::template minimum<0>() ) 
+                 {
+                  result.template set<0>( bound_type::template minimum<0>() );
+                  return; 
+                 }
+                if( bound_type::template maximum<0>() < result.template get<0>() ) 
+                 {
+                  result.template set<0>( bound_type::template maximum<0>() );      
+                  return; 
+                 }
                }
 
               static void process(  model_type &result, model_type const& right )
                {
-                // TODO
+                result = right;
+                if( result.template get<0>() < bound_type::template minimum<0>() ) 
+                 {
+                  result.template set<0>( bound_type::template minimum<0>() );
+                  return; 
+                 }
+                if( bound_type::template maximum<0>() < result.template get<0>() ) 
+                 {
+                  result.template set<0>( bound_type::template maximum<0>() );      
+                  return; 
+                 }
                }
 
            };
 
         }
 
-       template<> struct integrity< ::color::category::hsl_uint8   > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_uint8  >{ };
-       template<> struct integrity< ::color::category::hsl_uint16  > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_uint16 >{ };
-       template<> struct integrity< ::color::category::hsl_uint32  > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_uint32 >{ };
-       template<> struct integrity< ::color::category::hsl_uint64  > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_uint64 >{ };
+       //template<> struct integrity< ::color::category::hsl_uint8   > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_uint8  >{ };
+       //template<> struct integrity< ::color::category::hsl_uint16  > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_uint16 >{ };
+       //template<> struct integrity< ::color::category::hsl_uint32  > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_uint32 >{ };
+       //template<> struct integrity< ::color::category::hsl_uint64  > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_uint64 >{ };
        template<> struct integrity< ::color::category::hsl_float   > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_float  >{ };
        template<> struct integrity< ::color::category::hsl_double  > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_double >{ };
        template<> struct integrity< ::color::category::hsl_ldouble > : public ::color::fix::_internal::_privateHSL::integrity<::color::category::hsl_ldouble>{ };
