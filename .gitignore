@@ -60,3 +60,5 @@ example/test/test
 example/test/Debug
 example/test/*.pp2f?.*
 example/test/res
+/example/test/gray/*.tga
+/example/test/gray/ref/*.tga

@@ -33,14 +33,15 @@ envObject = nucleotide.Environment( settings ).native()
 
 source = []
 source +=   [
-     envObject.StaticObject( target =  os.path.join( directory_obj, 'main'       ) + envObject[ 'OBJSUFFIX' ],  source = './main.cpp'       )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'conversion' ) + envObject[ 'OBJSUFFIX' ],  source = './conversion.cpp' )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'      ) + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp'      )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'make'       ) + envObject[ 'OBJSUFFIX' ],  source = './make.cpp'       )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'bound'      ) + envObject[ 'OBJSUFFIX' ],  source = './bound.cpp'      )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'sizeof'     ) + envObject[ 'OBJSUFFIX' ],  source = './sizeof.cpp'     )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'selfie.cpp' ) + envObject[ 'OBJSUFFIX' ],  source = './selfie.cpp'     )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'set.cpp'    ) + envObject[ 'OBJSUFFIX' ],  source = './set.cpp'        )
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'main'             ) + envObject[ 'OBJSUFFIX' ],  source = './main.cpp'       )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'conversion'       ) + envObject[ 'OBJSUFFIX' ],  source = './conversion.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'            ) + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp'      )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'make'             ) + envObject[ 'OBJSUFFIX' ],  source = './make.cpp'       )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'bound'            ) + envObject[ 'OBJSUFFIX' ],  source = './bound.cpp'      )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'sizeof'           ) + envObject[ 'OBJSUFFIX' ],  source = './sizeof.cpp'     )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'selfie.cpp'       ) + envObject[ 'OBJSUFFIX' ],  source = './selfie.cpp'     )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'set.cpp'          ) + envObject[ 'OBJSUFFIX' ],  source = './set.cpp'        )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, './gray/main.cpp'  ) + envObject[ 'OBJSUFFIX' ],  source = './gray/main.cpp'  )
   ]
 
 # Make native environment

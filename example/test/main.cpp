@@ -159,13 +159,17 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
      }
    }
 
-  std::ofstream of(name, std::ios_base::binary);
-  of.write((const char *)header, 18);
-  of.write((const char *)image.data(), image.size() * 4);
+   {
+    std::ofstream of(name, std::ios_base::binary);
+    of.write((const char *)header, 18);
+    of.write((const char *)image.data(), image.size() * 4);
+   }
  }
 
 int main(int argc, char const *argv[])
  {
+  extern int mainX( int argc, char const *argv[] );
+  mainX( argc, argv );
 
   make_image<color::hsl<double> >( "./image-hsl.tga" , 0.5 );
   make_image<color::hsv<double> >( "./image-hsv.tga" , 0.5 );

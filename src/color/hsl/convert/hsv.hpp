@@ -29,7 +29,7 @@ namespace color
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
            typedef ::color::_internal::diverse< category_left_type >    diverse_type;
-           typedef ::color::_internal::normalize< category_right_type > normalize_type; 
+           typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
            static void process
             (
@@ -42,8 +42,12 @@ namespace color
              scalar_type v  = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
              scalar_type l = v * ( 2-ss ) / 2;
-             // TODO
-             scalar_type s = v*ss/( 1- fabs( 2 * l - 1 ) );
+             scalar_type s = 0 ;
+             // TODO if( ( l < -1e6 ) || ( 0.9999 < l ) )
+              {
+               //h = 0;
+               s = v*ss/( 1- fabs( 2 * l - 1 ) );
+              }
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );
              container_left_trait_type::template set<1>( left, diverse_type::template process<1>( s ) );
@@ -113,4 +117,4 @@ namespace color
    }
  }
 
-#endif 
+#endif

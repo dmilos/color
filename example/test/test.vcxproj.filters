@@ -256,6 +256,9 @@
     <Filter Include="Source Files\src\hsv\fix">
       <UniqueIdentifier>{c81ef610-c5a3-4ed1-80c0-75b6ea820334}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\main\gray">
+      <UniqueIdentifier>{9e9d3bbe-a98d-43fe-be68-52cfc3681c84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\color\color.hpp">
@@ -1858,6 +1861,9 @@
     </ClCompile>
     <ClCompile Include="selfie.cpp">
       <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="gray\main.cpp">
+      <Filter>Source Files\main\gray</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

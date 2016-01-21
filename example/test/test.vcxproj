@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="conversion.cpp" />
+    <ClCompile Include="gray\main.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="make.cpp" />
     <ClCompile Include="selfie.cpp" />

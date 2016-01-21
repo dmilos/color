@@ -30,7 +30,7 @@ namespace color
 
            typedef ::color::_internal::diverse< category_left_type >    diverse_type;
            typedef ::color::_internal::normalize< category_right_type > normalize_type;
-           
+
            typedef ::color::_internal::_privateRGB::convert_hsl2rgb<category_left_name, category_right_name, scalar_name> this_type;
 
            static void process
@@ -95,6 +95,14 @@ namespace color
      template< > struct convert<::color::category::rgb_uint16,::color::category::hsl_float  > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint16,::color::category::hsl_float  >{};
      template< > struct convert<::color::category::rgb_uint16,::color::category::hsl_double > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint16,::color::category::hsl_double >{};
      template< > struct convert<::color::category::rgb_uint16,::color::category::hsl_ldouble> : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint16,::color::category::hsl_ldouble>{};
+
+     template< > struct convert<::color::category::rgb_uint24,::color::category::hsl_uint8  > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint24,::color::category::hsl_uint8  >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::hsl_uint16 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint24,::color::category::hsl_uint16 >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::hsl_uint32 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint24,::color::category::hsl_uint32 >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::hsl_uint64 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint24,::color::category::hsl_uint64 >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::hsl_float  > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint24,::color::category::hsl_float  >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::hsl_double > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint24,::color::category::hsl_double >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::hsl_ldouble> : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint24,::color::category::hsl_ldouble>{};
 
      template< > struct convert<::color::category::rgb_uint32,::color::category::hsl_uint8  > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint32,::color::category::hsl_uint8  >{};
      template< > struct convert<::color::category::rgb_uint32,::color::category::hsl_uint16 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint32,::color::category::hsl_uint16 >{};

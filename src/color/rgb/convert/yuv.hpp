@@ -31,7 +31,7 @@ namespace color
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-           typedef ::color::constant::yuv< category_right_name > yuv_const_type; 
+           typedef ::color::constant::yuv< category_right_name > yuv_const_type;
 
            typedef ::color::_internal::diverse< category_left_type >    diverse_type;
            typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -86,6 +86,14 @@ namespace color
      template< > struct convert<::color::category::rgb_uint16,::color::category::yuv_float  > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint16,::color::category::yuv_float  >{};
      template< > struct convert<::color::category::rgb_uint16,::color::category::yuv_double > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint16,::color::category::yuv_double >{};
      template< > struct convert<::color::category::rgb_uint16,::color::category::yuv_ldouble> : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint16,::color::category::yuv_ldouble>{};
+
+     template< > struct convert<::color::category::rgb_uint24,::color::category::yuv_uint8  > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint24,::color::category::yuv_uint8  >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::yuv_uint16 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint24,::color::category::yuv_uint16 >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::yuv_uint32 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint24,::color::category::yuv_uint32 >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::yuv_uint64 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint24,::color::category::yuv_uint64 >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::yuv_float  > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint24,::color::category::yuv_float  >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::yuv_double > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint24,::color::category::yuv_double >{};
+     template< > struct convert<::color::category::rgb_uint24,::color::category::yuv_ldouble> : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint24,::color::category::yuv_ldouble>{};
 
      template< > struct convert<::color::category::rgb_uint32,::color::category::yuv_uint8  > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint32,::color::category::yuv_uint8  >{};
      template< > struct convert<::color::category::rgb_uint32,::color::category::yuv_uint16 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint32,::color::category::yuv_uint16 >{};

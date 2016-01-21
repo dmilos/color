@@ -13,13 +13,14 @@ namespace color
      {
       namespace _privateHSL
        {
+
         template< typename category_name >
          struct unique
           {
            public:
             typedef category_name category_type;
         
-            typedef ::color::_internal::model<category_type>          model_type;
+            typedef ::color::_internal::model<category_type>      model_type;
             typedef ::color::trait::bound< category_type >        bound_type;
         
             static bool process( model_type const& m )
