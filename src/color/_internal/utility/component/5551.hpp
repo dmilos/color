@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_component_cnent556
-#define color__internal_utility_component_cnent556
+#ifndef color__internal_utility_component_cnent5551
+#define color__internal_utility_component_cnent5551
 
-// ::color::_internal::utility::component::cnent556< index_type >
+// ::color::_internal::utility::component::cnent5551< index_type >
 
 #include "./unsigned.hpp"
 
@@ -16,7 +16,7 @@ namespace color
        {
 
         template< typename index_name >
-         struct cnent556
+         struct cnent5551
           : public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > 
           {
           };

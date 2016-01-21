@@ -17,7 +17,7 @@ namespace color
 
         template< typename index_name >
          struct cnent655
-          : public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > 
+          : public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > 
           {
           };
 

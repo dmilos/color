@@ -4,8 +4,8 @@
 #include "../../_internal/convert.hpp"
 #include "../../cmy/cmy.hpp"
 
-#include "../../generic/operation/invert.hpp"
-#include "../../_internal/reformat.hpp"
+#include "../../_internal/diverse.hpp"
+#include "../../_internal/normalize.hpp"
 
 namespace color
  {

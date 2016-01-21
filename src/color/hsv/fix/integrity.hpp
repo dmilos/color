@@ -37,7 +37,7 @@
                   return;
                  }
                }
-         
+
               static void process(  model_type &result, model_type const& right )
                {
                 result = right;
@@ -52,7 +52,7 @@
                   return;
                  }
                }
-         
+
            };
 
       }

@@ -40,7 +40,7 @@ namespace color
 
    }
 
-  template< typename type_name/*, bool alpha_name, typename order_type*/ >
+  template< typename type_name/*, bool alpha_have, typename order_type*/ >
    using rgb = ::color::_internal::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
 
  }
