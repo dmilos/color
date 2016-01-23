@@ -40,61 +40,19 @@ namespace color
         };
      }
 
-     template< > struct convert<::color::category::xyz_uint8,::color::category::gray_uint8  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_uint8  >{};
-     template< > struct convert<::color::category::xyz_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_uint16 >{};
-     template< > struct convert<::color::category::xyz_uint8,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_uint32 >{};
-     template< > struct convert<::color::category::xyz_uint8,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_uint64 >{};
-     template< > struct convert<::color::category::xyz_uint8,::color::category::gray_float  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_float  >{};
-     template< > struct convert<::color::category::xyz_uint8,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_double >{};
-     template< > struct convert<::color::category::xyz_uint8,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_ldouble>{};
-
-     template< > struct convert<::color::category::xyz_uint16,::color::category::gray_uint8  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_uint8  >{};
-     template< > struct convert<::color::category::xyz_uint16,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_uint16 >{};
-     template< > struct convert<::color::category::xyz_uint16,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_uint32 >{};
-     template< > struct convert<::color::category::xyz_uint16,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_uint64 >{};
-     template< > struct convert<::color::category::xyz_uint16,::color::category::gray_float  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_float  >{};
-     template< > struct convert<::color::category::xyz_uint16,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_double >{};
-     template< > struct convert<::color::category::xyz_uint16,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_ldouble>{};
-
-     template< > struct convert<::color::category::xyz_uint32,::color::category::gray_uint8  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_uint8  >{};
-     template< > struct convert<::color::category::xyz_uint32,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_uint16 >{};
-     template< > struct convert<::color::category::xyz_uint32,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_uint32 >{};
-     template< > struct convert<::color::category::xyz_uint32,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_uint64 >{};
-     template< > struct convert<::color::category::xyz_uint32,::color::category::gray_float  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_float  >{};
-     template< > struct convert<::color::category::xyz_uint32,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_double >{};
-     template< > struct convert<::color::category::xyz_uint32,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_ldouble>{};
-
-     template< > struct convert<::color::category::xyz_uint64,::color::category::gray_uint8  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_uint8  >{};
-     template< > struct convert<::color::category::xyz_uint64,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_uint16 >{};
-     template< > struct convert<::color::category::xyz_uint64,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_uint32 >{};
-     template< > struct convert<::color::category::xyz_uint64,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_uint64 >{};
-     template< > struct convert<::color::category::xyz_uint64,::color::category::gray_float  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_float  >{};
-     template< > struct convert<::color::category::xyz_uint64,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_double >{};
-     template< > struct convert<::color::category::xyz_uint64,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_ldouble>{};
-
-     template< > struct convert<::color::category::xyz_float,::color::category::gray_uint8  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_uint8  >{};
-     template< > struct convert<::color::category::xyz_float,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_uint16 >{};
-     template< > struct convert<::color::category::xyz_float,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_uint32 >{};
-     template< > struct convert<::color::category::xyz_float,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_uint64 >{};
-     template< > struct convert<::color::category::xyz_float,::color::category::gray_float  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_float  >{};
-     template< > struct convert<::color::category::xyz_float,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_double >{};
-     template< > struct convert<::color::category::xyz_float,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_ldouble>{};
-
-     template< > struct convert<::color::category::xyz_double,::color::category::gray_uint8  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_uint8  >{};
-     template< > struct convert<::color::category::xyz_double,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_uint16 >{};
-     template< > struct convert<::color::category::xyz_double,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_uint32 >{};
-     template< > struct convert<::color::category::xyz_double,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_uint64 >{};
-     template< > struct convert<::color::category::xyz_double,::color::category::gray_float  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_float  >{};
-     template< > struct convert<::color::category::xyz_double,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_double >{};
-     template< > struct convert<::color::category::xyz_double,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_ldouble>{};
-
-     template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_uint8  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_uint8  >{};
-     template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_uint16 >{};
-     template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_uint32 >{};
-     template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_uint64 >{};
-     template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_float  > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_float  >{};
-     template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_double >{};
-     template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_ldouble>{};
+     template< typename xyz_tag_name, typename gray_tag_name >
+      struct convert
+       <
+         ::color::category::xyz<   xyz_tag_name >
+        ,::color::category::gray< gray_tag_name >
+       >
+      : public ::color::_internal::_privateXYZ::convert_gray2xyz
+       <
+         ::color::category::xyz<   xyz_tag_name >
+        ,::color::category::gray< gray_tag_name >
+        >
+      {
+      };
 
 
    }

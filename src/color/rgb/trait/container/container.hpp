@@ -7,3 +7,5 @@
 #include "./uint8.hpp"
 #include "./uint24.hpp"
 #include "./uint48.hpp"
+#include "./scramble3.hpp"
+#include "./scramble4.hpp"

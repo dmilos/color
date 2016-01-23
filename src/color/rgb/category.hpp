@@ -8,46 +8,63 @@ namespace color
   namespace category
    {
 
-    struct rgb_uint8    {};
-    struct rgb_uint16   {};
-    struct rgb_uint24   {};
-    struct rgb_uint32   {};
-    struct rgb_uint48   {};
-    struct rgb_uint64   {};
-    struct rgb_float    {};
-    struct rgb_double   {};
-    struct rgb_ldouble  {};
+    namespace _internal
+     {
+      struct rgb_uint8   {};
+      struct rgb_uint16  {};
+      struct rgb_uint24  {};
+      struct rgb_uint32  {};
+      struct rgb_uint48  {};
+      struct rgb_uint64  {};
+      struct rgb_float   {};
+      struct rgb_double  {};
+      struct rgb_ldouble {};
+     }
 
-    //struct rgba_uint8    {};
-    //struct rgba_uint16   {};
-    //struct rgba_uint24   {};
-    //struct rgba_uint32   {};
-    //struct rgba_uint48   {};
-    //struct rgba_uint64   {};
-    //struct rgba_float    {};
-    //struct rgba_double   {};
-    //struct rgba_ldouble  {};
+    template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position >
+     struct rgb_scramble{};
 
-    //struct rgb_uint8_rev   {};
-    //struct rgb_uint16_rev  {};
-    //struct rgb_uint24_rev  {};
-    //struct rgb_uint32_rev  {};
-    //struct rgb_uint48_rev  {};
-    //struct rgb_uint64_rev  {};
-    //struct rgb_float_rev   {};
-    //struct rgb_double_rev  {};
-    //struct rgb_ldouble_rev {};
+    template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position, unsigned alpha_position >
+      struct rgba_scramble{};
 
-    //struct rgba_uint8_rev   {};
-    //struct rgba_uint16_rev  {};
-    //struct rgba_uint24_rev  {};
-    //struct rgba_uint32_rev  {};
-    //struct rgba_uint48_rev  {};
-    //struct rgba_uint64_rev  {};
-    //struct rgba_float_rev   {};
-    //struct rgba_double_rev  {};
-    //struct rgba_ldouble_rev {};
+    template< typename tag_name >
+     struct rgb
+      {
+       // typedef void category_name;
+      };
 
+    using rgb_uint8   = rgb< ::color::category::_internal::rgb_uint8   >;
+    using rgb_uint16  = rgb< ::color::category::_internal::rgb_uint16  >;
+    using rgb_uint24  = rgb< ::color::category::_internal::rgb_uint24  >;
+    using rgb_uint32  = rgb< ::color::category::_internal::rgb_uint32  >;
+    using rgb_uint48  = rgb< ::color::category::_internal::rgb_uint48  >;
+    using rgb_uint64  = rgb< ::color::category::_internal::rgb_uint64  >;
+    using rgb_float   = rgb< ::color::category::_internal::rgb_float   >;
+    using rgb_double  = rgb< ::color::category::_internal::rgb_double  >;
+    using rgb_ldouble = rgb< ::color::category::_internal::rgb_ldouble >;
+
+    /*
+    template<> struct rgb< 9> { typedef ::color::category::rgb_scramble<  float, 0, 1, 2 >    category_name; };
+    template<> struct rgb<10> { typedef ::color::category::rgb_scramble<  float, 2, 1, 0 >    category_name; };
+    template<> struct rgb<11> { typedef ::color::category::rgba_scramble< float, 2, 1, 0, 3 > category_name; };
+    template<> struct rgb<12> { typedef ::color::category::rgba_scramble< float, 3, 2, 1, 0 > category_name; };
+    template<> struct rgb<13> { typedef ::color::category::rgba_scramble< float, 0, 1, 2, 3 > category_name; };
+    template<> struct rgb<14> { typedef ::color::category::rgba_scramble< float, 1, 2, 3, 0 > category_name; };
+
+    template<> struct rgb<15 > { typedef ::color::category::rgb_scramble<  double, 0, 1, 2 >    category_name; };
+    template<> struct rgb<16> { typedef ::color::category::rgb_scramble<  double, 2, 1, 0 >    category_name; };
+    template<> struct rgb<17> { typedef ::color::category::rgba_scramble< double, 2, 1, 0, 3 > category_name; };
+    template<> struct rgb<18> { typedef ::color::category::rgba_scramble< double, 3, 2, 1, 0 > category_name; };
+    template<> struct rgb<19> { typedef ::color::category::rgba_scramble< double, 0, 1, 2, 3 > category_name; };
+    template<> struct rgb<20> { typedef ::color::category::rgba_scramble< double, 1, 2, 3, 0 > category_name; };
+
+    template<> struct rgb<21> { typedef ::color::category::rgb_scramble<  long double, 0, 1, 2 >    category_name; };
+    template<> struct rgb<22> { typedef ::color::category::rgb_scramble<  long double, 2, 1, 0 >    category_name; };
+    template<> struct rgb<23> { typedef ::color::category::rgba_scramble< long double, 2, 1, 0, 3 > category_name; };
+    template<> struct rgb<24> { typedef ::color::category::rgba_scramble< long double, 3, 2, 1, 0 > category_name; };
+    template<> struct rgb<25> { typedef ::color::category::rgba_scramble< long double, 0, 1, 2, 3 > category_name; };
+    template<> struct rgb<26> { typedef ::color::category::rgba_scramble< long double, 1, 2, 3, 0 > category_name; };
+    */
    }
  }
 

@@ -31,7 +31,7 @@ namespace color
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
            typedef ::color::_internal::diverse< category_left_type >    diverse_type;
-           typedef ::color::_internal::normalize< category_right_type > normalize_type; 
+           typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
            static void process
             (
@@ -42,7 +42,7 @@ namespace color
              scalar_type r = scalar_type(1) - normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
              scalar_type g = scalar_type(1) - normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
              scalar_type b = scalar_type(1) - normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
-                
+
              const scalar_type hi = std::max<scalar_type>( { r, g, b } );
              const scalar_type lo = std::min<scalar_type>( { r, g, b } );
              scalar_type delta = hi - lo;
@@ -58,11 +58,11 @@ namespace color
                 {
                  h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
                 }
-               if( hi == g ) 
+               if( hi == g )
                 {
                  h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
                 }
-               if( hi == b ) 
+               if( hi == b )
                 {
                  h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
                 }
@@ -76,64 +76,21 @@ namespace color
 
      }
 
-     template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_uint8  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_float  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_uint8  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_float  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_uint8  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_float  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_uint8  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_float  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::hsl_float,::color::category::cmy_uint8  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::hsl_float,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::hsl_float,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::hsl_float,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::hsl_float,::color::category::cmy_float  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::hsl_float,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::hsl_float,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::hsl_double,::color::category::cmy_uint8  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::hsl_double,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::hsl_double,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::hsl_double,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::hsl_double,::color::category::cmy_float  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::hsl_double,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::hsl_double,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_uint8  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_float  > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_ldouble>{};
-
+     template< typename hsl_tag_name, typename cmy_tag_name >
+      struct convert
+       <
+         ::color::category::hsl< hsl_tag_name >
+        ,::color::category::cmy< cmy_tag_name >
+       >
+      : public ::color::_internal::_privateHSL::convert_cmy2hsl
+       <
+         ::color::category::hsl< hsl_tag_name >
+        ,::color::category::cmy< cmy_tag_name >
+        >
+      {
+      };
 
    }
  }
 
-#endif 
+#endif

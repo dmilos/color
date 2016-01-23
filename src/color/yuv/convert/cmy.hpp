@@ -67,62 +67,19 @@ namespace color
 
      }
 
-     template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_uint8  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_float  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_uint8  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_float  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_uint8  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_float  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_uint8  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_float  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::yuv_float,::color::category::cmy_uint8  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::yuv_float,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::yuv_float,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::yuv_float,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::yuv_float,::color::category::cmy_float  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::yuv_float,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::yuv_float,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::yuv_double,::color::category::cmy_uint8  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::yuv_double,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::yuv_double,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::yuv_double,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::yuv_double,::color::category::cmy_float  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::yuv_double,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::yuv_double,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_ldouble>{};
-
-     template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_uint8  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_uint8  >{};
-     template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_uint16 >{};
-     template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_uint32 >{};
-     template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_uint64 >{};
-     template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_float  > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_float  >{};
-     template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_double >{};
-     template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_ldouble>{};
-
+     template< typename yuv_tag_name, typename cmy_tag_name >
+      struct convert
+       <
+         ::color::category::yuv<   yuv_tag_name >
+        ,::color::category::cmy< cmy_tag_name >
+       >
+      : public ::color::_internal::_privateYUV::convert_cmy2yuv
+       <
+         ::color::category::yuv<   yuv_tag_name >
+        ,::color::category::cmy< cmy_tag_name >
+        >
+      {
+      };
 
    }
  }

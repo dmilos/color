@@ -30,9 +30,9 @@ namespace color
              {
               if( m.template get<3>() == bound_type::template maximum<3>() ) { return false; }
 
-              if( m.template get<0>() != m.template get<1>() ) { return true; }
-              if( m.template get<0>() != m.template get<2>() ) { return true; }
-              if( m.template get<1>() != m.template get<2>() ) { return true; }
+              if( m.template get<0>() == bound_type::template minimum<0>() ) { return true; }
+              if( m.template get<1>() == bound_type::template minimum<1>() ) { return true; }
+              if( m.template get<2>() == bound_type::template minimum<2>() ) { return true; }
 
               return false;
              }
@@ -60,9 +60,9 @@ namespace color
            {
             if( m.template get<3>() == bound_type::template maximum<3>() ) { return false; }
 
-            if( false == scalar_trait_type::is_small( m.template get<0>() - m.template get<1>() ) ) { return true; }
-            if( false == scalar_trait_type::is_small( m.template get<0>() - m.template get<2>() ) ) { return true; }
-            if( false == scalar_trait_type::is_small( m.template get<1>() - m.template get<2>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get<0>() - bound_type::template minimum<0>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get<1>() - bound_type::template minimum<1>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get<2>() - bound_type::template minimum<2>() ) ) { return true; }
 
             return false;
            }
@@ -82,9 +82,9 @@ namespace color
            {
             if( m.template get<3>() == bound_type::template maximum<3>() ) { return false; }
 
-            if( false == scalar_trait_type::is_small( m.template get<0>() - m.template get<1>() ) ) { return true; }
-            if( false == scalar_trait_type::is_small( m.template get<0>() - m.template get<2>() ) ) { return true; }
-            if( false == scalar_trait_type::is_small( m.template get<1>() - m.template get<2>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get<0>() - bound_type::template minimum<0>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get<1>() - bound_type::template minimum<1>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get<2>() - bound_type::template minimum<2>() ) ) { return true; }
 
             return false;
            }
@@ -104,9 +104,9 @@ namespace color
            {
             if( m.template get<3>() == bound_type::template maximum<3>() ) { return false; }
 
-            if( false == scalar_trait_type::is_small( m.template get<0>() - m.template get<1>() ) ) { return true; }
-            if( false == scalar_trait_type::is_small( m.template get<0>() - m.template get<2>() ) ) { return true; }
-            if( false == scalar_trait_type::is_small( m.template get<1>() - m.template get<2>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get<0>() - bound_type::template minimum<0>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get<1>() - bound_type::template minimum<1>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get<2>() - bound_type::template minimum<2>() ) ) { return true; }
 
             return false;
            }

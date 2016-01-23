@@ -11,6 +11,45 @@
 #include "./model/get.hpp"
 #include "./model/conversion.hpp"
 
+void RGB()
+ {
+  ::color::gray<float>         g1;
+  ::color::rgb<float>          r1;
+
+   r1 = g1;
+
+  ::color::bgr<float>          a;
+  ::color::bgra<double>        b;
+  ::color::abgr<std::uint8_t>  c;
+  ::color::rgba<double>        d;
+  ::color::argb<std::uint16_t> e;
+
+  ::color::place::alpha< ::color::bgr<float>         ::category_type >();
+  ::color::place::alpha< ::color::bgra<double>       ::category_type >();
+  ::color::place::alpha< ::color::abgr<std::uint8_t> ::category_type >();
+  ::color::place::alpha< ::color::rgba<double>       ::category_type >();
+  ::color::place::alpha< ::color::argb<std::uint16_t>::category_type >();
+
+
+  ::color::place::red< ::color::bgr<float>         ::category_type >();
+  ::color::place::red< ::color::bgra<double>       ::category_type >();
+  ::color::place::red< ::color::abgr<std::uint8_t> ::category_type >();
+  ::color::place::red< ::color::rgba<double>       ::category_type >();
+  ::color::place::red< ::color::argb<std::uint16_t>::category_type >();
+
+  ::color::place::green< ::color::bgr<float>         ::category_type >();
+  ::color::place::green< ::color::bgra<double>       ::category_type >();
+  ::color::place::green< ::color::abgr<std::uint8_t> ::category_type >();
+  ::color::place::green< ::color::rgba<double>       ::category_type >();
+  ::color::place::green< ::color::argb<std::uint16_t>::category_type >();
+
+  ::color::place::blue< ::color::bgr<float>         ::category_type >();
+  ::color::place::blue< ::color::bgra<double>       ::category_type >();
+  ::color::place::blue< ::color::abgr<std::uint8_t> ::category_type >();
+  ::color::place::blue< ::color::rgba<double>       ::category_type >();
+  ::color::place::blue< ::color::argb<std::uint16_t>::category_type >();
+ }
+
 void invoke()
  {
   //::color::make::aqua< color::category::rgb_uint8 >();
@@ -168,6 +207,8 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 
 int main(int argc, char const *argv[])
  {
+  RGB();
+
   extern int mainX( int argc, char const *argv[] );
   mainX( argc, argv );
 

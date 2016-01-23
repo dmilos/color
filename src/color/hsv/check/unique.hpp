@@ -25,21 +25,20 @@ namespace color
 
             static bool process( model_type const& m )
              {
-              if( m.template get<1>() != bound_type::template minimum<1>() ) { return false; }
+              if( m.template get<1>() == bound_type::template minimum<1>() ) { return false; }
               if( m.template get<2>() == bound_type::template minimum<2>() ) { return false; }
+              if( m.template get<2>() == bound_type::template maximum<2>() ) { return false; }
               return true;
              }
           };
 
        }
 
-      template<> struct unique< ::color::category::hsv_uint8   > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_uint8   >{ };
-      template<> struct unique< ::color::category::hsv_uint16  > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_uint16  >{ };
-      template<> struct unique< ::color::category::hsv_uint32  > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_uint32  >{ };
-      template<> struct unique< ::color::category::hsv_uint64  > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_uint64  >{ };
-      template<> struct unique< ::color::category::hsv_float   > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_float   >{ };
-      template<> struct unique< ::color::category::hsv_double  > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_double  >{ };
-      template<> struct unique< ::color::category::hsv_ldouble > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv_ldouble >{ };
+      template< typename hsv_tag_name > 
+       struct unique< ::color::category::hsv< hsv_tag_name > >
+         : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv< hsv_tag_name >  >
+         {
+         };
 
      }
    }

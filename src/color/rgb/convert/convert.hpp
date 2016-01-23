@@ -8,3 +8,6 @@
 #include "./xyz.hpp"
 #include "./yiq.hpp"
 #include "./yuv.hpp"
+
+//#include "./gray2.hpp"
+
