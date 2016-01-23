@@ -14,7 +14,7 @@
 void RGB()
  {
   ::color::gray<float>         g1;
-  ::color::rgb<float>          r1;
+  ::color::bgr<float>          r1;
 
    r1 = g1;
 
