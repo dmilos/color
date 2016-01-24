@@ -12,6 +12,8 @@
 #include "../../generic/get/alpha.hpp"
 #include "../../generic/set/alpha.hpp"
 
+#include "../../generic/place/alpha.hpp"
+
 
  namespace color
   {
@@ -97,17 +99,20 @@
 
       }
 
-     template< unsigned alpha_index, typename category_name >
+     template< typename category_name >
       void blend
        (
          ::color::_internal::model<category_name>      & result
         ,::color::_internal::model<category_name> const& upper
        )
        {
+        enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+        //std::enable_if< ::color::place::_internal::alpha<category_name>::has_enum >::type dummy;
+
         ::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >( result, upper );
        }
 
-     template< unsigned alpha_index, typename category_name >
+     template< typename category_name >
       void blend
        (
          ::color::_internal::model<category_name>      & result
@@ -115,10 +120,11 @@
         ,::color::_internal::model<category_name> const& upper
        )
        {
+        enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
         ::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >( result, lower, upper );
        }
-       
-     template< unsigned alpha_index, typename category_name >
+
+     template< typename category_name >
       ::color::_internal::model<category_name>
       mix
        (
@@ -126,9 +132,10 @@
         ,::color::_internal::model<category_name> const& upper
        )
        {
+        enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
         return ::color::operation::_internal::blend<category_name>::template mix< alpha_index >( lower, upper );
        }
-       
+
 
      template< typename category_name, typename scalar_name = double >
       void blend
@@ -138,6 +145,7 @@
         ,::color::_internal::model<category_name> const& upper
        )
        {
+        enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
         ::color::operation::_internal::blend<category_name>::accumulate( result, alpha, upper );
        }
 

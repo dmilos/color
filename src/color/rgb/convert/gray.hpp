@@ -37,18 +37,21 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             static /* constexpr*/ unsigned red_place   = ::color::place::red<category_left_name>();
-             static /* constexpr*/ unsigned green_place = ::color::place::green<category_left_name>();
-             static /* constexpr*/ unsigned blue_place  = ::color::place::blue<category_left_name>();
-             static /* constexpr*/ unsigned gray_place  = ::color::place::gray<category_right_name>();
+             enum
+              {
+                red_p   = ::color::place::_internal::red<category_left_type>::position_enum
+               ,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+               ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
+              };
+              
+             enum
+              {
+                gray_p   = 0
+              };
 
-             //container_left_trait_type::template set<red_place  >( left, reformat_type::template process<red_place  ,gray_place>( container_right_trait_type::template get<gray_place>( right ) ) );
-             //container_left_trait_type::template set<green_place>( left, reformat_type::template process<green_place,gray_place>( container_right_trait_type::template get<gray_place>( right ) ) );
-             //container_left_trait_type::template set<blue_place >( left, reformat_type::template process<blue_place ,gray_place>( container_right_trait_type::template get<gray_place>( right ) ) );
-
-             container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( container_right_trait_type::template get<0>( right ) ) );
-             container_left_trait_type::template set<1>( left, reformat_type::template process<1,0>( container_right_trait_type::template get<0>( right ) ) );
-             container_left_trait_type::template set<2>( left, reformat_type::template process<2,0>( container_right_trait_type::template get<0>( right ) ) );
+             container_left_trait_type::template set<red_p  >( left, reformat_type::template process<red_p  ,gray_p>( container_right_trait_type::template get<gray_p>( right ) ) );
+             container_left_trait_type::template set<green_p>( left, reformat_type::template process<green_p,gray_p>( container_right_trait_type::template get<gray_p>( right ) ) );
+             container_left_trait_type::template set<blue_p >( left, reformat_type::template process<blue_p ,gray_p>( container_right_trait_type::template get<gray_p>( right ) ) );
             }
         };
      }

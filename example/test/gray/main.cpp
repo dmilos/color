@@ -6,7 +6,7 @@
 using namespace std;
 #include "color/color.hpp"
 
-typedef std::vector< ::color::rgb< ::color::type::uint24_t  > > image_type;
+typedef std::vector< ::color::bgr< std::uint8_t  > > image_type;
 typedef std::vector< ::color::gray< std::uint8_t  > > gray_image_type;
 
 void load_image( image_type & image )
@@ -39,7 +39,7 @@ void make_gray_gray( gray_image_type & gray, image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    *gc = ::color::rgb< std::uint32_t >( {  c[2], c[1], c[0] }  );
+    *gc = c;
     ++gc;
    }
  }
@@ -49,7 +49,7 @@ void make_gray_yiq( gray_image_type & gray, image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    gc->set<0>( ::color::yiq< std::uint32_t >( ::color::rgb< std::uint32_t >( {  c[2], c[1], c[0] }  ) )[0] );
+    gc->set<0>( ::color::yiq< std::uint32_t >( ::color::rgb< std::uint32_t >( c ) )[0] );
     ++gc;
    }
  }
@@ -59,7 +59,7 @@ void make_gray_yuv( gray_image_type & gray, image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    gc->set<0>( ::color::yuv< std::uint32_t >( ::color::rgb< std::uint32_t >( {  c[2], c[1], c[0] }  ) )[0] );
+    gc->set<0>( ::color::yuv< std::uint32_t >( ::color::rgb< std::uint32_t >( c ) )[0] );
     ++gc;
    }
  }
@@ -68,7 +68,7 @@ void make_gray_hsl( gray_image_type & gray, image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    gc->set<0>( ::color::hsl< std::uint32_t >( ::color::rgb< std::uint32_t >( {  c[2], c[1], c[0] }  ) )[2] );
+    gc->set<0>( ::color::hsl< std::uint32_t >( ::color::rgb< std::uint32_t >( c ) )[2] );
     ++gc;
    }
  }
@@ -78,7 +78,7 @@ void make_gray_hsv( gray_image_type & gray, image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    gc->set<0>( ::color::hsv< std::uint32_t >( ::color::rgb< std::uint32_t >( {  c[2], c[1], c[0] }  ) )[2] );
+    gc->set<0>( ::color::hsv< std::uint32_t >( ::color::rgb< std::uint32_t >( c ) )[2] );
     ++gc;
    }
  }
@@ -88,7 +88,7 @@ void make_gray_satur_hsv( gray_image_type & gray, image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    auto r = ::color::rgb< std::uint32_t >( { c[2], c[1], c[0] } );
+    auto r = ::color::rgb< std::uint32_t >( c );
     auto h = ::color::hsv< std::uint32_t >( r );
     h.set<1>( 0 );
 
@@ -102,7 +102,7 @@ void make_gray_satur_hsl( gray_image_type & gray, image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    auto r = ::color::rgb< std::uint32_t >( { c[2], c[1], c[0] } );
+    auto r = ::color::rgb< std::uint32_t >( c );
     auto h = ::color::hsl< std::uint32_t >( r );
     h.set<1>( 0 );
 

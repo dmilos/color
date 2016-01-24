@@ -18,6 +18,9 @@
           public:
            typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
 
+           enum { position_enum = -1; };
+           enum { has_enum = false };
+
            static /*constexpr*/ index_instance_type position()
             {
              return ::color::trait::container< category_name >::size();
