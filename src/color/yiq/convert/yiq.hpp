@@ -1,7 +1,7 @@
 #ifndef color_yiq_convert_yiq
 #define color_yiq_convert_yiq
 
-#include "../place/place.hpp"
+//#include "../place/place.hpp"
 
 #include "../../_internal/convert.hpp"
 

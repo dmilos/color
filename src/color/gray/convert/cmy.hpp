@@ -19,7 +19,7 @@ namespace color
      struct convert
       <
         ::color::category::gray< gray_tag_name >
-       , ::color::category::cmy<cmy_tag_name>
+       ,::color::category::cmy<cmy_tag_name>
       >
       {
        public:
@@ -44,7 +44,7 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           scalar_name value =
+           scalar_type value =
                  gray_const_type::Rc() * ( 1 - normalize_type::template process<0> ( container_right_trait_type::template get<0>( right ) ) )
                + gray_const_type::Gc() * ( 1 - normalize_type::template process<1> ( container_right_trait_type::template get<1>( right ) ) )
                + gray_const_type::Bc() * ( 1 - normalize_type::template process<2> ( container_right_trait_type::template get<2>( right ) ) );

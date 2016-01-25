@@ -21,9 +21,12 @@
            typedef ::color::category::gray< tag_name > category_type;
            typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
+           enum { position_enum = 0 };
+           enum { has_enum = true };
+
            static /*constexpr*/ index_instance_type position()
             {
-             return 0;
+             return position_enum;
             }
          };
 

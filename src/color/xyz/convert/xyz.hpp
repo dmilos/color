@@ -1,7 +1,7 @@
 #ifndef color_xyz_convert_xyz
 #define color_xyz_convert_xyz
 
-#include "../place/place.hpp"
+//#include "../place/place.hpp"
 
 #include "../../_internal/convert.hpp"
 

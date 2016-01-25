@@ -1,7 +1,7 @@
 #ifndef color_hsl_convert_hsl
 #define color_hsl_convert_hsl
 
-#include "../place/place.hpp"
+//#include "../place/place.hpp"
 
 #include "../../_internal/convert.hpp"
 
