@@ -10,6 +10,9 @@
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
 
+
+
+
 namespace color
  {
   namespace _internal

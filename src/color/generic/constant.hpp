@@ -22,7 +22,7 @@ namespace color
 
          typedef  ::color::constant::yuv<category_type> this_type;
 
-          static /* constexpr*/ scalar_type const zero()  { return 0; }
+          static /* constexpr*/ scalar_type const zero() { return 0; }
           static /* constexpr*/ scalar_type const one()  { return 1; }
           static /* constexpr*/ scalar_type const two()  { return 2; }
       };

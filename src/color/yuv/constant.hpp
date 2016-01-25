@@ -12,7 +12,7 @@ namespace color
   namespace constant
    {
 
-    template< typename category_name>
+    template< typename category_name >
      struct yuv
       {
        public:

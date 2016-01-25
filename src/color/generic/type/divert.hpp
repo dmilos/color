@@ -8,7 +8,7 @@ namespace color
   namespace type
    {
 
-    struct normal_t {};
+    struct divert_t {};
 
    }
  }

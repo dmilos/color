@@ -5,7 +5,6 @@
 
 namespace color
  {
-
   namespace type
    {
 

@@ -1,7 +1,7 @@
-#ifndef color_generic_place_green
-#define color_generic_place_green
+#ifndef color_generic_place_luminance
+#define color_generic_place_luminance
 
-// ::color::place::green<category_name>()
+// ::color::place::luminance<category_name>()
 
 #include "../trait/index.hpp"
 
@@ -13,7 +13,7 @@
       {
 
        template< typename category_name >
-        struct green
+        struct luminance
          {
           public:
            typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
@@ -33,9 +33,9 @@
       inline
       /*constexpr*/
       typename ::color::trait::index< category_name >::instance_type
-      green()
+      luminance()
        {
-        return ::color::place::_internal::green<category_name>::position();
+        return ::color::place::_internal::luminance<category_name>::position();
        }
 
     }
