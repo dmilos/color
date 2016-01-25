@@ -1,7 +1,7 @@
 #ifndef color_rgb_place_alpha
 #define color_rgb_place_alpha
 
-// ::color::place::alpha<category_name>()
+// ::color::place::_internal::alpha<category_name>()
 
 #include "../../generic/place/alpha.hpp"
 #include "../category.hpp"

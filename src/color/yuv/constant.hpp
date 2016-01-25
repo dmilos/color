@@ -4,7 +4,7 @@
 // ::color::constant::yuv< typename ::color::akin::yuv< category_name >::akin_type >::Wr()
 
 #include "./category.hpp"
-#include "./trait/scalar.hpp"
+#include "../generic/trait/scalar.hpp"
 
 
 namespace color

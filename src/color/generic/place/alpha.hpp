@@ -36,7 +36,7 @@
       typename ::color::trait::index< category_name >::instance_type
       alpha()
        {
-        return ::color::place::_internal::blue<category_name>::position();
+        return ::color::place::_internal::alpha<category_name>::position();
        }
 
     }

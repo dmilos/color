@@ -4,7 +4,7 @@
 // ::color::constant::gray< typename ::color::akin::gray< category_name >::akin_type > >::Rc()
 
 #include "./category.hpp"
-#include "./trait/scalar.hpp"
+#include "../generic/trait/scalar.hpp"
 
 
 namespace color

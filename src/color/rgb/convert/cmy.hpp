@@ -7,6 +7,10 @@
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
 
+#include "../place/red.hpp"
+#include "../place/green.hpp"
+#include "../place/blue.hpp"
+
 namespace color
  {
   namespace _internal

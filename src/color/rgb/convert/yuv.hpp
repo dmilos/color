@@ -6,9 +6,14 @@
 #include "../../yuv/category.hpp"
 #include "../../yuv/constant.hpp"
 
-
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
+
+#include "../place/red.hpp"
+#include "../place/green.hpp"
+#include "../place/blue.hpp"
+
+
 
 namespace color
  {
@@ -19,7 +24,7 @@ namespace color
      struct convert
       <
         ::color::category::rgb< rgb_tag_name >
-       ,::color::category::yuv<yuv_tag_name>
+       ,::color::category::yuv< yuv_tag_name>
       >
       {
        public:

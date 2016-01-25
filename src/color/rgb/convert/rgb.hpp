@@ -8,6 +8,13 @@
 #include "../../_internal/reformat.hpp"
 
 
+
+
+
+
+
+
+
 namespace color
  {
   namespace _internal
