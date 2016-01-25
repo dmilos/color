@@ -43,15 +43,22 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
+             enum
+              {
+                red_p   = ::color::place::_internal::red<category_right_type>::position_enum
+               ,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+               ,blue_p  = ::color::place::_internal::blue<category_right_type>::position_enum
+              };
+
              static scalar_type const Wr   = yuv_const_type::Wr();
              static scalar_type const Wb   = yuv_const_type::Wb();
              static scalar_type const Wg   = yuv_const_type::Wg();
              static scalar_type const Umax = yuv_const_type::Umax();
              static scalar_type const Vmax = yuv_const_type::Vmax();
 
-             scalar_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-             scalar_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-             scalar_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+             scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
+             scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
+             scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
              scalar_type y = Wr * r + Wg * g + Wb * b;
              //scalar_type u = Umax * ( b - y )/( 1- Wb );

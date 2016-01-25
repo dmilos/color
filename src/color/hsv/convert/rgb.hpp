@@ -39,9 +39,16 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
-             scalar_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-             scalar_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-             scalar_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+             enum
+              {
+                red_p   = ::color::place::_internal::red<category_right_type>::position_enum
+               ,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+               ,blue_p  = ::color::place::_internal::blue<category_right_type>::position_enum
+              };
+
+             scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
+             scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
+             scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
              scalar_type lo = std::min<scalar_type>( {r,g,b} );
              scalar_type v =  std::max<scalar_type>( {r,g,b} );

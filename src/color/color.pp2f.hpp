@@ -234,25 +234,25 @@ namespace _internal {
 namespace utility {
 namespace type {
 
-template < typename number_name, typename image_type = number_name const& >
+template < typename number_name, typename image_name = number_name const& >
 struct bound {
 public:
 	typedef number_name number_type;
-	typedef image_type imge_type;
+	typedef image_name image_type;
 
-	typedef bound<number_type,imge_type> this_type;
+	typedef bound<number_type,image_type> this_type;
 
-	static imge_type maximum() {
+	static image_type maximum() {
 		static number_type value=0;
 		return value;
 	}
 
-	static imge_type minimum() {
+	static image_type minimum() {
 		static number_type value=0;
 		return value;
 	}
 
-	static imge_type range() {
+	static image_type range() {
 		static number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
@@ -261,21 +261,21 @@ public:
 template <>
 struct bound<bool, bool const& > {
 	typedef bool number_type;
-	typedef bool const& imge_type;
+	typedef bool const& image_type;
 
-	typedef bound<number_type,imge_type> this_type;
+	typedef bound<number_type,image_type> this_type;
 
-	static imge_type maximum() {
+	static image_type maximum() {
 		static number_type value = true;
 		return value;
 	}
 
-	static imge_type minimum() {
+	static image_type minimum() {
 		static number_type value = false;
 		return value;
 	}
 
-	static imge_type range() {
+	static image_type range() {
 		static number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
@@ -284,21 +284,21 @@ struct bound<bool, bool const& > {
 template <>
 struct bound<std::uint8_t, std::uint8_t const& > {
 	typedef std::uint8_t number_type;
-	typedef std::uint8_t const& imge_type;
+	typedef std::uint8_t const& image_type;
 
-	typedef bound<number_type,imge_type> this_type;
+	typedef bound<number_type,image_type> this_type;
 
-	static imge_type maximum() {
+	static image_type maximum() {
 		static number_type value = 255;
 		return value;
 	}
 
-	static imge_type minimum() {
+	static image_type minimum() {
 		static number_type value = 0;
 		return value;
 	}
 
-	static imge_type range() {
+	static image_type range() {
 		static number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
@@ -307,21 +307,21 @@ struct bound<std::uint8_t, std::uint8_t const& > {
 template <>
 struct bound<std::uint16_t, std::uint16_t const& > {
 	typedef std::uint16_t number_type;
-	typedef std::uint16_t const& imge_type;
+	typedef std::uint16_t const& image_type;
 
-	typedef bound<number_type,imge_type> this_type;
+	typedef bound<number_type,image_type> this_type;
 
-	static imge_type maximum() {
+	static image_type maximum() {
 		static number_type value = 0xFFFF;
 		return value;
 	}
 
-	static imge_type minimum() {
+	static image_type minimum() {
 		static number_type value = 0;
 		return value;
 	}
 
-	static imge_type range() {
+	static image_type range() {
 		static number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
@@ -330,21 +330,21 @@ struct bound<std::uint16_t, std::uint16_t const& > {
 template <>
 struct bound<std::uint32_t, std::uint32_t const& > {
 	typedef std::uint32_t number_type;
-	typedef std::uint32_t const& imge_type;
+	typedef std::uint32_t const& image_type;
 
-	typedef bound<number_type,imge_type> this_type;
+	typedef bound<number_type,image_type> this_type;
 
-	static imge_type maximum() {
+	static image_type maximum() {
 		static number_type value = 0xFFFFFFFF;
 		return value;
 	}
 
-	static imge_type minimum() {
+	static image_type minimum() {
 		static number_type value = 0;
 		return value;
 	}
 
-	static imge_type range() {
+	static image_type range() {
 		static number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
@@ -353,21 +353,21 @@ struct bound<std::uint32_t, std::uint32_t const& > {
 template <>
 struct bound<std::uint64_t, std::uint64_t const& > {
 	typedef std::uint64_t number_type;
-	typedef std::uint64_t const& imge_type;
+	typedef std::uint64_t const& image_type;
 
-	typedef bound<number_type,imge_type> this_type;
+	typedef bound<number_type,image_type> this_type;
 
-	static imge_type maximum() {
+	static image_type maximum() {
 		static number_type value = 0xFFFFFFFFFFFFFFFFu;
 		return value;
 	}
 
-	static imge_type minimum() {
+	static image_type minimum() {
 		static number_type value = 0;
 		return value;
 	}
 
-	static imge_type range() {
+	static image_type range() {
 		static number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
@@ -376,21 +376,21 @@ struct bound<std::uint64_t, std::uint64_t const& > {
 template <>
 struct bound<float, float const& > {
 	typedef float number_type;
-	typedef float const& imge_type;
+	typedef float const& image_type;
 
-	typedef bound<number_type,imge_type> this_type;
+	typedef bound<number_type,image_type> this_type;
 
-	static imge_type maximum() {
+	static image_type maximum() {
 		static number_type value=1;
 		return value;
 	}
 
-	static imge_type minimum() {
+	static image_type minimum() {
 		static number_type value=0;
 		return value;
 	}
 
-	static imge_type range() {
+	static image_type range() {
 		static number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
@@ -399,21 +399,21 @@ struct bound<float, float const& > {
 template <>
 struct bound<double, double const& > {
 	typedef double number_type;
-	typedef double const& imge_type;
+	typedef double const& image_type;
 
-	typedef bound<number_type,imge_type> this_type;
+	typedef bound<number_type,image_type> this_type;
 
-	static imge_type maximum() {
+	static image_type maximum() {
 		static number_type value=1;
 		return value;
 	}
 
-	static imge_type minimum() {
+	static image_type minimum() {
 		static number_type value=0;
 		return value;
 	}
 
-	static imge_type range() {
+	static image_type range() {
 		static number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
@@ -422,21 +422,21 @@ struct bound<double, double const& > {
 template <>
 struct bound<long double, long double const& > {
 	typedef long double number_type;
-	typedef long double const& imge_type;
+	typedef long double const& image_type;
 
-	typedef bound<number_type,imge_type> this_type;
+	typedef bound<number_type,image_type> this_type;
 
-	static imge_type maximum() {
+	static image_type maximum() {
 		static number_type value = 1;
 		return value;
 	}
 
-	static imge_type minimum() {
+	static image_type minimum() {
 		static number_type value = 0;
 		return value;
 	}
 
-	static imge_type range() {
+	static image_type range() {
 		static number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
@@ -616,6 +616,9 @@ struct scalar {
 public:
 	typedef double instance_type;
 
+	static bool is_small(instance_type const& value) {
+		return (-1e-6 < value) && (value < 1e-6);
+	}
 };
 
 }
@@ -1043,12 +1046,12 @@ namespace color {
 namespace compare {
 
 template < typename category_left_name, typename category_right_name >
-bool equal(color::_internal::model< category_left_name > const& left, color::_internal::model< category_right_name > const& right) {
-	return left.container() == color::_internal::model< category_left_name >(right).container();
+bool equal(::color::_internal::model< category_left_name > const& left, ::color::_internal::model< category_right_name > const& right) {
+	return left.container() == ::color::_internal::model< category_left_name >(right).container();
 }
 
 template < typename category_name >
-bool equal(color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right) {
+bool equal(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
 	return left.container() == right.container();
 }
 
@@ -1072,12 +1075,12 @@ namespace color {
 namespace compare {
 
 template < typename category_left_name, typename category_right_name >
-bool different(color::_internal::model< category_left_name > const& left, color::_internal::model< category_right_name > const& right) {
-	return left.container() != color::_internal::model< category_left_name >(right).container();
+bool different(::color::_internal::model< category_left_name > const& left, ::color::_internal::model< category_right_name > const& right) {
+	return left.container() != ::color::_internal::model< category_left_name >(right).container();
 }
 
 template < typename category_name >
-bool different(color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right) {
+bool different(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
 	return left.container() != right.container();
 }
 
@@ -1102,12 +1105,12 @@ namespace color {
 namespace compare {
 
 template < typename category_left_name, typename category_right_name >
-bool great_or_equal(color::_internal::model< category_left_name > const& left, color::_internal::model< category_right_name > const& right) {
-	return left.container() >= color::_internal::model< category_left_name >(right).container();
+bool great_or_equal(::color::_internal::model< category_left_name > const& left, ::color::_internal::model< category_right_name > const& right) {
+	return left.container() >= ::color::_internal::model< category_left_name >(right).container();
 }
 
 template < typename category_name >
-bool great_or_equal(color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right) {
+bool great_or_equal(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
 	return left.container() >= right.container();
 }
 
@@ -1131,12 +1134,12 @@ namespace color {
 namespace compare {
 
 template < typename category_left_name, typename category_right_name >
-bool great_strict(color::_internal::model< category_left_name > const& left, color::_internal::model< category_right_name > const& right) {
-	return left.container() > color::_internal::model< category_left_name >(right).container();
+bool great_strict(::color::_internal::model< category_left_name > const& left, ::color::_internal::model< category_right_name > const& right) {
+	return left.container() > ::color::_internal::model< category_left_name >(right).container();
 }
 
 template < typename category_name >
-bool great_strict(color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right) {
+bool great_strict(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
 	return left.container() > right.container();
 }
 
@@ -1160,12 +1163,12 @@ namespace color {
 namespace compare {
 
 template < typename category_left_name, typename category_right_name >
-bool less_or_equal(color::_internal::model< category_left_name > const& left, color::_internal::model< category_right_name > const& right) {
-	return left.container() <= color::_internal::model< category_left_name >(right).container();
+bool less_or_equal(::color::_internal::model< category_left_name > const& left, ::color::_internal::model< category_right_name > const& right) {
+	return left.container() <= ::color::_internal::model< category_left_name >(right).container();
 }
 
 template < typename category_name >
-bool less_or_equal(color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right) {
+bool less_or_equal(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
 	return left.container() <= right.container();
 }
 
@@ -1189,12 +1192,12 @@ namespace color {
 namespace compare {
 
 template < typename category_left_name, typename category_right_name >
-bool less_strict(color::_internal::model< category_left_name > const& left, color::_internal::model< category_right_name > const& right) {
-	return left.container() < color::_internal::model< category_left_name >(right).container();
+bool less_strict(::color::_internal::model< category_left_name > const& left, ::color::_internal::model< category_right_name > const& right) {
+	return left.container() < ::color::_internal::model< category_left_name >(right).container();
 }
 
 template < typename category_name >
-bool less_strict(color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right) {
+bool less_strict(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
 	return left.container() < right.container();
 }
 
@@ -1218,14 +1221,34 @@ operator <(::color::_internal::model< category_name > const& left, ::color::_int
 namespace color {
 namespace category {
 
+namespace _internal {
 struct gray_bool {};
 struct gray_uint8 {};
 struct gray_uint16 {};
+struct gray_uint24 {};
 struct gray_uint32 {};
+struct gray_uint48 {};
 struct gray_uint64 {};
 struct gray_float {};
 struct gray_double {};
 struct gray_ldouble {};
+}
+
+template< typename tag_name >
+struct gray {
+	typedef void category_name;
+};
+
+using gray_bool = gray< ::color::category::_internal::gray_bool >;
+using gray_uint8 = gray< ::color::category::_internal::gray_uint8 >;
+using gray_uint16 = gray< ::color::category::_internal::gray_uint16 >;
+using gray_uint24 = gray< ::color::category::_internal::gray_uint24 >;
+using gray_uint32 = gray< ::color::category::_internal::gray_uint32 >;
+using gray_uint48 = gray< ::color::category::_internal::gray_uint48 >;
+using gray_uint64 = gray< ::color::category::_internal::gray_uint64 >;
+using gray_float = gray< ::color::category::_internal::gray_float >;
+using gray_double = gray< ::color::category::_internal::gray_double >;
+using gray_ldouble = gray< ::color::category::_internal::gray_ldouble >;
 
 }
 }
@@ -1233,13 +1256,34 @@ struct gray_ldouble {};
 namespace color {
 namespace category {
 
+namespace _internal {
+struct cmy_bool {};
 struct cmy_uint8 {};
 struct cmy_uint16 {};
+struct cmy_uint24 {};
 struct cmy_uint32 {};
+struct cmy_uint48 {};
 struct cmy_uint64 {};
 struct cmy_float {};
 struct cmy_double {};
 struct cmy_ldouble {};
+}
+
+template< typename tag_name >
+struct cmy {
+	typedef void category_name;
+};
+
+using cmy_bool = cmy< ::color::category::_internal::cmy_bool >;
+using cmy_uint8 = cmy< ::color::category::_internal::cmy_uint8 >;
+using cmy_uint16 = cmy< ::color::category::_internal::cmy_uint16 >;
+using cmy_uint24 = cmy< ::color::category::_internal::cmy_uint24 >;
+using cmy_uint32 = cmy< ::color::category::_internal::cmy_uint32 >;
+using cmy_uint48 = cmy< ::color::category::_internal::cmy_uint48 >;
+using cmy_uint64 = cmy< ::color::category::_internal::cmy_uint64 >;
+using cmy_float = cmy< ::color::category::_internal::cmy_float >;
+using cmy_double = cmy< ::color::category::_internal::cmy_double >;
+using cmy_ldouble = cmy< ::color::category::_internal::cmy_ldouble >;
 
 }
 }
@@ -1275,13 +1319,34 @@ template< >struct gray< ::color::category::cmy_ldouble > {
 namespace color {
 namespace category {
 
+namespace _internal {
+struct cmyk_bool {};
 struct cmyk_uint8 {};
 struct cmyk_uint16 {};
+struct cmyk_uint24 {};
 struct cmyk_uint32 {};
+struct cmyk_uint48 {};
 struct cmyk_uint64 {};
 struct cmyk_float {};
 struct cmyk_double {};
 struct cmyk_ldouble {};
+}
+
+template< typename tag_name >
+struct cmyk {
+	typedef void category_name;
+};
+
+using cmyk_bool = cmyk< ::color::category::_internal::cmyk_bool >;
+using cmyk_uint8 = cmyk< ::color::category::_internal::cmyk_uint8 >;
+using cmyk_uint16 = cmyk< ::color::category::_internal::cmyk_uint16 >;
+using cmyk_uint24 = cmyk< ::color::category::_internal::cmyk_uint24 >;
+using cmyk_uint32 = cmyk< ::color::category::_internal::cmyk_uint32 >;
+using cmyk_uint48 = cmyk< ::color::category::_internal::cmyk_uint48 >;
+using cmyk_uint64 = cmyk< ::color::category::_internal::cmyk_uint64 >;
+using cmyk_float = cmyk< ::color::category::_internal::cmyk_float >;
+using cmyk_double = cmyk< ::color::category::_internal::cmyk_double >;
+using cmyk_ldouble = cmyk< ::color::category::_internal::cmyk_ldouble >;
 
 }
 }
@@ -1348,13 +1413,34 @@ template< >struct gray< ::color::category::gray_ldouble > {
 namespace color {
 namespace category {
 
+namespace _internal {
+struct hsl_bool {};
 struct hsl_uint8 {};
 struct hsl_uint16 {};
+struct hsl_uint24 {};
 struct hsl_uint32 {};
+struct hsl_uint48 {};
 struct hsl_uint64 {};
 struct hsl_float {};
 struct hsl_double {};
 struct hsl_ldouble {};
+}
+
+template< typename tag_name >
+struct hsl {
+	typedef void category_name;
+};
+
+using hsl_bool = hsl< ::color::category::_internal::hsl_bool >;
+using hsl_uint8 = hsl< ::color::category::_internal::hsl_uint8 >;
+using hsl_uint16 = hsl< ::color::category::_internal::hsl_uint16 >;
+using hsl_uint24 = hsl< ::color::category::_internal::hsl_uint24 >;
+using hsl_uint32 = hsl< ::color::category::_internal::hsl_uint32 >;
+using hsl_uint48 = hsl< ::color::category::_internal::hsl_uint48 >;
+using hsl_uint64 = hsl< ::color::category::_internal::hsl_uint64 >;
+using hsl_float = hsl< ::color::category::_internal::hsl_float >;
+using hsl_double = hsl< ::color::category::_internal::hsl_double >;
+using hsl_ldouble = hsl< ::color::category::_internal::hsl_ldouble >;
 
 }
 }
@@ -1390,13 +1476,34 @@ template< >struct gray< ::color::category::hsl_ldouble > {
 namespace color {
 namespace category {
 
+namespace _internal {
+struct hsv_bool {};
 struct hsv_uint8 {};
 struct hsv_uint16 {};
+struct hsv_uint24 {};
 struct hsv_uint32 {};
+struct hsv_uint48 {};
 struct hsv_uint64 {};
 struct hsv_float {};
 struct hsv_double {};
 struct hsv_ldouble {};
+}
+
+template< typename tag_name >
+struct hsv {
+	typedef void category_name;
+};
+
+using hsv_bool = hsv< ::color::category::_internal::hsv_bool >;
+using hsv_uint8 = hsv< ::color::category::_internal::hsv_uint8 >;
+using hsv_uint16 = hsv< ::color::category::_internal::hsv_uint16 >;
+using hsv_uint24 = hsv< ::color::category::_internal::hsv_uint24 >;
+using hsv_uint32 = hsv< ::color::category::_internal::hsv_uint32 >;
+using hsv_uint48 = hsv< ::color::category::_internal::hsv_uint48 >;
+using hsv_uint64 = hsv< ::color::category::_internal::hsv_uint64 >;
+using hsv_float = hsv< ::color::category::_internal::hsv_float >;
+using hsv_double = hsv< ::color::category::_internal::hsv_double >;
+using hsv_ldouble = hsv< ::color::category::_internal::hsv_ldouble >;
 
 }
 }
@@ -1432,6 +1539,7 @@ template< >struct gray< ::color::category::hsv_ldouble > {
 namespace color {
 namespace category {
 
+namespace _internal {
 struct rgb_uint8 {};
 struct rgb_uint16 {};
 struct rgb_uint24 {};
@@ -1441,36 +1549,28 @@ struct rgb_uint64 {};
 struct rgb_float {};
 struct rgb_double {};
 struct rgb_ldouble {};
+}
 
-struct rgba_uint8 {};
-struct rgba_uint16 {};
-struct rgba_uint24 {};
-struct rgba_uint32 {};
-struct rgba_uint48 {};
-struct rgba_uint64 {};
-struct rgba_float {};
-struct rgba_double {};
-struct rgba_ldouble {};
+template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position >
+struct rgb_scramble {};
 
-struct rgb_uint8_rev {};
-struct rgb_uint16_rev {};
-struct rgb_uint24_rev {};
-struct rgb_uint32_rev {};
-struct rgb_uint48_rev {};
-struct rgb_uint64_rev {};
-struct rgb_float_rev {};
-struct rgb_double_rev {};
-struct rgb_ldouble_rev {};
+template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position, unsigned alpha_position >
+struct rgba_scramble {};
 
-struct rgba_uint8_rev {};
-struct rgba_uint16_rev {};
-struct rgba_uint24_rev {};
-struct rgba_uint32_rev {};
-struct rgba_uint48_rev {};
-struct rgba_uint64_rev {};
-struct rgba_float_rev {};
-struct rgba_double_rev {};
-struct rgba_ldouble_rev {};
+template< typename tag_name >
+struct rgb {
+
+};
+
+using rgb_uint8 = rgb< ::color::category::_internal::rgb_uint8 >;
+using rgb_uint16 = rgb< ::color::category::_internal::rgb_uint16 >;
+using rgb_uint24 = rgb< ::color::category::_internal::rgb_uint24 >;
+using rgb_uint32 = rgb< ::color::category::_internal::rgb_uint32 >;
+using rgb_uint48 = rgb< ::color::category::_internal::rgb_uint48 >;
+using rgb_uint64 = rgb< ::color::category::_internal::rgb_uint64 >;
+using rgb_float = rgb< ::color::category::_internal::rgb_float >;
+using rgb_double = rgb< ::color::category::_internal::rgb_double >;
+using rgb_ldouble = rgb< ::color::category::_internal::rgb_ldouble >;
 
 }
 }
@@ -1482,13 +1582,13 @@ template< >struct gray< ::color::category::rgb_uint8 > {
 	typedef ::color::category::gray_uint8 akin_type;
 };
 template< >struct gray< ::color::category::rgb_uint16 > {
-	typedef ::color::category::gray_uint16 akin_type;
+	typedef ::color::category::gray_uint8 akin_type;
 };
 template< >struct gray< ::color::category::rgb_uint32 > {
-	typedef ::color::category::gray_uint32 akin_type;
+	typedef ::color::category::gray_uint8 akin_type;
 };
 template< >struct gray< ::color::category::rgb_uint64 > {
-	typedef ::color::category::gray_uint64 akin_type;
+	typedef ::color::category::gray_uint16 akin_type;
 };
 template< >struct gray< ::color::category::rgb_float > {
 	typedef ::color::category::gray_float akin_type;
@@ -1506,13 +1606,34 @@ template< >struct gray< ::color::category::rgb_ldouble > {
 namespace color {
 namespace category {
 
+namespace _internal {
+struct yiq_bool {};
 struct yiq_uint8 {};
 struct yiq_uint16 {};
+struct yiq_uint24 {};
 struct yiq_uint32 {};
+struct yiq_uint48 {};
 struct yiq_uint64 {};
 struct yiq_float {};
 struct yiq_double {};
 struct yiq_ldouble {};
+}
+
+template< typename tag_name >
+struct yiq {
+	typedef void category_name;
+};
+
+using yiq_bool = yiq< ::color::category::_internal::yiq_bool >;
+using yiq_uint8 = yiq< ::color::category::_internal::yiq_uint8 >;
+using yiq_uint16 = yiq< ::color::category::_internal::yiq_uint16 >;
+using yiq_uint24 = yiq< ::color::category::_internal::yiq_uint24 >;
+using yiq_uint32 = yiq< ::color::category::_internal::yiq_uint32 >;
+using yiq_uint48 = yiq< ::color::category::_internal::yiq_uint48 >;
+using yiq_uint64 = yiq< ::color::category::_internal::yiq_uint64 >;
+using yiq_float = yiq< ::color::category::_internal::yiq_float >;
+using yiq_double = yiq< ::color::category::_internal::yiq_double >;
+using yiq_ldouble = yiq< ::color::category::_internal::yiq_ldouble >;
 
 }
 }
@@ -1548,13 +1669,34 @@ template< >struct gray< ::color::category::yiq_ldouble > {
 namespace color {
 namespace category {
 
+namespace _internal {
+struct yuv_bool {};
 struct yuv_uint8 {};
 struct yuv_uint16 {};
+struct yuv_uint24 {};
 struct yuv_uint32 {};
+struct yuv_uint48 {};
 struct yuv_uint64 {};
 struct yuv_float {};
 struct yuv_double {};
 struct yuv_ldouble {};
+}
+
+template< typename tag_name >
+struct yuv {
+	typedef void category_name;
+};
+
+using yuv_bool = yuv< ::color::category::_internal::yuv_bool >;
+using yuv_uint8 = yuv< ::color::category::_internal::yuv_uint8 >;
+using yuv_uint16 = yuv< ::color::category::_internal::yuv_uint16 >;
+using yuv_uint24 = yuv< ::color::category::_internal::yuv_uint24 >;
+using yuv_uint32 = yuv< ::color::category::_internal::yuv_uint32 >;
+using yuv_uint48 = yuv< ::color::category::_internal::yuv_uint48 >;
+using yuv_uint64 = yuv< ::color::category::_internal::yuv_uint64 >;
+using yuv_float = yuv< ::color::category::_internal::yuv_float >;
+using yuv_double = yuv< ::color::category::_internal::yuv_double >;
+using yuv_ldouble = yuv< ::color::category::_internal::yuv_ldouble >;
 
 }
 }
@@ -2010,7 +2152,7 @@ public:
 	typedef index_name index_type;
 	typedef unsigned_name instance_type;
 
-	typedef color::_internal::utility::container::Unsigned<unsigned_name,value_name,index_name,length,width> this_type;
+	typedef ::color::_internal::utility::container::Unsigned<unsigned_name,value_name,index_name,length,width> this_type;
 
 	typedef instance_type const const_type;
 	typedef instance_type const& return_image_type;
@@ -2256,7 +2398,7 @@ namespace component {
 
 template< typename index_name >
 struct cnent655
-		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
+		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
 };
 
 }
@@ -2665,44 +2807,44 @@ namespace color {
 namespace get {
 
 inline
-::color::trait::component< color::category::gray_uint8 >::return_type
-gray(::color::_internal::model< color::category::gray_uint8 > const& color_parameter) {
+::color::trait::component< ::color::category::gray_uint8 >::return_type
+gray(::color::_internal::model< ::color::category::gray_uint8 > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
 inline
-::color::trait::component< color::category::gray_uint16 >::return_type
-gray(::color::_internal::model< color::category::gray_uint16 > const& color_parameter) {
+::color::trait::component< ::color::category::gray_uint16 >::return_type
+gray(::color::_internal::model< ::color::category::gray_uint16 > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
 inline
-::color::trait::component< color::category::gray_uint32 >::return_type
-gray(::color::_internal::model< color::category::gray_uint32 > const& color_parameter) {
+::color::trait::component< ::color::category::gray_uint32 >::return_type
+gray(::color::_internal::model< ::color::category::gray_uint32 > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
 inline
-::color::trait::component< color::category::gray_uint64 >::return_type
-gray(::color::_internal::model< color::category::gray_uint64 > const& color_parameter) {
+::color::trait::component< ::color::category::gray_uint64 >::return_type
+gray(::color::_internal::model< ::color::category::gray_uint64 > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
 inline
-::color::trait::component< color::category::gray_float >::return_type
-gray(::color::_internal::model< color::category::gray_float > const& color_parameter) {
+::color::trait::component< ::color::category::gray_float >::return_type
+gray(::color::_internal::model< ::color::category::gray_float > const& color_parameter) {
 	return color_parameter.template get<0>();
 };
 
 inline
-::color::trait::component< color::category::gray_double >::return_type
-gray(::color::_internal::model< color::category::gray_double > const& color_parameter) {
+::color::trait::component< ::color::category::gray_double >::return_type
+gray(::color::_internal::model< ::color::category::gray_double > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
 inline
-::color::trait::component< color::category::gray_ldouble >::return_type
-gray(::color::_internal::model< color::category::gray_ldouble > const& color_parameter) {
+::color::trait::component< ::color::category::gray_ldouble >::return_type
+gray(::color::_internal::model< ::color::category::gray_ldouble > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
@@ -3470,7 +3612,7 @@ namespace component {
 
 template< typename index_name >
 struct cnent556
-		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
+		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
 };
 
 }
@@ -3908,7 +4050,7 @@ public:
 	typedef ::color::trait::component< category_name > component_trait_type;
 	typedef ::color::trait::container< category_name > container_trait_type;
 
-	typedef typename color::_internal::model<category_type> model_type;
+	typedef typename ::color::_internal::model<category_type> model_type;
 
 	typedef typename component_trait_type::input_const_type component_input_const_type;
 	typedef typename component_trait_type::return_type component_return_type;
@@ -3950,18 +4092,146 @@ public:
 template< typename category_name >
 void invert
 (
-	color::_internal::model<category_name> & result
+	::color::_internal::model<category_name> & result
 ) {
-	color::operation::_internal::invert<category_name>::process(result);
+	::color::operation::_internal::invert<category_name>::process(result);
 }
 
 template< typename category_name >
 void invert
 (
-	color::_internal::model<category_name> & result
-	,color::_internal::model<category_name> const& right
+	::color::_internal::model<category_name> & result
+	,::color::_internal::model<category_name> const& right
 ) {
-	color::operation::_internal::invert<category_name>::process(result, right);
+	::color::operation::_internal::invert<category_name>::process(result, right);
+}
+
+}
+}
+
+namespace color {
+namespace get {
+namespace _internal {
+namespace _privateCMY {
+
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+red(::color::_internal::model< category_name > const& color_parameter) {
+	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
+	typedef ::color::operation::_internal::invert< category_name > invert_type;
+	typedef ::color::_internal::reformat< akin_type, category_name, scalar_type > reformat_type;
+	return reformat_type::template process<0,0>(invert_type::template component<0>(color_parameter.template get<0>()));
+}
+
+}
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint8 >::akin_type >::return_type
+red(::color::_internal::model< ::color::category::cmy_uint8 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::red<::color::category::cmy_uint8>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint16 >::akin_type >::return_type
+red(::color::_internal::model< ::color::category::cmy_uint16 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::red<::color::category::cmy_uint16>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint32 >::akin_type >::return_type
+red(::color::_internal::model< ::color::category::cmy_uint32 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::red<::color::category::cmy_uint32>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint64 >::akin_type >::return_type
+red(::color::_internal::model< ::color::category::cmy_uint64 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::red<::color::category::cmy_uint64>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_float >::akin_type >::return_type
+red(::color::_internal::model< ::color::category::cmy_float > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::red<::color::category::cmy_float>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_double >::akin_type >::return_type
+red(::color::_internal::model< ::color::category::cmy_double > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::red<::color::category::cmy_double>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_ldouble >::akin_type >::return_type
+red(::color::_internal::model< ::color::category::cmy_ldouble > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::red<::color::category::cmy_ldouble>(color_parameter);
+}
+
+}
+}
+
+namespace color {
+namespace get {
+namespace _internal {
+namespace _privateCMY {
+
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
+green(::color::_internal::model< category_name > const& color_parameter) {
+	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
+	typedef ::color::operation::_internal::invert< category_name > invert_type;
+	typedef ::color::_internal::reformat< akin_type, category_name, scalar_type > reformat_type;
+	return reformat_type::template process<1,1>(invert_type::template component<1>(color_parameter.template get<1>()));
+}
+
+}
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint8 >::akin_type >::return_type
+green(::color::_internal::model< ::color::category::cmy_uint8 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::green<::color::category::cmy_uint8>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint16 >::akin_type >::return_type
+green(::color::_internal::model< ::color::category::cmy_uint16 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::green<::color::category::cmy_uint16>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint32 >::akin_type >::return_type
+green(::color::_internal::model< ::color::category::cmy_uint32 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::green<::color::category::cmy_uint32>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint64 >::akin_type >::return_type
+green(::color::_internal::model< ::color::category::cmy_uint64 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::green<::color::category::cmy_uint64>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_float >::akin_type >::return_type
+green(::color::_internal::model< ::color::category::cmy_float > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::green<color::category::cmy_float>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_double >::akin_type >::return_type
+green(::color::_internal::model< ::color::category::cmy_double > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::green<::color::category::cmy_double>(color_parameter);
+}
+
+inline
+::color::trait::component< ::color::akin::rgb< ::color::category::cmy_ldouble >::akin_type >::return_type
+green(::color::_internal::model< ::color::category::cmy_ldouble > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::green<::color::category::cmy_ldouble>(color_parameter);
 }
 
 }
@@ -3994,43 +4264,424 @@ blue(::color::_internal::model< ::color::category::cmy_uint8 > const& color_para
 
 inline
 ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint16 >::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmy_uint16 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmy_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::blue<color::category::cmy_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint32 >::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmy_uint32 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmy_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::blue<color::category::cmy_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_uint64 >::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmy_uint64 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmy_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::blue<color::category::cmy_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_float >::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmy_float > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmy_float > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::blue<color::category::cmy_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_double >::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmy_double > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmy_double > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::blue<color::category::cmy_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb< ::color::category::cmy_ldouble >::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmy_ldouble > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmy_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::blue<color::category::cmy_ldouble>(color_parameter);
 }
 
 }
 }
 
+namespace color {
+namespace akin {
+
+template< >struct yiq< ::color::category::cmy_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::cmy_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::cmy_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::cmy_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::cmy_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::cmy_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::cmy_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::yiq_double >
+		: public ::color::_internal::utility::component::array< double, unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::yiq_float >
+		: public ::color::_internal::utility::component::array< float, unsigned> {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::yiq_ldouble >
+		: public ::color::_internal::utility::component::array< long double, unsigned> {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::yiq_uint16 >
+		: public ::color::_internal::utility::component::cnent556< unsigned> {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::yiq_uint32 >
+		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned> {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::yiq_uint64 >
+		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::yiq_uint8 >
+		: public ::color::_internal::utility::component::cnent332< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace constant {
+
+template< typename category_name>
+struct yiq {
+public:
+	typedef category_name category_type;
+
+	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+
+	typedef ::color::constant::yiq<category_type> this_type;
+
+	static scalar_type const a11() {
+		return 1.0000000000000000000;
+	}
+	static scalar_type const a12() {
+		return 0.9562948323208939905;
+	}
+	static scalar_type const a13() {
+		return 0.6210251254447287141;
+	}
+	static scalar_type const a21() {
+		return 1.0000000000000000000;
+	}
+	static scalar_type const a22() {
+		return -0.2721214740839773195;
+	}
+	static scalar_type const a23() {
+		return -0.6473809535176157222;
+	}
+	static scalar_type const a31() {
+		return 1.0000000000000000000;
+	}
+	static scalar_type const a32() {
+		return -1.1069899085671282160;
+	}
+	static scalar_type const a33() {
+		return 1.7046149754988293290;
+	}
+
+	static scalar_type const b11() {
+		return 0.2990000000000000000;
+	}
+	static scalar_type const b12() {
+		return 0.5870000000000000000;
+	}
+	static scalar_type const b13() {
+		return 0.1140000000000000000;
+	}
+	static scalar_type const b21() {
+		return 0.5957161349127745527;
+	}
+	static scalar_type const b22() {
+		return -0.2744528378392564636;
+	}
+	static scalar_type const b23() {
+		return -0.3212632970735180890;
+	}
+	static scalar_type const b31() {
+		return 0.2114564021201178664;
+	}
+	static scalar_type const b32() {
+		return -0.5225910452916111683;
+	}
+	static scalar_type const b33() {
+		return 0.3111346431714933019;
+	}
+
+	static scalar_type const i_min() {
+		return -0.5957161349127745527;
+	}
+	static scalar_type const i_max() {
+		return 0.5957161349127745527;
+	}
+	static scalar_type const i_range() {
+		return 2*0.5957161349127745527;
+	}
+
+	static scalar_type const q_min() {
+		return - 0.5225910452916111683;
+	}
+	static scalar_type const q_max() {
+		return 0.5225910452916111683;
+	}
+	static scalar_type const q_range() {
+		return 2*0.5225910452916111683;
+	}
+
+	static scalar_type i_deverse(scalar_type const& normal) {
+		return this_type::i_range() * normal + this_type::i_min();
+	}
+	static scalar_type i_normalize(scalar_type const& divert) {
+		return (divert + this_type::i_min()) /this_type::i_range();
+	}
+
+	static scalar_type q_deverse(scalar_type const& normal) {
+		return this_type::q_range() * normal + this_type::q_min();
+	}
+	static scalar_type q_normalize(scalar_type const& divert) {
+		return (divert + this_type::q_min()) /this_type::q_range();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace get {
+namespace _internal {
+namespace _privateCMY {
+
+template< typename category_name >
+inline
+typename ::color::_internal::model< category_name >::component_const_type
+inphase
+(
+	::color::_internal::model< category_name > const& color_parameter
+) {
+	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
+	typedef ::color::_internal::diverse< akin_type > diverse_type;
+	typedef ::color::_internal::normalize< category_name > normalize_type;
+	typedef ::color::constant::yiq< category_name > yiq_const_type;
+	scalar_type value =
+		+ yiq_const_type::b21() * (1 - normalize_type::template process<0>(color_parameter.template get<0>()))
+		+ yiq_const_type::b22() * (1 - normalize_type::template process<1>(color_parameter.template get<1>()))
+		+ yiq_const_type::b23() * (1 - normalize_type::template process<2>(color_parameter.template get<2>()))
+		;
+	value = yiq_const_type::i_normalize(value);
+	return diverse_type::template process<1>(value);
+}
+
+}
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_uint8 >::component_const_type
+inphase(::color::_internal::model< ::color::category::cmy_uint8 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::inphase<color::category::cmy_uint8>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_uint16 >::component_const_type
+inphase(::color::_internal::model< ::color::category::cmy_uint16 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::inphase<color::category::cmy_uint16>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_uint32 >::component_const_type
+inphase(::color::_internal::model< ::color::category::cmy_uint32 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::inphase<color::category::cmy_uint32>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_uint64 >::component_const_type
+inphase(::color::_internal::model< ::color::category::cmy_uint64 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::inphase<color::category::cmy_uint64>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_float >::component_const_type
+inphase(::color::_internal::model< ::color::category::cmy_float > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::inphase<color::category::cmy_float>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_double >::component_const_type
+inphase(::color::_internal::model< ::color::category::cmy_double > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::inphase<color::category::cmy_double>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_ldouble >::component_const_type
+inphase(::color::_internal::model< ::color::category::cmy_ldouble > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::inphase<color::category::cmy_ldouble>(color_parameter);
+}
+
+}
+}
+
+namespace color {
+namespace get {
+namespace _internal {
+namespace _privateCMY {
+
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::yiq<category_name>::akin_type >::return_type
+quadrature
+(
+	::color::_internal::model< category_name > const& color_parameter
+) {
+	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
+	typedef ::color::_internal::diverse< akin_type > diverse_type;
+	typedef ::color::_internal::normalize< category_name > normalize_type;
+	typedef ::color::constant::yiq< category_name > yiq_const_type;
+	scalar_type value =
+		+ yiq_const_type::b31() * (1 - normalize_type::template process<0>(color_parameter.template get<0>()))
+		+ yiq_const_type::b32() * (1 - normalize_type::template process<1>(color_parameter.template get<1>()))
+		+ yiq_const_type::b33() * (1 - normalize_type::template process<2>(color_parameter.template get<2>()))
+		;
+	value = yiq_const_type::q_normalize(value);
+	return diverse_type::template process<2>(value);
+}
+
+}
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_uint8 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::cmy_uint8 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::quadrature<color::category::cmy_uint8>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_uint16 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::cmy_uint16 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::quadrature<color::category::cmy_uint16>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_uint32 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::cmy_uint32 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::quadrature<color::category::cmy_uint32>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_uint64 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::cmy_uint64 > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::quadrature<color::category::cmy_uint64>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_float >::component_const_type
+quadrature(::color::_internal::model< ::color::category::cmy_float > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::quadrature<color::category::cmy_float>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_double >::component_const_type
+quadrature(::color::_internal::model< ::color::category::cmy_double > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::quadrature<color::category::cmy_double>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::cmy_ldouble >::component_const_type
+quadrature(::color::_internal::model< ::color::category::cmy_ldouble > const& color_parameter) {
+	return ::color::get::_internal::_privateCMY::quadrature<color::category::cmy_ldouble>(color_parameter);
+}
+
+}
+}
+
+namespace color {
+namespace constant {
+
+template< typename category_name>
+struct gray {
+public:
+	typedef category_name category_type;
+
+	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+
+	typedef ::color::constant::gray<category_type> this_type;
+
+	static scalar_type const Rc() {
+		return 0.2126729;
+	}
+	static scalar_type const Gc() {
+		return 0.7151522;
+	}
+	static scalar_type const Bc() {
+		return 0.0721750;
+	}
+};
+
+}
+}
 namespace color {
 namespace get {
 namespace _internal {
@@ -4044,10 +4695,11 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
+	typedef ::color::constant::gray< akin_type > gray_const_type;
 	scalar_type value =
-		0.2126729 * (1 - normalize_type::template process<0>(color_parameter.template get<0>()))
-		+ 0.7151522 * (1 - normalize_type::template process<1>(color_parameter.template get<1>()))
-		+ 0.0721750 * (1 - normalize_type::template process<2>(color_parameter.template get<2>()));
+		gray_const_type::Rc() * (1 - normalize_type::template process<0>(color_parameter.template get<0>()))
+		+ gray_const_type::Gc() * (1 - normalize_type::template process<1>(color_parameter.template get<1>()))
+		+ gray_const_type::Bc() * (1 - normalize_type::template process<2>(color_parameter.template get<2>()));
 	return diverse_type::template process<0>(value);
 }
 
@@ -4055,44 +4707,44 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 }
 
 inline
-::color::_internal::model< color::category::cmy_uint8 >::component_const_type
-gray(::color::_internal::model< color::category::cmy_uint8 > const& color_parameter) {
+::color::_internal::model< ::color::category::cmy_uint8 >::component_const_type
+gray(::color::_internal::model< ::color::category::cmy_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::gray<color::category::cmy_uint8>(color_parameter);
 }
 
 inline
-::color::_internal::model< color::category::cmy_uint16 >::component_const_type
-gray(::color::_internal::model< color::category::cmy_uint16 > const& color_parameter) {
+::color::_internal::model< ::color::category::cmy_uint16 >::component_const_type
+gray(::color::_internal::model< ::color::category::cmy_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::gray<color::category::cmy_uint16>(color_parameter);
 };
 
 inline
-::color::_internal::model< color::category::cmy_uint32 >::component_const_type
-gray(::color::_internal::model< color::category::cmy_uint32 > const& color_parameter) {
+::color::_internal::model< ::color::category::cmy_uint32 >::component_const_type
+gray(::color::_internal::model< ::color::category::cmy_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::gray<color::category::cmy_uint32>(color_parameter);
 };
 
 inline
-::color::_internal::model< color::category::cmy_uint64 >::component_const_type
-gray(::color::_internal::model< color::category::cmy_uint64 > const& color_parameter) {
+::color::_internal::model< ::color::category::cmy_uint64 >::component_const_type
+gray(::color::_internal::model< ::color::category::cmy_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::gray<color::category::cmy_uint64>(color_parameter);
 };
 
 inline
-::color::_internal::model< color::category::cmy_float >::component_const_type
-gray(::color::_internal::model< color::category::cmy_float > const& color_parameter) {
+::color::_internal::model< ::color::category::cmy_float >::component_const_type
+gray(::color::_internal::model< ::color::category::cmy_float > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::gray<color::category::cmy_float>(color_parameter);
 };
 
 inline
-::color::_internal::model< color::category::cmy_double >::component_const_type
-gray(::color::_internal::model< color::category::cmy_double > const& color_parameter) {
+::color::_internal::model< ::color::category::cmy_double >::component_const_type
+gray(::color::_internal::model< ::color::category::cmy_double > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::gray<color::category::cmy_double>(color_parameter);
 };
 
 inline
-::color::_internal::model< color::category::cmy_ldouble >::component_const_type
-gray(::color::_internal::model< color::category::cmy_ldouble > const& color_parameter) {
+::color::_internal::model< ::color::category::cmy_ldouble >::component_const_type
+gray(::color::_internal::model< ::color::category::cmy_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateCMY::gray<color::category::cmy_ldouble>(color_parameter);
 };
 
@@ -4101,9 +4753,7 @@ gray(::color::_internal::model< color::category::cmy_ldouble > const& color_para
 
 namespace color {
 namespace set {
-namespace _internal {
-namespace cmy {
-namespace _internal {
+namespace _privateCMY {
 
 template< typename category_name >
 inline
@@ -4111,18 +4761,14 @@ void
 red
 (
 	::color::_internal::model< category_name > & color_parameter,
-	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+	typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::input_const_type component_parameter
 ) {
-	typedef ::color::_internal::model< category_name > model_type;
-	typedef ::color::_internal::trait< category_name > trait_type;
-	typedef typename trait_type::component_type component_type;
-	component_type new_component;;
-	new_component = (trait_type::template range<0>() - (component_parameter - trait_type::template minimum<0>())) + trait_type::template minimum<0>();
-	color_parameter.template set<0>(new_component);
+	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
+	typedef ::color::operation::_internal::invert< akin_type > invert_type;
+	typedef ::color::_internal::reformat<category_name, akin_type > reformat_type;
+	color_parameter.template set<0>(reformat_type::template process<0,0>(invert_type::template component<0>(component_parameter)));
 }
 
-}
-}
 }
 
 inline
@@ -4132,7 +4778,7 @@ red
 	::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint8 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::red<::color::category::cmy_uint8>(color_parameter, component_parameter);
+	::color::set::_privateCMY::red<::color::category::cmy_uint8>(color_parameter, component_parameter);
 };
 
 inline
@@ -4142,7 +4788,7 @@ red
 	::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint16 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::red<::color::category::cmy_uint16>(color_parameter, component_parameter);
+	::color::set::_privateCMY::red<::color::category::cmy_uint16>(color_parameter, component_parameter);
 };
 
 inline
@@ -4152,7 +4798,7 @@ red
 	::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint32 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::red<::color::category::cmy_uint32>(color_parameter, component_parameter);
+	::color::set::_privateCMY::red<::color::category::cmy_uint32>(color_parameter, component_parameter);
 };
 
 inline
@@ -4162,7 +4808,7 @@ red
 	::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint64 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::red<::color::category::cmy_uint64>(color_parameter, component_parameter);
+	::color::set::_privateCMY::red<::color::category::cmy_uint64>(color_parameter, component_parameter);
 };
 
 inline
@@ -4172,7 +4818,7 @@ red
 	::color::_internal::model< ::color::category::cmy_float > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_float >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::red<::color::category::cmy_float>(color_parameter, component_parameter);
+	::color::set::_privateCMY::red<::color::category::cmy_float>(color_parameter, component_parameter);
 };
 
 inline
@@ -4182,7 +4828,7 @@ red
 	::color::_internal::model< ::color::category::cmy_double > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_double >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::red<::color::category::cmy_double>(color_parameter, component_parameter);
+	::color::set::_privateCMY::red<::color::category::cmy_double>(color_parameter, component_parameter);
 };
 
 inline
@@ -4192,7 +4838,7 @@ red
 	::color::_internal::model< ::color::category::cmy_ldouble > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_ldouble >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::red<::color::category::cmy_ldouble>(color_parameter, component_parameter);
+	::color::set::_privateCMY::red<::color::category::cmy_ldouble>(color_parameter, component_parameter);
 };
 
 }
@@ -4200,28 +4846,22 @@ red
 
 namespace color {
 namespace set {
-namespace _internal {
-namespace cmy {
-namespace _internal {
+namespace _privateCMY {
 
 template< typename category_name >
 inline
 void
 green
 (
-	::color::_internal::model< category_name > & color_parameter,
-	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+	::color::_internal::model< category_name > & color_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::input_const_type component_parameter
 ) {
-	typedef ::color::_internal::model< category_name > model_type;
-	typedef ::color::_internal::trait< category_name > trait_type;
-	typedef typename trait_type::component_type component_type;
-	component_type new_component;;
-	new_component = (trait_type::template range<1>() - (component_parameter - trait_type::template minimum<1>())) + trait_type::template minimum<1>();
-	color_parameter.template set<1>(new_component);
+	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
+	typedef ::color::operation::_internal::invert< akin_type > invert_type;
+	typedef ::color::_internal::reformat<category_name, akin_type > reformat_type;
+	color_parameter.template set<1>(reformat_type::template process<1,1>(invert_type::template component<1>(component_parameter)));
 }
 
-}
-}
 }
 
 inline
@@ -4231,7 +4871,7 @@ green
 	::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint8 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::green<::color::category::cmy_uint8>(color_parameter, component_parameter);
+	::color::set::_privateCMY::green<::color::category::cmy_uint8>(color_parameter, component_parameter);
 };
 
 inline
@@ -4241,7 +4881,7 @@ green
 	::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint16 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::green<::color::category::cmy_uint16>(color_parameter, component_parameter);
+	::color::set::_privateCMY::green<::color::category::cmy_uint16>(color_parameter, component_parameter);
 };
 
 inline
@@ -4251,7 +4891,7 @@ green
 	::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint32 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::green<::color::category::cmy_uint32>(color_parameter, component_parameter);
+	::color::set::_privateCMY::green<::color::category::cmy_uint32>(color_parameter, component_parameter);
 };
 
 inline
@@ -4261,7 +4901,7 @@ green
 	::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint64 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::green<::color::category::cmy_uint64>(color_parameter, component_parameter);
+	::color::set::_privateCMY::green<::color::category::cmy_uint64>(color_parameter, component_parameter);
 };
 
 inline
@@ -4271,7 +4911,7 @@ green
 	::color::_internal::model< ::color::category::cmy_float > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_float >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::green<::color::category::cmy_float>(color_parameter, component_parameter);
+	::color::set::_privateCMY::green<::color::category::cmy_float>(color_parameter, component_parameter);
 };
 
 inline
@@ -4281,7 +4921,7 @@ green
 	::color::_internal::model< ::color::category::cmy_double > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_double >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::green<::color::category::cmy_double>(color_parameter, component_parameter);
+	::color::set::_privateCMY::green<::color::category::cmy_double>(color_parameter, component_parameter);
 };
 
 inline
@@ -4291,7 +4931,7 @@ green
 	::color::_internal::model< ::color::category::cmy_ldouble > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_ldouble >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::green<::color::category::cmy_ldouble>(color_parameter, component_parameter);
+	::color::set::_privateCMY::green<::color::category::cmy_ldouble>(color_parameter, component_parameter);
 };
 
 }
@@ -4299,28 +4939,22 @@ green
 
 namespace color {
 namespace set {
-namespace _internal {
-namespace cmy {
-namespace _internal {
+namespace _privateCMY {
 
 template< typename category_name >
 inline
 void
 blue
 (
-	::color::_internal::model< category_name > & color_parameter,
-	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+	::color::_internal::model< category_name > & color_parameter
+	,typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
 ) {
-	typedef ::color::_internal::model< category_name > model_type;
-	typedef ::color::_internal::trait< category_name > trait_type;
-	typedef typename trait_type::component_type component_type;
-	component_type new_component;;
-	new_component = (trait_type::template range<2>() - (component_parameter - trait_type::template minimum<2>())) + trait_type::template minimum<2>();
-	color_parameter.template set<2>(new_component);
+	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
+	typedef ::color::operation::_internal::invert< akin_type > invert_type;
+	typedef ::color::_internal::reformat<category_name, akin_type > reformat_type;
+	color_parameter.template set<2>(reformat_type::template process<2,2>(invert_type::template component<2>(component_parameter)));
 }
 
-}
-}
 }
 
 inline
@@ -4330,7 +4964,7 @@ blue
 	::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint8 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint8>(color_parameter, component_parameter);
+	::color::set::_privateCMY::blue<::color::category::cmy_uint8>(color_parameter, component_parameter);
 };
 
 inline
@@ -4340,7 +4974,7 @@ blue
 	::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint16 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint16>(color_parameter, component_parameter);
+	::color::set::_privateCMY::blue<::color::category::cmy_uint16>(color_parameter, component_parameter);
 };
 
 inline
@@ -4350,7 +4984,7 @@ blue
 	::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint32 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint32>(color_parameter, component_parameter);
+	::color::set::_privateCMY::blue<::color::category::cmy_uint32>(color_parameter, component_parameter);
 };
 
 inline
@@ -4360,7 +4994,7 @@ blue
 	::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint64 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::blue<::color::category::cmy_uint64>(color_parameter, component_parameter);
+	::color::set::_privateCMY::blue<::color::category::cmy_uint64>(color_parameter, component_parameter);
 };
 
 inline
@@ -4370,7 +5004,7 @@ blue
 	::color::_internal::model< ::color::category::cmy_float > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_float >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::blue<::color::category::cmy_float>(color_parameter, component_parameter);
+	::color::set::_privateCMY::blue<::color::category::cmy_float>(color_parameter, component_parameter);
 };
 
 inline
@@ -4380,7 +5014,7 @@ blue
 	::color::_internal::model< ::color::category::cmy_double > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_double >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::blue<::color::category::cmy_double>(color_parameter, component_parameter);
+	::color::set::_privateCMY::blue<::color::category::cmy_double>(color_parameter, component_parameter);
 };
 
 inline
@@ -4390,7 +5024,7 @@ blue
 	::color::_internal::model< ::color::category::cmy_ldouble > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_ldouble >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::blue<::color::category::cmy_ldouble>(color_parameter, component_parameter);
+	::color::set::_privateCMY::blue<::color::category::cmy_ldouble>(color_parameter, component_parameter);
 };
 
 }
@@ -4432,7 +5066,7 @@ void addition
 	::color::_internal::model<category_name> & result
 	,::color::_internal::model<category_name> const& right
 ) {
-	color::operation::_internal::addition<category_name>::process(result, right);
+	::color::operation::_internal::addition<category_name>::process(result, right);
 }
 
 template< typename category_name >
@@ -4451,47 +5085,27 @@ void addition
 namespace color {
 namespace operation {
 namespace _internal {
-
 template< typename category_name >
-struct clamp {
+struct subtract {
 public:
 	typedef category_name category_type;
 
 	typedef ::color::trait::index<category_type> index_trait_type;
-	typedef ::color::trait::bound< category_type > bound_type;
-	typedef ::color::trait::component<category_type> component_trait_type;
 	typedef ::color::trait::container< category_type > container_trait_type;
 
-	typedef typename ::color::_internal::model<category_type> model_type;
-
-	typedef typename component_trait_type::instance_type component_type;
+	typedef ::color::_internal::model<category_type> model_type;
 
 	typedef typename index_trait_type::instance_type index_type;
-
-	static void process(model_type &result) {
-		for(index_type index = 0; index < container_trait_type::size(); index ++) {
-			if(result.get(index) < bound_type::minimum(index)) {
-				result.set(index, bound_type::minimum(index));
-				continue;
-			}
-			if(bound_type::maximum(index) < result.get(index)) {
-				result.set(index, bound_type::maximum(index));
-				continue;
-			}
-		}
-	}
 
 	static void process(model_type &result, model_type const& right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
-			if(right.get(index) < bound_type::minimum(index)) {
-				result.set(index, bound_type::minimum(index));
-				continue;
-			}
-			if(bound_type::maximum(index) < right.get(index)) {
-				result.set(index, bound_type::maximum(index));
-				continue;
-			}
-			result.set(index, right.get(index));
+			result.set(index, result.get(index) - right.get(index));
+		}
+	}
+
+	static void process(model_type &result, model_type const& left, model_type const& right) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, left.get(index) - right.get(index));
 		}
 	}
 
@@ -4499,81 +5113,22 @@ public:
 }
 
 template< typename category_name >
-void clamp
+void subtract
 (
 	::color::_internal::model<category_name> & result
-) {
-	color::operation::_internal::clamp<category_name>::process(result);
-}
-
-template< typename category_name >
-void clamp
-(
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& right
-) {
-	::color::operation::_internal::clamp<category_name>::process(result, right);
-}
-
-}
-}
-
-namespace color {
-namespace operation {
-namespace _internal {
-
-template< typename category_name >
-struct convex {
-public:
-	typedef category_name category_type;
-
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-
-	typedef scalar_type const& scalar_const_input_type;
-
-	typedef ::color::trait::index<category_type> index_trait_type;
-	typedef ::color::trait::container< category_type > container_trait_type;
-	typedef ::color::_internal::model<category_type> model_type;
-
-	typedef model_type & model_input_type;
-	typedef model_type const& model_const_input_type;
-
-	typedef typename index_trait_type::instance_type index_type;
-
-	static void process(model_input_type result, scalar_const_input_type scalar, model_const_input_type right) {
-		for(index_type index = 0; index < container_trait_type::size(); index ++) {
-			result.set(index, scalar * result.get(index) +(scalar_type(1) - scalar) *right.get(index));
-		}
-	}
-
-	static void process(model_input_type result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right) {
-		for(index_type index = 0; index < container_trait_type::size(); index ++) {
-			result.set(index, scalar * left.get(index) +(scalar_type(1) - scalar) *right.get(index));
-		}
-	}
-
-};
-}
-
-template< typename category_name, typename scalar_name >
-void convex
-(
-	color::_internal::model<category_name> & result
-	,scalar_name const& scalar
 	,color::_internal::model<category_name> const& right
 ) {
-	color::operation::_internal::convex<category_name>::process(result, scalar, right);
+	::color::operation::_internal::subtract<category_name>::process(result, right);
 }
 
-template< typename category_name, typename scalar_name >
-void convex
+template< typename category_name >
+void subtract
 (
-	color::_internal::model<category_name> & result
+	::color::_internal::model<category_name> & result
 	,color::_internal::model<category_name> const& left
-	,scalar_name const& scalar
 	,color::_internal::model<category_name> const& right
 ) {
-	color::operation::_internal::convex<category_name>::process(result, left, scalar, right);
+	::color::operation::_internal::subtract<category_name>::process(result, left, right);
 }
 
 }
@@ -4639,51 +5194,158 @@ void scale
 
 namespace color {
 namespace operation {
-namespace _internal {
+namespace arithmetic {
+
 template< typename category_name >
-struct subtract {
+inline
+::color::_internal::model< category_name >
+operator +(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+	::color::_internal::model< category_name > result;
+	::color::operation::addition(result, left, right);
+	return result;
+}
+
+template< typename category_name>
+inline
+::color::_internal::model< category_name > &
+operator +=(::color::_internal::model< category_name > & result, ::color::_internal::model< category_name > const& right) {
+	::color::operation::addition(result, right);
+	return result;
+}
+
+template< typename category_name >
+inline
+::color::_internal::model< category_name >
+operator -(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+	::color::_internal::model< category_name > result;
+	::color::operation::subtract(result, left, right);
+	return result;
+}
+
+template< typename category_name, typename scalar_name >
+inline
+::color::_internal::model< category_name >
+operator *
+(
+	scalar_name const& left
+	,::color::_internal::model< category_name > const& right
+) {
+	::color::_internal::model< category_name > result;
+	::color::operation::scale(result, left, right);
+	return result;
+}
+
+template< typename category_name, typename scalar_name >
+inline
+::color::_internal::model< category_name >
+operator *
+(
+	::color::_internal::model< category_name > const & left
+	,scalar_name const & right
+) {
+	::color::_internal::model< category_name > result;
+	::color::operation::scale(result, right, left);
+	return result;
+}
+
+template< typename category_name, typename scalar_name >
+inline
+::color::_internal::model< category_name >
+operator /
+(
+	::color::_internal::model< category_name > const & left
+	,scalar_name const & right
+) {
+	::color::_internal::model< category_name > result;
+	::color::operation::scale(result, scalar_name(1) / right, left);
+	return result;
+}
+
+template< typename category_name, typename scalar_name >
+inline
+::color::_internal::model< category_name > &
+operator -=(::color::_internal::model< category_name > & result, scalar_name const& left) {
+	::color::operation::subtract(result, left);
+	return result;
+}
+
+template< typename category_name, typename scalar_name >
+inline
+::color::_internal::model< category_name > &
+operator *=(::color::_internal::model< category_name > & result, scalar_name const& scalar) {
+	::color::operation::scale(result, scalar);
+	return result;
+}
+
+template< typename category_name, typename scalar_name >
+inline
+::color::_internal::model< category_name > &
+operator /=(::color::_internal::model< category_name > & result, scalar_name const& scalar) {
+	::color::operation::scale(result, scalar_name(1) / scalar);
+	return result;
+}
+
+}
+
+}
+}
+
+namespace color {
+namespace operation {
+namespace _internal {
+
+template< typename category_name >
+struct convex {
 public:
 	typedef category_name category_type;
 
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+
+	typedef scalar_type const& scalar_const_input_type;
+
 	typedef ::color::trait::index<category_type> index_trait_type;
 	typedef ::color::trait::container< category_type > container_trait_type;
-
 	typedef ::color::_internal::model<category_type> model_type;
+
+	typedef model_type & model_input_type;
+	typedef model_type const& model_const_input_type;
 
 	typedef typename index_trait_type::instance_type index_type;
 
-	static void process(model_type &result, model_type const& right) {
+	static void process(model_input_type result, scalar_const_input_type scalar, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
-			result.set(index, result.get(index) - right.get(index));
+			result.set(index, scalar * result.get(index) +(scalar_type(1) - scalar) *right.get(index));
 		}
 	}
 
-	static void process(model_type &result, model_type const& left, model_type const& right) {
+	static void process(model_input_type result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
-			result.set(index, left.get(index) - right.get(index));
+			result.set(index, scalar * left.get(index) +(scalar_type(1) - scalar) *right.get(index));
 		}
 	}
 
 };
 }
 
-template< typename category_name >
-void subtract
+template< typename category_name, typename scalar_name >
+void convex
 (
-	color::_internal::model<category_name> & result
+	::color::_internal::model<category_name> & result
+	,scalar_name const& scalar
 	,color::_internal::model<category_name> const& right
 ) {
-	color::operation::_internal::subtract<category_name>::process(result, right);
+	::color::operation::_internal::convex<category_name>::process(result, scalar, right);
 }
 
-template< typename category_name >
-void subtract
+template< typename category_name, typename scalar_name >
+void convex
 (
-	color::_internal::model<category_name> & result
+	::color::_internal::model<category_name> & result
 	,color::_internal::model<category_name> const& left
+	,scalar_name const& scalar
 	,color::_internal::model<category_name> const& right
 ) {
-	color::operation::_internal::subtract<category_name>::process(result, left, right);
+	::color::operation::_internal::convex<category_name>::process(result, left, scalar, right);
 }
 
 }
@@ -4691,13 +5353,29 @@ void subtract
 
 namespace color {
 namespace place {
+namespace _internal {
+
+template< typename category_name >
+struct alpha {
+public:
+	typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
+
+	enum { position_enum = -10 };
+	enum { has_enum = false };
+
+	static index_instance_type position() {
+		return position_enum;
+	}
+};
+
+}
 
 template< typename category_name >
 inline
 
 typename ::color::trait::index< category_name >::instance_type
 alpha() {
-	return ::color::trait::container< category_name >::size();
+	return ::color::place::_internal::alpha<category_name>::position();
 }
 
 }
@@ -4802,33 +5480,36 @@ public:
 
 }
 
-template< unsigned alpha_index, typename category_name >
+template< typename category_name >
 void blend
 (
 	::color::_internal::model<category_name> & result
 	,::color::_internal::model<category_name> const& upper
 ) {
-	color::operation::_internal::blend<category_name>::template accumulate< alpha_index >(result, upper);
+	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >(result, upper);
 }
 
-template< unsigned alpha_index, typename category_name >
+template< typename category_name >
 void blend
 (
 	::color::_internal::model<category_name> & result
 	,::color::_internal::model<category_name> const& lower
 	,::color::_internal::model<category_name> const& upper
 ) {
-	color::operation::_internal::blend<category_name>::template accumulate< alpha_index >(result, lower, upper);
+	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >(result, lower, upper);
 }
 
-template< unsigned alpha_index, typename category_name >
+template< typename category_name >
 ::color::_internal::model<category_name>
 mix
 (
 	::color::_internal::model<category_name> const& lower
 	,::color::_internal::model<category_name> const& upper
 ) {
-	return color::operation::_internal::blend<category_name>::template mix< alpha_index >(lower, upper);
+	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	return ::color::operation::_internal::blend<category_name>::template mix< alpha_index >(lower, upper);
 }
 
 template< typename category_name, typename scalar_name = double >
@@ -4838,7 +5519,8 @@ void blend
 	,scalar_name const& alpha
 	,::color::_internal::model<category_name> const& upper
 ) {
-	color::operation::_internal::blend<category_name>::accumulate(result, alpha, upper);
+	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	::color::operation::_internal::blend<category_name>::accumulate(result, alpha, upper);
 }
 
 template< typename category_name, typename scalar_name = double >
@@ -4849,7 +5531,7 @@ void blend
 	,scalar_name const& alpha
 	,::color::_internal::model<category_name> const& upper
 ) {
-	color::operation::_internal::blend<category_name>::accumulate(result, lower, alpha, upper);
+	::color::operation::_internal::blend<category_name>::accumulate(result, lower, alpha, upper);
 }
 
 template< typename category_name, typename scalar_name = double >
@@ -4860,154 +5542,10 @@ mix
 	,scalar_name const& alpha
 	,::color::_internal::model<category_name> const& upper
 ) {
-	return color::operation::_internal::blend<category_name>::mix(lower, alpha, upper);
+	return ::color::operation::_internal::blend<category_name>::mix(lower, alpha, upper);
 }
 
 }
-}
-
-namespace color {
-	namespace operation {
-		namespace _internal {
-
-			template< typename category_name >
-			struct fix {
-				public:
-				typedef category_name category_type;
-
-				typedef ::color::trait::bound<category_type> bound_type;
-				typedef ::color::trait::component< category_name > component_trait_type;
-				typedef ::color::trait::container< category_name > container_trait_type;
-
-				typedef ::color::_internal::model<category_type> model_type;
-
-static void process(model_type & result) {
-	return;
-}
-
-static void process(model_type & result, model_type const& right) {
-	return;
-}
-			};
-
-		}
-
-template< typename category_name >
-void fix
-(
-	::color::_internal::model<category_name> & result
-) {
-	::color::operation::_internal::fix<category_name>::process(result);
-}
-
-template< typename category_name >
-void fix
-(
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& right
-) {
-	::color::operation::_internal::fix<category_name>::process(result, right);
-}
-
-	}
-}
-
-namespace color {
-	namespace operation {
-		namespace arithmetic {
-
-			template< typename category_name >
-			inline
-			::color::_internal::model< category_name >
-operator +(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
-	::color::_internal::model< category_name > result;
-	::color::operation::addition(result, left, right);
-	return result;
-}
-
-template< typename category_name>
-inline
-::color::_internal::model< category_name > &
-operator +=(::color::_internal::model< category_name > & result, ::color::_internal::model< category_name > const& right) {
-	::color::operation::addition(result, right);
-	return result;
-}
-
-template< typename category_name >
-inline
-::color::_internal::model< category_name >
-operator -(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
-	::color::_internal::model< category_name > result;
-	::color::operation::subtract(result, left, right);
-	return result;
-}
-
-template< typename category_name, typename scalar_name >
-inline
-::color::_internal::model< category_name >
-operator *
-(
-	scalar_name const& left
-	,::color::_internal::model< category_name > const& right
-) {
-	::color::_internal::model< category_name > result;
-	::color::operation::scale(result, left, right);
-	return result;
-}
-
-template< typename category_name, typename scalar_name >
-inline
-::color::_internal::model< category_name >
-operator *
-(
-	::color::_internal::model< category_name > const & left
-	,scalar_name const & right
-) {
-	::color::_internal::model< category_name > result;
-	::color::operation::scale(result, right, left);
-	return result;
-}
-
-template< typename category_name, typename scalar_name >
-inline
-::color::_internal::model< category_name >
-operator /
-(
-	::color::_internal::model< category_name > const & left
-	,scalar_name const & right
-) {
-	::color::_internal::model< category_name > result;
-	::color::operation::scale(result, scalar_name(1) / right, left);
-	return result;
-}
-
-template< typename category_name, typename scalar_name >
-inline
-::color::_internal::model< category_name > &
-operator -=(::color::_internal::model< category_name > & result, scalar_name const& left) {
-	::color::operation::subtract(result, left);
-	return result;
-}
-
-template< typename category_name, typename scalar_name >
-inline
-::color::_internal::model< category_name > &
-operator *=(::color::_internal::model< category_name > & result, scalar_name const& scalar) {
-	::color::operation::scale(result, scalar);
-	return result;
-}
-
-template< typename category_name, typename scalar_name >
-inline
-::color::_internal::model< category_name > &
-operator /=(::color::_internal::model< category_name > & result, scalar_name const& scalar) {
-	::color::operation::scale(result, scalar_name(1) / scalar);
-	return result;
-}
-
-		}
-
-	}
 }
 
 namespace color {
@@ -5043,32 +5581,29 @@ normalize
 
 namespace color {
 	namespace set {
-		namespace _internal {
-			namespace cmy {
-				namespace _internal {
+		namespace _privateCMY {
 
-					template< typename category_name >
-					inline
-					void
-					gray
-					(
-						::color::_internal::model< category_name > & color_parameter,
-						typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+			template< typename category_name >
+			inline
+			void
+			gray
+			(
+				::color::_internal::model< category_name > & color_parameter,
+				typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::input_const_type component_parameter
 ) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
-	typedef ::color::_internal::model< category_name > model_type;
-	typedef ::color::_internal::trait< category_name > trait_type;
-	typedef typename trait_type::component_type component_type;
+	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
+	typedef ::color::_internal::normalize< category_name > normalize_cmy_type;
+	typedef ::color::_internal::normalize< akin_type > normalize_akin_type;
+	typedef ::color::constant::gray< akin_type > gray_const_type;
 	scalar_type value =
-	0.2126 * (scalar_type(1) - (color_parameter.template get<0>() - trait_type::template minimum<0>()) / trait_type::template range<0>())
-	+ 0.7152 * (scalar_type(1) - (color_parameter.template get<1>() - trait_type::template minimum<1>()) / trait_type::template range<1>())
-	+ 0.0722 * (scalar_type(1) - (color_parameter.template get<2>() - trait_type::template minimum<2>()) / trait_type::template range<2>());
-	value = scalar_type(component_parameter - trait_type::template minimum<0>()) / trait_type::template range<0>() / value;
-	::color::operation::scale(color_parameter, value);
+	gray_const_type::Rc() * (scalar_type(1) - normalize_cmy_type::template process<0>(color_parameter.template get<0>()))
+	+ gray_const_type::Gc() * (scalar_type(1) - normalize_cmy_type::template process<0>(color_parameter.template get<1>()))
+	+ gray_const_type::Bc() * (scalar_type(1) - normalize_cmy_type::template process<0>(color_parameter.template get<2>()));
+	value = normalize_akin_type::template process<0>(component_parameter) / value;
+	::color::operation::scale(color_parameter, scalar_type(1) - value);
 }
 
-				}
-			}
 		}
 
 inline
@@ -5078,7 +5613,7 @@ gray
 	::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint8 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::gray<::color::category::cmy_uint8>(color_parameter, component_parameter);
+	::color::set::_privateCMY::gray<::color::category::cmy_uint8>(color_parameter, component_parameter);
 };
 
 inline
@@ -5088,7 +5623,7 @@ gray
 	::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint16 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::gray<::color::category::cmy_uint16>(color_parameter, component_parameter);
+	::color::set::_privateCMY::gray<::color::category::cmy_uint16>(color_parameter, component_parameter);
 };
 
 inline
@@ -5098,7 +5633,7 @@ gray
 	::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint32 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::gray<::color::category::cmy_uint32>(color_parameter, component_parameter);
+	::color::set::_privateCMY::gray<::color::category::cmy_uint32>(color_parameter, component_parameter);
 };
 
 inline
@@ -5108,7 +5643,7 @@ gray
 	::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_uint64 >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::gray<::color::category::cmy_uint64>(color_parameter, component_parameter);
+	::color::set::_privateCMY::gray<::color::category::cmy_uint64>(color_parameter, component_parameter);
 };
 
 inline
@@ -5118,7 +5653,7 @@ gray
 	::color::_internal::model< ::color::category::cmy_float > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_float >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::gray<::color::category::cmy_float>(color_parameter, component_parameter);
+	::color::set::_privateCMY::gray<::color::category::cmy_float>(color_parameter, component_parameter);
 };
 
 inline
@@ -5128,7 +5663,7 @@ gray
 	::color::_internal::model< ::color::category::cmy_double > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_double >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::gray<::color::category::cmy_double>(color_parameter, component_parameter);
+	::color::set::_privateCMY::gray<::color::category::cmy_double>(color_parameter, component_parameter);
 };
 
 inline
@@ -5138,7 +5673,7 @@ gray
 	::color::_internal::model< ::color::category::cmy_ldouble > & color_parameter,
 	::color::_internal::model< ::color::category::cmy_ldouble >::component_input_const_type component_parameter
 ) {
-	::color::set::_internal::cmy::_internal::gray<::color::category::cmy_ldouble>(color_parameter, component_parameter);
+	::color::set::_privateCMY::gray<::color::category::cmy_ldouble>(color_parameter, component_parameter);
 };
 
 	}
@@ -7823,14 +8358,15 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
+	typedef ::color::constant::gray< akin_type > gray_const_type;
 	scalar_type c = normalize_type::template process<0>(color_parameter.template get<0>());
 	scalar_type m = normalize_type::template process<1>(color_parameter.template get<1>());
 	scalar_type y = normalize_type::template process<2>(color_parameter.template get<2>());
 	scalar_type k = normalize_type::template process<3>(color_parameter.template get<3>());
 	scalar_type value =
-		(0.2126729 * (1-c)
-		 + 0.7151522 * (1-m)
-		 + 0.0721750 * (1-y)) * (1-k);
+		(gray_const_type::Rc() * (scalar_type(1)-c)
+		 + gray_const_type::Gc() * (scalar_type(1)-m)
+		 + gray_const_type::Bc() * (scalar_type(1)-y)) * (scalar_type(1)-k);
 	return diverse_type::template process<0>(value);
 }
 
@@ -7839,43 +8375,43 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::cmyk_uint8 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::cmyk_uint8 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::cmyk_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::gray<color::category::cmyk_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::cmyk_uint16 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::cmyk_uint16 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::cmyk_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::gray<color::category::cmyk_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::cmyk_uint32 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::cmyk_uint32 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::cmyk_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::gray<color::category::cmyk_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::cmyk_uint64 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::cmyk_uint64 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::cmyk_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::gray<color::category::cmyk_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::cmyk_float >::akin_type >::return_type
-gray(::color::_internal::model< color::category::cmyk_float > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::cmyk_float > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::gray<color::category::cmyk_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::cmyk_double >::akin_type >::return_type
-gray(::color::_internal::model< color::category::cmyk_double > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::cmyk_double > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::gray<color::category::cmyk_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::cmyk_ldouble >::akin_type >::return_type
-gray(::color::_internal::model< color::category::cmyk_ldouble > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::cmyk_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::gray<color::category::cmyk_ldouble>(color_parameter);
 }
 
@@ -7933,43 +8469,43 @@ red(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint8>::akin_type >::return_type
-red(::color::_internal::model< color::category::cmyk_uint8 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::cmyk_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::red<color::category::cmyk_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint16>::akin_type >::return_type
-red(::color::_internal::model< color::category::cmyk_uint16 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::cmyk_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::red<color::category::cmyk_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint32>::akin_type >::return_type
-red(::color::_internal::model< color::category::cmyk_uint32 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::cmyk_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::red<color::category::cmyk_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint64>::akin_type >::return_type
-red(::color::_internal::model< color::category::cmyk_uint64 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::cmyk_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::red<color::category::cmyk_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_float>::akin_type >::return_type
-red(::color::_internal::model< color::category::cmyk_float > const& color_parameter) {
+red(::color::_internal::model< ::color::category::cmyk_float > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::red<color::category::cmyk_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_double>::akin_type >::return_type
-red(::color::_internal::model< color::category::cmyk_double > const& color_parameter) {
+red(::color::_internal::model< ::color::category::cmyk_double > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::red<color::category::cmyk_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_ldouble>::akin_type >::return_type
-red(::color::_internal::model< color::category::cmyk_ldouble > const& color_parameter) {
+red(::color::_internal::model< ::color::category::cmyk_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::red<color::category::cmyk_ldouble>(color_parameter);
 }
 
@@ -8000,43 +8536,43 @@ green(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint8>::akin_type >::return_type
-green(::color::_internal::model< color::category::cmyk_uint8 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::cmyk_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::green<color::category::cmyk_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint16>::akin_type >::return_type
-green(::color::_internal::model< color::category::cmyk_uint16 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::cmyk_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::green<color::category::cmyk_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint32>::akin_type >::return_type
-green(::color::_internal::model< color::category::cmyk_uint32 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::cmyk_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::green<color::category::cmyk_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint64>::akin_type >::return_type
-green(::color::_internal::model< color::category::cmyk_uint64 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::cmyk_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::green<color::category::cmyk_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_float>::akin_type >::return_type
-green(::color::_internal::model< color::category::cmyk_float > const& color_parameter) {
+green(::color::_internal::model< ::color::category::cmyk_float > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::green<color::category::cmyk_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_double>::akin_type >::return_type
-green(::color::_internal::model< color::category::cmyk_double > const& color_parameter) {
+green(::color::_internal::model< ::color::category::cmyk_double > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::green<color::category::cmyk_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_ldouble>::akin_type >::return_type
-green(::color::_internal::model< color::category::cmyk_ldouble > const& color_parameter) {
+green(::color::_internal::model< ::color::category::cmyk_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::green<color::category::cmyk_ldouble>(color_parameter);
 }
 
@@ -8067,43 +8603,43 @@ blue(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint8>::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmyk_uint8 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmyk_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::blue<color::category::cmyk_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint16>::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmyk_uint16 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmyk_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::blue<color::category::cmyk_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint32>::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmyk_uint32 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmyk_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::blue<color::category::cmyk_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_uint64>::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmyk_uint64 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmyk_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::blue<color::category::cmyk_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_float>::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmyk_float > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmyk_float > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::blue<color::category::cmyk_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_double>::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmyk_double > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmyk_double > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::blue<color::category::cmyk_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::cmyk_ldouble>::akin_type >::return_type
-blue(::color::_internal::model< color::category::cmyk_ldouble > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::cmyk_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateCMYK::blue<color::category::cmyk_ldouble>(color_parameter);
 }
 
@@ -10089,6 +10625,8 @@ public:
 	typedef category_right_name category_right_type;
 	typedef scalar_name scalar_type;
 
+	typedef ::color::trait::scalar< category_left_name > scalar_trait_type;
+
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
@@ -10107,17 +10645,13 @@ public:
 		scalar_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
 		scalar_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
 		scalar_type k = std::min({ cc, cm, cy });
-		scalar_type c;
-		scalar_type m;
-		scalar_type y;
-		if(scalar_type(1) != k) {
+		scalar_type c = scalar_type(0);
+		scalar_type m = scalar_type(0);
+		scalar_type y = scalar_type(0);
+		if(false == scalar_trait_type::is_small(1 - k)) {
 			c = (cc-k) / (1-k);
 			m = (cm-k) / (1-k);
 			y = (cy-k) / (1-k);
-		} else {
-			c = scalar_type(0);
-			m = scalar_type(0);
-			y = scalar_type(0);
 		}
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
@@ -10128,61 +10662,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::cmyk_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint8,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint8,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::cmy_uint32 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint8,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::cmy_uint64 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint8,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::cmy_float > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint8,::color::category::cmy_float > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::cmy_double > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint8,::color::category::cmy_double > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::cmy_ldouble> : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint8,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_uint16,::color::category::cmy_uint8 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint16,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::cmy_uint16 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint16,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::cmy_uint32 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint16,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::cmy_uint64 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint16,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::cmy_float > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint16,::color::category::cmy_float > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::cmy_double > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint16,::color::category::cmy_double > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::cmy_ldouble> : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint16,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_uint32,::color::category::cmy_uint8 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint32,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::cmy_uint16 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint32,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::cmy_uint32 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint32,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::cmy_uint64 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint32,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::cmy_float > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint32,::color::category::cmy_float > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::cmy_double > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint32,::color::category::cmy_double > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::cmy_ldouble> : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint32,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_uint64,::color::category::cmy_uint8 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint64,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::cmy_uint16 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint64,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::cmy_uint32 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint64,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::cmy_uint64 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint64,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::cmy_float > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint64,::color::category::cmy_float > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::cmy_double > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint64,::color::category::cmy_double > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::cmy_ldouble> : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_uint64,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_float,::color::category::cmy_uint8 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_float,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::cmy_uint16 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_float,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::cmy_uint32 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_float,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::cmy_uint64 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_float,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::cmy_float > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_float,::color::category::cmy_float > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::cmy_double > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_float,::color::category::cmy_double > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::cmy_ldouble> : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_float,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_double,::color::category::cmy_uint8 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_double,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::cmy_uint16 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_double,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::cmy_uint32 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_double,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::cmy_uint64 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_double,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::cmy_float > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_double,::color::category::cmy_float > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::cmy_double > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_double,::color::category::cmy_double > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::cmy_ldouble> : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_double,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::cmy_uint8 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_ldouble,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::cmy_uint16 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_ldouble,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::cmy_uint32 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_ldouble,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::cmy_uint64 > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_ldouble,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::cmy_float > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_ldouble,::color::category::cmy_float > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_ldouble,::color::category::cmy_double > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateCMYK::convert_cmy2cmyk<::color::category::cmyk_ldouble,::color::category::cmy_ldouble> {};
+template< typename cmyk_tag_name, typename cmy_tag_name >
+struct convert
+		<
+		::color::category::cmyk< cmyk_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		>
+		: public ::color::_internal::_privateCMYK::convert_cmy2cmyk
+		<
+		::color::category::cmyk< cmyk_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		> {
+};
 
 }
 }
@@ -10222,77 +10713,31 @@ public:
 
 }
 
-template< > struct convert<::color::category::cmyk_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint8,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint8,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::gray_uint32 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint8,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::gray_uint64 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint8,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::gray_float > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint8,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::gray_double > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint8,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::gray_ldouble> : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint8,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_uint16,::color::category::gray_uint8 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint16,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::gray_uint16 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint16,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::gray_uint32 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint16,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::gray_uint64 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint16,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::gray_float > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint16,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::gray_double > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint16,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::gray_ldouble> : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint16,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_uint32,::color::category::gray_uint8 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint32,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::gray_uint16 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint32,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::gray_uint32 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint32,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::gray_uint64 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint32,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::gray_float > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint32,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::gray_double > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint32,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::gray_ldouble> : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint32,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_uint64,::color::category::gray_uint8 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint64,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::gray_uint16 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint64,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::gray_uint32 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint64,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::gray_uint64 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint64,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::gray_float > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint64,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::gray_double > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint64,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::gray_ldouble> : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_uint64,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_float,::color::category::gray_uint8 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_float,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::gray_uint16 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_float,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::gray_uint32 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_float,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::gray_uint64 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_float,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::gray_float > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_float,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::gray_double > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_float,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::gray_ldouble> : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_float,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_double,::color::category::gray_uint8 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_double,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::gray_uint16 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_double,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::gray_uint32 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_double,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::gray_uint64 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_double,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::gray_float > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_double,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::gray_double > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_double,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::gray_ldouble> : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_double,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::gray_uint8 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_ldouble,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::gray_uint16 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_ldouble,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::gray_uint32 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_ldouble,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::gray_uint64 > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_ldouble,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::gray_float > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_ldouble,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::gray_double > : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_ldouble,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateCMYK::convert_gray2cmyk<::color::category::cmyk_ldouble,::color::category::gray_ldouble> {};
+template< typename cmyk_tag_name, typename gray_tag_name >
+struct convert
+		<
+		::color::category::cmyk< cmyk_tag_name >
+		,::color::category::gray< gray_tag_name >
+		>
+		: public ::color::_internal::_privateCMYK::convert_gray2cmyk
+		<
+		::color::category::cmyk< cmyk_tag_name >
+		,::color::category::gray< gray_tag_name >
+		> {
+};
 
 }
 }
 
 namespace color {
-
 namespace type {
 
 typedef std::array< std::uint8_t, 3 > uint24_t;
 
 }
-
 }
 
 namespace color {
-
 namespace type {
 
 typedef std::array< std::uint8_t, 6 > uint48_t, uint48c_t;
@@ -10300,7 +10745,6 @@ typedef std::array< std::uint8_t, 6 > uint48_t, uint48c_t;
 typedef std::array< std::uint16_t, 3 > uint48s_t;
 
 }
-
 }
 
 namespace color {
@@ -10789,51 +11233,23 @@ struct container< ::color::category::rgb_uint48 >
 
 }
 }
-
 namespace color {
-namespace get {
+namespace trait {
 
-inline
-::color::_internal::model< color::category::rgb_uint8 >::component_const_type
-red(::color::_internal::model< color::category::rgb_uint8 > const& color_parameter) {
-	return color_parameter.template get<0>();
-}
+template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position >
+struct container< ::color::category::rgb< ::color::category::rgb_scramble< value_name, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::container::array< value_name, 3 > {
+};
 
-inline
-::color::_internal::model< color::category::rgb_uint16 >::component_const_type
-red(::color::_internal::model< color::category::rgb_uint16 > const& color_parameter) {
-	return color_parameter.template get<0>();
 }
+}
+namespace color {
+namespace trait {
 
-inline
-::color::_internal::model< color::category::rgb_uint32 >::component_const_type
-red(::color::_internal::model< color::category::rgb_uint32 > const& color_parameter) {
-	return color_parameter.template get<0>();
-}
-
-inline
-::color::_internal::model< color::category::rgb_uint64 >::component_const_type
-red(::color::_internal::model< color::category::rgb_uint64 > const& color_parameter) {
-	return color_parameter.template get<0>();
-}
-
-inline
-::color::_internal::model< color::category::rgb_float >::component_const_type
-red(::color::_internal::model< color::category::rgb_float > const& color_parameter) {
-	return color_parameter.template get<0>();
-}
-
-inline
-::color::_internal::model< color::category::rgb_double >::component_const_type
-red(::color::_internal::model< color::category::rgb_double > const& color_parameter) {
-	return color_parameter.template get<0>();
-}
-
-inline
-::color::_internal::model< color::category::rgb_ldouble >::component_const_type
-red(::color::_internal::model< color::category::rgb_ldouble > const& color_parameter) {
-	return color_parameter.template get<0>();
-}
+template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct container< ::color::category::rgb< ::color::category::rgba_scramble< value_name, first_position, second_position, third_position,fourth_position > > >
+		: public ::color::_internal::utility::container::array< value_name, 4 > {
+};
 
 }
 }
@@ -10842,45 +11258,45 @@ namespace color {
 namespace get {
 
 inline
-::color::_internal::model< color::category::rgb_uint8 >::component_const_type
-green(::color::_internal::model< color::category::rgb_uint8 > const& color_parameter) {
-	return color_parameter.template get<1>();
+::color::_internal::model< ::color::category::rgb_uint8 >::component_const_type
+red(::color::_internal::model< ::color::category::rgb_uint8 > const& color_parameter) {
+	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::rgb_uint16 >::component_const_type
-green(::color::_internal::model< color::category::rgb_uint16 > const& color_parameter) {
-	return color_parameter.template get<1>();
+::color::_internal::model< ::color::category::rgb_uint16 >::component_const_type
+red(::color::_internal::model< ::color::category::rgb_uint16 > const& color_parameter) {
+	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::rgb_uint32 >::component_const_type
-green(::color::_internal::model< color::category::rgb_uint32 > const& color_parameter) {
-	return color_parameter.template get<1>();
+::color::_internal::model< ::color::category::rgb_uint32 >::component_const_type
+red(::color::_internal::model< ::color::category::rgb_uint32 > const& color_parameter) {
+	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::rgb_uint64 >::component_const_type
-green(::color::_internal::model< color::category::rgb_uint64 > const& color_parameter) {
-	return color_parameter.template get<1>();
+::color::_internal::model< ::color::category::rgb_uint64 >::component_const_type
+red(::color::_internal::model< ::color::category::rgb_uint64 > const& color_parameter) {
+	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::rgb_float >::component_const_type
-green(::color::_internal::model< color::category::rgb_float > const& color_parameter) {
-	return color_parameter.template get<1>();
+::color::_internal::model< ::color::category::rgb_float >::component_const_type
+red(::color::_internal::model< ::color::category::rgb_float > const& color_parameter) {
+	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::rgb_double >::component_const_type
-green(::color::_internal::model< color::category::rgb_double > const& color_parameter) {
-	return color_parameter.template get<1>();
+::color::_internal::model< ::color::category::rgb_double >::component_const_type
+red(::color::_internal::model< ::color::category::rgb_double > const& color_parameter) {
+	return color_parameter.template get<0>();
 }
 
 inline
-::color::_internal::model< color::category::rgb_ldouble >::component_const_type
-green(::color::_internal::model< color::category::rgb_ldouble > const& color_parameter) {
-	return color_parameter.template get<1>();
+::color::_internal::model< ::color::category::rgb_ldouble >::component_const_type
+red(::color::_internal::model< ::color::category::rgb_ldouble > const& color_parameter) {
+	return color_parameter.template get<0>();
 }
 
 }
@@ -10890,45 +11306,269 @@ namespace color {
 namespace get {
 
 inline
-::color::_internal::model< color::category::rgb_uint8 >::component_const_type
-blue(::color::_internal::model< color::category::rgb_uint8 > const& color_parameter) {
+::color::_internal::model< ::color::category::rgb_uint8 >::component_const_type
+green(::color::_internal::model< ::color::category::rgb_uint8 > const& color_parameter) {
+	return color_parameter.template get<1>();
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint16 >::component_const_type
+green(::color::_internal::model< ::color::category::rgb_uint16 > const& color_parameter) {
+	return color_parameter.template get<1>();
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint32 >::component_const_type
+green(::color::_internal::model< ::color::category::rgb_uint32 > const& color_parameter) {
+	return color_parameter.template get<1>();
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint64 >::component_const_type
+green(::color::_internal::model< ::color::category::rgb_uint64 > const& color_parameter) {
+	return color_parameter.template get<1>();
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_float >::component_const_type
+green(::color::_internal::model< ::color::category::rgb_float > const& color_parameter) {
+	return color_parameter.template get<1>();
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_double >::component_const_type
+green(::color::_internal::model< ::color::category::rgb_double > const& color_parameter) {
+	return color_parameter.template get<1>();
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_ldouble >::component_const_type
+green(::color::_internal::model< ::color::category::rgb_ldouble > const& color_parameter) {
+	return color_parameter.template get<1>();
+}
+
+}
+}
+
+namespace color {
+namespace get {
+
+inline
+::color::_internal::model< ::color::category::rgb_uint8 >::component_const_type
+blue(::color::_internal::model< ::color::category::rgb_uint8 > const& color_parameter) {
 	return color_parameter.template get<2>();
 }
 
 inline
-::color::_internal::model< color::category::rgb_uint16 >::component_const_type
-blue(::color::_internal::model< color::category::rgb_uint16 > const& color_parameter) {
+::color::_internal::model< ::color::category::rgb_uint16 >::component_const_type
+blue(::color::_internal::model< ::color::category::rgb_uint16 > const& color_parameter) {
 	return color_parameter.template get<2>();
 }
 
 inline
-::color::_internal::model< color::category::rgb_uint32 >::component_const_type
-blue(::color::_internal::model< color::category::rgb_uint32 > const& color_parameter) {
+::color::_internal::model< ::color::category::rgb_uint32 >::component_const_type
+blue(::color::_internal::model< ::color::category::rgb_uint32 > const& color_parameter) {
 	return color_parameter.template get<2>();
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint64 >::component_const_type
+blue(::color::_internal::model< ::color::category::rgb_uint64 > const& color_parameter) {
+	return color_parameter.template get<2>();
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_float >::component_const_type
+blue(::color::_internal::model< ::color::category::rgb_float > const& color_parameter) {
+	return color_parameter.template get<2>();
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_double >::component_const_type
+blue(::color::_internal::model< ::color::category::rgb_double > const& color_parameter) {
+	return color_parameter.template get<2>();
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_ldouble >::component_const_type
+blue(::color::_internal::model< ::color::category::rgb_ldouble > const& color_parameter) {
+	return color_parameter.template get<2>();
+}
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct yiq< ::color::category::rgb_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::rgb_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::rgb_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::rgb_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::rgb_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::rgb_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::rgb_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace get {
+namespace _internal {
+namespace _privateRGB {
+
+template< typename category_name >
+inline
+typename ::color::_internal::model< category_name >::component_const_type
+inphase
+(
+	::color::_internal::model< category_name > const& color_parameter
+) {
+	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
+	typedef ::color::_internal::diverse< akin_type > diverse_type;
+	typedef ::color::_internal::normalize< category_name > normalize_type;
+	typedef ::color::constant::yiq< category_name > yiq_const_type;
+	scalar_type value =
+		yiq_const_type::b21() * normalize_type::template process<0>(color_parameter.template get<0>())
+	+ yiq_const_type::b22() * normalize_type::template process<1>(color_parameter.template get<1>())
+	+ yiq_const_type::b23() * normalize_type::template process<2>(color_parameter.template get<2>())
+	;
+	value = value / yiq_const_type::i_range() + scalar_type(0.5);
+	return diverse_type::template process<1>(value);
+}
+
+}
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint8 >::component_const_type
+inphase(::color::_internal::model< ::color::category::rgb_uint8 > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::inphase<color::category::rgb_uint8>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint16 >::component_const_type
+inphase(::color::_internal::model< ::color::category::rgb_uint16 > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::inphase<color::category::rgb_uint16>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint32 >::component_const_type
+inphase(::color::_internal::model< ::color::category::rgb_uint32 > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::inphase<color::category::rgb_uint32>(color_parameter);
 }
 
 inline
 ::color::_internal::model< color::category::rgb_uint64 >::component_const_type
-blue(::color::_internal::model< color::category::rgb_uint64 > const& color_parameter) {
-	return color_parameter.template get<2>();
+inphase(::color::_internal::model< color::category::rgb_uint64 > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::inphase<color::category::rgb_uint64>(color_parameter);
 }
 
 inline
 ::color::_internal::model< color::category::rgb_float >::component_const_type
-blue(::color::_internal::model< color::category::rgb_float > const& color_parameter) {
-	return color_parameter.template get<2>();
+inphase(::color::_internal::model< color::category::rgb_float > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::inphase<color::category::rgb_float>(color_parameter);
 }
 
 inline
 ::color::_internal::model< color::category::rgb_double >::component_const_type
-blue(::color::_internal::model< color::category::rgb_double > const& color_parameter) {
-	return color_parameter.template get<2>();
+inphase(::color::_internal::model< color::category::rgb_double > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::inphase<color::category::rgb_double>(color_parameter);
 }
 
 inline
 ::color::_internal::model< color::category::rgb_ldouble >::component_const_type
-blue(::color::_internal::model< color::category::rgb_ldouble > const& color_parameter) {
-	return color_parameter.template get<2>();
+inphase(::color::_internal::model< color::category::rgb_ldouble > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::inphase<color::category::rgb_ldouble>(color_parameter);
+}
+
+}
+}
+
+namespace color {
+namespace get {
+namespace _internal {
+namespace _privateRGB {
+
+template< typename category_name >
+inline
+typename ::color::trait::component< typename ::color::akin::yiq<category_name>::akin_type >::return_type
+quadrature
+(
+	::color::_internal::model< category_name > const& color_parameter
+) {
+	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
+	typedef ::color::_internal::diverse< akin_type > diverse_type;
+	typedef ::color::_internal::normalize< category_name > normalize_type;
+	typedef ::color::constant::yiq< category_name > yiq_const_type;
+	scalar_type value =
+		+ yiq_const_type::b31() * normalize_type::template process<0>(color_parameter.template get<0>())
+	+ yiq_const_type::b32() * normalize_type::template process<1>(color_parameter.template get<1>())
+	+ yiq_const_type::b33() * normalize_type::template process<2>(color_parameter.template get<2>())
+	;
+	value = value / yiq_const_type::q_range() + scalar_type(0.5);
+	return diverse_type::template process<2>(value);
+}
+
+}
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint8 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::rgb_uint8 > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::quadrature<color::category::rgb_uint8>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint16 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::rgb_uint16 > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::quadrature<color::category::rgb_uint16>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint32 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::rgb_uint32 > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::quadrature<color::category::rgb_uint32>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_uint64 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::rgb_uint64 > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::quadrature<color::category::rgb_uint64>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_float >::component_const_type
+quadrature(::color::_internal::model< ::color::category::rgb_float > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::quadrature<color::category::rgb_float>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_double >::component_const_type
+quadrature(::color::_internal::model< ::color::category::rgb_double > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::quadrature<color::category::rgb_double>(color_parameter);
+}
+
+inline
+::color::_internal::model< ::color::category::rgb_ldouble >::component_const_type
+quadrature(::color::_internal::model< ::color::category::rgb_ldouble > const& color_parameter) {
+	return ::color::get::_internal::_privateRGB::quadrature<color::category::rgb_ldouble>(color_parameter);
 }
 
 }
@@ -10942,15 +11582,20 @@ namespace _privateRGB {
 template< typename category_name >
 inline
 typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::return_type
-gray(::color::_internal::model< category_name > const& color_parameter) {
+gray
+(
+	::color::_internal::model< category_name > const& color_parameter
+) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
+	typedef ::color::constant::gray< akin_type > gray_const_type;
 	scalar_type value =
-		0.2126729 * normalize_type::template process<0>(color_parameter.template get<0>())
-	+ 0.7151522 * normalize_type::template process<1>(color_parameter.template get<1>())
-	+ 0.0721750 * normalize_type::template process<2>(color_parameter.template get<2>());
+		gray_const_type::Rc() * normalize_type::template process<0>(color_parameter.template get<0>())
+	+ gray_const_type::Gc() * normalize_type::template process<1>(color_parameter.template get<1>())
+	+ gray_const_type::Bc() * normalize_type::template process<2>(color_parameter.template get<2>())
+	;
 	return diverse_type::template process<0>(value);
 }
 
@@ -10998,6 +11643,388 @@ inline
 ::color::trait::component< ::color::akin::gray< ::color::category::rgb_ldouble >::akin_type >::return_type
 gray(::color::_internal::model< ::color::category::rgb_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateRGB::gray< ::color::category::rgb_ldouble>(color_parameter);
+}
+
+}
+}
+
+namespace color {
+namespace set {
+namespace _internal {
+namespace rgb {
+namespace _internal {
+
+template< typename category_name >
+inline
+void
+red
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+) {
+	color_parameter.template set<0>(component_parameter);
+}
+
+}
+}
+}
+
+inline
+void
+red
+(
+	::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint8 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::red<::color::category::rgb_uint8>(color_parameter, component_parameter);
+}
+
+inline
+void
+red
+(
+	::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint16 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::red<::color::category::rgb_uint16>(color_parameter, component_parameter);
+}
+
+inline
+void
+red
+(
+	::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint32 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::red<::color::category::rgb_uint32>(color_parameter, component_parameter);
+}
+
+inline
+void
+red
+(
+	::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint64 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::red<::color::category::rgb_uint64>(color_parameter, component_parameter);
+}
+
+inline
+void
+red
+(
+	::color::_internal::model< ::color::category::rgb_float > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_float >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::red<::color::category::rgb_float>(color_parameter, component_parameter);
+}
+
+inline
+void
+red
+(
+	::color::_internal::model< ::color::category::rgb_double > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_double >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::red<::color::category::rgb_double>(color_parameter, component_parameter);
+}
+
+inline
+void
+red
+(
+	::color::_internal::model< ::color::category::rgb_ldouble > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_ldouble >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::red<::color::category::rgb_ldouble>(color_parameter, component_parameter);
+}
+
+}
+}
+
+namespace color {
+namespace set {
+namespace _internal {
+namespace rgb {
+namespace _internal {
+
+template< typename category_name >
+inline
+void
+green
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+) {
+	color_parameter.template set<1>(component_parameter);
+}
+
+}
+}
+}
+
+inline
+void
+green
+(
+	::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint8 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::green<::color::category::rgb_uint8>(color_parameter, component_parameter);
+}
+
+inline
+void
+green
+(
+	::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint16 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::green<::color::category::rgb_uint16>(color_parameter, component_parameter);
+}
+
+inline
+void
+green
+(
+	::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint32 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::green<::color::category::rgb_uint32>(color_parameter, component_parameter);
+}
+
+inline
+void
+green
+(
+	::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint64 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::green<::color::category::rgb_uint64>(color_parameter, component_parameter);
+}
+
+inline
+void
+green
+(
+	::color::_internal::model< ::color::category::rgb_float > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_float >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::green<::color::category::rgb_float>(color_parameter, component_parameter);
+}
+
+inline
+void
+green
+(
+	::color::_internal::model< ::color::category::rgb_double > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_double >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::green<::color::category::rgb_double>(color_parameter, component_parameter);
+}
+
+inline
+void
+green
+(
+	::color::_internal::model< ::color::category::rgb_ldouble > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_ldouble >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::green<::color::category::rgb_ldouble>(color_parameter, component_parameter);
+}
+
+}
+}
+
+namespace color {
+namespace set {
+namespace _internal {
+namespace rgb {
+namespace _internal {
+
+template< typename category_name >
+inline
+void
+blue
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+) {
+	color_parameter.template set<2>(component_parameter);
+}
+
+}
+}
+}
+
+inline
+void
+blue
+(
+	::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint8 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::blue<::color::category::rgb_uint8>(color_parameter, component_parameter);
+};
+
+inline
+void
+blue
+(
+	::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint16 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::blue<::color::category::rgb_uint16>(color_parameter, component_parameter);
+}
+
+inline
+void
+blue
+(
+	::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint32 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::blue<::color::category::rgb_uint32>(color_parameter, component_parameter);
+}
+
+inline
+void
+blue
+(
+	::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_uint64 >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::blue<::color::category::rgb_uint64>(color_parameter, component_parameter);
+}
+
+inline
+void
+blue
+(
+	::color::_internal::model< ::color::category::rgb_float > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_float >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::blue<::color::category::rgb_float>(color_parameter, component_parameter);
+}
+
+inline
+void
+blue
+(
+	::color::_internal::model< ::color::category::rgb_double > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_double >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::blue<::color::category::rgb_double>(color_parameter, component_parameter);
+}
+
+inline
+void
+blue
+(
+	::color::_internal::model< ::color::category::rgb_ldouble > & color_parameter,
+	::color::_internal::model< ::color::category::rgb_ldouble >::component_input_const_type component_parameter
+) {
+	::color::set::_internal::rgb::_internal::blue<::color::category::rgb_ldouble>(color_parameter, component_parameter);
+}
+
+}
+}
+
+namespace color {
+namespace set {
+namespace _privateRGB {
+
+template< typename category_name >
+inline
+void
+gray
+(
+	::color::_internal::model< category_name > & color_parameter,
+	typename ::color::trait::component< typename ::color::akin::gray<category_name>::akin_type >::input_const_type component_parameter
+) {
+	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+	typedef typename ::color::akin::gray<category_name >::akin_type akin_type;
+	typedef ::color::_internal::normalize< category_name > normalize_rgb_type;
+	typedef ::color::_internal::normalize< akin_type > normalize_akin_type;
+	typedef ::color::constant::gray< akin_type > gray_const_type;
+	scalar_type value =
+		gray_const_type::Rc() * normalize_rgb_type::template process<0>(color_parameter.template get<0>())
+	+ gray_const_type::Gc() * normalize_rgb_type::template process<0>(color_parameter.template get<1>())
+	+ gray_const_type::Bc() * normalize_rgb_type::template process<0>(color_parameter.template get<2>());
+	value = normalize_akin_type::template process<0>(component_parameter) / value;
+	::color::operation::scale(color_parameter, value);
+}
+
+}
+
+inline
+void
+gray
+(
+	::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter
+	,::color::trait::component< ::color::category::rgb_uint8 >::input_const_type component_parameter
+) {
+	::color::set::_privateRGB::gray<::color::category::rgb_uint8>(color_parameter, component_parameter);
+}
+
+inline
+void
+gray
+(
+	::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter
+	,::color::trait::component< ::color::category::rgb_uint16 >::input_const_type component_parameter
+) {
+	::color::set::_privateRGB::gray<::color::category::rgb_uint16>(color_parameter, component_parameter);
+}
+
+inline
+void
+gray
+(
+	::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter
+	,::color::trait::component< ::color::category::rgb_uint32 >::input_const_type component_parameter
+) {
+	::color::set::_privateRGB::gray<::color::category::rgb_uint32>(color_parameter, component_parameter);
+}
+
+inline
+void
+gray
+(
+	::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter
+	,::color::trait::component< ::color::category::rgb_uint64 >::input_const_type component_parameter
+) {
+	::color::set::_privateRGB::gray<::color::category::rgb_uint64>(color_parameter, component_parameter);
+}
+
+inline
+void
+gray
+(
+	::color::_internal::model< ::color::category::rgb_float > & color_parameter
+	,::color::trait::component< ::color::category::rgb_float >::input_const_type component_parameter
+) {
+	::color::set::_privateRGB::gray<::color::category::rgb_float>(color_parameter, component_parameter);
+}
+
+inline
+void
+gray
+(
+	::color::_internal::model< ::color::category::rgb_double > & color_parameter
+	,::color::trait::component< ::color::category::rgb_double >::input_const_type component_parameter
+) {
+	::color::set::_privateRGB::gray<::color::category::rgb_double>(color_parameter, component_parameter);
+}
+
+inline
+void
+gray
+(
+	::color::_internal::model< ::color::category::rgb_ldouble > & color_parameter
+	,::color::trait::component< ::color::category::rgb_ldouble >::input_const_type component_parameter
+) {
+	::color::set::_privateRGB::gray<::color::category::rgb_ldouble>(color_parameter, component_parameter);
 }
 
 }
@@ -12972,14 +13999,215 @@ void wheat(::color::_internal::model< color::category::rgb_ldouble> & color_para
 }
 
 namespace color {
+namespace place {
 namespace _internal {
-namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name >
-struct convert_cmy2rgb {
+template< typename category_name >
+struct red {
 public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
+	typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
+
+	enum { position_enum = -1 };
+	enum { has_enum = false };
+
+	static index_instance_type position() {
+		return ::color::trait::container< category_name >::size();
+	}
+};
+
+}
+
+template< typename category_name >
+inline
+
+typename ::color::trait::index< category_name >::instance_type
+red() {
+	return ::color::place::_internal::red<category_name>::position();
+}
+
+}
+}
+
+namespace color {
+namespace place {
+namespace _internal {
+
+template< typename tag_name >
+struct red< ::color::category::rgb< tag_name > > {
+public:
+	typedef ::color::category::rgb< tag_name > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_enum = 0 };
+	enum { has_enum = true };
+
+	static index_instance_type position() {
+		return position_enum;
+	}
+};
+
+template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position >
+struct red< ::color::category::rgb< ::color::category::rgb_scramble< value_name, red_position, green_position, blue_position > > > {
+public:
+	typedef ::color::category::rgb_scramble< value_name, red_position, green_position, blue_position > scramble_type;
+	typedef ::color::category::rgb< scramble_type > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_enum = red_position };
+
+	static index_instance_type position() {
+		return position_enum;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace place {
+namespace _internal {
+
+template< typename category_name >
+struct green {
+public:
+	typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
+
+	enum { position_enum = -8 };
+	enum { has_enum = false };
+
+	static index_instance_type position() {
+		return ::color::trait::container< category_name >::size();
+	}
+};
+
+}
+
+template< typename category_name >
+inline
+
+typename ::color::trait::index< category_name >::instance_type
+green() {
+	return ::color::place::_internal::green<category_name>::position();
+}
+
+}
+}
+
+namespace color {
+namespace place {
+namespace _internal {
+
+template< typename tag_name >
+struct green< ::color::category::rgb< tag_name > > {
+public:
+	typedef ::color::category::rgb< tag_name > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_enum = 1 };
+	enum { has_enum = true };
+
+	static index_instance_type position() {
+		return position_enum;
+	}
+};
+
+template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position >
+struct green< ::color::category::rgb< ::color::category::rgb_scramble< value_name, red_position, green_position, blue_position > > > {
+public:
+	typedef ::color::category::rgb_scramble< value_name, red_position, green_position, blue_position > scramble_type;
+	typedef ::color::category::rgb< scramble_type > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_enum = green_position };
+
+	static index_instance_type position() {
+		return position_enum;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace place {
+namespace _internal {
+
+template< typename category_name >
+struct blue {
+public:
+	typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
+
+	enum { position_enum = -11 };
+	enum { has_enum = false };
+
+	static index_instance_type position() {
+		return ::color::trait::container< category_name >::size();
+	}
+};
+
+}
+
+template< typename category_name >
+inline
+
+typename ::color::trait::index< category_name >::instance_type
+blue() {
+	return ::color::place::_internal::blue<category_name>::position();
+}
+
+}
+}
+
+namespace color {
+namespace place {
+namespace _internal {
+
+template< typename tag_name >
+struct blue< ::color::category::rgb< tag_name > > {
+public:
+	typedef ::color::category::rgb< tag_name > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_enum = 2 };
+	enum { has_enum = true };
+
+	static index_instance_type position() {
+		return position_enum;
+	}
+};
+
+template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position >
+struct blue< ::color::category::rgb< ::color::category::rgb_scramble< value_name, red_position, green_position, blue_position > > > {
+public:
+	typedef ::color::category::rgb_scramble< value_name, red_position, green_position, blue_position > scramble_type;
+	typedef ::color::category::rgb< scramble_type > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_enum = blue_position };
+
+	static index_instance_type position() {
+		return position_enum;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename rgb_tag_name, typename cmy_tag_name >
+struct convert
+		<
+		::color::category::rgb< rgb_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		> {
+public:
+	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
+	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -12992,85 +14220,35 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
+		enum {
+			red_p = ::color::place::_internal::red<category_left_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		};
+		typedef ::color::_internal::reformat< category_left_type, category_right_type, double > reformat_type;
 		typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
-		container_left_trait_type::template set<1>(left, reformat_type::template process<1,1>(invert_type::template component<1>(container_right_trait_type::template get<1>(right))));
-		container_left_trait_type::template set<2>(left, reformat_type::template process<2,2>(invert_type::template component<2>(container_right_trait_type::template get<2>(right))));
+		container_left_trait_type::template set<red_p >(left, reformat_type::template process<red_p ,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+		container_left_trait_type::template set<green_p>(left, reformat_type::template process<green_p,1>(invert_type::template component<1>(container_right_trait_type::template get<1>(right))));
+		container_left_trait_type::template set<blue_p >(left, reformat_type::template process<blue_p ,2>(invert_type::template component<2>(container_right_trait_type::template get<2>(right))));
 	}
 };
-
-}
-
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint8,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint8,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmy_uint32 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint8,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmy_uint64 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint8,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmy_float > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint8,::color::category::cmy_float > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmy_double > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint8,::color::category::cmy_double > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmy_ldouble> : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint8,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmy_uint8 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint16,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmy_uint16 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint16,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmy_uint32 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint16,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmy_uint64 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint16,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmy_float > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint16,::color::category::cmy_float > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmy_double > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint16,::color::category::cmy_double > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmy_ldouble> : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint16,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmy_uint8 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint32,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmy_uint16 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint32,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmy_uint32 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint32,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmy_uint64 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint32,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmy_float > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint32,::color::category::cmy_float > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmy_double > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint32,::color::category::cmy_double > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmy_ldouble> : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint32,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmy_uint8 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint64,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmy_uint16 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint64,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmy_uint32 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint64,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmy_uint64 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint64,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmy_float > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint64,::color::category::cmy_float > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmy_double > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint64,::color::category::cmy_double > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmy_ldouble> : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_uint64,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::rgb_float,::color::category::cmy_uint8 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_float,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmy_uint16 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_float,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmy_uint32 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_float,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmy_uint64 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_float,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmy_float > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_float,::color::category::cmy_float > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmy_double > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_float,::color::category::cmy_double > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmy_ldouble> : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_float,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::rgb_double,::color::category::cmy_uint8 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_double,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmy_uint16 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_double,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmy_uint32 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_double,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmy_uint64 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_double,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmy_float > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_double,::color::category::cmy_float > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmy_double > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_double,::color::category::cmy_double > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmy_ldouble> : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_double,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy_uint8 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_ldouble,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy_uint16 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_ldouble,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy_uint32 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_ldouble,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy_uint64 > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_ldouble,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy_float > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_ldouble,::color::category::cmy_float > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_ldouble,::color::category::cmy_double > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateRGB::convert_cmy2rgb<::color::category::rgb_ldouble,::color::category::cmy_ldouble> {};
 
 }
 }
 
 namespace color {
 namespace _internal {
-namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_cmyk2rgb {
+template< typename rgb_tag_name, typename cmyk_tag_name >
+struct convert
+		<
+		::color::category::rgb< rgb_tag_name >
+		,::color::category::cmyk<cmyk_tag_name>
+		> {
 public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
+	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
+	typedef ::color::category::cmyk<cmyk_tag_name> category_right_type;
+	typedef double scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -13086,94 +14264,74 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		scalar_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		scalar_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
+		enum {
+			red_p = ::color::place::_internal::red<category_left_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		};
+		enum {
+			cyan_p = 0
+					 ,yellow_p = 1
+								 ,magenta_p = 2
+											  ,key_p = 3
+		};
+		scalar_type c = normalize_type::template process<cyan_p >(container_right_trait_type::template get<cyan_p >(right));
+		scalar_type m = normalize_type::template process<yellow_p >(container_right_trait_type::template get<yellow_p >(right));
+		scalar_type y = normalize_type::template process<magenta_p>(container_right_trait_type::template get<magenta_p>(right));
+		scalar_type k = normalize_type::template process<key_p >(container_right_trait_type::template get<key_p >(right));
 		scalar_type r = (1-c) * (1-k);
 		scalar_type g = (1-m) * (1-k);
 		scalar_type b = (1-y) * (1-k);
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+		container_left_trait_type::template set<red_p >(left, diverse_type::template process<red_p >(r));
+		container_left_trait_type::template set<green_p>(left, diverse_type::template process<green_p>(g));
+		container_left_trait_type::template set<blue_p >(left, diverse_type::template process<blue_p >(b));
 	}
 };
-
-}
-
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmyk_uint8 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint8,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmyk_uint16 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint8,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmyk_uint32 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint8,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmyk_uint64 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint8,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmyk_float > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint8,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmyk_double > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint8,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::cmyk_ldouble> : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint8,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmyk_uint8 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint16,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmyk_uint16 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint16,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmyk_uint32 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint16,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmyk_uint64 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint16,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmyk_float > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint16,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmyk_double > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint16,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::cmyk_ldouble> : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint16,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmyk_uint8 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint32,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmyk_uint16 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint32,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmyk_uint32 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint32,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmyk_uint64 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint32,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmyk_float > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint32,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmyk_double > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint32,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::cmyk_ldouble> : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint32,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmyk_uint8 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint64,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmyk_uint16 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint64,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmyk_uint32 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint64,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmyk_uint64 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint64,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmyk_float > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint64,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmyk_double > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint64,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::cmyk_ldouble> : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_uint64,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::rgb_float,::color::category::cmyk_uint8 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_float,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmyk_uint16 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_float,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmyk_uint32 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_float,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmyk_uint64 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_float,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmyk_float > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_float,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmyk_double > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_float,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::rgb_float,::color::category::cmyk_ldouble> : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_float,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::rgb_double,::color::category::cmyk_uint8 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_double,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmyk_uint16 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_double,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmyk_uint32 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_double,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmyk_uint64 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_double,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmyk_float > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_double,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmyk_double > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_double,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::rgb_double,::color::category::cmyk_ldouble> : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_double,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmyk_uint8 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_ldouble,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmyk_uint16 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_ldouble,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmyk_uint32 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_ldouble,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmyk_uint64 > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_ldouble,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmyk_float > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_ldouble,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmyk_double > : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_ldouble,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::cmyk_ldouble> : public ::color::_internal::_privateRGB::convert_cmyk2rgb<::color::category::rgb_ldouble,::color::category::cmyk_ldouble> {};
 
 }
 }
 
 namespace color {
+namespace place {
 namespace _internal {
-namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_gray2rgb {
+template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position, unsigned alpha_position >
+struct alpha< ::color::category::rgb< ::color::category::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > > > {
 public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
+	typedef ::color::category::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > scramble_type;
+	typedef ::color::category::rgb< scramble_type > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_enum = red_position };
+	enum { has_enum = true };
+
+	static index_instance_type position() {
+		return position_enum;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename rgb_tag_name, typename gray_tag_name >
+struct convert
+		<
+		::color::category::rgb< rgb_tag_name >
+		,::color::category::gray<gray_tag_name>
+		> {
+public:
+	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
+	typedef ::color::category::gray<gray_tag_name> category_right_type;
+	typedef double scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -13183,68 +14341,19 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
-		container_left_trait_type::template set<1>(left, reformat_type::template process<1,0>(container_right_trait_type::template get<0>(right)));
-		container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(container_right_trait_type::template get<0>(right)));
+		enum {
+			red_p = ::color::place::_internal::red<category_left_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		};
+		enum {
+			gray_p = 0
+		};
+		container_left_trait_type::template set<red_p >(left, reformat_type::template process<red_p ,gray_p>(container_right_trait_type::template get<gray_p>(right)));
+		container_left_trait_type::template set<green_p>(left, reformat_type::template process<green_p,gray_p>(container_right_trait_type::template get<gray_p>(right)));
+		container_left_trait_type::template set<blue_p >(left, reformat_type::template process<blue_p ,gray_p>(container_right_trait_type::template get<gray_p>(right)));
 	}
 };
-}
-
-template< > struct convert<::color::category::rgb_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint8,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint8,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::gray_uint32 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint8,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::gray_uint64 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint8,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::gray_float > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint8,::color::category::gray_float > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::gray_double > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint8,::color::category::gray_double > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::gray_ldouble> : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint8,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint16,::color::category::gray_uint8 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint16,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::gray_uint16 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint16,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::gray_uint32 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint16,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::gray_uint64 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint16,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::gray_float > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint16,::color::category::gray_float > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::gray_double > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint16,::color::category::gray_double > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::gray_ldouble> : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint16,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint32,::color::category::gray_uint8 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint32,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::gray_uint16 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint32,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::gray_uint32 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint32,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::gray_uint64 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint32,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::gray_float > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint32,::color::category::gray_float > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::gray_double > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint32,::color::category::gray_double > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::gray_ldouble> : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint32,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint64,::color::category::gray_uint8 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint64,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::gray_uint16 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint64,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::gray_uint32 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint64,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::gray_uint64 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint64,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::gray_float > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint64,::color::category::gray_float > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::gray_double > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint64,::color::category::gray_double > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::gray_ldouble> : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_uint64,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::rgb_float,::color::category::gray_uint8 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_float,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::gray_uint16 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_float,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::gray_uint32 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_float,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::gray_uint64 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_float,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::gray_float > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_float,::color::category::gray_float > {};
-template< > struct convert<::color::category::rgb_float,::color::category::gray_double > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_float,::color::category::gray_double > {};
-template< > struct convert<::color::category::rgb_float,::color::category::gray_ldouble> : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_float,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::rgb_double,::color::category::gray_uint8 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_double,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::gray_uint16 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_double,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::gray_uint32 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_double,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::gray_uint64 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_double,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::gray_float > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_double,::color::category::gray_float > {};
-template< > struct convert<::color::category::rgb_double,::color::category::gray_double > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_double,::color::category::gray_double > {};
-template< > struct convert<::color::category::rgb_double,::color::category::gray_ldouble> : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_double,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::rgb_ldouble,::color::category::gray_uint8 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_ldouble,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::gray_uint16 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_ldouble,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::gray_uint32 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_ldouble,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::gray_uint64 > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_ldouble,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::gray_float > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_ldouble,::color::category::gray_float > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::gray_double > : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_ldouble,::color::category::gray_double > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateRGB::convert_gray2rgb<::color::category::rgb_ldouble,::color::category::gray_ldouble> {};
 
 }
 }
@@ -13818,43 +14927,43 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsl_uint8 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsl_uint8 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsl_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::gray<color::category::hsl_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsl_uint16 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsl_uint16 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsl_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::gray<color::category::hsl_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsl_uint32 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsl_uint32 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsl_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::gray<color::category::hsl_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsl_uint64 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsl_uint64 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsl_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::gray<color::category::hsl_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsl_float >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsl_float > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsl_float > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::gray<color::category::hsl_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsl_double >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsl_double > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsl_double > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::gray<color::category::hsl_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsl_ldouble >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsl_ldouble > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsl_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::gray<color::category::hsl_ldouble>(color_parameter);
 }
 
@@ -13886,43 +14995,43 @@ red(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint8>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsl_uint8 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsl_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::red<color::category::hsl_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint16>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsl_uint16 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsl_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::red<color::category::hsl_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint32>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsl_uint32 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsl_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::red<color::category::hsl_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint64>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsl_uint64 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsl_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::red<color::category::hsl_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_float>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsl_float > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsl_float > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::red<color::category::hsl_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_double>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsl_double > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsl_double > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::red<color::category::hsl_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_ldouble>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsl_ldouble > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsl_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::red<color::category::hsl_ldouble>(color_parameter);
 }
 
@@ -13954,43 +15063,43 @@ green(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint8>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsl_uint8 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsl_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::green<color::category::hsl_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint16>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsl_uint16 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsl_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::green<color::category::hsl_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint32>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsl_uint32 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsl_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::green<color::category::hsl_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint64>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsl_uint64 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsl_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::green<color::category::hsl_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_float>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsl_float > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsl_float > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::green<color::category::hsl_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_double>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsl_double > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsl_double > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::green<color::category::hsl_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_ldouble>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsl_ldouble > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsl_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::green<color::category::hsl_ldouble>(color_parameter);
 }
 
@@ -14022,43 +15131,43 @@ blue(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint8>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsl_uint8 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsl_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::blue<color::category::hsl_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint16>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsl_uint16 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsl_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::blue<color::category::hsl_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint32>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsl_uint32 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsl_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::blue<color::category::hsl_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_uint64>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsl_uint64 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsl_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::blue<color::category::hsl_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_float>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsl_float > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsl_float > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::blue<color::category::hsl_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_double>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsl_double > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsl_double > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::blue<color::category::hsl_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsl_ldouble>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsl_ldouble > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsl_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateHSL::blue<color::category::hsl_ldouble>(color_parameter);
 }
 
@@ -16044,6 +17153,8 @@ public:
 	typedef category_right_name category_right_type;
 	typedef scalar_name scalar_type;
 
+	typedef ::color::trait::scalar<category_left_name> scalar_trait_type;
+
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
@@ -16067,7 +17178,7 @@ public:
 		scalar_type h = 0;
 		scalar_type s = 0;
 		scalar_type l = (hi + lo) / scalar_type(2);
-		if(0 != delta) {
+		if(false == scalar_trait_type::is_small(delta)) {
 			s = delta / (1 - fabs(2*l - 1));
 			if(hi == r) {
 				h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
@@ -16087,61 +17198,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_float > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint8,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_float > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint16,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_float > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint32,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_float > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_uint64,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsl_float,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::cmy_float > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsl_float,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsl_float,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_float,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsl_double,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::cmy_float > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsl_double,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsl_double,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_double,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_float > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSL::convert_cmy2hsl<::color::category::hsl_ldouble,::color::category::cmy_ldouble> {};
+template< typename hsl_tag_name, typename cmy_tag_name >
+struct convert
+		<
+		::color::category::hsl< hsl_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		>
+		: public ::color::_internal::_privateHSL::convert_cmy2hsl
+		<
+		::color::category::hsl< hsl_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		> {
+};
 
 }
 }
@@ -16179,61 +17247,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::hsl_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint8,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint8,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::gray_uint32 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint8,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::gray_uint64 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint8,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::gray_float > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint8,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::gray_double > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint8,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::gray_ldouble> : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint8,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsl_uint16,::color::category::gray_uint8 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint16,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::gray_uint16 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint16,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::gray_uint32 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint16,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::gray_uint64 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint16,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::gray_float > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint16,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::gray_double > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint16,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::gray_ldouble> : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint16,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsl_uint32,::color::category::gray_uint8 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint32,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::gray_uint16 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint32,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::gray_uint32 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint32,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::gray_uint64 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint32,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::gray_float > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint32,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::gray_double > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint32,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::gray_ldouble> : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint32,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsl_uint64,::color::category::gray_uint8 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint64,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::gray_uint16 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint64,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::gray_uint32 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint64,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::gray_uint64 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint64,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::gray_float > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint64,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::gray_double > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint64,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::gray_ldouble> : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_uint64,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsl_float,::color::category::gray_uint8 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_float,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::gray_uint16 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_float,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::gray_uint32 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_float,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::gray_uint64 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_float,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::gray_float > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_float,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsl_float,::color::category::gray_double > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_float,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsl_float,::color::category::gray_ldouble> : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_float,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsl_double,::color::category::gray_uint8 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_double,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::gray_uint16 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_double,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::gray_uint32 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_double,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::gray_uint64 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_double,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::gray_float > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_double,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsl_double,::color::category::gray_double > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_double,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsl_double,::color::category::gray_ldouble> : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_double,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsl_ldouble,::color::category::gray_uint8 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_ldouble,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::gray_uint16 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_ldouble,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::gray_uint32 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_ldouble,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::gray_uint64 > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_ldouble,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::gray_float > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_ldouble,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::gray_double > : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_ldouble,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateHSL::convert_gray2hsl<::color::category::hsl_ldouble,::color::category::gray_ldouble> {};
+template< typename hsl_tag_name, typename gray_tag_name >
+struct convert
+		<
+		::color::category::hsl< hsl_tag_name >
+		,::color::category::gray< gray_tag_name >
+		>
+		: public ::color::_internal::_privateHSL::convert_gray2hsl
+		<
+		::color::category::hsl< hsl_tag_name >
+		,::color::category::gray< gray_tag_name >
+		> {
+};
 
 }
 }
@@ -16840,43 +17865,43 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsv_uint8 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsv_uint8 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsv_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::gray<color::category::hsv_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsv_uint16 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsv_uint16 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsv_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::gray<color::category::hsv_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsv_uint32 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsv_uint32 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsv_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::gray<color::category::hsv_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsv_uint64 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsv_uint64 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsv_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::gray<color::category::hsv_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsv_float >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsv_float > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsv_float > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::gray<color::category::hsv_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsv_double >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsv_double > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsv_double > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::gray<color::category::hsv_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::hsv_ldouble >::akin_type >::return_type
-gray(::color::_internal::model< color::category::hsv_ldouble > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::hsv_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::gray<color::category::hsv_ldouble>(color_parameter);
 }
 
@@ -16908,43 +17933,43 @@ red(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint8>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsv_uint8 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsv_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::red<color::category::hsv_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint16>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsv_uint16 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsv_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::red<color::category::hsv_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint32>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsv_uint32 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsv_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::red<color::category::hsv_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint64>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsv_uint64 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsv_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::red<color::category::hsv_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_float>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsv_float > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsv_float > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::red<color::category::hsv_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_double>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsv_double > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsv_double > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::red<color::category::hsv_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_ldouble>::akin_type >::return_type
-red(::color::_internal::model< color::category::hsv_ldouble > const& color_parameter) {
+red(::color::_internal::model< ::color::category::hsv_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::red<color::category::hsv_ldouble>(color_parameter);
 }
 
@@ -16976,43 +18001,43 @@ green(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint8>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsv_uint8 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsv_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::green<color::category::hsv_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint16>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsv_uint16 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsv_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::green<color::category::hsv_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint32>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsv_uint32 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsv_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::green<color::category::hsv_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint64>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsv_uint64 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsv_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::green<color::category::hsv_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_float>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsv_float > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsv_float > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::green<color::category::hsv_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_double>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsv_double > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsv_double > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::green<color::category::hsv_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_ldouble>::akin_type >::return_type
-green(::color::_internal::model< color::category::hsv_ldouble > const& color_parameter) {
+green(::color::_internal::model< ::color::category::hsv_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::green<color::category::hsv_ldouble>(color_parameter);
 }
 
@@ -17044,43 +18069,43 @@ blue(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint8>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsv_uint8 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsv_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::blue<color::category::hsv_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint16>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsv_uint16 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsv_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::blue<color::category::hsv_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint32>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsv_uint32 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsv_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::blue<color::category::hsv_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_uint64>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsv_uint64 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsv_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::blue<color::category::hsv_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_float>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsv_float > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsv_float > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::blue<color::category::hsv_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_double>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsv_double > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsv_double > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::blue<color::category::hsv_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::hsv_ldouble>::akin_type >::return_type
-blue(::color::_internal::model< color::category::hsv_ldouble > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::hsv_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateHSV::blue<color::category::hsv_ldouble>(color_parameter);
 }
 
@@ -19066,6 +20091,8 @@ public:
 	typedef category_right_name category_right_type;
 	typedef scalar_name scalar_type;
 
+	typedef ::color::trait::scalar<category_left_name> scalar_trait_type;
+
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
@@ -19088,7 +20115,8 @@ public:
 		scalar_type delta = v - lo;
 		scalar_type h = 0;
 		scalar_type s = 0;
-		if((0 != v) && (0 != delta)) {
+		if((false == scalar_trait_type::is_small(v))
+		   && (false == scalar_trait_type::is_small(delta))) {
 			s = delta / v;
 			if(v == r) {
 				h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
@@ -19108,61 +20136,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::hsv_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint8,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint8,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint8,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint8,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::cmy_float > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint8,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::cmy_double > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint8,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint8,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsv_uint16,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint16,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint16,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint16,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint16,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::cmy_float > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint16,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::cmy_double > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint16,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint16,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsv_uint32,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint32,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint32,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint32,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint32,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::cmy_float > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint32,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::cmy_double > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint32,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint32,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsv_uint64,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint64,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint64,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint64,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint64,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::cmy_float > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint64,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::cmy_double > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint64,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_uint64,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsv_float,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_float,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_float,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_float,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_float,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::cmy_float > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_float,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsv_float,::color::category::cmy_double > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_float,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsv_float,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_float,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsv_double,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_double,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_double,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_double,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_double,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::cmy_float > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_double,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsv_double,::color::category::cmy_double > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_double,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsv_double,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_double,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::hsv_ldouble,::color::category::cmy_uint8 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_ldouble,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::cmy_uint16 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_ldouble,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::cmy_uint32 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_ldouble,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::cmy_uint64 > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_ldouble,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::cmy_float > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_ldouble,::color::category::cmy_float > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_ldouble,::color::category::cmy_double > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateHSV::convert_cmy2hsv<::color::category::hsv_ldouble,::color::category::cmy_ldouble> {};
+template< typename hsv_tag_name, typename cmy_tag_name >
+struct convert
+		<
+		::color::category::hsv< hsv_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		>
+		: public ::color::_internal::_privateHSV::convert_cmy2hsv
+		<
+		::color::category::hsv< hsv_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		> {
+};
 
 }
 }
@@ -19198,61 +20183,18 @@ public:
 };
 }
 
-template< > struct convert<::color::category::hsv_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint8,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint8,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::gray_uint32 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint8,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::gray_uint64 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint8,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::gray_float > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint8,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::gray_double > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint8,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::gray_ldouble> : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint8,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsv_uint16,::color::category::gray_uint8 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint16,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::gray_uint16 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint16,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::gray_uint32 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint16,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::gray_uint64 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint16,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::gray_float > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint16,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::gray_double > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint16,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::gray_ldouble> : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint16,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsv_uint32,::color::category::gray_uint8 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint32,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::gray_uint16 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint32,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::gray_uint32 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint32,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::gray_uint64 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint32,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::gray_float > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint32,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::gray_double > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint32,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::gray_ldouble> : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint32,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsv_uint64,::color::category::gray_uint8 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint64,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::gray_uint16 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint64,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::gray_uint32 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint64,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::gray_uint64 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint64,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::gray_float > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint64,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::gray_double > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint64,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::gray_ldouble> : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_uint64,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsv_float,::color::category::gray_uint8 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_float,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::gray_uint16 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_float,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::gray_uint32 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_float,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::gray_uint64 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_float,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::gray_float > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_float,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsv_float,::color::category::gray_double > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_float,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsv_float,::color::category::gray_ldouble> : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_float,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsv_double,::color::category::gray_uint8 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_double,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::gray_uint16 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_double,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::gray_uint32 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_double,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::gray_uint64 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_double,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::gray_float > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_double,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsv_double,::color::category::gray_double > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_double,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsv_double,::color::category::gray_ldouble> : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_double,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::hsv_ldouble,::color::category::gray_uint8 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_ldouble,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::gray_uint16 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_ldouble,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::gray_uint32 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_ldouble,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::gray_uint64 > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_ldouble,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::gray_float > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_ldouble,::color::category::gray_float > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::gray_double > : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_ldouble,::color::category::gray_double > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateHSV::convert_gray2hsv<::color::category::hsv_ldouble,::color::category::gray_ldouble> {};
+template< typename hsv_tag_name, typename gray_tag_name >
+struct convert
+		<
+		::color::category::hsv< hsv_tag_name >
+		,::color::category::gray< gray_tag_name >
+		>
+		: public ::color::_internal::_privateHSV::convert_gray2hsv
+		<
+		::color::category::hsv< hsv_tag_name >
+		,::color::category::gray< gray_tag_name >
+		> {
+};
 
 }
 }
@@ -19295,61 +20237,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::hsv_uint8,::color::category::hsl_uint8 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint8,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::hsl_uint16 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint8,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::hsl_uint32 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint8,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::hsl_uint64 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint8,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::hsl_float > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint8,::color::category::hsl_float > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::hsl_double > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint8,::color::category::hsl_double > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::hsl_ldouble> : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint8,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::hsv_uint16,::color::category::hsl_uint8 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint16,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::hsl_uint16 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint16,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::hsl_uint32 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint16,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::hsl_uint64 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint16,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::hsl_float > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint16,::color::category::hsl_float > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::hsl_double > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint16,::color::category::hsl_double > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::hsl_ldouble> : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint16,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::hsv_uint32,::color::category::hsl_uint8 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint32,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::hsl_uint16 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint32,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::hsl_uint32 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint32,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::hsl_uint64 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint32,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::hsl_float > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint32,::color::category::hsl_float > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::hsl_double > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint32,::color::category::hsl_double > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::hsl_ldouble> : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint32,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::hsv_uint64,::color::category::hsl_uint8 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint64,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::hsl_uint16 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint64,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::hsl_uint32 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint64,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::hsl_uint64 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint64,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::hsl_float > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint64,::color::category::hsl_float > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::hsl_double > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint64,::color::category::hsl_double > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::hsl_ldouble> : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_uint64,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::hsv_float,::color::category::hsl_uint8 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_float,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::hsl_uint16 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_float,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::hsl_uint32 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_float,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::hsl_uint64 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_float,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::hsl_float > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_float,::color::category::hsl_float > {};
-template< > struct convert<::color::category::hsv_float,::color::category::hsl_double > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_float,::color::category::hsl_double > {};
-template< > struct convert<::color::category::hsv_float,::color::category::hsl_ldouble> : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_float,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::hsv_double,::color::category::hsl_uint8 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_double,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::hsl_uint16 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_double,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::hsl_uint32 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_double,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::hsl_uint64 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_double,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::hsl_float > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_double,::color::category::hsl_float > {};
-template< > struct convert<::color::category::hsv_double,::color::category::hsl_double > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_double,::color::category::hsl_double > {};
-template< > struct convert<::color::category::hsv_double,::color::category::hsl_ldouble> : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_double,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::hsv_ldouble,::color::category::hsl_uint8 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_ldouble,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::hsl_uint16 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_ldouble,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::hsl_uint32 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_ldouble,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::hsl_uint64 > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_ldouble,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::hsl_float > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_ldouble,::color::category::hsl_float > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::hsl_double > : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_ldouble,::color::category::hsl_double > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::hsl_ldouble> : public ::color::_internal::_privateHSV::convert_hsl2hsv<::color::category::hsv_ldouble,::color::category::hsl_ldouble> {};
+template< typename hsv_tag_name, typename hsl_tag_name >
+struct convert
+		<
+		::color::category::hsv< hsv_tag_name >
+		,::color::category::hsl< hsl_tag_name >
+		>
+		: public ::color::_internal::_privateHSV::convert_hsl2hsv
+		<
+		::color::category::hsv< hsv_tag_name >
+		,::color::category::hsl< hsl_tag_name >
+		> {
+};
 
 }
 }
@@ -19365,6 +20264,8 @@ public:
 	typedef category_right_name category_right_type;
 	typedef scalar_name scalar_type;
 
+	typedef ::color::trait::scalar<category_left_name> scalar_trait_type;
+
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
@@ -19379,15 +20280,21 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		enum {
+			red_p = ::color::place::_internal::red<category_right_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		};
+		scalar_type r = normalize_type::template process<red_p >(container_right_trait_type::template get<red_p >(right));
+		scalar_type g = normalize_type::template process<green_p>(container_right_trait_type::template get<green_p>(right));
+		scalar_type b = normalize_type::template process<blue_p >(container_right_trait_type::template get<blue_p >(right));
 		scalar_type lo = std::min<scalar_type>({r,g,b});
 		scalar_type v = std::max<scalar_type>({r,g,b});
 		scalar_type delta = v - lo;
 		scalar_type h = 0;
 		scalar_type s = 0;
-		if((0 != v) && (0 != delta)) {
+		if((false == scalar_trait_type::is_small(v))
+		   && (false == scalar_trait_type::is_small(delta))) {
 			s = delta / v;
 			if(v == r) {
 				h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
@@ -19407,62 +20314,330 @@ public:
 
 }
 
-template< > struct convert<::color::category::hsv_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint8,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint8,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint8,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint8,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::rgb_float > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint8,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::rgb_double > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint8,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsv_uint8,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint8,::color::category::rgb_ldouble> {};
+template< typename hsv_tag_name, typename rgb_tag_name >
+struct convert
+		<
+		::color::category::hsv< hsv_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		>
+		: public ::color::_internal::_privateHSV::convert_rgb2hsv
+		<
+		::color::category::hsv< hsv_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		> {
+};
 
-template< > struct convert<::color::category::hsv_uint16,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint16,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint16,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint16,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint16,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::rgb_float > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint16,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::rgb_double > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint16,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsv_uint16,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint16,::color::category::rgb_ldouble> {};
+}
+}
 
-template< > struct convert<::color::category::hsv_uint32,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint32,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint32,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint32,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint32,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::rgb_float > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint32,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::rgb_double > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint32,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsv_uint32,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint32,::color::category::rgb_ldouble> {};
+namespace color {
+namespace check {
+namespace _internal {
 
-template< > struct convert<::color::category::hsv_uint64,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint64,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint64,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint64,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint64,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::rgb_float > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint64,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::rgb_double > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint64,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsv_uint64,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_uint64,::color::category::rgb_ldouble> {};
+template<>
+struct integrity< ::color::category::hsv_float> {
+public:
+	typedef ::color::category::hsv_float category_type;
 
-template< > struct convert<::color::category::hsv_float,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_float,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_float,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_float,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_float,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsv_float,::color::category::rgb_float > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_float,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsv_float,::color::category::rgb_double > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_float,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsv_float,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_float,::color::category::rgb_ldouble> {};
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
 
-template< > struct convert<::color::category::hsv_double,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_double,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_double,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_double,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_double,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsv_double,::color::category::rgb_float > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_double,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsv_double,::color::category::rgb_double > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_double,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsv_double,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_double,::color::category::rgb_ldouble> {};
+	static bool process(model_type const& m) {
+		if(m.template get<0>() < bound_type::template minimum<0>()) {
+			return false;
+		}
+		if(bound_type::template maximum<0>() < m.template get<0>()) {
+			return false;
+		}
+		return true;
+	}
+};
 
-template< > struct convert<::color::category::hsv_ldouble,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_ldouble,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_ldouble,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_ldouble,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_ldouble,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::rgb_float > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_ldouble,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_ldouble,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsv_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSV::convert_rgb2hsv<::color::category::hsv_ldouble,::color::category::rgb_ldouble> {};
+template<>
+struct integrity< ::color::category::hsv_double > {
+public:
+	typedef ::color::category::hsv_double category_type;
 
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	static bool process(model_type const& m) {
+		if(m.template get<0>() < bound_type::template minimum<0>()) {
+			return false;
+		}
+		if(bound_type::template maximum<0>() < m.template get<0>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+template<>
+struct integrity< ::color::category::hsv_ldouble > {
+public:
+	typedef ::color::category::hsv_ldouble category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	static bool process(model_type const& m) {
+		if(m.template get<0>() < bound_type::template minimum<0>()) {
+			return false;
+		}
+		if(bound_type::template maximum<0>() < m.template get<0>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace check {
+namespace _internal {
+
+template< typename category_name >
+struct unique {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+
+	static bool process(model_type const& m) {
+		return true;
+	}
+
+};
+}
+
+template< typename category_name >
+inline
+bool unique(::color::_internal::model<category_name> const& m) {
+	return ::color::check::_internal::unique<category_name>::process(m);
+}
+
+}
+}
+
+namespace color {
+namespace check {
+namespace _internal {
+namespace _privateHSV {
+
+template< typename category_name >
+struct unique {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	static bool process(model_type const& m) {
+		if(m.template get<1>() == bound_type::template minimum<1>()) {
+			return false;
+		}
+		if(m.template get<2>() == bound_type::template minimum<2>()) {
+			return false;
+		}
+		if(m.template get<2>() == bound_type::template maximum<2>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+}
+
+template< typename hsv_tag_name >
+struct unique< ::color::category::hsv< hsv_tag_name > >
+		: public ::color::check::_internal::_privateHSV::unique< ::color::category::hsv< hsv_tag_name > > {
+};
+
+}
+}
+}
+
+namespace color {
+namespace fix {
+namespace _internal {
+
+template< typename category_name >
+struct unique {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+
+	static void process(model_type & m) {
+	}
+
+	static void process(model_type & result, model_type const& right) {
+	}
+};
+
+}
+
+template< typename category_name >
+void unique
+(
+	::color::_internal::model<category_name> & result
+) {
+	::color::fix::_internal::unique<category_name>::process(result);
+}
+
+template< typename category_name >
+void unique
+(
+	::color::_internal::model<category_name> & result
+	,::color::_internal::model<category_name> const& right
+) {
+	::color::fix::_internal::unique<category_name>::process(result, right);
+}
+
+}
+}
+
+namespace color {
+namespace fix {
+namespace _internal {
+namespace _privateHSV {
+
+template< typename category_name >
+struct unique {
+public:
+	typedef category_name category_type;
+
+	typedef typename ::color::_internal::model<category_type> model_type;
+	typedef typename ::color::trait::bound<category_type> bound_type;
+
+	static void process(model_type &result) {
+		if(result.template get<2>() == bound_type::template minimum<2>()) {
+			result.template set<0>(bound_type::template minimum<0>());
+			result.template set<1>(bound_type::template minimum<1>());
+			return;
+		}
+		if(result.template get<1>() == bound_type::template minimum<1>()) {
+			result.template set<0>(bound_type::template minimum<0>());
+			return;
+		}
+	}
+
+	static void process(model_type &result, model_type const& right) {
+		if(result.template get<2>() == bound_type::template minimum<2>()) {
+			result.template set<0>(bound_type::template minimum<0>());
+			result.template set<1>(bound_type::template minimum<1>());
+			return;
+		}
+		if(result.template get<1>() == bound_type::template minimum<1>()) {
+			result.template set<0>(bound_type::template minimum<0>());
+			return;
+		}
+		result = right;
+		return;
+	}
+
+};
+
+}
+
+template<> struct unique< ::color::category::hsv_uint8 > : public ::color::fix::_internal::_privateHSV::unique<::color::category::hsv_uint8 > { };
+template<> struct unique< ::color::category::hsv_uint16 > : public ::color::fix::_internal::_privateHSV::unique<::color::category::hsv_uint16 > { };
+template<> struct unique< ::color::category::hsv_uint32 > : public ::color::fix::_internal::_privateHSV::unique<::color::category::hsv_uint32 > { };
+template<> struct unique< ::color::category::hsv_uint64 > : public ::color::fix::_internal::_privateHSV::unique<::color::category::hsv_uint64 > { };
+template<> struct unique< ::color::category::hsv_float > : public ::color::fix::_internal::_privateHSV::unique<::color::category::hsv_float > { };
+template<> struct unique< ::color::category::hsv_double > : public ::color::fix::_internal::_privateHSV::unique<::color::category::hsv_double > { };
+template<> struct unique< ::color::category::hsv_ldouble > : public ::color::fix::_internal::_privateHSV::unique<::color::category::hsv_ldouble> { };
+
+}
+}
+}
+
+namespace color {
+namespace fix {
+namespace _internal {
+
+template< typename category_name >
+struct integrity {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+
+	static void process(model_type & m) {
+	}
+
+	static void process(model_type & result, model_type const& right) {
+	}
+};
+}
+
+template< typename category_name >
+void integrity
+(
+	::color::_internal::model<category_name> & result
+) {
+	::color::fix::_internal::integrity<category_name>::process(result);
+}
+
+template< typename category_name >
+void integrity
+(
+	::color::_internal::model<category_name> & result
+	,::color::_internal::model<category_name> const& right
+) {
+	::color::fix::_internal::integrity<category_name>::process(result, right);
+}
+
+}
+}
+
+namespace color {
+namespace fix {
+namespace _internal {
+namespace _privateHSV {
+
+template< typename category_name >
+struct integrity {
+public:
+	typedef category_name category_type;
+
+	typedef typename ::color::_internal::model<category_type> model_type;
+	typedef typename ::color::trait::bound<category_type> bound_type;
+
+	static void process(model_type &result) {
+		if(result.template get<0>() < bound_type::template minimum<0>()) {
+			result.template set<0>(bound_type::template minimum<0>());
+			return;
+		}
+		if(bound_type::template maximum<0>() < result.template get<0>()) {
+			result.template set<0>(bound_type::template maximum<0>());
+			return;
+		}
+	}
+
+	static void process(model_type &result, model_type const& right) {
+		result = right;
+		if(result.template get<0>() < bound_type::template minimum<0>()) {
+			result.template set<0>(bound_type::template minimum<0>());
+			return;
+		}
+		if(bound_type::template maximum<0>() < result.template get<0>()) {
+			result.template set<0>(bound_type::template maximum<0>());
+			return;
+		}
+	}
+
+};
+
+}
+
+template<> struct integrity< ::color::category::hsv_double > : public ::color::fix::_internal::_privateHSV::integrity<::color::category::hsv_double > { };
+template<> struct integrity< ::color::category::hsv_ldouble > : public ::color::fix::_internal::_privateHSV::integrity<::color::category::hsv_ldouble> { };
+
+}
 }
 }
 
@@ -19471,7 +20646,7 @@ namespace _internal {
 
 template< typename type_name >
 struct pick_hsv {
-	typedef color::category::hsv_uint32 category_type;
+	typedef ::color::category::hsv_uint32 category_type;
 };
 
 template<> struct pick_hsv< std::uint8_t > {
@@ -19498,7 +20673,7 @@ template<> struct pick_hsv< long double > {
 }
 
 template< typename type_name >
-using hsv = color::_internal::model< typename color::_internal::pick_hsv< type_name >::category_type >;
+using hsv = ::color::_internal::model< typename ::color::_internal::pick_hsv< type_name >::category_type >;
 
 }
 
@@ -19531,7 +20706,10 @@ public:
 		scalar_type ss = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
 		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
 		scalar_type l = v * (2-ss) / 2;
-		scalar_type s = v*ss/(1- fabs(2 * l -1));
+		scalar_type s = 0 ;
+		{
+			s = v*ss/(1- fabs(2 * l - 1));
+		}
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(l));
@@ -19540,61 +20718,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::hsl_uint8,::color::category::hsv_uint8 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint8,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::hsv_uint16 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint8,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::hsv_uint32 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint8,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::hsv_uint64 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint8,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::hsv_float > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint8,::color::category::hsv_float > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::hsv_double > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint8,::color::category::hsv_double > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::hsv_ldouble> : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint8,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::hsl_uint16,::color::category::hsv_uint8 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint16,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::hsv_uint16 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint16,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::hsv_uint32 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint16,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::hsv_uint64 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint16,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::hsv_float > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint16,::color::category::hsv_float > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::hsv_double > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint16,::color::category::hsv_double > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::hsv_ldouble> : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint16,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::hsl_uint32,::color::category::hsv_uint8 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint32,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::hsv_uint16 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint32,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::hsv_uint32 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint32,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::hsv_uint64 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint32,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::hsv_float > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint32,::color::category::hsv_float > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::hsv_double > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint32,::color::category::hsv_double > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::hsv_ldouble> : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint32,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::hsl_uint64,::color::category::hsv_uint8 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint64,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::hsv_uint16 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint64,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::hsv_uint32 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint64,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::hsv_uint64 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint64,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::hsv_float > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint64,::color::category::hsv_float > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::hsv_double > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint64,::color::category::hsv_double > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::hsv_ldouble> : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_uint64,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::hsl_float,::color::category::hsv_uint8 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_float,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::hsv_uint16 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_float,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::hsv_uint32 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_float,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::hsv_uint64 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_float,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::hsv_float > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_float,::color::category::hsv_float > {};
-template< > struct convert<::color::category::hsl_float,::color::category::hsv_double > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_float,::color::category::hsv_double > {};
-template< > struct convert<::color::category::hsl_float,::color::category::hsv_ldouble> : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_float,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::hsl_double,::color::category::hsv_uint8 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_double,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::hsv_uint16 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_double,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::hsv_uint32 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_double,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::hsv_uint64 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_double,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::hsv_float > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_double,::color::category::hsv_float > {};
-template< > struct convert<::color::category::hsl_double,::color::category::hsv_double > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_double,::color::category::hsv_double > {};
-template< > struct convert<::color::category::hsl_double,::color::category::hsv_ldouble> : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_double,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::hsl_ldouble,::color::category::hsv_uint8 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_ldouble,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::hsv_uint16 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_ldouble,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::hsv_uint32 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_ldouble,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::hsv_uint64 > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_ldouble,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::hsv_float > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_ldouble,::color::category::hsv_float > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::hsv_double > : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_ldouble,::color::category::hsv_double > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::hsv_ldouble> : public ::color::_internal::_privateHSL::convert_hsv2hsl<::color::category::hsl_ldouble,::color::category::hsv_ldouble> {};
+template< typename hsl_tag_name, typename hsv_tag_name >
+struct convert
+		<
+		::color::category::hsl< hsl_tag_name >
+		,::color::category::hsv< hsv_tag_name >
+		>
+		: public ::color::_internal::_privateHSL::convert_hsv2hsl
+		<
+		::color::category::hsl< hsl_tag_name >
+		,::color::category::hsv< hsv_tag_name >
+		> {
+};
 
 }
 }
@@ -19610,6 +20745,8 @@ public:
 	typedef category_right_name category_right_type;
 	typedef scalar_name scalar_type;
 
+	typedef ::color::trait::scalar<category_left_name> scalar_trait_type;
+
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
@@ -19624,16 +20761,21 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		enum {
+			red_p = ::color::place::_internal::red<category_right_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		};
+		scalar_type r = normalize_type::template process<red_p >(container_right_trait_type::template get<red_p >(right));
+		scalar_type g = normalize_type::template process<green_p>(container_right_trait_type::template get<green_p>(right));
+		scalar_type b = normalize_type::template process<blue_p >(container_right_trait_type::template get<blue_p >(right));
 		const scalar_type hi = std::max<scalar_type>({ r, g, b });
 		const scalar_type lo = std::min<scalar_type>({ r, g, b });
 		scalar_type delta = hi - lo;
 		scalar_type h = 0;
 		scalar_type s = 0;
 		scalar_type l = (hi + lo) / scalar_type(2);
-		if(0 != delta) {
+		if(false == scalar_trait_type::is_small(delta)) {
 			s = delta / (1 - fabs(2*l - 1));
 			if(hi == r) {
 				h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
@@ -19653,62 +20795,124 @@ public:
 
 }
 
-template< > struct convert<::color::category::hsl_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint8,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint8,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint8,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint8,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::rgb_float > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint8,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::rgb_double > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint8,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsl_uint8,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint8,::color::category::rgb_ldouble> {};
+template< typename hsl_tag_name, typename rgb_tag_name >
+struct convert
+		<
+		::color::category::hsl< hsl_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		>
+		: public ::color::_internal::_privateHSL::convert_rgb2hsl
+		<
+		::color::category::hsl< hsl_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		> {
+};
 
-template< > struct convert<::color::category::hsl_uint16,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint16,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint16,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint16,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint16,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::rgb_float > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint16,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::rgb_double > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint16,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsl_uint16,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint16,::color::category::rgb_ldouble> {};
+}
+}
 
-template< > struct convert<::color::category::hsl_uint32,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint32,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint32,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint32,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint32,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::rgb_float > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint32,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::rgb_double > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint32,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsl_uint32,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint32,::color::category::rgb_ldouble> {};
+namespace color {
+namespace check {
+namespace _internal {
 
-template< > struct convert<::color::category::hsl_uint64,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint64,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint64,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint64,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint64,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::rgb_float > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint64,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::rgb_double > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint64,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsl_uint64,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_uint64,::color::category::rgb_ldouble> {};
+template<>
+struct integrity< ::color::category::hsl_float> {
+public:
+	typedef ::color::category::hsl_float category_type;
 
-template< > struct convert<::color::category::hsl_float,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_float,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_float,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_float,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_float,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsl_float,::color::category::rgb_float > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_float,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsl_float,::color::category::rgb_double > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_float,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsl_float,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_float,::color::category::rgb_ldouble> {};
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
 
-template< > struct convert<::color::category::hsl_double,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_double,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_double,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_double,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_double,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsl_double,::color::category::rgb_float > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_double,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsl_double,::color::category::rgb_double > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_double,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsl_double,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_double,::color::category::rgb_ldouble> {};
+	static bool process(model_type const& m) {
+		if(m.template get<0>() < bound_type::template minimum<0>()) {
+			return false;
+		}
+		if(bound_type::template maximum<0>() < m.template get<0>()) {
+			return false;
+		}
+		return true;
+	}
+};
 
-template< > struct convert<::color::category::hsl_ldouble,::color::category::rgb_uint8 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_ldouble,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::rgb_uint16 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_ldouble,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::rgb_uint32 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_ldouble,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::rgb_uint64 > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_ldouble,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::rgb_float > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_ldouble,::color::category::rgb_float > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_ldouble,::color::category::rgb_double > {};
-template< > struct convert<::color::category::hsl_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateHSL::convert_rgb2hsl<::color::category::hsl_ldouble,::color::category::rgb_ldouble> {};
+template<>
+struct integrity< ::color::category::hsl_double > {
+public:
+	typedef ::color::category::hsl_double category_type;
 
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	static bool process(model_type const& m) {
+		if(m.template get<0>() < bound_type::template minimum<0>()) {
+			return false;
+		}
+		if(bound_type::template maximum<0>() < m.template get<0>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+template<>
+struct integrity< ::color::category::hsl_ldouble > {
+public:
+	typedef ::color::category::hsl_ldouble category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	static bool process(model_type const& m) {
+		if(m.template get<0>() < bound_type::template minimum<0>()) {
+			return false;
+		}
+		if(bound_type::template maximum<0>() < m.template get<0>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace check {
+namespace _internal {
+namespace _privateHSL {
+
+template< typename category_name >
+struct unique {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	static bool process(model_type const& m) {
+		if(m.template get<1>() == bound_type::template minimum<1>()) {
+			return false;
+		}
+		if(m.template get<2>() == bound_type::template minimum<2>()) {
+			return false;
+		}
+		if(m.template get<2>() == bound_type::template maximum<2>()) {
+			return false;
+		}
+		return true;
+	}
+};
+}
+
+template<> struct unique< ::color::category::hsl_uint8 > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsl_uint8 > { };
+template<> struct unique< ::color::category::hsl_uint16 > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsl_uint16 > { };
+template<> struct unique< ::color::category::hsl_uint32 > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsl_uint32 > { };
+template<> struct unique< ::color::category::hsl_uint64 > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsl_uint64 > { };
+template<> struct unique< ::color::category::hsl_float > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsl_float > { };
+template<> struct unique< ::color::category::hsl_double > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsl_double > { };
+template<> struct unique< ::color::category::hsl_ldouble > : public ::color::check::_internal::_privateHSV::unique< ::color::category::hsl_ldouble > { };
+
+}
 }
 }
 
@@ -19717,7 +20921,7 @@ namespace _internal {
 
 template< typename type_name >
 struct pick_hsl {
-	typedef color::category::hsl_uint32 category_type;
+	typedef ::color::category::hsl_uint32 category_type;
 };
 
 template<> struct pick_hsl< std::uint8_t > {
@@ -19744,20 +20948,23 @@ template<> struct pick_hsl< long double > {
 }
 
 template< typename type_name >
-using hsl = color::_internal::model< typename color::_internal::pick_hsl< type_name >::category_type >;
+using hsl = ::color::_internal::model< typename ::color::_internal::pick_hsl< type_name >::category_type >;
 
 }
 
 namespace color {
 namespace _internal {
-namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_hsl2rgb {
+template< typename rgb_tag_name, typename hsl_tag_name >
+struct convert
+		<
+		::color::category::rgb< rgb_tag_name >
+		,::color::category::hsl<hsl_tag_name>
+		> {
 public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
+	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
+	typedef ::color::category::hsl<hsl_tag_name> category_right_type;
+	typedef double scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -19768,13 +20975,18 @@ public:
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-	typedef ::color::_internal::_privateRGB::convert_hsl2rgb<category_left_name, category_right_name, scalar_name> this_type;
+	typedef ::color::_internal::convert< category_left_type, category_right_type > this_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
+		enum {
+			red_p = ::color::place::_internal::red<category_left_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		};
 		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
 		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
 		scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
@@ -19792,9 +21004,9 @@ public:
 			g = this_type::value(p, q, h);
 			b = this_type::value(p, q, h - (scalar_type(1) / scalar_type(3)) + (h < scalar_type(1) / scalar_type(3) ? +1 :0));
 		}
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+		container_left_trait_type::template set<red_p >(left, diverse_type::template process<red_p >(r));
+		container_left_trait_type::template set<green_p>(left, diverse_type::template process<green_p>(g));
+		container_left_trait_type::template set<blue_p >(left, diverse_type::template process<blue_p >(b));
 	}
 
 private:
@@ -19813,76 +21025,21 @@ private:
 };
 
 }
-
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsl_uint8 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint8,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsl_uint16 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint8,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsl_uint32 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint8,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsl_uint64 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint8,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsl_float > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint8,::color::category::hsl_float > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsl_double > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint8,::color::category::hsl_double > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsl_ldouble> : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint8,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsl_uint8 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint16,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsl_uint16 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint16,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsl_uint32 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint16,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsl_uint64 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint16,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsl_float > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint16,::color::category::hsl_float > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsl_double > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint16,::color::category::hsl_double > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsl_ldouble> : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint16,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsl_uint8 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint32,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsl_uint16 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint32,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsl_uint32 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint32,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsl_uint64 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint32,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsl_float > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint32,::color::category::hsl_float > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsl_double > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint32,::color::category::hsl_double > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsl_ldouble> : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint32,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsl_uint8 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint64,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsl_uint16 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint64,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsl_uint32 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint64,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsl_uint64 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint64,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsl_float > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint64,::color::category::hsl_float > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsl_double > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint64,::color::category::hsl_double > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsl_ldouble> : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_uint64,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::rgb_float,::color::category::hsl_uint8 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_float,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsl_uint16 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_float,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsl_uint32 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_float,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsl_uint64 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_float,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsl_float > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_float,::color::category::hsl_float > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsl_double > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_float,::color::category::hsl_double > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsl_ldouble> : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_float,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::rgb_double,::color::category::hsl_uint8 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_double,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsl_uint16 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_double,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsl_uint32 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_double,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsl_uint64 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_double,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsl_float > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_double,::color::category::hsl_float > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsl_double > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_double,::color::category::hsl_double > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsl_ldouble> : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_double,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsl_uint8 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_ldouble,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsl_uint16 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_ldouble,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsl_uint32 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_ldouble,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsl_uint64 > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_ldouble,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsl_float > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_ldouble,::color::category::hsl_float > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsl_double > : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_ldouble,::color::category::hsl_double > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsl_ldouble> : public ::color::_internal::_privateRGB::convert_hsl2rgb<::color::category::rgb_ldouble,::color::category::hsl_ldouble> {};
-
-}
 }
 
 namespace color {
 namespace _internal {
-namespace _privateRGB {
 
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_hsv2rgb {
+template< typename rgb_tag_name, typename hsv_tag_name >
+struct convert
+		<
+		::color::category::rgb< rgb_tag_name >
+		,::color::category::hsv< hsv_tag_name >
+		> {
 public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
+	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
+	typedef ::color::category::hsv< hsv_tag_name > category_right_type;
+	typedef double scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -19898,6 +21055,11 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
+		enum {
+			red_p = ::color::place::_internal::red<category_left_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		};
 		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
 		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
 		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
@@ -19929,83 +21091,90 @@ public:
 			r = v, g = p, b = q;
 			break;
 		}
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+		container_left_trait_type::template set<red_p >(left, diverse_type::template process<red_p >(r));
+		container_left_trait_type::template set<green_p>(left, diverse_type::template process<green_p>(g));
+		container_left_trait_type::template set<blue_p >(left, diverse_type::template process<blue_p >(b));
 	}
 };
 
 }
+}
 
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsv_uint8 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint8,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsv_uint16 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint8,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsv_uint32 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint8,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsv_uint64 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint8,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsv_float > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint8,::color::category::hsv_float > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsv_double > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint8,::color::category::hsv_double > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::hsv_ldouble> : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint8,::color::category::hsv_ldouble> {};
+namespace color {
+namespace _internal {
 
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsv_uint8 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint16,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsv_uint16 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint16,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsv_uint32 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint16,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsv_uint64 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint16,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsv_float > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint16,::color::category::hsv_float > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsv_double > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint16,::color::category::hsv_double > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::hsv_ldouble> : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint16,::color::category::hsv_ldouble> {};
+template< typename tag_left_name, typename tag_right_name >
+struct convert
+		<
+		::color::category::rgb< tag_left_name >
+		,::color::category::rgb< tag_right_name>
+		> {
+public:
+	typedef ::color::category::rgb< tag_left_name > category_left_type;
+	typedef ::color::category::rgb< tag_right_name> category_right_type;
 
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsv_uint8 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint32,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsv_uint16 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint32,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsv_uint32 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint32,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsv_uint64 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint32,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsv_float > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint32,::color::category::hsv_float > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsv_double > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint32,::color::category::hsv_double > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::hsv_ldouble> : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint32,::color::category::hsv_ldouble> {};
+	typedef double scalar_type;
 
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsv_uint8 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint64,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsv_uint16 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint64,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsv_uint32 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint64,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsv_uint64 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint64,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsv_float > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint64,::color::category::hsv_float > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsv_double > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint64,::color::category::hsv_double > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::hsv_ldouble> : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_uint64,::color::category::hsv_ldouble> {};
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< > struct convert<::color::category::rgb_float,::color::category::hsv_uint8 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_float,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsv_uint16 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_float,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsv_uint32 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_float,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsv_uint64 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_float,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsv_float > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_float,::color::category::hsv_float > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsv_double > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_float,::color::category::hsv_double > {};
-template< > struct convert<::color::category::rgb_float,::color::category::hsv_ldouble> : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_float,::color::category::hsv_ldouble> {};
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
 
-template< > struct convert<::color::category::rgb_double,::color::category::hsv_uint8 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_double,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsv_uint16 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_double,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsv_uint32 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_double,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsv_uint64 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_double,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsv_float > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_double,::color::category::hsv_float > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsv_double > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_double,::color::category::hsv_double > {};
-template< > struct convert<::color::category::rgb_double,::color::category::hsv_ldouble> : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_double,::color::category::hsv_ldouble> {};
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsv_uint8 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_ldouble,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsv_uint16 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_ldouble,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsv_uint32 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_ldouble,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsv_uint64 > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_ldouble,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsv_float > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_ldouble,::color::category::hsv_float > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsv_double > : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_ldouble,::color::category::hsv_double > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::hsv_ldouble> : public ::color::_internal::_privateRGB::convert_hsv2rgb<::color::category::rgb_ldouble,::color::category::hsv_ldouble> {};
-
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		enum {
+			rl = ::color::place::_internal::red<category_left_type>::position_enum
+				 ,gl = ::color::place::_internal::green<category_left_type>::position_enum
+					   ,bl = ::color::place::_internal::blue<category_left_type>::position_enum
+							 ,rr = ::color::place::_internal::red<category_right_type>::position_enum
+								   ,gr = ::color::place::_internal::green<category_right_type>::position_enum
+										 ,br = ::color::place::_internal::blue<category_right_type>::position_enum
+		};
+		container_left_trait_type::template set<rl>(left, reformat_type::template process<rl,rr>(container_right_trait_type::template get<rr>(right)));
+		container_left_trait_type::template set<gr>(left, reformat_type::template process<gr,gr>(container_right_trait_type::template get<gr>(right)));
+		container_left_trait_type::template set<bl>(left, reformat_type::template process<bl,br>(container_right_trait_type::template get<br>(right)));
+	}
+};
 }
 }
 
 namespace color {
 namespace category {
 
+namespace _internal {
+struct xyz_bool {};
 struct xyz_uint8 {};
 struct xyz_uint16 {};
+struct xyz_uint24 {};
 struct xyz_uint32 {};
+struct xyz_uint48 {};
 struct xyz_uint64 {};
 struct xyz_float {};
 struct xyz_double {};
 struct xyz_ldouble {};
+}
+
+template< typename tag_name >
+struct xyz {
+	typedef void category_name;
+};
+
+using xyz_bool = xyz< ::color::category::_internal::xyz_bool >;
+using xyz_uint8 = xyz< ::color::category::_internal::xyz_uint8 >;
+using xyz_uint16 = xyz< ::color::category::_internal::xyz_uint16 >;
+using xyz_uint24 = xyz< ::color::category::_internal::xyz_uint24 >;
+using xyz_uint32 = xyz< ::color::category::_internal::xyz_uint32 >;
+using xyz_uint48 = xyz< ::color::category::_internal::xyz_uint48 >;
+using xyz_uint64 = xyz< ::color::category::_internal::xyz_uint64 >;
+using xyz_float = xyz< ::color::category::_internal::xyz_float >;
+using xyz_double = xyz< ::color::category::_internal::xyz_double >;
+using xyz_ldouble = xyz< ::color::category::_internal::xyz_ldouble >;
 
 }
 }
@@ -20046,7 +21215,7 @@ struct bound< ::color::category::xyz_uint16 >
 
 template< >
 struct index< ::color::category::xyz_uint16 >
-		: public color::_internal::utility::type::index< unsigned > {
+		: public ::color::_internal::utility::type::index< unsigned > {
 };
 
 template< >
@@ -20182,7 +21351,7 @@ struct bound< ::color::category::xyz_float >
 
 template< >
 struct index< ::color::category::xyz_float >
-		: public color::_internal::utility::type::index< unsigned > {
+		: public ::color::_internal::utility::type::index< unsigned > {
 };
 
 template< >
@@ -20207,7 +21376,7 @@ struct bound< ::color::category::xyz_double >
 
 template< >
 struct index< ::color::category::xyz_double >
-		: public color::_internal::utility::type::index< unsigned > {
+		: public ::color::_internal::utility::type::index< unsigned > {
 };
 
 template< >
@@ -20232,7 +21401,7 @@ struct bound< ::color::category::xyz_ldouble >
 
 template< >
 struct index< ::color::category::xyz_ldouble >
-		: public color::_internal::utility::type::index< unsigned > {
+		: public ::color::_internal::utility::type::index< unsigned > {
 };
 
 template< >
@@ -20521,61 +21690,18 @@ public:
 };
 }
 
-template< > struct convert<::color::category::xyz_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::gray_float > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_float > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_double > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint8,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::xyz_uint16,::color::category::gray_uint8 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::gray_float > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_float > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_double > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint16,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::xyz_uint32,::color::category::gray_uint8 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::gray_float > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_float > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_double > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint32,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::xyz_uint64,::color::category::gray_uint8 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::gray_float > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_float > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_double > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_uint64,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::xyz_float,::color::category::gray_uint8 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::xyz_float,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::xyz_float,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::xyz_float,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::xyz_float,::color::category::gray_float > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_float > {};
-template< > struct convert<::color::category::xyz_float,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_double > {};
-template< > struct convert<::color::category::xyz_float,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_float,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::xyz_double,::color::category::gray_uint8 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::xyz_double,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::xyz_double,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::xyz_double,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::xyz_double,::color::category::gray_float > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_float > {};
-template< > struct convert<::color::category::xyz_double,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_double > {};
-template< > struct convert<::color::category::xyz_double,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_double,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_uint8 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_uint16 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_uint32 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_uint64 > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_float > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_float > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_double > : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_double > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateXYZ::convert_gray2xyz<::color::category::xyz_ldouble,::color::category::gray_ldouble> {};
+template< typename xyz_tag_name, typename gray_tag_name >
+struct convert
+		<
+		::color::category::xyz< xyz_tag_name >
+		,::color::category::gray< gray_tag_name >
+		>
+		: public ::color::_internal::_privateXYZ::convert_gray2xyz
+		<
+		::color::category::xyz< xyz_tag_name >
+		,::color::category::gray< gray_tag_name >
+		> {
+};
 
 }
 }
@@ -20605,13 +21731,18 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
+		enum {
+			red_p = ::color::place::_internal::red<category_right_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		};
 		static scalar_type mc = 0.17697;
 		static scalar_type b11 = 0.49000/mc, b12 = 0.31000/mc, b13 = 0.20000/mc;
 		static scalar_type b21 = 0.17697/mc, b22 = 0.81240/mc, b23 = 0.01063/mc;
 		static scalar_type b31 = 0.00000/mc, b32 = 0.01000/mc, b33 = 0.99000/mc;
-		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type r = normalize_type::template process<red_p >(container_right_trait_type::template get<red_p >(right));
+		scalar_type g = normalize_type::template process<green_p>(container_right_trait_type::template get<green_p>(right));
+		scalar_type b = normalize_type::template process<blue_p >(container_right_trait_type::template get<blue_p >(right));
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(b11 * r + b12 * g + b13 * b));
 		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(b21 * r + b22 * g + b23 * b));
 		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b31 * r + b32 * g + b33 * b));
@@ -20620,61 +21751,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::xyz_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint8,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint8,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::rgb_uint32 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint8,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::rgb_uint64 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint8,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::rgb_float > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint8,::color::category::rgb_float > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::rgb_double > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint8,::color::category::rgb_double > {};
-template< > struct convert<::color::category::xyz_uint8,::color::category::rgb_ldouble> : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint8,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::xyz_uint16,::color::category::rgb_uint8 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint16,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::rgb_uint16 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint16,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::rgb_uint32 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint16,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::rgb_uint64 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint16,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::rgb_float > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint16,::color::category::rgb_float > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::rgb_double > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint16,::color::category::rgb_double > {};
-template< > struct convert<::color::category::xyz_uint16,::color::category::rgb_ldouble> : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint16,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::xyz_uint32,::color::category::rgb_uint8 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint32,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::rgb_uint16 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint32,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::rgb_uint32 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint32,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::rgb_uint64 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint32,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::rgb_float > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint32,::color::category::rgb_float > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::rgb_double > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint32,::color::category::rgb_double > {};
-template< > struct convert<::color::category::xyz_uint32,::color::category::rgb_ldouble> : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint32,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::xyz_uint64,::color::category::rgb_uint8 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint64,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::rgb_uint16 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint64,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::rgb_uint32 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint64,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::rgb_uint64 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint64,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::rgb_float > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint64,::color::category::rgb_float > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::rgb_double > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint64,::color::category::rgb_double > {};
-template< > struct convert<::color::category::xyz_uint64,::color::category::rgb_ldouble> : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_uint64,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::xyz_float,::color::category::rgb_uint8 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_float,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::xyz_float,::color::category::rgb_uint16 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_float,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::xyz_float,::color::category::rgb_uint32 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_float,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::xyz_float,::color::category::rgb_uint64 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_float,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::xyz_float,::color::category::rgb_float > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_float,::color::category::rgb_float > {};
-template< > struct convert<::color::category::xyz_float,::color::category::rgb_double > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_float,::color::category::rgb_double > {};
-template< > struct convert<::color::category::xyz_float,::color::category::rgb_ldouble> : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_float,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::xyz_double,::color::category::rgb_uint8 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_double,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::xyz_double,::color::category::rgb_uint16 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_double,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::xyz_double,::color::category::rgb_uint32 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_double,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::xyz_double,::color::category::rgb_uint64 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_double,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::xyz_double,::color::category::rgb_float > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_double,::color::category::rgb_float > {};
-template< > struct convert<::color::category::xyz_double,::color::category::rgb_double > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_double,::color::category::rgb_double > {};
-template< > struct convert<::color::category::xyz_double,::color::category::rgb_ldouble> : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_double,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::xyz_ldouble,::color::category::rgb_uint8 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_ldouble,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::rgb_uint16 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_ldouble,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::rgb_uint32 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_ldouble,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::rgb_uint64 > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_ldouble,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::rgb_float > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_ldouble,::color::category::rgb_float > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_ldouble,::color::category::rgb_double > {};
-template< > struct convert<::color::category::xyz_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateXYZ::convert_rgb2xyz<::color::category::xyz_ldouble,::color::category::rgb_ldouble> {};
+template< typename xyz_tag_name, typename rgb_tag_name >
+struct convert
+		<
+		::color::category::xyz< xyz_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		>
+		: public ::color::_internal::_privateXYZ::convert_rgb2xyz
+		<
+		::color::category::xyz< xyz_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		> {
+};
 
 }
 }
@@ -20683,7 +21771,7 @@ namespace color {
 namespace _internal {
 template< typename type_name >
 struct pick_xyz {
-	typedef color::category::xyz_uint32 category_type;
+	typedef ::color::category::xyz_uint32 category_type;
 };
 
 template<> struct pick_xyz< std::uint8_t > {
@@ -20710,16 +21798,766 @@ template<> struct pick_xyz< long double > {
 }
 
 template< typename type_name >
-using xyz = color::_internal::model< typename color::_internal::pick_xyz< type_name >::category_type >;
+using xyz = ::color::_internal::model< typename ::color::_internal::pick_xyz< type_name >::category_type >;
 
 }
 
 namespace color {
 namespace _internal {
-namespace _privateRGB {
+
+template< typename rgb_tag_name, typename xyz_tag_name >
+struct convert
+		<
+		::color::category::rgb< rgb_tag_name >
+		,::color::category::xyz<xyz_tag_name>
+		> {
+public:
+	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
+	typedef ::color::category::xyz<xyz_tag_name> category_right_type;
+	typedef double scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		enum {
+			red_p = ::color::place::_internal::red<category_left_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		};
+		static scalar_type mc = 0.17697;
+		static scalar_type b11 = 473041/scalar_type(200050)*mc, b12 = -60980/scalar_type(68017)*mc, b13 = -1591847/scalar_type(3400850)*mc;
+		static scalar_type b21 = -103059/scalar_type(200050)*mc, b22 = 97020/scalar_type(68017)*mc, b23 = 301853/scalar_type(3400850)*mc;
+		static scalar_type b31 = 1041/scalar_type(200050)*mc, b32 = -980/scalar_type(68017)*mc, b33 = 3432153/scalar_type(3400850)*mc;
+		scalar_type x = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type y = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type z = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		container_left_trait_type::template set<red_p >(left, diverse_type::template process<red_p >(b11 * x + b12 * y + b13 * z));
+		container_left_trait_type::template set<green_p>(left, diverse_type::template process<green_p>(b21 * x + b22 * y + b23 * z));
+		container_left_trait_type::template set<blue_p >(left, diverse_type::template process<blue_p >(b31 * x + b32 * y + b33 * z));
+	}
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yiq_double >
+		: public ::color::_internal::utility::container::array< double, 3 > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yiq_float >
+		: public ::color::_internal::utility::container::array< float, 3 > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yiq_ldouble >
+		: public ::color::_internal::utility::container::array< long double, 3 > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yiq_uint16 >
+		: public ::color::_internal::utility::container::cner556< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yiq_uint32 >
+		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3, 8 > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yiq_uint64 >
+		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yiq_uint8 >
+		: public ::color::_internal::utility::container::cner332< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename rgb_tag_name, typename yiq_tag_name >
+struct convert
+		<
+		::color::category::rgb< rgb_tag_name >
+		,::color::category::yiq<yiq_tag_name>
+		> {
+public:
+	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
+	typedef ::color::category::yiq<yiq_tag_name> category_right_type;
+	typedef double scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::constant::yiq< category_left_type > yiq_const_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		enum {
+			red_p = ::color::place::_internal::red<category_left_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		};
+		static scalar_type a11 = yiq_const_type::a11(), a12 = yiq_const_type::a12(), a13 = yiq_const_type::a13();
+		static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
+		static scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
+		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type i = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type q = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		i = yiq_const_type::i_deverse(i);
+		q = yiq_const_type::q_deverse(q);
+		scalar_type r = a11 * y + a12 * i + a13 * q;
+		scalar_type g = a21 * y + a22 * i + a23 * q;
+		scalar_type b = a31 * y + a32 * i + a33 * q;
+		container_left_trait_type::template set<red_p >(left, diverse_type::template process<red_p >(r));
+		container_left_trait_type::template set<green_p>(left, diverse_type::template process<green_p>(g));
+		container_left_trait_type::template set<blue_p >(left, diverse_type::template process<blue_p >(b));
+	}
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yuv_double >
+		: public ::color::_internal::utility::container::array< double, 3 > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yuv_float >
+		: public ::color::_internal::utility::container::array< float, 3 > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yuv_ldouble >
+		: public ::color::_internal::utility::container::array< long double, 3 > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yuv_uint16 >
+		: public ::color::_internal::utility::container::cner556< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yuv_uint32 >
+		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3, 8 > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yuv_uint64 >
+		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::yuv_uint8 >
+		: public ::color::_internal::utility::container::cner332< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace constant {
+
+template< typename category_name>
+struct yuv {
+public:
+	typedef category_name category_type;
+
+	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+
+	typedef ::color::constant::yuv<category_type> this_type;
+
+	static scalar_type const half() {
+		return 0.5;
+	}
+	static scalar_type const one() {
+		return 1;
+	}
+	static scalar_type const Wr() {
+		return 0.299;
+	}
+	static scalar_type const Wb() {
+		return 0.114;
+	}
+	static scalar_type const Wg() {
+		return this_type::one() - this_type::Wr()-this_type::Wb();
+	}
+	static scalar_type const Umax() {
+		return 0.436;
+	}
+	static scalar_type const Vmax() {
+		return 0.615;
+	}
+
+	static scalar_type const u_min() {
+		return -this_type::Umax();
+	}
+	static scalar_type const u_max() {
+		return this_type::Umax();
+	}
+	static scalar_type const u_range() {
+		return 2*this_type::Umax();
+	}
+
+	static scalar_type const v_min() {
+		return -this_type::Vmax();
+	}
+	static scalar_type const v_max() {
+		return this_type::Vmax();
+	}
+	static scalar_type const v_range() {
+		return 2*this_type::Vmax();
+	}
+
+	static scalar_type u_deverse(scalar_type const& normal) {
+		return this_type::u_range() * normal + this_type::u_min();
+	}
+	static scalar_type u_normalize(scalar_type const& divert) {
+		return (divert + this_type::u_min()) /this_type::u_range();
+	}
+
+	static scalar_type v_deverse(scalar_type const& normal) {
+		return this_type::v_range() * normal + this_type::v_min();
+	}
+	static scalar_type v_normalize(scalar_type const& divert) {
+		return (divert + this_type::v_min()) /this_type::v_range();
+	}
+};
+
+}
+}
+namespace color {
+namespace _internal {
+
+template< typename rgb_tag_name, typename yuv_tag_name >
+struct convert
+		<
+		::color::category::rgb< rgb_tag_name >
+		,::color::category::yuv< yuv_tag_name>
+		> {
+public:
+	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
+	typedef ::color::category::yuv<yuv_tag_name> category_right_type;
+	typedef double scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::constant::yuv< category_right_type > yuv_const_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		enum {
+			red_p = ::color::place::_internal::red<category_left_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		};
+		static scalar_type const Wr = yuv_const_type::Wr();
+		static scalar_type const Wb = yuv_const_type::Wb();
+		static scalar_type const Wg = yuv_const_type::Wg();
+		static scalar_type const Umax = yuv_const_type::Umax();
+		static scalar_type const Vmax = yuv_const_type::Vmax();
+		static scalar_type const b11 = 1, b12 = 0, b13 = (1 - Wr) / Vmax;
+		static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg, b23 = -Wr*(1 - Wr) / Vmax / Wg;
+		static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax), b33 = 0;
+		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type u = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		u = (u - scalar_type(0.5)) * scalar_type(2) * Umax;
+		v = (v - scalar_type(0.5)) * scalar_type(2) * Vmax;
+		scalar_type r = y + v * b13;
+		scalar_type g = y + u * b22 + v * b23;
+		scalar_type b = y + u * b32;
+		container_left_trait_type::template set<red_p >(left, diverse_type::template process<red_p >(r));
+		container_left_trait_type::template set<green_p>(left, diverse_type::template process<green_p>(g));
+		container_left_trait_type::template set<blue_p >(left, diverse_type::template process<blue_p >(b));
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename type_name >
+struct pick_rgb {
+	typedef ::color::category::rgb_uint32 category_type;
+};
+
+template<> struct pick_rgb< std::uint8_t > {
+	typedef ::color::category::rgb_uint8 category_type;
+};
+template<> struct pick_rgb< std::uint16_t > {
+	typedef ::color::category::rgb_uint16 category_type;
+};
+template<> struct pick_rgb< std::uint32_t > {
+	typedef ::color::category::rgb_uint32 category_type;
+};
+template<> struct pick_rgb< std::uint64_t > {
+	typedef ::color::category::rgb_uint64 category_type;
+};
+template<> struct pick_rgb< float > {
+	typedef ::color::category::rgb_float category_type;
+};
+template<> struct pick_rgb< double > {
+	typedef ::color::category::rgb_double category_type;
+};
+template<> struct pick_rgb< long double > {
+	typedef ::color::category::rgb_ldouble category_type;
+};
+
+template<> struct pick_rgb< ::color::type::uint24_t > {
+	typedef ::color::category::rgb_uint24 category_type;
+};
+template<> struct pick_rgb< ::color::type::uint48_t > {
+	typedef ::color::category::rgb_uint48 category_type;
+};
+
+}
+
+template< typename type_name >
+using rgb = ::color::_internal::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
+
+template< typename value_name >
+using bgr = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_scramble< value_name, 2, 1, 0 > > >;
+
+template< typename value_name >
+using bgra = ::color::_internal::model< ::color::category::rgb< ::color::category::rgba_scramble< value_name, 2, 1, 0, 3 > > >;
+
+template< typename value_name >
+using abgr = ::color::_internal::model< ::color::category::rgb< ::color::category::rgba_scramble< value_name, 3, 2, 1, 0 > > >;
+
+template< typename value_name >
+using rgba = ::color::_internal::model< ::color::category::rgb< ::color::category::rgba_scramble< value_name, 0, 1, 2, 3 > > >;
+
+template< typename value_name >
+using argb = ::color::_internal::model< ::color::category::rgb< ::color::category::rgba_scramble< value_name, 1, 2, 3, 0 > > >;
+
+}
+
+namespace color {
+namespace _internal {
+namespace _privateCMYK {
 
 template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_xyz2rgb {
+struct convert_rgb2cmyk {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
+
+	typedef ::color::trait::scalar< category_left_name > scalar_trait_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		enum {
+			red_p = ::color::place::_internal::red<category_right_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		};
+		scalar_type r = normalize_type::template process<red_p >(container_right_trait_type::template get<red_p >(right));
+		scalar_type g = normalize_type::template process<green_p>(container_right_trait_type::template get<green_p>(right));
+		scalar_type b = normalize_type::template process<blue_p >(container_right_trait_type::template get<blue_p >(right));
+		scalar_type k = scalar_type(1) - std::max({ r, g, b });
+		scalar_type c = scalar_type(0);
+		scalar_type m = scalar_type(0);
+		scalar_type y = scalar_type(0);
+		if(false == scalar_trait_type::is_small(1 - k)) {
+			c = (1-r-k) / (1-k);
+			m = (1-g-k) / (1-k);
+			y = (1-b-k) / (1-k);
+		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
+		container_left_trait_type::template set<3>(left, diverse_type::template process<3>(k));
+	}
+};
+
+}
+
+template< typename cmyk_tag_name, typename rgb_tag_name >
+struct convert
+		<
+		::color::category::cmyk< cmyk_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		>
+		: public ::color::_internal::_privateCMYK::convert_rgb2cmyk
+		<
+		::color::category::cmyk< cmyk_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		> {
+};
+
+}
+}
+
+namespace color {
+namespace check {
+namespace _internal {
+namespace _privateCMYK {
+
+template< typename category_name >
+struct unique {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+	typedef ::color::trait::scalar< category_type > scalar_trait_type;
+
+	static bool process(model_type const& m) {
+		if(m.template get<3>() == bound_type::template maximum<3>()) {
+			return false;
+		}
+		if(m.template get<0>() == bound_type::template minimum<0>()) {
+			return true;
+		}
+		if(m.template get<1>() == bound_type::template minimum<1>()) {
+			return true;
+		}
+		if(m.template get<2>() == bound_type::template minimum<2>()) {
+			return true;
+		}
+		return false;
+	}
+};
+
+}
+
+template< > struct unique< ::color::category::cmyk_uint8 > : public ::color::check::_internal::_privateCMYK::unique< ::color::category::cmyk_uint8 > { };
+template< > struct unique< ::color::category::cmyk_uint16 > : public ::color::check::_internal::_privateCMYK::unique< ::color::category::cmyk_uint16 > { };
+template< > struct unique< ::color::category::cmyk_uint32 > : public ::color::check::_internal::_privateCMYK::unique< ::color::category::cmyk_uint32 > { };
+template< > struct unique< ::color::category::cmyk_uint64 > : public ::color::check::_internal::_privateCMYK::unique< ::color::category::cmyk_uint64 > { };
+
+template<>
+struct unique< ::color::category::cmyk_float> {
+public:
+	typedef ::color::category::cmyk_float category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+	typedef ::color::trait::scalar< category_type > scalar_trait_type;
+
+	static bool process(model_type const& m) {
+		if(m.template get<3>() == bound_type::template maximum<3>()) {
+			return false;
+		}
+		if(true == scalar_trait_type::is_small(m.template get<0>() - bound_type::template minimum<0>())) {
+			return true;
+		}
+		if(true == scalar_trait_type::is_small(m.template get<1>() - bound_type::template minimum<1>())) {
+			return true;
+		}
+		if(true == scalar_trait_type::is_small(m.template get<2>() - bound_type::template minimum<2>())) {
+			return true;
+		}
+		return false;
+	}
+};
+
+template<>
+struct unique< ::color::category::cmyk_double > {
+public:
+	typedef ::color::category::cmyk_double category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+	typedef ::color::trait::scalar< category_type > scalar_trait_type;
+
+	static bool process(model_type const& m) {
+		if(m.template get<3>() == bound_type::template maximum<3>()) {
+			return false;
+		}
+		if(true == scalar_trait_type::is_small(m.template get<0>() - bound_type::template minimum<0>())) {
+			return true;
+		}
+		if(true == scalar_trait_type::is_small(m.template get<1>() - bound_type::template minimum<1>())) {
+			return true;
+		}
+		if(true == scalar_trait_type::is_small(m.template get<2>() - bound_type::template minimum<2>())) {
+			return true;
+		}
+		return false;
+	}
+};
+
+template<>
+struct unique< ::color::category::cmyk_ldouble > {
+public:
+	typedef ::color::category::cmyk_ldouble category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+	typedef ::color::trait::scalar< category_type > scalar_trait_type;
+
+	static bool process(model_type const& m) {
+		if(m.template get<3>() == bound_type::template maximum<3>()) {
+			return false;
+		}
+		if(true == scalar_trait_type::is_small(m.template get<0>() - bound_type::template minimum<0>())) {
+			return true;
+		}
+		if(true == scalar_trait_type::is_small(m.template get<1>() - bound_type::template minimum<1>())) {
+			return true;
+		}
+		if(true == scalar_trait_type::is_small(m.template get<2>() - bound_type::template minimum<2>())) {
+			return true;
+		}
+		return false;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace fix {
+namespace _internal {
+namespace _privateCMYK {
+
+template< typename category_name >
+struct unique {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::trait::bound<category_type> bound_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::operation::_internal::invert< category_name > invert_type;
+	typedef ::color::_internal::diverse< category_name > diverse_type;
+	typedef ::color::_internal::normalize< category_name > normalize_type;
+
+	static void process(model_type &result) {
+		if(result.template get<3>() == bound_type::template maximum<3>()) {
+			result.template set<0>(bound_type::template minimum<0>());
+			result.template set<1>(bound_type::template minimum<1>());
+			result.template set<2>(bound_type::template minimum<2>());
+			return ;
+		}
+		if(result.template get<0>() != result.template get<1>()) {
+			return;
+		}
+		if(result.template get<0>() != result.template get<2>()) {
+			return;
+		}
+		if(result.template get<1>() != result.template get<2>()) {
+			return;
+		}
+		scalar_type cyan = normalize_type::template process<0>(result.template get<0>());
+		scalar_type key = normalize_type::template process<3>(result.template get<3>());
+		result.template set<0>(bound_type::template minimum<0>());
+		result.template set<1>(bound_type::template minimum<1>());
+		result.template set<2>(bound_type::template minimum<2>());
+		result.template set<3>(diverse_type::template process<3>((1- (1- cyan)*(1-key))));
+	}
+
+	static void process(model_type &result, model_type const& right) {
+		if(result.template get<3>() == bound_type::template maximum<3>()) {
+			result.template set<0>(bound_type::template minimum<0>());
+			result.template set<1>(bound_type::template minimum<1>());
+			result.template set<2>(bound_type::template minimum<2>());
+			result.template set<3>(bound_type::template maximum<3>());
+			return ;
+		}
+		result = right;
+		if(result.template get<0>() != result.template get<1>()) {
+			return;
+		}
+		if(result.template get<0>() != result.template get<2>()) {
+			return;
+		}
+		if(result.template get<1>() != result.template get<2>()) {
+			return;
+		}
+		scalar_type cyan = normalize_type::template process<0>(result.template get<0>());
+		scalar_type key = normalize_type::template process<3>(result.template get<3>());
+		result.template set<0>(bound_type::template minimum<0>());
+		result.template set<1>(bound_type::template minimum<1>());
+		result.template set<2>(bound_type::template minimum<2>());
+		result.template set<3>(diverse_type::template process<3>((1- (1- cyan)*(1-key))));
+	}
+
+};
+
+}
+
+template<> struct unique< ::color::category::cmyk_uint8 > : public ::color::fix::_internal::_privateCMYK::unique<::color::category::cmyk_uint8 > { };
+template<> struct unique< ::color::category::cmyk_uint16 > : public ::color::fix::_internal::_privateCMYK::unique<::color::category::cmyk_uint16 > { };
+template<> struct unique< ::color::category::cmyk_uint32 > : public ::color::fix::_internal::_privateCMYK::unique<::color::category::cmyk_uint32 > { };
+template<> struct unique< ::color::category::cmyk_uint64 > : public ::color::fix::_internal::_privateCMYK::unique<::color::category::cmyk_uint64 > { };
+template<> struct unique< ::color::category::cmyk_float > : public ::color::fix::_internal::_privateCMYK::unique<::color::category::cmyk_float > { };
+template<> struct unique< ::color::category::cmyk_double > : public ::color::fix::_internal::_privateCMYK::unique<::color::category::cmyk_double > { };
+template<> struct unique< ::color::category::cmyk_ldouble > : public ::color::fix::_internal::_privateCMYK::unique<::color::category::cmyk_ldouble> { };
+
+}
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename type_name >
+struct pick_cmyk {
+	typedef ::color::category::cmyk_uint32 category_type;
+};
+
+template<> struct pick_cmyk< std::uint8_t > {
+	typedef ::color::category::cmyk_uint8 category_type;
+};
+template<> struct pick_cmyk< std::uint16_t > {
+	typedef ::color::category::cmyk_uint16 category_type;
+};
+template<> struct pick_cmyk< std::uint32_t > {
+	typedef ::color::category::cmyk_uint32 category_type;
+};
+template<> struct pick_cmyk< std::uint64_t > {
+	typedef ::color::category::cmyk_uint64 category_type;
+};
+template<> struct pick_cmyk< float > {
+	typedef ::color::category::cmyk_float category_type;
+};
+template<> struct pick_cmyk< double > {
+	typedef ::color::category::cmyk_double category_type;
+};
+template<> struct pick_cmyk< long double > {
+	typedef ::color::category::cmyk_ldouble category_type;
+};
+}
+
+template< typename type_name >
+using cmyk = ::color::_internal::model< typename ::color::_internal::pick_cmyk< type_name >::category_type >;
+
+}
+
+namespace color {
+namespace _internal {
+namespace _privateCMY {
+
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmyk2cmy {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
@@ -20739,103 +22577,702 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static scalar_type mc = 0.17697;
-		static scalar_type b11 = 473041/scalar_type(200050)*mc, b12 = -60980/scalar_type(68017)*mc, b13 = -1591847/scalar_type(3400850)*mc;
-		static scalar_type b21 = -103059/scalar_type(200050)*mc, b22 = 97020/scalar_type(68017)*mc, b23 = 301853/scalar_type(3400850)*mc;
-		static scalar_type b31 = 1041/scalar_type(200050)*mc, b32 = -980/scalar_type(68017)*mc, b33 = 3432153/scalar_type(3400850)*mc;
-		scalar_type x = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type y = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type z = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(b11 * x + b12 * y + b13 * z));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(b21 * x + b22 * y + b23 * z));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b31 * x + b32 * y + b33 * z));
+		scalar_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type ck = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
+		scalar_type c = cc * (1-ck) + ck;
+		scalar_type m = cm * (1-ck) + ck;
+		scalar_type y = cy * (1-ck) + ck;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
 	}
 };
 
 }
 
-template< > struct convert<::color::category::rgb_uint8,::color::category::xyz_uint8 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint8,::color::category::xyz_uint8 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::xyz_uint16 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint8,::color::category::xyz_uint16 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::xyz_uint32 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint8,::color::category::xyz_uint32 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::xyz_uint64 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint8,::color::category::xyz_uint64 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::xyz_float > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint8,::color::category::xyz_float > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::xyz_double > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint8,::color::category::xyz_double > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::xyz_ldouble> : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint8,::color::category::xyz_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint16,::color::category::xyz_uint8 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint16,::color::category::xyz_uint8 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::xyz_uint16 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint16,::color::category::xyz_uint16 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::xyz_uint32 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint16,::color::category::xyz_uint32 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::xyz_uint64 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint16,::color::category::xyz_uint64 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::xyz_float > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint16,::color::category::xyz_float > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::xyz_double > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint16,::color::category::xyz_double > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::xyz_ldouble> : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint16,::color::category::xyz_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint32,::color::category::xyz_uint8 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint32,::color::category::xyz_uint8 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::xyz_uint16 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint32,::color::category::xyz_uint16 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::xyz_uint32 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint32,::color::category::xyz_uint32 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::xyz_uint64 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint32,::color::category::xyz_uint64 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::xyz_float > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint32,::color::category::xyz_float > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::xyz_double > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint32,::color::category::xyz_double > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::xyz_ldouble> : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint32,::color::category::xyz_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint64,::color::category::xyz_uint8 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint64,::color::category::xyz_uint8 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::xyz_uint16 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint64,::color::category::xyz_uint16 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::xyz_uint32 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint64,::color::category::xyz_uint32 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::xyz_uint64 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint64,::color::category::xyz_uint64 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::xyz_float > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint64,::color::category::xyz_float > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::xyz_double > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint64,::color::category::xyz_double > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::xyz_ldouble> : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_uint64,::color::category::xyz_ldouble> {};
-
-template< > struct convert<::color::category::rgb_float,::color::category::xyz_uint8 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_float,::color::category::xyz_uint8 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::xyz_uint16 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_float,::color::category::xyz_uint16 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::xyz_uint32 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_float,::color::category::xyz_uint32 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::xyz_uint64 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_float,::color::category::xyz_uint64 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::xyz_float > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_float,::color::category::xyz_float > {};
-template< > struct convert<::color::category::rgb_float,::color::category::xyz_double > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_float,::color::category::xyz_double > {};
-template< > struct convert<::color::category::rgb_float,::color::category::xyz_ldouble> : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_float,::color::category::xyz_ldouble> {};
-
-template< > struct convert<::color::category::rgb_double,::color::category::xyz_uint8 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_double,::color::category::xyz_uint8 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::xyz_uint16 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_double,::color::category::xyz_uint16 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::xyz_uint32 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_double,::color::category::xyz_uint32 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::xyz_uint64 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_double,::color::category::xyz_uint64 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::xyz_float > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_double,::color::category::xyz_float > {};
-template< > struct convert<::color::category::rgb_double,::color::category::xyz_double > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_double,::color::category::xyz_double > {};
-template< > struct convert<::color::category::rgb_double,::color::category::xyz_ldouble> : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_double,::color::category::xyz_ldouble> {};
-
-template< > struct convert<::color::category::rgb_ldouble,::color::category::xyz_uint8 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_ldouble,::color::category::xyz_uint8 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::xyz_uint16 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_ldouble,::color::category::xyz_uint16 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::xyz_uint32 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_ldouble,::color::category::xyz_uint32 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::xyz_uint64 > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_ldouble,::color::category::xyz_uint64 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::xyz_float > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_ldouble,::color::category::xyz_float > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::xyz_double > : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_ldouble,::color::category::xyz_double > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::xyz_ldouble> : public ::color::_internal::_privateRGB::convert_xyz2rgb<::color::category::rgb_ldouble,::color::category::xyz_ldouble> {};
+template< typename cmy_tag_name, typename cmyk_tag_name >
+struct convert
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::cmyk<cmyk_tag_name>
+		>
+		: public ::color::_internal::_privateCMY::convert_cmyk2cmy
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::cmyk<cmyk_tag_name>
+		> {
+};
 
 }
 }
 
 namespace color {
-namespace akin {
+namespace _internal {
+namespace _privateCMY {
 
-template< >struct yiq< ::color::category::cmy_uint8 > {
-	typedef ::color::category::yiq_uint8 akin_type;
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_gray2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+		container_left_trait_type::template set<1>(left, reformat_type::template process<1,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+		container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
+	}
 };
-template< >struct yiq< ::color::category::cmy_uint16 > {
-	typedef ::color::category::yiq_uint16 akin_type;
+}
+
+template< typename cmy_tag_name, typename gray_tag_name >
+struct convert
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::gray<gray_tag_name>
+		>
+		: public ::color::_internal::_privateCMY::convert_gray2cmy
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::gray<gray_tag_name>
+		> {
 };
-template< >struct yiq< ::color::category::cmy_uint32 > {
-	typedef ::color::category::yiq_uint32 akin_type;
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace _privateCMY {
+
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsl2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	typedef ::color::_internal::_privateCMY::convert_hsl2cmy<category_left_name, category_right_name, scalar_name> this_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type r;
+		scalar_type g;
+		scalar_type b;
+		if(s == 0) {
+			r = l;
+			g = l;
+			b = l;
+		} else {
+			scalar_type q = l < scalar_type(0.5) ? (l * (1 + s)) : (l + s - l * s);
+			scalar_type p = scalar_type(2) * l - q;
+			r = this_type::value(p, q, h + (scalar_type(1) / scalar_type(3)) + (scalar_type(2) / scalar_type(3) < h ? -1 :0));
+			g = this_type::value(p, q, h);
+			b = this_type::value(p, q, h - (scalar_type(1) / scalar_type(3)) + (h < scalar_type(1) / scalar_type(3) ? +1 :0));
+		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
+	}
+
+private:
+	static scalar_type value(scalar_type const& p, scalar_type const& q, scalar_type const& t) {
+		if(t < scalar_type(1)/scalar_type(6)) {
+			return (p + (q - p) * scalar_type(6) * t);
+		}
+		if(t < scalar_type(1)/scalar_type(2)) {
+			return (q);
+		}
+		if(t < scalar_type(2)/scalar_type(3)) {
+			return (p + (q - p) * ((scalar_type(2)/scalar_type(3)) - t) * scalar_type(6));
+		}
+		return p ;
+	}
 };
-template< >struct yiq< ::color::category::cmy_uint64 > {
-	typedef ::color::category::yiq_uint64 akin_type;
+
+}
+
+template< typename cmy_tag_name, typename hsl_tag_name >
+struct convert
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::hsl<hsl_tag_name>
+		>
+		: public ::color::_internal::_privateCMY::convert_hsl2cmy
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::hsl<hsl_tag_name>
+		> {
 };
-template< >struct yiq< ::color::category::cmy_float > {
-	typedef ::color::category::yiq_float akin_type;
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace _privateCMY {
+
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsv2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		int region = int(6 * h);
+		scalar_type f = h * 6 - region ;
+		scalar_type p = v * (scalar_type(1) - s);
+		scalar_type q = v * (scalar_type(1) - f * s);
+		scalar_type t = v * (scalar_type(1) - (1 - f) * s);
+		scalar_type r;
+		scalar_type g;
+		scalar_type b;
+		switch(region % 6) {
+		case 0:
+			r = v, g = t, b = p;
+			break;
+		case 1:
+			r = q, g = v, b = p;
+			break;
+		case 2:
+			r = p, g = v, b = t;
+			break;
+		case 3:
+			r = p, g = q, b = v;
+			break;
+		case 4:
+			r = t, g = p, b = v;
+			break;
+		case 5:
+			r = v, g = p, b = q;
+			break;
+		}
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
+	}
 };
-template< >struct yiq< ::color::category::cmy_double > {
-	typedef ::color::category::yiq_double akin_type;
+
+}
+
+template< typename cmy_tag_name, typename hsv_tag_name >
+struct convert
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::hsv<hsv_tag_name>
+		>
+		: public ::color::_internal::_privateCMY::convert_hsv2cmy
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::hsv<hsv_tag_name>
+		> {
 };
-template< >struct yiq< ::color::category::cmy_ldouble > {
-	typedef ::color::category::yiq_ldouble akin_type;
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace _privateCMY {
+
+template< typename category_left_name, typename category_right_name >
+struct convert_rgb2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		enum {
+			red_p = ::color::place::_internal::red<category_right_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		};
+		typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
+		typedef ::color::operation::_internal::invert< category_right_type > invert_type;
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,red_p >(invert_type::template component<red_p >(container_right_trait_type::template get<red_p >(right))));
+		container_left_trait_type::template set<1>(left, reformat_type::template process<1,green_p>(invert_type::template component<green_p>(container_right_trait_type::template get<green_p>(right))));
+		container_left_trait_type::template set<2>(left, reformat_type::template process<2,blue_p >(invert_type::template component<blue_p >(container_right_trait_type::template get<blue_p >(right))));
+	}
+};
+
+}
+
+template< typename cmy_tag_name, typename rgb_tag_name >
+struct convert
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::rgb<rgb_tag_name>
+		>
+		: public ::color::_internal::_privateCMY::convert_rgb2cmy
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::rgb<rgb_tag_name>
+		> {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace _privateCMY {
+
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_yiq2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::constant::yiq< category_right_name > yiq_const_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type a11 = yiq_const_type::a11(), a12 = yiq_const_type::a12(), a13 = yiq_const_type::a13();
+		static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
+		static scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
+		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type i = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type q = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		i = yiq_const_type::i_deverse(i);
+		q = yiq_const_type::q_deverse(q);
+		scalar_type r = a11 * y + a12 * i + a13 * q;
+		scalar_type g = a21 * y + a22 * i + a23 * q;
+		scalar_type b = a31 * y + a32 * i + a33 * q;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
+	}
+};
+
+}
+
+template< typename cmy_tag_name, typename yiq_tag_name >
+struct convert
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::yiq<yiq_tag_name>
+		>
+		: public ::color::_internal::_privateCMY::convert_yiq2cmy
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::yiq<yiq_tag_name>
+		> {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace _privateCMY {
+
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_yuv2cmy {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::constant::yuv< category_right_name > yuv_const_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static scalar_type const Wr = yuv_const_type::Wr();
+		static scalar_type const Wb = yuv_const_type::Wb();
+		static scalar_type const Wg = yuv_const_type::Wg();
+		static scalar_type const Umax = yuv_const_type::Umax();
+		static scalar_type const Vmax = yuv_const_type::Vmax();
+		static scalar_type const b11 = 1, b12 = 0, b13 = (1 - Wr) / Vmax;
+		static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg, b23 = -Wr*(1 - Wr) / Vmax / Wg;
+		static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax), b33 = 0;
+		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type u = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		u = (u - scalar_type(0.5)) * scalar_type(2) * Umax;
+		v = (v - scalar_type(0.5)) * scalar_type(2) * Vmax;
+		scalar_type r = y + v * b13;
+		scalar_type g = y + u * b22 + v * b23;
+		scalar_type b = y + u * b32 ;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
+	}
+};
+
+}
+
+template< typename cmy_tag_name, typename yuv_tag_name >
+struct convert
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::yuv<yuv_tag_name>
+		>
+		: public ::color::_internal::_privateCMY::convert_yuv2cmy
+		<
+		::color::category::cmy< cmy_tag_name >
+		,::color::category::yuv<yuv_tag_name>
+		> {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename type_name >
+struct pick_cmy {
+	typedef ::color::category::cmy_uint32 category_type;
+};
+
+template<> struct pick_cmy< std::uint8_t > {
+	typedef ::color::category::cmy_uint8 category_type;
+};
+template<> struct pick_cmy< std::uint16_t > {
+	typedef ::color::category::cmy_uint16 category_type;
+};
+template<> struct pick_cmy< std::uint32_t > {
+	typedef ::color::category::cmy_uint32 category_type;
+};
+template<> struct pick_cmy< std::uint64_t > {
+	typedef ::color::category::cmy_uint64 category_type;
+};
+template<> struct pick_cmy< float > {
+	typedef ::color::category::cmy_float category_type;
+};
+template<> struct pick_cmy< double > {
+	typedef ::color::category::cmy_double category_type;
+};
+template<> struct pick_cmy< long double > {
+	typedef ::color::category::cmy_ldouble category_type;
+};
+}
+
+template< typename type_name >
+using cmy = ::color::_internal::model< typename ::color::_internal::pick_cmy< type_name >::category_type >;
+
+}
+
+namespace color {
+namespace _internal {
+namespace _privateGray {
+
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmy2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::constant::gray< category_left_name > gray_const_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_name value =
+			gray_const_type::Rc() * (1 - normalize_type::template process<0> (container_right_trait_type::template get<0>(right)))
+			+ gray_const_type::Gc() * (1 - normalize_type::template process<1> (container_right_trait_type::template get<1>(right)))
+			+ gray_const_type::Bc() * (1 - normalize_type::template process<2> (container_right_trait_type::template get<2>(right)));
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+	}
+};
+}
+
+template< typename gray_tag_name, typename cmy_tag_name >
+struct convert
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::cmy<cmy_tag_name>
+		>
+		: public ::color::_internal::_privateGray::convert_cmy2gray
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::cmy<cmy_tag_name>
+		> {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace _privateGray {
+
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_cmyk2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+	typedef scalar_name scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::constant::gray< category_left_name > gray_const_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
+		scalar_type value =
+			(gray_const_type::Rc() * (1-c)
+			 + gray_const_type::Gc() * (1-m)
+			 + gray_const_type::Bc() * (1-y)) * (1-k);
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+	}
+};
+}
+
+template< typename gray_tag_name, typename cmyk_tag_name >
+struct convert
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::cmyk<cmyk_tag_name>
+		>
+		: public ::color::_internal::_privateGray::convert_cmyk2gray
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::cmyk<cmyk_tag_name>
+		> {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace _privateGray {
+
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsl2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,2>(container_right_trait_type::template get<2>(right)));
+	}
+};
+
+}
+
+template< typename gray_tag_name, typename hsl_tag_name >
+struct convert
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::hsl<hsl_tag_name>
+		>
+		: public ::color::_internal::_privateGray::convert_hsl2gray
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::hsl<hsl_tag_name>
+		> {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace _privateGray {
+
+template< typename category_left_name, typename category_right_name, typename scalar_name = double >
+struct convert_hsv2gray {
+public:
+	typedef category_left_name category_left_type;
+	typedef category_right_name category_right_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,2>(container_right_trait_type::template get<2>(right)));
+	}
+};
+
+}
+
+template< typename gray_tag_name, typename hsv_tag_name >
+struct convert
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::hsv<hsv_tag_name>
+		>
+		: public ::color::_internal::_privateGray::convert_hsv2gray
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::hsv<hsv_tag_name>
+		> {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename gray_tag_name, typename rgb_tag_name >
+struct convert
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		> {
+public:
+	typedef ::color::category::gray< gray_tag_name > category_left_type;
+	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
+	typedef double scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::constant::gray< category_left_type > gray_const_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		enum {
+			red_p = ::color::place::_internal::red<category_right_type>::position_enum
+					, green_p = ::color::place::_internal::green<category_right_type>::position_enum
+								, blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		};
+		scalar_type value =
+			gray_const_type::Rc() * normalize_type::template process<red_p > (container_right_trait_type::template get<red_p >(right))
+		+ gray_const_type::Gc() * normalize_type::template process<green_p> (container_right_trait_type::template get<green_p>(right))
+		+ gray_const_type::Bc() * normalize_type::template process<blue_p > (container_right_trait_type::template get<blue_p >(right));
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+	}
 };
 
 }
@@ -20947,34 +23384,6 @@ template< >struct yiq< ::color::category::hsv_double > {
 	typedef ::color::category::yiq_double akin_type;
 };
 template< >struct yiq< ::color::category::hsv_ldouble > {
-	typedef ::color::category::yiq_ldouble akin_type;
-};
-
-}
-}
-
-namespace color {
-namespace akin {
-
-template< >struct yiq< ::color::category::rgb_uint8 > {
-	typedef ::color::category::yiq_uint8 akin_type;
-};
-template< >struct yiq< ::color::category::rgb_uint16 > {
-	typedef ::color::category::yiq_uint16 akin_type;
-};
-template< >struct yiq< ::color::category::rgb_uint32 > {
-	typedef ::color::category::yiq_uint32 akin_type;
-};
-template< >struct yiq< ::color::category::rgb_uint64 > {
-	typedef ::color::category::yiq_uint64 akin_type;
-};
-template< >struct yiq< ::color::category::rgb_float > {
-	typedef ::color::category::yiq_float akin_type;
-};
-template< >struct yiq< ::color::category::rgb_double > {
-	typedef ::color::category::yiq_double akin_type;
-};
-template< >struct yiq< ::color::category::rgb_ldouble > {
 	typedef ::color::category::yiq_ldouble akin_type;
 };
 
@@ -21175,154 +23584,6 @@ namespace color {
 namespace trait {
 
 template< >
-struct component< ::color::category::yiq_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::yiq_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::yiq_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::yiq_uint16 >
-		: public ::color::_internal::utility::component::cnent556< unsigned> {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::yiq_uint32 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned> {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::yiq_uint64 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned> {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::yiq_uint8 >
-		: public ::color::_internal::utility::component::cnent332< unsigned > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yiq_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yiq_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yiq_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yiq_uint16 >
-		: public ::color::_internal::utility::container::cner556< unsigned > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yiq_uint32 >
-		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3, 8 > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yiq_uint64 >
-		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yiq_uint8 >
-		: public ::color::_internal::utility::container::cner332< unsigned > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
 struct index< ::color::category::yiq_double >
 		: public ::color::_internal::utility::type::index< unsigned > {
 };
@@ -21394,44 +23655,44 @@ namespace color {
 namespace get {
 
 inline
-::color::_internal::model< color::category::yiq_uint8 >::component_const_type
-inphase(::color::_internal::model< color::category::yiq_uint8 > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_uint8 >::component_const_type
+inphase(::color::_internal::model< ::color::category::yiq_uint8 > const& color_parameter) {
 	return color_parameter.template get<1>();
 }
 
 inline
-::color::_internal::model< color::category::yiq_uint16 >::component_const_type
-inphase(::color::_internal::model< color::category::yiq_uint16 > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_uint16 >::component_const_type
+inphase(::color::_internal::model< ::color::category::yiq_uint16 > const& color_parameter) {
 	return color_parameter.template get<1>();
 };
 
 inline
-::color::_internal::model< color::category::yiq_uint32 >::component_const_type
-inphase(::color::_internal::model< color::category::yiq_uint32 > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_uint32 >::component_const_type
+inphase(::color::_internal::model< ::color::category::yiq_uint32 > const& color_parameter) {
 	return color_parameter.template get<1>();
 };
 
 inline
-::color::_internal::model< color::category::yiq_uint64 >::component_const_type
-inphase(::color::_internal::model< color::category::yiq_uint64 > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_uint64 >::component_const_type
+inphase(::color::_internal::model< ::color::category::yiq_uint64 > const& color_parameter) {
 	return color_parameter.template get<1>();
 };
 
 inline
-::color::_internal::model< color::category::yiq_float >::component_const_type
-inphase(::color::_internal::model< color::category::yiq_float > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_float >::component_const_type
+inphase(::color::_internal::model< ::color::category::yiq_float > const& color_parameter) {
 	return color_parameter.template get<1>();
 };
 
 inline
-::color::_internal::model< color::category::yiq_double >::component_const_type
-inphase(::color::_internal::model< color::category::yiq_double > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_double >::component_const_type
+inphase(::color::_internal::model< ::color::category::yiq_double > const& color_parameter) {
 	return color_parameter.template get<1>();
 };
 
 inline
-::color::_internal::model< color::category::yiq_ldouble >::component_const_type
-inphase(::color::_internal::model< color::category::yiq_ldouble > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_ldouble >::component_const_type
+inphase(::color::_internal::model< ::color::category::yiq_ldouble > const& color_parameter) {
 	return color_parameter.template get<1>();
 };
 
@@ -21442,44 +23703,44 @@ namespace color {
 namespace get {
 
 inline
-::color::_internal::model< color::category::yiq_uint8 >::component_const_type
-quadrature(::color::_internal::model< color::category::yiq_uint8 > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_uint8 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::yiq_uint8 > const& color_parameter) {
 	return color_parameter.template get<2>();
 }
 
 inline
-::color::_internal::model< color::category::yiq_uint16 >::component_const_type
-quadrature(::color::_internal::model< color::category::yiq_uint16 > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_uint16 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::yiq_uint16 > const& color_parameter) {
 	return color_parameter.template get<2>();
 };
 
 inline
-::color::_internal::model< color::category::yiq_uint32 >::component_const_type
-quadrature(::color::_internal::model< color::category::yiq_uint32 > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_uint32 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::yiq_uint32 > const& color_parameter) {
 	return color_parameter.template get<2>();
 };
 
 inline
-::color::_internal::model< color::category::yiq_uint64 >::component_const_type
-quadrature(::color::_internal::model< color::category::yiq_uint64 > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_uint64 >::component_const_type
+quadrature(::color::_internal::model< ::color::category::yiq_uint64 > const& color_parameter) {
 	return color_parameter.template get<2>();
 };
 
 inline
-::color::_internal::model< color::category::yiq_float >::component_const_type
-quadrature(::color::_internal::model< color::category::yiq_float > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_float >::component_const_type
+quadrature(::color::_internal::model< ::color::category::yiq_float > const& color_parameter) {
 	return color_parameter.template get<2>();
 };
 
 inline
-::color::_internal::model< color::category::yiq_double >::component_const_type
-quadrature(::color::_internal::model< color::category::yiq_double > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_double >::component_const_type
+quadrature(::color::_internal::model< ::color::category::yiq_double > const& color_parameter) {
 	return color_parameter.template get<2>();
 };
 
 inline
-::color::_internal::model< color::category::yiq_ldouble >::component_const_type
-quadrature(::color::_internal::model< color::category::yiq_ldouble > const& color_parameter) {
+::color::_internal::model< ::color::category::yiq_ldouble >::component_const_type
+quadrature(::color::_internal::model< ::color::category::yiq_ldouble > const& color_parameter) {
 	return color_parameter.template get<2>();
 };
 
@@ -21497,17 +23758,16 @@ typename ::color::trait::component< typename ::color::akin::rgb<category_name>::
 red(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
+	typedef ::color::constant::yiq< category_name > yiq_const_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
-	static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-	static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
+	static scalar_type a11 = yiq_const_type::a11(), a12 = yiq_const_type::a12(), a13 = yiq_const_type::a13();
 	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
 	scalar_type i = normalize_type::template process<1>(color_parameter.template get<1>());
 	scalar_type q = normalize_type::template process<2>(color_parameter.template get<2>());
-	i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
-	q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
-	scalar_type r = b11 * y + b12 * i + b13 * q;
+	i = (scalar_type(2) * i - scalar_type(1)) * yiq_const_type::i_max();
+	q = (scalar_type(2) * q - scalar_type(1)) * yiq_const_type::q_max();
+	scalar_type r = a11 * y + a12 * i + a13 * q;
 	return diverse_type::template process<0>(r);
 }
 
@@ -21516,43 +23776,43 @@ red(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint8>::akin_type >::return_type
-red(::color::_internal::model< color::category::yiq_uint8 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::yiq_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::red<color::category::yiq_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint16>::akin_type >::return_type
-red(::color::_internal::model< color::category::yiq_uint16 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::yiq_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::red<color::category::yiq_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint32>::akin_type >::return_type
-red(::color::_internal::model< color::category::yiq_uint32 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::yiq_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::red<color::category::yiq_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint64>::akin_type >::return_type
-red(::color::_internal::model< color::category::yiq_uint64 > const& color_parameter) {
+red(::color::_internal::model< ::color::category::yiq_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::red<color::category::yiq_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_float>::akin_type >::return_type
-red(::color::_internal::model< color::category::yiq_float > const& color_parameter) {
+red(::color::_internal::model< ::color::category::yiq_float > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::red<color::category::yiq_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_double>::akin_type >::return_type
-red(::color::_internal::model< color::category::yiq_double > const& color_parameter) {
+red(::color::_internal::model< ::color::category::yiq_double > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::red<color::category::yiq_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_ldouble>::akin_type >::return_type
-red(::color::_internal::model< color::category::yiq_ldouble > const& color_parameter) {
+red(::color::_internal::model< ::color::category::yiq_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::red<color::category::yiq_ldouble>(color_parameter);
 }
 
@@ -21570,18 +23830,17 @@ typename ::color::trait::component< typename ::color::akin::rgb<category_name>::
 green(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
+	typedef ::color::constant::yiq< category_name > yiq_const_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
-	static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-	static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
+	static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
 	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
 	scalar_type i = normalize_type::template process<1>(color_parameter.template get<1>());
 	scalar_type q = normalize_type::template process<2>(color_parameter.template get<2>());
-	i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
-	q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
-	scalar_type g = b21 * y + b22 * i + b23 * q;
-	return diverse_type::template process<0>(g);
+	i = (scalar_type(2) * i - scalar_type(1)) * yiq_const_type::i_max();
+	q = (scalar_type(2) * q - scalar_type(1)) * yiq_const_type::q_max();
+	scalar_type g = a21 * y + a22 * i + a23 * q;
+	return diverse_type::template process<1>(g);
 }
 
 }
@@ -21589,43 +23848,43 @@ green(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint8>::akin_type >::return_type
-green(::color::_internal::model< color::category::yiq_uint8 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::yiq_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::green<color::category::yiq_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint16>::akin_type >::return_type
-green(::color::_internal::model< color::category::yiq_uint16 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::yiq_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::green<color::category::yiq_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint32>::akin_type >::return_type
-green(::color::_internal::model< color::category::yiq_uint32 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::yiq_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::green<color::category::yiq_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint64>::akin_type >::return_type
-green(::color::_internal::model< color::category::yiq_uint64 > const& color_parameter) {
+green(::color::_internal::model< ::color::category::yiq_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::green<color::category::yiq_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_float>::akin_type >::return_type
-green(::color::_internal::model< color::category::yiq_float > const& color_parameter) {
+green(::color::_internal::model< ::color::category::yiq_float > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::green<color::category::yiq_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_double>::akin_type >::return_type
-green(::color::_internal::model< color::category::yiq_double > const& color_parameter) {
+green(::color::_internal::model< ::color::category::yiq_double > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::green<color::category::yiq_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_ldouble>::akin_type >::return_type
-green(::color::_internal::model< color::category::yiq_ldouble > const& color_parameter) {
+green(::color::_internal::model< ::color::category::yiq_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::green<color::category::yiq_ldouble>(color_parameter);
 }
 
@@ -21643,18 +23902,17 @@ typename ::color::trait::component< typename ::color::akin::rgb<category_name>::
 blue(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
+	typedef ::color::constant::yiq< category_name > yiq_const_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
-	static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-	static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
+	static scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
 	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
 	scalar_type i = normalize_type::template process<1>(color_parameter.template get<1>());
 	scalar_type q = normalize_type::template process<2>(color_parameter.template get<2>());
-	i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
-	q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
-	scalar_type b = b31 * y + b32 * i + b33 * q;
-	return diverse_type::template process<0>(b);
+	i = (scalar_type(2) * i - scalar_type(1)) * yiq_const_type::i_max();
+	q = (scalar_type(2) * q - scalar_type(1)) * yiq_const_type::q_max();
+	scalar_type b = a31 * y + a32 * i + a33 * q;
+	return diverse_type::template process<2>(b);
 }
 
 }
@@ -21662,43 +23920,43 @@ blue(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint8>::akin_type >::return_type
-blue(::color::_internal::model< color::category::yiq_uint8 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::yiq_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::blue<color::category::yiq_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint16>::akin_type >::return_type
-blue(::color::_internal::model< color::category::yiq_uint16 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::yiq_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::blue<color::category::yiq_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint32>::akin_type >::return_type
-blue(::color::_internal::model< color::category::yiq_uint32 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::yiq_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::blue<color::category::yiq_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint64>::akin_type >::return_type
-blue(::color::_internal::model< color::category::yiq_uint64 > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::yiq_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::blue<color::category::yiq_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_float>::akin_type >::return_type
-blue(::color::_internal::model< color::category::yiq_float > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::yiq_float > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::blue<color::category::yiq_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_double>::akin_type >::return_type
-blue(::color::_internal::model< color::category::yiq_double > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::yiq_double > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::blue<color::category::yiq_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yiq_ldouble>::akin_type >::return_type
-blue(::color::_internal::model< color::category::yiq_ldouble > const& color_parameter) {
+blue(::color::_internal::model< ::color::category::yiq_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateYIQ::blue<color::category::yiq_ldouble>(color_parameter);
 }
 
@@ -21725,43 +23983,43 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yiq_uint8 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yiq_uint8 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yiq_uint8 > const& color_parameter) {
 	return ::color::get::_internal::privateYIQ::gray<color::category::yiq_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yiq_uint16 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yiq_uint16 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yiq_uint16 > const& color_parameter) {
 	return ::color::get::_internal::privateYIQ::gray<color::category::yiq_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yiq_uint32 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yiq_uint32 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yiq_uint32 > const& color_parameter) {
 	return ::color::get::_internal::privateYIQ::gray<color::category::yiq_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yiq_uint64 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yiq_uint64 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yiq_uint64 > const& color_parameter) {
 	return ::color::get::_internal::privateYIQ::gray<color::category::yiq_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yiq_float >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yiq_float > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yiq_float > const& color_parameter) {
 	return ::color::get::_internal::privateYIQ::gray<color::category::yiq_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yiq_double >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yiq_double > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yiq_double > const& color_parameter) {
 	return ::color::get::_internal::privateYIQ::gray<color::category::yiq_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yiq_ldouble >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yiq_ldouble > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yiq_ldouble > const& color_parameter) {
 	return ::color::get::_internal::privateYIQ::gray<color::category::yiq_ldouble>(color_parameter);
 }
 
@@ -22978,6 +25236,8 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
+	typedef ::color::constant::yiq< category_right_name > yiq_const_type;
+
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
@@ -22989,9 +25249,9 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static scalar_type const b11 = 0.2990000000000000000, b12 = 0.5870000000000000000, b13 = 0.1140000000000000000;
-		static scalar_type const b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
-		static scalar_type const b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 = 0.3111346431714933019;
+		static scalar_type b11 = yiq_const_type::b11(), b12 = yiq_const_type::b12(), b13 = yiq_const_type::b13();
+		static scalar_type b21 = yiq_const_type::b21(), b22 = yiq_const_type::b22(), b23 = yiq_const_type::b23();
+		static scalar_type b31 = yiq_const_type::b31(), b32 = yiq_const_type::b32(), b33 = yiq_const_type::b33();
 		static scalar_type const b32n = -b32;
 		scalar_type r = scalar_type(1) - normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
 		scalar_type g = scalar_type(1) - normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
@@ -23009,61 +25269,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::yiq_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint8,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint8,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::cmy_uint32 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint8,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::cmy_uint64 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint8,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::cmy_float > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint8,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::cmy_double > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint8,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::cmy_ldouble> : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint8,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yiq_uint16,::color::category::cmy_uint8 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint16,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::cmy_uint16 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint16,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::cmy_uint32 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint16,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::cmy_uint64 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint16,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::cmy_float > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint16,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::cmy_double > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint16,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::cmy_ldouble> : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint16,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yiq_uint32,::color::category::cmy_uint8 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint32,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::cmy_uint16 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint32,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::cmy_uint32 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint32,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::cmy_uint64 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint32,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::cmy_float > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint32,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::cmy_double > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint32,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::cmy_ldouble> : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint32,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yiq_uint64,::color::category::cmy_uint8 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint64,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::cmy_uint16 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint64,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::cmy_uint32 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint64,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::cmy_uint64 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint64,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::cmy_float > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint64,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::cmy_double > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint64,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::cmy_ldouble> : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_uint64,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yiq_float,::color::category::cmy_uint8 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_float,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::cmy_uint16 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_float,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::cmy_uint32 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_float,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::cmy_uint64 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_float,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::cmy_float > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_float,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yiq_float,::color::category::cmy_double > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_float,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yiq_float,::color::category::cmy_ldouble> : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_float,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yiq_double,::color::category::cmy_uint8 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_double,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::cmy_uint16 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_double,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::cmy_uint32 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_double,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::cmy_uint64 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_double,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::cmy_float > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_double,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yiq_double,::color::category::cmy_double > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_double,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yiq_double,::color::category::cmy_ldouble> : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_double,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yiq_ldouble,::color::category::cmy_uint8 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_ldouble,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::cmy_uint16 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_ldouble,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::cmy_uint32 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_ldouble,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::cmy_uint64 > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_ldouble,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::cmy_float > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_ldouble,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_ldouble,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateYIQ::convert_cmy2yiq<::color::category::yiq_ldouble,::color::category::cmy_ldouble> {};
+template< typename yiq_tag_name, typename cmy_tag_name >
+struct convert
+		<
+		::color::category::yiq< yiq_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		>
+		: public ::color::_internal::_privateYIQ::convert_cmy2yiq
+		<
+		::color::category::yiq< yiq_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		> {
+};
 
 }
 }
@@ -23102,61 +25319,18 @@ public:
 };
 }
 
-template< > struct convert<::color::category::yiq_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint8,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint8,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::gray_uint32 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint8,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::gray_uint64 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint8,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::gray_float > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint8,::color::category::gray_float > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::gray_double > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint8,::color::category::gray_double > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::gray_ldouble> : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint8,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yiq_uint16,::color::category::gray_uint8 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint16,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::gray_uint16 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint16,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::gray_uint32 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint16,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::gray_uint64 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint16,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::gray_float > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint16,::color::category::gray_float > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::gray_double > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint16,::color::category::gray_double > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::gray_ldouble> : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint16,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yiq_uint32,::color::category::gray_uint8 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint32,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::gray_uint16 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint32,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::gray_uint32 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint32,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::gray_uint64 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint32,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::gray_float > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint32,::color::category::gray_float > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::gray_double > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint32,::color::category::gray_double > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::gray_ldouble> : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint32,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yiq_uint64,::color::category::gray_uint8 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint64,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::gray_uint16 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint64,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::gray_uint32 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint64,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::gray_uint64 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint64,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::gray_float > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint64,::color::category::gray_float > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::gray_double > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint64,::color::category::gray_double > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::gray_ldouble> : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_uint64,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yiq_float,::color::category::gray_uint8 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_float,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::gray_uint16 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_float,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::gray_uint32 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_float,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::gray_uint64 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_float,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::gray_float > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_float,::color::category::gray_float > {};
-template< > struct convert<::color::category::yiq_float,::color::category::gray_double > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_float,::color::category::gray_double > {};
-template< > struct convert<::color::category::yiq_float,::color::category::gray_ldouble> : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_float,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yiq_double,::color::category::gray_uint8 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_double,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::gray_uint16 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_double,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::gray_uint32 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_double,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::gray_uint64 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_double,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::gray_float > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_double,::color::category::gray_float > {};
-template< > struct convert<::color::category::yiq_double,::color::category::gray_double > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_double,::color::category::gray_double > {};
-template< > struct convert<::color::category::yiq_double,::color::category::gray_ldouble> : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_double,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yiq_ldouble,::color::category::gray_uint8 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_ldouble,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::gray_uint16 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_ldouble,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::gray_uint32 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_ldouble,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::gray_uint64 > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_ldouble,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::gray_float > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_ldouble,::color::category::gray_float > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::gray_double > : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_ldouble,::color::category::gray_double > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateYIQ::convert_gray2yiq<::color::category::yiq_ldouble,::color::category::gray_ldouble> {};
+template< typename yiq_tag_name, typename gray_tag_name >
+struct convert
+		<
+		::color::category::yiq< yiq_tag_name >
+		,::color::category::gray< gray_tag_name >
+		>
+		: public ::color::_internal::_privateYIQ::convert_gray2yiq
+		<
+		::color::category::yiq< yiq_tag_name >
+		,::color::category::gray< gray_tag_name >
+		> {
+};
 
 }
 }
@@ -23175,6 +25349,8 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
+	typedef ::color::constant::yiq< category_right_name > yiq_const_type;
+
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
@@ -23186,13 +25362,18 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static scalar_type const b11 = 0.2990000000000000000, b12 = 0.5870000000000000000, b13 = 0.1140000000000000000;
-		static scalar_type const b21 = 0.5957161349127745527, b22 = -0.2744528378392564636, b23 = -0.3212632970735180890;
-		static scalar_type const b31 = 0.2114564021201178664, b32 = -0.5225910452916111683, b33 = 0.3111346431714933019;
+		enum {
+			red_p = ::color::place::_internal::red<category_right_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		};
+		static scalar_type b11 = yiq_const_type::b11(), b12 = yiq_const_type::b12(), b13 = yiq_const_type::b13();
+		static scalar_type b21 = yiq_const_type::b21(), b22 = yiq_const_type::b22(), b23 = yiq_const_type::b23();
+		static scalar_type b31 = yiq_const_type::b31(), b32 = yiq_const_type::b32(), b33 = yiq_const_type::b33();
 		static scalar_type const b32n = -b32;
-		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type r = normalize_type::template process<red_p >(container_right_trait_type::template get<red_p >(right));
+		scalar_type g = normalize_type::template process<green_p>(container_right_trait_type::template get<green_p>(right));
+		scalar_type b = normalize_type::template process<blue_p >(container_right_trait_type::template get<blue_p >(right));
 		scalar_type y = b11 * r + b12 * g + b13 * b;
 		scalar_type i = b21 * r + b22 * g + b23 * b;
 		scalar_type q = b31 * r + b32 * g + b33 * b;
@@ -23206,61 +25387,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::yiq_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint8,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint8,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::rgb_uint32 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint8,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::rgb_uint64 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint8,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::rgb_float > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint8,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::rgb_double > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint8,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yiq_uint8,::color::category::rgb_ldouble> : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint8,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yiq_uint16,::color::category::rgb_uint8 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint16,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::rgb_uint16 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint16,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::rgb_uint32 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint16,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::rgb_uint64 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint16,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::rgb_float > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint16,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::rgb_double > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint16,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yiq_uint16,::color::category::rgb_ldouble> : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint16,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yiq_uint32,::color::category::rgb_uint8 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint32,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::rgb_uint16 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint32,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::rgb_uint32 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint32,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::rgb_uint64 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint32,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::rgb_float > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint32,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::rgb_double > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint32,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yiq_uint32,::color::category::rgb_ldouble> : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint32,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yiq_uint64,::color::category::rgb_uint8 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint64,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::rgb_uint16 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint64,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::rgb_uint32 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint64,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::rgb_uint64 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint64,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::rgb_float > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint64,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::rgb_double > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint64,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yiq_uint64,::color::category::rgb_ldouble> : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_uint64,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yiq_float,::color::category::rgb_uint8 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_float,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::rgb_uint16 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_float,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::rgb_uint32 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_float,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::rgb_uint64 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_float,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yiq_float,::color::category::rgb_float > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_float,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yiq_float,::color::category::rgb_double > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_float,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yiq_float,::color::category::rgb_ldouble> : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_float,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yiq_double,::color::category::rgb_uint8 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_double,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::rgb_uint16 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_double,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::rgb_uint32 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_double,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::rgb_uint64 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_double,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yiq_double,::color::category::rgb_float > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_double,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yiq_double,::color::category::rgb_double > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_double,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yiq_double,::color::category::rgb_ldouble> : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_double,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yiq_ldouble,::color::category::rgb_uint8 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_ldouble,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::rgb_uint16 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_ldouble,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::rgb_uint32 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_ldouble,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::rgb_uint64 > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_ldouble,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::rgb_float > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_ldouble,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_ldouble,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yiq_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateYIQ::convert_rgb2yiq<::color::category::yiq_ldouble,::color::category::rgb_ldouble> {};
+template< typename yiq_tag_name, typename rgb_tag_name >
+struct convert
+		<
+		::color::category::yiq< yiq_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		>
+		: public ::color::_internal::_privateYIQ::convert_rgb2yiq
+		<
+		::color::category::yiq< yiq_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		> {
+};
 
 }
 }
@@ -23270,7 +25408,7 @@ namespace _internal {
 
 template< typename type_name >
 struct pick_yiq {
-	typedef color::category::yiq_uint32 category_type;
+	typedef ::color::category::yiq_uint32 category_type;
 };
 
 template<> struct pick_yiq< std::uint8_t > {
@@ -23297,109 +25435,51 @@ template<> struct pick_yiq< long double > {
 }
 
 template< typename type_name >
-using yiq = color::_internal::model< typename color::_internal::pick_yiq< type_name >::category_type >;
+using yiq = ::color::_internal::model< typename ::color::_internal::pick_yiq< type_name >::category_type >;
 
 }
 
 namespace color {
 namespace _internal {
-namespace _privateRGB {
+namespace _privateGray {
 
 template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_yiq2rgb {
+struct convert_yiq2gray {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
+
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
-		static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-		static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
-		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type i = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type q = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
-		q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
-		scalar_type r = b11 * y + b12 * i + b13 * q;
-		scalar_type g = b21 * y + b22 * i + b23 * q;
-		scalar_type b = b31 * y + b32 * i + b33 * q;
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
 	}
 };
 
 }
 
-template< > struct convert<::color::category::rgb_uint8,::color::category::yiq_uint8 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint8,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yiq_uint16 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint8,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yiq_uint32 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint8,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yiq_uint64 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint8,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yiq_float > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint8,::color::category::yiq_float > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yiq_double > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint8,::color::category::yiq_double > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yiq_ldouble> : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint8,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint16,::color::category::yiq_uint8 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint16,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yiq_uint16 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint16,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yiq_uint32 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint16,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yiq_uint64 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint16,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yiq_float > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint16,::color::category::yiq_float > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yiq_double > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint16,::color::category::yiq_double > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yiq_ldouble> : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint16,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint32,::color::category::yiq_uint8 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint32,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yiq_uint16 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint32,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yiq_uint32 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint32,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yiq_uint64 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint32,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yiq_float > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint32,::color::category::yiq_float > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yiq_double > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint32,::color::category::yiq_double > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yiq_ldouble> : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint32,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint64,::color::category::yiq_uint8 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint64,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yiq_uint16 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint64,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yiq_uint32 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint64,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yiq_uint64 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint64,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yiq_float > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint64,::color::category::yiq_float > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yiq_double > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint64,::color::category::yiq_double > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yiq_ldouble> : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_uint64,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::rgb_float,::color::category::yiq_uint8 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_float,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yiq_uint16 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_float,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yiq_uint32 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_float,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yiq_uint64 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_float,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yiq_float > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_float,::color::category::yiq_float > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yiq_double > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_float,::color::category::yiq_double > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yiq_ldouble> : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_float,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::rgb_double,::color::category::yiq_uint8 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_double,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yiq_uint16 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_double,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yiq_uint32 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_double,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yiq_uint64 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_double,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yiq_float > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_double,::color::category::yiq_float > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yiq_double > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_double,::color::category::yiq_double > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yiq_ldouble> : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_double,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yiq_uint8 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_ldouble,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yiq_uint16 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_ldouble,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yiq_uint32 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_ldouble,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yiq_uint64 > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_ldouble,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yiq_float > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_ldouble,::color::category::yiq_float > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yiq_double > : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_ldouble,::color::category::yiq_double > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yiq_ldouble> : public ::color::_internal::_privateRGB::convert_yiq2rgb<::color::category::rgb_ldouble,::color::category::yiq_ldouble> {};
+template< typename gray_tag_name, typename yiq_tag_name >
+struct convert
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::yiq<yiq_tag_name>
+		>
+		: public ::color::_internal::_privateGray::convert_yiq2gray
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::yiq<yiq_tag_name>
+		> {
+};
 
 }
 }
@@ -23840,80 +25920,6 @@ namespace color {
 namespace trait {
 
 template< >
-struct container< ::color::category::yuv_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yuv_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yuv_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yuv_uint16 >
-		: public ::color::_internal::utility::container::cner556< unsigned > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yuv_uint32 >
-		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 3, 8 > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yuv_uint64 >
-		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint16_t, unsigned, 3, 16 > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct container< ::color::category::yuv_uint8 >
-		: public ::color::_internal::utility::container::cner332< unsigned > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
 struct index< ::color::category::yuv_double >
 		: public ::color::_internal::utility::type::index< unsigned > {
 };
@@ -24001,43 +26007,43 @@ gray(::color::_internal::model< category_name > const& color_parameter) {
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yuv_uint8 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yuv_uint8 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yuv_uint8 > const& color_parameter) {
 	return ::color::get::_internal::_privateYUV::gray<color::category::yuv_uint8>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yuv_uint16 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yuv_uint16 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yuv_uint16 > const& color_parameter) {
 	return ::color::get::_internal::_privateYUV::gray<color::category::yuv_uint16>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yuv_uint32 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yuv_uint32 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yuv_uint32 > const& color_parameter) {
 	return ::color::get::_internal::_privateYUV::gray<color::category::yuv_uint32>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yuv_uint64 >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yuv_uint64 > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yuv_uint64 > const& color_parameter) {
 	return ::color::get::_internal::_privateYUV::gray<color::category::yuv_uint64>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yuv_float >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yuv_float > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yuv_float > const& color_parameter) {
 	return ::color::get::_internal::_privateYUV::gray<color::category::yuv_float>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yuv_double >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yuv_double > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yuv_double > const& color_parameter) {
 	return ::color::get::_internal::_privateYUV::gray<color::category::yuv_double>(color_parameter);
 }
 
 inline
 ::color::trait::component< ::color::akin::gray< ::color::category::yuv_ldouble >::akin_type >::return_type
-gray(::color::_internal::model< color::category::yuv_ldouble > const& color_parameter) {
+gray(::color::_internal::model< ::color::category::yuv_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateYUV::gray<color::category::yuv_ldouble>(color_parameter);
 }
 
@@ -24057,8 +26063,9 @@ red(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	static scalar_type const Wr = 0.299;
-	static scalar_type const Vmax = 0.615;
+	typedef ::color::constant::yuv< category_name > yuv_const_type;
+	static scalar_type const Wr = yuv_const_type::Wr();
+	static scalar_type const Vmax = yuv_const_type::Vmax();
 	static scalar_type const b11 = 1, b12 = 0, b13 = (1 - Wr) / Vmax;
 	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
 	scalar_type v = normalize_type::template process<2>(color_parameter.template get<2>());
@@ -24096,7 +26103,7 @@ red(::color::_internal::model< ::color::category::yuv_uint64 > const& color_para
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yuv_float>::akin_type >::return_type
-red(::color::_internal::model< color::category::yuv_float > const& color_parameter) {
+red(::color::_internal::model< ::color::category::yuv_float > const& color_parameter) {
 	return ::color::get::_internal::_privateYUV::red<color::category::yuv_float>(color_parameter);
 }
 
@@ -24125,14 +26132,15 @@ inline
 typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 green(::color::_internal::model< category_name > const& color_parameter) {
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
-	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
+	typedef typename ::color::akin::rgb<category_name>::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	static scalar_type const Wr = 0.299;
-	static scalar_type const Wb = 0.114;
-	static scalar_type const Wg = 1.0-Wr-Wb;
-	static scalar_type const Umax = 0.436;
-	static scalar_type const Vmax = 0.615;
+	typedef ::color::constant::yuv< category_name > yuv_const_type;
+	static scalar_type const Wr = yuv_const_type::Wr();
+	static scalar_type const Wb = yuv_const_type::Wb();
+	static scalar_type const Wg = yuv_const_type::Wg();
+	static scalar_type const Umax = yuv_const_type::Umax();
+	static scalar_type const Vmax = yuv_const_type::Vmax();
 	static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg, b23 = -Wr*(1 - Wr) / Vmax / Wg;
 	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
 	scalar_type u = normalize_type::template process<1>(color_parameter.template get<1>());
@@ -24184,7 +26192,7 @@ green(::color::_internal::model< ::color::category::yuv_double > const& color_pa
 
 inline
 ::color::trait::component< ::color::akin::rgb<::color::category::yuv_ldouble>::akin_type >::return_type
-green(::color::_internal::model< color::category::yuv_ldouble > const& color_parameter) {
+green(::color::_internal::model< ::color::category::yuv_ldouble > const& color_parameter) {
 	return ::color::get::_internal::_privateYUV::green<color::category::yuv_ldouble>(color_parameter);
 }
 
@@ -24200,12 +26208,13 @@ template< typename category_name >
 inline
 typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
 blue(::color::_internal::model< category_name > const& color_parameter) {
-	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+	typedef typename ::color::akin::rgb<category_name >::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize< category_name > normalize_type;
-	static scalar_type const Wb = 0.114;
-	static scalar_type const Umax = 0.436;
+	typedef ::color::constant::yuv< category_name > yuv_const_type;
+	static scalar_type const Wb = yuv_const_type::Wb();
+	static scalar_type const Umax = yuv_const_type::Umax();
 	static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax), b33 = 0;
 	scalar_type y = normalize_type::template process<0>(color_parameter.template get<0>());
 	scalar_type u = normalize_type::template process<1>(color_parameter.template get<1>());
@@ -25102,16 +27111,18 @@ public:
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+	typedef ::color::constant::yuv< category_left_name > yuv_const_type;
+
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static scalar_type const Wr = 0.299;
-		static scalar_type const Wb = 0.114;
-		static scalar_type const Wg = 1.0-Wr-Wb;
-		static scalar_type const Umax = 0.436;
-		static scalar_type const Vmax = 0.615;
+		static scalar_type const Wr = yuv_const_type::Wr();
+		static scalar_type const Wb = yuv_const_type::Wb();
+		static scalar_type const Wg = yuv_const_type::Wg();
+		static scalar_type const Umax = yuv_const_type::Umax();
+		static scalar_type const Vmax = yuv_const_type::Vmax();
 		scalar_type r = scalar_type(1) - normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
 		scalar_type g = scalar_type(1) - normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
 		scalar_type b = scalar_type(1) - normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
@@ -25126,61 +27137,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_float > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint8,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_uint8 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_float > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint16,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_uint8 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_float > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint32,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_uint8 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_float > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_uint64,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yuv_float,::color::category::cmy_uint8 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::cmy_float > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yuv_float,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yuv_float,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_float,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yuv_double,::color::category::cmy_uint8 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::cmy_float > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yuv_double,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yuv_double,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_double,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_uint8 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_uint16 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_uint32 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_uint64 > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_float > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_float > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_double > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateYUV::convert_cmy2yuv<::color::category::yuv_ldouble,::color::category::cmy_ldouble> {};
+template< typename yuv_tag_name, typename cmy_tag_name >
+struct convert
+		<
+		::color::category::yuv< yuv_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		>
+		: public ::color::_internal::_privateYUV::convert_cmy2yuv
+		<
+		::color::category::yuv< yuv_tag_name >
+		,::color::category::cmy< cmy_tag_name >
+		> {
+};
 
 }
 }
@@ -25219,61 +27187,18 @@ public:
 };
 }
 
-template< > struct convert<::color::category::yuv_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint8,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint8,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::gray_uint32 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint8,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::gray_uint64 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint8,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::gray_float > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint8,::color::category::gray_float > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::gray_double > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint8,::color::category::gray_double > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::gray_ldouble> : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint8,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yuv_uint16,::color::category::gray_uint8 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint16,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::gray_uint16 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint16,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::gray_uint32 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint16,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::gray_uint64 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint16,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::gray_float > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint16,::color::category::gray_float > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::gray_double > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint16,::color::category::gray_double > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::gray_ldouble> : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint16,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yuv_uint32,::color::category::gray_uint8 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint32,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::gray_uint16 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint32,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::gray_uint32 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint32,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::gray_uint64 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint32,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::gray_float > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint32,::color::category::gray_float > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::gray_double > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint32,::color::category::gray_double > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::gray_ldouble> : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint32,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yuv_uint64,::color::category::gray_uint8 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint64,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::gray_uint16 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint64,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::gray_uint32 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint64,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::gray_uint64 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint64,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::gray_float > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint64,::color::category::gray_float > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::gray_double > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint64,::color::category::gray_double > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::gray_ldouble> : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_uint64,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yuv_float,::color::category::gray_uint8 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_float,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::gray_uint16 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_float,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::gray_uint32 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_float,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::gray_uint64 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_float,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::gray_float > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_float,::color::category::gray_float > {};
-template< > struct convert<::color::category::yuv_float,::color::category::gray_double > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_float,::color::category::gray_double > {};
-template< > struct convert<::color::category::yuv_float,::color::category::gray_ldouble> : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_float,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yuv_double,::color::category::gray_uint8 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_double,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::gray_uint16 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_double,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::gray_uint32 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_double,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::gray_uint64 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_double,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::gray_float > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_double,::color::category::gray_float > {};
-template< > struct convert<::color::category::yuv_double,::color::category::gray_double > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_double,::color::category::gray_double > {};
-template< > struct convert<::color::category::yuv_double,::color::category::gray_ldouble> : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_double,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::yuv_ldouble,::color::category::gray_uint8 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_ldouble,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::gray_uint16 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_ldouble,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::gray_uint32 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_ldouble,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::gray_uint64 > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_ldouble,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::gray_float > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_ldouble,::color::category::gray_float > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::gray_double > : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_ldouble,::color::category::gray_double > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateYUV::convert_gray2yuv<::color::category::yuv_ldouble,::color::category::gray_ldouble> {};
+template< typename yuv_tag_name, typename gray_tag_name >
+struct convert
+		<
+		::color::category::yuv< yuv_tag_name >
+		,::color::category::gray< gray_tag_name >
+		>
+		: public ::color::_internal::_privateYUV::convert_gray2yuv
+		<
+		::color::category::yuv< yuv_tag_name >
+		,::color::category::gray< gray_tag_name >
+		> {
+};
 
 }
 }
@@ -25298,19 +27223,26 @@ public:
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+	typedef ::color::constant::yuv< category_left_name > yuv_const_type;
+
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static scalar_type const Wr = 0.299;
-		static scalar_type const Wb = 0.114;
-		static scalar_type const Wg = 1.0-Wr-Wb;
-		static scalar_type const Umax = 0.436;
-		static scalar_type const Vmax = 0.615;
-		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		enum {
+			red_p = ::color::place::_internal::red<category_right_type>::position_enum
+					,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+							   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		};
+		static scalar_type const Wr = yuv_const_type::Wr();
+		static scalar_type const Wb = yuv_const_type::Wb();
+		static scalar_type const Wg = yuv_const_type::Wg();
+		static scalar_type const Umax = yuv_const_type::Umax();
+		static scalar_type const Vmax = yuv_const_type::Vmax();
+		scalar_type r = normalize_type::template process<red_p >(container_right_trait_type::template get<red_p >(right));
+		scalar_type g = normalize_type::template process<green_p>(container_right_trait_type::template get<green_p>(right));
+		scalar_type b = normalize_type::template process<blue_p >(container_right_trait_type::template get<blue_p >(right));
 		scalar_type y = Wr * r + Wg * g + Wb * b;
 		scalar_type u = ((b - y) / (1 - Wb) + scalar_type(1)) / scalar_type(2);
 		scalar_type v = ((r - y) / (1 - Wr) + scalar_type(1)) / scalar_type(2);
@@ -25322,61 +27254,18 @@ public:
 
 }
 
-template< > struct convert<::color::category::yuv_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint8,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint8,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::rgb_uint32 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint8,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::rgb_uint64 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint8,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::rgb_float > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint8,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::rgb_double > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint8,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yuv_uint8,::color::category::rgb_ldouble> : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint8,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yuv_uint16,::color::category::rgb_uint8 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint16,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::rgb_uint16 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint16,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::rgb_uint32 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint16,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::rgb_uint64 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint16,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::rgb_float > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint16,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::rgb_double > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint16,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yuv_uint16,::color::category::rgb_ldouble> : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint16,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yuv_uint32,::color::category::rgb_uint8 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint32,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::rgb_uint16 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint32,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::rgb_uint32 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint32,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::rgb_uint64 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint32,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::rgb_float > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint32,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::rgb_double > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint32,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yuv_uint32,::color::category::rgb_ldouble> : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint32,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yuv_uint64,::color::category::rgb_uint8 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint64,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::rgb_uint16 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint64,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::rgb_uint32 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint64,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::rgb_uint64 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint64,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::rgb_float > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint64,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::rgb_double > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint64,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yuv_uint64,::color::category::rgb_ldouble> : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_uint64,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yuv_float,::color::category::rgb_uint8 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_float,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::rgb_uint16 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_float,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::rgb_uint32 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_float,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::rgb_uint64 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_float,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yuv_float,::color::category::rgb_float > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_float,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yuv_float,::color::category::rgb_double > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_float,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yuv_float,::color::category::rgb_ldouble> : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_float,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yuv_double,::color::category::rgb_uint8 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_double,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::rgb_uint16 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_double,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::rgb_uint32 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_double,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::rgb_uint64 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_double,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yuv_double,::color::category::rgb_float > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_double,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yuv_double,::color::category::rgb_double > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_double,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yuv_double,::color::category::rgb_ldouble> : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_double,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::yuv_ldouble,::color::category::rgb_uint8 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_ldouble,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::rgb_uint16 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_ldouble,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::rgb_uint32 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_ldouble,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::rgb_uint64 > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_ldouble,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::rgb_float > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_ldouble,::color::category::rgb_float > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_ldouble,::color::category::rgb_double > {};
-template< > struct convert<::color::category::yuv_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateYUV::convert_rgb2yuv<::color::category::yuv_ldouble,::color::category::rgb_ldouble> {};
+template< typename yuv_tag_name, typename rgb_tag_name >
+struct convert
+		<
+		::color::category::yuv< yuv_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		>
+		: public ::color::_internal::_privateYUV::convert_rgb2yuv
+		<
+		::color::category::yuv< yuv_tag_name >
+		,::color::category::rgb< rgb_tag_name >
+		> {
+};
 
 }
 }
@@ -25386,7 +27275,7 @@ namespace _internal {
 
 template< typename type_name >
 struct pick_yuv {
-	typedef color::category::yuv_uint32 category_type;
+	typedef ::color::category::yuv_uint32 category_type;
 };
 
 template<> struct pick_yuv< std::uint8_t > {
@@ -25413,1626 +27302,8 @@ template<> struct pick_yuv< long double > {
 }
 
 template< typename type_name >
-using yuv = color::_internal::model< typename color::_internal::pick_yuv< type_name >::category_type >;
+using yuv = ::color::_internal::model< typename ::color::_internal::pick_yuv< type_name >::category_type >;
 
-}
-
-namespace color {
-namespace _internal {
-namespace _privateRGB {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_yuv2rgb {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		static scalar_type const Wr = 0.299;
-		static scalar_type const Wb = 0.114;
-		static scalar_type const Wg = 1.0-Wr-Wb;
-		static scalar_type const Umax = 0.436;
-		static scalar_type const Vmax = 0.615;
-		static scalar_type const b11 = 1, b12 = 0, b13 = (1 - Wr) / Vmax;
-		static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg, b23 = -Wr*(1 - Wr) / Vmax / Wg;
-		static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax), b33 = 0;
-		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type u = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		u = (u - scalar_type(0.5)) * scalar_type(2) * Umax;
-		v = (v - scalar_type(0.5)) * scalar_type(2) * Vmax;
-		scalar_type r = y + v * b13;
-		scalar_type g = y + u * b22 + v * b23;
-		scalar_type b = y + u * b32;
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(r));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(g));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(b));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::rgb_uint8,::color::category::yuv_uint8 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint8,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yuv_uint16 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint8,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yuv_uint32 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint8,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yuv_uint64 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint8,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yuv_float > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint8,::color::category::yuv_float > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yuv_double > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint8,::color::category::yuv_double > {};
-template< > struct convert<::color::category::rgb_uint8,::color::category::yuv_ldouble> : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint8,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint16,::color::category::yuv_uint8 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint16,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yuv_uint16 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint16,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yuv_uint32 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint16,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yuv_uint64 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint16,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yuv_float > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint16,::color::category::yuv_float > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yuv_double > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint16,::color::category::yuv_double > {};
-template< > struct convert<::color::category::rgb_uint16,::color::category::yuv_ldouble> : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint16,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint32,::color::category::yuv_uint8 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint32,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yuv_uint16 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint32,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yuv_uint32 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint32,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yuv_uint64 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint32,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yuv_float > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint32,::color::category::yuv_float > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yuv_double > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint32,::color::category::yuv_double > {};
-template< > struct convert<::color::category::rgb_uint32,::color::category::yuv_ldouble> : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint32,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::rgb_uint64,::color::category::yuv_uint8 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint64,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yuv_uint16 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint64,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yuv_uint32 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint64,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yuv_uint64 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint64,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yuv_float > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint64,::color::category::yuv_float > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yuv_double > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint64,::color::category::yuv_double > {};
-template< > struct convert<::color::category::rgb_uint64,::color::category::yuv_ldouble> : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_uint64,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::rgb_float,::color::category::yuv_uint8 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_float,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yuv_uint16 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_float,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yuv_uint32 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_float,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yuv_uint64 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_float,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yuv_float > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_float,::color::category::yuv_float > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yuv_double > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_float,::color::category::yuv_double > {};
-template< > struct convert<::color::category::rgb_float,::color::category::yuv_ldouble> : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_float,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::rgb_double,::color::category::yuv_uint8 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_double,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yuv_uint16 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_double,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yuv_uint32 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_double,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yuv_uint64 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_double,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yuv_float > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_double,::color::category::yuv_float > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yuv_double > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_double,::color::category::yuv_double > {};
-template< > struct convert<::color::category::rgb_double,::color::category::yuv_ldouble> : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_double,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yuv_uint8 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_ldouble,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yuv_uint16 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_ldouble,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yuv_uint32 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_ldouble,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yuv_uint64 > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_ldouble,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yuv_float > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_ldouble,::color::category::yuv_float > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yuv_double > : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_ldouble,::color::category::yuv_double > {};
-template< > struct convert<::color::category::rgb_ldouble,::color::category::yuv_ldouble> : public ::color::_internal::_privateRGB::convert_yuv2rgb<::color::category::rgb_ldouble,::color::category::yuv_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-
-template< typename type_name >
-struct pick_rgb {
-	typedef color::category::rgb_uint32 category_type;
-};
-
-template<> struct pick_rgb< std::uint8_t > {
-	typedef ::color::category::rgb_uint8 category_type;
-};
-template<> struct pick_rgb< std::uint16_t > {
-	typedef ::color::category::rgb_uint16 category_type;
-};
-template<> struct pick_rgb< std::uint32_t > {
-	typedef ::color::category::rgb_uint32 category_type;
-};
-template<> struct pick_rgb< std::uint64_t > {
-	typedef ::color::category::rgb_uint64 category_type;
-};
-template<> struct pick_rgb< float > {
-	typedef ::color::category::rgb_float category_type;
-};
-template<> struct pick_rgb< double > {
-	typedef ::color::category::rgb_double category_type;
-};
-template<> struct pick_rgb< long double > {
-	typedef ::color::category::rgb_ldouble category_type;
-};
-
-template<> struct pick_rgb< ::color::type::uint24_t > {
-	typedef ::color::category::rgb_uint24 category_type;
-};
-template<> struct pick_rgb< ::color::type::uint48_t > {
-	typedef ::color::category::rgb_uint48 category_type;
-};
-
-}
-
-template< typename type_name >
-using rgb = color::_internal::model< typename color::_internal::pick_rgb< type_name >::category_type >;
-
-}
-
-namespace color {
-namespace _internal {
-namespace _privateCMYK {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_rgb2cmyk {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		scalar_type r = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type b = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		scalar_type k = scalar_type(1) - std::max({ r, g, b });
-		scalar_type c;
-		scalar_type m;
-		scalar_type y;
-		if(scalar_type(1) != k) {
-			c = (1-r-k) / (1-k);
-			m = (1-g-k) / (1-k);
-			y = (1-b-k) / (1-k);
-		} else {
-			c = scalar_type(0);
-			m = scalar_type(0);
-			y = scalar_type(0);
-		}
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
-		container_left_trait_type::template set<3>(left, diverse_type::template process<3>(k));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::cmyk_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint8,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint8,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint8,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint8,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::rgb_float > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint8,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::rgb_double > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint8,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmyk_uint8,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint8,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_uint16,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint16,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint16,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint16,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint16,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::rgb_float > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint16,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::rgb_double > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint16,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmyk_uint16,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint16,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_uint32,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint32,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint32,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint32,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint32,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::rgb_float > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint32,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::rgb_double > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint32,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmyk_uint32,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint32,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_uint64,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint64,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint64,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint64,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint64,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::rgb_float > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint64,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::rgb_double > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint64,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmyk_uint64,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_uint64,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_float,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_float,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_float,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_float,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_float,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::rgb_float > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_float,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::rgb_double > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_float,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmyk_float,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_float,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_double,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_double,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_double,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_double,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_double,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::rgb_float > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_double,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::rgb_double > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_double,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmyk_double,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_double,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_ldouble,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_ldouble,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_ldouble,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_ldouble,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::rgb_float > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_ldouble,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_ldouble,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmyk_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMYK::convert_rgb2cmyk<::color::category::cmyk_ldouble,::color::category::rgb_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-
-template< typename type_name >
-struct pick_cmyk {
-	typedef color::category::cmyk_uint32 category_type;
-};
-
-template<> struct pick_cmyk< std::uint8_t > {
-	typedef ::color::category::cmyk_uint8 category_type;
-};
-template<> struct pick_cmyk< std::uint16_t > {
-	typedef ::color::category::cmyk_uint16 category_type;
-};
-template<> struct pick_cmyk< std::uint32_t > {
-	typedef ::color::category::cmyk_uint32 category_type;
-};
-template<> struct pick_cmyk< std::uint64_t > {
-	typedef ::color::category::cmyk_uint64 category_type;
-};
-template<> struct pick_cmyk< float > {
-	typedef ::color::category::cmyk_float category_type;
-};
-template<> struct pick_cmyk< double > {
-	typedef ::color::category::cmyk_double category_type;
-};
-template<> struct pick_cmyk< long double > {
-	typedef ::color::category::cmyk_ldouble category_type;
-};
-}
-
-template< typename type_name >
-using cmyk = color::_internal::model< typename color::_internal::pick_cmyk< type_name >::category_type >;
-
-}
-
-namespace color {
-namespace _internal {
-namespace _privateCMY {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_cmyk2cmy {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		scalar_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		scalar_type ck = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
-		scalar_type c = cc * (1-ck) + ck;
-		scalar_type m = cm * (1-ck) + ck;
-		scalar_type y = cy * (1-ck) + ck;
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::cmy_uint8,::color::category::cmyk_uint8 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint8,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::cmyk_uint16 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint8,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::cmyk_uint32 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint8,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::cmyk_uint64 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint8,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::cmyk_float > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint8,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::cmyk_double > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint8,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::cmyk_ldouble> : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint8,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint16,::color::category::cmyk_uint8 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint16,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::cmyk_uint16 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint16,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::cmyk_uint32 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint16,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::cmyk_uint64 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint16,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::cmyk_float > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint16,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::cmyk_double > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint16,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::cmyk_ldouble> : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint16,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint32,::color::category::cmyk_uint8 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint32,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::cmyk_uint16 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint32,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::cmyk_uint32 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint32,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::cmyk_uint64 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint32,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::cmyk_float > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint32,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::cmyk_double > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint32,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::cmyk_ldouble> : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint32,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint64,::color::category::cmyk_uint8 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint64,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::cmyk_uint16 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint64,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::cmyk_uint32 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint64,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::cmyk_uint64 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint64,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::cmyk_float > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint64,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::cmyk_double > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint64,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::cmyk_ldouble> : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_uint64,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::cmy_float,::color::category::cmyk_uint8 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_float,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::cmyk_uint16 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_float,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::cmyk_uint32 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_float,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::cmyk_uint64 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_float,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::cmyk_float > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_float,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::cmy_float,::color::category::cmyk_double > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_float,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::cmy_float,::color::category::cmyk_ldouble> : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_float,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::cmy_double,::color::category::cmyk_uint8 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_double,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::cmyk_uint16 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_double,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::cmyk_uint32 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_double,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::cmyk_uint64 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_double,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::cmyk_float > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_double,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::cmy_double,::color::category::cmyk_double > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_double,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::cmy_double,::color::category::cmyk_ldouble> : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_double,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::cmy_ldouble,::color::category::cmyk_uint8 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_ldouble,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::cmyk_uint16 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_ldouble,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::cmyk_uint32 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_ldouble,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::cmyk_uint64 > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_ldouble,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::cmyk_float > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_ldouble,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::cmyk_double > : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_ldouble,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::cmyk_ldouble> : public ::color::_internal::_privateCMY::convert_cmyk2cmy<::color::category::cmy_ldouble,::color::category::cmyk_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateCMY {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_gray2cmy {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
-		container_left_trait_type::template set<1>(left, reformat_type::template process<1,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
-		container_left_trait_type::template set<2>(left, reformat_type::template process<2,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
-	}
-};
-}
-
-template< > struct convert<::color::category::cmy_uint8,::color::category::gray_uint8 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint8,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::gray_uint16 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint8,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::gray_uint32 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint8,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::gray_uint64 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint8,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::gray_float > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint8,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::gray_double > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint8,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::gray_ldouble> : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint8,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint16,::color::category::gray_uint8 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint16,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::gray_uint16 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint16,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::gray_uint32 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint16,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::gray_uint64 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint16,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::gray_float > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint16,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::gray_double > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint16,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::gray_ldouble> : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint16,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint32,::color::category::gray_uint8 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint32,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::gray_uint16 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint32,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::gray_uint32 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint32,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::gray_uint64 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint32,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::gray_float > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint32,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::gray_double > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint32,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::gray_ldouble> : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint32,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint64,::color::category::gray_uint8 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint64,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::gray_uint16 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint64,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::gray_uint32 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint64,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::gray_uint64 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint64,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::gray_float > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint64,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::gray_double > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint64,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::gray_ldouble> : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_uint64,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmy_float,::color::category::gray_uint8 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_float,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::gray_uint16 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_float,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::gray_uint32 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_float,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::gray_uint64 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_float,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::gray_float > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_float,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmy_float,::color::category::gray_double > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_float,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmy_float,::color::category::gray_ldouble> : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_float,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmy_double,::color::category::gray_uint8 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_double,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::gray_uint16 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_double,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::gray_uint32 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_double,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::gray_uint64 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_double,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::gray_float > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_double,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmy_double,::color::category::gray_double > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_double,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmy_double,::color::category::gray_ldouble> : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_double,::color::category::gray_ldouble> {};
-
-template< > struct convert<::color::category::cmy_ldouble,::color::category::gray_uint8 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_ldouble,::color::category::gray_uint8 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::gray_uint16 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_ldouble,::color::category::gray_uint16 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::gray_uint32 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_ldouble,::color::category::gray_uint32 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::gray_uint64 > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_ldouble,::color::category::gray_uint64 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::gray_float > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_ldouble,::color::category::gray_float > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::gray_double > : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_ldouble,::color::category::gray_double > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::gray_ldouble> : public ::color::_internal::_privateCMY::convert_gray2cmy<::color::category::cmy_ldouble,::color::category::gray_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateCMY {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_hsl2cmy {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-	typedef ::color::_internal::_privateCMY::convert_hsl2cmy<category_left_name, category_right_name, scalar_name> this_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		scalar_type r;
-		scalar_type g;
-		scalar_type b;
-		if(s == 0) {
-			r = l;
-			g = l;
-			b = l;
-		} else {
-			scalar_type q = l < scalar_type(0.5) ? (l * (1 + s)) : (l + s - l * s);
-			scalar_type p = scalar_type(2) * l - q;
-			r = this_type::value(p, q, h + (scalar_type(1) / scalar_type(3)) + (scalar_type(2) / scalar_type(3) < h ? -1 :0));
-			g = this_type::value(p, q, h);
-			b = this_type::value(p, q, h - (scalar_type(1) / scalar_type(3)) + (h < scalar_type(1) / scalar_type(3) ? +1 :0));
-		}
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
-	}
-
-private:
-	static scalar_type value(scalar_type const& p, scalar_type const& q, scalar_type const& t) {
-		if(t < scalar_type(1)/scalar_type(6)) {
-			return (p + (q - p) * scalar_type(6) * t);
-		}
-		if(t < scalar_type(1)/scalar_type(2)) {
-			return (q);
-		}
-		if(t < scalar_type(2)/scalar_type(3)) {
-			return (p + (q - p) * ((scalar_type(2)/scalar_type(3)) - t) * scalar_type(6));
-		}
-		return p ;
-	}
-};
-
-}
-
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsl_uint8 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint8,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsl_uint16 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint8,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsl_uint32 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint8,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsl_uint64 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint8,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsl_float > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint8,::color::category::hsl_float > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsl_double > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint8,::color::category::hsl_double > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsl_ldouble> : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint8,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsl_uint8 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint16,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsl_uint16 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint16,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsl_uint32 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint16,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsl_uint64 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint16,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsl_float > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint16,::color::category::hsl_float > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsl_double > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint16,::color::category::hsl_double > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsl_ldouble> : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint16,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsl_uint8 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint32,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsl_uint16 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint32,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsl_uint32 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint32,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsl_uint64 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint32,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsl_float > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint32,::color::category::hsl_float > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsl_double > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint32,::color::category::hsl_double > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsl_ldouble> : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint32,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsl_uint8 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint64,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsl_uint16 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint64,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsl_uint32 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint64,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsl_uint64 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint64,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsl_float > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint64,::color::category::hsl_float > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsl_double > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint64,::color::category::hsl_double > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsl_ldouble> : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_uint64,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::cmy_float,::color::category::hsl_uint8 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_float,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsl_uint16 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_float,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsl_uint32 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_float,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsl_uint64 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_float,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsl_float > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_float,::color::category::hsl_float > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsl_double > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_float,::color::category::hsl_double > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsl_ldouble> : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_float,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::cmy_double,::color::category::hsl_uint8 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_double,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsl_uint16 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_double,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsl_uint32 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_double,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsl_uint64 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_double,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsl_float > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_double,::color::category::hsl_float > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsl_double > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_double,::color::category::hsl_double > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsl_ldouble> : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_double,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsl_uint8 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_ldouble,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsl_uint16 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_ldouble,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsl_uint32 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_ldouble,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsl_uint64 > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_ldouble,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsl_float > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_ldouble,::color::category::hsl_float > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsl_double > : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_ldouble,::color::category::hsl_double > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsl_ldouble> : public ::color::_internal::_privateCMY::convert_hsl2cmy<::color::category::cmy_ldouble,::color::category::hsl_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateCMY {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_hsv2cmy {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type s = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		int region = int(6 * h);
-		scalar_type f = h * 6 - region ;
-		scalar_type p = v * (scalar_type(1) - s);
-		scalar_type q = v * (scalar_type(1) - f * s);
-		scalar_type t = v * (scalar_type(1) - (1 - f) * s);
-		scalar_type r;
-		scalar_type g;
-		scalar_type b;
-		switch(region % 6) {
-		case 0:
-			r = v, g = t, b = p;
-			break;
-		case 1:
-			r = q, g = v, b = p;
-			break;
-		case 2:
-			r = p, g = v, b = t;
-			break;
-		case 3:
-			r = p, g = q, b = v;
-			break;
-		case 4:
-			r = t, g = p, b = v;
-			break;
-		case 5:
-			r = v, g = p, b = q;
-			break;
-		}
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsv_uint8 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint8,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsv_uint16 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint8,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsv_uint32 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint8,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsv_uint64 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint8,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsv_float > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint8,::color::category::hsv_float > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsv_double > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint8,::color::category::hsv_double > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::hsv_ldouble> : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint8,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsv_uint8 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint16,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsv_uint16 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint16,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsv_uint32 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint16,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsv_uint64 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint16,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsv_float > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint16,::color::category::hsv_float > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsv_double > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint16,::color::category::hsv_double > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::hsv_ldouble> : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint16,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsv_uint8 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint32,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsv_uint16 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint32,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsv_uint32 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint32,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsv_uint64 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint32,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsv_float > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint32,::color::category::hsv_float > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsv_double > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint32,::color::category::hsv_double > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::hsv_ldouble> : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint32,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsv_uint8 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint64,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsv_uint16 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint64,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsv_uint32 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint64,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsv_uint64 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint64,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsv_float > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint64,::color::category::hsv_float > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsv_double > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint64,::color::category::hsv_double > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::hsv_ldouble> : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_uint64,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_float,::color::category::hsv_uint8 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_float,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsv_uint16 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_float,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsv_uint32 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_float,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsv_uint64 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_float,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsv_float > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_float,::color::category::hsv_float > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsv_double > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_float,::color::category::hsv_double > {};
-template< > struct convert<::color::category::cmy_float,::color::category::hsv_ldouble> : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_float,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_double,::color::category::hsv_uint8 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_double,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsv_uint16 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_double,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsv_uint32 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_double,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsv_uint64 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_double,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsv_float > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_double,::color::category::hsv_float > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsv_double > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_double,::color::category::hsv_double > {};
-template< > struct convert<::color::category::cmy_double,::color::category::hsv_ldouble> : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_double,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsv_uint8 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_ldouble,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsv_uint16 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_ldouble,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsv_uint32 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_ldouble,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsv_uint64 > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_ldouble,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsv_float > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_ldouble,::color::category::hsv_float > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsv_double > : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_ldouble,::color::category::hsv_double > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::hsv_ldouble> : public ::color::_internal::_privateCMY::convert_hsv2cmy<::color::category::cmy_ldouble,::color::category::hsv_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateCMY {
-
-template< typename category_left_name, typename category_right_name >
-struct convert_rgb2cmy {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
-		typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(invert_type::template component<0>(container_right_trait_type::template get<0>(right))));
-		container_left_trait_type::template set<1>(left, reformat_type::template process<1,1>(invert_type::template component<1>(container_right_trait_type::template get<1>(right))));
-		container_left_trait_type::template set<2>(left, reformat_type::template process<2,2>(invert_type::template component<2>(container_right_trait_type::template get<2>(right))));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::cmy_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint8,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint8,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint8,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint8,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::rgb_float > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint8,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::rgb_double > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint8,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint8,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint16,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint16,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint16,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint16,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint16,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::rgb_float > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint16,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::rgb_double > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint16,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint16,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint32,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint32,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint32,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint32,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint32,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::rgb_float > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint32,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::rgb_double > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint32,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint32,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint64,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint64,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint64,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint64,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint64,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::rgb_float > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint64,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::rgb_double > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint64,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_uint64,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmy_float,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_float,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_float,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_float,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_float,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::rgb_float > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_float,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmy_float,::color::category::rgb_double > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_float,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmy_float,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_float,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmy_double,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_double,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_double,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_double,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_double,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::rgb_float > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_double,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmy_double,::color::category::rgb_double > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_double,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmy_double,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_double,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::cmy_ldouble,::color::category::rgb_uint8 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_ldouble,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::rgb_uint16 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_ldouble,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::rgb_uint32 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_ldouble,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::rgb_uint64 > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_ldouble,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::rgb_float > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_ldouble,::color::category::rgb_float > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_ldouble,::color::category::rgb_double > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateCMY::convert_rgb2cmy<::color::category::cmy_ldouble,::color::category::rgb_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateCMY {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_yiq2cmy {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		static scalar_type b11 = 1, b12 = 0.9562948323208939905, b13 = 0.6210251254447287141;
-		static scalar_type b21 = 1, b22 = -0.2721214740839773195, b23 = -0.6473809535176157222;
-		static scalar_type b31 = 1, b32 = -1.1069899085671282160, b33 = 1.7046149754988293290;
-		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type i = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type q = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		i = (scalar_type(2) * i - scalar_type(1)) * 0.5957161349127745527;
-		q = (scalar_type(2) * q - scalar_type(1)) * 0.5225910452916111683;
-		scalar_type r = b11 * y + b12 * i + b13 * q;
-		scalar_type g = b21 * y + b22 * i + b23 * q;
-		scalar_type b = b31 * y + b32 * i + b33 * q;
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::cmy_uint8,::color::category::yiq_uint8 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint8,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yiq_uint16 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint8,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yiq_uint32 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint8,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yiq_uint64 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint8,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yiq_float > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint8,::color::category::yiq_float > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yiq_double > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint8,::color::category::yiq_double > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yiq_ldouble> : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint8,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint16,::color::category::yiq_uint8 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint16,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yiq_uint16 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint16,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yiq_uint32 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint16,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yiq_uint64 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint16,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yiq_float > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint16,::color::category::yiq_float > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yiq_double > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint16,::color::category::yiq_double > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yiq_ldouble> : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint16,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint32,::color::category::yiq_uint8 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint32,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yiq_uint16 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint32,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yiq_uint32 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint32,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yiq_uint64 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint32,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yiq_float > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint32,::color::category::yiq_float > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yiq_double > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint32,::color::category::yiq_double > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yiq_ldouble> : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint32,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint64,::color::category::yiq_uint8 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint64,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yiq_uint16 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint64,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yiq_uint32 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint64,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yiq_uint64 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint64,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yiq_float > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint64,::color::category::yiq_float > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yiq_double > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint64,::color::category::yiq_double > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yiq_ldouble> : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_uint64,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::cmy_float,::color::category::yiq_uint8 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_float,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yiq_uint16 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_float,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yiq_uint32 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_float,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yiq_uint64 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_float,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yiq_float > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_float,::color::category::yiq_float > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yiq_double > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_float,::color::category::yiq_double > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yiq_ldouble> : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_float,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::cmy_double,::color::category::yiq_uint8 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_double,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yiq_uint16 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_double,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yiq_uint32 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_double,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yiq_uint64 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_double,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yiq_float > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_double,::color::category::yiq_float > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yiq_double > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_double,::color::category::yiq_double > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yiq_ldouble> : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_double,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yiq_uint8 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_ldouble,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yiq_uint16 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_ldouble,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yiq_uint32 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_ldouble,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yiq_uint64 > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_ldouble,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yiq_float > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_ldouble,::color::category::yiq_float > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yiq_double > : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_ldouble,::color::category::yiq_double > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yiq_ldouble> : public ::color::_internal::_privateCMY::convert_yiq2cmy<::color::category::cmy_ldouble,::color::category::yiq_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateCMY {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_yuv2cmy {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		static scalar_type const Wr = 0.299;
-		static scalar_type const Wb = 0.114;
-		static scalar_type const Wg = 1.0-Wr-Wb;
-		static scalar_type const Umax = 0.436;
-		static scalar_type const Vmax = 0.615;
-		static scalar_type const b11 = 1, b12 = 0, b13 = (1 - Wr) / Vmax;
-		static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg, b23 = -Wr*(1 - Wr) / Vmax / Wg;
-		static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax), b33 = 0;
-		scalar_type y = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type u = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type v = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		u = (u - scalar_type(0.5)) * scalar_type(2) * Umax;
-		v = (v - scalar_type(0.5)) * scalar_type(2) * Vmax;
-		scalar_type r = y + v * b13;
-		scalar_type g = y + u * b22 + v * b23;
-		scalar_type b = y + u * b32 ;
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(scalar_type(1) - r));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(scalar_type(1) - g));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(scalar_type(1) - b));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::cmy_uint8,::color::category::yuv_uint8 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint8,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yuv_uint16 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint8,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yuv_uint32 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint8,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yuv_uint64 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint8,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yuv_float > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint8,::color::category::yuv_float > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yuv_double > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint8,::color::category::yuv_double > {};
-template< > struct convert<::color::category::cmy_uint8,::color::category::yuv_ldouble> : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint8,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint16,::color::category::yuv_uint8 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint16,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yuv_uint16 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint16,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yuv_uint32 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint16,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yuv_uint64 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint16,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yuv_float > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint16,::color::category::yuv_float > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yuv_double > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint16,::color::category::yuv_double > {};
-template< > struct convert<::color::category::cmy_uint16,::color::category::yuv_ldouble> : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint16,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint32,::color::category::yuv_uint8 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint32,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yuv_uint16 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint32,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yuv_uint32 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint32,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yuv_uint64 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint32,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yuv_float > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint32,::color::category::yuv_float > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yuv_double > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint32,::color::category::yuv_double > {};
-template< > struct convert<::color::category::cmy_uint32,::color::category::yuv_ldouble> : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint32,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_uint64,::color::category::yuv_uint8 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint64,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yuv_uint16 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint64,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yuv_uint32 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint64,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yuv_uint64 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint64,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yuv_float > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint64,::color::category::yuv_float > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yuv_double > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint64,::color::category::yuv_double > {};
-template< > struct convert<::color::category::cmy_uint64,::color::category::yuv_ldouble> : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_uint64,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_float,::color::category::yuv_uint8 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_float,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yuv_uint16 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_float,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yuv_uint32 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_float,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yuv_uint64 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_float,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yuv_float > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_float,::color::category::yuv_float > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yuv_double > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_float,::color::category::yuv_double > {};
-template< > struct convert<::color::category::cmy_float,::color::category::yuv_ldouble> : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_float,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_double,::color::category::yuv_uint8 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_double,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yuv_uint16 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_double,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yuv_uint32 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_double,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yuv_uint64 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_double,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yuv_float > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_double,::color::category::yuv_float > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yuv_double > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_double,::color::category::yuv_double > {};
-template< > struct convert<::color::category::cmy_double,::color::category::yuv_ldouble> : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_double,::color::category::yuv_ldouble> {};
-
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yuv_uint8 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_ldouble,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yuv_uint16 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_ldouble,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yuv_uint32 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_ldouble,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yuv_uint64 > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_ldouble,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yuv_float > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_ldouble,::color::category::yuv_float > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yuv_double > : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_ldouble,::color::category::yuv_double > {};
-template< > struct convert<::color::category::cmy_ldouble,::color::category::yuv_ldouble> : public ::color::_internal::_privateCMY::convert_yuv2cmy<::color::category::cmy_ldouble,::color::category::yuv_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-
-template< typename type_name >
-struct pick_cmy {
-	typedef color::category::cmy_uint32 category_type;
-};
-
-template<> struct pick_cmy< std::uint8_t > {
-	typedef ::color::category::cmy_uint8 category_type;
-};
-template<> struct pick_cmy< std::uint16_t > {
-	typedef ::color::category::cmy_uint16 category_type;
-};
-template<> struct pick_cmy< std::uint32_t > {
-	typedef ::color::category::cmy_uint32 category_type;
-};
-template<> struct pick_cmy< std::uint64_t > {
-	typedef ::color::category::cmy_uint64 category_type;
-};
-template<> struct pick_cmy< float > {
-	typedef ::color::category::cmy_float category_type;
-};
-template<> struct pick_cmy< double > {
-	typedef ::color::category::cmy_double category_type;
-};
-template<> struct pick_cmy< long double > {
-	typedef ::color::category::cmy_ldouble category_type;
-};
-}
-
-template< typename type_name >
-using cmy = color::_internal::model< typename color::_internal::pick_cmy< type_name >::category_type >;
-
-}
-
-namespace color {
-namespace _internal {
-namespace _privateGray {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_cmy2gray {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		scalar_name value =
-			0.2126729 * (1 - normalize_type::template process<0> (container_right_trait_type::template get<0>(right)))
-			+ 0.7151522 * (1 - normalize_type::template process<1> (container_right_trait_type::template get<1>(right)))
-			+ 0.0721750 * (1 - normalize_type::template process<2> (container_right_trait_type::template get<2>(right)));
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
-	}
-};
-}
-
-template< > struct convert<::color::category::gray_uint8,::color::category::cmy_uint8 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint8,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmy_uint16 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint8,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmy_uint32 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint8,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmy_uint64 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint8,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmy_float > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint8,::color::category::cmy_float > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmy_double > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint8,::color::category::cmy_double > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmy_ldouble> : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint8,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint16,::color::category::cmy_uint8 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint16,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmy_uint16 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint16,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmy_uint32 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint16,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmy_uint64 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint16,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmy_float > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint16,::color::category::cmy_float > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmy_double > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint16,::color::category::cmy_double > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmy_ldouble> : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint16,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint32,::color::category::cmy_uint8 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint32,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmy_uint16 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint32,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmy_uint32 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint32,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmy_uint64 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint32,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmy_float > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint32,::color::category::cmy_float > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmy_double > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint32,::color::category::cmy_double > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmy_ldouble> : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint32,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint64,::color::category::cmy_uint8 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint64,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmy_uint16 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint64,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmy_uint32 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint64,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmy_uint64 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint64,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmy_float > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint64,::color::category::cmy_float > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmy_double > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint64,::color::category::cmy_double > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmy_ldouble> : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_uint64,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::gray_float,::color::category::cmy_uint8 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_float,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmy_uint16 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_float,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmy_uint32 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_float,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmy_uint64 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_float,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmy_float > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_float,::color::category::cmy_float > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmy_double > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_float,::color::category::cmy_double > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmy_ldouble> : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_float,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::gray_double,::color::category::cmy_uint8 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_double,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmy_uint16 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_double,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmy_uint32 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_double,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmy_uint64 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_double,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmy_float > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_double,::color::category::cmy_float > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmy_double > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_double,::color::category::cmy_double > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmy_ldouble> : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_double,::color::category::cmy_ldouble> {};
-
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmy_uint8 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_ldouble,::color::category::cmy_uint8 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmy_uint16 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_ldouble,::color::category::cmy_uint16 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmy_uint32 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_ldouble,::color::category::cmy_uint32 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmy_uint64 > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_ldouble,::color::category::cmy_uint64 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmy_float > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_ldouble,::color::category::cmy_float > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmy_double > : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_ldouble,::color::category::cmy_double > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmy_ldouble> : public ::color::_internal::_privateGray::convert_cmy2gray<::color::category::gray_ldouble,::color::category::cmy_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateGray {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_cmyk2gray {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		scalar_type c = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type m = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type y = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		scalar_type k = normalize_type::template process<3>(container_right_trait_type::template get<3>(right));
-		scalar_type value =
-			(0.2126729 * (1-c)
-			 + 0.7151522 * (1-m)
-			 + 0.0721750 * (1-y)) * (1-k);
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
-	}
-};
-}
-
-template< > struct convert<::color::category::gray_uint8,::color::category::cmyk_uint8 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint8,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmyk_uint16 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint8,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmyk_uint32 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint8,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmyk_uint64 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint8,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmyk_float > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint8,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmyk_double > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint8,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::cmyk_ldouble> : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint8,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint16,::color::category::cmyk_uint8 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint16,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmyk_uint16 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint16,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmyk_uint32 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint16,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmyk_uint64 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint16,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmyk_float > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint16,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmyk_double > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint16,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::cmyk_ldouble> : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint16,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint32,::color::category::cmyk_uint8 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint32,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmyk_uint16 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint32,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmyk_uint32 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint32,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmyk_uint64 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint32,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmyk_float > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint32,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmyk_double > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint32,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::cmyk_ldouble> : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint32,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint64,::color::category::cmyk_uint8 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint64,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmyk_uint16 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint64,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmyk_uint32 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint64,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmyk_uint64 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint64,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmyk_float > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint64,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmyk_double > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint64,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::cmyk_ldouble> : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_uint64,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::gray_float,::color::category::cmyk_uint8 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_float,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmyk_uint16 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_float,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmyk_uint32 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_float,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmyk_uint64 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_float,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmyk_float > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_float,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmyk_double > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_float,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::gray_float,::color::category::cmyk_ldouble> : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_float,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::gray_double,::color::category::cmyk_uint8 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_double,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmyk_uint16 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_double,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmyk_uint32 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_double,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmyk_uint64 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_double,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmyk_float > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_double,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmyk_double > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_double,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::gray_double,::color::category::cmyk_ldouble> : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_double,::color::category::cmyk_ldouble> {};
-
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmyk_uint8 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_ldouble,::color::category::cmyk_uint8 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmyk_uint16 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_ldouble,::color::category::cmyk_uint16 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmyk_uint32 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_ldouble,::color::category::cmyk_uint32 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmyk_uint64 > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_ldouble,::color::category::cmyk_uint64 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmyk_float > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_ldouble,::color::category::cmyk_float > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmyk_double > : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_ldouble,::color::category::cmyk_double > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::cmyk_ldouble> : public ::color::_internal::_privateGray::convert_cmyk2gray<::color::category::gray_ldouble,::color::category::cmyk_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateGray {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_hsl2gray {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		container_left_trait_type::template set<0>(left, reformat_type::template process<0,2>(container_right_trait_type::template get<2>(right)));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::gray_uint8,::color::category::hsl_uint8 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint8,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsl_uint16 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint8,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsl_uint32 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint8,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsl_uint64 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint8,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsl_float > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint8,::color::category::hsl_float > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsl_double > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint8,::color::category::hsl_double > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsl_ldouble> : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint8,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint16,::color::category::hsl_uint8 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint16,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsl_uint16 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint16,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsl_uint32 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint16,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsl_uint64 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint16,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsl_float > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint16,::color::category::hsl_float > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsl_double > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint16,::color::category::hsl_double > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsl_ldouble> : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint16,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint32,::color::category::hsl_uint8 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint32,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsl_uint16 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint32,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsl_uint32 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint32,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsl_uint64 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint32,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsl_float > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint32,::color::category::hsl_float > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsl_double > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint32,::color::category::hsl_double > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsl_ldouble> : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint32,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint64,::color::category::hsl_uint8 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint64,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsl_uint16 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint64,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsl_uint32 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint64,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsl_uint64 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint64,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsl_float > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint64,::color::category::hsl_float > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsl_double > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint64,::color::category::hsl_double > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsl_ldouble> : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_uint64,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::gray_float,::color::category::hsl_uint8 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_float,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsl_uint16 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_float,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsl_uint32 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_float,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsl_uint64 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_float,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsl_float > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_float,::color::category::hsl_float > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsl_double > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_float,::color::category::hsl_double > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsl_ldouble> : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_float,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::gray_double,::color::category::hsl_uint8 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_double,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsl_uint16 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_double,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsl_uint32 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_double,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsl_uint64 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_double,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsl_float > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_double,::color::category::hsl_float > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsl_double > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_double,::color::category::hsl_double > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsl_ldouble> : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_double,::color::category::hsl_ldouble> {};
-
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsl_uint8 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_ldouble,::color::category::hsl_uint8 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsl_uint16 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_ldouble,::color::category::hsl_uint16 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsl_uint32 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_ldouble,::color::category::hsl_uint32 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsl_uint64 > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_ldouble,::color::category::hsl_uint64 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsl_float > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_ldouble,::color::category::hsl_float > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsl_double > : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_ldouble,::color::category::hsl_double > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsl_ldouble> : public ::color::_internal::_privateGray::convert_hsl2gray<::color::category::gray_ldouble,::color::category::hsl_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateGray {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_hsv2gray {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		container_left_trait_type::template set<0>(left, reformat_type::template process<0,2>(container_right_trait_type::template get<2>(right)));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::gray_uint8,::color::category::hsv_uint8 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint8,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsv_uint16 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint8,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsv_uint32 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint8,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsv_uint64 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint8,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsv_float > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint8,::color::category::hsv_float > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsv_double > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint8,::color::category::hsv_double > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::hsv_ldouble> : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint8,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint16,::color::category::hsv_uint8 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint16,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsv_uint16 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint16,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsv_uint32 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint16,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsv_uint64 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint16,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsv_float > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint16,::color::category::hsv_float > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsv_double > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint16,::color::category::hsv_double > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::hsv_ldouble> : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint16,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint32,::color::category::hsv_uint8 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint32,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsv_uint16 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint32,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsv_uint32 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint32,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsv_uint64 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint32,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsv_float > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint32,::color::category::hsv_float > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsv_double > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint32,::color::category::hsv_double > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::hsv_ldouble> : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint32,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint64,::color::category::hsv_uint8 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint64,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsv_uint16 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint64,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsv_uint32 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint64,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsv_uint64 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint64,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsv_float > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint64,::color::category::hsv_float > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsv_double > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint64,::color::category::hsv_double > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::hsv_ldouble> : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_uint64,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::gray_float,::color::category::hsv_uint8 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_float,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsv_uint16 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_float,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsv_uint32 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_float,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsv_uint64 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_float,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsv_float > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_float,::color::category::hsv_float > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsv_double > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_float,::color::category::hsv_double > {};
-template< > struct convert<::color::category::gray_float,::color::category::hsv_ldouble> : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_float,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::gray_double,::color::category::hsv_uint8 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_double,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsv_uint16 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_double,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsv_uint32 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_double,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsv_uint64 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_double,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsv_float > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_double,::color::category::hsv_float > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsv_double > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_double,::color::category::hsv_double > {};
-template< > struct convert<::color::category::gray_double,::color::category::hsv_ldouble> : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_double,::color::category::hsv_ldouble> {};
-
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsv_uint8 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_ldouble,::color::category::hsv_uint8 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsv_uint16 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_ldouble,::color::category::hsv_uint16 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsv_uint32 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_ldouble,::color::category::hsv_uint32 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsv_uint64 > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_ldouble,::color::category::hsv_uint64 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsv_float > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_ldouble,::color::category::hsv_float > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsv_double > : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_ldouble,::color::category::hsv_double > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::hsv_ldouble> : public ::color::_internal::_privateGray::convert_hsv2gray<::color::category::gray_ldouble,::color::category::hsv_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateGray {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_rgb2gray {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef ::color::_internal::diverse< category_left_type > diverse_type;
-	typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		scalar_name value =
-			0.2126729 * normalize_type::template process<0> (container_right_trait_type::template get<0>(right))
-		+ 0.7151522 * normalize_type::template process<1> (container_right_trait_type::template get<1>(right))
-		+ 0.0721750 * normalize_type::template process<2> (container_right_trait_type::template get<2>(right));
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::gray_uint8,::color::category::rgb_uint8 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint8,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::rgb_uint16 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint8,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::rgb_uint32 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint8,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::rgb_uint64 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint8,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::rgb_float > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint8,::color::category::rgb_float > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::rgb_double > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint8,::color::category::rgb_double > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::rgb_ldouble> : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint8,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint16,::color::category::rgb_uint8 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint16,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::rgb_uint16 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint16,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::rgb_uint32 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint16,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::rgb_uint64 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint16,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::rgb_float > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint16,::color::category::rgb_float > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::rgb_double > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint16,::color::category::rgb_double > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::rgb_ldouble> : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint16,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint32,::color::category::rgb_uint8 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint32,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::rgb_uint16 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint32,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::rgb_uint32 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint32,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::rgb_uint64 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint32,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::rgb_float > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint32,::color::category::rgb_float > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::rgb_double > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint32,::color::category::rgb_double > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::rgb_ldouble> : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint32,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint64,::color::category::rgb_uint8 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint64,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::rgb_uint16 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint64,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::rgb_uint32 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint64,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::rgb_uint64 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint64,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::rgb_float > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint64,::color::category::rgb_float > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::rgb_double > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint64,::color::category::rgb_double > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::rgb_ldouble> : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_uint64,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::gray_float,::color::category::rgb_uint8 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_float,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::gray_float,::color::category::rgb_uint16 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_float,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::gray_float,::color::category::rgb_uint32 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_float,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::gray_float,::color::category::rgb_uint64 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_float,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::gray_float,::color::category::rgb_float > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_float,::color::category::rgb_float > {};
-template< > struct convert<::color::category::gray_float,::color::category::rgb_double > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_float,::color::category::rgb_double > {};
-template< > struct convert<::color::category::gray_float,::color::category::rgb_ldouble> : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_float,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::gray_double,::color::category::rgb_uint8 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_double,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::gray_double,::color::category::rgb_uint16 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_double,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::gray_double,::color::category::rgb_uint32 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_double,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::gray_double,::color::category::rgb_uint64 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_double,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::gray_double,::color::category::rgb_float > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_double,::color::category::rgb_float > {};
-template< > struct convert<::color::category::gray_double,::color::category::rgb_double > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_double,::color::category::rgb_double > {};
-template< > struct convert<::color::category::gray_double,::color::category::rgb_ldouble> : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_double,::color::category::rgb_ldouble> {};
-
-template< > struct convert<::color::category::gray_ldouble,::color::category::rgb_uint8 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_ldouble,::color::category::rgb_uint8 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::rgb_uint16 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_ldouble,::color::category::rgb_uint16 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::rgb_uint32 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_ldouble,::color::category::rgb_uint32 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::rgb_uint64 > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_ldouble,::color::category::rgb_uint64 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::rgb_float > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_ldouble,::color::category::rgb_float > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::rgb_double > : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_ldouble,::color::category::rgb_double > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::rgb_ldouble> : public ::color::_internal::_privateGray::convert_rgb2gray<::color::category::gray_ldouble,::color::category::rgb_ldouble> {};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace _privateGray {
-
-template< typename category_left_name, typename category_right_name, typename scalar_name = double >
-struct convert_yiq2gray {
-public:
-	typedef category_left_name category_left_type;
-	typedef category_right_name category_right_type;
-
-	typedef ::color::trait::container<category_left_type> container_left_trait_type;
-	typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_name > reformat_type;
-
-	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	static void process
-	(
-		container_left_input_type left
-		,container_right_const_input_type right
-	) {
-		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
-	}
-};
-
-}
-
-template< > struct convert<::color::category::gray_uint8,::color::category::yiq_uint8 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint8,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yiq_uint16 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint8,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yiq_uint32 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint8,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yiq_uint64 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint8,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yiq_float > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint8,::color::category::yiq_float > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yiq_double > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint8,::color::category::yiq_double > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yiq_ldouble> : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint8,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint16,::color::category::yiq_uint8 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint16,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yiq_uint16 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint16,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yiq_uint32 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint16,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yiq_uint64 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint16,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yiq_float > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint16,::color::category::yiq_float > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yiq_double > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint16,::color::category::yiq_double > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yiq_ldouble> : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint16,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint32,::color::category::yiq_uint8 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint32,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yiq_uint16 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint32,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yiq_uint32 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint32,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yiq_uint64 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint32,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yiq_float > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint32,::color::category::yiq_float > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yiq_double > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint32,::color::category::yiq_double > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yiq_ldouble> : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint32,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::gray_uint64,::color::category::yiq_uint8 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint64,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yiq_uint16 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint64,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yiq_uint32 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint64,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yiq_uint64 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint64,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yiq_float > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint64,::color::category::yiq_float > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yiq_double > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint64,::color::category::yiq_double > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yiq_ldouble> : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_uint64,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::gray_float,::color::category::yiq_uint8 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_float,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::gray_float,::color::category::yiq_uint16 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_float,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::gray_float,::color::category::yiq_uint32 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_float,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::gray_float,::color::category::yiq_uint64 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_float,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::gray_float,::color::category::yiq_float > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_float,::color::category::yiq_float > {};
-template< > struct convert<::color::category::gray_float,::color::category::yiq_double > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_float,::color::category::yiq_double > {};
-template< > struct convert<::color::category::gray_float,::color::category::yiq_ldouble> : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_float,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::gray_double,::color::category::yiq_uint8 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_double,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::gray_double,::color::category::yiq_uint16 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_double,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::gray_double,::color::category::yiq_uint32 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_double,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::gray_double,::color::category::yiq_uint64 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_double,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::gray_double,::color::category::yiq_float > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_double,::color::category::yiq_float > {};
-template< > struct convert<::color::category::gray_double,::color::category::yiq_double > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_double,::color::category::yiq_double > {};
-template< > struct convert<::color::category::gray_double,::color::category::yiq_ldouble> : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_double,::color::category::yiq_ldouble> {};
-
-template< > struct convert<::color::category::gray_ldouble,::color::category::yiq_uint8 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_ldouble,::color::category::yiq_uint8 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yiq_uint16 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_ldouble,::color::category::yiq_uint16 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yiq_uint32 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_ldouble,::color::category::yiq_uint32 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yiq_uint64 > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_ldouble,::color::category::yiq_uint64 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yiq_float > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_ldouble,::color::category::yiq_float > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yiq_double > : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_ldouble,::color::category::yiq_double > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yiq_ldouble> : public ::color::_internal::_privateGray::convert_yiq2gray<::color::category::gray_ldouble,::color::category::yiq_ldouble> {};
-
-}
 }
 
 namespace color {
@@ -27064,62 +27335,68 @@ public:
 
 }
 
-template< > struct convert<::color::category::gray_uint8,::color::category::yuv_uint8 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint8,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yuv_uint16 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint8,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yuv_uint32 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint8,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yuv_uint64 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint8,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yuv_float > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint8,::color::category::yuv_float > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yuv_double > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint8,::color::category::yuv_double > {};
-template< > struct convert<::color::category::gray_uint8,::color::category::yuv_ldouble> : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint8,::color::category::yuv_ldouble> {};
+template< typename gray_tag_name, typename yuv_tag_name >
+struct convert
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::yuv<yuv_tag_name>
+		>
+		: public ::color::_internal::_privateGray::convert_yuv2gray
+		<
+		::color::category::gray< gray_tag_name >
+		,::color::category::yuv<yuv_tag_name>
+		> {
+};
 
-template< > struct convert<::color::category::gray_uint16,::color::category::yuv_uint8 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint16,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yuv_uint16 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint16,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yuv_uint32 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint16,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yuv_uint64 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint16,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yuv_float > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint16,::color::category::yuv_float > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yuv_double > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint16,::color::category::yuv_double > {};
-template< > struct convert<::color::category::gray_uint16,::color::category::yuv_ldouble> : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint16,::color::category::yuv_ldouble> {};
+}
+}
 
-template< > struct convert<::color::category::gray_uint32,::color::category::yuv_uint8 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint32,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yuv_uint16 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint32,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yuv_uint32 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint32,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yuv_uint64 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint32,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yuv_float > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint32,::color::category::yuv_float > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yuv_double > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint32,::color::category::yuv_double > {};
-template< > struct convert<::color::category::gray_uint32,::color::category::yuv_ldouble> : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint32,::color::category::yuv_ldouble> {};
+namespace color {
+namespace place {
+namespace _internal {
 
-template< > struct convert<::color::category::gray_uint64,::color::category::yuv_uint8 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint64,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yuv_uint16 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint64,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yuv_uint32 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint64,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yuv_uint64 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint64,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yuv_float > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint64,::color::category::yuv_float > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yuv_double > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint64,::color::category::yuv_double > {};
-template< > struct convert<::color::category::gray_uint64,::color::category::yuv_ldouble> : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_uint64,::color::category::yuv_ldouble> {};
+template< typename category_name >
+struct gray {
+public:
+	typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
 
-template< > struct convert<::color::category::gray_float,::color::category::yuv_uint8 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_float,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::gray_float,::color::category::yuv_uint16 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_float,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::gray_float,::color::category::yuv_uint32 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_float,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::gray_float,::color::category::yuv_uint64 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_float,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::gray_float,::color::category::yuv_float > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_float,::color::category::yuv_float > {};
-template< > struct convert<::color::category::gray_float,::color::category::yuv_double > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_float,::color::category::yuv_double > {};
-template< > struct convert<::color::category::gray_float,::color::category::yuv_ldouble> : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_float,::color::category::yuv_ldouble> {};
+	enum { position_enum = -9 };
+	enum { has_enum = false };
 
-template< > struct convert<::color::category::gray_double,::color::category::yuv_uint8 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_double,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::gray_double,::color::category::yuv_uint16 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_double,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::gray_double,::color::category::yuv_uint32 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_double,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::gray_double,::color::category::yuv_uint64 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_double,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::gray_double,::color::category::yuv_float > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_double,::color::category::yuv_float > {};
-template< > struct convert<::color::category::gray_double,::color::category::yuv_double > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_double,::color::category::yuv_double > {};
-template< > struct convert<::color::category::gray_double,::color::category::yuv_ldouble> : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_double,::color::category::yuv_ldouble> {};
+	static index_instance_type position() {
+		return ::color::trait::container< category_name >::size();
+	}
+};
 
-template< > struct convert<::color::category::gray_ldouble,::color::category::yuv_uint8 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_ldouble,::color::category::yuv_uint8 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yuv_uint16 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_ldouble,::color::category::yuv_uint16 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yuv_uint32 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_ldouble,::color::category::yuv_uint32 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yuv_uint64 > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_ldouble,::color::category::yuv_uint64 > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yuv_float > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_ldouble,::color::category::yuv_float > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yuv_double > : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_ldouble,::color::category::yuv_double > {};
-template< > struct convert<::color::category::gray_ldouble,::color::category::yuv_ldouble> : public ::color::_internal::_privateGray::convert_yuv2gray<::color::category::gray_ldouble,::color::category::yuv_ldouble> {};
+}
 
+template< typename category_name >
+inline
+
+typename ::color::trait::index< category_name >::instance_type
+gray() {
+	return ::color::place::_internal::gray<category_name>::position();
+}
+
+}
+}
+
+namespace color {
+namespace place {
+namespace _internal {
+
+template< typename tag_name >
+struct gray< ::color::category::gray< tag_name > > {
+public:
+	typedef ::color::category::gray< tag_name > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	static index_instance_type position() {
+		return 0;
+	}
+};
+
+}
 }
 }
 
@@ -27128,7 +27405,7 @@ namespace _internal {
 
 template< typename type_name >
 struct pick_gray {
-	typedef color::category::gray_uint32 category_type;
+	typedef ::color::category::gray_uint32 category_type;
 };
 
 template<> struct pick_gray< bool > {
@@ -27158,15 +27435,15 @@ template<> struct pick_gray< long double > {
 }
 
 template< typename type_name >
-using gray = color::_internal::model< typename color::_internal::pick_gray< type_name >::category_type >;
+using gray = ::color::_internal::model< typename ::color::_internal::pick_gray< type_name >::category_type >;
 
 }
 
 namespace color {
 namespace compare {
 template < typename category_name >
-bool darker(color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right) {
-	return color::gray<float>(left) < color::gray<float>(right);
+bool darker(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+	return ::color::gray<float>(left) < ::color::gray<float>(right);
 }
 }
 }
@@ -27174,8 +27451,8 @@ bool darker(color::_internal::model< category_name > const& left, color::_intern
 namespace color {
 namespace compare {
 template < typename category_name >
-bool lighter(color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right) {
-	return color::gray<float>(left) > color::gray<float>(right);
+bool lighter(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+	return ::color::gray<float>(left) > ::color::gray<float>(right);
 }
 }
 }
@@ -27471,10 +27748,7 @@ inline
 aqua() {
 	typedef ::color::_internal::model< category_name > model_type;
 	static model_type dummy;
-	static std::once_flag onceFlag;
-	std::call_once(onceFlag, [&]() {
-		::color::make::aqua(dummy);
-	});
+	::color::make::aqua(dummy);
 	return dummy;
 }
 
@@ -28343,6 +28617,118 @@ gray
 	::color::_internal::model< category_name > & color_parameter,
 	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
 ) {
+};
+
+}
+}
+
+namespace color {
+namespace fix {
+namespace _internal {
+
+template< typename category_name >
+struct overburn {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::trait::index<category_type> index_trait_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+	typedef ::color::trait::component<category_type> component_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+
+	typedef typename ::color::_internal::model<category_type> model_type;
+
+	typedef typename component_trait_type::instance_type component_type;
+
+	typedef typename index_trait_type::instance_type index_type;
+
+	static void process(model_type &result) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(result.get(index) < bound_type::minimum(index)) {
+				result.set(index, bound_type::minimum(index));
+				continue;
+			}
+			if(bound_type::maximum(index) < result.get(index)) {
+				result.set(index, bound_type::maximum(index));
+				continue;
+			}
+		}
+	}
+
+	static void process(model_type & result, model_type const& right) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(right.get(index) < bound_type::minimum(index)) {
+				result.set(index, bound_type::minimum(index));
+				continue;
+			}
+			if(bound_type::maximum(index) < right.get(index)) {
+				result.set(index, bound_type::maximum(index));
+				continue;
+			}
+			result.set(index, right.get(index));
+		}
+	}
+
+};
+}
+
+template< typename category_name >
+void overburn
+(
+	::color::_internal::model<category_name> & result
+) {
+	::color::fix::_internal::overburn<category_name>::process(result);
+}
+
+template< typename category_name >
+void overburn
+(
+	::color::_internal::model<category_name> & result
+	,::color::_internal::model<category_name> const& right
+) {
+	::color::fix::_internal::overburn<category_name>::process(result, right);
+}
+
+}
+}
+
+namespace color {
+namespace category {
+
+struct generic_bool {};
+template< unsigned length > struct generic_number {};
+template< unsigned length > struct generic_uint8 {};
+template< unsigned length > struct generic_uint16 {};
+template< unsigned length > struct generic_uint32 {};
+template< unsigned length > struct generic_uint64 {};
+template< unsigned length > struct generic_float {};
+template< unsigned length > struct generic_double {};
+template< unsigned length > struct generic_ldouble {};
+}
+
+}
+
+namespace color {
+namespace constant {
+
+template< typename category_name>
+struct generic {
+public:
+	typedef category_name category_type;
+
+	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+
+	typedef ::color::constant::yuv<category_type> this_type;
+
+	static scalar_type const zero() {
+		return 0;
+	}
+	static scalar_type const one() {
+		return 1;
+	}
+	static scalar_type const two() {
+		return 2;
+	}
 };
 
 }

@@ -37,14 +37,21 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
+             enum
+              {
+                red_p   = ::color::place::_internal::red<category_right_type>::position_enum
+               ,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+               ,blue_p  = ::color::place::_internal::blue<category_right_type>::position_enum
+              };
+
              static scalar_type mc = 0.17697;
              static scalar_type b11 = 0.49000/mc, b12 = 0.31000/mc, b13 = 0.20000/mc;
              static scalar_type b21 = 0.17697/mc, b22 = 0.81240/mc, b23 = 0.01063/mc;
              static scalar_type b31 = 0.00000/mc, b32 = 0.01000/mc, b33 = 0.99000/mc;
 
-             scalar_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-             scalar_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-             scalar_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+             scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
+             scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
+             scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
              container_left_trait_type::template set<0>( left, diverse_type::template process<0>( b11 * r + b12 * g + b13 * b ) );
              container_left_trait_type::template set<1>( left, diverse_type::template process<1>( b21 * r + b22 * g + b23 * b ) );

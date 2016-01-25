@@ -43,14 +43,21 @@ namespace color
              ,container_right_const_input_type  right
             )
             {
+             enum
+              {
+                red_p   = ::color::place::_internal::red<category_right_type>::position_enum
+               ,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+               ,blue_p  = ::color::place::_internal::blue<category_right_type>::position_enum
+              };
+
              static scalar_type b11 = yiq_const_type::b11(), b12 = yiq_const_type::b12(), b13 = yiq_const_type::b13();
              static scalar_type b21 = yiq_const_type::b21(), b22 = yiq_const_type::b22(), b23 = yiq_const_type::b23();
              static scalar_type b31 = yiq_const_type::b31(), b32 = yiq_const_type::b32(), b33 = yiq_const_type::b33();
              static scalar_type const                              b32n = -b32;
 
-             scalar_type r = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-             scalar_type g = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-             scalar_type b = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+             scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
+             scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
+             scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
              scalar_type y = b11 * r + b12 * g + b13 * b;
              scalar_type i = b21 * r + b22 * g + b23 * b;
