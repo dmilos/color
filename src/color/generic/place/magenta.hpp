@@ -1,8 +1,8 @@
-#ifndef color_generic_place_green
-#define color_generic_place_green
+#ifndef color_generic_place_magenta
+#define color_generic_place_magenta
 
-// ::color::place::green<category_name>()
-// ::color::place::_internal::green<category_name>::position_enum
+// ::color::place::magenta<category_name>()
+// ::color::place::_internal::magenta<category_name>::position_enum
 
 #include "../trait/index.hpp"
 
@@ -15,12 +15,12 @@
       {
 
        template< typename category_name >
-        struct green
+        struct magenta
          {
           public:
            typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
 
-           enum { position_enum = -8 };
+           enum { position_enum = -1 };
            enum { has_enum = false };
 
            static /*constexpr*/ index_instance_type position()
@@ -35,9 +35,9 @@
       inline
       /*constexpr*/
       typename ::color::trait::index< category_name >::instance_type
-      green()
+      magenta()
        {
-        return ::color::place::_internal::green<category_name>::position();
+        return ::color::place::_internal::magenta<category_name>::position();
        }
 
     }

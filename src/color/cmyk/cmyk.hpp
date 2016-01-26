@@ -7,8 +7,10 @@
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
+#include "./place/place.hpp"
+
 #include "./get/get.hpp"
-//#include "./set/set.hpp"
+// TODO: NYI #include "./set/set.hpp"
 #include "./make/make.hpp"
 #include "./convert/convert.hpp"
 #include "./check/check.hpp"

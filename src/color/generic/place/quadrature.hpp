@@ -2,8 +2,10 @@
 #define color_generic_place_quadrature
 
 // ::color::place::quadrature<category_name>()
+// ::color::place::_internal::quadrature<category_name>::position_enum
 
 #include "../trait/index.hpp"
+
 
  namespace color
   {
@@ -23,7 +25,7 @@
 
            static /*constexpr*/ index_instance_type position()
             {
-             return ::color::trait::container< category_name >::size();
+             return position_enum;
             }
          };
 

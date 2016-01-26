@@ -6,6 +6,7 @@
 
 #include "../trait/index.hpp"
 
+
  namespace color
   {
    namespace place

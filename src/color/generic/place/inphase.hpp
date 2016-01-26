@@ -2,8 +2,10 @@
 #define color_generic_place_inphase
 
 // ::color::place::inphase<category_name>()
+// ::color::place::_internal::inphase<category_name>::position_enum
 
 #include "../trait/index.hpp"
+
 
  namespace color
   {
@@ -23,7 +25,7 @@
 
            static /*constexpr*/ index_instance_type position()
             {
-             return ::color::trait::container< category_name >::size();
+             return position_enum;
             }
          };
 

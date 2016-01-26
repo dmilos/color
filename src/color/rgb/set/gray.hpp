@@ -53,7 +53,7 @@
       void
       gray
        (
-         ::color::_internal::model< ::color::category::rgb_uint8 >                                   & color_parameter
+         ::color::_internal::model< ::color::category::rgb_uint8 >                         & color_parameter
         ,::color::trait::component< ::color::category::rgb_uint8 >::input_const_type         component_parameter
        )
        {

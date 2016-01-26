@@ -18,90 +18,35 @@
   {
    namespace get
     {
-     namespace _internal
-      {
-       namespace _privateYIQ
-        {
 
-         template< typename category_name >
-          inline
-          typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::return_type
-          green( ::color::_internal::model< category_name > const& color_parameter  )
-           {
-            typedef typename ::color::trait::scalar<category_name>::instance_type   scalar_type;
-            typedef typename ::color::akin::rgb<category_name >::akin_type          akin_type;
-
-            typedef ::color::constant::yiq< category_name > yiq_const_type;
-
-            typedef ::color::_internal::diverse< akin_type >       diverse_type;
-            typedef ::color::_internal::normalize< category_name > normalize_type;
-
-            static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
-
-            scalar_type y = normalize_type::template process<0>( color_parameter.template get<0>() );
-            scalar_type i = normalize_type::template process<1>( color_parameter.template get<1>() );
-            scalar_type q = normalize_type::template process<2>( color_parameter.template get<2>() );
-
-            i = ( scalar_type(2) * i - scalar_type(1) ) * yiq_const_type::i_max();
-            q = ( scalar_type(2) * q - scalar_type(1) ) * yiq_const_type::q_max();
-
-            scalar_type g = a21 * y + a22 * i + a23 * q;
-
-            return diverse_type::template process<1>( g );
-           }
-
-        }
-      }
-
+     template< typename tag_name >
       inline
-      ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint8>::akin_type >::return_type
-      green( ::color::_internal::model< ::color::category::yiq_uint8 > const& color_parameter )
+      typename ::color::trait::component< typename ::color::akin::rgb<::color::category::yiq<tag_name> >::akin_type >::return_type
+      green( ::color::_internal::model< ::color::category::yiq<tag_name> > const& color_parameter )
        {
-        return ::color::get::_internal::_privateYIQ::green<color::category::yiq_uint8>( color_parameter );
-       }
+        typedef ::color::category::yiq<tag_name> category_type;
 
-      inline
-      ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint16>::akin_type >::return_type
-      green( ::color::_internal::model< ::color::category::yiq_uint16 > const& color_parameter )
-       {
-        return ::color::get::_internal::_privateYIQ::green<color::category::yiq_uint16>( color_parameter );
-       }
+        typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
+        typedef typename ::color::akin::rgb<category_type>::akin_type          akin_type;
 
-      inline
-      ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint32>::akin_type >::return_type
-      green( ::color::_internal::model< ::color::category::yiq_uint32 > const& color_parameter )
-       {
-        return ::color::get::_internal::_privateYIQ::green<color::category::yiq_uint32>( color_parameter );
-       }
+        typedef ::color::constant::yiq<category_type> yiq_const_type;
 
-      inline
-      ::color::trait::component< ::color::akin::rgb<::color::category::yiq_uint64>::akin_type >::return_type
-      green( ::color::_internal::model< ::color::category::yiq_uint64 > const& color_parameter )
-       {
-        return ::color::get::_internal::_privateYIQ::green<color::category::yiq_uint64>( color_parameter );
-       }
+        typedef ::color::_internal::diverse< akin_type >       diverse_type;
+        typedef ::color::_internal::normalize<category_type> normalize_type;
 
-      inline
-      ::color::trait::component< ::color::akin::rgb<::color::category::yiq_float>::akin_type >::return_type
-      green( ::color::_internal::model< ::color::category::yiq_float > const& color_parameter )
-       {
-        return ::color::get::_internal::_privateYIQ::green<color::category::yiq_float>( color_parameter );
-       }
+        static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
 
-      inline
-      ::color::trait::component< ::color::akin::rgb<::color::category::yiq_double>::akin_type >::return_type
-      green( ::color::_internal::model< ::color::category::yiq_double > const& color_parameter )
-       {
-        return ::color::get::_internal::_privateYIQ::green<color::category::yiq_double>( color_parameter );
-       }
+        scalar_type y = normalize_type::template process<0>( color_parameter.template get<0>() );
+        scalar_type i = normalize_type::template process<1>( color_parameter.template get<1>() );
+        scalar_type q = normalize_type::template process<2>( color_parameter.template get<2>() );
 
-      inline
-      ::color::trait::component< ::color::akin::rgb<::color::category::yiq_ldouble>::akin_type >::return_type
-      green( ::color::_internal::model< ::color::category::yiq_ldouble > const& color_parameter )
-       {
-        return ::color::get::_internal::_privateYIQ::green<color::category::yiq_ldouble>( color_parameter );
-       }
+        i = ( scalar_type(2) * i - scalar_type(1) ) * yiq_const_type::i_max();
+        q = ( scalar_type(2) * q - scalar_type(1) ) * yiq_const_type::q_max();
 
+        scalar_type g = a21 * y + a22 * i + a23 * q;
+
+        return diverse_type::template process<1>( g );
+       }
 
     }
   }
