@@ -5,12 +5,12 @@
 
 #include "../../_internal/convert.hpp"
 
+
+#include "../category.hpp"
+#include "../trait/container.hpp"
+
+
 #include "../../_internal/reformat.hpp"
-
-
-
-
-
 
 
 
@@ -19,7 +19,7 @@ namespace color
  {
   namespace _internal
    {
-        
+
     template< typename tag_left_name, typename tag_right_name >
      struct convert
        <

@@ -3,6 +3,8 @@
 
 // ::color::get::green( c )
 
+#include "../place/place.hpp"
+
 
 
  namespace color
@@ -10,53 +12,15 @@
    namespace get
     {
 
+     template< typename tag_name >
       inline
-      ::color::_internal::model< ::color::category::rgb_uint8 >::component_const_type
-      green( ::color::_internal::model< ::color::category::rgb_uint8 > const& color_parameter )
+      typename ::color::_internal::model< ::color::category::rgb< tag_name> >::component_const_type
+      green( ::color::_internal::model< ::color::category::rgb< tag_name> > const& color_parameter )
        {
-        return color_parameter.template get<1>();
-       }
+        typedef ::color::category::rgb< tag_name>  category_type;
+        enum{ green_p  = ::color::place::_internal::green<category_type>::position_enum };
 
-      inline
-      ::color::_internal::model< ::color::category::rgb_uint16 >::component_const_type
-      green( ::color::_internal::model< ::color::category::rgb_uint16 > const& color_parameter )
-       {
-        return color_parameter.template get<1>();
-       }
-
-      inline
-      ::color::_internal::model< ::color::category::rgb_uint32 >::component_const_type
-      green( ::color::_internal::model< ::color::category::rgb_uint32 > const& color_parameter )
-       {
-        return color_parameter.template get<1>();
-       }
-
-      inline
-      ::color::_internal::model< ::color::category::rgb_uint64 >::component_const_type
-      green( ::color::_internal::model< ::color::category::rgb_uint64 > const& color_parameter )
-       {
-        return color_parameter.template get<1>();
-       }
-
-      inline
-      ::color::_internal::model< ::color::category::rgb_float >::component_const_type
-      green( ::color::_internal::model< ::color::category::rgb_float > const& color_parameter )
-       {
-        return color_parameter.template get<1>();
-       }
-
-      inline
-      ::color::_internal::model< ::color::category::rgb_double >::component_const_type
-      green( ::color::_internal::model< ::color::category::rgb_double > const& color_parameter )
-       {
-        return color_parameter.template get<1>();
-       }
-
-      inline
-      ::color::_internal::model< ::color::category::rgb_ldouble >::component_const_type
-      green( ::color::_internal::model< ::color::category::rgb_ldouble > const& color_parameter )
-       {
-        return color_parameter.template get<1>();
+        return color_parameter.template get<green_p>();
        }
 
     }
