@@ -14,6 +14,7 @@
 #include "../../_internal/diverse.hpp"
 #include "../../generic/trait/scalar.hpp"
 
+
  namespace color
   {
    namespace get
@@ -24,10 +25,11 @@
       typename ::color::trait::component< typename ::color::akin::gray< ::color::category::rgb<tag_name> >::akin_type >::return_type
       gray( ::color::_internal::model< ::color::category::rgb<tag_name> > const& color_parameter )
        {
-        typedef ::color::category::rgb<tag_name> category_type;
-        typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
+        typedef ::color::category::rgb< tag_name > category_type;
 
-        typedef typename ::color::akin::gray<category_type>::akin_type     akin_type;
+        typedef typename ::color::trait::scalar< category_type >::instance_type   scalar_type;
+
+        typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
 
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize< category_type > normalize_type;

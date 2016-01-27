@@ -4,6 +4,8 @@
 #include "../_internal/model.hpp"
 
 #include "./category.hpp"
+#include "./place/place.hpp"
+
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 

@@ -3,7 +3,9 @@
 
 // ::color::get::red( c )
 
+#include "../category.hpp"
 #include "../place/place.hpp"
+
 
 
 

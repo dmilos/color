@@ -16,104 +16,24 @@
   {
    namespace set
     {
-     namespace _privateCMY
-      {
 
-       template< typename category_name >
-        inline
-        void
-        red
-         (
-                   ::color::_internal::model< category_name >                                   & color_parameter,
-          typename ::color::trait::component< typename ::color::akin::rgb<category_name>::akin_type >::input_const_type         component_parameter
-         )
-         {
-          typedef typename ::color::akin::rgb<category_name >::akin_type     akin_type;
-
-          typedef  ::color::operation::_internal::invert< akin_type > invert_type; 
-          typedef  ::color::_internal::reformat<category_name, akin_type > reformat_type;
-
-          color_parameter.template set<0>( reformat_type::template process<0,0>( invert_type::template component<0>( component_parameter ) ) );
-         }
-
-      }
-
+     template< typename tag_name >
       inline
       void
       red
        (
-         ::color::_internal::model< ::color::category::cmy_uint8 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_uint8 >::component_input_const_type         component_parameter
+         ::color::_internal::model< ::color::category::cmy<tag_name> >                                   & color_parameter,
+        typename ::color::_internal::model< ::color::category::cmy<tag_name> >::component_input_const_type         component_parameter
        )
        {
-        ::color::set::_privateCMY::red<::color::category::cmy_uint8>( color_parameter, component_parameter );
-       };
+        typedef ::color::category::cmy<tag_name>    category_type;
+        typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
 
-      inline
-      void
-      red
-       (
-         ::color::_internal::model< ::color::category::cmy_uint16 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_uint16 >::component_input_const_type         component_parameter
-       )
-       {
-        ::color::set::_privateCMY::red<::color::category::cmy_uint16>( color_parameter, component_parameter );
-       };
+        typedef  ::color::operation::_internal::invert< akin_type > invert_type; 
+        typedef  ::color::_internal::reformat< category_type, akin_type > reformat_type;
 
-      inline
-      void
-      red
-       (
-         ::color::_internal::model< ::color::category::cmy_uint32 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_uint32 >::component_input_const_type         component_parameter
-       )
-       {
-        ::color::set::_privateCMY::red<::color::category::cmy_uint32>( color_parameter, component_parameter );
-       };
-
-      inline
-      void
-      red
-       (
-         ::color::_internal::model< ::color::category::cmy_uint64 >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_uint64 >::component_input_const_type         component_parameter
-       )
-       {
-        ::color::set::_privateCMY::red<::color::category::cmy_uint64>( color_parameter, component_parameter );
-       };
-
-      inline
-      void
-      red
-       (
-         ::color::_internal::model< ::color::category::cmy_float >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_float >::component_input_const_type         component_parameter
-       )
-       {
-        ::color::set::_privateCMY::red<::color::category::cmy_float>( color_parameter, component_parameter );
-       };
-
-      inline
-      void
-      red
-       (
-         ::color::_internal::model< ::color::category::cmy_double >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_double >::component_input_const_type         component_parameter
-       )
-       {
-        ::color::set::_privateCMY::red<::color::category::cmy_double>( color_parameter, component_parameter );
-       };
-
-      inline
-      void
-      red
-       (
-         ::color::_internal::model< ::color::category::cmy_ldouble >                                   & color_parameter,
-         ::color::_internal::model< ::color::category::cmy_ldouble >::component_input_const_type         component_parameter
-       )
-       {
-        ::color::set::_privateCMY::red<::color::category::cmy_ldouble>( color_parameter, component_parameter );
-       };
+        color_parameter.template set<0>( reformat_type::template process<0,0>( invert_type::template component<0>( component_parameter ) ) );
+       }
 
     }
   }
