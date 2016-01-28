@@ -167,7 +167,7 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 
   targa_make_header( height, width, header);
 
-  std::vector< color::rgb<std::uint32_t> >   image(height * width);
+  std::vector< color::abgr<std::uint8_t> >   image(height * width);
 
   for (int y = 0; y < height; y++)
    {
@@ -212,6 +212,9 @@ int main(int argc, char const *argv[])
   extern int mainX( int argc, char const *argv[] );
   mainX( argc, argv );
 
+  extern void make_make_header();
+  make_make_header();
+
   make_image<color::hsl<double> >( "./image-hsl.tga" , 0.5 );
   make_image<color::hsv<double> >( "./image-hsv.tga" , 0.5 );
   make_image<color::rgb<double> >( "./image-rgb-0.tga" , 0.5, 0 );
@@ -241,8 +244,6 @@ int main(int argc, char const *argv[])
   extern void check_conversion();
   check_conversion();
 
-  extern void make_test();
-  make_test();
 
   extern void print_bound();
   print_bound();

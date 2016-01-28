@@ -6,46 +6,46 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 1, 1, 0.941176 } ) - rgb(255,255,240) - #fffff0
+    { //RGB equivalents: std::array<double,3>( { 0, 0, 0.0588235 } ) - rgb(255,255,240) - #fffff0
 
       inline
-      void ivory( ::color::_internal::model< color::category::cmyk_uint8 > & color_parameter )
+      void ivory( ::color::_internal::model< ::color::category::cmyk_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x0;
+        color_parameter.container() = std::array< std::uint8_t, 4 >( { 0x00, 0x00, 0x0f, 0x00 } );
        }
 
       inline
-      void ivory( ::color::_internal::model< color::category::cmyk_uint16 > & color_parameter )
+      void ivory( ::color::_internal::model< ::color::category::cmyk_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x0;
+        color_parameter.container() = std::array< std::uint16_t, 4 >( { 0x0000, 0x0000, 0x0f0f, 0x0000 } );
        }
 
       inline
-      void ivory( ::color::_internal::model< color::category::cmyk_uint32 > & color_parameter )
+      void ivory( ::color::_internal::model< ::color::category::cmyk_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xf0000u;
+        color_parameter.container() = std::array< std::uint32_t, 4 >( { 0x00000000, 0x00000000, 0x0f0f0f0f, 0x00000000 } );
        }
 
       inline
-      void ivory( ::color::_internal::model< color::category::cmyk_uint64 > & color_parameter )
+      void ivory( ::color::_internal::model< ::color::category::cmyk_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xf0f00000000ul;
+        color_parameter.container() = std::array< std::uint64_t, 4 >( { 0x0000000000000000ull, 0x0000000000000000ull, 0x0f0f0f0f0f0f1000ull, 0x0000000000000000ull } );
        }
 
       inline
-      void ivory( ::color::_internal::model< color::category::cmyk_float > & color_parameter )
+      void ivory( ::color::_internal::model< ::color::category::cmyk_float > & color_parameter )
        {
         color_parameter.container() = std::array<float,4>( { 0, 0, 0.0588235, 0 } );
        }
 
       inline
-      void ivory( ::color::_internal::model< color::category::cmyk_double> & color_parameter )
+      void ivory( ::color::_internal::model< ::color::category::cmyk_double> & color_parameter )
        {
         color_parameter.container() = std::array<double,4>( { 0, 0, 0.0588235, 0 } );
        }
 
       inline
-      void ivory( ::color::_internal::model< color::category::cmyk_ldouble> & color_parameter )
+      void ivory( ::color::_internal::model< ::color::category::cmyk_ldouble> & color_parameter )
        {
         color_parameter.container() = std::array<long double,4>( { 0, 0, 0.0588235, 0 } );
        }

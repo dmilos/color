@@ -3,7 +3,7 @@
 
 #include "../../category.hpp"
 
-#include "../../../_internal/utility/component/cnent332.hpp"
+#include "../../../_internal/utility/component/array.hpp"
 
 #include "../../../generic/trait/component.hpp"
 
@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct component< ::color::category::rgb_uint8 >
-      : public ::color::_internal::utility::component::cnent332< unsigned >
+      : public ::color::_internal::utility::component::array< std::uint8_t, unsigned >
       {
       };
 

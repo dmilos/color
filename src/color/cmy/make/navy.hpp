@@ -6,46 +6,46 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0, 0, 0.5 } ) - rgb(0,0,127) - #00007f
+    { //RGB equivalents: std::array<double,3>( { 1, 1, 0.5 } ) - rgb(0,0,127) - #00007f
 
       inline
-      void navy( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )
+      void navy( ::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0x7f;
+        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0xff, 0xff, 0x7f } );
        }
 
       inline
-      void navy( ::color::_internal::model< color::category::cmy_uint16 > & color_parameter )
+      void navy( ::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0x7fff;
+        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0xffff, 0xffff, 0x7fff } );
        }
 
       inline
-      void navy( ::color::_internal::model< color::category::cmy_uint32 > & color_parameter )
+      void navy( ::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xff7fffffu;
+        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0xffffffff, 0xffffffff, 0x7fffffff } );
        }
 
       inline
-      void navy( ::color::_internal::model< color::category::cmy_uint64 > & color_parameter )
+      void navy( ::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffff7ffffffffffful;
+        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x0000000000000000ull, 0x0000000000000000ull, 0x8000000000000000ull } );
        }
 
       inline
-      void navy( ::color::_internal::model< color::category::cmy_float > & color_parameter )
+      void navy( ::color::_internal::model< ::color::category::cmy_float > & color_parameter )
        {
         color_parameter.container() = std::array<float,3>( { 1, 1, 0.5 } );
        }
 
       inline
-      void navy( ::color::_internal::model< color::category::cmy_double> & color_parameter )
+      void navy( ::color::_internal::model< ::color::category::cmy_double> & color_parameter )
        {
         color_parameter.container() = std::array<double,3>( { 1, 1, 0.5 } );
        }
 
       inline
-      void navy( ::color::_internal::model< color::category::cmy_ldouble> & color_parameter )
+      void navy( ::color::_internal::model< ::color::category::cmy_ldouble> & color_parameter )
        {
         color_parameter.container() = std::array<long double,3>( { 1, 1, 0.5 } );
        }

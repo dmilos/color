@@ -46,7 +46,7 @@ namespace color
 
   template< typename type_name >
    using rgb = ::color::_internal::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
- //using rgb = = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_scramble< value_name, 0, 1, 2 > > >;
+//using rgb = = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_scramble< value_name, 0, 1, 2 > > >;
 
   template< typename value_name >
    using bgr = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_scramble< value_name, 2, 1, 0 > > >;

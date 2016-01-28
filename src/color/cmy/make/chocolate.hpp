@@ -6,46 +6,46 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0.823529, 0.411765, 0.117647 } ) - rgb(210,105,30) - #d2691e
+    { //RGB equivalents: std::array<double,3>( { 0.176471, 0.588235, 0.882353 } ) - rgb(210,105,30) - #d2691e
 
       inline
-      void chocolate( ::color::_internal::model< color::category::cmy_uint8 > & color_parameter )
+      void chocolate( ::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xa1;
+        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x2d, 0x96, 0xe1 } );
        }
 
       inline
-      void chocolate( ::color::_internal::model< color::category::cmy_uint16 > & color_parameter )
+      void chocolate( ::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xde45;
+        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x2d2d, 0x9696, 0xe1e1 } );
        }
 
       inline
-      void chocolate( ::color::_internal::model< color::category::cmy_uint32 > & color_parameter )
+      void chocolate( ::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffe1962du;
+        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x2d2d2d2d, 0x96969696, 0xe1e1e1e1 } );
        }
 
       inline
-      void chocolate( ::color::_internal::model< color::category::cmy_uint64 > & color_parameter )
+      void chocolate( ::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffe1e196962d2dul;
+        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x2d2d2d2d2d2d3000ull, 0x9696969696969800ull, 0xe1e1e1e1e1e1e000ull } );
        }
 
       inline
-      void chocolate( ::color::_internal::model< color::category::cmy_float > & color_parameter )
+      void chocolate( ::color::_internal::model< ::color::category::cmy_float > & color_parameter )
        {
         color_parameter.container() = std::array<float,3>( { 0.176471, 0.588235, 0.882353 } );
        }
 
       inline
-      void chocolate( ::color::_internal::model< color::category::cmy_double> & color_parameter )
+      void chocolate( ::color::_internal::model< ::color::category::cmy_double> & color_parameter )
        {
         color_parameter.container() = std::array<double,3>( { 0.176471, 0.588235, 0.882353 } );
        }
 
       inline
-      void chocolate( ::color::_internal::model< color::category::cmy_ldouble> & color_parameter )
+      void chocolate( ::color::_internal::model< ::color::category::cmy_ldouble> & color_parameter )
        {
         color_parameter.container() = std::array<long double,3>( { 0.176471, 0.588235, 0.882353 } );
        }

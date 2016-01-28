@@ -3,7 +3,7 @@
 
 #include "../../category.hpp"
 
-#include "../../../_internal/utility/container/cner655.hpp"
+#include "../../../_internal/utility/container/array.hpp"
 
 #include "../../../generic/trait/container.hpp"
 
@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct container< ::color::category::rgb_uint16 >
-      : public  ::color::_internal::utility::container::cner655<  unsigned  >
+      : public ::color::_internal::utility::container::array< std::uint16_t, 3 >
       {
       };
 

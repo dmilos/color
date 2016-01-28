@@ -3,7 +3,7 @@
 
 #include "../../category.hpp"
 
-#include "../../../_internal/utility/container/unsigned.hpp"
+#include "../../../_internal/utility/container/array.hpp"
 
 #include "../../../generic/trait/container.hpp"
 
@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct container< ::color::category::cmyk_uint32 >
-      : public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint8_t, unsigned, 4,  8 > 
+      : public ::color::_internal::utility::container::array< std::uint32_t, 4 >
       {
       };
 

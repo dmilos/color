@@ -3,7 +3,7 @@
 
 #include "../../category.hpp"
 
-#include "../../../_internal/utility/bound/intrinsic.hpp"
+#include "../../../_internal/utility/bound/general.hpp"
 
 #include "../../../generic/trait/bound.hpp"
 
@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct bound< ::color::category::hsl_uint64 >
-      : public ::color::_internal::utility::bound::intrinsic< std::uint16_t, 16, unsigned >
+      : public ::color::_internal::utility::bound::general< std::uint64_t, unsigned >
       {
       };
 

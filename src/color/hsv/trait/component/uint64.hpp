@@ -3,7 +3,7 @@
 
 #include "../../category.hpp"
 
-#include "../../../_internal/utility/component/unsigned.hpp"
+#include "../../../_internal/utility/component/array.hpp"
 
 #include "../../../generic/trait/component.hpp"
 
@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct component< ::color::category::hsv_uint64 >
-      : public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned>
+      : public ::color::_internal::utility::component::array< std::uint64_t, unsigned >
       {
       };
 

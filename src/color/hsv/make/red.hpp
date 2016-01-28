@@ -6,46 +6,46 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 1, 0, 0 } ) - rgb(255,0,0) - #ff0000
+    { //RGB equivalents: std::array<double,3>( { 0, 100, 100 } ) - rgb(255,0,0) - #ff0000
 
       inline
-      void red( ::color::_internal::model< color::category::hsv_uint8 > & color_parameter )
+      void red( ::color::_internal::model< ::color::category::hsv_uint8 > & color_parameter )
        {
-        color_parameter.container() = 0xf8;
+        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x00, 0xff, 0xff } );
        }
 
       inline
-      void red( ::color::_internal::model< color::category::hsv_uint16 > & color_parameter )
+      void red( ::color::_internal::model< ::color::category::hsv_uint16 > & color_parameter )
        {
-        color_parameter.container() = 0xffe0;
+        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x0000, 0xffff, 0xffff } );
        }
 
       inline
-      void red( ::color::_internal::model< color::category::hsv_uint32 > & color_parameter )
+      void red( ::color::_internal::model< ::color::category::hsv_uint32 > & color_parameter )
        {
-        color_parameter.container() = 0xffffff00u;
+        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x00000000, 0xffffffff, 0xffffffff } );
        }
 
       inline
-      void red( ::color::_internal::model< color::category::hsv_uint64 > & color_parameter )
+      void red( ::color::_internal::model< ::color::category::hsv_uint64 > & color_parameter )
        {
-        color_parameter.container() = 0xffffffffffff0000ul;
+        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x0000000000000000ull, 0x0000000000000000ull, 0x0000000000000000ull } );
        }
 
       inline
-      void red( ::color::_internal::model< color::category::hsv_float > & color_parameter )
+      void red( ::color::_internal::model< ::color::category::hsv_float > & color_parameter )
        {
         color_parameter.container() = std::array<float,3>( { 0, 100, 100 } );
        }
 
       inline
-      void red( ::color::_internal::model< color::category::hsv_double> & color_parameter )
+      void red( ::color::_internal::model< ::color::category::hsv_double> & color_parameter )
        {
         color_parameter.container() = std::array<double,3>( { 0, 100, 100 } );
        }
 
       inline
-      void red( ::color::_internal::model< color::category::hsv_ldouble> & color_parameter )
+      void red( ::color::_internal::model< ::color::category::hsv_ldouble> & color_parameter )
        {
         color_parameter.container() = std::array<long double,3>( { 0, 100, 100 } );
        }

@@ -3,7 +3,7 @@
 
 #include "../../category.hpp"
 
-#include "../../../_internal/utility/container/cner332.hpp"
+#include "../../../_internal/utility/container/array.hpp"
 
 #include "../../../generic/trait/container.hpp"
 
@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct container< ::color::category::hsv_uint8 >
-      : public  ::color::_internal::utility::container::cner332<  unsigned  >
+      : public ::color::_internal::utility::container::array< std::uint8_t, 3 >
       {
       };
 
