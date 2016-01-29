@@ -28,9 +28,10 @@
        {
         typedef ::color::category::cmy<tag_name>    category_type;
         typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
+        typedef double scalar_type;
 
         typedef  ::color::operation::_internal::invert< akin_type > invert_type; 
-        typedef  ::color::_internal::reformat< category_type, akin_type > reformat_type;
+        typedef  ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
 
         color_parameter.template set<0>( reformat_type::template process<0,0>( invert_type::template component<0>( component_parameter ) ) );
        }

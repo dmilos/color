@@ -8,7 +8,8 @@
 
 
 #include "../../generic/operation/invert.hpp"
-#include "../../_internal/reformat.hpp"
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
 
 namespace color
  {
