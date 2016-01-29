@@ -3813,6 +3813,18 @@
     <ClInclude Include="..\..\src\color\gray\convert\cmy.hpp">
       <Filter>Source Files\src\gray\convert</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\get\gray.hpp">
+      <Filter>Source Files\src\yuv\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\get\green.hpp">
+      <Filter>Source Files\src\yuv\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\get\red.hpp">
+      <Filter>Source Files\src\yuv\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\get\blue.hpp">
+      <Filter>Source Files\src\yuv\get</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

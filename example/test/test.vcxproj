@@ -1015,7 +1015,11 @@
     <ClInclude Include="..\..\src\color\yuv\convert\rgb.hpp" />
     <ClInclude Include="..\..\src\color\yuv\convert\xyz.hpp" />
     <ClInclude Include="..\..\src\color\yuv\convert\yiq.hpp" />
+    <ClInclude Include="..\..\src\color\yuv\get\blue.hpp" />
     <ClInclude Include="..\..\src\color\yuv\get\get.hpp" />
+    <ClInclude Include="..\..\src\color\yuv\get\gray.hpp" />
+    <ClInclude Include="..\..\src\color\yuv\get\green.hpp" />
+    <ClInclude Include="..\..\src\color\yuv\get\red.hpp" />
     <ClInclude Include="..\..\src\color\yuv\make\aqua.hpp" />
     <ClInclude Include="..\..\src\color\yuv\make\aquamarine.hpp" />
     <ClInclude Include="..\..\src\color\yuv\make\azure.hpp" />
