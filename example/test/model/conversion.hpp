@@ -7,7 +7,7 @@ using namespace color::operation::arithmetic;
 
 #include "../print.hpp"
 
-template < template<typename> class color_left_name, template<typename> class color_right_name  >
+template < template<typename> class color_left_name, template<typename> class color_right_name >
  void test_conversion()
   {
    std::cout << std::endl;

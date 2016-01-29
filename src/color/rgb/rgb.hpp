@@ -39,14 +39,11 @@ namespace color
     template<> struct pick_rgb< double         >{ typedef ::color::category::rgb_double  category_type; };
     template<> struct pick_rgb< long    double >{ typedef ::color::category::rgb_ldouble category_type; };
 
-    template<> struct pick_rgb< ::color::type::uint24_t >{ typedef ::color::category::rgb_uint24  category_type; };
-    template<> struct pick_rgb< ::color::type::uint48_t >{ typedef ::color::category::rgb_uint48  category_type; };
-
    }
 
-  template< typename type_name >
-   using rgb = ::color::_internal::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
-//using rgb = = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_scramble< value_name, 0, 1, 2 > > >;
+  template< typename value_name >
+   // using rgb = ::color::_internal::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
+   using rgb = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_scramble< value_name, 0, 1, 2 > > >;
 
   template< typename value_name >
    using bgr = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_scramble< value_name, 2, 1, 0 > > >;

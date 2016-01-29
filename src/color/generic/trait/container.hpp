@@ -20,9 +20,8 @@ namespace color
          typedef instance_type const    const_type;
 
          typedef instance_type const    return_image_type;
-         typedef instance_type const&   return_const_ref_type;
          typedef instance_type      &   return_type;
-         typedef instance_type      &   return_ref_type;
+         typedef instance_type      &   return_original_type;
 
          typedef instance_type const&   input_const_type;
          typedef instance_type      &   input_type;
@@ -43,6 +42,7 @@ namespace color
 
          typedef void set_return_type;
 
+         enum { size_enum = 4 }; 
 
          static component_return_const_type get( input_const_type container, index_input_const_type index )
           {

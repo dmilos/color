@@ -18,7 +18,7 @@ namespace color
      <
        typename category_left_name
       ,typename category_right_name
-      ,typename scalar_name = double
+      ,typename scalar_name
      >
      struct reformat
       {

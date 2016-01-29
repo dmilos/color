@@ -2646,13 +2646,7 @@
     <ClInclude Include="..\..\src\color\rgb\trait\bound\uint16.hpp">
       <Filter>Source Files\src\rgb\trait\bound</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\trait\bound\uint24.hpp">
-      <Filter>Source Files\src\rgb\trait\bound</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\trait\bound\uint32.hpp">
-      <Filter>Source Files\src\rgb\trait\bound</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\trait\bound\uint48.hpp">
       <Filter>Source Files\src\rgb\trait\bound</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\trait\bound\uint64.hpp">
@@ -2682,13 +2676,7 @@
     <ClInclude Include="..\..\src\color\rgb\trait\component\uint16.hpp">
       <Filter>Source Files\src\rgb\trait\container</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\trait\component\uint24.hpp">
-      <Filter>Source Files\src\rgb\trait\container</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\trait\component\uint32.hpp">
-      <Filter>Source Files\src\rgb\trait\container</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\trait\component\uint48.hpp">
       <Filter>Source Files\src\rgb\trait\container</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\trait\component\uint64.hpp">
@@ -2718,13 +2706,7 @@
     <ClInclude Include="..\..\src\color\rgb\trait\container\uint16.hpp">
       <Filter>Source Files\src\rgb\trait\component</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\trait\container\uint24.hpp">
-      <Filter>Source Files\src\rgb\trait\component</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\trait\container\uint32.hpp">
-      <Filter>Source Files\src\rgb\trait\component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\trait\container\uint48.hpp">
       <Filter>Source Files\src\rgb\trait\component</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\trait\container\uint64.hpp">
@@ -2754,13 +2736,7 @@
     <ClInclude Include="..\..\src\color\rgb\trait\index\uint16.hpp">
       <Filter>Source Files\src\rgb\trait\index</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\trait\index\uint24.hpp">
-      <Filter>Source Files\src\rgb\trait\index</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\trait\index\uint32.hpp">
-      <Filter>Source Files\src\rgb\trait\index</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\rgb\trait\index\uint48.hpp">
       <Filter>Source Files\src\rgb\trait\index</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\rgb\trait\index\uint64.hpp">

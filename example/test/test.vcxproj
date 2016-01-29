@@ -811,9 +811,7 @@
     <ClInclude Include="..\..\src\color\rgb\trait\bound\scramble3.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\bound\scramble4.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\bound\uint16.hpp" />
-    <ClInclude Include="..\..\src\color\rgb\trait\bound\uint24.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\bound\uint32.hpp" />
-    <ClInclude Include="..\..\src\color\rgb\trait\bound\uint48.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\bound\uint64.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\bound\uint8.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\component.hpp" />
@@ -824,9 +822,7 @@
     <ClInclude Include="..\..\src\color\rgb\trait\component\scramble3.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\component\scramble4.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\component\uint16.hpp" />
-    <ClInclude Include="..\..\src\color\rgb\trait\component\uint24.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\component\uint32.hpp" />
-    <ClInclude Include="..\..\src\color\rgb\trait\component\uint48.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\component\uint64.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\component\uint8.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\container.hpp" />
@@ -837,9 +833,7 @@
     <ClInclude Include="..\..\src\color\rgb\trait\container\scramble3.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\container\scramble4.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\container\uint16.hpp" />
-    <ClInclude Include="..\..\src\color\rgb\trait\container\uint24.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\container\uint32.hpp" />
-    <ClInclude Include="..\..\src\color\rgb\trait\container\uint48.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\container\uint64.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\container\uint8.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\index.hpp" />
@@ -850,9 +844,7 @@
     <ClInclude Include="..\..\src\color\rgb\trait\index\scramble3.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\index\scramble4.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\index\uint16.hpp" />
-    <ClInclude Include="..\..\src\color\rgb\trait\index\uint24.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\index\uint32.hpp" />
-    <ClInclude Include="..\..\src\color\rgb\trait\index\uint48.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\index\uint64.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\index\uint8.hpp" />
     <ClInclude Include="..\..\src\color\rgb\trait\trait.hpp" />

@@ -31,14 +31,14 @@ template< typename category_name >
 
    color::operation::convex( u32a, u32b, 0.5, u32c );
 
-   color::operation::blend( u32b, 0.5, u32c );
+   // TODO color::operation::blend( u32b, 0.5, u32c );
    color::operation::blend( u32b, u32b, 0.5, u32c );
 
-   color::operation::blend( u32b, u32a, u32b );
-   color::operation::blend( u32a, u32b );
+   // TODO color::operation::blend( u32b, u32a, u32b );
+   // TODO color::operation::blend( u32a, u32b );
 
    color::operation::mix( u32b, 0.5, u32c );
-   color::operation::mix( u32a, u32b );
+   // TODO color::operation::mix( u32a, u32b );
 
    color::fix::integrity( u32b );
    color::fix::integrity( u32a, u32b );

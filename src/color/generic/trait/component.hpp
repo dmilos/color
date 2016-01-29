@@ -18,9 +18,8 @@ namespace color
          typedef instance_type  const   const_type;
 
          typedef instance_type  const   return_image_type;
-         typedef instance_type  const   return_const_ref_type;
          typedef instance_type          return_type;
-         typedef instance_type          return_ref_type;
+         typedef instance_type          return_original_type;
 
          typedef instance_type const&   input_const_type;
          typedef instance_type      &   input_type;

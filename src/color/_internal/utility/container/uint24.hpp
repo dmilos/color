@@ -12,7 +12,7 @@ namespace color
       namespace container
        {
 
-        typedef array< std::uint8_t, 3>  uint24_t;
+        // typedef array< std::uint8_t, 3>  uint24_t;
 
        }
      } 

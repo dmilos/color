@@ -3,7 +3,11 @@
 // ::color::_internal::model< category >
 
 
-#include "./trait.hpp"
+// #include "./trait/index.hpp"
+// #include "./trait/component.hpp"
+// #include "./trait/container.hpp"
+// #include "./trait/bound.hpp"
+
 #include "./convert.hpp"
 #include "./init.hpp"
 
@@ -31,7 +35,6 @@ namespace color
         typedef ::color::trait::container< category_name >  container_trait_type;
         typedef ::color::trait::bound< category_name >      bound_trait_type, bound_type;
 
-        typedef ::color::_internal::trait<category_type> trait_type;
       //typedef ::color::_internal::model<category_type>  this_type;
 
         typedef typename index_trait_type::instance_type          index_type;
@@ -39,20 +42,21 @@ namespace color
         typedef typename index_trait_type::input_const_type       index_input_const_type;
         typedef typename index_trait_type::return_image_type      index_return_image_type;
 
-        typedef typename trait_type::component_type               component_type;
-        typedef typename trait_type::component_const_type         component_const_type;
-        typedef typename trait_type::component_return_const_type  component_return_const_type;
-        typedef typename trait_type::component_return_type        component_return_type;
-        typedef typename trait_type::component_input_const_type   component_input_const_type;
-        typedef typename trait_type::component_input_type         component_input_type;
+        typedef typename component_trait_type::instance_type       component_type;
+        typedef typename component_trait_type::const_type          component_const_type;
+        typedef typename component_trait_type::return_image_type   component_return_const_type;
+        typedef typename component_trait_type::return_type         component_return_type;
+        typedef typename component_trait_type::input_const_type    component_input_const_type;
+        typedef typename component_trait_type::input_type          component_input_type;
 
-        typedef typename trait_type::container_type               container_type;
-        typedef typename trait_type::container_const_type         container_const_type;
-        typedef typename trait_type::container_return_const_type  container_return_const_type;
-        typedef typename trait_type::container_input_const_type   container_input_const_type;
-        typedef typename trait_type::container_return_type        container_return_type;
+        typedef typename container_trait_type::instance_type          container_type;
+        typedef typename container_trait_type::const_type             container_const_type;
+        typedef typename container_trait_type::return_image_type      container_return_const_type;
+        typedef typename container_trait_type::return_original_type   container_return_original_type;
+        typedef typename container_trait_type::input_const_type       container_input_const_type;
+        typedef typename container_trait_type::input_type             container_input_type;
 
-        typedef typename trait_type::set_return_type              set_return_type;
+        typedef typename container_trait_type::set_return_type        set_return_type;
 
 
                  model( )
@@ -66,8 +70,9 @@ namespace color
          {
          }
 
-        explicit model( std::initializer_list<component_type > const& ilist )
+        explicit model( std::initializer_list<component_type> const& ilist )
          {
+          //TODO C++14 static_assert( container_trait_type::size_enum != ilist.size(), "Initizlizer list size do not mach model/format length." );
           ::color::_internal::init<category_name>( this->m_container, ilist );
          }
 
@@ -137,7 +142,7 @@ namespace color
          {
           return this->m_container;
          }
-        container_return_type       container()
+        container_return_original_type       container()
          {
           return this->m_container;
          }
@@ -149,7 +154,7 @@ namespace color
 
         private:
           container_type m_container;
-    };
+      };
 
    }
  }

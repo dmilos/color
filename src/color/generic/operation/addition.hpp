@@ -3,7 +3,7 @@
 // ::color::operation::addition( result, right )
 // ::color::operation::addition( result, left, right )
 
-#include "../../_internal/trait.hpp"
+
 #include "../../_internal/model.hpp"
 
  namespace color
