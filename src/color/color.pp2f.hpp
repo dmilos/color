@@ -157,73 +157,12 @@ public:
 	typedef instance_type const const_type;
 
 	typedef instance_type const return_image_type;
-	typedef instance_type const return_const_ref_type;
 	typedef instance_type return_type;
-	typedef instance_type return_ref_type;
+	typedef instance_type return_original_type;
 
 	typedef instance_type const& input_const_type;
 	typedef instance_type & input_type;
 
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< typename category_name >
-struct container {
-public:
-	typedef unsigned int instance_type;
-
-	typedef instance_type const const_type;
-
-	typedef instance_type const return_image_type;
-	typedef instance_type const& return_const_ref_type;
-	typedef instance_type & return_type;
-	typedef instance_type & return_ref_type;
-
-	typedef instance_type const& input_const_type;
-	typedef instance_type & input_type;
-	typedef instance_type & output_type, param_output_type;
-
-	typedef ::color::trait::index< category_name > index_trait_type;
-
-	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
-	typedef typename index_trait_type::return_image_type index_return_image_type;
-
-	typedef ::color::trait::component< category_name > component_trait_type;
-	typedef typename component_trait_type::const_type component_const_type;
-	typedef typename component_trait_type::return_image_type component_return_const_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
-	typedef typename component_trait_type::instance_type component_type;
-
-	typedef void set_return_type;
-
-	static component_return_const_type get(input_const_type container, index_input_const_type index) {
-		return (component_type)((container >> (index << 3)) & 0xFF);
-	}
-
-	template< index_instance_type index >
-	static component_return_const_type get(input_const_type container) {
-		return (component_type)((container >> (index << 3)) & 0xFF);
-	}
-
-	static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
-		container = (container & ~(0xFF << (index << 3))) | (((instance_type)value) << (index << 3));
-	}
-
-	template< index_instance_type index >
-	static set_return_type set(input_type container, component_input_const_type value) {
-		container = (container & ~(0xFF << (index << 3))) | (((instance_type)value) << (index << 3));
-	}
-
-	static index_return_image_type size() {
-		static index_instance_type length = 4;
-		return length;
-	}
 };
 
 }
@@ -564,51 +503,6 @@ public:
 }
 
 namespace color {
-namespace _internal {
-
-template< typename category_name >
-struct trait
-		: public ::color::trait::index< category_name >
-		, public ::color::trait::container< category_name >
-		, public ::color::trait::component< category_name >
-		, public ::color::trait::bound< category_name > {
-public:
-	typedef ::color::trait::index< category_name > index_trait_type;
-	typedef ::color::trait::component< category_name > component_trait_type;
-	typedef ::color::trait::container< category_name > container_trait_type;
-	typedef ::color::trait::bound< category_name > bound_trait_type;
-
-	typedef typename index_trait_type::instance_type index_type;
-	typedef typename index_trait_type::const_type index_const_type;
-	typedef typename index_trait_type::return_image_type index_return_image_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
-	typedef typename index_trait_type::input_type index_input_type;
-
-	typedef typename component_trait_type::instance_type component_type;
-	typedef typename component_trait_type::const_type component_const_type;
-	typedef typename component_trait_type::return_image_type component_return_const_type;
-	typedef typename component_trait_type::return_type component_return_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
-	typedef typename component_trait_type::input_type component_input_type;
-
-	typedef typename container_trait_type::instance_type container_type;
-	typedef typename container_trait_type::const_type container_const_type;
-	typedef typename container_trait_type::return_image_type container_return_const_type;
-	typedef typename container_trait_type::return_type container_return_type;
-	typedef typename container_trait_type::input_const_type container_input_const_type;
-	typedef typename container_trait_type::input_type container_input_type;
-
-	typedef typename container_trait_type::set_return_type set_return_type;
-
-	using bound_trait_type::minimum;
-	using bound_trait_type::maximum;
-	using bound_trait_type::range;
-};
-
-}
-}
-
-namespace color {
 namespace trait {
 
 template< typename category_name >
@@ -711,7 +605,7 @@ template
 <
 typename category_left_name
 ,typename category_right_name
-,typename scalar_name = double
+,typename scalar_name
 >
 struct reformat {
 public:
@@ -795,6 +689,67 @@ public:
 }
 
 namespace color {
+namespace trait {
+
+template< typename category_name >
+struct container {
+public:
+	typedef unsigned int instance_type;
+
+	typedef instance_type const const_type;
+
+	typedef instance_type const return_image_type;
+	typedef instance_type & return_type;
+	typedef instance_type & return_original_type;
+
+	typedef instance_type const& input_const_type;
+	typedef instance_type & input_type;
+	typedef instance_type & output_type, param_output_type;
+
+	typedef ::color::trait::index< category_name > index_trait_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::return_image_type index_return_image_type;
+
+	typedef ::color::trait::component< category_name > component_trait_type;
+	typedef typename component_trait_type::const_type component_const_type;
+	typedef typename component_trait_type::return_image_type component_return_const_type;
+	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::instance_type component_type;
+
+	typedef void set_return_type;
+
+	enum { size_enum = 4 };
+
+	static component_return_const_type get(input_const_type container, index_input_const_type index) {
+		return (component_type)((container >> (index << 3)) & 0xFF);
+	}
+
+	template< index_instance_type index >
+	static component_return_const_type get(input_const_type container) {
+		return (component_type)((container >> (index << 3)) & 0xFF);
+	}
+
+	static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
+		container = (container & ~(0xFF << (index << 3))) | (((instance_type)value) << (index << 3));
+	}
+
+	template< index_instance_type index >
+	static set_return_type set(input_type container, component_input_const_type value) {
+		container = (container & ~(0xFF << (index << 3))) | (((instance_type)value) << (index << 3));
+	}
+
+	static index_return_image_type size() {
+		static index_instance_type length = 4;
+		return length;
+	}
+};
+
+}
+}
+
+namespace color {
 namespace _internal {
 
 template< typename category_left_name, typename category_right_name >
@@ -802,6 +757,7 @@ struct convert {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
+	typedef double scalar_type;
 
 	typedef ::color::trait::index<category_left_type> index_trait_type;
 	typedef typename index_trait_type::instance_type index_type;
@@ -815,12 +771,13 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 		static const index_type min_common_size = std::min< index_type >(container_left_trait_type::size(), container_right_trait_type::size());
 		component_left_type value;
 		for(index_type index=0; index < min_common_size; ++index) {
@@ -885,27 +842,26 @@ public:
 	typedef ::color::trait::container< category_name > container_trait_type;
 	typedef ::color::trait::bound< category_name > bound_trait_type, bound_type;
 
-	typedef ::color::_internal::trait<category_type> trait_type;
-
 	typedef typename index_trait_type::instance_type index_type;
 	typedef typename index_trait_type::const_type index_const_type;
 	typedef typename index_trait_type::input_const_type index_input_const_type;
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
-	typedef typename trait_type::component_type component_type;
-	typedef typename trait_type::component_const_type component_const_type;
-	typedef typename trait_type::component_return_const_type component_return_const_type;
-	typedef typename trait_type::component_return_type component_return_type;
-	typedef typename trait_type::component_input_const_type component_input_const_type;
-	typedef typename trait_type::component_input_type component_input_type;
+	typedef typename component_trait_type::instance_type component_type;
+	typedef typename component_trait_type::const_type component_const_type;
+	typedef typename component_trait_type::return_image_type component_return_const_type;
+	typedef typename component_trait_type::return_type component_return_type;
+	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::input_type component_input_type;
 
-	typedef typename trait_type::container_type container_type;
-	typedef typename trait_type::container_const_type container_const_type;
-	typedef typename trait_type::container_return_const_type container_return_const_type;
-	typedef typename trait_type::container_input_const_type container_input_const_type;
-	typedef typename trait_type::container_return_type container_return_type;
+	typedef typename container_trait_type::instance_type container_type;
+	typedef typename container_trait_type::const_type container_const_type;
+	typedef typename container_trait_type::return_image_type container_return_const_type;
+	typedef typename container_trait_type::return_original_type container_return_original_type;
+	typedef typename container_trait_type::input_const_type container_input_const_type;
+	typedef typename container_trait_type::input_type container_input_type;
 
-	typedef typename trait_type::set_return_type set_return_type;
+	typedef typename container_trait_type::set_return_type set_return_type;
 
 	model() {
 	}
@@ -914,7 +870,7 @@ public:
 		:m_container(container) {
 	}
 
-	explicit model(std::initializer_list<component_type > const& ilist) {
+	explicit model(std::initializer_list<component_type> const& ilist) {
 		::color::_internal::init<category_name>(this->m_container, ilist);
 	}
 
@@ -957,7 +913,7 @@ public:
 	container_return_const_type container()const {
 		return this->m_container;
 	}
-	container_return_type container() {
+	container_return_original_type container() {
 		return this->m_container;
 	}
 
@@ -1539,34 +1495,30 @@ template< >struct gray< ::color::category::hsv_ldouble > {
 namespace color {
 namespace category {
 
-namespace _internal {
-struct rgb_uint8 {};
-struct rgb_uint16 {};
-struct rgb_uint24 {};
-struct rgb_uint32 {};
-struct rgb_uint48 {};
-struct rgb_uint64 {};
-struct rgb_float {};
-struct rgb_double {};
-struct rgb_ldouble {};
-}
-
-template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position >
-struct rgb_scramble {};
-
-template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position, unsigned alpha_position >
-struct rgba_scramble {};
-
 template< typename tag_name >
 struct rgb {
 
 };
 
+template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position >
+struct rgb_scramble {};
+
+namespace _internal {
+using rgb_uint8 = color::category::rgb_scramble< std::uint8_t , 0, 1, 2 >;
+using rgb_uint16 = color::category::rgb_scramble< std::uint16_t , 0, 1, 2 >;
+using rgb_uint32 = color::category::rgb_scramble< std::uint32_t , 0, 1, 2 >;
+using rgb_uint64 = color::category::rgb_scramble< std::uint64_t , 0, 1, 2 >;
+using rgb_float = color::category::rgb_scramble< float , 0, 1, 2 >;
+using rgb_double = color::category::rgb_scramble< double , 0, 1, 2 >;
+using rgb_ldouble = color::category::rgb_scramble< long double, 0, 1, 2 >;
+}
+
+template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position, unsigned alpha_position >
+struct rgba_scramble {};
+
 using rgb_uint8 = rgb< ::color::category::_internal::rgb_uint8 >;
 using rgb_uint16 = rgb< ::color::category::_internal::rgb_uint16 >;
-using rgb_uint24 = rgb< ::color::category::_internal::rgb_uint24 >;
 using rgb_uint32 = rgb< ::color::category::_internal::rgb_uint32 >;
-using rgb_uint48 = rgb< ::color::category::_internal::rgb_uint48 >;
 using rgb_uint64 = rgb< ::color::category::_internal::rgb_uint64 >;
 using rgb_float = rgb< ::color::category::_internal::rgb_float >;
 using rgb_double = rgb< ::color::category::_internal::rgb_double >;
@@ -1977,7 +1929,6 @@ namespace container {
 template< typename index_name >
 struct boolean {
 public:
-
 	typedef index_name index_type;
 	typedef bool value_type;
 
@@ -1986,6 +1937,7 @@ public:
 	typedef instance_type const const_type;
 	typedef instance_type const& return_image_type;
 	typedef instance_type & return_type;
+	typedef instance_type & return_original_type;
 	typedef instance_type const& input_const_type;
 	typedef instance_type & input_type;
 	typedef instance_type & output_type;
@@ -1993,16 +1945,20 @@ public:
 	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
+
 	typedef typename index_trait_type::input_const_type index_input_const_type;
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
 	typedef ::color::_internal::utility::type::traitC< value_type > component_trait_type;
 
-	typedef typename component_trait_type::return_image_type component_return_const_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
 	typedef typename component_trait_type::instance_type component_type;
 
+	typedef typename component_trait_type::return_image_type component_return_const_type;
+	typedef typename component_trait_type::input_const_type component_input_const_type;
+
 	typedef void set_return_type;
+
+	enum { size_enum = 1 };
 
 	static component_return_const_type get(input_const_type container, index_input_const_type index) {
 		return container;
@@ -2051,7 +2007,6 @@ namespace container {
 template< typename value_name, unsigned length >
 struct array {
 public:
-
 	typedef value_name value_type;
 
 	typedef std::array< value_name, length> instance_type;
@@ -2059,6 +2014,7 @@ public:
 	typedef instance_type const const_type;
 	typedef instance_type const& return_image_type;
 	typedef instance_type & return_type;
+	typedef instance_type & return_original_type;
 	typedef instance_type const& input_const_type;
 	typedef instance_type & input_type;
 	typedef instance_type & output_type;
@@ -2078,6 +2034,8 @@ public:
 	typedef typename component_trait_type::input_const_type component_input_const_type;
 
 	typedef void set_return_type;
+
+	enum { size_enum = length };
 
 	static component_return_const_type get(input_const_type container, index_input_const_type index) {
 		return container[index];
@@ -2146,7 +2104,6 @@ namespace container {
 template< typename unsigned_name, typename value_name, typename index_name, unsigned length, unsigned width >
 struct Unsigned {
 public:
-
 	typedef unsigned_name unsigned_type;
 	typedef value_name value_type;
 	typedef index_name index_type;
@@ -2157,6 +2114,7 @@ public:
 	typedef instance_type const const_type;
 	typedef instance_type const& return_image_type;
 	typedef instance_type & return_type;
+	typedef instance_type & return_original_type;
 	typedef instance_type const& input_const_type;
 	typedef instance_type & input_type;
 	typedef instance_type & output_type;
@@ -2165,16 +2123,19 @@ public:
 
 	typedef typename index_trait_type::instance_type index_instance_type;
 	typedef typename index_trait_type::input_const_type index_input_const_type;
+
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
 	typedef ::color::_internal::utility::type::traitP< value_name > component_trait_type;
 
-	typedef typename component_trait_type::const_type component_const_type;
 	typedef typename component_trait_type::instance_type component_type;
+	typedef typename component_trait_type::const_type component_const_type;
 	typedef typename component_trait_type::return_image_type component_return_const_type;
 	typedef typename component_trait_type::input_const_type component_input_const_type;
 
 	typedef void set_return_type;
+
+	enum { size_enum = length };
 
 	static component_return_const_type get(input_const_type container, index_input_const_type index) {
 		return (component_type)((container >> (index * width)) & mask());
@@ -2435,8 +2396,8 @@ struct index< ::color::category::rgb_uint8 >
 namespace color {
 namespace trait {
 
-template< >
-struct index< ::color::category::rgb_uint24 >
+template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position >
+struct index< ::color::category::rgb<::color::category::rgb_scramble< value_name, first_position, second_position, third_position > > >
 		: public ::color::_internal::utility::type::index< unsigned > {
 };
 
@@ -2445,8 +2406,8 @@ struct index< ::color::category::rgb_uint24 >
 namespace color {
 namespace trait {
 
-template< >
-struct index< ::color::category::rgb_uint48 >
+template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position, unsigned forth_position >
+struct index< ::color::category::rgb< ::color::category::rgba_scramble< value_name, first_position, second_position, third_position, forth_position > > >
 		: public ::color::_internal::utility::type::index< unsigned > {
 };
 
@@ -2775,9 +2736,9 @@ struct component< ::color::category::rgb_uint8 >
 namespace color {
 namespace trait {
 
-template< >
-struct component< ::color::category::rgb_uint24 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position >
+struct component< ::color::category::rgb< ::color::category::rgb_scramble< value_name, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::component::array< value_name, unsigned > {
 };
 
 }
@@ -2785,9 +2746,9 @@ struct component< ::color::category::rgb_uint24 >
 namespace color {
 namespace trait {
 
-template< >
-struct component< ::color::category::rgb_uint48 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position , unsigned forth_position >
+struct component< ::color::category::rgb< ::color::category::rgba_scramble< value_name, first_position, second_position, third_position, forth_position > > >
+		: public ::color::_internal::utility::component::array< value_name, unsigned > {
 };
 
 }
@@ -4243,8 +4204,9 @@ red
 ) {
 	typedef ::color::category::cmy<tag_name> category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
+	typedef double scalar_type;
 	typedef ::color::operation::_internal::invert< akin_type > invert_type;
-	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
 	color_parameter.template set<0>(reformat_type::template process<0,0>(invert_type::template component<0>(component_parameter)));
 }
 
@@ -4264,8 +4226,9 @@ green
 ) {
 	typedef ::color::category::cmy<tag_name> category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
+	typedef double scalar_type;
 	typedef ::color::operation::_internal::invert< akin_type > invert_type;
-	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
 	color_parameter.template set<1>(reformat_type::template process<1,1>(invert_type::template component<1>(component_parameter)));
 }
 
@@ -4285,8 +4248,9 @@ blue
 ) {
 	typedef ::color::category::cmy<tag_name > category_type;
 	typedef typename ::color::akin::rgb<category_type >::akin_type akin_type;
+	typedef double scalar_type;
 	typedef ::color::operation::_internal::invert< akin_type > invert_type;
-	typedef ::color::_internal::reformat<category_type, akin_type > reformat_type;
+	typedef ::color::_internal::reformat<category_type, akin_type, scalar_type > reformat_type;
 	color_parameter.template set<2>(reformat_type::template process<2,2>(invert_type::template component<2>(component_parameter)));
 }
 
@@ -4720,6 +4684,7 @@ void blend
 	,::color::_internal::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	static_assert(0 < alpha_index, "Error: This combination of model/format has no alpha channel") ;
 	::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >(result, upper);
 }
 
@@ -4731,6 +4696,7 @@ void blend
 	,::color::_internal::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	static_assert(0 < alpha_index, "Error: This combination of model/format has no alpha channel") ;
 	::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >(result, lower, upper);
 }
 
@@ -4742,6 +4708,7 @@ mix
 	,::color::_internal::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	static_assert(0 < alpha_index, "Error: This combination of model/format has no alpha channel") ;
 	return ::color::operation::_internal::blend<category_name>::template mix< alpha_index >(lower, upper);
 }
 
@@ -4753,6 +4720,7 @@ void blend
 	,::color::_internal::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	static_assert(0 < alpha_index, "Error: This combination of model/format has no alpha channel") ;
 	::color::operation::_internal::blend<category_name>::accumulate(result, alpha, upper);
 }
 
@@ -9917,9 +9885,9 @@ namespace color {
 namespace color {
 	namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_uint24 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+		template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position >
+		struct bound< ::color::category::rgb< ::color::category::rgb_scramble< value_name, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::bound::general< value_name, unsigned > {
 		};
 
 	}
@@ -9927,9 +9895,9 @@ namespace color {
 namespace color {
 	namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_uint48 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+		template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct bound< ::color::category::rgb< ::color::category::rgba_scramble< value_name, first_position, second_position, third_position,fourth_position > > >
+		: public ::color::_internal::utility::bound::general< value_name, unsigned > {
 		};
 
 	}
@@ -10001,26 +9969,6 @@ namespace color {
 		template< >
 		struct container< ::color::category::rgb_uint8 >
 		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct container< ::color::category::rgb_uint24 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
-		struct container< ::color::category::rgb_uint48 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 		};
 
 	}
@@ -10647,39 +10595,25 @@ void yellow(::color::_internal::model< ::color::category::rgb_ldouble> & color_p
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void aqua(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0x00, 0xff, 0xff });
-}
-
-inline
-void aqua(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0x0000, 0xffff, 0xffff });
-}
-
-inline
-void aqua(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0x00000000, 0xffffffff, 0xffffffff });
-}
-
-inline
-void aqua(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3 >({ 0x0ull, 0x0ull, 0x0ull });
-}
-
-inline
-void aqua(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 1, 1 });
-}
-
-inline
-void aqua(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 1, 1 });
-}
-
-inline
-void aqua(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 1, 1 });
+void aqua(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	enum {
+		red_p = ::color::place::_internal::red<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+	};
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, double > reformat_type;
+	static left_type local
+	({
+		reformat_type::template process< red_p , 0 >(0x00)
+		,reformat_type::template process< green_p, 1 >(0xFF)
+		,reformat_type::template process< blue_p , 2 >(0xFF)
+	});
+	color_parameter = local;
 }
 
 	}
@@ -19162,7 +19096,6 @@ namespace color {
 				template< typename index_name >
 				struct cner332 {
 					public:
-
 					typedef index_name index_type;
 
 					typedef std::uint8_t value_type;
@@ -19171,6 +19104,7 @@ namespace color {
 					typedef instance_type const const_type;
 					typedef instance_type const& return_image_type;
 					typedef instance_type & return_type;
+					typedef instance_type & return_original_type;
 					typedef instance_type const& input_const_type;
 					typedef instance_type & input_type;
 					typedef instance_type & output_type;
@@ -19178,17 +19112,20 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
+
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 					typedef typename index_trait_type::return_image_type index_return_image_type;
 
 					typedef ::color::_internal::utility::type::traitP< value_type > component_trait_type;
 
-					typedef typename component_trait_type::const_type component_const_type;
 					typedef typename component_trait_type::instance_type component_type;
+					typedef typename component_trait_type::const_type component_const_type;
 					typedef typename component_trait_type::return_image_type component_return_const_type;
 					typedef typename component_trait_type::input_const_type component_input_const_type;
 
 					typedef void set_return_type;
+
+enum { size_enum = 3 };
 
 static component_return_const_type get(input_const_type container, index_input_const_type index) {
 	switch(index) {
@@ -19361,7 +19298,6 @@ namespace color {
 				template< typename index_name >
 				struct cner556 {
 					public:
-
 					typedef index_name index_type;
 
 					typedef std::uint8_t value_type;
@@ -19370,6 +19306,7 @@ namespace color {
 					typedef instance_type const const_type;
 					typedef instance_type const& return_image_type;
 					typedef instance_type & return_type;
+					typedef instance_type & return_original_type;
 					typedef instance_type const& input_const_type;
 					typedef instance_type & input_type;
 					typedef instance_type & output_type;
@@ -19377,17 +19314,20 @@ namespace color {
 					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 					typedef typename index_trait_type::instance_type index_instance_type;
+
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 					typedef typename index_trait_type::return_image_type index_return_image_type;
 
 					typedef ::color::_internal::utility::type::traitP< value_type > component_trait_type;
 
-					typedef typename component_trait_type::const_type component_const_type;
 					typedef typename component_trait_type::instance_type component_type;
+					typedef typename component_trait_type::const_type component_const_type;
 					typedef typename component_trait_type::return_image_type component_return_const_type;
 					typedef typename component_trait_type::input_const_type component_input_const_type;
 
 					typedef void set_return_type;
+
+enum { size_enum = 3 };
 
 static component_return_const_type get(input_const_type container, index_input_const_type index) {
 	switch(index) {
@@ -20503,46 +20443,9 @@ namespace color {
 }
 
 namespace color {
-	namespace _internal {
 
-		template< typename type_name >
-		struct pick_rgb {
-			typedef ::color::category::rgb_uint32 category_type;
-		};
-
-		template<> struct pick_rgb< std::uint8_t > {
-			typedef ::color::category::rgb_uint8 category_type;
-		};
-		template<> struct pick_rgb< std::uint16_t > {
-			typedef ::color::category::rgb_uint16 category_type;
-		};
-		template<> struct pick_rgb< std::uint32_t > {
-			typedef ::color::category::rgb_uint32 category_type;
-		};
-		template<> struct pick_rgb< std::uint64_t > {
-			typedef ::color::category::rgb_uint64 category_type;
-		};
-		template<> struct pick_rgb< float > {
-			typedef ::color::category::rgb_float category_type;
-		};
-		template<> struct pick_rgb< double > {
-			typedef ::color::category::rgb_double category_type;
-		};
-		template<> struct pick_rgb< long double > {
-			typedef ::color::category::rgb_ldouble category_type;
-		};
-
-		template<> struct pick_rgb< ::color::type::uint24_t > {
-			typedef ::color::category::rgb_uint24 category_type;
-		};
-		template<> struct pick_rgb< ::color::type::uint48_t > {
-			typedef ::color::category::rgb_uint48 category_type;
-		};
-
-	}
-
-	template< typename type_name >
-	using rgb = ::color::_internal::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
+	template< typename value_name >
+	using rgb = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_scramble< value_name, 0, 1, 2 > > >;
 
 	template< typename value_name >
 	using bgr = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_scramble< value_name, 2, 1, 0 > > >;
@@ -21076,12 +20979,16 @@ namespace color {
 			public:
 			typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 			typedef ::color::category::rgb<rgb_tag_name> category_right_type;
+			typedef double scalar_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 			typedef typename container_left_trait_type::input_type container_left_input_type;
 			typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+			typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+			typedef ::color::operation::_internal::invert< category_right_type > invert_type;
 
 			static void process
 			(
@@ -21093,8 +21000,6 @@ namespace color {
 		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
 		,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
-	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
-	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
 	container_left_trait_type::template set<0>(left, reformat_type::template process<0,red_p >(invert_type::template component<red_p >(container_right_trait_type::template get<red_p >(right))));
 	container_left_trait_type::template set<1>(left, reformat_type::template process<1,green_p>(invert_type::template component<green_p>(container_right_trait_type::template get<green_p>(right))));
 	container_left_trait_type::template set<2>(left, reformat_type::template process<2,blue_p >(invert_type::template component<blue_p >(container_right_trait_type::template get<blue_p >(right))));
