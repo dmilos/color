@@ -1,7 +1,7 @@
-#ifndef color_cmyk_get_blue
-#define color_cmyk_get_blue
+#ifndef color_cmyk_set_blue
+#define color_cmyk_set_blue
 
-// ::color::get::blue( c )
+// ::color::set::blue( c )
 
 #include "../../rgb/akin/cmyk.hpp"
 #include "../../rgb/trait/component.hpp"
@@ -15,18 +15,22 @@
 
  namespace color
   {
-   namespace get
+   namespace set
     {
 
      template< typename tag_name >
       inline
-      ::color::trait::component< ::color::akin::rgb<::color::category::cmyk<tag_name> >::akin_type >::return_type
-      blue( ::color::_internal::model< ::color::category::cmyk<tag_name> > const& color_parameter )
+      void
+      blue
+       (
+                  ::color::_internal::model< ::color::category::cmyk< tag_name > >                                   & color_parameter
+        ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::input_const_type         component_parameter
+       )
        {
         typedef ::color::category::cmyk<tag_name>    category_type;
+        typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
         typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
 
-        typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
 
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize< category_type > normalize_type;
@@ -36,7 +40,6 @@
            + 0.7152 * normalize_type::template process<1>( color_parameter.template get<1>() )
            + 0.0722 * normalize_type::template process<2>( color_parameter.template get<2>() );
 
-        return diverse_type::template process<0>( value );
        }
 
     }

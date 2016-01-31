@@ -10,7 +10,7 @@
 #include "./place/place.hpp"
 
 #include "./get/get.hpp"
-// TODO: NYI #include "./set/set.hpp"
+#include "./set/set.hpp"
 #include "./make/make.hpp"
 #include "./convert/convert.hpp"
 #include "./check/check.hpp"

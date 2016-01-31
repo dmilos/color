@@ -27,9 +27,9 @@
          typename ::color::_internal::model< ::color::category::cmy<tag_name> >::component_input_const_type         component_parameter
        )
        {
-        typedef ::color::category::cmy<tag_name>     category_type;
-        typedef typename ::color::trait::scalar< category_type >::instance_type   scalar_type;
+        typedef ::color::category::cmy< tag_name >    category_type;
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
+        typedef typename ::color::trait::scalar< category_type >::instance_type   scalar_type;
 
         typedef ::color::_internal::normalize< category_type > normalize_cmy_type;
         typedef ::color::_internal::normalize< akin_type >     normalize_akin_type;
@@ -44,7 +44,7 @@
         value = normalize_akin_type::template process<0>( component_parameter ) / value;
 
         ::color::operation::scale( color_parameter,  scalar_type(1) - value );
-       };
+       }
 
     }
   }
