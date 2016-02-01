@@ -253,10 +253,10 @@ int main(int argc, char const *argv[])
   make_image<color::hsv<double> >( "./image-hsv-1-00.tga" , 0.00, 1 );
   make_image<color::hsv<double> >( "./image-hsv-1-05.tga" , 0.50, 1 );
   make_image<color::hsv<double> >( "./image-hsv-1-060.tga", 0.60, 1 );
-  make_image<color::hsv<double> >( "./image-hsv-1-075.tga", 0.75, 1 );
+  make_image<color::hsv<double> >( "./image-hsv-1-075.tga", 0.70, 1 );
   make_image<color::hsv<double> >( "./image-hsv-1-080.tga", 0.80, 1 );
   make_image<color::hsv<double> >( "./image-hsv-1-090.tga", 0.90, 1 );
-  make_image<color::hsv<double> >( "./image-hsv-1-10.tga" , 1.50, 1 );
+  make_image<color::hsv<double> >( "./image-hsv-1-10.tga" , 1.00, 1 );
 
   make_image<color::rgb<double> >( "./image-rgb-0-00.tga" , 0.0, 0 );
   make_image<color::rgb<double> >( "./image-rgb-0-05.tga" , 0.5, 0 );
