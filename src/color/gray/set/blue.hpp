@@ -3,9 +3,12 @@
 
 // ::color::set::blue( c, val )
 
+
+#include "../../rgb/place/place.hpp"
 #include "../../rgb/akin/gray.hpp"
 #include "../../rgb/trait/component.hpp"
 
+#include "../place/place.hpp"
 #include "../category.hpp"
 
 
@@ -27,7 +30,6 @@
         typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
         typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
 
-        typedef  ::color::operation::_internal::invert< akin_type > invert_type;
         typedef  ::color::_internal::reformat<category_type, akin_type, scalar_type > reformat_type;
 
         enum{ blue_p  = ::color::place::_internal::blue<akin_type>::position_enum };
@@ -39,4 +41,4 @@
     }
   }
 
-#endif 
+#endif

@@ -5,6 +5,8 @@
 #include "./green.hpp"
 #include "./blue.hpp"
 
+#include "./alpha.hpp"
+
 #include "./inphase.hpp"
 #include "./quadrature.hpp"
 

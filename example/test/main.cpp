@@ -152,6 +152,35 @@ void invoke()
   test_get< ::color::category::gray_ldouble >();
  }
 
+
+void make_blue()
+ {
+  int height = 256;
+  int width  = 256;
+  typedef unsigned char targa_header_struct[18];
+
+  targa_header_struct header;
+
+  void targa_make_header(int height, int width, targa_header_struct header);
+
+  targa_make_header( height, width, header);
+
+  std::vector< color::bgra<std::uint8_t> >   image(height * width);
+
+  for( auto & c: image )
+   {
+    c = color::hsl<double>( { 0, 50, 50 } );
+   }
+
+   {
+    std::ofstream of( "blue.tga", std::ios_base::binary);
+    of.write((const char *)header, 18);
+    of.write((const char *)image.data(), image.size() * 4);
+   }
+
+ }
+
+
 template < typename model_name >
 void make_image(std::string const& name, float plane = 0.5, int side = 1 )
  {
@@ -167,7 +196,7 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 
   targa_make_header( height, width, header);
 
-  std::vector< color::abgr<std::uint8_t> >   image(height * width);
+  std::vector< color::bgra<std::uint8_t> >   image(height * width);
 
   for (int y = 0; y < height; y++)
    {
@@ -215,13 +244,24 @@ int main(int argc, char const *argv[])
   extern void make_make_header();
   make_make_header();
 
-  make_image<color::hsl<double> >( "./image-hsl.tga" , 0.5 );
-  make_image<color::hsv<double> >( "./image-hsv.tga" , 0.5 );
-  make_image<color::rgb<double> >( "./image-rgb-0.tga" , 0.5, 0 );
-  make_image<color::rgb<double> >( "./image-rgb-1.tga" , 0.5, 1 );
-  make_image<color::rgb<double> >( "./image-rgb-2.tga" , 0.5, 2 );
+  make_blue();
+
+  make_image<color::hsl<double> >( "./image-hsl-1-00.tga" , 0.0, 1 );
+  make_image<color::hsl<double> >( "./image-hsl-1-05.tga" , 0.5, 1 );
+  make_image<color::hsl<double> >( "./image-hsl-1-10.tga" , 1.0, 1 );
+
+  make_image<color::hsv<double> >( "./image-hsv-1-00.tga" , 0.0, 1 );
+  make_image<color::hsv<double> >( "./image-hsv-1-05.tga" , 0.5, 1 );
+  make_image<color::hsv<double> >( "./image-hsv-1-10.tga" , 1.5, 1 );
+
+  make_image<color::rgb<double> >( "./image-rgb-0-00.tga" , 0.0, 0 );
+  make_image<color::rgb<double> >( "./image-rgb-0-05.tga" , 0.5, 0 );
+  make_image<color::rgb<double> >( "./image-rgb-0-10.tga" , 1.0, 0 );
+
+
   make_image<color::cmy<double> >( "./image-cmy.tga" , 0.5 );
   make_image<color::cmyk<double> >("./image-cmyk.tga", 0.5 );
+
   make_image<color::xyz<double> >( "./image-xyz-0.tga" , 0.5, 0 );
   make_image<color::xyz<double> >( "./image-xyz-1.tga" , 0.5, 1 );
   make_image<color::xyz<double> >( "./image-xyz-2.tga" , 0.5, 2 );

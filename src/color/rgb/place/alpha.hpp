@@ -22,7 +22,7 @@
            typedef ::color::category::rgb< scramble_type > category_type;
            typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
-           enum { position_enum = red_position };
+           enum { position_enum = alpha_position };
            enum { has_enum = true };
 
            static /*constexpr*/ index_instance_type position()
