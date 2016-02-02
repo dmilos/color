@@ -1,9 +1,9 @@
-#ifndef color_yiq_place_inphase
-#define color_yiq_place_inphase
+#ifndef color_yiq_place_luma
+#define color_yiq_place_luma
 
-// ::color::place::inphase<category_name>()
+// ::color::place::luma<category_name>()
 
-#include "../../generic/place/inphase.hpp"
+#include "../../generic/place/luma.hpp"
 #include "../category.hpp"
 #include "../trait/index.hpp"
 
@@ -15,7 +15,7 @@
       {
 
        template< typename tag_name >
-        struct inphase< ::color::category::yiq< tag_name > >
+        struct luma< ::color::category::yiq< tag_name > >
          {
           public:
            typedef ::color::category::yiq< tag_name > category_type;

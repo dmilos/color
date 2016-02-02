@@ -8,49 +8,21 @@
    namespace make
     { //RGB equivalent std::array<double,3>( { 245.0/255.0, 245.0/255.0, 220.0/255.0 } ) - rgb(245,245,220) - #f5f5dc
 
+     template< typename tag_name >
       inline
-      void beige( ::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter )
+      void beige( ::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3>( { 0xf5, 0xf5, 0xdc } );
-       }
+        typedef ::color::category::rgb< tag_name     > category_left_type;
+        typedef ::color::category::rgb< std::uint8_t > category_right_type;
 
-      inline
-      void beige( ::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3>( { 0xf5f5, 0xf5f5, 0xdcdc } );
-       }
+        typedef ::color::_internal::model< category_left_type  > left_type;
+        typedef ::color::_internal::model< category_right_type > right_type;
 
-      inline
-      void beige( ::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3>( { 0xf5f5f5f5, 0xf5f5f5f5, 0xdcdcdcdc } );
-       }
-
-      inline
-      void beige( ::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3>( { 0, 0, 0 } );
-       }
-
-      inline
-      void beige( ::color::_internal::model< ::color::category::rgb_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 245.0/255.0, 245.0/255.0, 220.0/255.0 } );
-       }
-
-      inline
-      void beige( ::color::_internal::model< ::color::category::rgb_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 245.0/255.0, 245.0/255.0, 220.0/255.0 } );
-       }
-
-      inline
-      void beige( ::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 245.0/255.0, 245.0/255.0, 220.0/255.0 } );
+        static left_type local( right_type ( { 0xF5, 0xF5, 0xDC } ) );
+        color_parameter = local;
        }
 
     }
   }
 
-#endif
+#endif 

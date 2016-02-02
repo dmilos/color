@@ -1,8 +1,8 @@
-#ifndef color_generic_place_luma
-#define color_generic_place_luma
+#ifndef color_generic_place_lightness
+#define color_generic_place_lightness
 
-// ::color::place::luma<category_name>()
-// ::color::place::_internal::luma<category_name>::position_enum
+// ::color::place::lightness<category_name>()
+// ::color::place::_internal::lightness<category_name>::position_enum
 
 #include "../trait/index.hpp"
 

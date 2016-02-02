@@ -15,10 +15,10 @@
       {
 
        template< typename tag_name >
-        struct quadrature< ::color::category::hsl< tag_name > >
+        struct quadrature< ::color::category::yiq< tag_name > >
          {
           public:
-           typedef ::color::category::hsl< tag_name > category_type;
+           typedef ::color::category::yiq< tag_name > category_type;
            typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
            enum { position_enum = 2 };

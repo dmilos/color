@@ -15,26 +15,13 @@
         typedef ::color::category::rgb< tag_name     > category_left_type;
         typedef ::color::category::rgb< std::uint8_t > category_right_type;
 
-        typedef ::color::_internal::model< category_left_type > left_type;
-        enum
-         {
-           red_p   = ::color::place::_internal::red<category_left_type>::position_enum
-          ,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-          ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
-         };
+        typedef ::color::_internal::model< category_left_type  > left_type;
+        typedef ::color::_internal::model< category_right_type > right_type;
 
-        typedef  ::color::_internal::reformat< category_left_type, category_right_type, double > reformat_type;
-
-        static left_type local
-         ( {
-            reformat_type::template process< red_p  , 0 >( 0x00 )
-           ,reformat_type::template process< green_p, 1 >( 0xFF )
-           ,reformat_type::template process< blue_p , 2 >( 0xFF )
-         } );
+        static left_type local( right_type ( { 0x00, 0xFF, 0xFF } ) );
 
         color_parameter = local;
        }
-
 
     }
   }

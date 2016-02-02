@@ -107,7 +107,7 @@
        )
        {
         enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
-        // TODO static_assert( 0 < alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
+        static_assert( 0 <= alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
 
         ::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >( result, upper );
        }
@@ -121,7 +121,7 @@
        )
        {
         enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
-        // TODO static_assert( 0 < alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
+        static_assert( 0 <= alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
 
         ::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >( result, lower, upper );
        }
@@ -135,7 +135,7 @@
        )
        {
         enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
-        // TODO static_assert( 0 < alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
+        static_assert( 0 <= alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
 
         return ::color::operation::_internal::blend<category_name>::template mix< alpha_index >( lower, upper );
        }
@@ -150,7 +150,7 @@
        )
        {
         enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
-        // TODO static_assert( 0 < alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
+        static_assert( 0 <= alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
 
         ::color::operation::_internal::blend<category_name>::accumulate( result, alpha, upper );
        }
@@ -178,7 +178,6 @@
        {
         return ::color::operation::_internal::blend<category_name>::mix( lower, alpha, upper );
        }
-
 
     }
   }

@@ -709,6 +709,7 @@ public:
 	typedef ::color::trait::index< category_name > index_trait_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::const_type index_const_type;
 	typedef typename index_trait_type::input_const_type index_input_const_type;
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
@@ -773,7 +774,9 @@ public:
 
 	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
 
-	static void process
+	static
+	void
+	process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
@@ -796,7 +799,9 @@ public:
 	typedef typename container_trait_type::input_type container_input_type;
 	typedef typename container_trait_type::input_const_type container_const_input_type;
 
-	static void process
+	static
+	void
+	process
 	(
 		container_input_type left
 		,container_const_input_type right
@@ -4879,6 +4884,7 @@ void blend
 	,::color::_internal::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	static_assert(0 <= alpha_index, "Error: This combination of model/format has no alpha channel") ;
 	::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >(result, upper);
 }
 
@@ -4890,6 +4896,7 @@ void blend
 	,::color::_internal::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	static_assert(0 <= alpha_index, "Error: This combination of model/format has no alpha channel") ;
 	::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >(result, lower, upper);
 }
 
@@ -4901,6 +4908,7 @@ mix
 	,::color::_internal::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	static_assert(0 <= alpha_index, "Error: This combination of model/format has no alpha channel") ;
 	return ::color::operation::_internal::blend<category_name>::template mix< alpha_index >(lower, upper);
 }
 
@@ -4912,6 +4920,7 @@ void blend
 	,::color::_internal::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
+	static_assert(0 <= alpha_index, "Error: This combination of model/format has no alpha channel") ;
 	::color::operation::_internal::blend<category_name>::accumulate(result, alpha, upper);
 }
 
@@ -10602,39 +10611,15 @@ namespace color {
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void black(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0x00, 0x00, 0x00 });
-}
-
-inline
-void black(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0x0000, 0x0000, 0x0000 });
-}
-
-inline
-void black(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0x00000000, 0x00000000, 0x00000000 });
-}
-
-inline
-void black(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3 >({ 0x0000000000000000ull, 0x0000000000000000ull, 0x0000000000000000ull });
-}
-
-inline
-void black(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 0 });
-}
-
-inline
-void black(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 0 });
-}
-
-inline
-void black(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 0 });
+void black(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0x00, 0x00, 0x00 }));
+	color_parameter = local;
 }
 
 	}
@@ -10643,39 +10628,15 @@ void black(::color::_internal::model< ::color::category::rgb_ldouble> & color_pa
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void gray50(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0x7f, 0x7f, 0x7f });
-}
-
-inline
-void gray50(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0x7fff, 0x7fff, 0x7fff });
-}
-
-inline
-void gray50(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0x7fffffff, 0x7fffffff, 0x7fffffff });
-}
-
-inline
-void gray50(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3 >({ 0x8000000000000000ull, 0x8000000000000000ull, 0x8000000000000000ull });
-}
-
-inline
-void gray50(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 0.5, 0.5 });
-}
-
-inline
-void gray50(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 0.5, 0.5 });
-}
-
-inline
-void gray50(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 0.5, 0.5 });
+void gray50(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0x7F, 0x7F, 0x7F }));
+	color_parameter = local;
 }
 
 	}
@@ -10684,39 +10645,15 @@ void gray50(::color::_internal::model< ::color::category::rgb_ldouble> & color_p
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void white(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xff, 0xff, 0xff });
-}
-
-inline
-void white(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xffff, 0xffff, 0xffff });
-}
-
-inline
-void white(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xffffffff, 0xffffffff, 0xffffffff });
-}
-
-inline
-void white(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 1, 1, 1 });
-}
-
-inline
-void white(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 1, 1, 1 });
-}
-
-inline
-void white(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 1, 1, 1 });
-}
-
-inline
-void white(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 1, 1, 1 });
+void white(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xFF, 0xFF, 0xFF }));
+	color_parameter = local;
 }
 
 	}
@@ -10766,39 +10703,15 @@ void red(::color::_internal::model< ::color::category::rgb_ldouble> & color_para
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void green(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0x00, 0x7f, 0x00 });
-}
-
-inline
-void green(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0x0000, 0x7fff, 0x0000 });
-}
-
-inline
-void green(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0x00000000, 0x7fffffff, 0x00000000 });
-}
-
-inline
-void green(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void green(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0.5, 0 });
-}
-
-inline
-void green(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0.5, 0 });
-}
-
-inline
-void green(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0.5, 0 });
+void green(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0x00, 0x7F, 0x00 }));
+	color_parameter = local;
 }
 
 	}
@@ -10807,39 +10720,15 @@ void green(::color::_internal::model< ::color::category::rgb_ldouble> & color_pa
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void blue(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0x00, 0x00, 0xff });
-}
-
-inline
-void blue(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0x0000, 0x0000, 0xffff });
-}
-
-inline
-void blue(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0x00000000, 0x00000000, 0xffffffff });
-}
-
-inline
-void blue(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3 >({ 0ull, 0ull, 0ull });
-}
-
-inline
-void blue(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 0, 1 });
-}
-
-inline
-void blue(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 0, 1 });
-}
-
-inline
-void blue(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 0, 1 });
+void blue(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0x00, 0x00, 0xFF }));
+	color_parameter = local;
 }
 
 	}
@@ -10848,39 +10737,15 @@ void blue(::color::_internal::model< ::color::category::rgb_ldouble> & color_par
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void cyan(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0x00, 0xff, 0xff });
-}
-
-inline
-void cyan(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0x0000, 0xffff, 0xffff });
-}
-
-inline
-void cyan(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0x00000000, 0xffffffff, 0xffffffff });
-}
-
-inline
-void cyan(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 1, 1, 1 });
-}
-
-inline
-void cyan(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 1, 1 });
-}
-
-inline
-void cyan(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 1, 1 });
-}
-
-inline
-void cyan(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 1, 1 });
+void cyan(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0x00, 0xFF, 0xFF }));
+	color_parameter = local;
 }
 
 	}
@@ -10930,39 +10795,15 @@ void magenta(::color::_internal::model< ::color::category::rgb_ldouble> & color_
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void yellow(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xff, 0xff, 0x00 });
-}
-
-inline
-void yellow(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xffff, 0xffff, 0x0000 });
-}
-
-inline
-void yellow(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xffffffff, 0xffffffff, 0x00000000 });
-}
-
-inline
-void yellow(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void yellow(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 1, 1, 0 });
-}
-
-inline
-void yellow(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 1, 1, 0 });
-}
-
-inline
-void yellow(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 1, 1, 0 });
+void yellow(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xFF, 0xFF, 0x00 }));
+	color_parameter = local;
 }
 
 	}
@@ -10977,18 +10818,8 @@ void aqua(::color::_internal::model< ::color::category::rgb< tag_name > > & colo
 	typedef ::color::category::rgb< tag_name > category_left_type;
 	typedef ::color::category::rgb< std::uint8_t > category_right_type;
 	typedef ::color::_internal::model< category_left_type > left_type;
-	enum {
-		red_p = ::color::place::_internal::red<category_left_type>::position_enum
-		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
-	};
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, double > reformat_type;
-	static left_type local
-	({
-		reformat_type::template process< red_p , 0 >(0x00)
-		,reformat_type::template process< green_p, 1 >(0xFF)
-		,reformat_type::template process< blue_p , 2 >(0xFF)
-	});
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0x00, 0xFF, 0xFF }));
 	color_parameter = local;
 }
 
@@ -10998,39 +10829,15 @@ void aqua(::color::_internal::model< ::color::category::rgb< tag_name > > & colo
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void fuchsia(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xff, 0x00, 0xff });
-}
-
-inline
-void fuchsia(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xffff, 0x0000, 0xffff });
-}
-
-inline
-void fuchsia(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xffffffff, 0x00000000, 0xffffffff });
-}
-
-inline
-void fuchsia(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 1, 1, 1 });
-}
-
-inline
-void fuchsia(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 1, 0, 1 });
-}
-
-inline
-void fuchsia(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 1, 0, 1 });
-}
-
-inline
-void fuchsia(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 1, 0, 1 });
+void fuchsia(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xFF, 0x00, 0xFF }));
+	color_parameter = local;
 }
 
 	}
@@ -11039,39 +10846,15 @@ void fuchsia(::color::_internal::model< ::color::category::rgb_ldouble> & color_
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void lime(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0x00, 0xff, 0x00 });
-}
-
-inline
-void lime(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0x0000, 0xffff, 0x0000 });
-}
-
-inline
-void lime(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0x00000000, 0xffffffff, 0x00000000 });
-}
-
-inline
-void lime(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 1, 1, 1 });
-}
-
-inline
-void lime(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0, 1, 0 });
-}
-
-inline
-void lime(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0, 1, 0 });
-}
-
-inline
-void lime(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0, 1, 0 });
+void lime(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< double > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0, 1, 0 }));
+	color_parameter = local;
 }
 
 	}
@@ -11408,39 +11191,15 @@ void violet(::color::_internal::model< ::color::category::rgb_ldouble> & color_p
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void aquamarine(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0x7f, 0xff, 0xd4 });
-}
-
-inline
-void aquamarine(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0x7fff, 0xffff, 0xd4d4 });
-}
-
-inline
-void aquamarine(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0x7fffffff, 0xffffffff, 0xd4d4d4d4 });
-}
-
-inline
-void aquamarine(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3 >({ 0, 0, 0 });
-}
-
-inline
-void aquamarine(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.5, 1, 212.0/255.0 });
-}
-
-inline
-void aquamarine(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.5, 1, 212.0/255.0 });
-}
-
-inline
-void aquamarine(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.5, 1, 212.0/255.0 });
+void aquamarine(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0x7F, 0xFF, 0xD4 }));
+	color_parameter = local;
 }
 
 	}
@@ -11449,39 +11208,15 @@ void aquamarine(::color::_internal::model< ::color::category::rgb_ldouble> & col
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void azure(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xf0, 0xff, 0xff });
-}
-
-inline
-void azure(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xf0f0, 0xffff, 0xffff });
-}
-
-inline
-void azure(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xf0f0f0f0, 0xffffffff, 0xffffffff });
-}
-
-inline
-void azure(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3 >({ 0, 0, 0 });
-}
-
-inline
-void azure(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 240.0/255.0, 1, 1 });
-}
-
-inline
-void azure(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 240.0/255.0, 1, 1 });
-}
-
-inline
-void azure(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 240.0/255.0, 1, 1 });
+void azure(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xF0, 0xFF, 0xFF }));
+	color_parameter = local;
 }
 
 	}
@@ -11490,39 +11225,15 @@ void azure(::color::_internal::model< ::color::category::rgb_ldouble> & color_pa
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void beige(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3>({ 0xf5, 0xf5, 0xdc });
-}
-
-inline
-void beige(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3>({ 0xf5f5, 0xf5f5, 0xdcdc });
-}
-
-inline
-void beige(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3>({ 0xf5f5f5f5, 0xf5f5f5f5, 0xdcdcdcdc });
-}
-
-inline
-void beige(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void beige(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 245.0/255.0, 245.0/255.0, 220.0/255.0 });
-}
-
-inline
-void beige(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 245.0/255.0, 245.0/255.0, 220.0/255.0 });
-}
-
-inline
-void beige(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 245.0/255.0, 245.0/255.0, 220.0/255.0 });
+void beige(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xF5, 0xF5, 0xDC }));
+	color_parameter = local;
 }
 
 	}
@@ -11531,39 +11242,15 @@ void beige(::color::_internal::model< ::color::category::rgb_ldouble> & color_pa
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void bisque(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3>({ 0xff, 0xe4, 0xc4 });
-}
-
-inline
-void bisque(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3>({ 0xffff, 0xe4e4, 0xc4c4 });
-}
-
-inline
-void bisque(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3>({ 0xffffffff, 0xe4e4e4e4, 0xc4c4c4c4 });
-}
-
-inline
-void bisque(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void bisque(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 255.0/255.0, 228.0/255.0, 196.0/255.0 });
-}
-
-inline
-void bisque(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 255.0/255.0, 228.0/255.0, 196.0/255.0 });
-}
-
-inline
-void bisque(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 255.0/255.0, 228.0/255.0, 196.0/255.0 });
+void bisque(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xFF, 0xE4, 0xC4 }));
+	color_parameter = local;
 }
 
 	}
@@ -11572,39 +11259,15 @@ void bisque(::color::_internal::model< ::color::category::rgb_ldouble> & color_p
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void brown(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xa5, 0x2a, 0x2a });
-}
-
-inline
-void brown(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xa5a5, 0x2a2a, 0x2a2a });
-}
-
-inline
-void brown(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xa5a5a5a5, 0x2a2a2a2a, 0x2a2a2a2a });
-}
-
-inline
-void brown(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3 >({ 0, 0, 0 });
-}
-
-inline
-void brown(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 165.0/255.0, 42.0/255.0, 42.0/255.0 });
-}
-
-inline
-void brown(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 165.0/255.0, 42.0/255.0, 42.0/255.0 });
-}
-
-inline
-void brown(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 165.0/255.0, 42.0/255.0, 42.0/255.0 });
+void brown(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xA5, 0x2A, 0x2A }));
+	color_parameter = local;
 }
 
 	}
@@ -11613,39 +11276,15 @@ void brown(::color::_internal::model< ::color::category::rgb_ldouble> & color_pa
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void chocolate(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xd2, 0x69, 0x1e });
-}
-
-inline
-void chocolate(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xd2d2, 0x6969, 0x1e1e });
-}
-
-inline
-void chocolate(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xd2d2d2d2, 0x69696969, 0x1e1e1e1e });
-}
-
-inline
-void chocolate(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3 >({ 0, 0, 0 });
-}
-
-inline
-void chocolate(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 210.0/255.0, 105.0/255.0, 30.0/255.0 });
-}
-
-inline
-void chocolate(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 210.0/255.0, 105.0/255.0, 30.0/255.0 });
-}
-
-inline
-void chocolate(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 210.0/255.0, 105.0/255.0, 30.0/255.0 });
+void chocolate(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xD2, 0x69, 0x1E }));
+	color_parameter = local;
 }
 
 	}
@@ -11654,39 +11293,15 @@ void chocolate(::color::_internal::model< ::color::category::rgb_ldouble> & colo
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void coral(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xff, 0x7f, 0x4f });
-}
-
-inline
-void coral(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xffff, 0x7fff, 0x4f5b });
-}
-
-inline
-void coral(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xffffffff, 0x7fffffff, 0x4f5c28f5 });
-}
-
-inline
-void coral(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void coral(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 1, 0.5, 0.31 });
-}
-
-inline
-void coral(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 1, 0.5, 0.31 });
-}
-
-inline
-void coral(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 1, 0.5, 0.31 });
+void coral(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xFF, 0x7F, 0x4F }));
+	color_parameter = local;
 }
 
 	}
@@ -11695,39 +11310,15 @@ void coral(::color::_internal::model< ::color::category::rgb_ldouble> & color_pa
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void crimson(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xdc, 0x14, 0x3c });
-}
-
-inline
-void crimson(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xdcdc, 0x1414, 0x3c3c });
-}
-
-inline
-void crimson(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xdcdcdcdc, 0x14141414, 0x3c3c3c3c });
-}
-
-inline
-void crimson(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void crimson(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 220.0/255.0, 20.0/255.0, 60.0/255.0 });
-}
-
-inline
-void crimson(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 220.0/255.0, 20.0/255.0, 60.0/255.0 });
-}
-
-inline
-void crimson(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 220.0/255.0, 20.0/255.0, 60.0/255.0 });
+void crimson(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xDC, 0x14, 0x3C }));
+	color_parameter = local;
 }
 
 	}
@@ -11736,39 +11327,15 @@ void crimson(::color::_internal::model< ::color::category::rgb_ldouble> & color_
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void gainsboro(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xdb, 0xdb, 0xdb });
-}
-
-inline
-void gainsboro(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xdc28, 0xdc28, 0xdc28 });
-}
-
-inline
-void gainsboro(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xdc28f5c1, 0xdc28f5c1, 0xdc28f5c1 });
-}
-
-inline
-void gainsboro(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void gainsboro(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 0.86, 0.86, 0.86 });
-}
-
-inline
-void gainsboro(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 0.86, 0.86, 0.86 });
-}
-
-inline
-void gainsboro(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 0.86, 0.86, 0.86 });
+void gainsboro(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xDB, 0xDB, 0xDB }));
+	color_parameter = local;
 }
 
 	}
@@ -11777,39 +11344,15 @@ void gainsboro(::color::_internal::model< ::color::category::rgb_ldouble> & colo
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void gold(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xff, 0xd7, 0x00 });
-}
-
-inline
-void gold(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xffff, 0xd7d7, 0x0000 });
-}
-
-inline
-void gold(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xffffffff, 0xd7d7d7d7, 0x00000000 });
-}
-
-inline
-void gold(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void gold(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 255.0/255.0, 215.0/255.0, 0.0/255.0 });
-}
-
-inline
-void gold(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 255.0/255.0, 215.0/255.0, 0.0/255.0 });
-}
-
-inline
-void gold(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 255.0/255.0, 215.0/255.0, 0.0/255.0 });
+void gold(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xFF, 0xD7, 0xDB }));
+	color_parameter = local;
 }
 
 	}
@@ -11818,39 +11361,15 @@ void gold(::color::_internal::model< ::color::category::rgb_ldouble> & color_par
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void indigo(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0x4b, 0x00, 0x82 });
-}
-
-inline
-void indigo(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0x4b4b, 0x0000, 0x8282 });
-}
-
-inline
-void indigo(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0x4b4b4b4b, 0x00000000, 0x82828282 });
-}
-
-inline
-void indigo(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3 >({ 0, 0, 0 });
-}
-
-inline
-void indigo(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 75.0/255.0, 0.0/255.0, 130.0/255.0 });
-}
-
-inline
-void indigo(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 75.0/255.0, 0.0/255.0, 130.0/255.0 });
-}
-
-inline
-void indigo(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 75.0/255.0, 0.0/255.0, 130.0/255.0 });
+void indigo(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0x4B, 0x00, 0x82 }));
+	color_parameter = local;
 }
 
 	}
@@ -11859,39 +11378,15 @@ void indigo(::color::_internal::model< ::color::category::rgb_ldouble> & color_p
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void ivory(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xff, 0xff, 0xf0 });
-}
-
-inline
-void ivory(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xffff, 0xffff, 0xf0f0 });
-}
-
-inline
-void ivory(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xffffffff, 0xffffffff, 0xf0f0f0f0 });
-}
-
-inline
-void ivory(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void ivory(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 1, 1, 240.0/255.0 });
-}
-
-inline
-void ivory(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 1, 1, 240.0/255.0 });
-}
-
-inline
-void ivory(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 1, 1, 240.0/255.0 });
+void khaki(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xF0, 0xE6, 0x8C }));
+	color_parameter = local;
 }
 
 	}
@@ -11900,80 +11395,15 @@ void ivory(::color::_internal::model< ::color::category::rgb_ldouble> & color_pa
 namespace color {
 	namespace make {
 
+		template< typename tag_name >
 		inline
-void khaki(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xf0, 0xe6, 0x8c });
-}
-
-inline
-void khaki(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xf0f0, 0xe6e6, 0x8c8c });
-}
-
-inline
-void khaki(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xf0f0f0f0, 0xe6e6e6e6, 0x8c8c8c8c });
-}
-
-inline
-void khaki(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void khaki(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 240.0/255.0, 230.0/255.0, 140.0/255.0 });
-}
-
-inline
-void khaki(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 240.0/255.0, 230.0/255.0, 140.0/255.0 });
-}
-
-inline
-void khaki(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 240.0/255.0, 230.0/255.0, 140.0/255.0 });
-}
-
-	}
-}
-
-namespace color {
-	namespace make {
-
-		inline
-void lavender(::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint8_t, 3 >({ 0xe6, 0xe6, 0xfa });
-}
-
-inline
-void lavender(::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint16_t, 3 >({ 0xe6e6, 0xe6e6, 0xfafa });
-}
-
-inline
-void lavender(::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint32_t, 3 >({ 0xe6e6e6e6, 0xe6e6e6e6, 0xfafafafa });
-}
-
-inline
-void lavender(::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter) {
-	color_parameter.container() = std::array< std::uint64_t, 3>({ 0, 0, 0 });
-}
-
-inline
-void lavender(::color::_internal::model< ::color::category::rgb_float > & color_parameter) {
-	color_parameter.container() = std::array<float,3>({ 230.0/255.0, 230.0/255.0, 250.0/255.0 });
-}
-
-inline
-void lavender(::color::_internal::model< ::color::category::rgb_double> & color_parameter) {
-	color_parameter.container() = std::array<double,3>({ 230.0/255.0, 230.0/255.0, 250.0/255.0 });
-}
-
-inline
-void lavender(::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter) {
-	color_parameter.container() = std::array<long double,3>({ 230.0/255.0, 230.0/255.0, 250.0/255.0 });
+void lavender(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_left_type;
+	typedef ::color::category::rgb< std::uint8_t > category_right_type;
+	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::_internal::model< category_right_type > right_type;
+	static left_type local(right_type({ 0xE6, 0xE6, 0xFA }));
+	color_parameter = local;
 }
 
 	}
@@ -20866,6 +20296,12 @@ namespace color {
 	using rgb = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, 0, 1, 2 > > >;
 
 	template< typename value_name >
+	using rgba = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 0, 1, 2, 3 > > >;
+
+	template< typename value_name >
+	using argb = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 1, 2, 3, 0 > > >;
+
+	template< typename value_name >
 	using bgr = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, 2, 1, 0 > > >;
 
 	template< typename value_name >
@@ -20873,12 +20309,6 @@ namespace color {
 
 	template< typename value_name >
 	using abgr = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 3, 2, 1, 0 > > >;
-
-	template< typename value_name >
-	using rgba = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 0, 1, 2, 3 > > >;
-
-	template< typename value_name >
-	using argb = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 1, 2, 3, 0 > > >;
 }
 
 namespace color {
@@ -21911,9 +21341,9 @@ namespace color {
 		namespace _internal {
 
 			template< typename tag_name >
-			struct quadrature< ::color::category::hsl< tag_name > > {
+			struct quadrature< ::color::category::yiq< tag_name > > {
 				public:
-				typedef ::color::category::hsl< tag_name > category_type;
+				typedef ::color::category::yiq< tag_name > category_type;
 				typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
 				enum { position_enum = 2 };
@@ -21963,9 +21393,61 @@ namespace color {
 		namespace _internal {
 
 			template< typename tag_name >
-			struct inphase< ::color::category::hsl< tag_name > > {
+			struct inphase< ::color::category::yiq< tag_name > > {
 				public:
-				typedef ::color::category::hsl< tag_name > category_type;
+				typedef ::color::category::yiq< tag_name > category_type;
+				typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+				enum { position_enum = 1 };
+				enum { has_enum = true };
+
+static index_instance_type position() {
+	return position_enum;
+}
+			};
+
+		}
+	}
+}
+
+namespace color {
+	namespace place {
+		namespace _internal {
+
+			template< typename category_name >
+			struct luma {
+				public:
+				typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
+
+				enum { position_enum = -4 };
+				enum { has_enum = false };
+
+static index_instance_type position() {
+	return position_enum;
+}
+			};
+
+		}
+
+template< typename category_name >
+inline
+
+typename ::color::trait::index< category_name >::instance_type
+luma() {
+	return ::color::place::_internal::luma<category_name>::position();
+}
+
+	}
+}
+
+namespace color {
+	namespace place {
+		namespace _internal {
+
+			template< typename tag_name >
+			struct luma< ::color::category::yiq< tag_name > > {
+				public:
+				typedef ::color::category::yiq< tag_name > category_type;
 				typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
 				enum { position_enum = 1 };
@@ -22478,8 +21960,8 @@ namespace color {
 		void
 		red
 		(
-			::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter,
-			typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq<tag_name> >::akin_type >::input_const_type component_parameter
+			::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter
+			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 };
 
@@ -22510,8 +21992,8 @@ namespace color {
 		void
 		blue
 		(
-			::color::_internal::model< ::color::category::yiq<tag_name> > & color_parameter,
-			typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq<tag_name> >::akin_type >::input_const_type component_parameter
+			::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter
+			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq<tag_name> >::akin_type >::input_const_type component_parameter
 ) {
 };
 

@@ -29,8 +29,8 @@ namespace color
 
          typedef ::color::trait::index< category_name >   index_trait_type;
 
-         // TODO typedef typename index_trait_type::const_type        index_const_type;
          typedef typename index_trait_type::instance_type     index_instance_type;
+         typedef typename index_trait_type::const_type        index_const_type;
          typedef typename index_trait_type::input_const_type  index_input_const_type;
          typedef typename index_trait_type::return_image_type index_return_image_type;
 

@@ -24,6 +24,8 @@
 
         typedef typename ::color::trait::index< category_name >::instance_type     index_type;
 
+        //TODO C++14 static_assert( ilist.size() < container_trait_type::size_enum, "Initizlizer list size do not mach model/format length." );
+
         auto ili = ilist.begin();
         index_type index=0;
         for( ; index < std::min( container_trait_type::size(), ilist.size() ) ; ++index, ++ili )

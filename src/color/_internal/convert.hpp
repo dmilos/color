@@ -36,7 +36,9 @@ namespace color
 
          typedef  ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
 
-         static void process
+         static
+         void
+         process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
@@ -66,7 +68,9 @@ namespace color
          typedef typename container_trait_type::input_type        container_input_type;
          typedef typename container_trait_type::input_const_type  container_const_input_type;
 
-         static void process
+         static
+         void
+         process
           (
             container_input_type         left
            ,container_const_input_type  right

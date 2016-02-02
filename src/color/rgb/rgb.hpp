@@ -25,6 +25,12 @@ namespace color
    using rgb = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, 0, 1, 2 > > >;
 
   template< typename value_name >
+   using rgba = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 0, 1, 2, 3 > > >;
+
+  template< typename value_name >
+   using argb = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 1, 2, 3, 0 > > >;
+
+  template< typename value_name >
    using bgr = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, 2, 1, 0 > > >;
 
   template< typename value_name >
@@ -32,12 +38,6 @@ namespace color
 
   template< typename value_name >
    using abgr = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 3, 2, 1, 0 > > >;
-
-  template< typename value_name >
-   using rgba = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 0, 1, 2, 3 > > >;
-
-  template< typename value_name >
-   using argb = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 1, 2, 3, 0 > > >;
 
 
    //using rgb< ::color::type::split233_t  > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_split233   > >;
