@@ -15,9 +15,9 @@
         typedef ::color::category::rgb< tag_name     > category_left_type;
         typedef ::color::_internal::model< category_left_type  > left_type;
 
-        typedef ::color::rgb< std::uint8_t >      right_type;
+        typedef ::color::rgb< double >      right_type;
 
-        static left_type local( right_type( { 0xFF, 0xE4, 0xC4 } ) );
+        static left_type local( right_type( { 1, 0.875, 0.75 } ) );
 
         color_parameter = local;
        }

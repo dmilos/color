@@ -39,7 +39,6 @@ namespace color
   template< typename value_name >
    using abgr = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 3, 2, 1, 0 > > >;
 
-
    //using rgb< ::color::type::split233_t  > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_split233   > >;
    //using rgb< ::color::type::split332_t  > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_split332   > >;
    //using rgb< ::color::type::split442_t  > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_split442   > >;

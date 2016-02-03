@@ -17,7 +17,7 @@
 
         typedef ::color::rgb< double >      right_type;
 
-        static left_type local( right_type( { 240.0/255.0, 1, 1 } ) );
+        static left_type local( right_type( { 0.9375, 1, 1 } ) );
 
         color_parameter = local;
        }
