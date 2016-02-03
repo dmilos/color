@@ -7,16 +7,15 @@
 #include "./category.hpp"
 
 #include "./akin/akin.hpp"
+
 #include "./trait/trait.hpp"
 
 #include "./place/place.hpp"
 
 #include "./get/get.hpp"
 #include "./set/set.hpp"
-#include "./make/make.hpp"
+
 #include "./convert/convert.hpp"
-
-
 
 namespace color
  {
@@ -47,5 +46,7 @@ namespace color
    //using rgb< ::color::type::splitAAA2_t > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_splitAAA2  > >;
 
  }
+
+#include "./make/make.hpp"
 
 #endif
