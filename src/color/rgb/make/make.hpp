@@ -1,3 +1,6 @@
+#include "../category.hpp"
+#include "../trait/trait.hpp"
+
 #include "./black.hpp"
 #include "./gray.hpp"
 #include "./white.hpp"

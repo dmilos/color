@@ -60,6 +60,65 @@ void print_generic_header( std::string const& name )
  }
 
 template < template<typename> class color_name >
+void print_header2( std::string const& model, std::string const& name, color::rgb<double> const& value )
+ {
+  std::stringstream ss;
+  color::rgb<uint8_t> r32( value );
+
+  color::rgb<double>    d( value );
+
+  ss << "#ifndef color_" << model << "_make_" << name << ""                                                          << std::endl;
+  ss << "#define color_" << model << "_make_" << name << ""                                                          << std::endl;
+  ss << ""                                                                                                           << std::endl;
+  ss << "// ::color::make::" << name << "( c )"                                                                      << std::endl;
+  ss << ""                                                                                                           << std::endl;
+  ss << " namespace color"                                                                                           << std::endl;
+  ss << "  {"                                                                                                        << std::endl;
+  ss << "   namespace make"                                                                                          << std::endl;
+  ss << "    { //RGB equivalents: ";
+  ss << "std::array<double,3>( { " << d[0] << ", " << d[1] << ", " << d[2] << " } )";
+  ss << " - ";
+  ss << "rgb(" << std::setbase(10) << (unsigned)r32[0] << "," << (unsigned)r32[1] << "," << (unsigned)r32[2] << ")";
+  ss << " - ";
+  ss << "#" << std::uppercase << std::setbase(16) << std::setw(2) << std::setfill('0') << (unsigned)r32[0]
+            << std::uppercase << std::setbase(16) << std::setw(2) << std::setfill('0') << (unsigned)r32[1]
+            << std::uppercase << std::setbase(16) << std::setw(2) << std::setfill('0') << (unsigned)r32[2];
+  ss << std::endl;
+
+  ss << ""                                                                                                           << std::endl;
+  ss << "     template< typename tag_name >"                                                                         << std::endl;
+  ss << "      inline"                                                                                               << std::endl;
+  ss << "      void " << name << "( ::color::_internal::model< ::color::category::"<<model<<"< tag_name > > & color_parameter )" << std::endl;
+  ss << "       {"                                                                                                   << std::endl;
+  ss << "        typedef ::color::category::" << model << "< tag_name     > category_left_type;"                     << std::endl;
+  ss << "        typedef ::color::_internal::model< category_left_type  > left_type;"                                << std::endl;
+  ss << ""                                                                                                           << std::endl;
+  ss << "        typedef ::color::rgb< std::uint8_t >      right_type;"                                              << std::endl;
+  ss << ""                                                                                                           << std::endl;
+  ss << "        static left_type local( right_type( { ";
+  ss << "" << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned) r32[0]<< ", ";
+  ss << "" << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned) r32[1]<< ", ";
+  ss << "" << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned) r32[2]<< "" ;
+  ss << " } ) );";
+  ss << std::endl;
+  ss << ""                                                                                                           << std::endl;
+  ss << "        color_parameter = local;"                                                                           << std::endl;
+  ss << "       }"                                                                                                   << std::endl;
+  ss << ""                                                                                                           << std::endl;
+  ss << "    }"                                                                                                      << std::endl;
+  ss << "  }"                                                                                                        << std::endl;
+  ss << ""                                                                                                           << std::endl;
+  ss << "#endif"                                                                                                     << std::endl;
+
+   {
+    std::ofstream ofs( ( "./gen-"+ model +"/"+name + ".hpp" ). c_str() );
+    //std::ofstream ofs( ( "../../../src/color/"+ model +"/make/"+name + ".hpp" ). c_str() );
+    ofs <<  ss.str();
+   }
+ }
+
+
+template < template<typename> class color_name >
 void print_header( std::string const& model, std::string const& name, color::rgb<double>  const& r )
  {
   color_name<uint8_t>      i8   ( r );
@@ -189,55 +248,55 @@ template < template<typename> class color_name >
 
     color::rgb<double>  r;
 
-    color::make::black      ( r );  print_header<color_name>(  name, "black",   r );
-    color::make::white      ( r );  print_header<color_name>(  name, "white",   r );
-    color::make::red        ( r );  print_header<color_name>(  name, "red",     r );
-    color::make::lime       ( r );  print_header<color_name>(  name, "lime",    r );
-    color::make::blue       ( r );  print_header<color_name>(  name, "blue",    r );
-    color::make::aqua       ( r );  print_header<color_name>(  name, "aqua",    r );
-    color::make::cyan       ( r );  print_header<color_name>(  name, "cyan",    r );
-    color::make::fuchsia    ( r );  print_header<color_name>(  name, "fuchsia", r );
-    color::make::gray50     ( r );  print_header<color_name>(  name, "gray50",  r );
-    color::make::green      ( r );  print_header<color_name>(  name, "green",   r );
-    color::make::magenta    ( r );  print_header<color_name>(  name, "magenta", r );
-    color::make::maroon     ( r );  print_header<color_name>(  name, "maroon",  r );
-    color::make::navy       ( r );  print_header<color_name>(  name, "navy",    r );
-    color::make::olive      ( r );  print_header<color_name>(  name, "olive",   r );
-    color::make::orange     ( r );  print_header<color_name>(  name, "orange",  r );
-    color::make::purple     ( r );  print_header<color_name>(  name, "purple",  r );
-    color::make::silver     ( r );  print_header<color_name>(  name, "silver",  r );
-    color::make::teal       ( r );  print_header<color_name>(  name, "teal",    r );
-    color::make::violet     ( r );  print_header<color_name>(  name, "violet",  r );
-    color::make::yellow     ( r );  print_header<color_name>(  name, "yellow",  r );
+    color::make::black      ( r );  print_header2<color_name>(  name, "black",   r );
+    color::make::white      ( r );  print_header2<color_name>(  name, "white",   r );
+    color::make::red        ( r );  print_header2<color_name>(  name, "red",     r );
+    color::make::lime       ( r );  print_header2<color_name>(  name, "lime",    r );
+    color::make::blue       ( r );  print_header2<color_name>(  name, "blue",    r );
+    color::make::aqua       ( r );  print_header2<color_name>(  name, "aqua",    r );
+    color::make::cyan       ( r );  print_header2<color_name>(  name, "cyan",    r );
+    color::make::fuchsia    ( r );  print_header2<color_name>(  name, "fuchsia", r );
+    color::make::gray50     ( r );  print_header2<color_name>(  name, "gray50",  r );
+    color::make::green      ( r );  print_header2<color_name>(  name, "green",   r );
+    color::make::magenta    ( r );  print_header2<color_name>(  name, "magenta", r );
+    color::make::maroon     ( r );  print_header2<color_name>(  name, "maroon",  r );
+    color::make::navy       ( r );  print_header2<color_name>(  name, "navy",    r );
+    color::make::olive      ( r );  print_header2<color_name>(  name, "olive",   r );
+    color::make::orange     ( r );  print_header2<color_name>(  name, "orange",  r );
+    color::make::purple     ( r );  print_header2<color_name>(  name, "purple",  r );
+    color::make::silver     ( r );  print_header2<color_name>(  name, "silver",  r );
+    color::make::teal       ( r );  print_header2<color_name>(  name, "teal",    r );
+    color::make::violet     ( r );  print_header2<color_name>(  name, "violet",  r );
+    color::make::yellow     ( r );  print_header2<color_name>(  name, "yellow",  r );
 
-    color::make::aquamarine ( r );  print_header<color_name>(  name, "aquamarine",  r );
-    color::make::azure      ( r );  print_header<color_name>(  name, "azure",       r );
-    color::make::beige      ( r );  print_header<color_name>(  name, "beige",       r );
-    color::make::bisque     ( r );  print_header<color_name>(  name, "bisque",      r );
-    color::make::brown      ( r );  print_header<color_name>(  name, "brown",       r );
-    color::make::chocolate  ( r );  print_header<color_name>(  name, "chocolate",   r );
-    color::make::coral      ( r );  print_header<color_name>(  name, "coral",       r );
-    color::make::crimson    ( r );  print_header<color_name>(  name, "crimson",     r );
-    color::make::gainsboro  ( r );  print_header<color_name>(  name, "gainsboro",   r );
-    color::make::gold       ( r );  print_header<color_name>(  name, "gold",        r );
-    color::make::indigo     ( r );  print_header<color_name>(  name, "indigo",      r );
-    color::make::ivory      ( r );  print_header<color_name>(  name, "ivory",       r );
-    color::make::khaki      ( r );  print_header<color_name>(  name, "khaki",       r );
-    color::make::lavender   ( r );  print_header<color_name>(  name, "lavender",    r );
-    color::make::linen      ( r );  print_header<color_name>(  name, "linen",       r );
-    color::make::moccasin   ( r );  print_header<color_name>(  name, "moccasin",    r );
-    color::make::orchid     ( r );  print_header<color_name>(  name, "orchid",      r );
-    color::make::peru       ( r );  print_header<color_name>(  name, "peru",        r );
-    color::make::pink       ( r );  print_header<color_name>(  name, "pink",        r );
-    color::make::plum       ( r );  print_header<color_name>(  name, "plum",        r );
-    color::make::salmon     ( r );  print_header<color_name>(  name, "salmon",      r );
-    color::make::sienna     ( r );  print_header<color_name>(  name, "sienna",      r );
-    color::make::snow       ( r );  print_header<color_name>(  name, "snow",        r );
-    color::make::tan        ( r );  print_header<color_name>(  name, "tan",         r );
-    color::make::thistle    ( r );  print_header<color_name>(  name, "thistle",     r );
-    color::make::tomato     ( r );  print_header<color_name>(  name, "tomato",      r );
-    color::make::turquoise  ( r );  print_header<color_name>(  name, "turquoise",   r );
-    color::make::wheat      ( r );  print_header<color_name>(  name, "wheat",       r );
+    color::make::aquamarine ( r );  print_header2<color_name>(  name, "aquamarine",  r );
+    color::make::azure      ( r );  print_header2<color_name>(  name, "azure",       r );
+    color::make::beige      ( r );  print_header2<color_name>(  name, "beige",       r );
+    color::make::bisque     ( r );  print_header2<color_name>(  name, "bisque",      r );
+    color::make::brown      ( r );  print_header2<color_name>(  name, "brown",       r );
+    color::make::chocolate  ( r );  print_header2<color_name>(  name, "chocolate",   r );
+    color::make::coral      ( r );  print_header2<color_name>(  name, "coral",       r );
+    color::make::crimson    ( r );  print_header2<color_name>(  name, "crimson",     r );
+    color::make::gainsboro  ( r );  print_header2<color_name>(  name, "gainsboro",   r );
+    color::make::gold       ( r );  print_header2<color_name>(  name, "gold",        r );
+    color::make::indigo     ( r );  print_header2<color_name>(  name, "indigo",      r );
+    color::make::ivory      ( r );  print_header2<color_name>(  name, "ivory",       r );
+    color::make::khaki      ( r );  print_header2<color_name>(  name, "khaki",       r );
+    color::make::lavender   ( r );  print_header2<color_name>(  name, "lavender",    r );
+    color::make::linen      ( r );  print_header2<color_name>(  name, "linen",       r );
+    color::make::moccasin   ( r );  print_header2<color_name>(  name, "moccasin",    r );
+    color::make::orchid     ( r );  print_header2<color_name>(  name, "orchid",      r );
+    color::make::peru       ( r );  print_header2<color_name>(  name, "peru",        r );
+    color::make::pink       ( r );  print_header2<color_name>(  name, "pink",        r );
+    color::make::plum       ( r );  print_header2<color_name>(  name, "plum",        r );
+    color::make::salmon     ( r );  print_header2<color_name>(  name, "salmon",      r );
+    color::make::sienna     ( r );  print_header2<color_name>(  name, "sienna",      r );
+    color::make::snow       ( r );  print_header2<color_name>(  name, "snow",        r );
+    color::make::tan        ( r );  print_header2<color_name>(  name, "tan",         r );
+    color::make::thistle    ( r );  print_header2<color_name>(  name, "thistle",     r );
+    color::make::tomato     ( r );  print_header2<color_name>(  name, "tomato",      r );
+    color::make::turquoise  ( r );  print_header2<color_name>(  name, "turquoise",   r );
+    color::make::wheat      ( r );  print_header2<color_name>(  name, "wheat",       r );
    }
 
 void make_make_header()

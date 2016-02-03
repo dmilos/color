@@ -250,13 +250,24 @@ int main(int argc, char const *argv[])
   make_image<color::hsl<double> >( "./image-hsl-1-05.tga" , 0.50, 1 );
   make_image<color::hsl<double> >( "./image-hsl-1-10.tga" , 1.00, 1 );
 
-  make_image<color::hsv<double> >( "./image-hsv-1-00.tga" , 0.00, 1 );
-  make_image<color::hsv<double> >( "./image-hsv-1-05.tga" , 0.50, 1 );
+  make_image<color::hsv<double> >( "./image-hsv-1-000.tga" , 0.00, 1 );
+  make_image<color::hsv<double> >( "./image-hsv-1-050.tga" , 0.50, 1 );
   make_image<color::hsv<double> >( "./image-hsv-1-060.tga", 0.60, 1 );
   make_image<color::hsv<double> >( "./image-hsv-1-075.tga", 0.70, 1 );
   make_image<color::hsv<double> >( "./image-hsv-1-080.tga", 0.80, 1 );
   make_image<color::hsv<double> >( "./image-hsv-1-090.tga", 0.90, 1 );
-  make_image<color::hsv<double> >( "./image-hsv-1-10.tga" , 1.00, 1 );
+
+  make_image<color::hsv<double> >( "./image-hsv-1-090.tga", 0.90, 1 );
+  make_image<color::hsv<double> >( "./image-hsv-1-091.tga", 0.91, 1);
+  make_image<color::hsv<double> >( "./image-hsv-1-092.tga", 0.92, 1);
+  make_image<color::hsv<double> >( "./image-hsv-1-093.tga", 0.93, 1);
+  make_image<color::hsv<double> >( "./image-hsv-1-094.tga", 0.94, 1);
+  make_image<color::hsv<double> >( "./image-hsv-1-095.tga", 0.95, 1);
+  make_image<color::hsv<double> >( "./image-hsv-1-096.tga", 0.96, 1);
+  make_image<color::hsv<double> >( "./image-hsv-1-097.tga", 0.97, 1);
+  make_image<color::hsv<double> >( "./image-hsv-1-098.tga", 0.98, 1);
+  make_image<color::hsv<double> >( "./image-hsv-1-099.tga", 0.99, 1);
+  make_image<color::hsv<double> >( "./image-hsv-1-100.tga", 1.0, 1 );
 
   make_image<color::rgb<double> >( "./image-rgb-0-00.tga" , 0.0, 0 );
   make_image<color::rgb<double> >( "./image-rgb-0-05.tga" , 0.5, 0 );

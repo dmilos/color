@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 218.0/255.0, 112.0/255.0, 214.0/255.0 } ) - rgb(218,112,214) - #da70d6
+    { //RGB equivalents: std::array<double,3>( { 218.0/255.0, 112.0/255.0, 214.0/255.0 } ) - rgb(218,112,214) - #DA70D6
 
+     template< typename tag_name >
       inline
-      void orchid( ::color::_internal::model< ::color::category::rgb_uint8 > & color_parameter )
+      void orchid( ::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0xda, 0x70, 0xd6 } );
-       }
+        typedef ::color::category::rgb< tag_name     > category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void orchid( ::color::_internal::model< ::color::category::rgb_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0xdada, 0x7070, 0xd6d6 } );
-       }
+        typedef ::color::rgb< std::uint8_t >      right_type;
 
-      inline
-      void orchid( ::color::_internal::model< ::color::category::rgb_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0xdadadada, 0x70707070, 0xd6d6d6d6 } );
-       }
+        static left_type local( right_type( { 0xDA, 0x70, 0xD6 } ) );
 
-      inline
-      void orchid( ::color::_internal::model< ::color::category::rgb_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3>( { 0, 0, 0 } );
-       }
-
-      inline
-      void orchid( ::color::_internal::model< ::color::category::rgb_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 218.0/255.0, 112.0/255.0, 214.0/255.0 } );
-       }
-
-      inline
-      void orchid( ::color::_internal::model< ::color::category::rgb_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 218.0/255.0, 112.0/255.0, 214.0/255.0 } );
-       }
-
-      inline
-      void orchid( ::color::_internal::model< ::color::category::rgb_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 218.0/255.0, 112.0/255.0, 214.0/255.0 } );
+        color_parameter = local;
        }
 
     }
