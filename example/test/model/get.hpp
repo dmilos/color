@@ -1,10 +1,11 @@
 #include <iomanip>
 #include <iostream>
 
+#include "color/color.hpp"
 #include "../print.hpp"
 
 template< typename category_name >
- void test_get()
+ void test_generic_get()
   {
    std::cout << std::endl;
    std::cout << "{{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{"<< std::endl;

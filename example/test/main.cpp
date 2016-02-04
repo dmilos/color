@@ -135,21 +135,7 @@ void invoke()
   test_conversion< color::xyz, color::xyz >();
   test_conversion< color::xyz, color::rgb >();
 
-  test_get< ::color::category::rgb_uint8   >();
-  test_get< ::color::category::rgb_uint16  >();
-  test_get< ::color::category::rgb_uint32  >();
-  test_get< ::color::category::rgb_uint64  >();
-  test_get< ::color::category::rgb_float   >();
-  test_get< ::color::category::rgb_double  >();
-  test_get< ::color::category::rgb_ldouble >();
 
-  test_get< ::color::category::gray_uint8   >();
-  test_get< ::color::category::gray_uint16  >();
-  test_get< ::color::category::gray_uint32  >();
-  test_get< ::color::category::gray_uint64  >();
-  test_get< ::color::category::gray_float   >();
-  test_get< ::color::category::gray_double  >();
-  test_get< ::color::category::gray_ldouble >();
  }
 
 
@@ -311,6 +297,9 @@ int main(int argc, char const *argv[])
 
   void test_set();
   test_set();
+
+  void test_get( double value );
+  test_get(0.5);
 
   return 0;
  }

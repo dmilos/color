@@ -31,15 +31,9 @@
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_type;
         enum { red_p  = ::color::place::_internal::red<akin_type>::position_enum };
 
-        typedef ::color::_internal::diverse< akin_type >       diverse_type;
-        typedef ::color::_internal::normalize<category_type>   normalize_type;
- 
-        scalar_type r = /* TODO */
-               0.2126 * normalize_type::template process<0>( color_parameter.template get<0>() )
-             + 0.7152 * normalize_type::template process<1>( color_parameter.template get<1>() )
-             + 0.0722 * normalize_type::template process<2>( color_parameter.template get<2>() );
+        typedef ::color::_internal::model< akin_type > rgb_type;
 
-        return diverse_type::template process<red_p>( r );
+        return rgb_type( color_parameter ).template get<red_p>();
        }
 
     }

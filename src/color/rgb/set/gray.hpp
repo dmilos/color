@@ -36,10 +36,17 @@
 
         typedef  ::color::constant::gray< akin_type > gray_const_type;
 
+        enum
+         {
+            red_p   = ::color::place::_internal::red<category_type>::position_enum
+          , green_p = ::color::place::_internal::green<category_type>::position_enum
+          , blue_p  = ::color::place::_internal::blue<category_type>::position_enum
+         };
+
         scalar_type value =
-             gray_const_type::Rc() * normalize_rgb_type::template process<0>( color_parameter.template get<0>() )
-           + gray_const_type::Gc() * normalize_rgb_type::template process<1>( color_parameter.template get<1>() )
-           + gray_const_type::Bc() * normalize_rgb_type::template process<2>( color_parameter.template get<2>() );
+             gray_const_type::Rc() * normalize_rgb_type::template process<red_p  >( color_parameter.template get<red_p  >() )
+           + gray_const_type::Gc() * normalize_rgb_type::template process<green_p>( color_parameter.template get<green_p>() )
+           + gray_const_type::Bc() * normalize_rgb_type::template process<blue_p >( color_parameter.template get<blue_p >() );
 
         value = normalize_akin_type::template process<0>( component_parameter ) / value;
 

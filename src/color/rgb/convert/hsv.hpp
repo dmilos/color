@@ -52,11 +52,14 @@ namespace color
               red_p   = ::color::place::_internal::red<category_left_type>::position_enum
              ,green_p = ::color::place::_internal::green<category_left_type>::position_enum
              ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
+             ,hue_p        = ::color::place::_internal::hue<category_right_type>::position_enum
+             ,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+             ,value_p      = ::color::place::_internal::value<category_right_type>::position_enum
             };
 
-           scalar_type h = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type s = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type v = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+           scalar_type h = normalize_type::template process<0>( container_right_trait_type::template get<hue_p       >( right ) );
+           scalar_type s = normalize_type::template process<1>( container_right_trait_type::template get<saturation_p>( right ) );
+           scalar_type v = normalize_type::template process<2>( container_right_trait_type::template get<value_p     >( right ) );
 
            int region  = int( 6 * h );
            scalar_type f = h * 6 - region ;

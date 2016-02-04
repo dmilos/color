@@ -41,6 +41,7 @@ source +=   [
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'sizeof'           ) + envObject[ 'OBJSUFFIX' ],  source = './sizeof.cpp'     )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'selfie.cpp'       ) + envObject[ 'OBJSUFFIX' ],  source = './selfie.cpp'     )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'set.cpp'          ) + envObject[ 'OBJSUFFIX' ],  source = './set.cpp'        )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'get.cpp'          ) + envObject[ 'OBJSUFFIX' ],  source = './get.cpp'        )
    , envObject.StaticObject( target =  os.path.join( directory_obj, './gray/main.cpp'  ) + envObject[ 'OBJSUFFIX' ],  source = './gray/main.cpp'  )
   ]
 

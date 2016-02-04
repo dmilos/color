@@ -1,6 +1,9 @@
 #ifndef color_hsv_convert_gray
 #define color_hsv_convert_gray
 
+#include "../category.hpp"
+#include "../place/place.hpp"
+
 #include "../../_internal/convert.hpp"
 #include "../../gray/gray.hpp"
 
@@ -38,9 +41,16 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           container_left_trait_type::template set<0>( left, bound_left_trait_type::template minimum<0>() );
-           container_left_trait_type::template set<1>( left, bound_left_trait_type::template minimum<1>() );
-           container_left_trait_type::template set<2>( left, reformat_type::template process<2,0>( container_right_trait_type::template get<0>( right ) ) );
+           enum
+            {
+              hue_p        = ::color::place::_internal::hue<category_left_type>::position_enum
+             ,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+             ,value_p       = ::color::place::_internal::value<category_left_type>::position_enum
+            };
+
+           container_left_trait_type::template set<hue_p>(        left, bound_left_trait_type::template minimum<hue_p>() );
+           container_left_trait_type::template set<saturation_p>( left, bound_left_trait_type::template minimum<saturation_p>() );
+           container_left_trait_type::template set<value_p>(      left, reformat_type::template process<value_p,0>( container_right_trait_type::template get<0>( right ) ) );
           }
       };
 

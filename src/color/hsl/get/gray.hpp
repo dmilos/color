@@ -33,13 +33,17 @@
 
         typedef ::color::_internal::diverse< akin_type >      diverse_type;
         typedef ::color::_internal::normalize< category_type >  normalize_type;
- 
-        scalar_type value =/* TODO */
-             0.2126 * normalize_type::template process<0>( color_parameter.template get<0>() )
-           + 0.7152 * normalize_type::template process<1>( color_parameter.template get<1>() )
-           + 0.0722 * normalize_type::template process<2>( color_parameter.template get<2>() );
 
-        return diverse_type::template process<0>( value );
+        enum
+         {
+           hue_p        = ::color::place::_internal::hue<category_type>::position_enum
+          ,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+          ,lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
+         }; 
+ 
+        scalar_type g = normalize_type::template process<lightness_p     >( color_parameter.template get<lightness_p     >() );
+
+        return diverse_type::template process<0>( g );
        }
 
     }

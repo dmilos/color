@@ -34,10 +34,17 @@
 
         typedef ::color::constant::yiq< akin_type > yiq_const_type;
 
+        enum
+         {
+           red_p   = ::color::place::_internal::red<category_type>::position_enum
+          ,green_p = ::color::place::_internal::green<category_type>::position_enum
+          ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
+         };
+
         scalar_type value =
-           + yiq_const_type::b21() * normalize_type::template process<0>( color_parameter.template get<0>() )
-           + yiq_const_type::b22() * normalize_type::template process<1>( color_parameter.template get<1>() )
-           + yiq_const_type::b23() * normalize_type::template process<2>( color_parameter.template get<2>() )
+           + yiq_const_type::b21() * normalize_type::template process<red_p   >( color_parameter.template get<red_p   >() )
+           + yiq_const_type::b22() * normalize_type::template process<green_p >( color_parameter.template get<green_p >() )
+           + yiq_const_type::b23() * normalize_type::template process<blue_p  >( color_parameter.template get<blue_p  >() )
            ;
 
         value = value / yiq_const_type::i_range() + scalar_type(0.5);

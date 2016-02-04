@@ -376,6 +376,9 @@
     <Filter Include="Source Files\src\generic\type">
       <UniqueIdentifier>{94a523f8-92ef-427f-bf8b-c4430003a981}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\hsv\get">
+      <UniqueIdentifier>{e0787aeb-fa6d-4654-8e04-08c3b0e5d333}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\color\color.hpp">
@@ -545,9 +548,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\hsl\category.hpp">
       <Filter>Source Files\src\hsl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\hsl\get\hue.hpp">
-      <Filter>Source Files\src\hsl\get</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\hsl\get\gray.hpp">
       <Filter>Source Files\src\hsl\get</Filter>
@@ -3825,6 +3825,21 @@
     <ClInclude Include="..\..\src\color\yuv\get\blue.hpp">
       <Filter>Source Files\src\yuv\get</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\get\blue.hpp">
+      <Filter>Source Files\src\hsv\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\get\get.hpp">
+      <Filter>Source Files\src\hsv\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\get\gray.hpp">
+      <Filter>Source Files\src\hsv\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\get\green.hpp">
+      <Filter>Source Files\src\hsv\get</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\get\red.hpp">
+      <Filter>Source Files\src\hsv\get</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -3844,6 +3859,9 @@
     </ClCompile>
     <ClCompile Include="gray\main.cpp">
       <Filter>Source Files\main\gray</Filter>
+    </ClCompile>
+    <ClCompile Include="get.cpp">
+      <Filter>Source Files\main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

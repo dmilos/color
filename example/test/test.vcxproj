@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="conversion.cpp" />
+    <ClCompile Include="get.cpp" />
     <ClCompile Include="gray\main.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="make.cpp" />
@@ -511,7 +512,6 @@
     <ClInclude Include="..\..\src\color\hsl\fix\unique.hpp" />
     <ClInclude Include="..\..\src\color\hsl\get\get.hpp" />
     <ClInclude Include="..\..\src\color\hsl\get\gray.hpp" />
-    <ClInclude Include="..\..\src\color\hsl\get\hue.hpp" />
     <ClInclude Include="..\..\src\color\hsl\hsl.hpp" />
     <ClInclude Include="..\..\src\color\hsl\make\aqua.hpp" />
     <ClInclude Include="..\..\src\color\hsl\make\aquamarine.hpp" />
@@ -629,6 +629,11 @@
     <ClInclude Include="..\..\src\color\hsv\fix\fix.hpp" />
     <ClInclude Include="..\..\src\color\hsv\fix\integrity.hpp" />
     <ClInclude Include="..\..\src\color\hsv\fix\unique.hpp" />
+    <ClInclude Include="..\..\src\color\hsv\get\blue.hpp" />
+    <ClInclude Include="..\..\src\color\hsv\get\get.hpp" />
+    <ClInclude Include="..\..\src\color\hsv\get\gray.hpp" />
+    <ClInclude Include="..\..\src\color\hsv\get\green.hpp" />
+    <ClInclude Include="..\..\src\color\hsv\get\red.hpp" />
     <ClInclude Include="..\..\src\color\hsv\hsv.hpp" />
     <ClInclude Include="..\..\src\color\hsv\make\aqua.hpp" />
     <ClInclude Include="..\..\src\color\hsv\make\aquamarine.hpp" />
