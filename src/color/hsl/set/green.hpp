@@ -1,12 +1,12 @@
-#ifndef color_yiq_set_green
-#define color_yiq_set_green
+#ifndef color_hsl_set_green
+#define color_hsl_set_green
 
 // ::color::set::green( c )
 
-#include "../../rgb/akin/yiq.hpp"
-#include "../../rgb/trait/component.hpp"
-
 #include "../category.hpp"
+
+#include "../../rgb/akin/hsl.hpp"
+#include "../../rgb/trait/component.hpp"
 
 
  namespace color
@@ -19,11 +19,11 @@
       void
       green
        (
-                  ::color::_internal::model< ::color::category::yiq< tag_name > >                                   & color_parameter
-        ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::input_const_type         component_parameter
+                  ::color::_internal::model< ::color::category::hsl< tag_name > >                                   & color_parameter
+        ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl< tag_name > >::akin_type >::input_const_type         component_parameter
        )
        {
-        typedef ::color::category::yiq< tag_name >    category_type;
+        typedef ::color::category::hsl< tag_name >    category_type;
         typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
         enum { green_p  = ::color::place::_internal::green<akin_type>::position_enum };
 

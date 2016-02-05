@@ -1,9 +1,9 @@
-#ifndef color_cmyk_check_unique
-#define color_cmyk_check_unique
-// ::color::check::unique< category >( model )
+#ifndef color_cmyk_check_integrity
+#define color_cmyk_check_integrity
+// ::color::check::integrity< category >( model )
 
 #include "../../generic/trait/scalar.hpp"
-#include "../../generic/check/unique.hpp"
+#include "../../generic/check/integrity.hpp"
 #include "../../generic/trait/bound.hpp"
 #include "../category.hpp"
 
@@ -17,7 +17,7 @@ namespace color
        {
 
         template< typename category_name >
-         struct unique
+         struct integrity
           {
            public:
             typedef category_name category_type;
@@ -40,14 +40,14 @@ namespace color
 
        }
 
-      template< > struct unique< ::color::category::cmyk_uint8  > : public ::color::check::_internal::_privateCMYK::unique< ::color::category::cmyk_uint8  >{ };
-      template< > struct unique< ::color::category::cmyk_uint16 > : public ::color::check::_internal::_privateCMYK::unique< ::color::category::cmyk_uint16 >{ };
-      template< > struct unique< ::color::category::cmyk_uint32 > : public ::color::check::_internal::_privateCMYK::unique< ::color::category::cmyk_uint32 >{ };
-      template< > struct unique< ::color::category::cmyk_uint64 > : public ::color::check::_internal::_privateCMYK::unique< ::color::category::cmyk_uint64 >{ };
+      template< > struct integrity< ::color::category::cmyk_uint8  > : public ::color::check::_internal::_privateCMYK::integrity< ::color::category::cmyk_uint8  >{ };
+      template< > struct integrity< ::color::category::cmyk_uint16 > : public ::color::check::_internal::_privateCMYK::integrity< ::color::category::cmyk_uint16 >{ };
+      template< > struct integrity< ::color::category::cmyk_uint32 > : public ::color::check::_internal::_privateCMYK::integrity< ::color::category::cmyk_uint32 >{ };
+      template< > struct integrity< ::color::category::cmyk_uint64 > : public ::color::check::_internal::_privateCMYK::integrity< ::color::category::cmyk_uint64 >{ };
 
 
       template<>
-       struct unique< ::color::category::cmyk_float>
+       struct integrity< ::color::category::cmyk_float>
         {
          public:
           typedef ::color::category::cmyk_float category_type;
@@ -69,7 +69,7 @@ namespace color
         };
 
       template<>
-       struct unique< ::color::category::cmyk_double >
+       struct integrity< ::color::category::cmyk_double >
         {
          public:
           typedef ::color::category::cmyk_double category_type;
@@ -91,7 +91,7 @@ namespace color
         };
 
       template<>
-       struct unique< ::color::category::cmyk_ldouble >
+       struct integrity< ::color::category::cmyk_ldouble >
         {
          public:
           typedef ::color::category::cmyk_ldouble category_type;

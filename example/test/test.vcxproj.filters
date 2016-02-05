@@ -3863,5 +3863,8 @@
     <ClCompile Include="get.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
+    <ClCompile Include="set.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

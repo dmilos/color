@@ -21,7 +21,7 @@
            typedef ::color::category::cmyk< tag_name > category_type;
            typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
-           enum { position_enum = 4 };
+           enum { position_enum = 3 };
            enum { has_enum = true };
 
            static /*constexpr*/ index_instance_type position()

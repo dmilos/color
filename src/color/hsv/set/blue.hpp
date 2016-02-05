@@ -1,11 +1,11 @@
-#ifndef color_cmyk_set_blue
-#define color_cmyk_set_blue
+#ifndef color_hsv_set_blue
+#define color_hsv_set_blue
 
 // ::color::set::blue( c )
 
 #include "../category.hpp"
 
-#include "../../rgb/akin/cmyk.hpp"
+#include "../../rgb/akin/hsv.hpp"
 #include "../../rgb/trait/component.hpp"
 
 
@@ -19,11 +19,11 @@
       void
       blue
        (
-                  ::color::_internal::model< ::color::category::cmyk< tag_name > >                                   & color_parameter
-        ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::input_const_type         component_parameter
+                  ::color::_internal::model< ::color::category::hsv< tag_name > >                                   & color_parameter
+        ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type >::input_const_type         component_parameter
        )
        {
-        typedef ::color::category::cmyk< tag_name >    category_type;
+        typedef ::color::category::hsv< tag_name >    category_type;
         typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
         enum { blue_p  = ::color::place::_internal::blue<akin_type>::position_enum };
 

@@ -26,11 +26,11 @@ template< typename category_name >
    color::make::chocolate( c );
 
 
-   { auto vx = value;                                         ; color::set::alpha(    c, vx ); std::cout << "  color::set::alpha( c, "<< vx <<" ); "; print(c); std::cout << " ( double )color::get::alpha(c)   == "<< ( double )color::get::alpha(c)      ;std::cout << std::endl; }
-   { auto vx = rgb_diverse_type::template process<0>( value ) ; color::set::red(      c, vx ); std::cout << "  color::set::red(   c, "<< vx <<" ); "; print(c); std::cout << " ( double )color::get::red( c )   == "<< ( double )color::get::red( c )      ;std::cout << std::endl; }
-   { auto vx = rgb_diverse_type::template process<1>( value ) ; color::set::blue(     c, vx ); std::cout << "  color::set::blue(  c, "<< vx <<" ); "; print(c); std::cout << " ( double )color::get::blue( c )  == "<< ( double )color::get::blue( c )     ;std::cout << std::endl; }
-   { auto vx = rgb_diverse_type::template process<2>( value ) ; color::set::green(    c, vx ); std::cout << "  color::set::green( c, "<< vx <<" ); "; print(c); std::cout << " ( double )color::get::green( c ) == "<< ( double )color::get::green( c )    ;std::cout << std::endl; }
-   { auto vx = gray_diverse_type::template process<0>( value ); color::set::gray(     c, vx ); std::cout << "  color::set::gray(  c, "<< vx <<" ); "; print(c); std::cout << " ( double )color::get::gray( c )  == "<< ( double )color::get::gray( c )     ;std::cout << std::endl; }
+   { auto vx = value;                                         ; color::set::alpha(    c, vx ); std::cout << "  color::set::alpha( c, "<< ( double )vx <<" ); "; print(c); std::cout << " ( double )color::get::alpha(c)   == "<< ( double )color::get::alpha(c)      ;std::cout << std::endl; }
+   { auto vx = rgb_diverse_type::template process<0>( value ) ; color::set::red(      c, vx ); std::cout << "  color::set::red(   c, "<< ( double )vx <<" ); "; print(c); std::cout << " ( double )color::get::red( c )   == "<< ( double )color::get::red( c )      ;std::cout << std::endl; }
+   { auto vx = rgb_diverse_type::template process<1>( value ) ; color::set::blue(     c, vx ); std::cout << "  color::set::blue(  c, "<< ( double )vx <<" ); "; print(c); std::cout << " ( double )color::get::blue( c )  == "<< ( double )color::get::blue( c )     ;std::cout << std::endl; }
+   { auto vx = rgb_diverse_type::template process<2>( value ) ; color::set::green(    c, vx ); std::cout << "  color::set::green( c, "<< ( double )vx <<" ); "; print(c); std::cout << " ( double )color::get::green( c ) == "<< ( double )color::get::green( c )    ;std::cout << std::endl; }
+   { auto vx = gray_diverse_type::template process<0>( value ); color::set::gray(     c, vx ); std::cout << "  color::set::gray(  c, "<< ( double )vx <<" ); "; print(c); std::cout << " ( double )color::get::gray( c )  == "<< ( double )color::get::gray( c )     ;std::cout << std::endl; }
 
    std::cout << std::endl;
    std::cout << "  function - " << __FUNCTION__ << std::endl;

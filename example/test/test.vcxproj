@@ -17,6 +17,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="make.cpp" />
     <ClCompile Include="selfie.cpp" />
+    <ClCompile Include="set.cpp" />
     <ClCompile Include="targa.cpp" />
   </ItemGroup>
   <ItemGroup>

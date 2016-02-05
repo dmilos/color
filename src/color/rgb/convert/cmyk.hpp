@@ -52,10 +52,10 @@ namespace color
 
            enum
             {
-              cyan_p    = 0
-             ,yellow_p  = 1
-             ,magenta_p = 2
-             ,key_p     = 3
+              cyan_p    = ::color::place::_internal::cyan<category_right_type>::position_enum
+             ,yellow_p  = ::color::place::_internal::yellow<category_right_type>::position_enum
+             ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+             ,key_p     = ::color::place::_internal::key<category_right_type>::position_enum
             };
 
            scalar_type c = normalize_type::template process<cyan_p   >( container_right_trait_type::template get<cyan_p   >( right ) );

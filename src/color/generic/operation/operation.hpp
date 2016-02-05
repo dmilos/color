@@ -8,3 +8,4 @@
 #include "./blend.hpp"
 
 #include "./normalize.hpp"
+#include "./diverse.hpp"

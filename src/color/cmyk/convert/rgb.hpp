@@ -59,9 +59,9 @@ namespace color
 
            if( false == scalar_trait_type::is_small( 1 - k ) )
             {
-             c = (1-r-k) / (1-k);
-             m = (1-g-k) / (1-k);
-             y = (1-b-k) / (1-k);
+             c = 1 - r / (1-k);
+             m = 1 - g / (1-k);
+             y = 1 - b / (1-k);
             }
 
            container_left_trait_type::template set<0>( left, diverse_type::template process<0>( c ) );

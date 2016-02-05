@@ -28,7 +28,7 @@
         ,typename ::color::_internal::model< ::color::category::hsv< tag_name > >::component_input_const_type         component_parameter
        )
        {
-        typedef ::color::category::hsl< tag_name >  category_type;
+        typedef ::color::category::hsv< tag_name >  category_type;
         enum{ hue_p  = ::color::place::_internal::hue< category_type >::position_enum };
 
         color_parameter.template set<hue_p>( component_parameter );

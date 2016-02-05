@@ -1,5 +1,6 @@
 #ifndef color__internal_model_87845cb9_e99c_4016_b1e9_148e6e094f40
 #define color__internal_model_87845cb9_e99c_4016_b1e9_148e6e094f40
+
 // ::color::_internal::model< category >
 
 
@@ -85,7 +86,7 @@ namespace color
         template< typename other_category_name >
          model operator=( ::color::_internal::model<other_category_name> const& that )
           {
-          ::color::_internal::convert<category_name, other_category_name>::process( this->m_container, that.container() );
+          ::color::_internal::convert< category_name, other_category_name>::process( this->m_container, that.container() );
            return *this;
           }
 

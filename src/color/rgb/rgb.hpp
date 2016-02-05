@@ -1,24 +1,28 @@
 #ifndef color_rgb_rgb_
 #define color_rgb_rgb_
 
-#include "../_internal/model.hpp"
 #include "../generic/type/type.hpp"
 
 #include "./category.hpp"
-
 #include "./akin/akin.hpp"
-
 #include "./trait/trait.hpp"
 
-#include "./place/place.hpp"
+#include "../_internal/model.hpp"
 
-#include "./get/get.hpp"
-#include "./set/set.hpp"
 
-#include "./convert/convert.hpp"
 
 namespace color
  {
+  namespace _internal
+   {
+
+    template< typename type_name >
+     struct pick_rgb
+      {
+       // TODO typedef ::color::category::rgb_uint32 category_type;
+      };
+
+   }
 
   template< typename value_name >
    using rgb = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, 0, 1, 2 > > >;
@@ -47,6 +51,12 @@ namespace color
 
  }
 
+#include "./place/place.hpp"
+
+#include "./get/get.hpp"
+#include "./set/set.hpp"
+
+#include "./convert/convert.hpp"
 #include "./make/make.hpp"
 
 #endif
