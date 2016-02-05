@@ -285,7 +285,6 @@ int main(int argc, char const *argv[])
   extern void check_conversion();
   check_conversion();
 
-
   extern void print_bound();
   print_bound();
 

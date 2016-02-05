@@ -12,37 +12,24 @@ Key features:
 - One file to include to start the fun
 - Out of the box ready
  - No need to recompile or start some install process.
-- Color models: CMY, CMYK, GRAY, HSL, HSV, RGB, XYZ, YIQ, YUV.
+- Color models: CMY, CMYK, GRAY, HSL, HSV, RGB, YIQ, YUV.
 
 Code sample:
 ```c++
         color::rgb<float>         f( { 1.0, 0.55, 0.0 } ); //!< This will pack ONLY three consecutive floats in memory
-        color::rgb<std::uint8_t>  u( { 127,  255, 212 } ); //!< Three consecutive std::uint8_t.
+        color::bgr<std::uint8_t>  u( { 127,  255, 212 } ); //!< Three consecutive std::uint8_t. In order: blue, green and red.
 
-        f = u; //!< Perform direct conversion from uint8_t to float.
+        f = u; //!< Reformat and convert.
+        u = f; //!< Reformat and convert in oposit direction.
 
-        color::rgb<double>        d( { 0.1, 0.2, 0.3  } );
+        color::hsv<double>        hv( { 90.0, 50.0, 60.0  } );
 
-        f = d; //!< Reformat RGB from double to float
-        u = f; //!< Reformat RGB from float to uint8_t
+        hv = d; //!< Reformat and connvert from RGB to HSV
 
-        color::hsl<std::uint8_t>  h( { 192, 64, 92  } );
+        color::hsl<std::uint8_t>  hl( { 192, 64, 92  } );
 
-        h = f; //!< This is the way how to convert from RGB(float) to HSL(std::uint8_t).
+        hl = hv; //!< reformat and connvert from HSV to HSL
 ```
-
-Implemented Conversions:
-> | l = r | cmy  | cmyk | gray | hsl  | hsv  | rgb  | xyz  | yiq  | yuv  |
-> |-------|------|------|------|------|------|------|------|------|------|
-> | cmy   | :white_check_mark: |  :white_check_mark: |  :white_check_mark: | :white_check_mark: | :white_check_mark: |  :white_check_mark: |      | :white_check_mark: | :white_check_mark: |
-> | cmyk  | :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |  :white_check_mark: |      |      |      |
-> | gray  | :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |  :white_check_mark: |  :white_check_mark: |
-> | hsl   | :white_check_mark: |      |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |      |
-> | hsv   | :white_check_mark: |      |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |      |      |      |
-> | rgb   | :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: |  :white_check_mark: | :white_check_mark: |  :white_check_mark: |
-> | xyz   |      |      |      |      |      |  :white_check_mark: |  :white_check_mark: |      |      |
-> | yiq   | :white_check_mark: |      |  :white_check_mark: |      |      |  :white_check_mark: |      |  :white_check_mark: |      |
-> | yuv   | :white_check_mark: |      | :white_check_mark: |      |      |  :white_check_mark: |      |      |  :white_check_mark: |
 
 Available Color Formats
 > <dl>

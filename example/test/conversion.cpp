@@ -30,6 +30,10 @@ template< typename category_left_name, typename category_right_name>
          left.template set<3>( 0.5 );
         }
 
+       if( false == color::check::integrity( left ) )
+        {
+         continue;
+        }
 
        if( false == color::check::unique( left ) )
         {
@@ -201,14 +205,14 @@ void check_conversion()
   check_conversion_back_and_forth( yi, yu );  check_conversion_back_and_forth( yu, yu );
   check_conversion_back_and_forth( yi, x  );  check_conversion_back_and_forth( yu, x  );
 
-  check_conversion_back_and_forth( x, c  );
-  check_conversion_back_and_forth( x, ck );
-  check_conversion_back_and_forth( x, r  );
-  check_conversion_back_and_forth( x, hl );
-  check_conversion_back_and_forth( x, hv );
-  check_conversion_back_and_forth( x, yi );
-  check_conversion_back_and_forth( x, yu );
-  check_conversion_back_and_forth( x, x  );
+  //check_conversion_back_and_forth( x, c  );
+  //check_conversion_back_and_forth( x, ck );
+  //check_conversion_back_and_forth( x, r  );
+  //check_conversion_back_and_forth( x, hl );
+  //check_conversion_back_and_forth( x, hv );
+  //check_conversion_back_and_forth( x, yi );
+  //check_conversion_back_and_forth( x, yu );
+  //check_conversion_back_and_forth( x, x  );
 
   //check_conversion_pass( c,  ck,  r ); check_conversion_pass(  c, ck, hl ); check_conversion_pass(  c, ck, hv );
   //check_conversion_pass( ck, ck,  r ); check_conversion_pass(  c, ck, hl ); check_conversion_pass(  c, ck, hv );
