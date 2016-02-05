@@ -36,7 +36,7 @@ namespace color
      typename ::color::trait::component< category_name >::component_return_type
      diverse( typename ::color::trait::scalar<category_name>::instance_type   const& scalar_type )
       {
-       return ::color::_internal::diverse< category_name, index >::template process< index > ( scalar_type );
+       return ::color::_internal::diverse< category_name >::template process< index > ( scalar_type );
       }
 
    }
