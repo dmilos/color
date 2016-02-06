@@ -1,5 +1,8 @@
 # Yet another c++ library that implements color.
-Status: Very close to the first milestone.
+Status:
+- Thin documentation
+- All planed functionality implemented
+- Ready for test use
 
 Key features:
 - No _virtual_ functions
@@ -16,19 +19,19 @@ Key features:
 
 Code sample:
 ```c++
-        color::rgb<float>         f( { 1.0, 0.55, 0.0 } ); //!< This will pack ONLY three consecutive floats in memory
-        color::bgr<std::uint8_t>  u( { 127,  255, 212 } ); //!< Three consecutive std::uint8_t. In order: blue, green and red.
+        color::rgb<float>         r( { 1.0, 0.55, 0.0 } );    //!< This will pack ONLY three consecutive floats in memory
+        color::bgr<std::uint8_t>  b( { 127,  255, 212 } );    //!< Three consecutive std::uint8_t. In order: blue, green and red.
+        color::yiq<std::uint8_t>  y( { 192, 64, 92  } );      //!< Three consecutive std::uint8_t. In order: luma, inphase and quadrature.
+        color::hsv<double>        h( { 90.0, 50.0, 60.0  } ); //!< This will pack ONLY three consecutive doubles in memory
 
-        f = u; //!< Reformat and convert.
-        u = f; //!< Reformat and convert in oposit direction.
+        color::make::aqua( b );
+        color::make::orange( r );
+        color::make::turquoise( y );
 
-        color::hsv<double>        hv( { 90.0, 50.0, 60.0  } );
-
-        hv = d; //!< Reformat and connvert from RGB to HSV
-
-        color::hsl<std::uint8_t>  hl( { 192, 64, 92  } );
-
-        hl = hv; //!< reformat and connvert from HSV to HSL
+        b = r; //!< Reformat and convert.
+        r = b; //!< Reformat and convert in opposite direction.
+        h = b; //!< Reformat and convert from BGR to HSV
+        h = y; //!< Reformat and convert from YIQ to HSV
 ```
 
 Available Color Formats
@@ -53,4 +56,3 @@ Available Color Formats
 
 
 [Want to see more](doc/index.html)
-

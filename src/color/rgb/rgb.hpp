@@ -46,6 +46,7 @@ namespace color
    //using rgb< ::color::type::split332_t  > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_split332   > >;
    //using rgb< ::color::type::split442_t  > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_split442   > >;
    //using rgb< ::color::type::split556_t  > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_split556   > >;
+   //using rgb< ::color::type::split565_t  > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_split565   > >;
    //using rgb< ::color::type::split655_t  > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_split655   > >;
    //using rgb< ::color::type::splitAAA2_t > = ::color::_internal::model< ::color::category::rgb< ::color::category::rgb_splitAAA2  > >;
 

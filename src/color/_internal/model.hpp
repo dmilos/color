@@ -73,7 +73,7 @@ namespace color
 
         explicit model( std::initializer_list<component_type> const& ilist )
          {
-          //TODO C++14 static_assert( container_trait_type::size_enum != ilist.size(), "Initizlizer list size do not mach model/format length." );
+          //TODO C++14 static_assert( container_trait_type::size_enum != ilist.size(), "Initializer list size do not match model/format length." );
           ::color::_internal::init<category_name>( this->m_container, ilist );
          }
 

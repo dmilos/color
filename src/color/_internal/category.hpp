@@ -1,26 +1,45 @@
-#ifndef category_category_63b52918_1501_4437_82d5_befe9b6de374
-#define category_category_63b52918_1501_4437_82d5_befe9b6de374
-
-#include "../gray/category.hpp"
-#include "../cmy/category.hpp"
-#include "../cmyk/category.hpp"
-#include "../hsl/category.hpp"
-#include "../hsv/category.hpp"
-#include "../rgb/category.hpp"
-#include "../rgb/category.hpp"
-#include "../yiq/category.hpp"
-#include "../yuv/category.hpp"
-#include "../xyz/category.hpp"
+#ifndef color_generic_category
+#define color_generic_category
 
 namespace color
  {
   /**
-   * @namespace color::category 
+   * @namespace color::category
    * To hold all categories and their manipulator.
-   */  
-  namespace category 
+   */
+  namespace category
    {
-    // empty
+    namespace _internal
+     {
+
+      template< unsigned first_position, unsigned second_position>
+       struct scramble2
+       {
+        //TODO C++14 static_assert( first_position != second_position, "First and second place used for different components." );
+       };
+
+      template< unsigned first_position, unsigned second_position, unsigned third_position >
+       struct scramble3
+        {
+         //TODO C++14 static_assert( first_position  != second_position, "First and second place used for different components." );
+         //TODO C++14 static_assert( first_position  != third_position,  "First and third place used for different components."  );
+         //TODO C++14 static_assert( second_position != third_position,  "Second and third place used for different components." );
+        };
+
+      template< unsigned first_position, unsigned second_position, unsigned third_position , unsigned fourth_position >
+       struct scramble4
+        {
+         //TODO C++14 static_assert( first_position  != second_position,  "First and second place used for different components."   );
+         //TODO C++14 static_assert( first_position  != third_position,   "First and third place used for different components."    );
+         //TODO C++14 static_assert( first_position  != fourth_position,  "First and fourth place used for different components."   );
+
+         //TODO C++14 static_assert( second_position != third_position,   "Second and third place used for different components."  );
+         //TODO C++14 static_assert( second_position != fourth_position,  "Second and fourth place used for different components." );
+
+         //TODO C++14 static_assert( third_position  != fourth_position,  "Third and fourth place used for different components."   );
+        };
+
+     }
    }
  }
 
