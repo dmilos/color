@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalent std::array<double,3>( { 255.0/255.0, 215.0/255.0, 0.0/255.0 } ) - rgb(255,215,0) - #FFD7DB
+    { //RGB equivalent std::array<double,3>( { 255.0/255.0, 215.0/255.0, 0.0/255.0 } ) - rgb(255,215,0) - #FFD700
 
      template< typename tag_name >
       inline
@@ -17,7 +17,7 @@
 
         typedef ::color::rgb< std::uint8_t >      right_type;
 
-        static left_type local( right_type( { 0xFF, 0xD7, 0xDB } ) );
+        static left_type local( right_type( { 0xFF, 0xD7, 0x00 } ) );
 
         color_parameter = local;
        }

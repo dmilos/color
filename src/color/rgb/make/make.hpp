@@ -13,7 +13,6 @@
 #include "./magenta.hpp"
 #include "./yellow.hpp"
 
-
 #include "./aqua.hpp"
 #include "./fuchsia.hpp"
 #include "./lime.hpp"
@@ -27,7 +26,6 @@
 #include "./silver.hpp"
 #include "./teal.hpp"
 #include "./violet.hpp"
-
 
 
 #include "./aquamarine.hpp"

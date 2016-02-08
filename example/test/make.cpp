@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 #include "color/color.hpp"
 
@@ -90,17 +91,11 @@ void print_header2( std::string const& model, std::string const& name, color::rg
   ss << "      inline"                                                                                               << std::endl;
   ss << "      void " << name << "( ::color::_internal::model< ::color::category::"<<model<<"< tag_name > > & color_parameter )" << std::endl;
   ss << "       {"                                                                                                   << std::endl;
-  ss << "        typedef ::color::category::" << model << "< tag_name     > category_left_type;"                     << std::endl;
-  ss << "        typedef ::color::_internal::model< category_left_type  > left_type;"                                << std::endl;
-  ss << ""                                                                                                           << std::endl;
-  ss << "        typedef ::color::rgb< std::uint8_t >      right_type;"                                              << std::endl;
-  ss << ""                                                                                                           << std::endl;
-  ss << "        static left_type local( right_type( { ";
-  ss << "" << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned) r32[0]<< ", ";
-  ss << "" << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned) r32[1]<< ", ";
-  ss << "" << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned) r32[2]<< "" ;
-  ss << " } ) );";
-  ss << std::endl;
+  ss << "        typedef ::color::category::" << model << "< tag_name >         category_type;"                      << std::endl;
+  ss << "        typedef ::color::_internal::model< category_type > model_type;"                                     << std::endl;
+  ss << "" << std::endl;
+  ss << "        static model_type local( ::color::make::" << name << "< ::color::category::rgb_double >() );";
+  ss << "" << std::endl;
   ss << ""                                                                                                           << std::endl;
   ss << "        color_parameter = local;"                                                                           << std::endl;
   ss << "       }"                                                                                                   << std::endl;
@@ -155,22 +150,22 @@ void print_header( std::string const& model, std::string const& name, color::rgb
   ss << "      inline"                                                                                    << std::endl;
   ss << "      void " << name << "( ::color::_internal::model< ::color::category::"<< model <<"_uint8 > & color_parameter )"    << std::endl;
   ss << "       {"                                                                                        << std::endl;
-  ss << "        color_parameter.container() = std::array< std::uint8_t, " << i8.size() << " >( { " 
-     << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned)i8[0] << ", " 
-     << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned)i8[1] << ", " 
+  ss << "        color_parameter.container() = std::array< std::uint8_t, " << i8.size() << " >( { "
+     << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned)i8[0] << ", "
+     << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned)i8[1] << ", "
      << "0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned)i8[2];
   if( 4 == i8.size() ){ ss << ", 0x" << std::setbase(16) <<  std::setw(2) <<  std::setfill('0') <<  (unsigned)i8[3];  }
   ss  << " } );" << std::endl;
   ss << "       }"                                                                                        << std::endl;
   ss                                                                                                      << std::endl;
-  
-  
+
+
   ss << "      inline"                                                                                    << std::endl;
   ss << "      void " << name << "( ::color::_internal::model< ::color::category::"<< model <<"_uint16 > & color_parameter )"    << std::endl;
   ss << "       {"                                                                                        << std::endl;
-  ss << "        color_parameter.container() = std::array< std::uint16_t, " << i16.size() << " >( { "  
-   << "0x" << std::setbase(16) <<  std::setw(4) <<  std::setfill('0') << i16[0] << ", " 
-   << "0x" << std::setbase(16) <<  std::setw(4) <<  std::setfill('0') << i16[1] << ", " 
+  ss << "        color_parameter.container() = std::array< std::uint16_t, " << i16.size() << " >( { "
+   << "0x" << std::setbase(16) <<  std::setw(4) <<  std::setfill('0') << i16[0] << ", "
+   << "0x" << std::setbase(16) <<  std::setw(4) <<  std::setfill('0') << i16[1] << ", "
    << "0x" << std::setbase(16) <<  std::setw(4) <<  std::setfill('0') << i16[2];
   if( 4 == i16.size() ){ ss << ", 0x" << std::setbase(16) <<  std::setw(4) <<  std::setfill('0') <<  i16[3];  }
   ss  << " } );" << std::endl;
@@ -180,9 +175,9 @@ void print_header( std::string const& model, std::string const& name, color::rgb
   ss << "      inline"                                                                                    << std::endl;
   ss << "      void " << name << "( ::color::_internal::model< ::color::category::"<< model <<"_uint32 > & color_parameter )"    << std::endl;
   ss << "       {"                                                                                        << std::endl;
-  ss << "        color_parameter.container() = std::array< std::uint32_t, " << f.size() << " >( { " 
-     << "0x" << std::setbase(16) <<  std::setw(8) <<  std::setfill('0') << i32[0] << ", " 
-     << "0x" << std::setbase(16) <<  std::setw(8) <<  std::setfill('0') << i32[1] << ", " 
+  ss << "        color_parameter.container() = std::array< std::uint32_t, " << f.size() << " >( { "
+     << "0x" << std::setbase(16) <<  std::setw(8) <<  std::setfill('0') << i32[0] << ", "
+     << "0x" << std::setbase(16) <<  std::setw(8) <<  std::setfill('0') << i32[1] << ", "
      << "0x" << std::setbase(16) <<  std::setw(8) <<  std::setfill('0') << i32[2];
   if( 4 == i32.size() ){ ss << ", 0x" << std::setbase(16) <<  std::setw(8) <<  std::setfill('0') <<  i32[3];  }
   ss  << " } );" << std::endl;
@@ -192,9 +187,9 @@ void print_header( std::string const& model, std::string const& name, color::rgb
   ss << "      inline"                                                                                    << std::endl;
   ss << "      void " << name << "( ::color::_internal::model< ::color::category::"<< model <<"_uint64 > & color_parameter )"    << std::endl;
   ss << "       {"                                                                                        << std::endl;
-  ss << "        color_parameter.container() = std::array< std::uint64_t, " << i64.size() << " >( { " 
-     << "0x" << std::setbase(16) <<  std::setw(16) <<  std::setfill('0') << i64[0] << "ull, " 
-     << "0x" << std::setbase(16) <<  std::setw(16) <<  std::setfill('0') << i64[1] << "ull, " 
+  ss << "        color_parameter.container() = std::array< std::uint64_t, " << i64.size() << " >( { "
+     << "0x" << std::setbase(16) <<  std::setw(16) <<  std::setfill('0') << i64[0] << "ull, "
+     << "0x" << std::setbase(16) <<  std::setw(16) <<  std::setfill('0') << i64[1] << "ull, "
      << "0x" << std::setbase(16) <<  std::setw(16) <<  std::setfill('0') << i64[2] << "ull" ;
   if( 4 == i64.size() ){ ss << ", 0x" << std::setbase(16) <<  std::setw(16) <<  std::setfill('0') << i64[3] << "ull";  }
   ss  << " } );" << std::endl;
@@ -312,3 +307,97 @@ void make_make_header()
   print_all_header<color::rgb>(  "rgb"  );
  }
 
+std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> const& r )
+ {
+  std::stringstream ss;
+
+  ss <<  "<div style=\"background-color:rgb("<< (unsigned)r[0] <<","<< (unsigned)r[1] <<","<< (unsigned)r[2] <<");color:white\">";
+
+  ss << text << " - ";
+  ss << "("<< (unsigned)r[0] <<","<< (unsigned)r[1] <<","<< (unsigned)r[2] <<")";
+
+  ss << "</div>";
+  return ss.str();
+ }
+
+
+#define PRINT_COLORS(dp_name)                                                                                                                                \
+    ss << "<tr>" << std::endl;                                                                                                                               \
+     ss << "<td  style=\"background-color:" #dp_name << "\"> W3  -" #dp_name << "</td>";   \
+     ss << "<td>" << print_color( "cmy -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::cmy_double >()  ) ) << "</td>";   \
+     ss << "<td>" << print_color( "cmyk-" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::cmyk_double >() ) ) << "</td>";   \
+     ss << "<td>" << print_color( "hsl -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::hsl_double >()  ) ) << "</td>";   \
+     ss << "<td>" << print_color( "hsv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::hsv_double >()  ) ) << "</td>";   \
+     ss << "<td>" << print_color( "rgb -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::rgb_double >()  ) ) << "</td>";   \
+     ss << "<td>" << print_color( "yiq -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::yiq_double >()  ) ) << "</td>";   \
+     ss << "<td>" << print_color( "yuv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::yuv_double >()  ) ) << "</td>";   \
+    ss << "</tr>" << std::endl
+
+void make_test_make()
+ {
+   std::stringstream ss;
+   auto x = ::color::make::red< ::color::category::cmy_double >();
+
+   ss << "<table>" << std::endl;
+
+
+   PRINT_COLORS(black     );
+   PRINT_COLORS(white     );
+   PRINT_COLORS(red       );
+   PRINT_COLORS(lime      );
+   PRINT_COLORS(blue      );
+   PRINT_COLORS(aqua      );
+   PRINT_COLORS(cyan      );
+   PRINT_COLORS(fuchsia   );
+   PRINT_COLORS(gray50    );
+   PRINT_COLORS(green     );
+   PRINT_COLORS(magenta   );
+   PRINT_COLORS(maroon    );
+   PRINT_COLORS(navy      );
+   PRINT_COLORS(olive     );
+   PRINT_COLORS(orange    );
+   PRINT_COLORS(purple    );
+   PRINT_COLORS(silver    );
+   PRINT_COLORS(teal      );
+   PRINT_COLORS(violet    );
+   PRINT_COLORS(yellow    );
+
+   PRINT_COLORS(aquamarine);
+   PRINT_COLORS(azure     );
+   PRINT_COLORS(beige     );
+   PRINT_COLORS(bisque    );
+   PRINT_COLORS(brown     );
+   PRINT_COLORS(chocolate );
+   PRINT_COLORS(coral     );
+   PRINT_COLORS(crimson   );
+   PRINT_COLORS(gainsboro );
+   PRINT_COLORS(gold      );
+   PRINT_COLORS(indigo    );
+   PRINT_COLORS(ivory     );
+   PRINT_COLORS(khaki     );
+   PRINT_COLORS(lavender  );
+   PRINT_COLORS(linen     );
+   PRINT_COLORS(moccasin  );
+   PRINT_COLORS(orchid    );
+   PRINT_COLORS(peru      );
+   PRINT_COLORS(pink      );
+   PRINT_COLORS(plum      );
+   PRINT_COLORS(salmon    );
+   PRINT_COLORS(sienna    );
+   PRINT_COLORS(snow      );
+   PRINT_COLORS(tan       );
+   PRINT_COLORS(thistle   );
+   PRINT_COLORS(tomato    );
+   PRINT_COLORS(turquoise );
+   PRINT_COLORS(wheat     );
+
+   ss << "</table>" << std::endl;
+
+   ss << std::endl;
+
+   {
+    std::ofstream ofs( std::string( "./make_check.html" ). c_str() );
+    ofs <<  ss.str();
+   }
+
+ }

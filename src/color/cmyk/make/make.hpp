@@ -1,3 +1,6 @@
+//#include "../../generic/make/make.hpp"
+//#include "../../rgb/rgb.hpp"
+
 #include "./black.hpp"
 #include "./gray.hpp"
 #include "./white.hpp"
@@ -47,7 +50,7 @@
 #include "./peru.hpp"
 #include "./pink.hpp"
 #include "./plum.hpp"
-#include "./salmon.hpp"
+//#include "./salmon.hpp"
 #include "./sienna.hpp"
 #include "./snow.hpp"
 #include "./tan.hpp"

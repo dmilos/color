@@ -36,7 +36,7 @@ namespace color
         typedef ::color::trait::container< category_name >  container_trait_type;
         typedef ::color::trait::bound< category_name >      bound_trait_type, bound_type;
 
-      //typedef ::color::_internal::model<category_type>  this_type;
+        //typedef ::color::_internal::model<category_type>  this_type;
 
         typedef typename index_trait_type::instance_type          index_type;
         typedef typename index_trait_type::const_type             index_const_type;
@@ -76,6 +76,11 @@ namespace color
           //TODO C++14 static_assert( container_trait_type::size_enum != ilist.size(), "Initializer list size do not match model/format length." );
           ::color::_internal::init<category_name>( this->m_container, ilist );
          }
+
+         model( ::color::_internal::model<category_type> const& that )
+          {
+           this->m_container = that.container();
+          }
 
         template< typename other_category_name >
          explicit model( ::color::_internal::model<other_category_name> const& that )

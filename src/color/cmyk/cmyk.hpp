@@ -1,6 +1,7 @@
 #ifndef color_cmyk_cmyk_
 #define color_cmyk_cmyk_
 
+#include "../generic/type/type.hpp"
 
 #include "./category.hpp"
 #include "./akin/akin.hpp"
@@ -8,8 +9,7 @@
 
 #include "../_internal/model.hpp"
 
-#include "./check/check.hpp"
-#include "./fix/fix.hpp"
+
 
 namespace color
  {
@@ -37,6 +37,10 @@ namespace color
 
  }
 
+
+#include "./check/check.hpp"
+#include "./fix/fix.hpp"
+
 #include "./place/place.hpp"
 
 #include "./get/get.hpp"
@@ -44,5 +48,6 @@ namespace color
 
 #include "./convert/convert.hpp"
 #include "./make/make.hpp"
+
 
 #endif

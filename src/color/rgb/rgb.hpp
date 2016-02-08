@@ -52,6 +52,10 @@ namespace color
 
  }
 
+
+
+
+
 #include "./place/place.hpp"
 
 #include "./get/get.hpp"
@@ -59,5 +63,6 @@ namespace color
 
 #include "./convert/convert.hpp"
 #include "./make/make.hpp"
+
 
 #endif

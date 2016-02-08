@@ -2,7 +2,7 @@
 #define color_rgb_category_
 
 // ::color::category::rgb_ABC;
-#include "../../_internal/category.hpp"
+#include "../_internal/category.hpp"
 
 
 namespace color

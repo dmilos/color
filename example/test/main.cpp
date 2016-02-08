@@ -222,6 +222,9 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 
 int main(int argc, char const *argv[])
  {
+
+  extern void make_test_make();
+  make_test_make();
   RGB();
 
   extern int mainX( int argc, char const *argv[] );
