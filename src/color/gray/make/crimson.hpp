@@ -1,23 +1,23 @@
-#ifndef color_gray_make_white
-#define color_gray_make_white
+#ifndef color_gray_make_crimson
+#define color_gray_make_crimson
 
-// ::color::make::white( c )
+// ::color::make::crimson( c )
 
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 1, 1, 1 } ) - rgb(255,255,255) - #FFFFFF
+    { //RGB equivalents: std::array<double,3>( { 0.862745, 0.0784314, 0.235294 } ) - rgb(220,20,60) - #DC143C
 
      template< typename tag_name >
       inline
-      void white( ::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter )
+      void crimson( ::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter )
        {
         typedef ::color::category::gray< tag_name >         category_left_type;
         typedef ::color::_internal::model< category_left_type  > left_type;
 
         typedef ::color::gray< double >      right_type;
 
-        static left_type local( right_type( { 1.0000001 } ) );
+        static left_type local( right_type( { 0.256555224 } ) );
 
         color_parameter = local;
        }

@@ -99,10 +99,10 @@ void print_header2( std::string const& model, std::string const& name, color::rg
   ss << "" << std::endl;
   ss << "        static left_type local( right_type( {";
 
-  ss << " " << std::setprecision(9) << c[0]<< ",";
-  ss << " " << std::setprecision(9) << c[1]<< ",";
-  ss << " " << std::setprecision(9) << c[2] ;
-  if( 4 == c.size() ){ ss << ", " << std::setprecision(9) <<  c[3];  }
+  ss << " " << std::setprecision(9) << c[0] ;
+  if( 1 < c.size() ){ ss << ", " << std::setprecision(9) << c[1];  }
+  if( 2 < c.size() ){ ss << ", " << std::setprecision(9) << c[2];  }
+  if( 3 < c.size() ){ ss << ", " << std::setprecision(9) << c[3];  }
 
   ss << " } ) );";
   ss << "" << std::endl;
@@ -334,13 +334,14 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
 #define PRINT_COLORS(dp_name)                                                                                                                                \
     ss << "<tr>" << std::endl;                                                                                                                               \
      ss << "<td  style=\"background-color:" #dp_name << "\"> W3  -" #dp_name << "</td>";   \
+     ss << "<td>" << print_color( "rgb -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::rgb_double >()  ) ) << "</td>";   \
      ss << "<td>" << print_color( "cmy -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::cmy_double >()  ) ) << "</td>";   \
      ss << "<td>" << print_color( "cmyk-" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::cmyk_double >() ) ) << "</td>";   \
      ss << "<td>" << print_color( "hsl -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::hsl_double >()  ) ) << "</td>";   \
      ss << "<td>" << print_color( "hsv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::hsv_double >()  ) ) << "</td>";   \
-     ss << "<td>" << print_color( "rgb -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::rgb_double >()  ) ) << "</td>";   \
      ss << "<td>" << print_color( "yiq -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::yiq_double >()  ) ) << "</td>";   \
      ss << "<td>" << print_color( "yuv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::yuv_double >()  ) ) << "</td>";   \
+     ss << "<td>" << print_color( "gray-" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::gray_double>()  ) ) << "</td>";   \
     ss << "</tr>" << std::endl
 
 void make_test_make()

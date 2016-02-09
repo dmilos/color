@@ -1,23 +1,23 @@
-#ifndef color_gray_make_white
-#define color_gray_make_white
+#ifndef color_gray_make_turquoise
+#define color_gray_make_turquoise
 
-// ::color::make::white( c )
+// ::color::make::turquoise( c )
 
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 1, 1, 1 } ) - rgb(255,255,255) - #FFFFFF
+    { //RGB equivalents: std::array<double,3>( { 0.25, 0.875, 0.8125 } ) - rgb(63,223,207) - #3FDFCF
 
      template< typename tag_name >
       inline
-      void white( ::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter )
+      void turquoise( ::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter )
        {
         typedef ::color::category::gray< tag_name >         category_left_type;
         typedef ::color::_internal::model< category_left_type  > left_type;
 
         typedef ::color::gray< double >      right_type;
 
-        static left_type local( right_type( { 1.0000001 } ) );
+        static left_type local( right_type( { 0.737568587 } ) );
 
         color_parameter = local;
        }

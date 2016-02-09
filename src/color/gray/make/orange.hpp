@@ -1,23 +1,23 @@
-#ifndef color_gray_make_white
-#define color_gray_make_white
+#ifndef color_gray_make_orange
+#define color_gray_make_orange
 
-// ::color::make::white( c )
+// ::color::make::orange( c )
 
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 1, 1, 1 } ) - rgb(255,255,255) - #FFFFFF
+    { //RGB equivalents: std::array<double,3>( { 1, 0.65, 0 } ) - rgb(255,165,0) - #FFA500
 
      template< typename tag_name >
       inline
-      void white( ::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter )
+      void orange( ::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter )
        {
         typedef ::color::category::gray< tag_name >         category_left_type;
         typedef ::color::_internal::model< category_left_type  > left_type;
 
         typedef ::color::gray< double >      right_type;
 
-        static left_type local( right_type( { 1.0000001 } ) );
+        static left_type local( right_type( { 0.67752183 } ) );
 
         color_parameter = local;
        }

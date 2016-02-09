@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 1, 0, 0 } ) - rgb(255,0,0) - #ff0000
+    { //RGB equivalents: std::array<double,3>( { 1, 0, 0 } ) - rgb(255,0,0) - #FF0000
 
+     template< typename tag_name >
       inline
-      void red( ::color::_internal::model< color::category::gray_uint8 > & color_parameter )
+      void red( ::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter )
        {
-        color_parameter.container() = 0x36;
-       }
+        typedef ::color::category::gray< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void red( ::color::_internal::model< color::category::gray_uint16 > & color_parameter )
-       {
-        color_parameter.container() = 0x3671;
-       }
+        typedef ::color::gray< double >      right_type;
 
-      inline
-      void red( ::color::_internal::model< color::category::gray_uint32 > & color_parameter )
-       {
-        color_parameter.container() = 0x3671bb2eu;
-       }
+        static left_type local( right_type( { 0.2126729 } ) );
 
-      inline
-      void red( ::color::_internal::model< color::category::gray_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::uint64_t( 0x3671bb2e3ed7ac00ul );
-       }
-
-      inline
-      void red( ::color::_internal::model< color::category::gray_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,1>( { 0.2126729f } );
-       }
-
-      inline
-      void red( ::color::_internal::model< color::category::gray_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,1>( { 0.2126729 } );
-       }
-
-      inline
-      void red( ::color::_internal::model< color::category::gray_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,1>( { 0.2126729 } );
+        color_parameter = local;
        }
 
     }

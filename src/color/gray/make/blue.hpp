@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0, 0, 1 } ) - rgb(0,0,255) - #0000ff
+    { //RGB equivalents: std::array<double,3>( { 0, 0, 1 } ) - rgb(0,0,255) - #0000FF
 
+     template< typename tag_name >
       inline
-      void blue( ::color::_internal::model< color::category::gray_uint8 > & color_parameter )
+      void blue( ::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter )
        {
-        color_parameter.container() = 0x12;
-       }
+        typedef ::color::category::gray< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void blue( ::color::_internal::model< color::category::gray_uint16 > & color_parameter )
-       {
-        color_parameter.container() = 0x1279;
-       }
+        typedef ::color::gray< double >      right_type;
 
-      inline
-      void blue( ::color::_internal::model< color::category::gray_uint32 > & color_parameter )
-       {
-        color_parameter.container() = 0x127a0f90u;
-       }
+        static left_type local( right_type( { 0.072175 } ) );
 
-      inline
-      void blue( ::color::_internal::model< color::category::gray_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::uint64_t( 0x127a0f9096bb9900ul );
-       }
-
-      inline
-      void blue( ::color::_internal::model< color::category::gray_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,1>( { 0.0721750f } );
-       }
-
-      inline
-      void blue( ::color::_internal::model< color::category::gray_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,1>( { 0.0721750 } );
-       }
-
-      inline
-      void blue( ::color::_internal::model< color::category::gray_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,1>( { 0.0721750 } );
+        color_parameter = local;
        }
 
     }
