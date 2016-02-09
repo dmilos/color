@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0.196078, 0.478431, 0.752941 } ) - rgb(205,133,63) - #cd853f
+    { //RGB equivalents: std::array<double,3>( { 1, 0.752941, 0.796078 } ) - rgb(255,192,203) - #FFC0CB
 
+     template< typename tag_name >
       inline
-      void pink( ::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter )
+      void pink( ::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x31, 0x79, 0xbf } );
-       }
+        typedef ::color::category::cmy< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void pink( ::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x3231, 0x7a79, 0xc0bf } );
-       }
+        typedef ::color::cmy< double >      right_type;
 
-      inline
-      void pink( ::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x32322af5, 0x7a7a7439, 0xc0c0bdca } );
-       }
+        static left_type local( right_type( { 0, 0.247058824, 0.203921569 } ) );
 
-      inline
-      void pink( ::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x32322af577100000ull, 0x7a7a743a647fe000ull, 0xc0c0bdcad14a0800ull } );
-       }
-
-      inline
-      void pink( ::color::_internal::model< ::color::category::cmy_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0.196078, 0.478431, 0.752941 } );
-       }
-
-      inline
-      void pink( ::color::_internal::model< ::color::category::cmy_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0.196078, 0.478431, 0.752941 } );
-       }
-
-      inline
-      void pink( ::color::_internal::model< ::color::category::cmy_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0.196078, 0.478431, 0.752941 } );
+        color_parameter = local;
        }
 
     }

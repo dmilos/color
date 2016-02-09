@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0.196078, 0.478431, 0.752941 } ) - rgb(205,133,63) - #cd853f
+    { //RGB equivalents: std::array<double,3>( { 0.8, 0.52, 0.25 } ) - rgb(204,132,63) - #CC843F
 
+     template< typename tag_name >
       inline
-      void peru( ::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter )
+      void peru( ::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x31, 0x79, 0xc0 } );
-       }
+        typedef ::color::category::cmy< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void peru( ::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x3231, 0x7a79, 0xc0c0 } );
-       }
+        typedef ::color::cmy< double >      right_type;
 
-      inline
-      void peru( ::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x32323231, 0x7a7a7a79, 0xc0c0c0c0 } );
-       }
+        static left_type local( right_type( { 0.2, 0.48, 0.75 } ) );
 
-      inline
-      void peru( ::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x3232323232323000ull, 0x7a7a7a7a7a7a7800ull, 0xc0c0c0c0c0c0c000ull } );
-       }
-
-      inline
-      void peru( ::color::_internal::model< ::color::category::cmy_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0.196078, 0.478431, 0.752941 } );
-       }
-
-      inline
-      void peru( ::color::_internal::model< ::color::category::cmy_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0.196078, 0.478431, 0.752941 } );
-       }
-
-      inline
-      void peru( ::color::_internal::model< ::color::category::cmy_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0.196078, 0.478431, 0.752941 } );
+        color_parameter = local;
        }
 
     }

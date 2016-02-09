@@ -1,17 +1,14 @@
 #ifndef color_yiq_yiq_
 #define color_yiq_yiq_
 
-#include "../_internal/model.hpp"
+#include "../generic/type/type.hpp"
 
 #include "./category.hpp"
-#include "./place/place.hpp"
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
-#include "./get/get.hpp"
-#include "./set/set.hpp"
-#include "./make/make.hpp"
-#include "./convert/convert.hpp"
+#include "../_internal/model.hpp"
+
 
 
 namespace color
@@ -39,5 +36,18 @@ namespace color
    using yiq = ::color::_internal::model< typename ::color::_internal::pick_yiq< type_name >::category_type >;
 
  }
+
+
+
+
+
+#include "./place/place.hpp"
+
+#include "./get/get.hpp"
+#include "./set/set.hpp"
+
+#include "./convert/convert.hpp"
+#include "./make/make.hpp"
+
 
 #endif

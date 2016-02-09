@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0.910902, 0.0341961, -0.00784426 } ) - rgb(230,230,250) - #e6e6fa
+    { //RGB equivalents: std::array<double,3>( { 0.901961, 0.901961, 0.980392 } ) - rgb(230,230,250) - #E6E6FA
 
+     template< typename tag_name >
       inline
-      void lavender( ::color::_internal::model< ::color::category::yuv_uint8 > & color_parameter )
+      void lavender( ::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0xe8, 0x89, 0x7d } );
-       }
+        typedef ::color::category::yuv< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void lavender( ::color::_internal::model< ::color::category::yuv_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0xe92f, 0x8a09, 0x7e5d } );
-       }
+        typedef ::color::yuv< double >      right_type;
 
-      inline
-      void lavender( ::color::_internal::model< ::color::category::yuv_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0xe930def2, 0x8a0a0a09, 0x7e5e0c3e } );
-       }
+        static left_type local( right_type( { 0.910901961, 0.0341960784, -0.0078442561 } ) );
 
-      inline
-      void lavender( ::color::_internal::model< ::color::category::yuv_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0xe930def36e4fa000ull, 0x8a0a0a0a0a0a0000ull, 0x7e5e0c3ea42a2c00ull } );
-       }
-
-      inline
-      void lavender( ::color::_internal::model< ::color::category::yuv_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0.910902, 0.0341961, -0.00784426 } );
-       }
-
-      inline
-      void lavender( ::color::_internal::model< ::color::category::yuv_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0.910902, 0.0341961, -0.00784426 } );
-       }
-
-      inline
-      void lavender( ::color::_internal::model< ::color::category::yuv_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0.910902, 0.0341961, -0.00784426 } );
+        color_parameter = local;
        }
 
     }

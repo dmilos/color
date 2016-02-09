@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0, 0.5, 0.69 } ) - rgb(255,127,79) - #ff7f4f
+    { //RGB equivalents: std::array<double,3>( { 1, 0.5, 0.31 } ) - rgb(255,127,79) - #FF7F4F
 
+     template< typename tag_name >
       inline
-      void coral( ::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter )
+      void coral( ::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x00, 0x7f, 0xaf } );
-       }
+        typedef ::color::category::cmy< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void coral( ::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x0000, 0x7fff, 0xb0a3 } );
-       }
+        typedef ::color::cmy< double >      right_type;
 
-      inline
-      void coral( ::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x00000000, 0x7fffffff, 0xb0a3d709 } );
-       }
+        static left_type local( right_type( { 0, 0.5, 0.69 } ) );
 
-      inline
-      void coral( ::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x0000000000000000ull, 0x8000000000000000ull, 0xb0a3d70a3d70a000ull } );
-       }
-
-      inline
-      void coral( ::color::_internal::model< ::color::category::cmy_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0, 0.5, 0.69 } );
-       }
-
-      inline
-      void coral( ::color::_internal::model< ::color::category::cmy_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0, 0.5, 0.69 } );
-       }
-
-      inline
-      void coral( ::color::_internal::model< ::color::category::cmy_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0, 0.5, 0.69 } );
+        color_parameter = local;
        }
 
     }

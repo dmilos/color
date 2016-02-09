@@ -50,7 +50,7 @@
 #include "./peru.hpp"
 #include "./pink.hpp"
 #include "./plum.hpp"
-//#include "./salmon.hpp"
+#include "./salmon.hpp"
 #include "./sienna.hpp"
 #include "./snow.hpp"
 #include "./tan.hpp"

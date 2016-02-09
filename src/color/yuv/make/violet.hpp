@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0.684722, 0.122342, 0.218112 } ) - rgb(238,130,238) - #ee82ee
+    { //RGB equivalents: std::array<double,3>( { 0.933333, 0.509804, 0.933333 } ) - rgb(238,130,238) - #EE82EE
 
+     template< typename tag_name >
       inline
-      void violet( ::color::_internal::model< ::color::category::yuv_uint8 > & color_parameter )
+      void violet( ::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0xae, 0xa3, 0xac } );
-       }
+        typedef ::color::category::yuv< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void violet( ::color::_internal::model< ::color::category::yuv_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0xaf49, 0xa3ea, 0xad64 } );
-       }
+        typedef ::color::yuv< double >      right_type;
 
-      inline
-      void violet( ::color::_internal::model< ::color::category::yuv_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0xaf49e9a7, 0xa3eab4f6, 0xad654521 } );
-       }
+        static left_type local( right_type( { 0.684721569, 0.122341681, 0.218111605 } ) );
 
-      inline
-      void violet( ::color::_internal::model< ::color::category::yuv_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0xaf49e9a81ee7a000ull, 0xa3eab4f6d7a30800ull, 0xad654522131a0800ull } );
-       }
-
-      inline
-      void violet( ::color::_internal::model< ::color::category::yuv_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0.684722, 0.122342, 0.218112 } );
-       }
-
-      inline
-      void violet( ::color::_internal::model< ::color::category::yuv_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0.684722, 0.122342, 0.218112 } );
-       }
-
-      inline
-      void violet( ::color::_internal::model< ::color::category::yuv_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0.684722, 0.122342, 0.218112 } );
+        color_parameter = local;
        }
 
     }

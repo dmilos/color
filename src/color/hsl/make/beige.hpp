@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 60, 55.5556, 91.1765 } ) - rgb(245,245,220) - #f5f5dc
+    { //RGB equivalents: std::array<double,3>( { 0.960784, 0.960784, 0.862745 } ) - rgb(245,245,220) - #F5F5DC
 
+     template< typename tag_name >
       inline
-      void beige( ::color::_internal::model< ::color::category::hsl_uint8 > & color_parameter )
+      void beige( ::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x2a, 0x8d, 0xe8 } );
-       }
+        typedef ::color::category::hsl< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void beige( ::color::_internal::model< ::color::category::hsl_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x2aaa, 0x8e38, 0xe968 } );
-       }
+        typedef ::color::hsl< double >      right_type;
 
-      inline
-      void beige( ::color::_internal::model< ::color::category::hsl_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x2aaaaaaa, 0x8e38e38d, 0xe9696968 } );
-       }
+        static left_type local( right_type( { 60, 55.5555556, 91.1764706 } ) );
 
-      inline
-      void beige( ::color::_internal::model< ::color::category::hsl_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x2aaaaaaaaaaaaa00ull, 0x8e38e38e38e3b000ull, 0xe969696969697000ull } );
-       }
-
-      inline
-      void beige( ::color::_internal::model< ::color::category::hsl_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 60, 55.5556, 91.1765 } );
-       }
-
-      inline
-      void beige( ::color::_internal::model< ::color::category::hsl_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 60, 55.5556, 91.1765 } );
-       }
-
-      inline
-      void beige( ::color::_internal::model< ::color::category::hsl_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 60, 55.5556, 91.1765 } );
+        color_parameter = local;
        }
 
     }

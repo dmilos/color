@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 39.0909, 76.7442, 83.1373 } ) - rgb(245,222,179) - #f5deb3
+    { //RGB equivalents: std::array<double,3>( { 0.960784, 0.870588, 0.701961 } ) - rgb(245,222,179) - #F5DEB3
 
+     template< typename tag_name >
       inline
-      void wheat( ::color::_internal::model< ::color::category::hsl_uint8 > & color_parameter )
+      void wheat( ::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x1b, 0xc3, 0xd3 } );
-       }
+        typedef ::color::category::hsl< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void wheat( ::color::_internal::model< ::color::category::hsl_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x1bcc, 0xc476, 0xd4d3 } );
-       }
+        typedef ::color::hsl< double >      right_type;
 
-      inline
-      void wheat( ::color::_internal::model< ::color::category::hsl_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x1bcc4867, 0xc47711db, 0xd4d4d4d3 } );
-       }
+        static left_type local( right_type( { 39.0909091, 76.744186, 83.1372549 } ) );
 
-      inline
-      void wheat( ::color::_internal::model< ::color::category::hsl_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x1bcc48676f312200ull, 0xc47711dc47711800ull, 0xd4d4d4d4d4d4d000ull } );
-       }
-
-      inline
-      void wheat( ::color::_internal::model< ::color::category::hsl_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 39.0909, 76.7442, 83.1373 } );
-       }
-
-      inline
-      void wheat( ::color::_internal::model< ::color::category::hsl_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 39.0909, 76.7442, 83.1373 } );
-       }
-
-      inline
-      void wheat( ::color::_internal::model< ::color::category::hsl_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 39.0909, 76.7442, 83.1373 } );
+        color_parameter = local;
        }
 
     }

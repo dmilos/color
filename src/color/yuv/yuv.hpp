@@ -1,17 +1,15 @@
 #ifndef color_yuv_yuv_
 #define color_yuv_yuv_
 
-#include "../_internal/model.hpp"
 
 #include "./category.hpp"
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
-#include "./get/get.hpp"
-//#include "./set/set.hpp"
-#include "./make/make.hpp"
-#include "./convert/convert.hpp"
+#include "../_internal/model.hpp"
 #include "./constant.hpp"
+
+
 
 namespace color
  {
@@ -38,5 +36,13 @@ namespace color
    using yuv = ::color::_internal::model< typename ::color::_internal::pick_yuv< type_name >::category_type >;
 
  }
+#include "./place/place.hpp"
+
+#include "./get/get.hpp"
+//#include "./set/set.hpp"
+
+#include "./convert/convert.hpp"
+#include "./make/make.hpp"
+
 
 #endif

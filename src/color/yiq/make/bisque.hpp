@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0.911471, 0.103391, -0.0166548 } ) - rgb(255,228,196) - #ffe4c4
+    { //RGB equivalents: std::array<double,3>( { 1, 0.875, 0.75 } ) - rgb(255,223,191) - #FFDFBF
 
+     template< typename tag_name >
       inline
-      void bisque( ::color::_internal::model< ::color::category::yiq_uint8 > & color_parameter )
+      void bisque( ::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0xe8, 0x95, 0x7b } );
-       }
+        typedef ::color::category::yiq< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void bisque( ::color::_internal::model< ::color::category::yiq_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0xe955, 0x9636, 0x7beb } );
-       }
+        typedef ::color::yiq< double >      right_type;
 
-      inline
-      void bisque( ::color::_internal::model< ::color::category::yiq_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0xe95622ee, 0x963724e3, 0x7bebb128 } );
-       }
+        static left_type local( right_type( { 0.898125, 0.114622429, -0.0124597801 } ) );
 
-      inline
-      void bisque( ::color::_internal::model< ::color::category::yiq_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0xe95622efbc895800ull, 0x963724e3e1c89800ull, 0x7bebb128f5fc1c00ull } );
-       }
-
-      inline
-      void bisque( ::color::_internal::model< ::color::category::yiq_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0.911471, 0.103391, -0.0166548 } );
-       }
-
-      inline
-      void bisque( ::color::_internal::model< ::color::category::yiq_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0.911471, 0.103391, -0.0166548 } );
-       }
-
-      inline
-      void bisque( ::color::_internal::model< ::color::category::yiq_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0.911471, 0.103391, -0.0166548 } );
+        color_parameter = local;
        }
 
     }

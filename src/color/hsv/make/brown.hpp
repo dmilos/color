@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0, 74.5455, 64.7059 } ) - rgb(165,42,42) - #a52a2a
+    { //RGB equivalents: std::array<double,3>( { 0.647059, 0.164706, 0.164706 } ) - rgb(165,42,42) - #A52A2A
 
+     template< typename tag_name >
       inline
-      void brown( ::color::_internal::model< ::color::category::hsv_uint8 > & color_parameter )
+      void brown( ::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x00, 0xbe, 0xa5 } );
-       }
+        typedef ::color::category::hsv< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void brown( ::color::_internal::model< ::color::category::hsv_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x0000, 0xbed5, 0xa5a5 } );
-       }
+        typedef ::color::hsv< double >      right_type;
 
-      inline
-      void brown( ::color::_internal::model< ::color::category::hsv_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x00000000, 0xbed61bec, 0xa5a5a5a5 } );
-       }
+        static left_type local( right_type( { 0, 74.5454545, 64.7058824 } ) );
 
-      inline
-      void brown( ::color::_internal::model< ::color::category::hsv_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x0000000000000000ull, 0xbed61bed61bed800ull, 0xa5a5a5a5a5a5a800ull } );
-       }
-
-      inline
-      void brown( ::color::_internal::model< ::color::category::hsv_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0, 74.5455, 64.7059 } );
-       }
-
-      inline
-      void brown( ::color::_internal::model< ::color::category::hsv_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0, 74.5455, 64.7059 } );
-       }
-
-      inline
-      void brown( ::color::_internal::model< ::color::category::hsv_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0, 74.5455, 64.7059 } );
+        color_parameter = local;
        }
 
     }

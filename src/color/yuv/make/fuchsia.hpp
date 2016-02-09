@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0.413, 0.288862, 0.514986 } ) - rgb(255,0,255) - #ff00ff
+    { //RGB equivalents: std::array<double,3>( { 1, 0, 1 } ) - rgb(255,0,255) - #FF00FF
 
+     template< typename tag_name >
       inline
-      void fuchsia( ::color::_internal::model< ::color::category::yuv_uint8 > & color_parameter )
+      void fuchsia( ::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x69, 0xd3, 0xea } );
-       }
+        typedef ::color::category::yuv< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void fuchsia( ::color::_internal::model< ::color::category::yuv_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x69b9, 0xd4cc, 0xeb2e } );
-       }
+        typedef ::color::yuv< double >      right_type;
 
-      inline
-      void fuchsia( ::color::_internal::model< ::color::category::yuv_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x69ba5e34, 0xd4cdb97e, 0xeb2f1c1d } );
-       }
+        static left_type local( right_type( { 0.413, 0.288862302, 0.514985735 } ) );
 
-      inline
-      void fuchsia( ::color::_internal::model< ::color::category::yuv_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x69ba5e353f7cec00ull, 0xd4cdb97fb6081800ull, 0xeb2f1c1ead19f000ull } );
-       }
-
-      inline
-      void fuchsia( ::color::_internal::model< ::color::category::yuv_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0.413, 0.288862, 0.514986 } );
-       }
-
-      inline
-      void fuchsia( ::color::_internal::model< ::color::category::yuv_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0.413, 0.288862, 0.514986 } );
-       }
-
-      inline
-      void fuchsia( ::color::_internal::model< ::color::category::yuv_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0.413, 0.288862, 0.514986 } );
+        color_parameter = local;
        }
 
     }

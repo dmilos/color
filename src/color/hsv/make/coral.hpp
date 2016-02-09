@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 16.5217, 69, 100 } ) - rgb(255,127,79) - #ff7f4f
+    { //RGB equivalents: std::array<double,3>( { 1, 0.5, 0.31 } ) - rgb(255,127,79) - #FF7F4F
 
+     template< typename tag_name >
       inline
-      void coral( ::color::_internal::model< ::color::category::hsv_uint8 > & color_parameter )
+      void coral( ::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x0b, 0xaf, 0xff } );
-       }
+        typedef ::color::category::hsv< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void coral( ::color::_internal::model< ::color::category::hsv_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x0bbf, 0xb0a3, 0xffff } );
-       }
+        typedef ::color::hsv< double >      right_type;
 
-      inline
-      void coral( ::color::_internal::model< ::color::category::hsv_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x0bbfb0d9, 0xb0a3d709, 0xffffffff } );
-       }
+        static left_type local( right_type( { 16.5217391, 69, 100 } ) );
 
-      inline
-      void coral( ::color::_internal::model< ::color::category::hsv_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x0bbfb0d9a96e1180ull, 0xb0a3d70a3d70a000ull, 0x0000000000000000ull } );
-       }
-
-      inline
-      void coral( ::color::_internal::model< ::color::category::hsv_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 16.5217, 69, 100 } );
-       }
-
-      inline
-      void coral( ::color::_internal::model< ::color::category::hsv_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 16.5217, 69, 100 } );
-       }
-
-      inline
-      void coral( ::color::_internal::model< ::color::category::hsv_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 16.5217, 69, 100 } );
+        color_parameter = local;
        }
 
     }

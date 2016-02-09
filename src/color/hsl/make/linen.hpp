@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 30, 66.6667, 94.1176 } ) - rgb(250,240,230) - #faf0e6
+    { //RGB equivalents: std::array<double,3>( { 0.980392, 0.9375, 0.9 } ) - rgb(250,239,229) - #FAEFE5
 
+     template< typename tag_name >
       inline
-      void linen( ::color::_internal::model< ::color::category::hsl_uint8 > & color_parameter )
+      void linen( ::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x15, 0xa9, 0xf0 } );
-       }
+        typedef ::color::category::hsl< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void linen( ::color::_internal::model< ::color::category::hsl_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x1555, 0xaaa9, 0xf0f0 } );
-       }
+        typedef ::color::hsl< double >      right_type;
 
-      inline
-      void linen( ::color::_internal::model< ::color::category::hsl_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x15555555, 0xaaaaaaa9, 0xf0f0f0f0 } );
-       }
+        static left_type local( right_type( { 27.9878049, 67.2131148, 94.0196078 } ) );
 
-      inline
-      void linen( ::color::_internal::model< ::color::category::hsl_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x1555555555555500ull, 0xaaaaaaaaaaaa8000ull, 0xf0f0f0f0f0f0f000ull } );
-       }
-
-      inline
-      void linen( ::color::_internal::model< ::color::category::hsl_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 30, 66.6667, 94.1176 } );
-       }
-
-      inline
-      void linen( ::color::_internal::model< ::color::category::hsl_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 30, 66.6667, 94.1176 } );
-       }
-
-      inline
-      void linen( ::color::_internal::model< ::color::category::hsl_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 30, 66.6667, 94.1176 } );
+        color_parameter = local;
        }
 
     }

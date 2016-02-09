@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 29.5775, 58.6777, 52.549 } ) - rgb(205,133,63) - #cd853f
+    { //RGB equivalents: std::array<double,3>( { 0.8, 0.52, 0.25 } ) - rgb(204,132,63) - #CC843F
 
+     template< typename tag_name >
       inline
-      void peru( ::color::_internal::model< ::color::category::hsl_uint8 > & color_parameter )
+      void peru( ::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x14, 0x95, 0x86 } );
-       }
+        typedef ::color::category::hsl< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void peru( ::color::_internal::model< ::color::category::hsl_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x1508, 0x9636, 0x8686 } );
-       }
+        typedef ::color::hsl< double >      right_type;
 
-      inline
-      void peru( ::color::_internal::model< ::color::category::hsl_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x150869c3, 0x9637021d, 0x86868686 } );
-       }
+        static left_type local( right_type( { 29.4545455, 57.8947368, 52.5 } ) );
 
-      inline
-      void peru( ::color::_internal::model< ::color::category::hsl_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x150869c3e7f66300ull, 0x9637021d9ead8000ull, 0x8686868686868800ull } );
-       }
-
-      inline
-      void peru( ::color::_internal::model< ::color::category::hsl_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 29.5775, 58.6777, 52.549 } );
-       }
-
-      inline
-      void peru( ::color::_internal::model< ::color::category::hsl_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 29.5775, 58.6777, 52.549 } );
-       }
-
-      inline
-      void peru( ::color::_internal::model< ::color::category::hsl_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 29.5775, 58.6777, 52.549 } );
+        color_parameter = local;
        }
 
     }

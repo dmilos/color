@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0.352941, 0.835294, 0.835294 } ) - rgb(165,42,42) - #a52a2a
+    { //RGB equivalents: std::array<double,3>( { 0.647059, 0.164706, 0.164706 } ) - rgb(165,42,42) - #A52A2A
 
+     template< typename tag_name >
       inline
-      void brown( ::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter )
+      void brown( ::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x59, 0xd5, 0xd5 } );
-       }
+        typedef ::color::category::cmy< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void brown( ::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x5a59, 0xd5d5, 0xd5d5 } );
-       }
+        typedef ::color::cmy< double >      right_type;
 
-      inline
-      void brown( ::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x5a5a5a59, 0xd5d5d5d5, 0xd5d5d5d5 } );
-       }
+        static left_type local( right_type( { 0.352941176, 0.835294118, 0.835294118 } ) );
 
-      inline
-      void brown( ::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x5a5a5a5a5a5a5800ull, 0xd5d5d5d5d5d5d800ull, 0xd5d5d5d5d5d5d800ull } );
-       }
-
-      inline
-      void brown( ::color::_internal::model< ::color::category::cmy_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0.352941, 0.835294, 0.835294 } );
-       }
-
-      inline
-      void brown( ::color::_internal::model< ::color::category::cmy_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0.352941, 0.835294, 0.835294 } );
-       }
-
-      inline
-      void brown( ::color::_internal::model< ::color::category::cmy_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0.352941, 0.835294, 0.835294 } );
+        color_parameter = local;
        }
 
     }

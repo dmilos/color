@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0.501353, -0.188821, 0.282651 } ) - rgb(210,105,30) - #d2691e
+    { //RGB equivalents: std::array<double,3>( { 0.823529, 0.411765, 0.117647 } ) - rgb(210,105,30) - #D2691E
 
+     template< typename tag_name >
       inline
-      void chocolate( ::color::_internal::model< ::color::category::yuv_uint8 > & color_parameter )
+      void chocolate( ::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x7f, 0x48, 0xba } );
-       }
+        typedef ::color::category::yuv< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void chocolate( ::color::_internal::model< ::color::category::yuv_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x8058, 0x4890, 0xbad3 } );
-       }
+        typedef ::color::yuv< double >      right_type;
 
-      inline
-      void chocolate( ::color::_internal::model< ::color::category::yuv_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x8058aa95, 0x4890f207, 0xbad406c9 } );
-       }
+        static left_type local( right_type( { 0.501352941, -0.188821405, 0.282651255 } ) );
 
-      inline
-      void chocolate( ::color::_internal::model< ::color::category::yuv_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x8058aa961b39f000ull, 0x4890f20769126400ull, 0xbad406c9cd168000ull } );
-       }
-
-      inline
-      void chocolate( ::color::_internal::model< ::color::category::yuv_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0.501353, -0.188821, 0.282651 } );
-       }
-
-      inline
-      void chocolate( ::color::_internal::model< ::color::category::yuv_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0.501353, -0.188821, 0.282651 } );
-       }
-
-      inline
-      void chocolate( ::color::_internal::model< ::color::category::yuv_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0.501353, -0.188821, 0.282651 } );
+        color_parameter = local;
        }
 
     }

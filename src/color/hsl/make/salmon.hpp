@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 300, 47.2869, 74.7059 } ) - rgb(221,160,221) - #dda0dd
+    { //RGB equivalents: std::array<double,3>( { 0.980392, 0.5, 0.447059 } ) - rgb(250,127,114) - #FA7F72
 
+     template< typename tag_name >
       inline
-      void salmon( ::color::_internal::model< ::color::category::hsl_uint8 > & color_parameter )
+      void salmon( ::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0xd4, 0x78, 0xbe } );
-       }
+        typedef ::color::category::hsl< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void salmon( ::color::_internal::model< ::color::category::hsl_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0xd554, 0x790d, 0xbf3e } );
-       }
+        typedef ::color::hsl< double >      right_type;
 
-      inline
-      void salmon( ::color::_internal::model< ::color::category::hsl_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0xd5555554, 0x790df427, 0xbf3f4234 } );
-       }
+        static left_type local( right_type( { 5.95588235, 93.1506849, 71.372549 } ) );
 
-      inline
-      void salmon( ::color::_internal::model< ::color::category::hsl_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0xd555555555555000ull, 0x790df4280f04f000ull, 0xbf3f42352eb5f000ull } );
-       }
-
-      inline
-      void salmon( ::color::_internal::model< ::color::category::hsl_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 300, 47.2869, 74.7059 } );
-       }
-
-      inline
-      void salmon( ::color::_internal::model< ::color::category::hsl_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 300, 47.2869, 74.7059 } );
-       }
-
-      inline
-      void salmon( ::color::_internal::model< ::color::category::hsl_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 300, 47.2869, 74.7059 } );
+        color_parameter = local;
        }
 
     }

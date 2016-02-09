@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 174, 71.4286, 87.8431 } ) - rgb(64,224,208) - #40e0d0
+    { //RGB equivalents: std::array<double,3>( { 0.25, 0.875, 0.8125 } ) - rgb(63,223,207) - #3FDFCF
 
+     template< typename tag_name >
       inline
-      void turquoise( ::color::_internal::model< ::color::category::hsv_uint8 > & color_parameter )
+      void turquoise( ::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x7b, 0xb6, 0xe0 } );
-       }
+        typedef ::color::category::hsv< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void turquoise( ::color::_internal::model< ::color::category::hsv_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x7bbb, 0xb6da, 0xe0e0 } );
-       }
+        typedef ::color::hsv< double >      right_type;
 
-      inline
-      void turquoise( ::color::_internal::model< ::color::category::hsv_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x7bbbbbbb, 0xb6db6db6, 0xe0e0e0e0 } );
-       }
+        static left_type local( right_type( { 174, 71.4285714, 87.5 } ) );
 
-      inline
-      void turquoise( ::color::_internal::model< ::color::category::hsv_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x7bbbbbbbbbbbb800ull, 0xb6db6db6db6db800ull, 0xe0e0e0e0e0e0e000ull } );
-       }
-
-      inline
-      void turquoise( ::color::_internal::model< ::color::category::hsv_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 174, 71.4286, 87.8431 } );
-       }
-
-      inline
-      void turquoise( ::color::_internal::model< ::color::category::hsv_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 174, 71.4286, 87.8431 } );
-       }
-
-      inline
-      void turquoise( ::color::_internal::model< ::color::category::hsv_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 174, 71.4286, 87.8431 } );
+        color_parameter = local;
        }
 
     }

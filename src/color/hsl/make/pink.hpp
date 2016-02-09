@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 29.5775, 58.6778, 52.549 } ) - rgb(205,133,63) - #cd853f
+    { //RGB equivalents: std::array<double,3>( { 1, 0.752941, 0.796078 } ) - rgb(255,192,203) - #FFC0CB
 
+     template< typename tag_name >
       inline
-      void pink( ::color::_internal::model< ::color::category::hsl_uint8 > & color_parameter )
+      void pink( ::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x14, 0x95, 0x86 } );
-       }
+        typedef ::color::category::hsl< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void pink( ::color::_internal::model< ::color::category::hsl_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x1508, 0x9636, 0x8686 } );
-       }
+        typedef ::color::hsl< double >      right_type;
 
-      inline
-      void pink( ::color::_internal::model< ::color::category::hsl_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x15086a1e, 0x96370cec, 0x86868b9f } );
-       }
+        static left_type local( right_type( { 349.52381, 100, 87.6470588 } ) );
 
-      inline
-      void pink( ::color::_internal::model< ::color::category::hsl_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x15086a1e6e8ad200ull, 0x96370ced65ed8000ull, 0x86868b9fdbd2f800ull } );
-       }
-
-      inline
-      void pink( ::color::_internal::model< ::color::category::hsl_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 29.5775, 58.6777, 52.549 } );
-       }
-
-      inline
-      void pink( ::color::_internal::model< ::color::category::hsl_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 29.5775, 58.6778, 52.549 } );
-       }
-
-      inline
-      void pink( ::color::_internal::model< ::color::category::hsl_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 29.5775, 58.6778, 52.549 } );
+        color_parameter = local;
        }
 
     }

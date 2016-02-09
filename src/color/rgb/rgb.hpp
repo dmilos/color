@@ -4,11 +4,11 @@
 #include "../generic/type/type.hpp"
 
 #include "./category.hpp"
+
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
 #include "../_internal/model.hpp"
-
 
 
 namespace color

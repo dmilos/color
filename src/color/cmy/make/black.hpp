@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 1, 1, 1 } ) - rgb(0,0,0) - #000000
+    { //RGB equivalents: std::array<double,3>( { 0, 0, 0 } ) - rgb(0,0,0) - #000000
 
+     template< typename tag_name >
       inline
-      void black( ::color::_internal::model< ::color::category::cmy_uint8 > & color_parameter )
+      void black( ::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0xff, 0xff, 0xff } );
-       }
+        typedef ::color::category::cmy< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void black( ::color::_internal::model< ::color::category::cmy_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0xffff, 0xffff, 0xffff } );
-       }
+        typedef ::color::cmy< double >      right_type;
 
-      inline
-      void black( ::color::_internal::model< ::color::category::cmy_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0xffffffff, 0xffffffff, 0xffffffff } );
-       }
+        static left_type local( right_type( { 1, 1, 1 } ) );
 
-      inline
-      void black( ::color::_internal::model< ::color::category::cmy_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x0000000000000000ull, 0x0000000000000000ull, 0x0000000000000000ull } );
-       }
-
-      inline
-      void black( ::color::_internal::model< ::color::category::cmy_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 1, 1, 1 } );
-       }
-
-      inline
-      void black( ::color::_internal::model< ::color::category::cmy_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 1, 1, 1 } );
-       }
-
-      inline
-      void black( ::color::_internal::model< ::color::category::cmy_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 1, 1, 1 } );
+        color_parameter = local;
        }
 
     }

@@ -1,19 +1,14 @@
 #ifndef color_hsl_hsl_
 #define color_hsl_hsl_
 
-#include "../_internal/model.hpp"
-
+#include "../generic/type/type.hpp"
 
 #include "./category.hpp"
-#include "./place/place.hpp"
+
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
-#include "./get/get.hpp"
-#include "./set/set.hpp"
-#include "./make/make.hpp"
-#include "./convert/convert.hpp"
-#include "./check/check.hpp"
+#include "../_internal/model.hpp"
 
 
 namespace color
@@ -42,4 +37,17 @@ namespace color
 
  }
 
-#endif 
+
+#include "./check/check.hpp"
+
+
+#include "./place/place.hpp"
+
+#include "./get/get.hpp"
+#include "./set/set.hpp"
+
+#include "./convert/convert.hpp"
+#include "./make/make.hpp"
+
+
+#endif

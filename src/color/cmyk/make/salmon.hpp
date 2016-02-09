@@ -12,10 +12,12 @@
       inline
       void salmon( ::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter )
        {
-        typedef ::color::category::cmyk< tag_name >         category_type;
-        typedef ::color::_internal::model< category_type > model_type;
+        typedef ::color::category::cmyk< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-        static model_type local( ::color::make::salmon< ::color::category::rgb_double >() );
+        typedef ::color::cmyk< double >      right_type;
+
+        static left_type local( right_type( { 0, 0.49, 0.544, 0.0196078431 } ) );
 
         color_parameter = local;
        }

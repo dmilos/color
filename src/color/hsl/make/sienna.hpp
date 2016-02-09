@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 19.3043, 56.0976, 40.1961 } ) - rgb(160,82,45) - #a0522d
+    { //RGB equivalents: std::array<double,3>( { 0.627451, 0.321569, 0.176471 } ) - rgb(160,82,45) - #A0522D
 
+     template< typename tag_name >
       inline
-      void sienna( ::color::_internal::model< ::color::category::hsl_uint8 > & color_parameter )
+      void sienna( ::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x0d, 0x8f, 0x66 } );
-       }
+        typedef ::color::category::hsl< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void sienna( ::color::_internal::model< ::color::category::hsl_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x0dba, 0x8f9b, 0x66e6 } );
-       }
+        typedef ::color::hsl< double >      right_type;
 
-      inline
-      void sienna( ::color::_internal::model< ::color::category::hsl_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x0dba3fd0, 0x8f9c18f9, 0x66e6e6e6 } );
-       }
+        static left_type local( right_type( { 19.3043478, 56.097561, 40.1960784 } ) );
 
-      inline
-      void sienna( ::color::_internal::model< ::color::category::hsl_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x0dba3fd08298dc00ull, 0x8f9c18f9c18f9800ull, 0x66e6e6e6e6e6e800ull } );
-       }
-
-      inline
-      void sienna( ::color::_internal::model< ::color::category::hsl_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 19.3043, 56.0976, 40.1961 } );
-       }
-
-      inline
-      void sienna( ::color::_internal::model< ::color::category::hsl_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 19.3043, 56.0976, 40.1961 } );
-       }
-
-      inline
-      void sienna( ::color::_internal::model< ::color::category::hsl_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 19.3043, 56.0976, 40.1961 } );
+        color_parameter = local;
        }
 
     }

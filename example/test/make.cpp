@@ -67,6 +67,7 @@ void print_header2( std::string const& model, std::string const& name, color::rg
   color::rgb<uint8_t> r32( value );
 
   color::rgb<double>    d( value );
+  color_name<double>    c( value );
 
   ss << "#ifndef color_" << model << "_make_" << name << ""                                                          << std::endl;
   ss << "#define color_" << model << "_make_" << name << ""                                                          << std::endl;
@@ -91,10 +92,19 @@ void print_header2( std::string const& model, std::string const& name, color::rg
   ss << "      inline"                                                                                               << std::endl;
   ss << "      void " << name << "( ::color::_internal::model< ::color::category::"<<model<<"< tag_name > > & color_parameter )" << std::endl;
   ss << "       {"                                                                                                   << std::endl;
-  ss << "        typedef ::color::category::" << model << "< tag_name >         category_type;"                      << std::endl;
-  ss << "        typedef ::color::_internal::model< category_type > model_type;"                                     << std::endl;
+  ss << "        typedef ::color::category::" << model << "< tag_name >         category_left_type;"                 << std::endl;
+  ss << "        typedef ::color::_internal::model< category_left_type  > left_type;"                               << std::endl;
   ss << "" << std::endl;
-  ss << "        static model_type local( ::color::make::" << name << "< ::color::category::rgb_double >() );";
+  ss << "        typedef ::color::" << model << "< double >      right_type;"                                        << std::endl;
+  ss << "" << std::endl;
+  ss << "        static left_type local( right_type( {";
+
+  ss << " " << std::setprecision(9) << c[0]<< ",";
+  ss << " " << std::setprecision(9) << c[1]<< ",";
+  ss << " " << std::setprecision(9) << c[2] ;
+  if( 4 == c.size() ){ ss << ", " << std::setprecision(9) <<  c[3];  }
+
+  ss << " } ) );";
   ss << "" << std::endl;
   ss << ""                                                                                                           << std::endl;
   ss << "        color_parameter = local;"                                                                           << std::endl;

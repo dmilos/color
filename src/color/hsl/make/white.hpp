@@ -6,48 +6,20 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0, 0, 100 } ) - rgb(255,255,255) - #ffffff
+    { //RGB equivalents: std::array<double,3>( { 1, 1, 1 } ) - rgb(255,255,255) - #FFFFFF
 
+     template< typename tag_name >
       inline
-      void white( ::color::_internal::model< ::color::category::hsl_uint8 > & color_parameter )
+      void white( ::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter )
        {
-        color_parameter.container() = std::array< std::uint8_t, 3 >( { 0x00, 0x00, 0xff } );
-       }
+        typedef ::color::category::hsl< tag_name >         category_left_type;
+        typedef ::color::_internal::model< category_left_type  > left_type;
 
-      inline
-      void white( ::color::_internal::model< ::color::category::hsl_uint16 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint16_t, 3 >( { 0x0000, 0x0000, 0xffff } );
-       }
+        typedef ::color::hsl< double >      right_type;
 
-      inline
-      void white( ::color::_internal::model< ::color::category::hsl_uint32 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint32_t, 3 >( { 0x00000000, 0x00000000, 0xffffffff } );
-       }
+        static left_type local( right_type( { 0, 0, 100 } ) );
 
-      inline
-      void white( ::color::_internal::model< ::color::category::hsl_uint64 > & color_parameter )
-       {
-        color_parameter.container() = std::array< std::uint64_t, 3 >( { 0x0000000000000000ull, 0x0000000000000000ull, 0x0000000000000000ull } );
-       }
-
-      inline
-      void white( ::color::_internal::model< ::color::category::hsl_float > & color_parameter )
-       {
-        color_parameter.container() = std::array<float,3>( { 0, 0, 100 } );
-       }
-
-      inline
-      void white( ::color::_internal::model< ::color::category::hsl_double> & color_parameter )
-       {
-        color_parameter.container() = std::array<double,3>( { 0, 0, 100 } );
-       }
-
-      inline
-      void white( ::color::_internal::model< ::color::category::hsl_ldouble> & color_parameter )
-       {
-        color_parameter.container() = std::array<long double,3>( { 0, 0, 100 } );
+        color_parameter = local;
        }
 
     }
