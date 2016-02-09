@@ -35,7 +35,7 @@
       inline
       void gray50( ::color::_internal::model< color::category::xyz_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 15.9651, 15.9651, 15.9651 } );
+        color_parameter.container() = std::array<float,3>( { 15.9651f, 15.9651f, 15.9651f } );
        }
 
       inline

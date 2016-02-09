@@ -35,39 +35,39 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   maximum( )
                {
-                static instance_type max_list[] = { 1, 0.436, 0.615 };
+                static instance_type max_list[] = { 1, scalar_type( 0.436 ), scalar_type( 0.615 ) };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_image_type   maximum( index_input_const_type  index )
               {
-                static instance_type max_list[] = { 1, 0.436, 0.615 };
+                static instance_type max_list[] = { 1, scalar_type( 0.436 ), scalar_type( 0.615 ) };
                 return max_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   minimum( )
                {
-                static instance_type min_list[] = { 0, -0.436, -0.615 };
+                static instance_type min_list[] = { 0, scalar_type( -0.436 ), scalar_type( -0.615 ) };
                 return min_list[index];
                }
 
              static /*constexpr*/ return_image_type   minimum( index_input_const_type  index )
               {
-                static instance_type min_list[] = { 0, -0.436, -0.615 };
+                static instance_type min_list[] = { 0, scalar_type( -0.436 ), scalar_type( -0.615 ) };
                 return min_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   range()
                {
-                static instance_type range_list[] = { 1, 2*0.436, 2 * 0.615 };
+                static instance_type range_list[] = { 1, scalar_type( 2*0.436 ), scalar_type( 2 * 0.615 ) };
                 return range_list[index];
                }
 
              static /*constexpr*/ return_image_type   range(   index_input_const_type  index )
               {
-                static instance_type range_list[] = { 1, 2*0.436, 2*0.615 };
+                static instance_type range_list[] = { 1, scalar_type( 2*0.436 ), scalar_type( 2*0.615 ) };
                 return range_list[index];
               }
           };

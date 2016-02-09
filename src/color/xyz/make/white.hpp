@@ -35,7 +35,7 @@
       inline
       void white( ::color::_internal::model< color::category::xyz_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,3>( { 31.9301, 31.9301, 31.9301 } );
+        color_parameter.container() = std::array<float,3>( { 31.9301f, 31.9301f, 31.9301f } );
        }
 
       inline

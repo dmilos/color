@@ -35,7 +35,7 @@
       inline
       void red( ::color::_internal::model< color::category::gray_float > & color_parameter )
        {
-        color_parameter.container() = std::array<float,1>( { 0.2126729 } );
+        color_parameter.container() = std::array<float,1>( { 0.2126729f } );
        }
 
       inline
