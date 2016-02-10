@@ -1,14 +1,25 @@
 <!doctype html>
 <html>
 <head>
-    <title>FAQ</title>
+	<title>FAQ</title>
 </head>
 <body>
-    <dl>
-     <dt> What is the purpose of color.pp2f.hpp </dt>
-     <dd></dd>
+	<h1 align="center">FAQ</h1>
+	<dl>
+		<dt> Ther are too much files in project. Can you reduce? </dt>
+		<dd>
+			No.<br> You can do that.
+			<ol>
+				<li>Keep next two files: <code>color.hpp</code> and <code>color.pp2f.hpp</code> and delete others.</li>
+				<li>
+					In <code>color.hpp</code> add line <code>#define COLOR_USE_PP2FILE</code> before  <code>#if defined COLOR_USE_PP2FILE</code>
+					or define macro <code>COLOR_USE_PP2FILE</code> to be visible before include of <code>color.hpp</code>.
+				</li>
+			</ol>
+		</dd>
+	</dl>
 
-    </dl>
+	<hr>
 
 </body>
 </html>
