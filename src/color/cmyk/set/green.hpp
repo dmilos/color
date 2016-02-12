@@ -5,6 +5,7 @@
 
 #include "../category.hpp"
 
+#include "../../rgb/place/place.hpp"
 #include "../../rgb/akin/cmyk.hpp"
 #include "../../rgb/trait/component.hpp"
 
@@ -25,7 +26,7 @@
        {
         typedef ::color::category::cmyk< tag_name >    category_type;
         typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
-        enum { green_p  = ::color::place::_internal::green<akin_type>::position_enum };
+        enum { green_p  = ::color::place::_internal::green< akin_type >::position_enum };
 
 
         ::color::_internal::model< akin_type > rgb( color_parameter );

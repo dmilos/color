@@ -34,12 +34,7 @@
         typedef ::color::_internal::diverse< akin_type >      diverse_type;
         typedef ::color::_internal::normalize< category_type >  normalize_type;
 
-        enum
-         {
-           hue_p        = ::color::place::_internal::hue<category_type>::position_enum
-          ,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-          ,lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
-         }; 
+        enum { lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum }; 
  
         scalar_type g = normalize_type::template process<lightness_p     >( color_parameter.template get<lightness_p     >() );
 

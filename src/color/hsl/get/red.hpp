@@ -21,7 +21,7 @@
       typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl<tag_name> >::akin_type >::return_type
       red( ::color::_internal::model< ::color::category::hsl<tag_name> > const& color_parameter )
        {
-        typedef ::color::category::hsl<tag_name> category_type;
+        typedef ::color::category::hsl< tag_name > category_type;
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_type;
         enum { red_p  = ::color::place::_internal::red<akin_type>::position_enum };
 

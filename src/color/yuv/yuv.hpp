@@ -39,7 +39,7 @@ namespace color
 #include "./place/place.hpp"
 
 #include "./get/get.hpp"
-//#include "./set/set.hpp"
+#include "./set/set.hpp"
 
 #include "./convert/convert.hpp"
 #include "./make/make.hpp"

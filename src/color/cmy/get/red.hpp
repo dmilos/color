@@ -8,6 +8,7 @@
 #include "../../rgb/trait/component.hpp"
 
 #include "../category.hpp"
+#include "../place/place.hpp"
 
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
@@ -30,11 +31,12 @@
 
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_type;
         enum { red_p  = ::color::place::_internal::red<akin_type>::position_enum };
+        enum { cyan_p = ::color::place::_internal::cyan<category_type>::position_enum };
 
         typedef  ::color::operation::_internal::invert< category_type > invert_type;
         typedef  ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
 
-        return reformat_type::template process<red_p,0>( invert_type::template component<0>( color_parameter.template get<0>() ) );
+        return reformat_type::template process<red_p,cyan_p>( invert_type::template component<cyan_p>( color_parameter.template get<cyan_p>() ) );
        }
 
     }

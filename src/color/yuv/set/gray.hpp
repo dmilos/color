@@ -1,5 +1,5 @@
-#ifndef color_yiq_set_gray
-#define color_yiq_set_gray
+#ifndef color_yuv_set_gray
+#define color_yuv_set_gray
 
 // ::color::set::gray( c, val )
 
@@ -21,11 +21,11 @@
       void
       gray
        (
-                  ::color::_internal::model< ::color::category::yiq< tag_name > >                                   & color_parameter
-        ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yiq< tag_name > >::akin_type >::input_const_type         component_parameter
+                  ::color::_internal::model< ::color::category::yuv< tag_name > >                               & color_parameter
+        ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yuv< tag_name > >::akin_type >::input_const_type         component_parameter
        )
        {
-        typedef ::color::category::yiq< tag_name >    category_type;
+        typedef ::color::category::yuv< tag_name >    category_type;
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
       //enum { gray_p  = ::color::place::_internal::green<akin_type>::position_enum };
 

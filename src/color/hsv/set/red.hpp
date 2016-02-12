@@ -5,6 +5,7 @@
 
 #include "../category.hpp"
 
+#include "../../rgb/place/place.hpp"
 #include "../../rgb/akin/hsv.hpp"
 #include "../../rgb/trait/component.hpp"
 

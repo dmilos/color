@@ -5,10 +5,9 @@
 
 #include "../category.hpp"
 
-#include "../../gray/akin/hsv.hpp"
+#include "../../gray/place/place.hpp"
+#include "../../gray/akin/hsl.hpp"
 #include "../../gray/trait/component.hpp"
-
-#include "../../rgb/rgb.hpp"
 
 
 
@@ -26,13 +25,16 @@
         ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::input_const_type         component_parameter
        )
        {
-        typedef typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type rgb_category_type;
+        typedef ::color::category::hsv< tag_name >    category_type;
+        typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
+      //enum { gray_p  = ::color::place::_internal::green<akin_type>::position_enum };
 
-        ::color::_internal::model<  rgb_category_type > rgb( color_parameter );
+        // TODO This is wrong!!!
+        ::color::_internal::model< akin_type > g( color_parameter );
 
-        ::color::set::gray( rgb, component_parameter );
+        g.template set< 0 > ( component_parameter );
 
-        color_parameter = rgb;
+        color_parameter = g;
        }
 
     }

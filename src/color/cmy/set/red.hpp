@@ -7,10 +7,12 @@
 #include "../../rgb/trait/component.hpp"
 
 #include "../category.hpp"
+#include "../place/place.hpp"
 
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
 #include "../../generic/trait/scalar.hpp"
+
 
 
  namespace color
@@ -23,18 +25,19 @@
       void
       red
        (
-         ::color::_internal::model< ::color::category::cmy<tag_name> >                                   & color_parameter,
-        typename ::color::_internal::model< ::color::category::cmy<tag_name> >::component_input_const_type         component_parameter
+                  ::color::_internal::model< ::color::category::cmy< tag_name > >                                   & color_parameter
+        ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::input_const_type         component_parameter
        )
        {
         typedef ::color::category::cmy< tag_name >    category_type;
         typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
         typedef typename ::color::trait::scalar< category_type >::instance_type   scalar_type;
 
-        typedef  ::color::operation::_internal::invert< akin_type > invert_type; 
+        typedef  ::color::operation::_internal::invert< akin_type > invert_type;
         typedef  ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+        enum{ cyan_p  = ::color::place::_internal::cyan<category_type>::position_enum };
 
-        color_parameter.template set<0>( reformat_type::template process<0,0>( invert_type::template component<0>( component_parameter ) ) );
+        color_parameter.template set<cyan_p>( reformat_type::template process<cyan_p,cyan_p>( invert_type::template component<cyan_p>( component_parameter ) ) );
        }
 
     }
