@@ -29,6 +29,8 @@ example/convert_cmy2yiq
 example/convert_cmy2yuv
 example/convert_rgb2yuv
 example/convert_rgb2yiq
+example/convert_rgb2rgb
+example/hello
 
 example/ctor_cmy
 example/ctor_gray

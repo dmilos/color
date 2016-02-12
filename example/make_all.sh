@@ -1,7 +1,9 @@
 # make all examples.
-# No Scons, CMake, Make or similar tool
+# No Scons, no CMake, no Make or any other make tool
 # One line one example
-#designed for easy copy/paset
+# Designed for easy copy/paset
+
+g++ -fexceptions -std=c++11 -g -I../src hello.cpp               -o  hello
 
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2gray.cpp    -o  convert_rgb2gray
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2cmy.cpp     -o  convert_rgb2cmy

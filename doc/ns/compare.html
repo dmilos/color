@@ -2,19 +2,16 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<link rel="icon" href="../../favicon.ico" type="image/ico"> 
 		<title>Compare</title>
 	</head>
 	<body>
 		<h1 align="center">Namespace <code>color::compare</code> </h1>
 		<dl>
 			<dt><h3>Description</h3></dt>
-			<dd>TODO</dd>
-			<dt><h3>Note</h3></dt>
-			<dd>TODO</dd>
+			<dd>Contain functions to compare color by some criteria.</dd>
 			<dt><h3>Function list</h3></dt>
 			<dd>
-
-
 				<dl>
 					<dt>Name</dt>
 					<dd><i>compare</i></dd>
@@ -38,6 +35,13 @@
 
        template < typename category_name > <br>
        &nbsp;&nbsp;bool great_or_equal( color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right ); <br>
+
+       template < typename category_name > <br>
+       &nbsp;&nbsp;bool darker( color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right ); <br>
+
+       template < typename category_name > <br>
+       &nbsp;&nbsp;bool brighter( color::_internal::model< category_name > const& left, color::_internal::model< category_name > const& right ); <br>
+
             </code>
 
 
@@ -53,6 +57,6 @@
 
 			</dd>
 		</dl>
-
+		<hr>
 	</body>
 </html>

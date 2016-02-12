@@ -10,4 +10,4 @@
 #include "./less_strict.hpp"
 
 #include "./darker.hpp"
-#include "./lighter.hpp"
+#include "./brighter.hpp"
