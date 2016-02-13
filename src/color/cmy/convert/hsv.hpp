@@ -33,26 +33,27 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+         enum
+          {
+            cyan_p       = ::color::place::_internal::cyan<category_left_type>::position_enum
+           ,yellow_p     = ::color::place::_internal::yellow<category_left_type>::position_enum
+           ,magenta_p    = ::color::place::_internal::magenta<category_left_type>::position_enum
+          };
+
+         enum
+          {
+            hue_p        = ::color::place::_internal::hue<category_right_type>::position_enum
+           ,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+           ,value_p      = ::color::place::_internal::value<category_right_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           enum
-            {
-              cyan_p       = ::color::place::_internal::cyan<category_left_type>::position_enum
-             ,yellow_p     = ::color::place::_internal::yellow<category_left_type>::position_enum
-             ,magenta_p    = ::color::place::_internal::magenta<category_left_type>::position_enum
-            };
 
-           enum
-            {
-              hue_p        = ::color::place::_internal::hue<category_right_type>::position_enum
-             ,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-             ,value_p      = ::color::place::_internal::value<category_right_type>::position_enum
-            };
-              
            scalar_type h = normalize_type::template process<0>( container_right_trait_type::template get<hue_p       >( right ) );
            scalar_type s = normalize_type::template process<1>( container_right_trait_type::template get<saturation_p>( right ) );
            scalar_type v = normalize_type::template process<2>( container_right_trait_type::template get<value_p     >( right ) );

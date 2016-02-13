@@ -34,6 +34,13 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+         enum
+          {
+             luminance_p  = ::color::place::_internal::luminance<category_left_type>::position_enum
+           ,   inphase_p  = ::color::place::_internal::inphase<category_left_type>::position_enum
+           ,quadrature_p  = ::color::place::_internal::quadrature<category_left_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left

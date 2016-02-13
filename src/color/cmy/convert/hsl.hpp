@@ -35,6 +35,20 @@ namespace color
 
          typedef ::color::_internal::convert< category_left_type, category_right_type > this_type;
 
+         enum
+          {
+               cyan_p  = ::color::place::_internal::cyan<category_left_type>::position_enum
+           ,magenta_p  = ::color::place::_internal::magenta<category_left_type>::position_enum
+           , yellow_p  = ::color::place::_internal::yellow<category_left_type>::position_enum
+          };
+
+         enum
+          {
+                   hue_p = ::color::place::_internal::hue<category_right_type>::position_enum
+           ,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+           , lightness_p = ::color::place::_internal::lightness<category_right_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left

@@ -34,6 +34,13 @@
 
         typedef ::color::constant::yiq< akin_type > yiq_const_type;
 
+        enum
+        {
+             cyan_p  = ::color::place::_internal::cyan<category_type>::position_enum
+         ,magenta_p  = ::color::place::_internal::magenta<category_type>::position_enum
+         , yellow_p  = ::color::place::_internal::yellow<category_type>::position_enum
+        };
+
         scalar_type value =
            + yiq_const_type::b21() * ( 1 - normalize_type::template process<0>( color_parameter.template get<0>() ) )
            + yiq_const_type::b22() * ( 1 - normalize_type::template process<1>( color_parameter.template get<1>() ) )

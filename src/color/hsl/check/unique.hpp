@@ -23,6 +23,13 @@ namespace color
            typedef ::color::_internal::model<category_type>      model_type;
            typedef ::color::trait::bound< category_type >        bound_type;
 
+           enum
+            {
+                     hue_p = ::color::place::_internal::hue<category_type>::position_enum
+             ,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+             , lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
+            };
+
            static bool process( model_type const& m )
             {
              if( m.template get<1>() == bound_type::template minimum<1>() ) { return false; }

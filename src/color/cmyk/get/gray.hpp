@@ -36,10 +36,18 @@
 
         typedef  ::color::constant::gray< akin_type > gray_const_type;
 
-         scalar_type c = normalize_type::template process<0>( color_parameter.template get<0>() );
-         scalar_type m = normalize_type::template process<1>( color_parameter.template get<1>() );
-         scalar_type y = normalize_type::template process<2>( color_parameter.template get<2>() );
-         scalar_type k = normalize_type::template process<3>( color_parameter.template get<3>() );
+         enum
+          {
+               cyan_p  = ::color::place::_internal::cyan<category_type>::position_enum
+           ,magenta_p  = ::color::place::_internal::magenta<category_type>::position_enum
+           , yellow_p  = ::color::place::_internal::yellow<category_type>::position_enum
+           ,    key_p  = ::color::place::_internal::key<category_type>::position_enum
+          };
+
+        scalar_type c = normalize_type::template process<0>( color_parameter.template get<0>() );
+        scalar_type m = normalize_type::template process<1>( color_parameter.template get<1>() );
+        scalar_type y = normalize_type::template process<2>( color_parameter.template get<2>() );
+        scalar_type k = normalize_type::template process<3>( color_parameter.template get<3>() );
 
         scalar_type value =
            ( gray_const_type::Rc() * (scalar_type(1)-c)

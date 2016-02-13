@@ -28,6 +28,14 @@
             typedef ::color::_internal::diverse< category_type >    diverse_type;
             typedef ::color::_internal::normalize< category_type > normalize_type;
 
+            enum
+             {
+                  cyan_p  = ::color::place::_internal::cyan<category_type>::position_enum
+              ,magenta_p  = ::color::place::_internal::magenta<category_type>::position_enum
+              , yellow_p  = ::color::place::_internal::yellow<category_type>::position_enum
+              ,    key_p  = ::color::place::_internal::key<category_type>::position_enum
+             };
+
             static void process( model_type &result )
              {
               if( result.template get<3>() == bound_type::template maximum<3>() )

@@ -6,6 +6,7 @@
 #include "../../yiq/akin/rgb.hpp"
 #include "../../yiq/trait/component.hpp"
 #include "../../yiq/constant.hpp"
+#include "../../yiq/place/place.hpp"
 
 #include "../category.hpp"
 
@@ -36,6 +37,11 @@
 
         enum
          {
+           inphase_p  = ::color::place::_internal::inphase<akin_type>::position_enum
+         };
+
+        enum
+         {
            red_p   = ::color::place::_internal::red<category_type>::position_enum
           ,green_p = ::color::place::_internal::green<category_type>::position_enum
           ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
@@ -48,7 +54,7 @@
            ;
 
         value = value / yiq_const_type::i_range() + scalar_type(0.5);
-        return diverse_type::template process<1>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */value /* ) */);
+        return diverse_type::template process<inphase_p>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */value /* ) */);
        }
 
     }
