@@ -36,12 +36,20 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+         enum
+          {
+            cyan_p       = ::color::place::_internal::cyan<category_left_type>::position_enum
+           ,yellow_p     = ::color::place::_internal::yellow<category_left_type>::position_enum
+           ,magenta_p    = ::color::place::_internal::magenta<category_left_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
+
            static scalar_type b11 = yiq_const_type::b11(), b12 = yiq_const_type::b12(), b13 = yiq_const_type::b13();
            static scalar_type b21 = yiq_const_type::b21(), b22 = yiq_const_type::b22(), b23 = yiq_const_type::b23();
            static scalar_type b31 = yiq_const_type::b31(), b32 = yiq_const_type::b32(), b33 = yiq_const_type::b33();

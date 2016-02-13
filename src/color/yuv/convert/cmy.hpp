@@ -39,6 +39,13 @@ namespace color
 
         typedef ::color::constant::yuv< category_left_type >  yuv_const_type;
 
+        enum
+         {
+           cyan_p       = ::color::place::_internal::cyan<category_left_type>::position_enum
+          ,yellow_p     = ::color::place::_internal::yellow<category_left_type>::position_enum
+          ,magenta_p    = ::color::place::_internal::magenta<category_left_type>::position_enum
+         };
+
         static void process
          (
            container_left_input_type         left
