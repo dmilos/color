@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-#include <cstdint>
 
 #include "color/color.hpp"
 

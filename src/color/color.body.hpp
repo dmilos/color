@@ -13,4 +13,4 @@
 #include "./yuv/yuv.hpp"
 
 using namespace ::color::operation::arithmetic;
-using namespace ::color::compare;
+using namespace ::color::compare::operators;

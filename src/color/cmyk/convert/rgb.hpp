@@ -4,6 +4,9 @@
 #include "../../_internal/convert.hpp"
 #include "../../rgb/rgb.hpp"
 
+#include "../category.hpp"
+#include "../place/place.hpp"
+
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
 
@@ -47,6 +50,15 @@ namespace color
              ,green_p = ::color::place::_internal::green<category_right_type>::position_enum
              ,blue_p  = ::color::place::_internal::blue<category_right_type>::position_enum
             };
+
+           enum
+            {
+                 cyan_p  = ::color::place::_internal::cyan<category_left_type>::position_enum
+             ,magenta_p  = ::color::place::_internal::magenta<category_left_type>::position_enum
+             , yellow_p  = ::color::place::_internal::yellow<category_left_type>::position_enum
+             ,    key_p  = ::color::place::_internal::key<category_left_type>::position_enum
+            };
+
 
            scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );

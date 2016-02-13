@@ -4,6 +4,9 @@
 #include "../../_internal/convert.hpp"
 #include "../../rgb/rgb.hpp"
 
+#include "../category.hpp"
+#include "../place/place.hpp"
+
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
 
@@ -45,7 +48,14 @@ namespace color
              ,green_p = ::color::place::_internal::green<category_right_type>::position_enum
              ,blue_p  = ::color::place::_internal::blue<category_right_type>::position_enum
             };
-                                   
+
+           enum
+            {
+                 cyan_p  = ::color::place::_internal::cyan<category_right_type>::position_enum
+             , yellow_p  = ::color::place::_internal::yellow<category_right_type>::position_enum
+             ,magenta_p  = ::color::place::_internal::magenta<category_right_type>::position_enum
+            };
+
            container_left_trait_type::template set<0>( left, reformat_type::template process<0,red_p  >( invert_type::template component<red_p  >( container_right_trait_type::template get<red_p  >( right ) ) ) );
            container_left_trait_type::template set<1>( left, reformat_type::template process<1,green_p>( invert_type::template component<green_p>( container_right_trait_type::template get<green_p>( right ) ) ) );
            container_left_trait_type::template set<2>( left, reformat_type::template process<2,blue_p >( invert_type::template component<blue_p >( container_right_trait_type::template get<blue_p >( right ) ) ) );

@@ -47,6 +47,14 @@ namespace color
             ,container_right_const_input_type  right
            )
            {
+            /*enum
+             {
+                  cyan_p  = ::color::place::_internal::cyan<category_type>::position_enum
+              ,magenta_p  = ::color::place::_internal::magenta<category_type>::position_enum
+              , yellow_p  = ::color::place::_internal::yellow<category_type>::position_enum
+              ,    key_p  = ::color::place::_internal::key<category_type>::position_enum
+             };*/
+
             // TODO use place
             container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( container_right_trait_type::template get<0>( right ) ) );
             container_left_trait_type::template set<1>( left, reformat_type::template process<1,1>( container_right_trait_type::template get<1>( right ) ) );
