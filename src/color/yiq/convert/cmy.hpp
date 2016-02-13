@@ -38,9 +38,16 @@ namespace color
 
          enum
           {
-            cyan_p       = ::color::place::_internal::cyan<category_left_type>::position_enum
-           ,yellow_p     = ::color::place::_internal::yellow<category_left_type>::position_enum
-           ,magenta_p    = ::color::place::_internal::magenta<category_left_type>::position_enum
+             luminance_p  = ::color::place::_internal::luminance<category_left_type>::position_enum
+           ,   inphase_p  = ::color::place::_internal::inphase<category_left_type>::position_enum
+           ,quadrature_p  = ::color::place::_internal::quadrature<category_left_type>::position_enum
+          };
+
+         enum
+          {
+            cyan_p       = ::color::place::_internal::cyan<category_right_type>::position_enum
+           ,yellow_p     = ::color::place::_internal::yellow<category_right_type>::position_enum
+           ,magenta_p    = ::color::place::_internal::magenta<category_right_type>::position_enum
           };
 
          static void process

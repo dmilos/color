@@ -33,6 +33,13 @@
         typedef ::color::_internal::diverse<akin_type>       diverse_type;
         typedef ::color::_internal::normalize<category_type> normalize_type;
 
+        enum
+         {
+            luminance_p  = ::color::place::_internal::luminance<category_type>::position_enum
+          ,   inphase_p  = ::color::place::_internal::inphase<category_type>::position_enum
+          ,quadrature_p  = ::color::place::_internal::quadrature<category_type>::position_enum
+         };
+
         static scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
 
         scalar_type y = normalize_type::template process<0>( color_parameter.template get<0>() );

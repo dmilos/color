@@ -19,7 +19,7 @@ namespace color
  {
   namespace _internal
    {
-        
+
     template< typename tag_left_name, typename tag_right_name >
      struct convert
        <
@@ -40,6 +40,13 @@ namespace color
 
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+
+           enum
+            {
+               luminance_p  = ::color::place::_internal::luminance<category_left_type>::position_enum
+             ,   inphase_p  = ::color::place::_internal::inphase<category_left_type>::position_enum
+             ,quadrature_p  = ::color::place::_internal::quadrature<category_left_type>::position_enum
+            };
 
            static void process
             (

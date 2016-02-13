@@ -43,18 +43,19 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+         enum
+          {
+            red_p   = ::color::place::_internal::red<category_left_type>::position_enum
+           ,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+           ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           enum
-            {
-              red_p   = ::color::place::_internal::red<category_left_type>::position_enum
-             ,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-             ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
-            };
 
            static scalar_type const Wr   = yuv_const_type::Wr();
            static scalar_type const Wb   = yuv_const_type::Wb();

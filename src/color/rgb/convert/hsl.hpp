@@ -39,19 +39,26 @@ namespace color
 
          typedef ::color::_internal::convert< category_left_type, category_right_type > this_type;
 
+         enum
+          {
+            red_p   = ::color::place::_internal::red<category_left_type>::position_enum
+           ,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+           ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
+          };
+
+         enum
+          {
+            hue_p        = ::color::place::_internal::hue<category_right_type>::position_enum
+           ,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+           ,lightness_p  = ::color::place::_internal::lightness<category_right_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           enum
-            {
-              red_p   = ::color::place::_internal::red<category_left_type>::position_enum
-             ,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-             ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
-            };
-
            scalar_type h = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
            scalar_type s = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
            scalar_type l = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );

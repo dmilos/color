@@ -37,18 +37,26 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+         enum
+          {
+            red_p   = ::color::place::_internal::red<category_left_type>::position_enum
+           ,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+           ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
+          };
+
+         enum
+          {
+             luminance_p  = ::color::place::_internal::luminance<category_right_type>::position_enum
+           ,   inphase_p  = ::color::place::_internal::inphase<category_right_type>::position_enum
+           ,quadrature_p  = ::color::place::_internal::quadrature<category_right_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           enum
-            {
-              red_p   = ::color::place::_internal::red<category_left_type>::position_enum
-             ,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-             ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
-            };
 
            static scalar_type a11 = yiq_const_type::a11(), a12 = yiq_const_type::a12(), a13 = yiq_const_type::a13();
            static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();

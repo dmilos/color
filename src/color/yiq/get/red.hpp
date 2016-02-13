@@ -8,6 +8,7 @@
 
 #include "../category.hpp"
 #include "../constant.hpp"
+#include "../place/place.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -33,6 +34,13 @@
 
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type> normalize_type;
+
+        enum
+         {
+            luminance_p  = ::color::place::_internal::luminance<category_type>::position_enum
+          ,   inphase_p  = ::color::place::_internal::inphase<category_type>::position_enum
+          ,quadrature_p  = ::color::place::_internal::quadrature<category_type>::position_enum
+         };
 
         static scalar_type a11 = yiq_const_type::a11(), a12 = yiq_const_type::a12(), a13 = yiq_const_type::a13();
 

@@ -1,9 +1,9 @@
-#ifndef color_yiq_place_luma
-#define color_yiq_place_luma
+#ifndef color_yiq_place_luminance
+#define color_yiq_place_luminance
 
-// ::color::place::luma<category_name>()
+// ::color::place::luminance<category_name>()
 
-#include "../../generic/place/luma.hpp"
+#include "../../generic/place/luminance.hpp"
 #include "../category.hpp"
 #include "../trait/index.hpp"
 
@@ -15,7 +15,7 @@
       {
 
        template< typename tag_name >
-        struct luma< ::color::category::yiq< tag_name > >
+        struct luminance< ::color::category::yiq< tag_name > >
          {
           public:
            typedef ::color::category::yiq< tag_name > category_type;
