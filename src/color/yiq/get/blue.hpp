@@ -42,9 +42,9 @@
 
         static scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
 
-        scalar_type y = normalize_type::template process<0>( color_parameter.template get<0>() );
-        scalar_type i = normalize_type::template process<1>( color_parameter.template get<1>() );
-        scalar_type q = normalize_type::template process<2>( color_parameter.template get<2>() );
+        scalar_type y = normalize_type::template process< luminance_p>( color_parameter.template get< luminance_p>() );
+        scalar_type i = normalize_type::template process<   inphase_p>( color_parameter.template get<   inphase_p>() );
+        scalar_type q = normalize_type::template process<quadrature_p>( color_parameter.template get<quadrature_p>() );
 
         i = ( scalar_type(2) * i - scalar_type(1) ) * yiq_const_type::i_max();
         q = ( scalar_type(2) * q - scalar_type(1) ) * yiq_const_type::q_max();

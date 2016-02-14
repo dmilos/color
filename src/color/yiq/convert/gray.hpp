@@ -49,9 +49,9 @@ namespace color
           {
            scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( g ) );
-           container_left_trait_type::template set<1>( left, bound_left_trait_type::template minimum<1>() );
-           container_left_trait_type::template set<2>( left, bound_left_trait_type::template minimum<2>() );
+           container_left_trait_type::template set< luminance_p>( left, diverse_type::template process<luminance_p>( g ) );
+           container_left_trait_type::template set<   inphase_p>( left, bound_left_trait_type::template minimum<inphase_p>() );
+           container_left_trait_type::template set<quadrature_p>( left, bound_left_trait_type::template minimum<quadrature_p>() );
           }
 
       };
