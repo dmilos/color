@@ -45,9 +45,9 @@ namespace color
 
          enum
           {
-            cyan_p       = ::color::place::_internal::cyan<category_left_type>::position_enum
-           ,yellow_p     = ::color::place::_internal::yellow<category_left_type>::position_enum
-           ,magenta_p    = ::color::place::_internal::magenta<category_left_type>::position_enum
+               cyan_p    = ::color::place::_internal::cyan<category_right_type>::position_enum
+           ,magenta_p    = ::color::place::_internal::magenta<category_right_type>::position_enum
+           , yellow_p    = ::color::place::_internal::yellow<category_right_type>::position_enum
           };
 
          static void process
@@ -56,9 +56,9 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           container_left_trait_type::template set<red_p  >( left, reformat_type::template process<red_p  ,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
-           container_left_trait_type::template set<green_p>( left, reformat_type::template process<green_p,1>( invert_type::template component<1>( container_right_trait_type::template get<1>( right ) ) ) );
-           container_left_trait_type::template set<blue_p >( left, reformat_type::template process<blue_p ,2>( invert_type::template component<2>( container_right_trait_type::template get<2>( right ) ) ) );
+           container_left_trait_type::template set<red_p  >( left, reformat_type::template process<red_p  ,    cyan_p>( invert_type::template component<   cyan_p>( container_right_trait_type::template get<   cyan_p>( right ) ) ) );
+           container_left_trait_type::template set<green_p>( left, reformat_type::template process<green_p, magenta_p>( invert_type::template component<magenta_p>( container_right_trait_type::template get<magenta_p>( right ) ) ) );
+           container_left_trait_type::template set<blue_p >( left, reformat_type::template process<blue_p ,  yellow_p>( invert_type::template component< yellow_p>( container_right_trait_type::template get< yellow_p>( right ) ) ) );
           }
       };
 

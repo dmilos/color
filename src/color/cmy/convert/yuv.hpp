@@ -73,9 +73,9 @@ namespace color
            scalar_type g = y + u * b22 + v * b23;
            scalar_type b = y + u * b32          ;
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( scalar_type(1) - r ) );
-           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( scalar_type(1) - g ) );
-           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( scalar_type(1) - b ) );
+           container_left_trait_type::template set<   cyan_p>( left, diverse_type::template process<   cyan_p>( scalar_type(1) - r ) );
+           container_left_trait_type::template set<magenta_p>( left, diverse_type::template process<magenta_p>( scalar_type(1) - g ) );
+           container_left_trait_type::template set< yellow_p>( left, diverse_type::template process< yellow_p>( scalar_type(1) - b ) );
           }
       };
 

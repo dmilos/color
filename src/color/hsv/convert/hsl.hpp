@@ -33,6 +33,9 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+
+
+
          static void process
           (
             container_left_input_type         left

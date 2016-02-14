@@ -37,12 +37,16 @@
            red_p        = ::color::place::_internal::red<akin_type>::position_enum
           ,green_p      = ::color::place::_internal::green<akin_type>::position_enum
           ,blue_p       = ::color::place::_internal::blue<akin_type>::position_enum
-          ,hue_p        = ::color::place::_internal::hue<category_type>::position_enum
+         };
+
+        enum
+         { 
+           hue_p        = ::color::place::_internal::hue<category_type>::position_enum
           ,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
           ,value_p      = ::color::place::_internal::value<category_type>::position_enum
          };
 
-
+         
         scalar_type h = normalize_type::template process<hue_p       >( color_parameter.template get<hue_p       >() );
         scalar_type s = normalize_type::template process<saturation_p>( color_parameter.template get<saturation_p>() );
         scalar_type v = normalize_type::template process<value_p     >( color_parameter.template get<value_p     >() );

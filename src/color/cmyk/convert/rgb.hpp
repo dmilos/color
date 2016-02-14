@@ -2,6 +2,7 @@
 #define color_cmyk_convert_rgb
 
 #include "../../_internal/convert.hpp"
+#include "../../rgb/place/place.hpp"
 #include "../../rgb/rgb.hpp"
 
 #include "../category.hpp"
@@ -59,8 +60,6 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-
-
            scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
@@ -77,10 +76,10 @@ namespace color
              y = 1 - b / (1-k);
             }
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( c ) );
-           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( m ) );
-           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( y ) );
-           container_left_trait_type::template set<3>( left, diverse_type::template process<3>( k ) );
+           container_left_trait_type::template set<   cyan_p>( left, diverse_type::template process<   cyan_p>( c ) );
+           container_left_trait_type::template set<magenta_p>( left, diverse_type::template process<magenta_p>( m ) );
+           container_left_trait_type::template set< yellow_p>( left, diverse_type::template process< yellow_p>( y ) );
+           container_left_trait_type::template set<    key_p>( left, diverse_type::template process<    key_p>( k ) );
           }
       };
 

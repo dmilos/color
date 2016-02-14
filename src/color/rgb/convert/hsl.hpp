@@ -59,9 +59,9 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           scalar_type h = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type s = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type l = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+           scalar_type h = normalize_type::template process<hue_p       >( container_right_trait_type::template get<hue_p       >( right ) );
+           scalar_type s = normalize_type::template process<saturation_p>( container_right_trait_type::template get<saturation_p>( right ) );
+           scalar_type l = normalize_type::template process<lightness_p >( container_right_trait_type::template get<lightness_p >( right ) );
 
            scalar_type r;
            scalar_type g;

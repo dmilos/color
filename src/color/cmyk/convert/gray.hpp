@@ -48,10 +48,10 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           container_left_trait_type::template set<0>( left, bound_left_trait_type::template minimum<0>() );
-           container_left_trait_type::template set<1>( left, bound_left_trait_type::template minimum<1>() );
-           container_left_trait_type::template set<2>( left, bound_left_trait_type::template minimum<2>() );
-           container_left_trait_type::template set<3>( left, reformat_type::template process<3,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
+           container_left_trait_type::template set<   cyan_p>( left, bound_left_trait_type::template minimum<   cyan_p>() );
+           container_left_trait_type::template set<magenta_p>( left, bound_left_trait_type::template minimum<magenta_p>() );
+           container_left_trait_type::template set< yellow_p>( left, bound_left_trait_type::template minimum< yellow_p>() );
+           container_left_trait_type::template set<    key_p>( left, reformat_type::template process<key_p,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
           }
         };
 

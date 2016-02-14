@@ -2,11 +2,15 @@
 #define color_hsl_convert_rgb
 
 #include "../../_internal/convert.hpp"
+
 #include "../../rgb/trait/container.hpp"
 #include "../../rgb/trait/component.hpp"
 #include "../../rgb/trait/index.hpp"
 #include "../../rgb/trait/bound.hpp"
 #include "../../rgb/category.hpp"
+
+#include "../category.hpp"
+#include "../place/place.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -89,9 +93,9 @@ namespace color
               }
             }
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );
-           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( s ) );
-           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( l ) );
+           container_left_trait_type::template set<       hue_p>( left, diverse_type::template process<       hue_p>( h ) );
+           container_left_trait_type::template set<saturation_p>( left, diverse_type::template process<saturation_p>( s ) );
+           container_left_trait_type::template set< lightness_p>( left, diverse_type::template process< lightness_p>( l ) );
           }
       };
 

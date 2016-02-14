@@ -23,32 +23,39 @@ namespace color
            typedef typename ::color::_internal::model<category_type>  model_type;
            typedef typename ::color::trait::bound<category_type>      bound_type;
 
+           enum
+            {
+              hue_p        = ::color::place::_internal::hue<category_type>::position_enum
+             ,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+             ,value_p      = ::color::place::_internal::value<category_type>::position_enum
+            };
+
            static void process( model_type &result )
             {
-             if( result.template get<2>() == bound_type::template minimum<2>() )
+             if( result.template get<value_p>() == bound_type::template minimum<value_p>() )
               {
-               result.template set<0>( bound_type::template minimum<0>() );
-               result.template set<1>( bound_type::template minimum<1>() );
+               result.template set<hue_p>( bound_type::template minimum<hue_p>() );
+               result.template set<saturation_p>( bound_type::template minimum<saturation_p>() );
                return;
               }
-             if( result.template get<1>() == bound_type::template minimum<1>() )
+             if( result.template get<saturation_p>() == bound_type::template minimum<saturation_p>() )
               {
-               result.template set<0>( bound_type::template minimum<0>() );
+               result.template set<hue_p>( bound_type::template minimum<hue_p>() );
                return;
               }
             }
 
            static void process(  model_type &result, model_type const& right )
             {
-             if( result.template get<2>() == bound_type::template minimum<2>() )
+             if( result.template get<value_p>() == bound_type::template minimum<value_p>() )
               {
-               result.template set<0>( bound_type::template minimum<0>() );
-               result.template set<1>( bound_type::template minimum<1>() );
+               result.template set<hue_p>( bound_type::template minimum<hue_p>() );
+               result.template set<saturation_p>( bound_type::template minimum<saturation_p>() );
                return;
               }
-             if( result.template get<1>() == bound_type::template minimum<1>() )
+             if( result.template get<saturation_p>() == bound_type::template minimum<saturation_p>() )
               {
-               result.template set<0>( bound_type::template minimum<0>() );
+               result.template set<hue_p>( bound_type::template minimum<hue_p>() );
                return;
               }
              result = right;

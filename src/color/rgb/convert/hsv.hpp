@@ -2,6 +2,7 @@
 #define color_rgb_convert_hsv
 
 #include "../../_internal/convert.hpp"
+#include "../../hsv/place/place.hpp"
 #include "../../hsv/hsv.hpp"
 
 #include "../../_internal/normalize.hpp"
@@ -61,9 +62,9 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           scalar_type h = normalize_type::template process<0>( container_right_trait_type::template get<hue_p       >( right ) );
-           scalar_type s = normalize_type::template process<1>( container_right_trait_type::template get<saturation_p>( right ) );
-           scalar_type v = normalize_type::template process<2>( container_right_trait_type::template get<value_p     >( right ) );
+           scalar_type h = normalize_type::template process<hue_p       >( container_right_trait_type::template get<hue_p       >( right ) );
+           scalar_type s = normalize_type::template process<saturation_p>( container_right_trait_type::template get<saturation_p>( right ) );
+           scalar_type v = normalize_type::template process<value_p     >( container_right_trait_type::template get<value_p     >( right ) );
 
            int region  = int( 6 * h );
            scalar_type f = h * 6 - region ;

@@ -40,9 +40,9 @@ namespace color
 
          enum
           {
-            cyan_p       = ::color::place::_internal::cyan<category_right_type>::position_enum
-           ,yellow_p     = ::color::place::_internal::yellow<category_right_type>::position_enum
-           ,magenta_p    = ::color::place::_internal::magenta<category_right_type>::position_enum
+               cyan_p   = ::color::place::_internal::cyan<category_right_type>::position_enum
+           ,magenta_p   = ::color::place::_internal::magenta<category_right_type>::position_enum
+           , yellow_p   = ::color::place::_internal::yellow<category_right_type>::position_enum
           };
 
          static void process
@@ -52,9 +52,9 @@ namespace color
           )
           {
            scalar_type value =
-                 gray_const_type::Rc() * ( 1 - normalize_type::template process<0> ( container_right_trait_type::template get<0>( right ) ) )
-               + gray_const_type::Gc() * ( 1 - normalize_type::template process<1> ( container_right_trait_type::template get<1>( right ) ) )
-               + gray_const_type::Bc() * ( 1 - normalize_type::template process<2> ( container_right_trait_type::template get<2>( right ) ) );
+                 gray_const_type::Rc() * ( 1 - normalize_type::template process<   cyan_p> ( container_right_trait_type::template get<   cyan_p>( right ) ) )
+               + gray_const_type::Gc() * ( 1 - normalize_type::template process<magenta_p> ( container_right_trait_type::template get<magenta_p>( right ) ) )
+               + gray_const_type::Bc() * ( 1 - normalize_type::template process< yellow_p> ( container_right_trait_type::template get< yellow_p>( right ) ) );
 
            container_left_trait_type::template set<0>( left,  diverse_type::template process<0>( value ) );
           }

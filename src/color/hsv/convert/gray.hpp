@@ -35,19 +35,19 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+         enum
+          {
+            hue_p        = ::color::place::_internal::hue<category_left_type>::position_enum
+           ,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+           ,value_p       = ::color::place::_internal::value<category_left_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           enum
-            {
-              hue_p        = ::color::place::_internal::hue<category_left_type>::position_enum
-             ,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-             ,value_p       = ::color::place::_internal::value<category_left_type>::position_enum
-            };
-
            container_left_trait_type::template set<hue_p>(        left, bound_left_trait_type::template minimum<hue_p>() );
            container_left_trait_type::template set<saturation_p>( left, bound_left_trait_type::template minimum<saturation_p>() );
            container_left_trait_type::template set<value_p>(      left, reformat_type::template process<value_p,0>( container_right_trait_type::template get<0>( right ) ) );

@@ -2,6 +2,7 @@
 #define color_rgb_convert_cmyk
 
 #include "../../_internal/convert.hpp"
+#include "../../cmyk/place/place.hpp"
 #include "../../cmyk/cmyk.hpp"
 
 #include "../../generic/operation/invert.hpp"
@@ -58,10 +59,10 @@ namespace color
              ,key_p     = ::color::place::_internal::key<category_right_type>::position_enum
             };
 
-           scalar_type c = normalize_type::template process<cyan_p   >( container_right_trait_type::template get<cyan_p   >( right ) );
-           scalar_type m = normalize_type::template process<yellow_p >( container_right_trait_type::template get<yellow_p >( right ) );
-           scalar_type y = normalize_type::template process<magenta_p>( container_right_trait_type::template get<magenta_p>( right ) );
-           scalar_type k = normalize_type::template process<key_p    >( container_right_trait_type::template get<key_p    >( right ) );
+           scalar_type c = normalize_type::template process<    cyan_p>( container_right_trait_type::template get<    cyan_p>( right ) );
+           scalar_type m = normalize_type::template process< magenta_p>( container_right_trait_type::template get< magenta_p>( right ) );
+           scalar_type y = normalize_type::template process<  yellow_p>( container_right_trait_type::template get<  yellow_p>( right ) );
+           scalar_type k = normalize_type::template process<     key_p>( container_right_trait_type::template get<     key_p>( right ) );
 
            scalar_type r = (1-c) * (1-k);
            scalar_type g = (1-m) * (1-k);

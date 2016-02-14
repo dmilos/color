@@ -38,16 +38,24 @@ namespace color
 
          typedef  ::color::constant::gray< category_left_type > gray_const_type;
 
-         static void process
+         enum
+          {
+               cyan_p  = ::color::place::_internal::cyan<category_right_type>::position_enum
+           ,magenta_p  = ::color::place::_internal::magenta<category_right_type>::position_enum
+           , yellow_p  = ::color::place::_internal::yellow<category_right_type>::position_enum
+           ,    key_p  = ::color::place::_internal::key<category_right_type>::position_enum
+          };
+
+          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           scalar_type c = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type m = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type y = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
-           scalar_type k = normalize_type::template process<3>( container_right_trait_type::template get<3>( right ) );
+           scalar_type c = normalize_type::template process<   cyan_p>( container_right_trait_type::template get<   cyan_p>( right ) );
+           scalar_type m = normalize_type::template process<magenta_p>( container_right_trait_type::template get<magenta_p>( right ) );
+           scalar_type y = normalize_type::template process< yellow_p>( container_right_trait_type::template get< yellow_p>( right ) );
+           scalar_type k = normalize_type::template process<    key_p>( container_right_trait_type::template get<    key_p>( right ) );
 
           scalar_type value =
              ( gray_const_type::Rc() * (1-c)

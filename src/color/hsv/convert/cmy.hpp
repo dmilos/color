@@ -2,7 +2,9 @@
 #define color_hsv_convert_cmy
 
 #include "../../_internal/convert.hpp"
+
 #include "../../cmy/cmy.hpp"
+#include "../../cmy/place/place.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -37,9 +39,16 @@ namespace color
 
          enum
           {
-            cyan_p       = ::color::place::_internal::cyan<category_left_type>::position_enum
-           ,yellow_p     = ::color::place::_internal::yellow<category_left_type>::position_enum
-           ,magenta_p    = ::color::place::_internal::magenta<category_left_type>::position_enum
+            hue_p        = ::color::place::_internal::hue<category_left_type >::position_enum
+           ,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+           ,value_p      = ::color::place::_internal::value<category_left_type>::position_enum
+          };
+
+         enum
+          {
+            cyan_p       = ::color::place::_internal::cyan<category_right_type>::position_enum
+           ,yellow_p     = ::color::place::_internal::yellow<category_right_type>::position_enum
+           ,magenta_p    = ::color::place::_internal::magenta<category_right_type>::position_enum
           };
 
          static void process
@@ -48,9 +57,9 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           scalar_type r = scalar_type(1) - normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type g = scalar_type(1) - normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type b = scalar_type(1) - normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+           scalar_type r = scalar_type(1) - normalize_type::template process<cyan_p   >( container_right_trait_type::template get<cyan_p   >( right ) );
+           scalar_type g = scalar_type(1) - normalize_type::template process<yellow_p >( container_right_trait_type::template get<yellow_p >( right ) );
+           scalar_type b = scalar_type(1) - normalize_type::template process<magenta_p>( container_right_trait_type::template get<magenta_p>( right ) );
 
            scalar_type lo = std::min<scalar_type>( {r,g,b} );
            scalar_type v =  std::max<scalar_type>( {r,g,b} );
@@ -81,9 +90,9 @@ namespace color
 
             }
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );
-           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( s ) );
-           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( v ) );
+           container_left_trait_type::template set<hue_p       >( left, diverse_type::template process<hue_p       >( h ) );
+           container_left_trait_type::template set<saturation_p>( left, diverse_type::template process<saturation_p>( s ) );
+           container_left_trait_type::template set<value_p     >( left, diverse_type::template process<value_p     >( v ) );
           }
       };
 

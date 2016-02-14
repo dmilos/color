@@ -63,9 +63,9 @@ namespace color
 
            static scalar_type const                              b32n = -b32;
 
-           scalar_type r = scalar_type(1) - normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type g = scalar_type(1) - normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type b = scalar_type(1) - normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+           scalar_type r = scalar_type(1) - normalize_type::template process<cyan_p   >( container_right_trait_type::template get<cyan_p   >( right ) );
+           scalar_type g = scalar_type(1) - normalize_type::template process<yellow_p >( container_right_trait_type::template get<yellow_p >( right ) );
+           scalar_type b = scalar_type(1) - normalize_type::template process<magenta_p>( container_right_trait_type::template get<magenta_p>( right ) );
 
            scalar_type y = b11 * r + b12 * g + b13 * b;
            scalar_type i = b21 * r + b22 * g + b23 * b;
@@ -74,9 +74,9 @@ namespace color
            i = ( i / b21  + scalar_type(1) ) / scalar_type(2);
            q = ( q / b32n + scalar_type(1) ) / scalar_type(2);
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( y ) );
-           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( i ) );
-           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( q ) );
+           container_left_trait_type::template set< luminance_p>( left, diverse_type::template process< luminance_p>( y ) );
+           container_left_trait_type::template set<   inphase_p>( left, diverse_type::template process<   inphase_p>( i ) );
+           container_left_trait_type::template set<quadrature_p>( left, diverse_type::template process<quadrature_p>( q ) );
           }
       };
 

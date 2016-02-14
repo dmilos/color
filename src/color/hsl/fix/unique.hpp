@@ -2,6 +2,7 @@
 #define  color_hsl_fix_unique
 // ::color::check::unique< category >( model )
 
+#include "../place/place.hpp"
 #include "../category.hpp"
 #include "../trait/bound.hpp"
 #include "../../generic/fix/unique.hpp"
@@ -32,18 +33,18 @@ namespace color
 
            static void process( model_type &result )
             {
-             if(   ( result.template get<2>() == bound_type::template maximum<2>() )
-                 ||( result.template get<2>() == bound_type::template minimum<2>() )
+             if(   ( result.template get<lightness_p>() == bound_type::template maximum<lightness_p>() )
+                 ||( result.template get<lightness_p>() == bound_type::template minimum<lightness_p>() )
                )
               {
-               result.template set<0>( bound_type::template minimum<0>();
-               result.template set<1>( bound_type::template minimum<1>();
+               result.template set<hue_p>( bound_type::template minimum<hue_p>();
+               result.template set<saturation_p>( bound_type::template minimum<saturation_p>();
                return;
               }
 
-             if( result.template get<1>() == bound_type::template maximum<2>() )
+             if( result.template get<saturation_p>() == bound_type::template maximum<lightness_p>() )
               {
-               result.template set<0>( bound_type::template minimum<0>();
+               result.template set<hue_p>( bound_type::template minimum<hue_p>();
                return;
               }
 
@@ -51,21 +52,21 @@ namespace color
 
            static void process(  model_type &result, model_type const& right )
             {
-             if(   ( right.template get<2>() == bound_type::template maximum<2>() )
-                 ||( right.template get<2>() == bound_type::template minimum<2>() )
+             if(   ( right.template get<lightness_p>() == bound_type::template maximum<lightness_p>() )
+                 ||( right.template get<lightness_p>() == bound_type::template minimum<lightness_p>() )
                )
               {
-               result.template set<0>( bound_type::template minimum<0>() );
-               result.template set<1>( bound_type::template minimum<1>() );
-               result.template set<2>( right.template get<2>() );
+               result.template set<hue_p>( bound_type::template minimum<hue_p>() );
+               result.template set<saturation_p>( bound_type::template minimum<saturation_p>() );
+               result.template set<lightness_p>( right.template get<lightness_p>() );
                return;
               }
 
-             if( m.template get<1>() == bound_type::template maximum<2>() )
+             if( m.template get<saturation_p>() == bound_type::template maximum<lightness_p>() )
               {
-               result.template set<0>( bound_type::template minimum<0>() );
-               result.template set<1>( right.template get<1>() );
-               result.template set<2>( right.template get<2>() );
+               result.template set<hue_p>( bound_type::template minimum<hue_p>() );
+               result.template set<saturation_p>( right.template get<saturation_p>() );
+               result.template set<lightness_p>( right.template get<lightness_p>() );
                return;
               }
 

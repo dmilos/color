@@ -4,7 +4,9 @@
 #include "../../_internal/convert.hpp"
 #include "../../rgb/trait/container.hpp"
 #include "../../rgb/category.hpp"
+#include "../../rgb/place/place.hpp"
 
+#include "../place/place.hpp"
 #include "../category.hpp"
 #include "../constant.hpp"
 
@@ -76,9 +78,9 @@ namespace color
            i = ( i / b21  + scalar_type(1) ) / scalar_type(2);
            q = ( q / b32n + scalar_type(1) ) / scalar_type(2);
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( y ) );
-           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( i ) );
-           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( q ) );
+           container_left_trait_type::template set< luminance_p>( left, diverse_type::template process< luminance_p>( y ) );
+           container_left_trait_type::template set<   inphase_p>( left, diverse_type::template process<   inphase_p>( i ) );
+           container_left_trait_type::template set<quadrature_p>( left, diverse_type::template process<quadrature_p>( q ) );
           }
       };
 

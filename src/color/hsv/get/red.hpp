@@ -37,7 +37,11 @@
            red_p        = ::color::place::_internal::red<akin_type>::position_enum
           ,green_p      = ::color::place::_internal::green<akin_type>::position_enum
           ,blue_p       = ::color::place::_internal::blue<akin_type>::position_enum
-          ,hue_p        = ::color::place::_internal::hue<category_type>::position_enum
+         };
+
+        enum
+         { 
+           hue_p        = ::color::place::_internal::hue<category_type>::position_enum
           ,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
           ,value_p      = ::color::place::_internal::value<category_type>::position_enum
          };

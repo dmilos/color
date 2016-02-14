@@ -38,53 +38,53 @@
 
             static void process( model_type &result )
              {
-              if( result.template get<3>() == bound_type::template maximum<3>() )
+              if( result.template get<key_p>() == bound_type::template maximum<key_p>() )
                {
-                result.template set<0>( bound_type::template minimum<0>() );
-                result.template set<1>( bound_type::template minimum<1>() );
-                result.template set<2>( bound_type::template minimum<2>() );
+                result.template set<cyan_p>( bound_type::template minimum<cyan_p>() );
+                result.template set<magenta_p>( bound_type::template minimum<magenta_p>() );
+                result.template set<yellow_p>( bound_type::template minimum<yellow_p>() );
                 return ;
                }
 
-              if( result.template get<0>() != result.template get<1>() ) { return; }
-              if( result.template get<0>() != result.template get<2>() ) { return; }
-              if( result.template get<1>() != result.template get<2>() ) { return; }
+              if( result.template get<cyan_p>() != result.template get<magenta_p>() ) { return; }
+              if( result.template get<cyan_p>() != result.template get<yellow_p>() ) { return; }
+              if( result.template get<magenta_p>() != result.template get<yellow_p>() ) { return; }
 
-              scalar_type cyan = normalize_type::template process<0>( result.template get<0>() );
-              scalar_type key  = normalize_type::template process<3>( result.template get<3>() );
+              scalar_type cyan = normalize_type::template process<cyan_p>( result.template get<cyan_p>() );
+              scalar_type key  = normalize_type::template process<key_p>( result.template get<key_p>() );
 
-              result.template set<0>( bound_type::template minimum<0>() );
-              result.template set<1>( bound_type::template minimum<1>() );
-              result.template set<2>( bound_type::template minimum<2>() );
+              result.template set<cyan_p>( bound_type::template minimum<cyan_p>() );
+              result.template set<magenta_p>( bound_type::template minimum<magenta_p>() );
+              result.template set<yellow_p>( bound_type::template minimum<yellow_p>() );
 
-              result.template set<3>( diverse_type::template process<3>( ( 1- ( 1- cyan)*(1-key) ) ) );
+              result.template set<key_p>( diverse_type::template process<key_p>( ( 1- ( 1- cyan)*(1-key) ) ) );
              }
 
             static void process(  model_type &result, model_type const& right )
              {
-              if( result.template get<3>() == bound_type::template maximum<3>() )
+              if( result.template get<key_p>() == bound_type::template maximum<key_p>() )
                {
-                result.template set<0>( bound_type::template minimum<0>() );
-                result.template set<1>( bound_type::template minimum<1>() );
-                result.template set<2>( bound_type::template minimum<2>() );
-                result.template set<3>( bound_type::template maximum<3>() );
+                result.template set<cyan_p>( bound_type::template minimum<cyan_p>() );
+                result.template set<magenta_p>( bound_type::template minimum<magenta_p>() );
+                result.template set<yellow_p>( bound_type::template minimum<yellow_p>() );
+                result.template set<key_p>( bound_type::template maximum<key_p>() );
                 return ;
                }
 
               result = right;
 
-              if( result.template get<0>() != result.template get<1>() ) { return; }
-              if( result.template get<0>() != result.template get<2>() ) { return; }
-              if( result.template get<1>() != result.template get<2>() ) { return; }
+              if( result.template get<cyan_p>() != result.template get<magenta_p>() ) { return; }
+              if( result.template get<cyan_p>() != result.template get<yellow_p>() ) { return; }
+              if( result.template get<magenta_p>() != result.template get<yellow_p>() ) { return; }
 
-              scalar_type cyan = normalize_type::template process<0>( result.template get<0>() );
-              scalar_type key  = normalize_type::template process<3>( result.template get<3>() );
+              scalar_type cyan = normalize_type::template process<cyan_p>( result.template get<cyan_p>() );
+              scalar_type key  = normalize_type::template process<key_p>( result.template get<key_p>() );
 
-              result.template set<0>( bound_type::template minimum<0>() );
-              result.template set<1>( bound_type::template minimum<1>() );
-              result.template set<2>( bound_type::template minimum<2>() );
+              result.template set<cyan_p>( bound_type::template minimum<cyan_p>() );
+              result.template set<magenta_p>( bound_type::template minimum<magenta_p>() );
+              result.template set<yellow_p>( bound_type::template minimum<yellow_p>() );
 
-              result.template set<3>( diverse_type::template process<3>( ( 1- ( 1- cyan)*(1-key) ) ) );
+              result.template set<key_p>( diverse_type::template process<key_p>( ( 1- ( 1- cyan)*(1-key) ) ) );
 
              }
 

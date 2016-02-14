@@ -44,10 +44,10 @@
            ,    key_p  = ::color::place::_internal::key<category_type>::position_enum
           };
 
-        scalar_type c = normalize_type::template process<0>( color_parameter.template get<0>() );
-        scalar_type m = normalize_type::template process<1>( color_parameter.template get<1>() );
-        scalar_type y = normalize_type::template process<2>( color_parameter.template get<2>() );
-        scalar_type k = normalize_type::template process<3>( color_parameter.template get<3>() );
+        scalar_type c = normalize_type::template process<   cyan_p>( color_parameter.template get<   cyan_p>() );
+        scalar_type m = normalize_type::template process<magenta_p>( color_parameter.template get<magenta_p>() );
+        scalar_type y = normalize_type::template process< yellow_p>( color_parameter.template get< yellow_p>() );
+        scalar_type k = normalize_type::template process<    key_p>( color_parameter.template get<    key_p>() );
 
         scalar_type value =
            ( gray_const_type::Rc() * (scalar_type(1)-c)

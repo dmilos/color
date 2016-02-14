@@ -2,9 +2,11 @@
 #define color_rgb_convert_yiq
 
 #include "../../_internal/convert.hpp"
+
 #include "../../yiq/trait/container.hpp"
 #include "../../yiq/category.hpp"
 #include "../../yiq/constant.hpp"
+#include "../../yiq/place/place.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -62,9 +64,9 @@ namespace color
            static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
            static scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
 
-           scalar_type y = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type i = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type q = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+           scalar_type y = normalize_type::template process< luminance_p>( container_right_trait_type::template get< luminance_p>( right ) );
+           scalar_type i = normalize_type::template process<   inphase_p>( container_right_trait_type::template get<   inphase_p>( right ) );
+           scalar_type q = normalize_type::template process<quadrature_p>( container_right_trait_type::template get<quadrature_p>( right ) );
 
            i = yiq_const_type::i_deverse( i );
            q = yiq_const_type::q_deverse( q );

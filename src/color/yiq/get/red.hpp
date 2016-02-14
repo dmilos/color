@@ -42,6 +42,11 @@
           ,quadrature_p  = ::color::place::_internal::quadrature<category_type>::position_enum
          };
 
+        enum
+         {
+            red_p  = ::color::place::_internal::red<akin_type>::position_enum
+         };
+
         static scalar_type a11 = yiq_const_type::a11(), a12 = yiq_const_type::a12(), a13 = yiq_const_type::a13();
 
         scalar_type y = normalize_type::template process< luminance_p>( color_parameter.template get< luminance_p>() );
@@ -53,7 +58,7 @@
 
         scalar_type r = a11 * y + a12 * i + a13 * q;
 
-        return diverse_type::template process<0>( r );
+        return diverse_type::template process<red_p>( r );
        }
 
     }

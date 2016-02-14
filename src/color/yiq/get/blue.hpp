@@ -8,6 +8,7 @@
 
 #include "../category.hpp"
 #include "../constant.hpp"
+#include "../place/place.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
@@ -40,6 +41,11 @@
           ,quadrature_p  = ::color::place::_internal::quadrature<category_type>::position_enum
          };
 
+        enum
+         {
+            blue_p  = ::color::place::_internal::blue<akin_type>::position_enum
+         };
+
         static scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
 
         scalar_type y = normalize_type::template process< luminance_p>( color_parameter.template get< luminance_p>() );
@@ -51,7 +57,7 @@
 
         scalar_type b = a31 * y + a32 * i + a33 * q;
 
-        return diverse_type::template process<2>( b );
+        return diverse_type::template process<blue_p>( b );
        }
 
     }

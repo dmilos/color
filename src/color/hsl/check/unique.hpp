@@ -32,9 +32,9 @@ namespace color
 
            static bool process( model_type const& m )
             {
-             if( m.template get<1>() == bound_type::template minimum<1>() ) { return false; }
-             if( m.template get<2>() == bound_type::template minimum<2>() ) { return false; }
-             if( m.template get<2>() == bound_type::template maximum<2>() ) { return false; }
+             if( m.template get<saturation_p>() == bound_type::template minimum<saturation_p>() ) { return false; }
+             if( m.template get< lightness_p>() == bound_type::template minimum< lightness_p>() ) { return false; }
+             if( m.template get< lightness_p>() == bound_type::template maximum< lightness_p>() ) { return false; }
              return true;
             }
         };

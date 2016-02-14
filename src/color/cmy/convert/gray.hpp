@@ -35,15 +35,22 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+         enum
+          {
+               cyan_p  = ::color::place::_internal::cyan<category_type>::position_enum
+           ,magenta_p  = ::color::place::_internal::magenta<category_type>::position_enum
+           , yellow_p  = ::color::place::_internal::yellow<category_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
-           container_left_trait_type::template set<1>( left, reformat_type::template process<1,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
-           container_left_trait_type::template set<2>( left, reformat_type::template process<2,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
+           container_left_trait_type::template set<   cyan_p>( left, reformat_type::template process<   cyan_p,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
+           container_left_trait_type::template set<magenta_p>( left, reformat_type::template process<magenta_p,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
+           container_left_trait_type::template set< yellow_p>( left, reformat_type::template process< yellow_p,0>( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
           }
       };
 
