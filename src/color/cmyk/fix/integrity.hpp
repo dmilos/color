@@ -46,9 +46,9 @@
                 return ;
                }
 
-              if( result.template get<cyan_p>() != result.template get<magenta_p>() ) { return; }
-              if( result.template get<cyan_p>() != result.template get<yellow_p>() ) { return; }
-              if( result.template get<magenta_p>() != result.template get<yellow_p>() ) { return; }
+              if( result.template get<cyan_p>() == bound_type::template minimum<cyan_p>() ) { return; }
+              if( result.template get<magenta_p>() == bound_type::template minimum<magenta_p>() ) { return; }
+              if( result.template get<yellow_p>() == bound_type::template minimum<yellow_p>() ) { return; }
 
               scalar_type cyan = normalize_type::template process<cyan_p>( result.template get<cyan_p>() );
               scalar_type key  = normalize_type::template process<key_p>( result.template get<key_p>() );
@@ -72,10 +72,10 @@
                }
 
               result = right;
-
-              if( result.template get<cyan_p>() != result.template get<magenta_p>() ) { return; }
-              if( result.template get<cyan_p>() != result.template get<yellow_p>() ) { return; }
-              if( result.template get<magenta_p>() != result.template get<yellow_p>() ) { return; }
+              
+              if( result.template get<cyan_p>() == bound_type::template minimum<cyan_p>() ) { return; }
+              if( result.template get<magenta_p>() == bound_type::template minimum<magenta_p>() ) { return; }
+              if( result.template get<yellow_p>() == bound_type::template minimum<yellow_p>() ) { return; }
 
               scalar_type cyan = normalize_type::template process<cyan_p>( result.template get<cyan_p>() );
               scalar_type key  = normalize_type::template process<key_p>( result.template get<key_p>() );

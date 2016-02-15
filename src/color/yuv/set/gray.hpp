@@ -27,14 +27,10 @@
        {
         typedef ::color::category::yuv< tag_name >    category_type;
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
-      //enum { gray_p  = ::color::place::_internal::green<akin_type>::position_enum };
+        typedef double  scalar_type;
 
-        // TODO This is wrong!!!
-        ::color::_internal::model< akin_type > g( color_parameter );
-
-        g.template set< 0 > ( component_parameter );
-
-        color_parameter = g;
+        typedef ::color::_internal::reformat< category_type, akin_type, scalar_type >    reformat_type;
+        color_parameter.template set<0>( reformat_type::template process<0,0>( component_parameter ) );
        }
 
     }

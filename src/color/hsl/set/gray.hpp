@@ -4,11 +4,13 @@
 // ::color::set::gray( c, val )
 
 #include "../category.hpp"
+#include "../place/place.hpp"
 
 #include "../../gray/place/place.hpp"
 #include "../../gray/akin/hsl.hpp"
 #include "../../gray/trait/component.hpp"
 
+#include "../../_internal/reformat.hpp"
 
 
  namespace color
@@ -27,14 +29,16 @@
        {
         typedef ::color::category::hsl< tag_name >    category_type;
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
-      //enum { gray_p  = ::color::place::_internal::green<akin_type>::position_enum };
+        typedef double  scalar_type;
 
-        // TODO This is wrong!!!
-        ::color::_internal::model< akin_type > g( color_parameter );
+        typedef ::color::_internal::reformat< category_type, akin_type, scalar_type >    reformat_type;
 
-        g.template set< 0 > ( component_parameter );
+        enum
+         {
+          lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
+         };
 
-        color_parameter = g;
+        color_parameter.template set<lightness_p>( reformat_type::template process<lightness_p,0>( component_parameter ) );
        }
 
     }

@@ -382,6 +382,24 @@
     <Filter Include="Source Files\src\hsv\set">
       <UniqueIdentifier>{a75a05a6-9b2c-4fa1-bc6e-ff61b28636f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\cmy\place">
+      <UniqueIdentifier>{7d273f07-fc8c-4c5e-badd-deb6d3795305}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\cmyk\place">
+      <UniqueIdentifier>{24435a76-f2e2-4e46-9b3b-476f8b16a571}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\hsl\place">
+      <UniqueIdentifier>{4c8fd40a-1dd6-4c46-8795-c27428dc3c6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\hsv\place">
+      <UniqueIdentifier>{adb5a732-0e0e-4106-af35-9efc061d6110}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\yiq\place">
+      <UniqueIdentifier>{cb58c691-8df4-471d-b9fe-02ad03562755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\yuv\place">
+      <UniqueIdentifier>{0eec070e-5afc-4e60-983c-fd2dfca19113}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\color\color.hpp">
@@ -1351,9 +1369,6 @@
       <Filter>Source Files\src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\cmyk\check\check.hpp">
-      <Filter>Source Files\src\cmyk\check</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\cmyk\check\unique.hpp">
       <Filter>Source Files\src\cmyk\check</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\hsl\check\check.hpp">
@@ -2802,42 +2817,6 @@
     <ClInclude Include="..\..\src\color\cmyk\convert\cmyk.hpp">
       <Filter>Source Files\src\cmyk\convert</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\alpha.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\blue.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\gray.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\green.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\hue.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\inphase.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\key.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\luma.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\luminance.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\place.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\quadrature.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\place\red.hpp">
-      <Filter>Source Files\src\generic\place</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\gray\place\gray.hpp">
       <Filter>Source Files\src\gray\place</Filter>
     </ClInclude>
@@ -3600,33 +3579,6 @@
     <ClInclude Include="..\..\src\color\generic\check\unique.hpp">
       <Filter>Source Files\src\generic\check</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\compare\compare.hpp">
-      <Filter>Source Files\src\generic\compare</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\compare\darker.hpp">
-      <Filter>Source Files\src\generic\compare</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\compare\different.hpp">
-      <Filter>Source Files\src\generic\compare</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\compare\equal.hpp">
-      <Filter>Source Files\src\generic\compare</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\compare\great_or_equal.hpp">
-      <Filter>Source Files\src\generic\compare</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\compare\great_strict.hpp">
-      <Filter>Source Files\src\generic\compare</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\compare\less_or_equal.hpp">
-      <Filter>Source Files\src\generic\compare</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\compare\less_strict.hpp">
-      <Filter>Source Files\src\generic\compare</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\compare\lighter.hpp">
-      <Filter>Source Files\src\generic\compare</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\generic\get\alpha.hpp">
       <Filter>Source Files\src\generic\get</Filter>
     </ClInclude>
@@ -3662,48 +3614,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\generic\get\red.hpp">
       <Filter>Source Files\src\generic\get</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\operation\subtract.hpp">
-      <Filter>Source Files\src\generic\operation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\operation\scale.hpp">
-      <Filter>Source Files\src\generic\operation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\operation\operator.hpp">
-      <Filter>Source Files\src\generic\operation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\operation\operation.hpp">
-      <Filter>Source Files\src\generic\operation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\operation\normalize.hpp">
-      <Filter>Source Files\src\generic\operation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\operation\invert.hpp">
-      <Filter>Source Files\src\generic\operation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\operation\convex.hpp">
-      <Filter>Source Files\src\generic\operation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\operation\clamp.hpp">
-      <Filter>Source Files\src\generic\operation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\operation\blend.hpp">
-      <Filter>Source Files\src\generic\operation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\operation\addition.hpp">
-      <Filter>Source Files\src\generic\operation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\type\uint48.hpp">
-      <Filter>Source Files\src\generic\type</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\type\uint24.hpp">
-      <Filter>Source Files\src\generic\type</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\type\normal.hpp">
-      <Filter>Source Files\src\generic\type</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\type\divert.hpp">
-      <Filter>Source Files\src\generic\type</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\cmy\get\red.hpp">
       <Filter>Source Files\src\cmy\get</Filter>
@@ -4016,6 +3926,222 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\yuv\set\set.hpp">
       <Filter>Source Files\src\yuv\set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\compare\brighter.hpp">
+      <Filter>Source Files\src\generic\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\compare\compare.hpp">
+      <Filter>Source Files\src\generic\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\compare\darker.hpp">
+      <Filter>Source Files\src\generic\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\compare\different.hpp">
+      <Filter>Source Files\src\generic\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\compare\equal.hpp">
+      <Filter>Source Files\src\generic\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\compare\great_or_equal.hpp">
+      <Filter>Source Files\src\generic\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\compare\great_strict.hpp">
+      <Filter>Source Files\src\generic\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\compare\less_or_equal.hpp">
+      <Filter>Source Files\src\generic\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\compare\less_strict.hpp">
+      <Filter>Source Files\src\generic\compare</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\addition.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\blend.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\clamp.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\convex.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\diverse.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\invert.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\normalize.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\operation.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\operator.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\scale.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\operation\subtract.hpp">
+      <Filter>Source Files\src\generic\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\alpha.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\blue.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\cyan.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\gray.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\green.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\hue.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\inphase.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\key.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\lightness.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\luma.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\luminance.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\magenta.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\place.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\quadrature.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\red.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\saturation.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\value.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\place\yellow.hpp">
+      <Filter>Source Files\src\generic\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\place\cyan.hpp">
+      <Filter>Source Files\src\cmy\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\place\magenta.hpp">
+      <Filter>Source Files\src\cmy\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\place\place.hpp">
+      <Filter>Source Files\src\cmy\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmy\place\yellow.hpp">
+      <Filter>Source Files\src\cmy\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\place\cyan.hpp">
+      <Filter>Source Files\src\cmyk\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\place\key.hpp">
+      <Filter>Source Files\src\cmyk\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\place\magenta.hpp">
+      <Filter>Source Files\src\cmyk\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\place\place.hpp">
+      <Filter>Source Files\src\cmyk\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\place\yellow.hpp">
+      <Filter>Source Files\src\cmyk\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\place\hue.hpp">
+      <Filter>Source Files\src\hsl\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\place\lightness.hpp">
+      <Filter>Source Files\src\hsl\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\place\place.hpp">
+      <Filter>Source Files\src\hsl\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsl\place\saturation.hpp">
+      <Filter>Source Files\src\hsl\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\place\hue.hpp">
+      <Filter>Source Files\src\hsv\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\place\place.hpp">
+      <Filter>Source Files\src\hsv\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\place\saturation.hpp">
+      <Filter>Source Files\src\hsv\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\hsv\place\value.hpp">
+      <Filter>Source Files\src\hsv\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\place\inphase.hpp">
+      <Filter>Source Files\src\yiq\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\place\luminance.hpp">
+      <Filter>Source Files\src\yiq\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\place\place.hpp">
+      <Filter>Source Files\src\yiq\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yiq\place\quadrature.hpp">
+      <Filter>Source Files\src\yiq\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\place\place.hpp">
+      <Filter>Source Files\src\yuv\place</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\divert.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\normal.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\split233.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\split332.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\split442.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\split556.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\split655.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\splitAAA2.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\type.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\uint24.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\type\uint48.hpp">
+      <Filter>Source Files\src\generic\type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\cmyk\check\integrity.hpp">
+      <Filter>Source Files\src\cmyk\check</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
