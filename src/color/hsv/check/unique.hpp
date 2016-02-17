@@ -3,7 +3,11 @@
 // ::color::check::unique< category >( model )
 
 #include "../../generic/check/unique.hpp"
+
 #include "../category.hpp"
+
+#include "../place/place.hpp"
+#include "../trait/bound.hpp"
 
 
 
