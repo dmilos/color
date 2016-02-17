@@ -8,16 +8,63 @@
 	<body>
 		<h1 align="center">Namespace <code>color::fix</code></h1>
 		<dl>
-			<dt>Description</dt>
-			<dd>In some situations color component value might different than normal.<br>
+			<dt><h3>Description</h3></dt>
+			<dd>In some situations color component value might different than what is considered normal.<br>
 				Functions in this space will fix those inconsistency.
 			</dd>
-			<dt>List</dt>
+			<dt><h3>List</h3></dt>
 			<dd>
 				<dl>
+					<dt>Name</dt>
+					<dd><i>integrity</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						template&lt; typename category_name &gt; <br>
+						&nbsp;&nbsp;void integrity( ::color::_internal::model&lt;category_name&gt; &amp; m );
+						</code>
+					</dd>
+					<dt>Description</dt>
+					<dd>If color component or components satisfied some condition that color instance makes invalid.</dd>
+					<dt>Example</dt>
+					<dd>Hue value of <code>color::hsv&lt; double &gt;</code> can be set to be larger than 360 or smaller than 0.</dd>
 				</dl>
-			</dd>
+				<hr width="%20">
+				<dl>
+					<dt>Name</dt>
+					<dd><i>overburn</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						template&lt; typename category_name &gt; <br>
+						&nbsp;&nbsp;void overburn( ::color::_internal::model&lt;category_name&gt; &amp; m );
+						</code>
+					</dd>
+					<dt>Description</dt>
+					<dd>Value of some component is out of range but color is still vallid and it pass <i>integrity</i> check.</dd>
+					<dt>Example</dt>
+					<dd>Red value of <code>color::rgb&lt; double &gt;</code> can goes beyond 1. </dd>
+				</dl>
+				<hr width="%20">
+				<dl>
+					<dt>Name</dt>
+					<dd><i>unique</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						template&lt; typename category_name &gt; <br>
+						&nbsp;&nbsp;void unique( ::color::_internal::model&lt;category_name&gt; &amp; m );
+						</code>
+					</dd>
+					<dt>Description</dt>
+					<dd>Some models allows several different combinations of component values which essential the same color</dd>
+					<dt>Example</dt>
+					<dd>TODO</dd>
+				</dl>
+				<hr width="%20">
 
+
+			</dd>
 		<hr>
 	</body>
 </html>

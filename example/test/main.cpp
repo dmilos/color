@@ -258,9 +258,11 @@ int main(int argc, char const *argv[])
   make_image<color::hsv<double> >( "./image-hsv-1-099.tga", 0.99, 1);
   make_image<color::hsv<double> >( "./image-hsv-1-100.tga", 1.0, 1 );
 
-  make_image<color::rgb<double> >( "./image-rgb-0-00.tga" , 0.0, 0 );
-  make_image<color::rgb<double> >( "./image-rgb-0-05.tga" , 0.5, 0 );
-  make_image<color::rgb<double> >( "./image-rgb-0-10.tga" , 1.0, 0 );
+  make_image<color::rgb<double> >( "./image-rgb-0-00.tga" , 0.00,  0 );
+  make_image<color::rgb<double> >( "./image-rgb-0-05.tga" , 0.25,  0 );
+  make_image<color::rgb<double> >( "./image-rgb-0-05.tga" , 0.50,  0 );
+  make_image<color::rgb<double> >( "./image-rgb-0-05.tga" , 0.75,  0 );
+  make_image<color::rgb<double> >( "./image-rgb-0-10.tga" , 1.00,  0 );
 
 
   make_image<color::cmy<double> >( "./image-cmy.tga" , 0.5 );
