@@ -12,7 +12,7 @@
   color::make::orange( a );
   
   // This will produce ERROR.
-  std::cout << color::brighter( a, b ) << std::endl;
+  std::cout << color::compare::brighter( a, b ) << std::endl;
 
 */
 
@@ -26,7 +26,7 @@ int main( int argc, char *argv[] )
   color::make::red( a );
   color::make::orange( a );
 
-  std::cout << color::brighter( a, b ) << std::endl;
+  std::cout << color::compare::brighter( a, b ) << std::endl;
 
   return EXIT_SUCCESS;
  }

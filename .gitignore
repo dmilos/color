@@ -54,6 +54,24 @@ example/extract_gray_from_hsl
 example/extract_gray_from_yiq
 example/extract_gray_from_yuv
 
+example/compare_brighter
+example/compare_darker
+example/compare_different
+example/compare_equal
+example/compare_great_or_equal
+example/compare_great_strict
+example/compare_less_or_equal
+example/compare_less_strict
+example/get_blue
+example/get_gray
+example/get_green
+example/get_red
+example/set_blue
+example/set_gray
+example/set_green
+example/set_red
+
+
 example/test/out/
 
 example/test/gen*
