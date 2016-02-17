@@ -41,3 +41,12 @@ g++ -fexceptions -std=c++11 -g -I../src set_red.cpp                 -o  set_red
 g++ -fexceptions -std=c++11 -g -I../src set_green.cpp               -o  set_green
 g++ -fexceptions -std=c++11 -g -I../src set_blue.cpp                -o  set_blue
 g++ -fexceptions -std=c++11 -g -I../src set_gray.cpp                -o  set_gray
+
+g++ -fexceptions -std=c++11 -g -I../src compare_brighter.cpp              -o compare_brighter
+g++ -fexceptions -std=c++11 -g -I../src compare_darker.cpp                -o compare_darker
+g++ -fexceptions -std=c++11 -g -I../src compare_different.cpp             -o compare_different
+g++ -fexceptions -std=c++11 -g -I../src compare_equal.cpp                 -o compare_equal
+g++ -fexceptions -std=c++11 -g -I../src compare_great_or_equal.cpp        -o compare_great_or_equal
+g++ -fexceptions -std=c++11 -g -I../src compare_great_strict.cpp          -o compare_great_strict
+g++ -fexceptions -std=c++11 -g -I../src compare_less_or_equal.cpp         -o compare_less_or_equal
+g++ -fexceptions -std=c++11 -g -I../src compare_less_strict.cpp           -o compare_less_strict

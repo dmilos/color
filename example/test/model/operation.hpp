@@ -64,7 +64,7 @@ template< typename category_name >
    color::compare::great_or_equal( u32b, u32b  );
 
    color::compare::darker( u32b, u32b  );
-   color::compare::lighter( u32b, u32b  );
+   color::compare::brighter( u32b, u32b  );
 
    u32a = u32b + u32c;
    u32a = u32b - u32c;
