@@ -17,36 +17,6 @@
 
 				<dl>
 					<dt>Name</dt>
-					<dd><i>addition</i></dd>
-					<dt>Declaration</dt>
-					<dd>
-						<code>
-						template&lt; typename category_name &gt;<br>
-						&nbsp;&nbsp;void addition( color::_internal::model<category_name>     &amp;result, color::_internal::model<category_name> const& right );<br>
-						template&lt; typename category_name &gt;<br>
-						&nbsp;&nbsp;void addition( color::_internal::model&lt;category_name&gt;     &amp;result, color::_internal::model&lt;category_name&gt; const& left, color::_internal::model&lt;category_name&gt; const& right );<br>
-						</code>
-					</dd>
-					<dt>Description</dt>
-					<dd></dd>
-					<dt>Example</dt>
-					<dd></dd>
-				</dl>
-
-				<dl>
-					<dt>Name</dt>
-					<dd><i>blend</i></dd>
-					<dt>Declaration</dt>
-					<dd></dd>
-					<dt>Description</dt>
-					<dd></dd>
-					<dt>Example</dt>
-					<dd></dd>
-				</dl>
-
-
-				<dl>
-					<dt>Name</dt>
 					<dd><i>convex</i></dd>
 					<dt>Declaration</dt>
 					<dd></dd>
@@ -54,7 +24,7 @@
 					<dd></dd>
 					<dt>Example</dt>
 					<dd></dd>
-				</dl>
+				</dl><hr width="%20">
 
 				<dl>
 					<dt>Name</dt>
@@ -65,14 +35,14 @@
 						template&lt; typename category_name &gt; <br>
 						&nbsp;&nbsp;void invert( ::color::_internal::model&lt;category_name&gt;&amp; result ); <br>
 						template&lt; typename category_name &gt;<br>
-						&nbsp;&nbsp;void invert( ::color::_internal::model&lt;category_name&gt;&amp; result, ::color::_internal::model&lt;category_name&gt; const& right );<br>
+						&nbsp;&nbsp;void invert( ::color::_internal::model&lt;category_name&gt;&amp; result, ::color::_internal::model&lt;category_name&gt; const&amp;right );<br>
 						</code>
 					</dd>
 					<dt>Description</dt>
 					<dd></dd>
 					<dt>Example</dt>
 					<dd></dd>
-				</dl>
+				</dl><hr width="%20">
 
 				<dl>
 					<dt>Name</dt>
@@ -80,18 +50,46 @@
 					<dt>Declaration</dt>
 					<dd>
 						<code>
-							template< unsigned alpha_index, typename category_name, typename scalar_name = double &gt; <br>
-							&nbsp;&nbsp;::color::_internal::model&lt;category_name&gt; mix( ::color::_internal::model&lt;category_name&gt; const& lower, ::color::_internal::model&lt;category_name&gt; const& upper ); <br>
-							template< typename category_name, typename scalar_name = double &gt; <br>
-							&nbsp;&nbsp;::color::_internal::model&lt;category_name&gt; mix( ::color::_internal::model&lt;category_name&gt; const& lower, scalar_name  const& alpha, ::color::_internal::model&lt;category_name&gt; const& upper ); <br>
+							template&lt; unsigned alpha_index, typename category_name, typename scalar_name = double &gt; <br>
+							&nbsp;&nbsp;::color::_internal::model&lt;category_name&gt; mix( ::color::_internal::model&lt;category_name&gt; const&amp; lower, ::color::_internal::model&lt;category_name&gt; const&amp; upper ); <br>
+							template&lt; typename category_name, typename scalar_name = double &gt; <br>
+							&nbsp;&nbsp;::color::_internal::model&lt;category_name&gt; mix( ::color::_internal::model&lt;category_name&gt; const&amp; lower, scalar_name  const&amp; alpha, ::color::_internal::model&lt;category_name&gt; const&amp; upper ); <br>
 						<code>
 					</dd>
 					<dt>Description</dt>
 					<dd></dd>
 					<dt>Example</dt>
 					<dd></dd>
-				</dl>
+				</dl><hr width="%20">
 
+				<dl>
+					<dt>Name</dt>
+					<dd><i>blend</i></dd>
+					<dt>Declaration</dt>
+					<dd></dd>
+					<dt>Description</dt>
+					<dd></dd>
+					<dt>Example</dt>
+					<dd></dd>
+				</dl><hr width="%20">
+
+				<dl>
+					<dt>Name</dt>
+					<dd><i>addition</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						template&lt; typename category_name &gt;<br>
+						&nbsp;&nbsp;void addition( color::_internal::model<category_name>     &amp;result, color::_internal::model<category_name> const&amp; right );<br>
+						template&lt; typename category_name &gt;<br>
+						&nbsp;&nbsp;void addition( color::_internal::model&lt;category_name&gt;     &amp;result, color::_internal::model&lt;category_name&gt; const&amp; left, color::_internal::model&lt;category_name&gt; const&amp; right );<br>
+						</code>
+					</dd>
+					<dt>Description</dt>
+					<dd>Perform addition like they are vectors.</dd>
+					<dt>Example</dt>
+					<dd></dd>
+				</dl><hr width="%20">
 
 				<dl>
 					<dt>Name</dt>
@@ -99,10 +97,10 @@
 					<dt>Declaration</dt>
 					<dd></dd>
 					<dt>Description</dt>
-					<dd></dd>
+					<dd>Scale component by given factor if not stated differently.</dd>
 					<dt>Example</dt>
 					<dd></dd>
-				</dl>
+				</dl><hr width="%20">
 
 				<dl>
 					<dt>Name</dt>
@@ -111,16 +109,16 @@
 					<dd>
 						<code>
 						template&lt; typename category_name &gt;<br>
-						&nbsp;&nbsp;void subtract( color::_internal::model&lt;category_name&gt; &amp; result, color::_internal::model&lt;category_name&gt; const& right );<br>
+						&nbsp;&nbsp;void subtract( color::_internal::model&lt;category_name&gt; &amp; result, color::_internal::model&lt;category_name&gt; const&amp; right );<br>
 						template&lt; typename category_name &gt;<br>
-						&nbsp;&nbsp;void subtract( color::_internal::model&lt;category_name&gt; &amp; result, color::_internal::model&lt;category_name&gt; const& left, color::_internal::model&lt;category_name&gt; const& right );<br>
+						&nbsp;&nbsp;void subtract( color::_internal::model&lt;category_name&gt; &amp; result, color::_internal::model&lt;category_name&gt; const&amp; left, color::_internal::model&lt;category_name&gt; const&amp; right );<br>
 						</code>
 					</dd>
 					<dt>Description</dt>
-					<dd></dd>
+					<dd>Perform subtraction like they are vectors.</dd>
 					<dt>Example</dt>
 					<dd></dd>
-				</dl>
+				</dl><hr width="%20">
 
 			</dd>
 		</dl>

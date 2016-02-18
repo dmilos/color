@@ -30,6 +30,10 @@ example/convert_cmy2yuv
 example/convert_rgb2yuv
 example/convert_rgb2yiq
 example/convert_rgb2rgb
+example/convert_rgb2cmyk
+example/convert_rgb2hsl
+example/convert_rgb2hsv
+
 example/hello
 
 example/ctor_cmy
@@ -66,10 +70,21 @@ example/get_blue
 example/get_gray
 example/get_green
 example/get_red
+example/get_alpha
+
 example/set_blue
 example/set_gray
 example/set_green
 example/set_red
+
+example/check_integrity
+example/check_overburn
+example/check_unique
+
+
+example/fix_integrity
+example/fix_overburn
+example/fix_unique
 
 
 example/test/out/
@@ -80,6 +95,11 @@ example/test/test
 example/test/Debug
 example/test/*.pp2f?.*
 example/test/res
-/example/test/gray/*.tga
-/example/test/gray/ref/*.tga
-/example/test/gray/ref
+example/test/gray/*.tga
+example/test/gray/ref/*.tga
+example/test/gray/ref
+
+
+
+
+

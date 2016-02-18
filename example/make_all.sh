@@ -5,18 +5,21 @@
 
 g++ -fexceptions -std=c++11 -g -I../src hello.cpp               -o  hello
 
-g++ -fexceptions -std=c++11 -g -I../src convert_rgb2gray.cpp    -o  convert_rgb2gray
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2cmy.cpp     -o  convert_rgb2cmy
+g++ -fexceptions -std=c++11 -g -I../src convert_rgb2cmyk.cpp    -o  convert_rgb2cmyk
+g++ -fexceptions -std=c++11 -g -I../src convert_rgb2gray.cpp    -o  convert_rgb2gray
+g++ -fexceptions -std=c++11 -g -I../src convert_rgb2hsl.cpp     -o  convert_rgb2hsl
+g++ -fexceptions -std=c++11 -g -I../src convert_rgb2hsv.cpp     -o  convert_rgb2hsv
+g++ -fexceptions -std=c++11 -g -I../src convert_rgb2rgb.cpp     -o  convert_rgb2rgb
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2yiq.cpp     -o  convert_rgb2yiq
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2yuv.cpp     -o  convert_rgb2yuv
-g++ -fexceptions -std=c++11 -g -I../src convert_rgb2rgb.cpp     -o  convert_rgb2rgb
 
-g++ -fexceptions -std=c++11 -g -I../src convert_cmy2rgb.cpp     -o  convert_cmy2rgb
-g++ -fexceptions -std=c++11 -g -I../src convert_cmy2gray.cpp    -o  convert_cmy2gray
 g++ -fexceptions -std=c++11 -g -I../src convert_cmy2cmy.cpp     -o  convert_cmy2cmy
 g++ -fexceptions -std=c++11 -g -I../src convert_cmy2cmyk.cpp    -o  convert_cmy2cmyk
+g++ -fexceptions -std=c++11 -g -I../src convert_cmy2gray.cpp    -o  convert_cmy2gray
 g++ -fexceptions -std=c++11 -g -I../src convert_cmy2hsl.cpp     -o  convert_cmy2hsl
 g++ -fexceptions -std=c++11 -g -I../src convert_cmy2hsv.cpp     -o  convert_cmy2hsv
+g++ -fexceptions -std=c++11 -g -I../src convert_cmy2rgb.cpp     -o  convert_cmy2rgb
 g++ -fexceptions -std=c++11 -g -I../src convert_cmy2yiq.cpp     -o  convert_cmy2yiq
 g++ -fexceptions -std=c++11 -g -I../src convert_cmy2yuv.cpp     -o  convert_cmy2yuv
 
@@ -24,18 +27,28 @@ g++ -fexceptions -std=c++11 -g -I../src convert_gray2rgb.cpp    -o  convert_gray
 g++ -fexceptions -std=c++11 -g -I../src convert_gray2cmy.cpp    -o  convert_gray2cmy
 
 g++ -fexceptions -std=c++11 -g -I../src ctor_cmy.cpp                    -o  ctor_cmy
+g++ -fexceptions -std=c++11 -g -I../src ctor_cmyk.cpp                   -o  ctor_cmyk
 g++ -fexceptions -std=c++11 -g -I../src ctor_gray.cpp                   -o  ctor_gray
 g++ -fexceptions -std=c++11 -g -I../src ctor_hsl.cpp                    -o  ctor_hsl
+g++ -fexceptions -std=c++11 -g -I../src ctor_hsv.cpp                    -o  ctor_hsv
 g++ -fexceptions -std=c++11 -g -I../src ctor_rgb.cpp                    -o  ctor_rgb
 g++ -fexceptions -std=c++11 -g -I../src ctor_yiq.cpp                    -o  ctor_yiq
-g++ -fexceptions -std=c++11 -g -I../src ctor_hsv.cpp                    -o  ctor_hsv
 g++ -fexceptions -std=c++11 -g -I../src ctor_yuv.cpp                    -o  ctor_yuv
-g++ -fexceptions -std=c++11 -g -I../src ctor_yuv.cpp                    -o  ctor_cmyk
+
+g++ -fexceptions -std=c++11 -g -I../src get_alpha.cpp               -o  get_alpha
 
 g++ -fexceptions -std=c++11 -g -I../src get_red.cpp                 -o  get_red
 g++ -fexceptions -std=c++11 -g -I../src get_green.cpp               -o  get_green
 g++ -fexceptions -std=c++11 -g -I../src get_blue.cpp                -o  get_blue
 g++ -fexceptions -std=c++11 -g -I../src get_gray.cpp                -o  get_gray
+
+g++ -fexceptions -std=c++11 -g -I../src fix_integrity.cpp           -o  fix_integrity
+g++ -fexceptions -std=c++11 -g -I../src fix_overburn.cpp            -o  fix_overburn
+g++ -fexceptions -std=c++11 -g -I../src fix_unique.cpp              -o  fix_unique
+
+g++ -fexceptions -std=c++11 -g -I../src check_integrity.cpp         -o  check_integrity
+g++ -fexceptions -std=c++11 -g -I../src check_overburn.cpp          -o  check_overburn
+g++ -fexceptions -std=c++11 -g -I../src check_unique.cpp            -o  check_unique
 
 g++ -fexceptions -std=c++11 -g -I../src set_red.cpp                 -o  set_red
 g++ -fexceptions -std=c++11 -g -I../src set_green.cpp               -o  set_green
@@ -50,3 +63,7 @@ g++ -fexceptions -std=c++11 -g -I../src compare_great_or_equal.cpp        -o com
 g++ -fexceptions -std=c++11 -g -I../src compare_great_strict.cpp          -o compare_great_strict
 g++ -fexceptions -std=c++11 -g -I../src compare_less_or_equal.cpp         -o compare_less_or_equal
 g++ -fexceptions -std=c++11 -g -I../src compare_less_strict.cpp           -o compare_less_strict
+
+g++ -fexceptions -std=c++11 -g -I../src make_red_in_cmy.cpp           -o make_red_in_cmy
+g++ -fexceptions -std=c++11 -g -I../src make_red_in_gray.cpp          -o make_red_in_gray
+g++ -fexceptions -std=c++11 -g -I../src make_red_in_rgb.cpp           -o make_red_in_rgb
