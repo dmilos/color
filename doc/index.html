@@ -43,9 +43,9 @@
 
 int main( int argc, char *argv[] )
  {
-  color::rgb&lt;double&lt; r;
+  color::rgb&lt;double&gt; r;
 
-  std::cout &lt;&lt; "Hello world" &lt; std::endl;
+  std::cout &lt;&lt; "Hello world" &lt;&lt; std::endl;
 
   return EXIT_SUCCESS;
  }
@@ -55,7 +55,7 @@ int main( int argc, char *argv[] )
 
 		<dt><h3>Examples</h3></dt>
 		<dd>
-			In the root of the project there is folder <code>example</code>.<br> It's contain  <i>one-file-example</i>s e.g all examples are in form  that do not need additional file to be compiled i.e self-sufficient examples<br>
+			In the root of the project there is folder <code>example</code>.<br> It's contain  <i>one-file-example</i>s e.g all examples are in form  that do not need additional file to be compiled i.e self-sufficient examples.<br>
 			<code>make_all.sh</code> will compile all examples by using <code>g++</code>.
 		</dd>
 
