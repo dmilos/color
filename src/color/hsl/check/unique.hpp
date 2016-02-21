@@ -4,13 +4,9 @@
 
 #include "../category.hpp"
 #include "../place/place.hpp"
-
 #include "../trait/bound.hpp"
 
 #include "../../generic/check/unique.hpp"
-
-
-
 
 
 namespace color

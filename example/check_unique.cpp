@@ -19,16 +19,17 @@ void check_hsl()
   color::hsl<double>  h;
 
   // Do some initialization
-  color::make::red( h );
+  color::make::black( h );
 
   // First check has to be OK
   std::cout << color::check::unique( h ) << std::endl;
 
-  h.set<0>( 5000 ); // TODO
+  h.set<0>( 120 );
+  h.set<1>( 50 );
+  h.set<2>( 100 );
 
   // This one has to fail
   std::cout << color::check::unique( h ) << std::endl;
-
  }
 
 void check_hsv()
@@ -41,7 +42,9 @@ void check_hsv()
   // First check has to be OK
   std::cout << color::check::unique( h ) << std::endl;
 
-  h.set<0>( 5000 );// TODO
+  h.set<0>( 120 );
+  h.set<1>( 50 );
+  h.set<2>( 0 );
 
   // This one has to fail
   std::cout << color::check::unique( h ) << std::endl;

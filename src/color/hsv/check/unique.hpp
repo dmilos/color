@@ -2,13 +2,11 @@
 #define color_hsv_check_unique
 // ::color::check::unique< category >( model )
 
-#include "../../generic/check/unique.hpp"
-
 #include "../category.hpp"
-
 #include "../place/place.hpp"
 #include "../trait/bound.hpp"
 
+#include "../../generic/check/unique.hpp"
 
 
 namespace color
@@ -38,7 +36,7 @@ namespace color
             {
              if( m.template get<saturation_p>() == bound_type::template minimum<saturation_p>() ) { return false; }
              if( m.template get<value_p>() == bound_type::template minimum<value_p>() ) { return false; }
-             if( m.template get<value_p>() == bound_type::template maximum<value_p>() ) { return false; }
+
              return true;
             }
         };
