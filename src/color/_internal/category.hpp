@@ -4,7 +4,7 @@
 namespace color
  {
   /**
-   * @namespace color::category
+   * @namespace ::color::category
    * To hold all categories and their manipulator.
    */
   namespace category

@@ -23,7 +23,7 @@
 
             typedef ::color::trait::index<category_type>         index_trait_type;
 
-            typedef typename color::_internal::model<category_type>  model_type;
+            typedef typename ::color::_internal::model<category_type>  model_type;
 
             typedef model_type &       model_input_type;
             typedef model_type const&  model_const_input_type;
@@ -53,22 +53,22 @@
      template< typename category_name, typename scalar_name >
       void scale
        (
-         color::_internal::model<category_name>      & result
+         ::color::_internal::model<category_name>      & result
         ,scalar_name                            const& scalar
        )
        {
-        color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar );
+        ::color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar );
        }
 
      template< typename category_name, typename scalar_name >
       void scale
        (
-         color::_internal::model<category_name>      & result
+         ::color::_internal::model<category_name>      & result
         ,scalar_name                            const& scalar
-        ,color::_internal::model<category_name> const& right
+        ,::color::_internal::model<category_name> const& right
        )
        {
-        color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar, right );
+        ::color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar, right );
        }
 
     }

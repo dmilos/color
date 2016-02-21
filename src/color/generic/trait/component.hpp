@@ -1,7 +1,7 @@
 #ifndef color_trait_component
 #define color_trait_component
 
-// color::trait::component< category >
+// ::color::trait::component< category >
 
 #include "./index.hpp"
 

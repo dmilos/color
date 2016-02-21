@@ -1,7 +1,7 @@
 #ifndef color_trait_scalar
 #define color_trait_scalar
 
-// color::trait::scalar< category >
+// ::color::trait::scalar< category >
 
 namespace color
  {

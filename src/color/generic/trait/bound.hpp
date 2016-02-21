@@ -1,9 +1,9 @@
 #ifndef color_trait_bound
 #define color_trait_bound
 
-// color::trait::bound< category >::maximum
-// color::trait::bound< category >::minimum
-// color::trait::bound< category >::bound
+// ::color::trait::bound< category >::maximum
+// ::color::trait::bound< category >::minimum
+// ::color::trait::bound< category >::bound
 
 #include "../../_internal/utility/bound/general.hpp"
 

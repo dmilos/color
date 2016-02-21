@@ -8,7 +8,7 @@
    namespace set
     {
 
-     // Actyaly set graynes of color. Do not mix with color::make::gray
+     // Actyaly set graynes of color. Do not mix with ::color::make::gray
      template< typename category_name >
       inline
       void

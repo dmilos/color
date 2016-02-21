@@ -1,7 +1,7 @@
 #ifndef color_trait_index
 #define color_trait_index
 
-// color::trait::index< category >
+// ::color::trait::index< category >
 
 #include "../../_internal/utility/type/index.hpp"
 

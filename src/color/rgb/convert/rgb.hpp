@@ -62,7 +62,7 @@ namespace color
              container_left_trait_type::template set<bl>( left, reformat_type::template process<bl,br>( container_right_trait_type::template get<br>( right ) ) );
 
              // TODO ALPHA!!!
-             //color::set::alpha( left, color::get::alpha( right ) );
+             //color::set::alpha( left, ::color::get::alpha( right ) );
             }
         };
    }

@@ -12,7 +12,11 @@
     {
 
      template < typename category_name >
-      bool less_or_equal( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right )
+      bool less_or_equal
+       (
+         ::color::_internal::model< category_name >  const& left
+        ,::color::_internal::model< category_name >  const& right
+       )
        {
         return left.container() <= right.container();
        }
