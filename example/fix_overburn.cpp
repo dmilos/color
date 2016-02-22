@@ -28,7 +28,7 @@ void fix_rgb()
   std::cout << color::check::overburn( r ) << std::endl;
 
   // Fix
-  std::cout << color::fix::overburn( r ) << std::endl;
+  color::fix::overburn( r );
 
   // Check fix
   std::cout << color::check::overburn( r ) << std::endl;

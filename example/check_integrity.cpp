@@ -18,53 +18,53 @@ int main( int argc, char *argv[] )
 
 void check_cmyk()
  {
-  color::cmyk<double>  c;
+  color::cmyk<double>  ck;
 
   // Do some initialization
-  color::make::red( c );
+  color::make::red( ck );
 
   // First check has to be OK
-  std::cout << color::check::integrity( c ) << std::endl;
+  std::cout << color::check::integrity( ck ) << std::endl;
 
-  h.set<0>( 0.1 );
-  h.set<1>( 0.1 );
-  h.set<2>( 0.1 );
+  ck.set<0>( 0.1 );
+  ck.set<1>( 0.1 );
+  ck.set<2>( 0.1 );
 
   // This one has to fail
-  std::cout << color::check::integrity( c ) << std::endl;
+  std::cout << color::check::integrity( ck ) << std::endl;
 
  }
 
 
 void check_hsl()
  {
-  color::hsl<double>  h;
+  color::hsl<double>  hl;
 
   // Do some initialization
-  color::make::red( h );
+  color::make::red( hl );
 
   // First check has to be OK
-  std::cout << color::check::integrity( h ) << std::endl;
+  std::cout << color::check::integrity( hl ) << std::endl;
 
-  h.set<0>( 5000 );
+  hl.set<0>( 5000 );
 
   // This one has to fail
-  std::cout << color::check::integrity( h ) << std::endl;
+  std::cout << color::check::integrity( hl ) << std::endl;
 
  }
 
 void check_hsv()
  {
-  color::hsv<double>  h;
+  color::hsv<double>  hv;
 
   // Do some initialization
-  color::make::red( h );
+  color::make::red( hv );
 
   // First check has to be OK
-  std::cout << color::check::integrity( h ) << std::endl;
+  std::cout << color::check::integrity( hv ) << std::endl;
 
-  h.set<0>( 5000 );
+  hv.set<0>( 5000 );
 
   // This one has to fail
-  std::cout << color::check::integrity( h ) << std::endl;
+  std::cout << color::check::integrity( hv ) << std::endl;
  }

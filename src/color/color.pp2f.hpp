@@ -1,4 +1,18 @@
+/*
+   Copyright 2016 Dejan D. M. Milosavljevic
 
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 namespace color {
 namespace akin {
 
@@ -1011,7 +1025,11 @@ namespace color {
 namespace compare {
 
 template < typename category_name >
-bool equal(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+bool equal
+(
+	::color::_internal::model< category_name > const& left
+	,::color::_internal::model< category_name > const& right
+) {
 	return left.container() == right.container();
 }
 
@@ -1031,7 +1049,11 @@ namespace color {
 namespace compare {
 
 template < typename category_name >
-bool different(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+bool different
+(
+	::color::_internal::model< category_name > const& left
+	,::color::_internal::model< category_name > const& right
+) {
 	return left.container() != right.container();
 }
 
@@ -1076,7 +1098,11 @@ namespace color {
 namespace compare {
 
 template < typename category_name >
-bool great_strict(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+bool great_strict
+(
+	::color::_internal::model< category_name > const& left
+	,::color::_internal::model< category_name > const& right
+) {
 	return left.container() > right.container();
 }
 
@@ -1096,7 +1122,11 @@ namespace color {
 namespace compare {
 
 template < typename category_name >
-bool less_or_equal(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+bool less_or_equal
+(
+	::color::_internal::model< category_name > const& left
+	,::color::_internal::model< category_name > const& right
+) {
 	return left.container() <= right.container();
 }
 
@@ -1116,7 +1146,11 @@ namespace color {
 namespace compare {
 
 template < typename category_name >
-bool less_strict(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+bool less_strict
+(
+	::color::_internal::model< category_name > const& left
+	,::color::_internal::model< category_name > const& right
+) {
 	return left.container() < right.container();
 }
 
@@ -4485,7 +4519,7 @@ public:
 
 	typedef ::color::trait::index<category_type> index_trait_type;
 
-	typedef typename color::_internal::model<category_type> model_type;
+	typedef typename ::color::_internal::model<category_type> model_type;
 
 	typedef model_type & model_input_type;
 	typedef model_type const& model_const_input_type;
@@ -4510,20 +4544,20 @@ public:
 template< typename category_name, typename scalar_name >
 void scale
 (
-	color::_internal::model<category_name> & result
+	::color::_internal::model<category_name> & result
 	,scalar_name const& scalar
 ) {
-	color::operation::_internal::scale<category_name,scalar_name>::process(result, scalar);
+	::color::operation::_internal::scale<category_name,scalar_name>::process(result, scalar);
 }
 
 template< typename category_name, typename scalar_name >
 void scale
 (
-	color::_internal::model<category_name> & result
+	::color::_internal::model<category_name> & result
 	,scalar_name const& scalar
-	,color::_internal::model<category_name> const& right
+	,::color::_internal::model<category_name> const& right
 ) {
-	color::operation::_internal::scale<category_name,scalar_name>::process(result, scalar, right);
+	::color::operation::_internal::scale<category_name,scalar_name>::process(result, scalar, right);
 }
 
 }
@@ -21058,21 +21092,25 @@ void wheat(::color::_internal::model< ::color::category::gray< tag_name > > & co
 
 namespace color {
 	namespace compare {
+
 		template < typename category_name >
 bool darker(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
 	using namespace ::color::compare::operators;
 	return ::color::gray<float>(left) < ::color::gray<float>(right);
 }
+
 	}
 }
 
 namespace color {
 	namespace compare {
+
 		template < typename category_name >
-bool lighter(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+bool brighter(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
 	using namespace ::color::compare::operators;
 	return ::color::gray<float>(left) > ::color::gray<float>(right);
 }
+
 	}
 }
 

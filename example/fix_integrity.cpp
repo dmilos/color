@@ -18,26 +18,26 @@ int main( int argc, char *argv[] )
 
 void fix_cmyk()
  {
-  color::cmyk<double>  c;
+  color::cmyk<double>  ck;
 
   // Do some initialization
-  color::make::red( c );
+  color::make::red( ck );
 
   // First fix has to be OK
-  std::cout << color::check::integrity( c ) << std::endl;
+  std::cout << color::check::integrity( ck ) << std::endl;
 
-  h.set<0>( 0.1 );
-  h.set<1>( 0.1 );
-  h.set<2>( 0.1 );
+  ck.set<0>( 0.1 );
+  ck.set<1>( 0.1 );
+  ck.set<2>( 0.1 );
 
   // This one has to fail
-  std::cout << color::check::integrity( c ) << std::endl;
+  std::cout << color::check::integrity( ck ) << std::endl;
 
   // Fix
-  color::fix::integrity( c );
+  color::fix::integrity( ck );
 
   // Check again
-  std::cout << color::check::integrity( c ) << std::endl;
+  std::cout << color::check::integrity( ck ) << std::endl;
  }
 
 
