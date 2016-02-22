@@ -4,6 +4,7 @@
 #include "./split332.hpp"
 #include "./split442.hpp"
 #include "./split556.hpp"
+#include "./split565.hpp"
 #include "./split655.hpp"
 #include "./splitAAA2.hpp"
 #include "./uint24.hpp"

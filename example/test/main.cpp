@@ -233,6 +233,12 @@ int main(int argc, char const *argv[])
   extern void make_make_header();
   make_make_header();
 
+  extern void print_bound();
+  print_bound();
+
+  extern void check_sizeof();
+  check_sizeof();
+
   make_blue();
 
   make_image<color::hsl<double> >( "./image-hsl-1-00.tga" , 0.00, 1 );
@@ -289,12 +295,6 @@ int main(int argc, char const *argv[])
 
   extern void check_conversion();
   check_conversion();
-
-  extern void print_bound();
-  print_bound();
-
-  extern void check_sizeof();
-  check_sizeof();
 
   void test_selfie();
   test_selfie();
