@@ -33,13 +33,13 @@ namespace color
       using rgb_double  = ::color::category::_internal::rgb_scramble<      double ,     0, 1, 2 >;
       using rgb_ldouble = ::color::category::_internal::rgb_scramble<      long double, 0, 1, 2 >;
 
-      struct rgb_split233{};
-      struct rgb_split332{};
-      struct rgb_split422 {};
-      struct rgb_split556 {};
-      struct rgb_split655 {};
-      struct rgb_splitAAA2{};
-
+      //struct rgb_split233{};
+      //struct rgb_split323{};
+      //struct rgb_split332{};
+      //struct rgb_split422 {};
+      //struct rgb_split556 {};
+      //struct rgb_split565 {};
+      //struct rgb_split655 {};
      }
 
     using rgb_uint8   = ::color::category::rgb< ::color::category::_internal::rgb_uint8   >;
@@ -50,12 +50,12 @@ namespace color
     using rgb_double  = ::color::category::rgb< ::color::category::_internal::rgb_double  >;
     using rgb_ldouble = ::color::category::rgb< ::color::category::_internal::rgb_ldouble >;
 
-    using rgb_split233  = ::color::category::rgb< ::color::category::_internal::rgb_split233  >;
-    using rgb_split332  = ::color::category::rgb< ::color::category::_internal::rgb_split332  >;
-    using rgb_split422  = ::color::category::rgb< ::color::category::_internal::rgb_split422  >;
-    using rgb_split556  = ::color::category::rgb< ::color::category::_internal::rgb_split556  >;
-    using rgb_split655  = ::color::category::rgb< ::color::category::_internal::rgb_split655  >;
-    using rgb_splitAAA2 = ::color::category::rgb< ::color::category::_internal::rgb_splitAAA2 >;
+    //using rgb_split233   = ::color::category::rgb< ::color::category::_internal::rgb_split233  >;
+    //using rgb_split332   = ::color::category::rgb< ::color::category::_internal::rgb_split332  >;
+    //using rgb_split422   = ::color::category::rgb< ::color::category::_internal::rgb_split422  >;
+    //using rgb_split556   = ::color::category::rgb< ::color::category::_internal::rgb_split556  >;
+    //using rgb_split655   = ::color::category::rgb< ::color::category::_internal::rgb_split655  >;
+    //using rgba_splitAAA2 = ::color::category::rgb< ::color::category::_internal::rgb_splitAAA2 >;
 
    }
  }

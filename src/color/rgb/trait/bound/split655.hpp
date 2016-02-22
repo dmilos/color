@@ -1,10 +1,10 @@
-#ifndef color_rgb_trait_bound_split556
-#define color_rgb_trait_bound_split556
+#ifndef color_rgb_trait_bound_split655
+#define color_rgb_trait_bound_split655
 
 
-#include "../../../generic/type/split556.hpp"
+#include "../../../generic/type/split655.hpp"
 
-#include "../../../_internal/utility/bound/556.hpp"
+#include "../../../_internal/utility/bound/655.hpp"
 
 #include "../../../generic/trait/bound.hpp"
 
@@ -15,9 +15,9 @@ namespace color
   namespace trait
    {
 
-    template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position > 
-     struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split556_t, first_position, second_position, third_position,fourth_position > > >
-      : public ::color::_internal::utility::bound::bound556< unsigned >
+    template< unsigned first_position, unsigned second_position, unsigned third_position > 
+     struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
+      : public ::color::_internal::utility::bound::bound655< unsigned >
       {
       };
 

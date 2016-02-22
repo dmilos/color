@@ -95,14 +95,14 @@ void check_sizeof()
 
   ss << "</tr>" << std::endl;
 
-  ss << print_sizeof<::color::rgb> ( "<code>rgb </code>" );  ss << std::endl;
-  ss << print_sizeof<::color::cmy> ( "<code>cmy </code>" );  ss << std::endl;
-  ss << print_sizeof<::color::cmyk>( "<code>cmyk</code>" );  ss << std::endl;
-  ss << print_sizeof<::color::gray>( "<code>gray</code>" );  ss << std::endl;
-  ss << print_sizeof<::color::hsl> ( "<code>hsl </code>" );  ss << std::endl;
-  ss << print_sizeof<::color::hsv> ( "<code>hsv </code>" );  ss << std::endl;
-  ss << print_sizeof<::color::yiq> ( "<code>yiq </code>" );  ss << std::endl;
-  ss << print_sizeof<::color::yuv> ( "<code>yuv </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::rgb  > ( "<code>rgb </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::cmy  > ( "<code>cmy </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::cmyk >( "<code>cmyk</code>" );  ss << std::endl;
+  ss << print_sizeof<::color::gray >( "<code>gray</code>" );  ss << std::endl;
+  ss << print_sizeof<::color::hsl  > ( "<code>hsl </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::hsv  > ( "<code>hsv </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::yiq  > ( "<code>yiq </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::yuv  > ( "<code>yuv </code>" );  ss << std::endl;
 
   ss << "</table>";
 
