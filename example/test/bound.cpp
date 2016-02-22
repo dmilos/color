@@ -30,16 +30,17 @@ template< typename color_model >
  std::string
  print_bound( std::string const& name, std::string const& format ="xxx" )
   {
+   typedef typename color_model::bound_type bound_type;
    std::stringstream ss;
    ss << "<tr>";
      ss << "<td>"+ name +  "</td>";
      ss << "<td>"+ format +  "</td>";
      ss << "<td class=\"table_divider\"></td>";
-     ss <<  print_triplet( color_model::bound_type::minimum(0), color_model::bound_type::maximum(0), color_model::bound_type::range(0) );
+     ss <<  print_triplet( bound_type::minimum(0), bound_type::maximum(0), bound_type::range(0) );
      ss << "<td class=\"table_divider\"></td>";
-     ss <<  print_triplet( color_model::bound_type::minimum(1), color_model::bound_type::maximum(1), color_model::bound_type::range(1) );
+     ss <<  print_triplet( bound_type::minimum(1), bound_type::maximum(1), bound_type::range(1) );
      ss << "<td class=\"table_divider\"></td>";
-     ss <<  print_triplet( color_model::bound_type::minimum(2), color_model::bound_type::maximum(2), color_model::bound_type::range(2) );
+     ss <<  print_triplet( bound_type::minimum(2), bound_type::maximum(2), bound_type::range(2) );
    ss << "<tr>";
 
    return ss.str();
@@ -64,7 +65,7 @@ print_semi_title( std::string  const& a, std::string  const& b, std::string cons
 void print_bound()
  {
   std::stringstream ss;
-  //ss << "<table  border=1 cellspacing=0 > " << std::endl;
+  ss << "<table  border=1 cellspacing=0 > " << std::endl;
 
   ss << print_semi_title( "Red","Green","Blue" );
   ss << print_bound< color::rgb<std::uint8_t  > >( "color::rgb", "std::uint8_t  " ) << std::endl;
@@ -74,6 +75,13 @@ void print_bound()
   ss << print_bound< color::rgb<float         > >( "color::rgb", "float         " ) << std::endl;
   ss << print_bound< color::rgb<double        > >( "color::rgb", "double        " ) << std::endl;
   ss << print_bound< color::rgb<long double   > >( "color::rgb", "long double   " ) << std::endl;
+
+  ss << print_bound< color::rgb< color::type::split332_t  > >( "color::rgb", "split332_t " ) << std::endl;
+  ss << print_bound< color::rgb< color::type::split422_t  > >( "color::rgb", "split422_t " ) << std::endl;
+  ss << print_bound< color::rgb< color::type::split655_t  > >( "color::rgb", "split655_t " ) << std::endl;
+  ss << print_bound< color::rgb< color::type::split565_t  > >( "color::rgb", "split565_t " ) << std::endl;
+  ss << print_bound< color::rgb< color::type::split556_t  > >( "color::rgb", "split556_t " ) << std::endl;
+
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
   ss << print_semi_title( "Cyan","Yellow","Magenta" );
   ss << print_bound< color::cmy<std::uint8_t  > >( "color::cmy", "std::uint8_t  " ) << std::endl;
@@ -137,7 +145,7 @@ void print_bound()
   ss << print_bound< color::xyz<float        > >( "color::xyz", "float         " ) << std::endl;
   ss << print_bound< color::xyz<double       > >( "color::xyz", "double        " ) << std::endl;
   ss << print_bound< color::xyz<long double  > >( "color::xyz", "long double   " ) << std::endl;
-     
+
   //ss << "</table> ";
 
    {

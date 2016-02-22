@@ -3,8 +3,8 @@ wqzsa#include <iostream>
 
 #include "color/color.hpp"
 
-void check_cmyk();
 void check_hsl();
+void check_hsv();
 
 int main( int argc, char *argv[] )
  {
@@ -32,7 +32,7 @@ void check_hsl()
   std::cout << color::check::unique( h ) << std::endl;
 
   // Fix
-  std::cout << color::fix::unique( h ) << std::endl;
+  color::fix::unique( h );
 
   // Check fix
   std::cout << color::check::unique( h ) << std::endl;
@@ -56,7 +56,7 @@ void check_hsv()
   std::cout << color::check::unique( h ) << std::endl;
 
   // Fix
-  std::cout << color::fix::unique( h ) << std::endl;
+  color::fix::unique( h );
 
   // Check fix
   std::cout << color::check::unique( h ) << std::endl;

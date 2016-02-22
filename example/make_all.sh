@@ -46,6 +46,21 @@ g++ -fexceptions -std=c++11 -g -I../src fix_integrity.cpp           -o  fix_inte
 g++ -fexceptions -std=c++11 -g -I../src fix_overburn.cpp            -o  fix_overburn
 g++ -fexceptions -std=c++11 -g -I../src fix_unique.cpp              -o  fix_unique
 
+g++ -fexceptions -std=c++11 -g -I../src format_double.cpp           -o  format_double
+g++ -fexceptions -std=c++11 -g -I../src format_float.cpp            -o  format_float
+g++ -fexceptions -std=c++11 -g -I../src format_ldouble.cpp          -o  format_ldouble
+g++ -fexceptions -std=c++11 -g -I../src format_split233.cpp         -o  format_split233
+g++ -fexceptions -std=c++11 -g -I../src format_split332.cpp         -o  format_split332
+g++ -fexceptions -std=c++11 -g -I../src format_split422.cpp         -o  format_split422
+g++ -fexceptions -std=c++11 -g -I../src format_split556.cpp         -o  format_split556
+g++ -fexceptions -std=c++11 -g -I../src format_split655.cpp         -o  format_split655
+g++ -fexceptions -std=c++11 -g -I../src format_splitAAA2.cpp        -o  format_splitAAA2
+g++ -fexceptions -std=c++11 -g -I../src format_uint16.cpp           -o  format_uint16
+g++ -fexceptions -std=c++11 -g -I../src format_uint32.cpp           -o  format_uint32
+g++ -fexceptions -std=c++11 -g -I../src format_uint64.cpp           -o  format_uint64
+g++ -fexceptions -std=c++11 -g -I../src format_uint8.cpp            -o  format_uint8
+
+
 g++ -fexceptions -std=c++11 -g -I../src check_integrity.cpp         -o  check_integrity
 g++ -fexceptions -std=c++11 -g -I../src check_overburn.cpp          -o  check_overburn
 g++ -fexceptions -std=c++11 -g -I../src check_unique.cpp            -o  check_unique
@@ -67,3 +82,7 @@ g++ -fexceptions -std=c++11 -g -I../src compare_less_strict.cpp           -o com
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_cmy.cpp           -o make_red_in_cmy
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_gray.cpp          -o make_red_in_gray
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_rgb.cpp           -o make_red_in_rgb
+
+
+
+

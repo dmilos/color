@@ -4169,5 +4169,11 @@
     <ClCompile Include="set.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
+    <ClCompile Include="sizeof.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="bound.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

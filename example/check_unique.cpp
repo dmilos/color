@@ -3,8 +3,8 @@
 
 #include "color/color.hpp"
 
-void check_cmyk();
 void check_hsl();
+void check_hsv();
 
 int main( int argc, char *argv[] )
  {

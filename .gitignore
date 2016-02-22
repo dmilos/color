@@ -15,6 +15,8 @@
 /example/Debug
 doc/doxygen/html
 
+src/color/color.pp2f*.hpp
+
 example/convert_cmy2gray
 example/convert_cmy2rgb
 example/convert_gray2cmy
@@ -66,11 +68,27 @@ example/compare_great_or_equal
 example/compare_great_strict
 example/compare_less_or_equal
 example/compare_less_strict
+
 example/get_blue
 example/get_gray
 example/get_green
 example/get_red
 example/get_alpha
+
+example/format_double
+example/format_float
+example/format_ldouble
+example/format_split233
+example/format_split332
+example/format_split556
+example/format_split655
+example/format_splitAAA2
+example/format_uint16
+example/format_uint32
+example/format_uint64
+example/format_uint8
+example/format_split422
+
 
 example/set_blue
 example/set_gray
