@@ -30,7 +30,7 @@ namespace color
              typedef instance_type const      const_type;
              typedef instance_type const&     return_image_type;
              typedef instance_type      &     return_type;
-             typedef instance_type      &     return_original_type
+             typedef instance_type      &     return_original_type;
              typedef instance_type const&     input_const_type;
              typedef instance_type      &     input_type;
              typedef instance_type      &     output_type;
@@ -44,8 +44,8 @@ namespace color
 
              typedef ::color::_internal::utility::type::traitP< value_type >         component_trait_type;
 
-             typedef typename component_trait_type::const_type           component_const_type;
              typedef typename component_trait_type::instance_type        component_type;
+             typedef typename component_trait_type::const_type           component_const_type;
              typedef typename component_trait_type::return_image_type    component_return_const_type;
              typedef typename component_trait_type::input_const_type     component_input_const_type;
 
@@ -59,7 +59,7 @@ namespace color
                switch( index )
                 {
                  case( 0 ): return ( ( container >>  0 ) & 31 );
-                 case( 1 ): return ( ( container >>  6 ) & 63 );
+                 case( 1 ): return ( ( container >>  5 ) & 63 );
                  case( 2 ): return ( ( container >> 11 ) & 31 );
                 }
                return 0;
@@ -71,7 +71,7 @@ namespace color
                 switch( index )
                  {
                   case( 0 ): return ( ( container >>  0 ) & 31 );
-                  case( 1 ): return ( ( container >>  6 ) & 63 );
+                  case( 1 ): return ( ( container >>  5 ) & 63 );
                   case( 2 ): return ( ( container >> 11 ) & 31 );
                  }
                 return 0;
@@ -81,9 +81,9 @@ namespace color
               {
                switch( index )
                 {
-                 case(0) : container = ( container & ~(  31 << (  0 ) ) )  |  ( ((instance_type)value) << (  0 ) ); break;
-                 case(1) : container = ( container & ~(  63 << (  6 ) ) )  |  ( ((instance_type)value) << (  6 ) ); break;
-                 case(2) : container = ( container & ~(  31 << ( 11 ) ) )  |  ( ((instance_type)value) << ( 11 ) ); break;
+                 case( 0 ) : container = ( container & ~(  31 << (  0 ) ) )  |  ( ((instance_type)value) << (  0) ); break;
+                 case( 1 ) : container = ( container & ~(  63 << (  5 ) ) )  |  ( ((instance_type)value) << (  5) ); break;
+                 case( 2 ) : container = ( container & ~(  31 << ( 11 ) ) )  |  ( ((instance_type)value) << ( 11) ); break;
                 }
               }
 
@@ -92,9 +92,9 @@ namespace color
                {
                 switch( index )
                  {
-                  case(0) : container = ( container & ~(  31 << (  0 ) ) )  |  ( ((instance_type)value) << (  0 ) ); break;
-                  case(1) : container = ( container & ~(  63 << (  6 ) ) )  |  ( ((instance_type)value) << (  6 ) ); break;
-                  case(2) : container = ( container & ~(  31 << ( 11 ) ) )  |  ( ((instance_type)value) << ( 11 ) ); break;
+                  case( 0 ) : container = ( container & ~(  31 << (  0 ) ) )  |  ( ((instance_type)value) << (  0) ); break;
+                  case( 1 ) : container = ( container & ~(  63 << (  5 ) ) )  |  ( ((instance_type)value) << (  5) ); break;
+                  case( 2 ) : container = ( container & ~(  31 << ( 11 ) ) )  |  ( ((instance_type)value) << ( 11) ); break;
                  }
                }
 

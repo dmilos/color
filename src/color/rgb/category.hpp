@@ -2,6 +2,7 @@
 #define color_rgb_category_
 
 // ::color::category::rgb_ABC;
+// ::color::category::rgb< tag >;
 #include "../_internal/category.hpp"
 
 
@@ -34,7 +35,7 @@ namespace color
 
       struct rgb_split233{};
       struct rgb_split332{};
-      struct rgb_split442 {};
+      struct rgb_split422 {};
       struct rgb_split556 {};
       struct rgb_split655 {};
       struct rgb_splitAAA2{};
@@ -51,7 +52,7 @@ namespace color
 
     using rgb_split233  = ::color::category::rgb< ::color::category::_internal::rgb_split233  >;
     using rgb_split332  = ::color::category::rgb< ::color::category::_internal::rgb_split332  >;
-    using rgb_split442  = ::color::category::rgb< ::color::category::_internal::rgb_split442  >;
+    using rgb_split422  = ::color::category::rgb< ::color::category::_internal::rgb_split422  >;
     using rgb_split556  = ::color::category::rgb< ::color::category::_internal::rgb_split556  >;
     using rgb_split655  = ::color::category::rgb< ::color::category::_internal::rgb_split655  >;
     using rgb_splitAAA2 = ::color::category::rgb< ::color::category::_internal::rgb_splitAAA2 >;
