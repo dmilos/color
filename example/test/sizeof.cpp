@@ -29,7 +29,7 @@ std::string print_sizeof( std::string const& name )
   typedef color_name< color::type::split556_t >  split556_type;
   typedef color_name< color::type::split565_t >  split565_type;
   typedef color_name< color::type::split655_t >  split655_type;
-  typedef color_name< color::type::splitAAA2_t > splitAAA2_type;
+  //typedef color_name< color::type::splitAAA2_t > splitAAA2_type;
 
   std::stringstream ss;
 
@@ -56,7 +56,7 @@ std::string print_sizeof( std::string const& name )
   ss << "<td>" << sizeof( split556_type   ) << "</td>";
   ss << "<td>" << sizeof( split565_type   ) << "</td>";
   ss << "<td>" << sizeof( split655_type   ) << "</td>";
-  ss << "<td>" << sizeof( splitAAA2_type  ) << "</td>";
+  //ss << "<td>" << sizeof( splitAAA2_type  ) << "</td>";
 
   ss << "</tr>";
 
@@ -91,7 +91,6 @@ void check_sizeof()
   ss << "<td>"       << "<code>split556</code>"  << "</td>" ;
   ss << "<td>"       << "<code>split565</code>"  << "</td>" ;
   ss << "<td>"       << "<code>split655</code>"  << "</td>" ;
-  ss << "<td>"       << "<code>splitAAA2</code>" << "</td>" ;
 
   ss << "</tr>" << std::endl;
 

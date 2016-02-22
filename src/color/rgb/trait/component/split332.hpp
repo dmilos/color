@@ -2,7 +2,7 @@
 #define color_rgb_trait_component_split332
 
 
-#include "../../../generic/type/split332.hpp"
+#include "../../../generic/type/split3.hpp"
 
 #include "../../../_internal/utility/component/cnent332.hpp"
 

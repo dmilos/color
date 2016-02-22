@@ -1,11 +1,10 @@
 #include "./divert.hpp"
 #include "./normal.hpp"
-#include "./split233.hpp"
-#include "./split332.hpp"
-#include "./split422.hpp"
-#include "./split556.hpp"
-#include "./split565.hpp"
-#include "./split655.hpp"
-#include "./splitAAA2.hpp"
+
+#include "./split5.hpp"
+#include "./split4.hpp"
+#include "./split3.hpp"
+#include "./split2.hpp"
+
 #include "./uint24.hpp"
 #include "./uint48.hpp"

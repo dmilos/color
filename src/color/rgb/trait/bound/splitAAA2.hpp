@@ -2,7 +2,7 @@
 #define color_rgb_trait_bound_splitAAA2
 
 
-#include "../../../generic/type/splitAAA2.hpp"
+#include "../../../generic/type/split4.hpp"
 
 #include "../../../_internal/utility/bound/aaa2.hpp"
 

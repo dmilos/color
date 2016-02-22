@@ -1,10 +1,10 @@
 #ifndef color_xyz_uint16
 #define color_xyz_uint16
 
-#include "../_internal/utility/bound/556.hpp"
+#include "../_internal/utility/bound/split3.hpp"
 #include "../_internal/utility/type/index.hpp"
 #include "../_internal/utility/component/cnent556.hpp"
-#include "../_internal/utility/container/cner556.hpp"
+#include "../_internal/utility/container/split3.hpp"
 
 #include "../generic/trait/bound.hpp"
 #include "../generic/trait/index.hpp"
@@ -22,7 +22,7 @@ namespace color
 
     template< >
      struct bound< ::color::category::xyz_uint16 >
-      : public ::color::_internal::utility::bound::bound556< unsigned >
+      : public ::color::_internal::utility::bound::split556
       {
       };
 
@@ -40,7 +40,7 @@ namespace color
 
     template< >
      struct container< ::color::category::xyz_uint16 >
-      : public  ::color::_internal::utility::container::cner556<  unsigned  >
+      : public  ::color::_internal::utility::container::split556
       {
       };
 

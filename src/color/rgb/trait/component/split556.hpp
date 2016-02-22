@@ -2,7 +2,7 @@
 #define color_rgb_trait_component_split556
 
 
-#include "../../../generic/type/split556.hpp"
+#include "../../../generic/type/split3.hpp"
 
 #include "../../../_internal/utility/component/cnent556.hpp"
 

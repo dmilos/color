@@ -2,13 +2,14 @@
 #define color_rgb_trait_component_split422
 
 
-#include "../../../generic/type/split422.hpp"
+#include "../../../generic/type/split3.hpp"
 
 #include "../../../_internal/utility/component/cnent422.hpp"
 
 #include "../../../generic/trait/component.hpp"
 
 #include "../../category.hpp"
+
 
 namespace color
  {

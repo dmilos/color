@@ -80,7 +80,6 @@ example/format_float
 example/format_ldouble
 example/format_split233
 example/format_split332
-example/format_split442
 example/format_split556
 example/format_split655
 example/format_splitAAA2
@@ -88,6 +87,8 @@ example/format_uint16
 example/format_uint32
 example/format_uint64
 example/format_uint8
+example/format_split422
+
 
 example/set_blue
 example/set_gray
