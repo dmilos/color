@@ -41,10 +41,11 @@ source +=   [
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'make'             ) + envObject[ 'OBJSUFFIX' ],  source = './make.cpp'       )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'bound'            ) + envObject[ 'OBJSUFFIX' ],  source = './bound.cpp'      )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'sizeof'           ) + envObject[ 'OBJSUFFIX' ],  source = './sizeof.cpp'     )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'selfie.cpp'       ) + envObject[ 'OBJSUFFIX' ],  source = './selfie.cpp'     )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'set.cpp'          ) + envObject[ 'OBJSUFFIX' ],  source = './set.cpp'        )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'get.cpp'          ) + envObject[ 'OBJSUFFIX' ],  source = './get.cpp'        )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, './gray/main.cpp'  ) + envObject[ 'OBJSUFFIX' ],  source = './gray/main.cpp'  )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'selfie'           ) + envObject[ 'OBJSUFFIX' ],  source = './selfie.cpp'     )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'set_invoke'       ) + envObject[ 'OBJSUFFIX' ],  source = './set_invoke.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'get_invoke'       ) + envObject[ 'OBJSUFFIX' ],  source = './get_invoke.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'get_test'         ) + envObject[ 'OBJSUFFIX' ],  source = './get_test.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, './gray/main'      ) + envObject[ 'OBJSUFFIX' ],  source = './gray/main.cpp'  )
   ]
 
 # Make native environment

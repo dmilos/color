@@ -8,7 +8,6 @@ template< typename category_name >
   {
    color::rgb< long double> r;
 
-
    color::_internal::model< category_name > mc;
    color::_internal::model< category_name > mo;
 

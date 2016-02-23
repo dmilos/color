@@ -4,7 +4,7 @@
 #include "./model/get.hpp"
 
 
-void test_get( double value )
+void test_get_invoke( double value )
  {
   test_generic_get< ::color::category::rgb_uint8   >();
   test_generic_get< ::color::category::rgb_uint16  >();

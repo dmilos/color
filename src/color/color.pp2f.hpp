@@ -9522,9 +9522,6 @@ static bool process(model_type const& m) {
 	if(m.template get<value_p>() == bound_type::template minimum<value_p>()) {
 		return false;
 	}
-	if(m.template get<value_p>() == bound_type::template maximum<value_p>()) {
-		return false;
-	}
 	return true;
 }
 			};

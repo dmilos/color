@@ -351,7 +351,6 @@ void make_test_make()
 
    ss << "<table>" << std::endl;
 
-
    PRINT_COLORS(black     );
    PRINT_COLORS(white     );
    PRINT_COLORS(red       );

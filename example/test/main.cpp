@@ -30,7 +30,6 @@ void RGB()
   ::color::place::alpha< ::color::rgba<double>       ::category_type >();
   ::color::place::alpha< ::color::argb<std::uint16_t>::category_type >();
 
-
   ::color::place::red< ::color::bgr<float>         ::category_type >();
   ::color::place::red< ::color::bgra<double>       ::category_type >();
   ::color::place::red< ::color::abgr<std::uint8_t> ::category_type >();
@@ -223,8 +222,12 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 int main(int argc, char const *argv[])
  {
 
+  void check_get();
+  check_get();
+
   extern void make_test_make();
   make_test_make();
+
   RGB();
 
   extern int mainX( int argc, char const *argv[] );
@@ -296,14 +299,14 @@ int main(int argc, char const *argv[])
   extern void check_conversion();
   check_conversion();
 
-  void test_selfie();
-  test_selfie();
+  //void test_selfie();
+  //test_selfie();
 
-  void test_set();
-  test_set();
+  void test_set_invoke();
+  test_set_invoke();
 
-  void test_get( double value );
-  test_get(0.5);
+  void test_get_invoke( double value );
+  test_get_invoke(0.5);
 
   return 0;
  }

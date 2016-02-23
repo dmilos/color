@@ -2,11 +2,11 @@
 template< typename category_name >
  void test_operation()
   {
-   std::cout << std::endl;
-   std::cout << "{{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{"<< std::endl;
-   std::cout << "  function - " << __FUNCTION__ << std::endl;
-   std::cout << "  type - " << typeid( category_name ).name()   << std::endl;
-   std::cout << std::endl;
+   //std::cout << std::endl;
+   //std::cout << "{{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{"<< std::endl;
+   //std::cout << "  function - " << __FUNCTION__ << std::endl;
+   //std::cout << "  type - " << typeid( category_name ).name()   << std::endl;
+   //std::cout << std::endl;
 
    typedef color::_internal::model< category_name > model_type;
    typedef typename model_type::component_type     component_type;
@@ -84,10 +84,10 @@ template< typename category_name >
    u32a >= u32b;
    u32a <= u32b;
 
-   std::cout << std::endl;
-   std::cout << "  function - " << __FUNCTION__ << std::endl;
-   std::cout << "  type - " << typeid(category_name).name() << std::endl;
-   std::cout << "}}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}}" << std::endl;
+   //std::cout << std::endl;
+   //std::cout << "  function - " << __FUNCTION__ << std::endl;
+   //std::cout << "  type - " << typeid(category_name).name() << std::endl;
+   //std::cout << "}}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}}" << std::endl;
   }
 
 

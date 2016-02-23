@@ -3,6 +3,8 @@
 
 #include "../src/color.hpp"
 
+#include print.hpp"
+
 using namespace color::operation::arithmetic;
 
 void test_rgb_float_only()
@@ -31,24 +33,13 @@ void test_rgb_float_only()
   f *= 0.5;
  }
 
-void print( color::rgb_uint32 const& u32 )
- {
-  std::cout << "[";
-
-   std::cout << " " << u32.get<0>() << ", ";
-   std::cout << " " << u32.get<1>() << ", ";
-   std::cout << " " << u32.get<2>() << "  ";
-
-  std::cout << "]" << std::endl;
- }
-
 void test_rgb_uint32_only()
  {
   color::rgb_uint32   u32;
   color::rgb_uint32   u32a;
   color::rgb_uint32   u32b;
   color::rgb_uint32   u32c;
-  print( u32 );
+
   u32.get(0);
   u32.get<0>();
   unsigned uu = u32[0];
@@ -59,7 +50,7 @@ void test_rgb_uint32_only()
   u32.set<1>( 28 );
   u32.set( 2, 29 );
   u32.set<2>( 30 );
-  print( u32 );
+
   // long names discourage usage of it directly.
   color::operation::addition::full( u32a, u32b, u32c );
   color::operation::addition::accumulate( u32a, u32b );
