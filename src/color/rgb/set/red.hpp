@@ -14,8 +14,8 @@
       void
       red
        (
-                  ::color::_internal::model< ::color::category::rgb<tag_name> >                                   & color_parameter,
-        typename  ::color::_internal::model< ::color::category::rgb<tag_name> >::component_input_const_type         component_parameter
+                  ::color::model< ::color::category::rgb<tag_name> >                                   & color_parameter,
+        typename  ::color::model< ::color::category::rgb<tag_name> >::component_input_const_type         component_parameter
        )
        {
         typedef ::color::category::rgb<tag_name>  category_type;

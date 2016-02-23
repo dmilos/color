@@ -24,7 +24,7 @@ namespace color
            public:
             typedef category_name category_type;
 
-            typedef ::color::_internal::model<category_type>      model_type;
+            typedef ::color::model<category_type>      model_type;
             typedef ::color::trait::bound< category_type >        bound_type;
             typedef ::color::trait::scalar< category_type >       scalar_trait_type;
 
@@ -63,7 +63,7 @@ namespace color
          public:
           typedef ::color::category::cmyk_float category_type;
 
-          typedef ::color::_internal::model<category_type>      model_type;
+          typedef ::color::model<category_type>      model_type;
           typedef ::color::trait::bound< category_type >        bound_type;
           typedef ::color::trait::scalar< category_type >       scalar_trait_type;
 
@@ -85,7 +85,7 @@ namespace color
          public:
           typedef ::color::category::cmyk_double category_type;
 
-          typedef ::color::_internal::model<category_type>      model_type;
+          typedef ::color::model<category_type>      model_type;
           typedef ::color::trait::bound< category_type >        bound_type;
           typedef ::color::trait::scalar< category_type >       scalar_trait_type;
 
@@ -107,7 +107,7 @@ namespace color
          public:
           typedef ::color::category::cmyk_ldouble category_type;
 
-          typedef ::color::_internal::model<category_type>      model_type;
+          typedef ::color::model<category_type>      model_type;
           typedef ::color::trait::bound< category_type >        bound_type;
           typedef ::color::trait::scalar< category_type >       scalar_trait_type;
 

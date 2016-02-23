@@ -21,7 +21,7 @@
      template< typename tag_name >
       inline
       typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv<tag_name> >::akin_type >::return_type
-      green( ::color::_internal::model< ::color::category::hsv<tag_name> > const& color_parameter )
+      green( ::color::model< ::color::category::hsv<tag_name> > const& color_parameter )
        {
         typedef ::color::category::hsv<tag_name> category_type;
 

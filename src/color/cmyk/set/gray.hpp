@@ -22,13 +22,13 @@
       void
       gray
        (
-                  ::color::_internal::model< ::color::category::cmyk<tag_name > >                                   & color_parameter
+                  ::color::model< ::color::category::cmyk<tag_name > >                                   & color_parameter
         ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::input_const_type         component_parameter
        )
        {
         typedef typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type rgb_category_type;
 
-        ::color::_internal::model<  rgb_category_type > rgb( color_parameter );
+        ::color::model<  rgb_category_type > rgb( color_parameter );
 
         ::color::set::gray( rgb, component_parameter );
 

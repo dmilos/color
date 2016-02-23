@@ -10,10 +10,10 @@
 
      template< typename tag_name >
       inline
-      void white( ::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter )
+      void white( ::color::model< ::color::category::gray< tag_name > > & color_parameter )
        {
         typedef ::color::category::gray< tag_name >         category_left_type;
-        typedef ::color::_internal::model< category_left_type  > left_type;
+        typedef ::color::model< category_left_type  > left_type;
 
         typedef ::color::gray< double >      right_type;
 

@@ -10,10 +10,10 @@
 
      template< typename tag_name >
       inline
-      void chocolate( ::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter )
+      void chocolate( ::color::model< ::color::category::hsl< tag_name > > & color_parameter )
        {
         typedef ::color::category::hsl< tag_name >         category_left_type;
-        typedef ::color::_internal::model< category_left_type  > left_type;
+        typedef ::color::model< category_left_type  > left_type;
 
         typedef ::color::hsl< double >      right_type;
 

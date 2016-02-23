@@ -2,7 +2,7 @@
 #define color_generic_check_integrity
 // ::color::check::integrity< category >( model )
 
-#include "../../_internal/model.hpp"
+#include "../../generic/model.hpp"
 
 namespace color
  {
@@ -17,7 +17,7 @@ namespace color
          public:
           typedef category_name category_type;
 
-          typedef ::color::_internal::model<category_type>          model_type;
+          typedef ::color::model<category_type>          model_type;
 
           static bool process( model_type const& m )
            {
@@ -30,7 +30,7 @@ namespace color
 
     template< typename category_name >
      inline
-     bool integrity( ::color::_internal::model<category_name> const& m )
+     bool integrity( ::color::model<category_name> const& m )
       {
        return ::color::check::_internal::integrity<category_name>::process( m );
       }

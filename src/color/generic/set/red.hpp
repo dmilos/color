@@ -13,8 +13,8 @@
       void
       red
        ( 
-                 ::color::_internal::model< category_name >                                   & color_parameter, 
-        typename ::color::_internal::model< category_name >::component_input_const_type         component_parameter
+                 ::color::model< category_name >                                   & color_parameter, 
+        typename ::color::model< category_name >::component_input_const_type         component_parameter
        )
        {
         // Do nothing to force specialization!!!
@@ -25,8 +25,8 @@
      // void
      // red
      //  ( 
-     //            ::color::_internal::model< category_target_name >                                   & color_parameter, 
-     //   typename ::color::_internal::model< category_source_name >::component_input_const_type         component_parameter
+     //            ::color::model< category_target_name >                                   & color_parameter, 
+     //   typename ::color::model< category_source_name >::component_input_const_type         component_parameter
      //  )
      //  {
      //   // Do nothing!!!

@@ -8,8 +8,8 @@ template< typename category_name >
   {
    color::rgb< long double> r;
 
-   color::_internal::model< category_name > mc;
-   color::_internal::model< category_name > mo;
+   color::model< category_name > mc;
+   color::model< category_name > mo;
 
    color::make::black      ( r ); mc = r; color::make::black      ( mo ); if( false == (mo==mc) ) std::cout << "black     ( " << (mo==mc) << " ); ";
    color::make::white      ( r ); mc = r; color::make::white      ( mo ); if( false == (mo==mc) ) std::cout << "white     ( " << (mo==mc) << " ); ";

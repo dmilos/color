@@ -22,7 +22,7 @@ namespace color
          public:
            typedef ::color::category::hsl<tag_name> category_type;
 
-           typedef ::color::_internal::model<category_type>      model_type;
+           typedef ::color::model<category_type>      model_type;
            typedef ::color::trait::bound< category_type >        bound_type;
 
            enum

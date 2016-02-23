@@ -9,18 +9,18 @@
     {
 
      template< typename category_name >
-      void beige( ::color::_internal::model< category_name > & color_parameter )
+      void beige( ::color::model< category_name > & color_parameter )
        {
-        typedef ::color::_internal::model< category_name > model_type;
+        typedef ::color::model< category_name > model_type;
         // Do nothing to force specialization
        }
 
      template< typename category_name >
       inline
-      ::color::_internal::model< category_name >
+      ::color::model< category_name >
       beige( )
        {
-        typedef ::color::_internal::model< category_name > model_type;
+        typedef ::color::model< category_name > model_type;
         static model_type dummy;
         // TODO Will call every time, That is no good.
         ::color::make::beige( dummy );

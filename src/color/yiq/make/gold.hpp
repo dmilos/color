@@ -10,10 +10,10 @@
 
      template< typename tag_name >
       inline
-      void gold( ::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter )
+      void gold( ::color::model< ::color::category::yiq< tag_name > > & color_parameter )
        {
         typedef ::color::category::yiq< tag_name >         category_left_type;
-        typedef ::color::_internal::model< category_left_type  > left_type;
+        typedef ::color::model< category_left_type  > left_type;
 
         typedef ::color::yiq< double >      right_type;
 

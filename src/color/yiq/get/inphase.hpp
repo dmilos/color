@@ -16,8 +16,8 @@
 
      template< typename tag_name >
       inline
-      typename ::color::_internal::model< ::color::category::yiq< tag_name> >::component_const_type
-      inphase( ::color::_internal::model< ::color::category::yiq< tag_name> > const& color_parameter )
+      typename ::color::model< ::color::category::yiq< tag_name> >::component_const_type
+      inphase( ::color::model< ::color::category::yiq< tag_name> > const& color_parameter )
        {
         typedef ::color::category::yiq< tag_name>  category_type;
         enum{ inphase_p  = ::color::place::_internal::inphase<category_type>::position_enum };

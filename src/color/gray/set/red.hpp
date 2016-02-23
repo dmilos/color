@@ -23,7 +23,7 @@
       void
       red
        (
-                  ::color::_internal::model< ::color::category::gray< tag_name > >                                   & color_parameter
+                  ::color::model< ::color::category::gray< tag_name > >                                   & color_parameter
         ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray< tag_name > >::akin_type >::input_const_type         component_parameter
        )
        {

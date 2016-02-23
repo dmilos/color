@@ -21,7 +21,7 @@
       void
       gray
        (
-                  ::color::_internal::model< ::color::category::yuv< tag_name > >                               & color_parameter
+                  ::color::model< ::color::category::yuv< tag_name > >                               & color_parameter
         ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yuv< tag_name > >::akin_type >::input_const_type         component_parameter
        )
        {

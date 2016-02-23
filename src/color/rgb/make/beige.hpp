@@ -10,10 +10,10 @@
 
      template< typename tag_name >
       inline
-      void beige( ::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter )
+      void beige( ::color::model< ::color::category::rgb< tag_name > > & color_parameter )
        {
         typedef ::color::category::rgb< tag_name     > category_left_type;
-        typedef ::color::_internal::model< category_left_type  > left_type;
+        typedef ::color::model< category_left_type  > left_type;
 
         typedef ::color::rgb< std::uint8_t >      right_type;
 

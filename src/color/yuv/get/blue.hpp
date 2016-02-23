@@ -23,7 +23,7 @@
      template< typename tag_name >
       inline
       typename ::color::trait::component< typename ::color::akin::rgb<::color::category::yuv<tag_name> >::akin_type >::return_type
-      blue( ::color::_internal::model< ::color::category::yuv<tag_name> > const& color_parameter )
+      blue( ::color::model< ::color::category::yuv<tag_name> > const& color_parameter )
        {
         typedef ::color::category::yuv<tag_name>  category_type;
         typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;

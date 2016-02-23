@@ -893,17 +893,17 @@ public:
 		::color::_internal::init<category_name>(this->m_container, ilist);
 	}
 
-	model(::color::_internal::model<category_type> const& that) {
+	model(::color::model<category_type> const& that) {
 		this->m_container = that.container();
 	}
 
 	template< typename other_category_name >
-	explicit model(::color::_internal::model<other_category_name> const& that) {
+	explicit model(::color::model<other_category_name> const& that) {
 		::color::_internal::convert<category_name, other_category_name>::process(this->m_container, that.container());
 	}
 
 	template< typename other_category_name >
-	model operator=(::color::_internal::model<other_category_name> const& that) {
+	model operator=(::color::model<other_category_name> const& that) {
 		::color::_internal::convert< category_name, other_category_name>::process(this->m_container, that.container());
 		return *this;
 	}
@@ -960,7 +960,7 @@ struct integrity {
 public:
 	typedef category_name category_type;
 
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 
 	static bool process(model_type const& m) {
 		return true;
@@ -971,7 +971,7 @@ public:
 
 template< typename category_name >
 inline
-bool integrity(::color::_internal::model<category_name> const& m) {
+bool integrity(::color::model<category_name> const& m) {
 	return ::color::check::_internal::integrity<category_name>::process(m);
 }
 
@@ -987,7 +987,7 @@ struct overburn {
 public:
 	typedef category_name category_type;
 
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 	typedef ::color::trait::bound<category_type> bound_type;
 	typedef ::color::trait::container< category_name > container_trait_type;
 	typedef ::color::trait::index<category_type> index_trait_type;
@@ -1014,7 +1014,7 @@ public:
 template< typename category_name >
 inline
 typename ::color::trait::index<category_name>::instance_type
-overburn(::color::_internal::model<category_name> const& m) {
+overburn(::color::model<category_name> const& m) {
 	return ::color::check::_internal::overburn<category_name>::process(m);
 }
 
@@ -1027,8 +1027,8 @@ namespace compare {
 template < typename category_name >
 bool equal
 (
-	::color::_internal::model< category_name > const& left
-	,::color::_internal::model< category_name > const& right
+	::color::model< category_name > const& left
+	,::color::model< category_name > const& right
 ) {
 	return left.container() == right.container();
 }
@@ -1038,7 +1038,7 @@ namespace operators {
 template< typename category_name >
 inline
 bool
-operator ==(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+operator ==(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 	return ::color::compare::equal(left, right);
 }
 
@@ -1051,8 +1051,8 @@ namespace compare {
 template < typename category_name >
 bool different
 (
-	::color::_internal::model< category_name > const& left
-	,::color::_internal::model< category_name > const& right
+	::color::model< category_name > const& left
+	,::color::model< category_name > const& right
 ) {
 	return left.container() != right.container();
 }
@@ -1062,7 +1062,7 @@ namespace operators {
 template< typename category_name >
 inline
 bool
-operator !=(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+operator !=(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 	return ::color::compare::different(left, right);
 }
 
@@ -1076,8 +1076,8 @@ namespace compare {
 template < typename category_name >
 bool great_or_equal
 (
-	::color::_internal::model< category_name > const& left
-	,::color::_internal::model< category_name > const& right
+	::color::model< category_name > const& left
+	,::color::model< category_name > const& right
 ) {
 	return left.container() >= right.container();
 }
@@ -1087,7 +1087,7 @@ namespace operators {
 template< typename category_name >
 inline
 bool
-operator >=(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+operator >=(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 	return ::color::compare::great_or_equal(left, right);
 }
 }
@@ -1100,8 +1100,8 @@ namespace compare {
 template < typename category_name >
 bool great_strict
 (
-	::color::_internal::model< category_name > const& left
-	,::color::_internal::model< category_name > const& right
+	::color::model< category_name > const& left
+	,::color::model< category_name > const& right
 ) {
 	return left.container() > right.container();
 }
@@ -1111,7 +1111,7 @@ namespace operators {
 template< typename category_name >
 inline
 bool
-operator >(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+operator >(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 	return ::color::compare::great_strict(left, right);
 }
 
@@ -1124,8 +1124,8 @@ namespace compare {
 template < typename category_name >
 bool less_or_equal
 (
-	::color::_internal::model< category_name > const& left
-	,::color::_internal::model< category_name > const& right
+	::color::model< category_name > const& left
+	,::color::model< category_name > const& right
 ) {
 	return left.container() <= right.container();
 }
@@ -1135,7 +1135,7 @@ namespace operators {
 template< typename category_name >
 inline
 bool
-operator <=(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+operator <=(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 	return ::color::compare::less_or_equal(left, right);
 }
 
@@ -1148,8 +1148,8 @@ namespace compare {
 template < typename category_name >
 bool less_strict
 (
-	::color::_internal::model< category_name > const& left
-	,::color::_internal::model< category_name > const& right
+	::color::model< category_name > const& left
+	,::color::model< category_name > const& right
 ) {
 	return left.container() < right.container();
 }
@@ -1159,7 +1159,7 @@ namespace operators {
 template< typename category_name >
 inline
 bool
-operator <(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+operator <(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 	return ::color::compare::less_strict(left, right);
 }
 
@@ -2429,7 +2429,7 @@ template<> struct pick_gray< long double > {
 }
 
 template< typename type_name >
-using gray = ::color::_internal::model< typename ::color::_internal::pick_gray< type_name >::category_type >;
+using gray = ::color::model< typename ::color::_internal::pick_gray< type_name >::category_type >;
 
 }
 
@@ -3044,7 +3044,7 @@ namespace get {
 template< typename tag_name >
 inline
 typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray<tag_name> >::akin_type >::return_type
-red(::color::_internal::model< ::color::category::gray<tag_name> > const& color_parameter) {
+red(::color::model< ::color::category::gray<tag_name> > const& color_parameter) {
 	typedef ::color::category::gray<tag_name> category_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
@@ -3062,7 +3062,7 @@ namespace get {
 template< typename tag_name >
 inline
 typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray<tag_name> >::akin_type >::return_type
-green(::color::_internal::model< ::color::category::gray<tag_name> > const& color_parameter) {
+green(::color::model< ::color::category::gray<tag_name> > const& color_parameter) {
 	typedef ::color::category::gray<tag_name> category_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
@@ -3080,7 +3080,7 @@ namespace get {
 template< typename tag_name >
 inline
 typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray<tag_name> >::akin_type >::return_type
-blue(::color::_internal::model< ::color::category::gray<tag_name> > const& color_parameter) {
+blue(::color::model< ::color::category::gray<tag_name> > const& color_parameter) {
 	typedef ::color::category::gray<tag_name> category_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
@@ -3097,7 +3097,7 @@ namespace get {
 
 template< typename tag_name >
 typename ::color::trait::component< ::color::category::gray<tag_name> >::return_type
-gray(::color::_internal::model< ::color::category::gray<tag_name> > const& color_parameter) {
+gray(::color::model< ::color::category::gray<tag_name> > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
@@ -3112,7 +3112,7 @@ inline
 void
 red
 (
-	::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter
+	::color::model< ::color::category::gray< tag_name > > & color_parameter
 	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::gray<tag_name > category_type;
@@ -3135,7 +3135,7 @@ inline
 void
 green
 (
-	::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter
+	::color::model< ::color::category::gray< tag_name > > & color_parameter
 	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::gray<tag_name > category_type;
@@ -3158,7 +3158,7 @@ inline
 void
 blue
 (
-	::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter
+	::color::model< ::color::category::gray< tag_name > > & color_parameter
 	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::gray<tag_name > category_type;
@@ -3180,8 +3180,8 @@ inline
 void
 gray
 (
-	::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter,
-	typename ::color::_internal::model< ::color::category::gray< tag_name > >::component_input_const_type component_parameter
+	::color::model< ::color::category::gray< tag_name > > & color_parameter,
+	typename ::color::model< ::color::category::gray< tag_name > >::component_input_const_type component_parameter
 ) {
 	typedef ::color::category::gray< tag_name > category_type;
 	enum { gray_p = ::color::place::_internal::gray< category_type >::position_enum };
@@ -3731,7 +3731,7 @@ template<> struct pick_cmy< long double > {
 }
 
 template< typename type_name >
-using cmy = ::color::_internal::model< typename ::color::_internal::pick_cmy< type_name >::category_type >;
+using cmy = ::color::model< typename ::color::_internal::pick_cmy< type_name >::category_type >;
 
 }
 
@@ -3933,7 +3933,7 @@ public:
 	typedef ::color::trait::component< category_name > component_trait_type;
 	typedef ::color::trait::container< category_name > container_trait_type;
 
-	typedef typename ::color::_internal::model<category_type> model_type;
+	typedef typename ::color::model<category_type> model_type;
 
 	typedef typename component_trait_type::input_const_type component_input_const_type;
 	typedef typename component_trait_type::return_type component_return_type;
@@ -3975,7 +3975,7 @@ public:
 template< typename category_name >
 void invert
 (
-	::color::_internal::model<category_name> & result
+	::color::model<category_name> & result
 ) {
 	::color::operation::_internal::invert<category_name>::process(result);
 }
@@ -3983,8 +3983,8 @@ void invert
 template< typename category_name >
 void invert
 (
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& right
+	::color::model<category_name> & result
+	,::color::model<category_name> const& right
 ) {
 	::color::operation::_internal::invert<category_name>::process(result, right);
 }
@@ -3998,7 +3998,7 @@ namespace get {
 template< typename tag_name >
 inline
 typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::return_type
-red(::color::_internal::model< ::color::category::cmy<tag_name> > const& color_parameter) {
+red(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) {
 	typedef ::color::category::cmy<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -4018,7 +4018,7 @@ namespace get {
 template< typename tag_name >
 inline
 typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::return_type
-green(::color::_internal::model< ::color::category::cmy<tag_name> > const& color_parameter) {
+green(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) {
 	typedef ::color::category::cmy<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -4038,7 +4038,7 @@ namespace get {
 template< typename tag_name >
 inline
 typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::return_type
-blue(::color::_internal::model< ::color::category::cmy<tag_name> > const& color_parameter) {
+blue(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) {
 	typedef ::color::category::cmy<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -4263,7 +4263,7 @@ namespace get {
 template< typename tag_name >
 inline
 typename ::color::trait::component< typename ::color::akin::yiq< ::color::category::cmy< tag_name > >::akin_type >::return_type
-inphase(::color::_internal::model< ::color::category::cmy<tag_name> > const& color_parameter) {
+inphase(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::yiq<category_type >::akin_type akin_type;
@@ -4292,8 +4292,8 @@ namespace get {
 
 template< typename tag_name>
 inline
-typename ::color::_internal::model< typename ::color::akin::yiq< ::color::category::cmy< tag_name > >::akin_type >::component_const_type
-quadrature(::color::_internal::model< ::color::category::cmy<tag_name> > const& color_parameter) {
+typename ::color::model< typename ::color::akin::yiq< ::color::category::cmy< tag_name > >::akin_type >::component_const_type
+quadrature(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) {
 	typedef ::color::category::cmy<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::yiq<category_type>::akin_type akin_type;
@@ -4348,7 +4348,7 @@ namespace get {
 template< typename tag_name >
 inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::cmy<tag_name> >::akin_type >::return_type
-gray(::color::_internal::model< ::color::category::cmy<tag_name> > const& color_parameter) {
+gray(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_type;
 	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -4378,7 +4378,7 @@ inline
 void
 red
 (
-	::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter
+	::color::model< ::color::category::cmy< tag_name > > & color_parameter
 	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
@@ -4401,7 +4401,7 @@ inline
 void
 green
 (
-	::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter
+	::color::model< ::color::category::cmy< tag_name > > & color_parameter
 	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
@@ -4424,7 +4424,7 @@ inline
 void
 blue
 (
-	::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter
+	::color::model< ::color::category::cmy< tag_name > > & color_parameter
 	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
@@ -4450,7 +4450,7 @@ public:
 
 	typedef ::color::trait::container< category_type > container_trait_type;
 	typedef ::color::trait::index< category_type > index_trait_type;
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 
 	typedef typename index_trait_type::instance_type index_type;
 
@@ -4472,8 +4472,8 @@ public:
 template< typename category_name >
 void addition
 (
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& right
+	::color::model<category_name> & result
+	,::color::model<category_name> const& right
 ) {
 	::color::operation::_internal::addition<category_name>::process(result, right);
 }
@@ -4481,9 +4481,9 @@ void addition
 template< typename category_name >
 void addition
 (
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& left
-	,::color::_internal::model<category_name> const& right
+	::color::model<category_name> & result
+	,::color::model<category_name> const& left
+	,::color::model<category_name> const& right
 ) {
 	::color::operation::_internal::addition<category_name>::process(result, left, right);
 }
@@ -4502,7 +4502,7 @@ public:
 	typedef ::color::trait::index<category_type> index_trait_type;
 	typedef ::color::trait::container< category_type > container_trait_type;
 
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 
 	typedef typename index_trait_type::instance_type index_type;
 
@@ -4524,8 +4524,8 @@ public:
 template< typename category_name >
 void subtract
 (
-	::color::_internal::model<category_name> & result
-	,color::_internal::model<category_name> const& right
+	::color::model<category_name> & result
+	,color::model<category_name> const& right
 ) {
 	::color::operation::_internal::subtract<category_name>::process(result, right);
 }
@@ -4533,9 +4533,9 @@ void subtract
 template< typename category_name >
 void subtract
 (
-	::color::_internal::model<category_name> & result
-	,color::_internal::model<category_name> const& left
-	,color::_internal::model<category_name> const& right
+	::color::model<category_name> & result
+	,color::model<category_name> const& left
+	,color::model<category_name> const& right
 ) {
 	::color::operation::_internal::subtract<category_name>::process(result, left, right);
 }
@@ -4557,7 +4557,7 @@ public:
 
 	typedef ::color::trait::index<category_type> index_trait_type;
 
-	typedef typename ::color::_internal::model<category_type> model_type;
+	typedef typename ::color::model<category_type> model_type;
 
 	typedef model_type & model_input_type;
 	typedef model_type const& model_const_input_type;
@@ -4582,7 +4582,7 @@ public:
 template< typename category_name, typename scalar_name >
 void scale
 (
-	::color::_internal::model<category_name> & result
+	::color::model<category_name> & result
 	,scalar_name const& scalar
 ) {
 	::color::operation::_internal::scale<category_name,scalar_name>::process(result, scalar);
@@ -4591,9 +4591,9 @@ void scale
 template< typename category_name, typename scalar_name >
 void scale
 (
-	::color::_internal::model<category_name> & result
+	::color::model<category_name> & result
 	,scalar_name const& scalar
-	,::color::_internal::model<category_name> const& right
+	,::color::model<category_name> const& right
 ) {
 	::color::operation::_internal::scale<category_name,scalar_name>::process(result, scalar, right);
 }
@@ -4607,89 +4607,89 @@ namespace arithmetic {
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
-operator +(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
-	::color::_internal::model< category_name > result;
+::color::model< category_name >
+operator +(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
+	::color::model< category_name > result;
 	::color::operation::addition(result, left, right);
 	return result;
 }
 
 template< typename category_name>
 inline
-::color::_internal::model< category_name > &
-operator +=(::color::_internal::model< category_name > & result, ::color::_internal::model< category_name > const& right) {
+::color::model< category_name > &
+operator +=(::color::model< category_name > & result, ::color::model< category_name > const& right) {
 	::color::operation::addition(result, right);
 	return result;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
-operator -(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
-	::color::_internal::model< category_name > result;
+::color::model< category_name >
+operator -(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
+	::color::model< category_name > result;
 	::color::operation::subtract(result, left, right);
 	return result;
 }
 
 template< typename category_name, typename scalar_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 operator *
 (
 	scalar_name const& left
-	,::color::_internal::model< category_name > const& right
+	,::color::model< category_name > const& right
 ) {
-	::color::_internal::model< category_name > result;
+	::color::model< category_name > result;
 	::color::operation::scale(result, left, right);
 	return result;
 }
 
 template< typename category_name, typename scalar_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 operator *
 (
-	::color::_internal::model< category_name > const & left
+	::color::model< category_name > const & left
 	,scalar_name const & right
 ) {
-	::color::_internal::model< category_name > result;
+	::color::model< category_name > result;
 	::color::operation::scale(result, right, left);
 	return result;
 }
 
 template< typename category_name, typename scalar_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 operator /
 (
-	::color::_internal::model< category_name > const & left
+	::color::model< category_name > const & left
 	,scalar_name const & right
 ) {
-	::color::_internal::model< category_name > result;
+	::color::model< category_name > result;
 	::color::operation::scale(result, scalar_name(1) / right, left);
 	return result;
 }
 
 template< typename category_name, typename scalar_name >
 inline
-::color::_internal::model< category_name > &
-operator -=(::color::_internal::model< category_name > & result, scalar_name const& left) {
+::color::model< category_name > &
+operator -=(::color::model< category_name > & result, scalar_name const& left) {
 	::color::operation::subtract(result, left);
 	return result;
 }
 
 template< typename category_name, typename scalar_name >
 inline
-::color::_internal::model< category_name > &
-operator *=(::color::_internal::model< category_name > & result, scalar_name const& scalar) {
+::color::model< category_name > &
+operator *=(::color::model< category_name > & result, scalar_name const& scalar) {
 	::color::operation::scale(result, scalar);
 	return result;
 }
 
 template< typename category_name, typename scalar_name >
 inline
-::color::_internal::model< category_name > &
-operator /=(::color::_internal::model< category_name > & result, scalar_name const& scalar) {
+::color::model< category_name > &
+operator /=(::color::model< category_name > & result, scalar_name const& scalar) {
 	::color::operation::scale(result, scalar_name(1) / scalar);
 	return result;
 }
@@ -4714,7 +4714,7 @@ public:
 
 	typedef ::color::trait::index<category_type> index_trait_type;
 	typedef ::color::trait::container< category_type > container_trait_type;
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 
 	typedef model_type & model_input_type;
 	typedef model_type const& model_const_input_type;
@@ -4739,9 +4739,9 @@ public:
 template< typename category_name, typename scalar_name >
 void convex
 (
-	::color::_internal::model<category_name> & result
+	::color::model<category_name> & result
 	,scalar_name const& scalar
-	,color::_internal::model<category_name> const& right
+	,color::model<category_name> const& right
 ) {
 	::color::operation::_internal::convex<category_name>::process(result, scalar, right);
 }
@@ -4749,10 +4749,10 @@ void convex
 template< typename category_name, typename scalar_name >
 void convex
 (
-	::color::_internal::model<category_name> & result
-	,color::_internal::model<category_name> const& left
+	::color::model<category_name> & result
+	,color::model<category_name> const& left
 	,scalar_name const& scalar
-	,color::_internal::model<category_name> const& right
+	,color::model<category_name> const& right
 ) {
 	::color::operation::_internal::convex<category_name>::process(result, left, scalar, right);
 }
@@ -4766,8 +4766,8 @@ namespace get {
 template< typename category_name >
 inline
 typename ::color::trait::component< category_name >::return_image_type
-alpha(::color::_internal::model< category_name > const& color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+alpha(::color::model< category_name > const& color_parameter) {
+	typedef ::color::model< category_name > model_type;
 	typedef ::color::trait::bound< category_name > bound_type;
 	return bound_type::template maximum< 0 >();
 }
@@ -4783,8 +4783,8 @@ inline
 void
 alpha
 (
-	::color::_internal::model< category_name > & color_parameter,
-	typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+	::color::model< category_name > & color_parameter,
+	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
 };
 
@@ -4808,7 +4808,7 @@ public:
 
 	typedef ::color::trait::container< category_type > container_trait_type;
 	typedef ::color::trait::index< category_type > index_trait_type;
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 
 	typedef typename index_trait_type::instance_type index_type;
 
@@ -4862,8 +4862,8 @@ public:
 template< typename category_name >
 void blend
 (
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& upper
+	::color::model<category_name> & result
+	,::color::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
 	static_assert(0 <= alpha_index, "Error: This combination of model/format has no alpha channel") ;
@@ -4873,9 +4873,9 @@ void blend
 template< typename category_name >
 void blend
 (
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& lower
-	,::color::_internal::model<category_name> const& upper
+	::color::model<category_name> & result
+	,::color::model<category_name> const& lower
+	,::color::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
 	static_assert(0 <= alpha_index, "Error: This combination of model/format has no alpha channel") ;
@@ -4883,11 +4883,11 @@ void blend
 }
 
 template< typename category_name >
-::color::_internal::model<category_name>
+::color::model<category_name>
 mix
 (
-	::color::_internal::model<category_name> const& lower
-	,::color::_internal::model<category_name> const& upper
+	::color::model<category_name> const& lower
+	,::color::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
 	static_assert(0 <= alpha_index, "Error: This combination of model/format has no alpha channel") ;
@@ -4897,9 +4897,9 @@ mix
 template< typename category_name, typename scalar_name = double >
 void blend
 (
-	::color::_internal::model<category_name> & result
+	::color::model<category_name> & result
 	,scalar_name const& alpha
-	,::color::_internal::model<category_name> const& upper
+	,::color::model<category_name> const& upper
 ) {
 	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
 	static_assert(0 <= alpha_index, "Error: This combination of model/format has no alpha channel") ;
@@ -4909,21 +4909,21 @@ void blend
 template< typename category_name, typename scalar_name = double >
 void blend
 (
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& lower
+	::color::model<category_name> & result
+	,::color::model<category_name> const& lower
 	,scalar_name const& alpha
-	,::color::_internal::model<category_name> const& upper
+	,::color::model<category_name> const& upper
 ) {
 	::color::operation::_internal::blend<category_name>::accumulate(result, lower, alpha, upper);
 }
 
 template< typename category_name, typename scalar_name = double >
-::color::_internal::model<category_name>
+::color::model<category_name>
 mix
 (
-	::color::_internal::model<category_name> const& lower
+	::color::model<category_name> const& lower
 	,scalar_name const& alpha
-	,::color::_internal::model<category_name> const& upper
+	,::color::model<category_name> const& upper
 ) {
 	return ::color::operation::_internal::blend<category_name>::mix(lower, alpha, upper);
 }
@@ -4939,7 +4939,7 @@ namespace color {
 		typename ::color::trait::scalar< category_name >::instance_type
 		normalize
 		(
-			::color::_internal::model<category_name> const& m
+			::color::model<category_name> const& m
 			,typename ::color::trait::index<category_name>::input_const_type index
 ) {
 	return ::color::_internal::normalize<category_name>::process(m[index], index) ;
@@ -4954,7 +4954,7 @@ inline
 typename ::color::trait::scalar< category_name >::instance_type
 normalize
 (
-	::color::_internal::model<category_name> const& m
+	::color::model<category_name> const& m
 ) {
 	return ::color::_internal::normalize<category_name>::template process<index_size>(m.template get<index_size>());
 }
@@ -5001,8 +5001,8 @@ namespace color {
 		void
 		gray
 		(
-			::color::_internal::model< ::color::category::cmy<tag_name> > & color_parameter,
-			typename ::color::_internal::model< ::color::category::cmy<tag_name> >::component_input_const_type component_parameter
+			::color::model< ::color::category::cmy<tag_name> > & color_parameter,
+			typename ::color::model< ::color::category::cmy<tag_name> >::component_input_const_type component_parameter
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -5602,7 +5602,7 @@ namespace color {
 	}
 
 	template< typename type_name >
-	using cmyk = ::color::_internal::model< typename ::color::_internal::pick_cmyk< type_name >::category_type >;
+	using cmyk = ::color::model< typename ::color::_internal::pick_cmyk< type_name >::category_type >;
 
 }
 
@@ -5734,7 +5734,7 @@ namespace color {
 					public:
 					typedef category_name category_type;
 
-					typedef ::color::_internal::model<category_type> model_type;
+					typedef ::color::model<category_type> model_type;
 					typedef ::color::trait::bound< category_type > bound_type;
 					typedef ::color::trait::scalar< category_type > scalar_trait_type;
 
@@ -5774,7 +5774,7 @@ struct integrity< ::color::category::cmyk_float> {
 	public:
 	typedef ::color::category::cmyk_float category_type;
 
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 	typedef ::color::trait::bound< category_type > bound_type;
 	typedef ::color::trait::scalar< category_type > scalar_trait_type;
 
@@ -5800,7 +5800,7 @@ struct integrity< ::color::category::cmyk_double > {
 	public:
 	typedef ::color::category::cmyk_double category_type;
 
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 	typedef ::color::trait::bound< category_type > bound_type;
 	typedef ::color::trait::scalar< category_type > scalar_trait_type;
 
@@ -5826,7 +5826,7 @@ struct integrity< ::color::category::cmyk_ldouble > {
 	public:
 	typedef ::color::category::cmyk_ldouble category_type;
 
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 	typedef ::color::trait::bound< category_type > bound_type;
 	typedef ::color::trait::scalar< category_type > scalar_trait_type;
 
@@ -5860,7 +5860,7 @@ namespace color {
 				public:
 				typedef category_name category_type;
 
-				typedef ::color::_internal::model<category_type> model_type;
+				typedef ::color::model<category_type> model_type;
 
 static void process(model_type & m) {
 }
@@ -5874,7 +5874,7 @@ static void process(model_type & result, model_type const& right) {
 template< typename category_name >
 void unique
 (
-	::color::_internal::model<category_name> & result
+	::color::model<category_name> & result
 ) {
 	::color::fix::_internal::unique<category_name>::process(result);
 }
@@ -5882,8 +5882,8 @@ void unique
 template< typename category_name >
 void unique
 (
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& right
+	::color::model<category_name> & result
+	,::color::model<category_name> const& right
 ) {
 	::color::fix::_internal::unique<category_name>::process(result, right);
 }
@@ -5900,7 +5900,7 @@ namespace color {
 				public:
 				typedef ::color::category::cmyk< tag_name > category_type;
 
-				typedef ::color::_internal::model<category_type> model_type;
+				typedef ::color::model<category_type> model_type;
 				typedef ::color::trait::bound<category_type> bound_type;
 				typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 				typedef ::color::operation::_internal::invert< category_type > invert_type;
@@ -5976,7 +5976,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::cmyk<tag_name> >::akin_type >::return_type
-gray(::color::_internal::model< ::color::category::cmyk<tag_name> > const& color_parameter) {
+gray(::color::model< ::color::category::cmyk<tag_name> > const& color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_type;
 	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -6037,7 +6037,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb<::color::category::cmyk< tag_name > >::akin_type >::return_type
-red(::color::_internal::model< ::color::category::cmyk< tag_name > > const& color_parameter) {
+red(::color::model< ::color::category::cmyk< tag_name > > const& color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -6061,7 +6061,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb<::color::category::cmyk< tag_name > >::akin_type >::return_type
-green(::color::_internal::model< ::color::category::cmyk< tag_name > > const& color_parameter) {
+green(::color::model< ::color::category::cmyk< tag_name > > const& color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -6085,7 +6085,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb<::color::category::cmyk< tag_name > >::akin_type >::return_type
-blue(::color::_internal::model< ::color::category::cmyk< tag_name > > const& color_parameter) {
+blue(::color::model< ::color::category::cmyk< tag_name > > const& color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -6111,13 +6111,13 @@ namespace color {
 		void
 		red
 		(
-			::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter
+			::color::model< ::color::category::cmyk< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::cmyk< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set<red_p> (component_parameter);
 	color_parameter = rgb;
 }
@@ -6133,13 +6133,13 @@ namespace color {
 		void
 		green
 		(
-			::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter
+			::color::model< ::color::category::cmyk< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::cmyk< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green< akin_type >::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set< green_p > (component_parameter);
 	color_parameter = rgb;
 }
@@ -6155,13 +6155,13 @@ namespace color {
 		void
 		blue
 		(
-			::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter
+			::color::model< ::color::category::cmyk< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::cmyk< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue< akin_type >::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set< blue_p > (component_parameter);
 	color_parameter = rgb;
 }
@@ -6841,22 +6841,22 @@ namespace color {
 	}
 
 	template< typename type_name >
-	using rgb = ::color::_internal::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
+	using rgb = ::color::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
 
 	template< typename value_name >
-	using rgba = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 0, 1, 2, 3 > > >;
+	using rgba = ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 0, 1, 2, 3 > > >;
 
 	template< typename value_name >
-	using argb = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 1, 2, 3, 0 > > >;
+	using argb = ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 1, 2, 3, 0 > > >;
 
 	template< typename value_name >
-	using bgr = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, 2, 1, 0 > > >;
+	using bgr = ::color::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, 2, 1, 0 > > >;
 
 	template< typename value_name >
-	using bgra = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 2, 1, 0, 3 > > >;
+	using bgra = ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 2, 1, 0, 3 > > >;
 
 	template< typename value_name >
-	using abgr = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 3, 2, 1, 0 > > >;
+	using abgr = ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 3, 2, 1, 0 > > >;
 
 }
 
@@ -6865,8 +6865,8 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-		typename ::color::_internal::model< ::color::category::rgb< tag_name> >::component_const_type
-red(::color::_internal::model< ::color::category::rgb<tag_name> > const& color_parameter) {
+		typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
+red(::color::model< ::color::category::rgb<tag_name> > const& color_parameter) {
 	typedef ::color::category::rgb< tag_name> category_type;
 	enum { red_p = ::color::place::_internal::red<category_type>::position_enum };
 	return color_parameter.template get<red_p>();
@@ -6880,8 +6880,8 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-		typename ::color::_internal::model< ::color::category::rgb< tag_name> >::component_const_type
-green(::color::_internal::model< ::color::category::rgb< tag_name> > const& color_parameter) {
+		typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
+green(::color::model< ::color::category::rgb< tag_name> > const& color_parameter) {
 	typedef ::color::category::rgb< tag_name> category_type;
 	enum { green_p = ::color::place::_internal::green<category_type>::position_enum };
 	return color_parameter.template get<green_p>();
@@ -6895,8 +6895,8 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-		typename ::color::_internal::model< ::color::category::rgb< tag_name> >::component_const_type
-blue(::color::_internal::model< ::color::category::rgb< tag_name> > const& color_parameter) {
+		typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
+blue(::color::model< ::color::category::rgb< tag_name> > const& color_parameter) {
 	typedef ::color::category::rgb< tag_name> category_type;
 	enum { blue_p = ::color::place::_internal::blue<category_type>::position_enum };
 	return color_parameter.template get<blue_p>();
@@ -6917,7 +6917,7 @@ namespace color {
 		::color::category::_internal::rgba_scramble < value_name, red_position, green_position, blue_position, alpha_position >
 		>
 		>::return_image_type
-alpha(::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > > > const& color_parameter) {
+alpha(::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > > > const& color_parameter) {
 	typedef ::color::category::_internal::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > tag_type;
 	typedef ::color::category::rgb< tag_type > category_type;
 	return color_parameter.template get< alpha_position >() ;
@@ -7186,8 +7186,8 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-		typename ::color::_internal::model< typename ::color::akin::yiq< ::color::category::rgb<tag_name> >::akin_type >::component_const_type
-inphase(::color::_internal::model< ::color::category::rgb<tag_name> > const& color_parameter) {
+		typename ::color::model< typename ::color::akin::yiq< ::color::category::rgb<tag_name> >::akin_type >::component_const_type
+inphase(::color::model< ::color::category::rgb<tag_name> > const& color_parameter) {
 	typedef ::color::category::rgb<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::yiq<category_type>::akin_type akin_type;
@@ -7219,8 +7219,8 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-		typename ::color::_internal::model< typename ::color::akin::yiq< ::color::category::rgb<tag_name> >::akin_type >::component_const_type
-quadrature(::color::_internal::model< ::color::category::rgb<tag_name> > const& color_parameter) {
+		typename ::color::model< typename ::color::akin::yiq< ::color::category::rgb<tag_name> >::akin_type >::component_const_type
+quadrature(::color::model< ::color::category::rgb<tag_name> > const& color_parameter) {
 	typedef ::color::category::rgb<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::yiq<category_type >::akin_type akin_type;
@@ -7250,7 +7250,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::rgb<tag_name> >::akin_type >::return_type
-gray(::color::_internal::model< ::color::category::rgb<tag_name> > const& color_parameter) {
+gray(::color::model< ::color::category::rgb<tag_name> > const& color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_type;
 	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -7280,8 +7280,8 @@ namespace color {
 		void
 		red
 		(
-			::color::_internal::model< ::color::category::rgb<tag_name> > & color_parameter,
-			typename ::color::_internal::model< ::color::category::rgb<tag_name> >::component_input_const_type component_parameter
+			::color::model< ::color::category::rgb<tag_name> > & color_parameter,
+			typename ::color::model< ::color::category::rgb<tag_name> >::component_input_const_type component_parameter
 ) {
 	typedef ::color::category::rgb<tag_name> category_type;
 	enum { red_p = ::color::place::_internal::red<category_type>::position_enum };
@@ -7298,8 +7298,8 @@ namespace color {
 		void
 		green
 		(
-			::color::_internal::model< ::color::category::rgb<tag_name> > & color_parameter,
-			typename ::color::_internal::model< ::color::category::rgb<tag_name> >::component_input_const_type component_parameter
+			::color::model< ::color::category::rgb<tag_name> > & color_parameter,
+			typename ::color::model< ::color::category::rgb<tag_name> >::component_input_const_type component_parameter
 ) {
 	typedef ::color::category::rgb<tag_name> category_type;
 	enum { green_p = ::color::place::_internal::green<category_type>::position_enum };
@@ -7316,8 +7316,8 @@ namespace color {
 		void
 		blue
 		(
-			::color::_internal::model< ::color::category::rgb<tag_name> > & color_parameter,
-			typename ::color::_internal::model< ::color::category::rgb<tag_name> >::component_input_const_type component_parameter
+			::color::model< ::color::category::rgb<tag_name> > & color_parameter,
+			typename ::color::model< ::color::category::rgb<tag_name> >::component_input_const_type component_parameter
 ) {
 	typedef ::color::category::rgb<tag_name> category_type;
 	enum { blue_p = ::color::place::_internal::blue<category_type>::position_enum };
@@ -7335,7 +7335,7 @@ namespace color {
 		void
 		gray
 		(
-			::color::_internal::model< ::color::category::rgb<tag_name> > & color_parameter
+			::color::model< ::color::category::rgb<tag_name> > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::gray<::color::category::rgb<tag_name> >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::rgb<tag_name> category_type;
@@ -8079,7 +8079,7 @@ namespace color {
 	}
 
 	template< typename type_name >
-	using hsl = ::color::_internal::model< typename ::color::_internal::pick_hsl< type_name >::category_type >;
+	using hsl = ::color::model< typename ::color::_internal::pick_hsl< type_name >::category_type >;
 
 }
 
@@ -8092,7 +8092,7 @@ namespace color {
 				public:
 				typedef ::color::category::hsl_float category_type;
 
-				typedef ::color::_internal::model<category_type> model_type;
+				typedef ::color::model<category_type> model_type;
 				typedef ::color::trait::bound< category_type > bound_type;
 
 static bool process(model_type const& m) {
@@ -8111,7 +8111,7 @@ struct integrity< ::color::category::hsl_double > {
 	public:
 	typedef ::color::category::hsl_double category_type;
 
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 	typedef ::color::trait::bound< category_type > bound_type;
 
 static bool process(model_type const& m) {
@@ -8130,7 +8130,7 @@ struct integrity< ::color::category::hsl_ldouble > {
 	public:
 	typedef ::color::category::hsl_ldouble category_type;
 
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 	typedef ::color::trait::bound< category_type > bound_type;
 
 static bool process(model_type const& m) {
@@ -8313,7 +8313,7 @@ namespace color {
 				public:
 				typedef category_name category_type;
 
-				typedef ::color::_internal::model<category_type> model_type;
+				typedef ::color::model<category_type> model_type;
 
 static bool process(model_type const& m) {
 	return true;
@@ -8324,7 +8324,7 @@ static bool process(model_type const& m) {
 
 template< typename category_name >
 inline
-bool unique(::color::_internal::model<category_name> const& m) {
+bool unique(::color::model<category_name> const& m) {
 	return ::color::check::_internal::unique<category_name>::process(m);
 }
 
@@ -8340,7 +8340,7 @@ namespace color {
 				public:
 				typedef ::color::category::hsl<tag_name> category_type;
 
-				typedef ::color::_internal::model<category_type> model_type;
+				typedef ::color::model<category_type> model_type;
 				typedef ::color::trait::bound< category_type > bound_type;
 
 				enum {
@@ -8373,7 +8373,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsl<tag_name> >::akin_type >::return_type
-gray(::color::_internal::model< ::color::category::hsl<tag_name> > const& color_parameter) {
+gray(::color::model< ::color::category::hsl<tag_name> > const& color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -8393,11 +8393,11 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl<tag_name> >::akin_type >::return_type
-red(::color::_internal::model< ::color::category::hsl<tag_name> > const& color_parameter) {
+red(::color::model< ::color::category::hsl<tag_name> > const& color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
-	return ::color::_internal::model< akin_type >(color_parameter).template get<red_p>();
+	return ::color::model< akin_type >(color_parameter).template get<red_p>();
 }
 
 	}
@@ -8409,11 +8409,11 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl<tag_name> >::akin_type >::return_type
-green(::color::_internal::model< ::color::category::hsl<tag_name> > const& color_parameter) {
+green(::color::model< ::color::category::hsl<tag_name> > const& color_parameter) {
 	typedef ::color::category::hsl<tag_name> category_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
-	return ::color::_internal::model< akin_type >(color_parameter).template get<green_p>();
+	return ::color::model< akin_type >(color_parameter).template get<green_p>();
 }
 
 	}
@@ -8425,11 +8425,11 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl<tag_name> >::akin_type >::return_type
-blue(::color::_internal::model< ::color::category::hsl<tag_name> > const& color_parameter) {
+blue(::color::model< ::color::category::hsl<tag_name> > const& color_parameter) {
 	typedef ::color::category::hsl<tag_name> category_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
-	return ::color::_internal::model< akin_type >(color_parameter).template get<blue_p>();
+	return ::color::model< akin_type >(color_parameter).template get<blue_p>();
 }
 
 	}
@@ -8443,8 +8443,8 @@ namespace color {
 		void
 		hue
 		(
-			::color::_internal::model< ::color::category::hsl<tag_name> > & color_parameter
-			,typename ::color::_internal::model< ::color::category::hsl<tag_name> >::component_input_const_type component_parameter
+			::color::model< ::color::category::hsl<tag_name> > & color_parameter
+			,typename ::color::model< ::color::category::hsl<tag_name> >::component_input_const_type component_parameter
 ) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	enum { hue_p = ::color::place::_internal::hue< category_type >::position_enum };
@@ -8462,13 +8462,13 @@ namespace color {
 		void
 		blue
 		(
-			::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter
+			::color::model< ::color::category::hsl< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set<blue_p > (component_parameter);
 	color_parameter = rgb;
 }
@@ -8484,13 +8484,13 @@ namespace color {
 		void
 		green
 		(
-			::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter
+			::color::model< ::color::category::hsl< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set< green_p > (component_parameter);
 	color_parameter = rgb;
 }
@@ -8506,13 +8506,13 @@ namespace color {
 		void
 		red
 		(
-			::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter
+			::color::model< ::color::category::hsl< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set<red_p> (component_parameter);
 	color_parameter = rgb;
 }
@@ -8528,7 +8528,7 @@ namespace color {
 		void
 		gray
 		(
-			::color::_internal::model< ::color::category::hsl<tag_name > > & color_parameter
+			::color::model< ::color::category::hsl<tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::hsl< tag_name > category_type;
@@ -8631,10 +8631,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< cmyk_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< hsl_category_type > hsl_model_type;
-			typedef ::color::_internal::model< cmyk_category_type > cmyk_model_type;
+			typedef ::color::model< hsl_category_type > hsl_model_type;
+			typedef ::color::model< cmyk_category_type > cmyk_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -9332,7 +9332,7 @@ namespace color {
 	}
 
 	template< typename type_name >
-	using hsv = ::color::_internal::model< typename ::color::_internal::pick_hsv< type_name >::category_type >;
+	using hsv = ::color::model< typename ::color::_internal::pick_hsv< type_name >::category_type >;
 
 }
 
@@ -9345,7 +9345,7 @@ namespace color {
 				public:
 				typedef ::color::category::hsv_float category_type;
 
-				typedef ::color::_internal::model<category_type> model_type;
+				typedef ::color::model<category_type> model_type;
 				typedef ::color::trait::bound< category_type > bound_type;
 
 static bool process(model_type const& m) {
@@ -9364,7 +9364,7 @@ struct integrity< ::color::category::hsv_double > {
 	public:
 	typedef ::color::category::hsv_double category_type;
 
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 	typedef ::color::trait::bound< category_type > bound_type;
 
 static bool process(model_type const& m) {
@@ -9383,7 +9383,7 @@ struct integrity< ::color::category::hsv_ldouble > {
 	public:
 	typedef ::color::category::hsv_ldouble category_type;
 
-	typedef ::color::_internal::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 	typedef ::color::trait::bound< category_type > bound_type;
 
 static bool process(model_type const& m) {
@@ -9506,7 +9506,7 @@ namespace color {
 				public:
 				typedef ::color::category::hsv< tag_name > category_type;
 
-				typedef ::color::_internal::model<category_type> model_type;
+				typedef ::color::model<category_type> model_type;
 				typedef ::color::trait::bound< category_type > bound_type;
 
 				enum {
@@ -9539,7 +9539,7 @@ namespace color {
 				public:
 				typedef ::color::category::hsv< tag_name > category_type;
 
-				typedef typename ::color::_internal::model<category_type> model_type;
+				typedef typename ::color::model<category_type> model_type;
 				typedef typename ::color::trait::bound<category_type> bound_type;
 
 				enum {
@@ -9589,7 +9589,7 @@ namespace color {
 				public:
 				typedef category_name category_type;
 
-				typedef ::color::_internal::model<category_type> model_type;
+				typedef ::color::model<category_type> model_type;
 
 static void process(model_type & m) {
 }
@@ -9602,7 +9602,7 @@ static void process(model_type & result, model_type const& right) {
 template< typename category_name >
 void integrity
 (
-	::color::_internal::model<category_name> & result
+	::color::model<category_name> & result
 ) {
 	::color::fix::_internal::integrity<category_name>::process(result);
 }
@@ -9610,8 +9610,8 @@ void integrity
 template< typename category_name >
 void integrity
 (
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& right
+	::color::model<category_name> & result
+	,::color::model<category_name> const& right
 ) {
 	::color::fix::_internal::integrity<category_name>::process(result, right);
 }
@@ -9629,7 +9629,7 @@ namespace color {
 					public:
 					typedef category_name category_type;
 
-					typedef typename ::color::_internal::model<category_type> model_type;
+					typedef typename ::color::model<category_type> model_type;
 					typedef typename ::color::trait::bound<category_type> bound_type;
 
 static void process(model_type &result) {
@@ -9673,7 +9673,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv<tag_name> >::akin_type >::return_type
-gray(::color::_internal::model< ::color::category::hsv<tag_name> > const& color_parameter) {
+gray(::color::model< ::color::category::hsv<tag_name> > const& color_parameter) {
 	typedef ::color::category::hsv<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_type>::akin_type akin_type;
@@ -9693,7 +9693,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv<tag_name> >::akin_type >::return_type
-red(::color::_internal::model< ::color::category::hsv<tag_name> > const& color_parameter) {
+red(::color::model< ::color::category::hsv<tag_name> > const& color_parameter) {
 	typedef ::color::category::hsv<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -9750,7 +9750,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv<tag_name> >::akin_type >::return_type
-green(::color::_internal::model< ::color::category::hsv<tag_name> > const& color_parameter) {
+green(::color::model< ::color::category::hsv<tag_name> > const& color_parameter) {
 	typedef ::color::category::hsv<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -9807,7 +9807,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv<tag_name> >::akin_type >::return_type
-blue(::color::_internal::model< ::color::category::hsv<tag_name> > const& color_parameter) {
+blue(::color::model< ::color::category::hsv<tag_name> > const& color_parameter) {
 	typedef ::color::category::hsv<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -9866,8 +9866,8 @@ namespace color {
 		void
 		hue
 		(
-			::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter
-			,typename ::color::_internal::model< ::color::category::hsv< tag_name > >::component_input_const_type component_parameter
+			::color::model< ::color::category::hsv< tag_name > > & color_parameter
+			,typename ::color::model< ::color::category::hsv< tag_name > >::component_input_const_type component_parameter
 ) {
 	typedef ::color::category::hsv< tag_name > category_type;
 	enum { hue_p = ::color::place::_internal::hue< category_type >::position_enum };
@@ -9885,13 +9885,13 @@ namespace color {
 		void
 		blue
 		(
-			::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter
+			::color::model< ::color::category::hsv< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::hsv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set<blue_p > (component_parameter);
 	color_parameter = rgb;
 }
@@ -9907,13 +9907,13 @@ namespace color {
 		void
 		green
 		(
-			::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter
+			::color::model< ::color::category::hsv< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::hsv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set< green_p > (component_parameter);
 	color_parameter = rgb;
 }
@@ -9929,13 +9929,13 @@ namespace color {
 		void
 		red
 		(
-			::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter
+			::color::model< ::color::category::hsv< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::hsv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set<red_p> (component_parameter);
 	color_parameter = rgb;
 }
@@ -9951,7 +9951,7 @@ namespace color {
 		void
 		gray
 		(
-			::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter
+			::color::model< ::color::category::hsv< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::hsv< tag_name > category_type;
@@ -10054,10 +10054,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< cmyk_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< hsv_category_type > hsv_model_type;
-			typedef ::color::_internal::model< cmyk_category_type > cmyk_model_type;
+			typedef ::color::model< hsv_category_type > hsv_model_type;
+			typedef ::color::model< cmyk_category_type > cmyk_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -10670,7 +10670,7 @@ namespace color {
 	}
 
 	template< typename type_name >
-	using yiq = ::color::_internal::model< typename ::color::_internal::pick_yiq< type_name >::category_type >;
+	using yiq = ::color::model< typename ::color::_internal::pick_yiq< type_name >::category_type >;
 
 }
 
@@ -10679,8 +10679,8 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-		typename ::color::_internal::model< ::color::category::yiq< tag_name> >::component_const_type
-inphase(::color::_internal::model< ::color::category::yiq< tag_name> > const& color_parameter) {
+		typename ::color::model< ::color::category::yiq< tag_name> >::component_const_type
+inphase(::color::model< ::color::category::yiq< tag_name> > const& color_parameter) {
 	typedef ::color::category::yiq< tag_name> category_type;
 	enum { inphase_p = ::color::place::_internal::inphase<category_type>::position_enum };
 	return color_parameter.template get<inphase_p>();
@@ -10694,8 +10694,8 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-		typename ::color::_internal::model< ::color::category::yiq< tag_name> >::component_const_type
-quadrature(::color::_internal::model< ::color::category::yiq< tag_name> > const& color_parameter) {
+		typename ::color::model< ::color::category::yiq< tag_name> >::component_const_type
+quadrature(::color::model< ::color::category::yiq< tag_name> > const& color_parameter) {
 	typedef ::color::category::yiq< tag_name> category_type;
 	enum { quadrature_p = ::color::place::_internal::quadrature<category_type>::position_enum };
 	return color_parameter.template get<quadrature_p>();
@@ -10710,7 +10710,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb<::color::category::yiq<tag_name> >::akin_type >::return_type
-red(::color::_internal::model< ::color::category::yiq<tag_name> > const& color_parameter) {
+red(::color::model< ::color::category::yiq<tag_name> > const& color_parameter) {
 	typedef ::color::category::yiq<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -10744,7 +10744,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb<::color::category::yiq<tag_name> >::akin_type >::return_type
-green(::color::_internal::model< ::color::category::yiq<tag_name> > const& color_parameter) {
+green(::color::model< ::color::category::yiq<tag_name> > const& color_parameter) {
 	typedef ::color::category::yiq<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -10778,7 +10778,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb<::color::category::yiq<tag_name> >::akin_type >::return_type
-blue(::color::_internal::model< ::color::category::yiq<tag_name> > const& color_parameter) {
+blue(::color::model< ::color::category::yiq<tag_name> > const& color_parameter) {
 	typedef ::color::category::yiq<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -10812,7 +10812,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yiq<tag_name> >::akin_type >::return_type
-gray(::color::_internal::model< ::color::category::yiq<tag_name> > const& color_parameter) {
+gray(::color::model< ::color::category::yiq<tag_name> > const& color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_type;
 	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -10831,13 +10831,13 @@ namespace color {
 		void
 		red
 		(
-			::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter
+			::color::model< ::color::category::yiq< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::yiq< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set< red_p > (component_parameter);
 	color_parameter = rgb;
 }
@@ -10853,13 +10853,13 @@ namespace color {
 		void
 		green
 		(
-			::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter
+			::color::model< ::color::category::yiq< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::yiq< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set< green_p > (component_parameter);
 	color_parameter = rgb;
 }
@@ -10875,13 +10875,13 @@ namespace color {
 		void
 		blue
 		(
-			::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter
+			::color::model< ::color::category::yiq< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::yiq< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set<blue_p > (component_parameter);
 	color_parameter = rgb;
 }
@@ -10897,7 +10897,7 @@ namespace color {
 		void
 		gray
 		(
-			::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter
+			::color::model< ::color::category::yiq< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yiq< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::yiq< tag_name > category_type;
@@ -10991,10 +10991,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< cmyk_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< yiq_category_type > yiq_model_type;
-			typedef ::color::_internal::model< cmyk_category_type > cmyk_model_type;
+			typedef ::color::model< yiq_category_type > yiq_model_type;
+			typedef ::color::model< cmyk_category_type > cmyk_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -11075,10 +11075,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< hsl_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< yiq_category_type > yiq_model_type;
-			typedef ::color::_internal::model< hsl_category_type > hsl_model_type;
+			typedef ::color::model< yiq_category_type > yiq_model_type;
+			typedef ::color::model< hsl_category_type > hsl_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -11113,10 +11113,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< hsv_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< yiq_category_type > yiq_model_type;
-			typedef ::color::_internal::model< hsv_category_type > hsv_model_type;
+			typedef ::color::model< yiq_category_type > yiq_model_type;
+			typedef ::color::model< hsv_category_type > hsv_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -11907,7 +11907,7 @@ namespace color {
 	}
 
 	template< typename type_name >
-	using yuv = ::color::_internal::model< typename ::color::_internal::pick_yuv< type_name >::category_type >;
+	using yuv = ::color::model< typename ::color::_internal::pick_yuv< type_name >::category_type >;
 
 }
 
@@ -11917,7 +11917,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv<tag_name> >::akin_type >::return_type
-gray(::color::_internal::model< ::color::category::yuv<tag_name> > const& color_parameter) {
+gray(::color::model< ::color::category::yuv<tag_name> > const& color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_type;
 	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -11934,7 +11934,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb<::color::category::yuv<tag_name> >::akin_type >::return_type
-red(::color::_internal::model< ::color::category::yuv<tag_name> > const& color_parameter) {
+red(::color::model< ::color::category::yuv<tag_name> > const& color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
@@ -11961,7 +11961,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb<::color::category::yuv<tag_name> >::akin_type >::return_type
-green(::color::_internal::model< ::color::category::yuv<tag_name> > const& color_parameter) {
+green(::color::model< ::color::category::yuv<tag_name> > const& color_parameter) {
 	typedef ::color::category::yuv<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -11993,7 +11993,7 @@ namespace color {
 		template< typename tag_name >
 		inline
 		typename ::color::trait::component< typename ::color::akin::rgb<::color::category::yuv<tag_name> >::akin_type >::return_type
-blue(::color::_internal::model< ::color::category::yuv<tag_name> > const& color_parameter) {
+blue(::color::model< ::color::category::yuv<tag_name> > const& color_parameter) {
 	typedef ::color::category::yuv<tag_name> category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
@@ -12022,13 +12022,13 @@ namespace color {
 		void
 		blue
 		(
-			::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter
+			::color::model< ::color::category::yuv< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yuv< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::yuv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb_instance(color_parameter);
+	::color::model< akin_type > rgb_instance(color_parameter);
 	rgb_instance.template set<blue_p > (component_parameter);
 	color_parameter = rgb_instance;
 }
@@ -12044,13 +12044,13 @@ namespace color {
 		void
 		green
 		(
-			::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter
+			::color::model< ::color::category::yuv< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yuv< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::yuv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set< green_p > (component_parameter);
 	color_parameter = rgb;
 }
@@ -12066,13 +12066,13 @@ namespace color {
 		void
 		red
 		(
-			::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter
+			::color::model< ::color::category::yuv< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yuv< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::yuv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
-	::color::_internal::model< akin_type > rgb(color_parameter);
+	::color::model< akin_type > rgb(color_parameter);
 	rgb.template set<red_p> (component_parameter);
 	color_parameter = rgb;
 }
@@ -12088,7 +12088,7 @@ namespace color {
 		void
 		gray
 		(
-			::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter
+			::color::model< ::color::category::yuv< tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yuv< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef ::color::category::yuv< tag_name > category_type;
@@ -12172,10 +12172,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< cmyk_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< yuv_category_type > yuv_model_type;
-			typedef ::color::_internal::model< cmyk_category_type > cmyk_model_type;
+			typedef ::color::model< yuv_category_type > yuv_model_type;
+			typedef ::color::model< cmyk_category_type > cmyk_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -12249,10 +12249,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< hsl_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< yuv_category_type > yuv_model_type;
-			typedef ::color::_internal::model< hsl_category_type > hsl_model_type;
+			typedef ::color::model< yuv_category_type > yuv_model_type;
+			typedef ::color::model< hsl_category_type > hsl_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -12287,10 +12287,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< hsv_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< yuv_category_type > yuv_model_type;
-			typedef ::color::_internal::model< hsv_category_type > hsv_model_type;
+			typedef ::color::model< yuv_category_type > yuv_model_type;
+			typedef ::color::model< hsv_category_type > hsv_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -12379,10 +12379,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< yiq_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< yuv_category_type > yuv_model_type;
-			typedef ::color::_internal::model< yiq_category_type > yiq_model_type;
+			typedef ::color::model< yuv_category_type > yuv_model_type;
+			typedef ::color::model< yiq_category_type > yiq_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -12443,9 +12443,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void black(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void black(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0, 0, 0 }));
 	color_parameter = local;
@@ -12459,9 +12459,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gray50(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void gray50(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.5, 0, 0 }));
 	color_parameter = local;
@@ -12475,9 +12475,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void white(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void white(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 1, 0, 0 }));
 	color_parameter = local;
@@ -12491,9 +12491,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void red(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void red(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.299, -0.147137698, 0.615 }));
 	color_parameter = local;
@@ -12507,9 +12507,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void green(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void green(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.2935, -0.144431151, -0.257492867 }));
 	color_parameter = local;
@@ -12523,9 +12523,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void blue(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void blue(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.114, 0.436, -0.100014265 }));
 	color_parameter = local;
@@ -12539,9 +12539,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void cyan(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void cyan(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.701, 0.147137698, -0.615 }));
 	color_parameter = local;
@@ -12555,9 +12555,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void magenta(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void magenta(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.413, 0.288862302, 0.514985735 }));
 	color_parameter = local;
@@ -12571,9 +12571,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void yellow(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void yellow(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.886, -0.436, 0.100014265 }));
 	color_parameter = local;
@@ -12587,9 +12587,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aqua(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void aqua(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.701, 0.147137698, -0.615 }));
 	color_parameter = local;
@@ -12603,9 +12603,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void fuchsia(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void fuchsia(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.413, 0.288862302, 0.514985735 }));
 	color_parameter = local;
@@ -12619,9 +12619,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lime(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void lime(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.587, -0.288862302, -0.514985735 }));
 	color_parameter = local;
@@ -12635,9 +12635,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void maroon(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void maroon(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.1495, -0.0735688488, 0.3075 }));
 	color_parameter = local;
@@ -12651,9 +12651,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void navy(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void navy(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.057, 0.218, -0.0500071327 }));
 	color_parameter = local;
@@ -12667,9 +12667,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void olive(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void olive(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.443, -0.218, 0.0500071327 }));
 	color_parameter = local;
@@ -12683,9 +12683,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orange(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void orange(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.68055, -0.334898194, 0.280259272 }));
 	color_parameter = local;
@@ -12699,9 +12699,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void purple(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void purple(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.2065, 0.144431151, 0.257492867 }));
 	color_parameter = local;
@@ -12715,9 +12715,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void silver(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void silver(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.75, 0, 0 }));
 	color_parameter = local;
@@ -12731,9 +12731,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void teal(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void teal(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.3505, 0.0735688488, -0.3075 }));
 	color_parameter = local;
@@ -12747,9 +12747,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void violet(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void violet(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.684721569, 0.122341681, 0.218111605 }));
 	color_parameter = local;
@@ -12763,9 +12763,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aquamarine(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void aquamarine(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.831276471, 4.7280131E-05, -0.290634849 }));
 	color_parameter = local;
@@ -12779,9 +12779,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void azure(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void azure(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.9813125, 0.00919610609, -0.0384375 }));
 	color_parameter = local;
@@ -12795,9 +12795,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void beige(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void beige(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.949607843, -0.042745098, 0.00980532013 }));
 	color_parameter = local;
@@ -12811,9 +12811,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void bisque(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void bisque(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.898125, -0.0728922122, 0.0893767832 }));
 	color_parameter = local;
@@ -12827,9 +12827,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void brown(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void brown(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.308929412, -0.0709723012, 0.296647059 }));
 	color_parameter = local;
@@ -12843,9 +12843,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void chocolate(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void chocolate(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.501352941, -0.188821405, 0.282651255 }));
 	color_parameter = local;
@@ -12859,9 +12859,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void coral(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void coral(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.62784, -0.156408849, 0.32650271 }));
 	color_parameter = local;
@@ -12875,9 +12875,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void crimson(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void crimson(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.330823529, -0.0470099588, 0.466664429 }));
 	color_parameter = local;
@@ -12891,9 +12891,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gainsboro(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void gainsboro(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.858823529, -5.55111512E-17, -1.11022302E-16 }));
 	color_parameter = local;
@@ -12907,9 +12907,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gold(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void gold(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.793921569, -0.390688266, 0.180796341 }));
 	color_parameter = local;
@@ -12923,9 +12923,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void indigo(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void indigo(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.146058824, 0.178998716, 0.129894688 }));
 	color_parameter = local;
@@ -12939,9 +12939,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void ivory(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void ivory(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.992875, -0.02725, 0.00625089158 }));
 	color_parameter = local;
@@ -12955,9 +12955,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void khaki(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void khaki(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.8713125, -0.158117664, 0.0580674929 }));
 	color_parameter = local;
@@ -12971,9 +12971,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lavender(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void lavender(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.910901961, 0.0341960784, -0.0078442561 }));
 	color_parameter = local;
@@ -12987,9 +12987,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void linen(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void linen(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.946049755, -0.0226610532, 0.0301292114 }));
 	color_parameter = local;
@@ -13003,9 +13003,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void moccasin(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void moccasin(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.904764706, -0.0959400699, 0.0835516489 }));
 	color_parameter = local;
@@ -13019,9 +13019,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orchid(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void orchid(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.609105882, 0.113236879, 0.215641353 }));
 	color_parameter = local;
@@ -13035,9 +13035,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void peru(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void peru(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.57294, -0.158918555, 0.199203852 }));
 	color_parameter = local;
@@ -13051,9 +13051,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void pink(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void pink(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.831729412, -0.0175438233, 0.147626836 }));
 	color_parameter = local;
@@ -13067,9 +13067,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void plum(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void plum(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.726247059, 0.0691003939, 0.123192666 }));
 	color_parameter = local;
@@ -13083,9 +13083,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void salmon(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void salmon(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.637601961, -0.0937661488, 0.300736049 }));
 	color_parameter = local;
@@ -13099,9 +13099,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void sienna(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void sienna(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.396486275, -0.10826957, 0.202629521 }));
 	color_parameter = local;
@@ -13115,9 +13115,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void snow(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void snow(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.986254902, -0.00288505289, 0.0120588235 }));
 	color_parameter = local;
@@ -13131,9 +13131,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tan(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void tan(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.723176471, -0.0857024742, 0.0880414534 }));
 	color_parameter = local;
@@ -13147,9 +13147,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void thistle(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void thistle(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.789509804, 0.0283198336, 0.0504887975 }));
 	color_parameter = local;
@@ -13163,9 +13163,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tomato(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void tomato(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.558635294, -0.13788816, 0.387217253 }));
 	color_parameter = local;
@@ -13179,9 +13179,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void turquoise(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void turquoise(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.681, 0.0647110609, -0.378124108 }));
 	color_parameter = local;
@@ -13195,9 +13195,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void wheat(::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter) {
+void wheat(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yuv< double > right_type;
 	static left_type local(right_type({ 0.878333333, -0.0867928119, 0.0723357389 }));
 	color_parameter = local;
@@ -13221,10 +13221,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< yuv_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< yiq_category_type > yiq_model_type;
-			typedef ::color::_internal::model< yuv_category_type > yuv_model_type;
+			typedef ::color::model< yiq_category_type > yiq_model_type;
+			typedef ::color::model< yuv_category_type > yuv_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -13249,9 +13249,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void black(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void black(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0, 0, 0 }));
 	color_parameter = local;
@@ -13265,9 +13265,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gray50(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void gray50(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.5, 0, 0 }));
 	color_parameter = local;
@@ -13281,9 +13281,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void white(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void white(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 1, 0, 0 }));
 	color_parameter = local;
@@ -13297,9 +13297,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void red(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void red(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.299, 0.595716135, 0.211456402 }));
 	color_parameter = local;
@@ -13313,9 +13313,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void green(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void green(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.2935, -0.137226419, -0.261295523 }));
 	color_parameter = local;
@@ -13329,9 +13329,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void blue(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void blue(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.114, -0.321263297, 0.311134643 }));
 	color_parameter = local;
@@ -13345,9 +13345,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void cyan(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void cyan(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.701, -0.595716135, -0.211456402 }));
 	color_parameter = local;
@@ -13361,9 +13361,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void magenta(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void magenta(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.413, 0.274452838, 0.522591045 }));
 	color_parameter = local;
@@ -13377,9 +13377,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void yellow(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void yellow(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.886, 0.321263297, -0.311134643 }));
 	color_parameter = local;
@@ -13393,9 +13393,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aqua(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void aqua(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.701, -0.595716135, -0.211456402 }));
 	color_parameter = local;
@@ -13409,9 +13409,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void fuchsia(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void fuchsia(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.413, 0.274452838, 0.522591045 }));
 	color_parameter = local;
@@ -13425,9 +13425,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lime(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void lime(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.587, -0.274452838, -0.522591045 }));
 	color_parameter = local;
@@ -13441,9 +13441,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void maroon(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void maroon(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.1495, 0.297858067, 0.105728201 }));
 	color_parameter = local;
@@ -13457,9 +13457,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void navy(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void navy(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.057, -0.160631649, 0.155567322 }));
 	color_parameter = local;
@@ -13473,9 +13473,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void olive(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void olive(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.443, 0.160631649, -0.155567322 }));
 	color_parameter = local;
@@ -13489,9 +13489,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orange(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void orange(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.68055, 0.41732179, -0.128227777 }));
 	color_parameter = local;
@@ -13505,9 +13505,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void purple(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void purple(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.2065, 0.137226419, 0.261295523 }));
 	color_parameter = local;
@@ -13521,9 +13521,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void silver(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void silver(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.75, 0, 0 }));
 	color_parameter = local;
@@ -13537,9 +13537,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void teal(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void teal(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.3505, -0.297858067, -0.105728201 }));
 	color_parameter = local;
@@ -13553,9 +13553,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void violet(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void violet(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.684721569, 0.116238849, 0.221332678 }));
 	color_parameter = local;
@@ -13569,9 +13569,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aquamarine(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void aquamarine(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.831276471, -0.243684257, -0.158194043 }));
 	color_parameter = local;
@@ -13585,9 +13585,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void azure(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void azure(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.9813125, -0.0372322584, -0.0132160251 }));
 	color_parameter = local;
@@ -13601,9 +13601,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void beige(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void beige(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.949607843, 0.0314964017, -0.0305033964 }));
 	color_parameter = local;
@@ -13617,9 +13617,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void bisque(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void bisque(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.898125, 0.114622429, -0.0124597801 }));
 	color_parameter = local;
@@ -13633,9 +13633,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void brown(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void brown(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.308929412, 0.28734543, 0.101996617 }));
 	color_parameter = local;
@@ -13649,9 +13649,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void chocolate(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void chocolate(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.501352941, 0.339784084, -0.00443990594 }));
 	color_parameter = local;
@@ -13665,9 +13665,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void coral(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void coral(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.62784, 0.358898094, 0.0466126189 }));
 	color_parameter = local;
@@ -13681,9 +13681,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void crimson(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void crimson(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.330823529, 0.416834098, 0.214653593 }));
 	color_parameter = local;
@@ -13697,9 +13697,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gainsboro(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void gainsboro(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.858823529, 0, 0 }));
 	color_parameter = local;
@@ -13713,9 +13713,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gold(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void gold(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.793921569, 0.364314723, -0.229159577 }));
 	color_parameter = local;
@@ -13729,9 +13729,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void indigo(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void indigo(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.146058824, 0.0114293392, 0.220810721 }));
 	color_parameter = local;
@@ -13745,9 +13745,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void ivory(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void ivory(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.992875, 0.0200789561, -0.0194459152 }));
 	color_parameter = local;
@@ -13761,9 +13761,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void khaki(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void khaki(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.8713125, 0.134781509, -0.10096751 }));
 	color_parameter = local;
@@ -13777,9 +13777,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lavender(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void lavender(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.910901961, -0.0251971213, 0.0244027171 }));
 	color_parameter = local;
@@ -13793,9 +13793,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void linen(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void linen(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.946049755, 0.0375989235, -0.00259772795 }));
 	color_parameter = local;
@@ -13809,9 +13809,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void moccasin(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void moccasin(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.904764706, 0.122289061, -0.0349568838 }));
 	color_parameter = local;
@@ -13825,9 +13825,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orchid(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void orchid(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.609105882, 0.119125702, 0.212353381 }));
 	color_parameter = local;
@@ -13841,9 +13841,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void peru(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void peru(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.57294, 0.253541608, -0.0247985611 }));
 	color_parameter = local;
@@ -13857,9 +13857,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void pink(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void pink(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.831729412, 0.133318511, 0.0656636643 }));
 	color_parameter = local;
@@ -13873,9 +13873,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void plum(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void plum(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.726247059, 0.065653424, 0.125011976 }));
 	color_parameter = local;
@@ -13889,9 +13889,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void salmon(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void salmon(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.637601961, 0.303185416, 0.085110163 }));
 	color_parameter = local;
@@ -13905,9 +13905,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void sienna(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void sienna(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.396486275, 0.228833728, 0.0195357552 }));
 	color_parameter = local;
@@ -13921,9 +13921,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void snow(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void snow(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.986254902, 0.0116807085, 0.00414620396 }));
 	color_parameter = local;
@@ -13937,9 +13937,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tan(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void tan(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.723176471, 0.120478494, -0.0239282104 }));
 	color_parameter = local;
@@ -13953,9 +13953,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void thistle(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void thistle(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.789509804, 0.026907141, 0.0512344162 }));
 	color_parameter = local;
@@ -13969,9 +13969,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tomato(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void tomato(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.558635294, 0.399714076, 0.0951977597 }));
 	color_parameter = local;
@@ -13985,9 +13985,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void turquoise(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void turquoise(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.681, -0.352243628, -0.151606167 }));
 	color_parameter = local;
@@ -14001,9 +14001,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void wheat(::color::_internal::model< ::color::category::yiq< tag_name > > & color_parameter) {
+void wheat(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::yiq< double > right_type;
 	static left_type local(right_type({ 0.878333333, 0.10790507, -0.0333933036 }));
 	color_parameter = local;
@@ -14027,10 +14027,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< yiq_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< hsv_category_type > hsv_model_type;
-			typedef ::color::_internal::model< yiq_category_type > yiq_model_type;
+			typedef ::color::model< hsv_category_type > hsv_model_type;
+			typedef ::color::model< yiq_category_type > yiq_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -14065,10 +14065,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< yuv_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< hsv_category_type > hsv_model_type;
-			typedef ::color::_internal::model< yuv_category_type > yuv_model_type;
+			typedef ::color::model< hsv_category_type > hsv_model_type;
+			typedef ::color::model< yuv_category_type > yuv_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -14093,9 +14093,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void black(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void black(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 0, 0, 0 }));
 	color_parameter = local;
@@ -14109,9 +14109,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gray50(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void gray50(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 0, 0, 50 }));
 	color_parameter = local;
@@ -14125,9 +14125,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void white(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void white(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 0, 0, 100 }));
 	color_parameter = local;
@@ -14141,9 +14141,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void red(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void red(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 0, 100, 100 }));
 	color_parameter = local;
@@ -14157,9 +14157,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void green(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void green(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 120, 100, 50 }));
 	color_parameter = local;
@@ -14173,9 +14173,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void blue(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void blue(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 240, 100, 100 }));
 	color_parameter = local;
@@ -14189,9 +14189,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void cyan(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void cyan(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 180, 100, 100 }));
 	color_parameter = local;
@@ -14205,9 +14205,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void magenta(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void magenta(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 300, 100, 100 }));
 	color_parameter = local;
@@ -14221,9 +14221,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void yellow(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void yellow(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 60, 100, 100 }));
 	color_parameter = local;
@@ -14237,9 +14237,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aqua(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void aqua(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 180, 100, 100 }));
 	color_parameter = local;
@@ -14253,9 +14253,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void fuchsia(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void fuchsia(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 300, 100, 100 }));
 	color_parameter = local;
@@ -14269,9 +14269,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lime(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void lime(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 120, 100, 100 }));
 	color_parameter = local;
@@ -14285,9 +14285,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void maroon(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void maroon(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 0, 100, 50 }));
 	color_parameter = local;
@@ -14301,9 +14301,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void navy(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void navy(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 240, 100, 50 }));
 	color_parameter = local;
@@ -14317,9 +14317,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void olive(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void olive(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 60, 100, 50 }));
 	color_parameter = local;
@@ -14333,9 +14333,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orange(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void orange(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 39, 100, 100 }));
 	color_parameter = local;
@@ -14349,9 +14349,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void purple(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void purple(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 300, 100, 50 }));
 	color_parameter = local;
@@ -14365,9 +14365,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void silver(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void silver(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 0, 0, 75 }));
 	color_parameter = local;
@@ -14381,9 +14381,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void teal(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void teal(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 180, 100, 50 }));
 	color_parameter = local;
@@ -14397,9 +14397,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void violet(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void violet(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 300, 45.3781513, 93.3333333 }));
 	color_parameter = local;
@@ -14413,9 +14413,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aquamarine(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void aquamarine(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 159.764706, 50, 100 }));
 	color_parameter = local;
@@ -14429,9 +14429,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void azure(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void azure(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 180, 6.25, 100 }));
 	color_parameter = local;
@@ -14445,9 +14445,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void beige(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void beige(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 60, 10.2040816, 96.0784314 }));
 	color_parameter = local;
@@ -14461,9 +14461,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void bisque(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void bisque(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 30, 25, 100 }));
 	color_parameter = local;
@@ -14477,9 +14477,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void brown(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void brown(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 0, 74.5454545, 64.7058824 }));
 	color_parameter = local;
@@ -14493,9 +14493,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void chocolate(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void chocolate(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 25, 85.7142857, 82.3529412 }));
 	color_parameter = local;
@@ -14509,9 +14509,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void coral(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void coral(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 16.5217391, 69, 100 }));
 	color_parameter = local;
@@ -14525,9 +14525,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void crimson(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void crimson(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 348, 90.9090909, 86.2745098 }));
 	color_parameter = local;
@@ -14541,9 +14541,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gainsboro(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void gainsboro(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 0, 0, 85.8823529 }));
 	color_parameter = local;
@@ -14557,9 +14557,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gold(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void gold(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 50.5882353, 100, 100 }));
 	color_parameter = local;
@@ -14573,9 +14573,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void indigo(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void indigo(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 274.615385, 100, 50.9803922 }));
 	color_parameter = local;
@@ -14589,9 +14589,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void ivory(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void ivory(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 60, 6.25, 100 }));
 	color_parameter = local;
@@ -14605,9 +14605,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void khaki(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void khaki(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 54.1935484, 41.3333333, 93.75 }));
 	color_parameter = local;
@@ -14621,9 +14621,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lavender(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void lavender(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 240, 8, 98.0392157 }));
 	color_parameter = local;
@@ -14637,9 +14637,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void linen(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void linen(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 27.9878049, 8.2, 98.0392157 }));
 	color_parameter = local;
@@ -14653,9 +14653,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void moccasin(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void moccasin(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 38.1081081, 29.0196078, 100 }));
 	color_parameter = local;
@@ -14669,9 +14669,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orchid(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void orchid(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 302.264151, 48.6238532, 85.4901961 }));
 	color_parameter = local;
@@ -14685,9 +14685,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void peru(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void peru(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 29.4545455, 68.75, 80 }));
 	color_parameter = local;
@@ -14701,9 +14701,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void pink(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void pink(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 349.52381, 24.7058824, 100 }));
 	color_parameter = local;
@@ -14717,9 +14717,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void plum(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void plum(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 300, 27.60181, 86.6666667 }));
 	color_parameter = local;
@@ -14733,9 +14733,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void salmon(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void salmon(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 5.95588235, 54.4, 98.0392157 }));
 	color_parameter = local;
@@ -14749,9 +14749,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void sienna(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void sienna(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 19.3043478, 71.875, 62.745098 }));
 	color_parameter = local;
@@ -14765,9 +14765,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void snow(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void snow(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 0, 1.96078431, 100 }));
 	color_parameter = local;
@@ -14781,9 +14781,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tan(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void tan(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 34.2857143, 33.3333333, 82.3529412 }));
 	color_parameter = local;
@@ -14797,9 +14797,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void thistle(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void thistle(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 300, 11.5740741, 84.7058824 }));
 	color_parameter = local;
@@ -14813,9 +14813,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tomato(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void tomato(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 9.13043478, 72.1568627, 100 }));
 	color_parameter = local;
@@ -14829,9 +14829,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void turquoise(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void turquoise(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 174, 71.4285714, 87.5 }));
 	color_parameter = local;
@@ -14845,9 +14845,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void wheat(::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter) {
+void wheat(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsv< double > right_type;
 	static left_type local(right_type({ 39.0909091, 26.9387755, 96.0784314 }));
 	color_parameter = local;
@@ -14988,10 +14988,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< yiq_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< hsl_category_type > hsl_model_type;
-			typedef ::color::_internal::model< yiq_category_type > yiq_model_type;
+			typedef ::color::model< hsl_category_type > hsl_model_type;
+			typedef ::color::model< yiq_category_type > yiq_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -15026,10 +15026,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< yuv_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< hsl_category_type > hsl_model_type;
-			typedef ::color::_internal::model< yuv_category_type > yuv_model_type;
+			typedef ::color::model< hsl_category_type > hsl_model_type;
+			typedef ::color::model< yuv_category_type > yuv_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -15054,9 +15054,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void black(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void black(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 0, 0, 0 }));
 	color_parameter = local;
@@ -15070,9 +15070,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gray50(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void gray50(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 0, 0, 50 }));
 	color_parameter = local;
@@ -15086,9 +15086,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void white(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void white(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 0, 0, 100 }));
 	color_parameter = local;
@@ -15102,9 +15102,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void red(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void red(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 0, 100, 50 }));
 	color_parameter = local;
@@ -15118,9 +15118,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void green(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void green(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 120, 100, 25 }));
 	color_parameter = local;
@@ -15134,9 +15134,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void blue(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void blue(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 240, 100, 50 }));
 	color_parameter = local;
@@ -15150,9 +15150,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void cyan(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void cyan(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 180, 100, 50 }));
 	color_parameter = local;
@@ -15166,9 +15166,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void magenta(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void magenta(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 300, 100, 50 }));
 	color_parameter = local;
@@ -15182,9 +15182,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void yellow(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void yellow(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 60, 100, 50 }));
 	color_parameter = local;
@@ -15198,9 +15198,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aqua(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void aqua(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 180, 100, 50 }));
 	color_parameter = local;
@@ -15214,9 +15214,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void fuchsia(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void fuchsia(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 300, 100, 50 }));
 	color_parameter = local;
@@ -15230,9 +15230,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lime(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void lime(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 120, 100, 50 }));
 	color_parameter = local;
@@ -15246,9 +15246,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void maroon(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void maroon(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 0, 100, 25 }));
 	color_parameter = local;
@@ -15262,9 +15262,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void navy(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void navy(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 240, 100, 25 }));
 	color_parameter = local;
@@ -15278,9 +15278,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void olive(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void olive(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 60, 100, 25 }));
 	color_parameter = local;
@@ -15294,9 +15294,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orange(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void orange(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 39, 100, 50 }));
 	color_parameter = local;
@@ -15310,9 +15310,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void purple(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void purple(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 300, 100, 25 }));
 	color_parameter = local;
@@ -15326,9 +15326,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void silver(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void silver(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 0, 0, 75 }));
 	color_parameter = local;
@@ -15342,9 +15342,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void teal(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void teal(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 180, 100, 25 }));
 	color_parameter = local;
@@ -15358,9 +15358,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void violet(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void violet(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 300, 76.056338, 72.1568627 }));
 	color_parameter = local;
@@ -15374,9 +15374,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aquamarine(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void aquamarine(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 159.764706, 100, 75 }));
 	color_parameter = local;
@@ -15390,9 +15390,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void azure(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void azure(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 180, 100, 96.875 }));
 	color_parameter = local;
@@ -15406,9 +15406,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void beige(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void beige(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 60, 55.5555556, 91.1764706 }));
 	color_parameter = local;
@@ -15422,9 +15422,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void bisque(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void bisque(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 30, 100, 87.5 }));
 	color_parameter = local;
@@ -15438,9 +15438,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void brown(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void brown(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 0, 59.4202899, 40.5882353 }));
 	color_parameter = local;
@@ -15454,9 +15454,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void chocolate(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void chocolate(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 25, 75, 47.0588235 }));
 	color_parameter = local;
@@ -15470,9 +15470,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void coral(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void coral(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 16.5217391, 100, 65.5 }));
 	color_parameter = local;
@@ -15486,9 +15486,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void crimson(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void crimson(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 348, 83.3333333, 47.0588235 }));
 	color_parameter = local;
@@ -15502,9 +15502,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gainsboro(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void gainsboro(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 0, 0, 85.8823529 }));
 	color_parameter = local;
@@ -15518,9 +15518,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gold(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void gold(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 50.5882353, 100, 50 }));
 	color_parameter = local;
@@ -15534,9 +15534,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void indigo(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void indigo(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 274.615385, 100, 25.4901961 }));
 	color_parameter = local;
@@ -15550,9 +15550,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void ivory(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void ivory(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 60, 100, 96.875 }));
 	color_parameter = local;
@@ -15566,9 +15566,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void khaki(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void khaki(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 54.1935484, 75.6097561, 74.375 }));
 	color_parameter = local;
@@ -15582,9 +15582,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lavender(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void lavender(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 240, 66.6666667, 94.1176471 }));
 	color_parameter = local;
@@ -15598,9 +15598,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void linen(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void linen(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 27.9878049, 67.2131148, 94.0196078 }));
 	color_parameter = local;
@@ -15614,9 +15614,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void moccasin(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void moccasin(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 38.1081081, 100, 85.4901961 }));
 	color_parameter = local;
@@ -15630,9 +15630,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orchid(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void orchid(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 302.264151, 58.8888889, 64.7058824 }));
 	color_parameter = local;
@@ -15646,9 +15646,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void peru(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void peru(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 29.4545455, 57.8947368, 52.5 }));
 	color_parameter = local;
@@ -15662,9 +15662,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void pink(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void pink(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 349.52381, 100, 87.6470588 }));
 	color_parameter = local;
@@ -15678,9 +15678,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void plum(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void plum(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 300, 47.2868217, 74.7058824 }));
 	color_parameter = local;
@@ -15694,9 +15694,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void salmon(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void salmon(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 5.95588235, 93.1506849, 71.372549 }));
 	color_parameter = local;
@@ -15710,9 +15710,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void sienna(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void sienna(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 19.3043478, 56.097561, 40.1960784 }));
 	color_parameter = local;
@@ -15726,9 +15726,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void snow(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void snow(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 0, 100, 99.0196078 }));
 	color_parameter = local;
@@ -15742,9 +15742,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tan(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void tan(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 34.2857143, 43.75, 68.627451 }));
 	color_parameter = local;
@@ -15758,9 +15758,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void thistle(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void thistle(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 300, 24.2718447, 79.8039216 }));
 	color_parameter = local;
@@ -15774,9 +15774,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tomato(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void tomato(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 9.13043478, 100, 63.9215686 }));
 	color_parameter = local;
@@ -15790,9 +15790,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void turquoise(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void turquoise(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 174, 71.4285714, 56.25 }));
 	color_parameter = local;
@@ -15806,9 +15806,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void wheat(::color::_internal::model< ::color::category::hsl< tag_name > > & color_parameter) {
+void wheat(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::hsl< double > right_type;
 	static left_type local(right_type({ 39.0909091, 76.744186, 83.1372549 }));
 	color_parameter = local;
@@ -16361,37 +16361,37 @@ namespace color {
 	namespace make {
 
 		inline
-void black(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
+void black(::color::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
 
 inline
-void black(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
+void black(::color::model< color::category::xyz_uint16 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
 
 inline
-void black(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
+void black(::color::model< color::category::xyz_uint32 > & color_parameter) {
 	color_parameter.container() = 0xff000000u;
 }
 
 inline
-void black(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
+void black(::color::model< color::category::xyz_uint64 > & color_parameter) {
 	color_parameter.container() = 0xffff000000000000ul;
 }
 
 inline
-void black(::color::_internal::model< color::category::xyz_float > & color_parameter) {
+void black(::color::model< color::category::xyz_float > & color_parameter) {
 	color_parameter.container() = std::array<float,3>({ 0, 0, 0 });
 }
 
 inline
-void black(::color::_internal::model< color::category::xyz_double> & color_parameter) {
+void black(::color::model< color::category::xyz_double> & color_parameter) {
 	color_parameter.container() = std::array<double,3>({ 0, 0, 0 });
 }
 
 inline
-void black(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
+void black(::color::model< color::category::xyz_ldouble> & color_parameter) {
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 0 });
 }
 
@@ -16402,37 +16402,37 @@ namespace color {
 	namespace make {
 
 		inline
-void gray50(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
+void gray50(::color::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x1b;
 }
 
 inline
-void gray50(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
+void gray50(::color::model< color::category::xyz_uint16 > & color_parameter) {
 	color_parameter.container() = 0xc6f7;
 }
 
 inline
-void gray50(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
+void gray50(::color::model< color::category::xyz_uint32 > & color_parameter) {
 	color_parameter.container() = 0xffd0d0d0u;
 }
 
 inline
-void gray50(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
+void gray50(::color::model< color::category::xyz_uint64 > & color_parameter) {
 	color_parameter.container() = 0xffffd346d346d346ul;
 }
 
 inline
-void gray50(::color::_internal::model< color::category::xyz_float > & color_parameter) {
+void gray50(::color::model< color::category::xyz_float > & color_parameter) {
 	color_parameter.container() = std::array<float,3>({ 15.9651f, 15.9651f, 15.9651f });
 }
 
 inline
-void gray50(::color::_internal::model< color::category::xyz_double> & color_parameter) {
+void gray50(::color::model< color::category::xyz_double> & color_parameter) {
 	color_parameter.container() = std::array<double,3>({ 15.9651, 15.9651, 15.9651 });
 }
 
 inline
-void gray50(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
+void gray50(::color::model< color::category::xyz_ldouble> & color_parameter) {
 	color_parameter.container() = std::array<long double,3>({ 15.9651, 15.9651, 15.9651 });
 }
 
@@ -16443,37 +16443,37 @@ namespace color {
 	namespace make {
 
 		inline
-void white(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
+void white(::color::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3f;
 }
 
 inline
-void white(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
+void white(::color::model< color::category::xyz_uint16 > & color_parameter) {
 	color_parameter.container() = 0x8def;
 }
 
 inline
-void white(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
+void white(::color::model< color::category::xyz_uint32 > & color_parameter) {
 	color_parameter.container() = 0xffa0a0a0u;
 }
 
 inline
-void white(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
+void white(::color::model< color::category::xyz_uint64 > & color_parameter) {
 	color_parameter.container() = 0xffffa68da68da68dul;
 }
 
 inline
-void white(::color::_internal::model< color::category::xyz_float > & color_parameter) {
+void white(::color::model< color::category::xyz_float > & color_parameter) {
 	color_parameter.container() = std::array<float,3>({ 31.9301f, 31.9301f, 31.9301f });
 }
 
 inline
-void white(::color::_internal::model< color::category::xyz_double> & color_parameter) {
+void white(::color::model< color::category::xyz_double> & color_parameter) {
 	color_parameter.container() = std::array<double,3>({ 31.9301, 31.9301, 31.9301 });
 }
 
 inline
-void white(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
+void white(::color::model< color::category::xyz_ldouble> & color_parameter) {
 	color_parameter.container() = std::array<long double,3>({ 31.9301, 31.9301, 31.9301 });
 }
 
@@ -16484,37 +16484,37 @@ namespace color {
 	namespace make {
 
 		inline
-void red(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
+void red(::color::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x3b;
 }
 
 inline
-void red(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
+void red(::color::model< color::category::xyz_uint16 > & color_parameter) {
 	color_parameter.container() = 0x3f5;
 }
 
 inline
-void red(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
+void red(::color::model< color::category::xyz_uint32 > & color_parameter) {
 	color_parameter.container() = 0xff00ffc2u;
 }
 
 inline
-void red(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
+void red(::color::model< color::category::xyz_uint64 > & color_parameter) {
 	color_parameter.container() = 0xffff0000ffffc4cful;
 }
 
 inline
-void red(::color::_internal::model< color::category::xyz_float > & color_parameter) {
+void red(::color::model< color::category::xyz_float > & color_parameter) {
 	color_parameter.container() = std::array<float,3>({ 15.6458f, 5.65068f, 0 });
 }
 
 inline
-void red(::color::_internal::model< color::category::xyz_double> & color_parameter) {
+void red(::color::model< color::category::xyz_double> & color_parameter) {
 	color_parameter.container() = std::array<double,3>({ 15.6458, 5.65068, 0 });
 }
 
 inline
-void red(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
+void red(::color::model< color::category::xyz_ldouble> & color_parameter) {
 	color_parameter.container() = std::array<long double,3>({ 15.6458, 5.65068, 0 });
 }
 
@@ -16525,37 +16525,37 @@ namespace color {
 	namespace make {
 
 		inline
-void green(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
+void green(::color::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x6;
 }
 
 inline
-void green(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
+void green(::color::model< color::category::xyz_uint16 > & color_parameter) {
 	color_parameter.container() = 0x4fb;
 }
 
 inline
-void green(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
+void green(::color::model< color::category::xyz_uint32 > & color_parameter) {
 	color_parameter.container() = 0xff0749dfu;
 }
 
 inline
-void green(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
+void green(::color::model< color::category::xyz_uint64 > & color_parameter) {
 	color_parameter.container() = 0xffff073b4b96e037ul;
 }
 
 inline
-void green(::color::_internal::model< color::category::xyz_float > & color_parameter) {
+void green(::color::model< color::category::xyz_float > & color_parameter) {
 	color_parameter.container() = std::array<float,3>({ 4.94917f, 12.97f, 0.159651f });
 }
 
 inline
-void green(::color::_internal::model< color::category::xyz_double> & color_parameter) {
+void green(::color::model< color::category::xyz_double> & color_parameter) {
 	color_parameter.container() = std::array<double,3>({ 4.94917, 12.97, 0.159651 });
 }
 
 inline
-void green(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
+void green(::color::model< color::category::xyz_ldouble> & color_parameter) {
 	color_parameter.container() = std::array<long double,3>({ 4.94917, 12.97, 0.159651 });
 }
 
@@ -16566,37 +16566,37 @@ namespace color {
 	namespace make {
 
 		inline
-void blue(::color::_internal::model< color::category::xyz_uint8 > & color_parameter) {
+void blue(::color::model< color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7;
 }
 
 inline
-void blue(::color::_internal::model< color::category::xyz_uint16 > & color_parameter) {
+void blue(::color::model< color::category::xyz_uint16 > & color_parameter) {
 	color_parameter.container() = 0x8023;
 }
 
 inline
-void blue(::color::_internal::model< color::category::xyz_uint32 > & color_parameter) {
+void blue(::color::model< color::category::xyz_uint32 > & color_parameter) {
 	color_parameter.container() = 0xff920f20u;
 }
 
 inline
-void blue(::color::_internal::model< color::category::xyz_uint64 > & color_parameter) {
+void blue(::color::model< color::category::xyz_uint64 > & color_parameter) {
 	color_parameter.container() = 0xffff98150f60214ful;
 }
 
 inline
-void blue(::color::_internal::model< color::category::xyz_float > & color_parameter) {
+void blue(::color::model< color::category::xyz_float > & color_parameter) {
 	color_parameter.container() = std::array<float,3>({ 6.38603f, 0.339417f, 31.6108f });
 }
 
 inline
-void blue(::color::_internal::model< color::category::xyz_double> & color_parameter) {
+void blue(::color::model< color::category::xyz_double> & color_parameter) {
 	color_parameter.container() = std::array<double,3>({ 6.38603, 0.339417, 31.6108 });
 }
 
 inline
-void blue(::color::_internal::model< color::category::xyz_ldouble> & color_parameter) {
+void blue(::color::model< color::category::xyz_ldouble> & color_parameter) {
 	color_parameter.container() = std::array<long double,3>({ 6.38603, 0.339417, 31.6108 });
 }
 
@@ -16752,7 +16752,7 @@ namespace color {
 	}
 
 	template< typename type_name >
-	using xyz = ::color::_internal::model< typename ::color::_internal::pick_xyz< type_name >::category_type >;
+	using xyz = ::color::model< typename ::color::_internal::pick_xyz< type_name >::category_type >;
 
 }
 
@@ -16933,9 +16933,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void black(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void black(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0x00, 0x00, 0x00 }));
 	color_parameter = local;
@@ -16949,9 +16949,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gray50(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void gray50(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0.5, 0.5, 0.5 }));
 	color_parameter = local;
@@ -16965,9 +16965,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void white(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void white(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 1, 1, 1 }));
 	color_parameter = local;
@@ -16981,9 +16981,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void red(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void red(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 1, 0, 0 }));
 	color_parameter = local;
@@ -16997,9 +16997,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void green(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void green(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0, 0.5, 0 }));
 	color_parameter = local;
@@ -17013,9 +17013,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void blue(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void blue(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0, 0, 1 }));
 	color_parameter = local;
@@ -17029,9 +17029,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void cyan(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void cyan(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0, 1, 1 }));
 	color_parameter = local;
@@ -17045,9 +17045,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void magenta(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void magenta(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 1, 0, 1 }));
 	color_parameter = local;
@@ -17061,9 +17061,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void yellow(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void yellow(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 1, 1, 0 }));
 	color_parameter = local;
@@ -17077,9 +17077,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aqua(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void aqua(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0x00, 0xFF, 0xFF }));
 	color_parameter = local;
@@ -17093,9 +17093,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void fuchsia(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void fuchsia(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 1, 0, 1 }));
 	color_parameter = local;
@@ -17109,9 +17109,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lime(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void lime(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0, 1, 0 }));
 	color_parameter = local;
@@ -17125,9 +17125,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void maroon(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void maroon(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0.5, 0, 0 }));
 	color_parameter = local;
@@ -17141,9 +17141,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void navy(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void navy(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0, 0, 0.5 }));
 	color_parameter = local;
@@ -17157,9 +17157,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void olive(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void olive(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0.5, 0.5, 0 }));
 	color_parameter = local;
@@ -17173,9 +17173,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orange(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void orange(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 1, 0.65, 0 }));
 	color_parameter = local;
@@ -17189,9 +17189,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void purple(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void purple(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0.5, 0, 0.5 }));
 	color_parameter = local;
@@ -17205,9 +17205,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void silver(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void silver(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0.75, 0.75, 0.75 }));
 	color_parameter = local;
@@ -17221,9 +17221,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void teal(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void teal(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0, 0.5, 0.5 }));
 	color_parameter = local;
@@ -17237,9 +17237,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void violet(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void violet(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xEE, 0x82, 0xEE }));
 	color_parameter = local;
@@ -17253,9 +17253,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aquamarine(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void aquamarine(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0.5, 1, 212.0/255.0 }));
 	color_parameter = local;
@@ -17269,9 +17269,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void azure(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void azure(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0.9375, 1, 1 }));
 	color_parameter = local;
@@ -17285,9 +17285,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void beige(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void beige(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xF5, 0xF5, 0xDC }));
 	color_parameter = local;
@@ -17301,9 +17301,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void bisque(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void bisque(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 1, 0.875, 0.75 }));
 	color_parameter = local;
@@ -17317,9 +17317,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void brown(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void brown(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xA5, 0x2A, 0x2A }));
 	color_parameter = local;
@@ -17333,9 +17333,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void chocolate(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void chocolate(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xD2, 0x69, 0x1E }));
 	color_parameter = local;
@@ -17349,9 +17349,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void coral(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void coral(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 1, 0.5, 0.31 }));
 	color_parameter = local;
@@ -17365,9 +17365,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void crimson(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void crimson(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xDC, 0x14, 0x3C }));
 	color_parameter = local;
@@ -17381,9 +17381,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gainsboro(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void gainsboro(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xDB, 0xDB, 0xDB }));
 	color_parameter = local;
@@ -17397,9 +17397,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gold(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void gold(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xFF, 0xD7, 0x00 }));
 	color_parameter = local;
@@ -17413,9 +17413,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void indigo(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void indigo(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0x4B, 0x00, 0x82 }));
 	color_parameter = local;
@@ -17429,9 +17429,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void ivory(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void ivory(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 1, 1, 0.9375 }));
 	color_parameter = local;
@@ -17445,9 +17445,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void khaki(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void khaki(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0.9375, 0.9, 0.55 }));
 	color_parameter = local;
@@ -17461,9 +17461,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lavender(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void lavender(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xE6, 0xE6, 0xFA }));
 	color_parameter = local;
@@ -17477,9 +17477,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void linen(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void linen(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 250.0/255.0, 0.9375, 0.9 }));
 	color_parameter = local;
@@ -17493,9 +17493,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void moccasin(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void moccasin(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xFF, 0xE4, 0xB5 }));
 	color_parameter = local;
@@ -17509,9 +17509,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orchid(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void orchid(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xDA, 0x70, 0xD6 }));
 	color_parameter = local;
@@ -17525,9 +17525,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void peru(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void peru(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0.8, 0.52, 0.25 }));
 	color_parameter = local;
@@ -17541,9 +17541,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void pink(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void pink(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xFF, 0xC0, 0xCB }));
 	color_parameter = local;
@@ -17557,9 +17557,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void plum(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void plum(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xDD, 0xA0, 0xDD }));
 	color_parameter = local;
@@ -17573,9 +17573,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void salmon(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void salmon(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 250/255.0, 0.5, 114/255.0 }));
 	color_parameter = local;
@@ -17589,9 +17589,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void sienna(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void sienna(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xA0, 0x52, 0x2D }));
 	color_parameter = local;
@@ -17605,9 +17605,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void snow(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void snow(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xFF, 0xFA, 0xFA }));
 	color_parameter = local;
@@ -17621,9 +17621,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tan(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void tan(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xD2, 0xB4, 0x8C }));
 	color_parameter = local;
@@ -17637,9 +17637,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void thistle(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void thistle(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xD8, 0xBF, 0xD8 }));
 	color_parameter = local;
@@ -17653,9 +17653,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tomato(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void tomato(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xFF, 0x63, 0x47 }));
 	color_parameter = local;
@@ -17669,9 +17669,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void turquoise(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void turquoise(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< double > right_type;
 	static left_type local(right_type({ 0.25, 0.875, 0.8125 }));
 	color_parameter = local;
@@ -17685,9 +17685,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void wheat(::color::_internal::model< ::color::category::rgb< tag_name > > & color_parameter) {
+void wheat(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
 	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::rgb< std::uint8_t > right_type;
 	static left_type local(right_type({ 0xF5, 0xDE, 0xB3 }));
 	color_parameter = local;
@@ -17704,11 +17704,11 @@ namespace color {
 		void
 		gray
 		(
-			::color::_internal::model< ::color::category::cmyk<tag_name > > & color_parameter
+			::color::model< ::color::category::cmyk<tag_name > > & color_parameter
 			,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
 	typedef typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type rgb_category_type;
-	::color::_internal::model< rgb_category_type > rgb(color_parameter);
+	::color::model< rgb_category_type > rgb(color_parameter);
 	::color::set::gray(rgb, component_parameter);
 	color_parameter = rgb;
 }
@@ -17867,10 +17867,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< hsl_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< cmyk_category_type > cmyk_model_type;
-			typedef ::color::_internal::model< hsl_category_type > hsl_model_type;
+			typedef ::color::model< cmyk_category_type > cmyk_model_type;
+			typedef ::color::model< hsl_category_type > hsl_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -17905,10 +17905,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< hsv_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< cmyk_category_type > cmyk_model_type;
-			typedef ::color::_internal::model< hsv_category_type > hsv_model_type;
+			typedef ::color::model< cmyk_category_type > cmyk_model_type;
+			typedef ::color::model< hsv_category_type > hsv_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -18008,10 +18008,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< yiq_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< cmyk_category_type > cmyk_model_type;
-			typedef ::color::_internal::model< yiq_category_type > yiq_model_type;
+			typedef ::color::model< cmyk_category_type > cmyk_model_type;
+			typedef ::color::model< yiq_category_type > yiq_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -18046,10 +18046,10 @@ namespace color {
 
 			typedef typename ::color::akin::rgb< yuv_category_type >::akin_type rgb_category_type;
 
-			typedef ::color::_internal::model< cmyk_category_type > cmyk_model_type;
-			typedef ::color::_internal::model< yuv_category_type > yuv_model_type;
+			typedef ::color::model< cmyk_category_type > cmyk_model_type;
+			typedef ::color::model< yuv_category_type > yuv_model_type;
 
-			typedef ::color::_internal::model< rgb_category_type > rgb_model_type;
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -18074,9 +18074,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void black(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void black(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0, 0, 1 }));
 	color_parameter = local;
@@ -18090,9 +18090,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gray50(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void gray50(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0, 0, 0.5 }));
 	color_parameter = local;
@@ -18106,9 +18106,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void white(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void white(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0, 0, 0 }));
 	color_parameter = local;
@@ -18122,9 +18122,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void red(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void red(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 1, 1, 0 }));
 	color_parameter = local;
@@ -18138,9 +18138,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void green(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void green(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 1, 0, 1, 0.5 }));
 	color_parameter = local;
@@ -18154,9 +18154,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void blue(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void blue(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 1, 1, 0, 0 }));
 	color_parameter = local;
@@ -18170,9 +18170,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void cyan(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void cyan(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 1, 0, 0, 0 }));
 	color_parameter = local;
@@ -18186,9 +18186,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void magenta(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void magenta(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 1, 0, 0 }));
 	color_parameter = local;
@@ -18202,9 +18202,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void yellow(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void yellow(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0, 1, 0 }));
 	color_parameter = local;
@@ -18218,9 +18218,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aqua(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void aqua(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 1, 0, 0, 0 }));
 	color_parameter = local;
@@ -18234,9 +18234,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void fuchsia(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void fuchsia(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 1, 0, 0 }));
 	color_parameter = local;
@@ -18250,9 +18250,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lime(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void lime(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 1, 0, 1, 0 }));
 	color_parameter = local;
@@ -18266,9 +18266,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void maroon(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void maroon(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 1, 1, 0.5 }));
 	color_parameter = local;
@@ -18282,9 +18282,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void navy(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void navy(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 1, 1, 0, 0.5 }));
 	color_parameter = local;
@@ -18298,9 +18298,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void olive(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void olive(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0, 1, 0.5 }));
 	color_parameter = local;
@@ -18314,9 +18314,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orange(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void orange(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.35, 1, 0 }));
 	color_parameter = local;
@@ -18330,9 +18330,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void purple(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void purple(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 1, 0, 0.5 }));
 	color_parameter = local;
@@ -18346,9 +18346,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void silver(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void silver(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0, 0, 0.25 }));
 	color_parameter = local;
@@ -18362,9 +18362,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void teal(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void teal(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 1, 0, 0, 0.5 }));
 	color_parameter = local;
@@ -18378,9 +18378,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void violet(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void violet(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.453781513, 0, 0.0666666667 }));
 	color_parameter = local;
@@ -18394,9 +18394,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aquamarine(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void aquamarine(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0.5, 0, 0.168627451, 0 }));
 	color_parameter = local;
@@ -18410,9 +18410,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void azure(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void azure(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0.0625, 0, 0, 0 }));
 	color_parameter = local;
@@ -18426,9 +18426,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void beige(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void beige(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0, 0.102040816, 0.0392156863 }));
 	color_parameter = local;
@@ -18442,9 +18442,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void bisque(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void bisque(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.125, 0.25, 0 }));
 	color_parameter = local;
@@ -18458,9 +18458,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void brown(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void brown(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.745454545, 0.745454545, 0.352941176 }));
 	color_parameter = local;
@@ -18474,9 +18474,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void chocolate(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void chocolate(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.5, 0.857142857, 0.176470588 }));
 	color_parameter = local;
@@ -18490,9 +18490,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void coral(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void coral(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.5, 0.69, 0 }));
 	color_parameter = local;
@@ -18506,9 +18506,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void crimson(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void crimson(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.909090909, 0.727272727, 0.137254902 }));
 	color_parameter = local;
@@ -18522,9 +18522,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gainsboro(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void gainsboro(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0, 0, 0.141176471 }));
 	color_parameter = local;
@@ -18538,9 +18538,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gold(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void gold(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.156862745, 1, 0 }));
 	color_parameter = local;
@@ -18554,9 +18554,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void indigo(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void indigo(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0.423076923, 1, 0, 0.490196078 }));
 	color_parameter = local;
@@ -18570,9 +18570,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void ivory(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void ivory(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0, 0.0625, 0 }));
 	color_parameter = local;
@@ -18586,9 +18586,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void khaki(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void khaki(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.04, 0.413333333, 0.0625 }));
 	color_parameter = local;
@@ -18602,9 +18602,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lavender(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void lavender(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0.08, 0.08, 0, 0.0196078431 }));
 	color_parameter = local;
@@ -18618,9 +18618,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void linen(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void linen(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.04375, 0.082, 0.0196078431 }));
 	color_parameter = local;
@@ -18634,9 +18634,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void moccasin(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void moccasin(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.105882353, 0.290196078, 0 }));
 	color_parameter = local;
@@ -18650,9 +18650,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orchid(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void orchid(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.486238532, 0.0183486239, 0.145098039 }));
 	color_parameter = local;
@@ -18666,9 +18666,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void peru(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void peru(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.35, 0.6875, 0.2 }));
 	color_parameter = local;
@@ -18682,9 +18682,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void pink(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void pink(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.247058824, 0.203921569, 0 }));
 	color_parameter = local;
@@ -18698,9 +18698,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void plum(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void plum(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.2760181, 0, 0.133333333 }));
 	color_parameter = local;
@@ -18714,9 +18714,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void salmon(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void salmon(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.49, 0.544, 0.0196078431 }));
 	color_parameter = local;
@@ -18730,9 +18730,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void sienna(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void sienna(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.4875, 0.71875, 0.37254902 }));
 	color_parameter = local;
@@ -18746,9 +18746,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void snow(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void snow(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.0196078431, 0.0196078431, 0 }));
 	color_parameter = local;
@@ -18762,9 +18762,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tan(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void tan(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.142857143, 0.333333333, 0.176470588 }));
 	color_parameter = local;
@@ -18778,9 +18778,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void thistle(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void thistle(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.115740741, 0, 0.152941176 }));
 	color_parameter = local;
@@ -18794,9 +18794,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tomato(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void tomato(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.611764706, 0.721568627, 0 }));
 	color_parameter = local;
@@ -18810,9 +18810,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void turquoise(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void turquoise(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0.714285714, 0, 0.0714285714, 0.125 }));
 	color_parameter = local;
@@ -18826,9 +18826,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void wheat(::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter) {
+void wheat(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmyk< double > right_type;
 	static left_type local(right_type({ 0, 0.093877551, 0.269387755, 0.0392156863 }));
 	color_parameter = local;
@@ -19262,9 +19262,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void black(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void black(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 1, 1, 1 }));
 	color_parameter = local;
@@ -19278,9 +19278,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gray50(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void gray50(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.5, 0.5, 0.5 }));
 	color_parameter = local;
@@ -19294,9 +19294,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void white(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void white(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0, 0 }));
 	color_parameter = local;
@@ -19310,9 +19310,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void red(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void red(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 1, 1 }));
 	color_parameter = local;
@@ -19326,9 +19326,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void green(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void green(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 1, 0.5, 1 }));
 	color_parameter = local;
@@ -19342,9 +19342,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void blue(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void blue(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 1, 1, 0 }));
 	color_parameter = local;
@@ -19358,9 +19358,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void cyan(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void cyan(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 1, 0, 0 }));
 	color_parameter = local;
@@ -19374,9 +19374,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void magenta(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void magenta(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 1, 0 }));
 	color_parameter = local;
@@ -19390,9 +19390,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void yellow(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void yellow(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0, 1 }));
 	color_parameter = local;
@@ -19406,9 +19406,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aqua(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void aqua(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 1, 0, 0 }));
 	color_parameter = local;
@@ -19422,9 +19422,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void fuchsia(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void fuchsia(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 1, 0 }));
 	color_parameter = local;
@@ -19438,9 +19438,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lime(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void lime(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 1, 0, 1 }));
 	color_parameter = local;
@@ -19454,9 +19454,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void maroon(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void maroon(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.5, 1, 1 }));
 	color_parameter = local;
@@ -19470,9 +19470,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void navy(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void navy(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 1, 1, 0.5 }));
 	color_parameter = local;
@@ -19486,9 +19486,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void olive(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void olive(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.5, 0.5, 1 }));
 	color_parameter = local;
@@ -19502,9 +19502,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orange(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void orange(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0.35, 1 }));
 	color_parameter = local;
@@ -19518,9 +19518,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void purple(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void purple(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.5, 1, 0.5 }));
 	color_parameter = local;
@@ -19534,9 +19534,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void silver(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void silver(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.25, 0.25, 0.25 }));
 	color_parameter = local;
@@ -19550,9 +19550,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void teal(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void teal(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 1, 0.5, 0.5 }));
 	color_parameter = local;
@@ -19566,9 +19566,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void violet(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void violet(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.0666666667, 0.490196078, 0.0666666667 }));
 	color_parameter = local;
@@ -19582,9 +19582,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aquamarine(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void aquamarine(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.5, 0, 0.168627451 }));
 	color_parameter = local;
@@ -19598,9 +19598,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void azure(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void azure(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.0625, 0, 0 }));
 	color_parameter = local;
@@ -19614,9 +19614,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void beige(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void beige(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.0392156863, 0.0392156863, 0.137254902 }));
 	color_parameter = local;
@@ -19630,9 +19630,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void bisque(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void bisque(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0.125, 0.25 }));
 	color_parameter = local;
@@ -19646,9 +19646,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void brown(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void brown(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.352941176, 0.835294118, 0.835294118 }));
 	color_parameter = local;
@@ -19662,9 +19662,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void chocolate(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void chocolate(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.176470588, 0.588235294, 0.882352941 }));
 	color_parameter = local;
@@ -19678,9 +19678,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void coral(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void coral(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0.5, 0.69 }));
 	color_parameter = local;
@@ -19694,9 +19694,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void crimson(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void crimson(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.137254902, 0.921568627, 0.764705882 }));
 	color_parameter = local;
@@ -19710,9 +19710,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gainsboro(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void gainsboro(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.141176471, 0.141176471, 0.141176471 }));
 	color_parameter = local;
@@ -19726,9 +19726,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gold(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void gold(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0.156862745, 1 }));
 	color_parameter = local;
@@ -19742,9 +19742,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void indigo(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void indigo(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.705882353, 1, 0.490196078 }));
 	color_parameter = local;
@@ -19758,9 +19758,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void ivory(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void ivory(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0, 0.0625 }));
 	color_parameter = local;
@@ -19774,9 +19774,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void khaki(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void khaki(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.0625, 0.1, 0.45 }));
 	color_parameter = local;
@@ -19790,9 +19790,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lavender(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void lavender(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.0980392157, 0.0980392157, 0.0196078431 }));
 	color_parameter = local;
@@ -19806,9 +19806,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void linen(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void linen(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.0196078431, 0.0625, 0.1 }));
 	color_parameter = local;
@@ -19822,9 +19822,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void moccasin(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void moccasin(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0.105882353, 0.290196078 }));
 	color_parameter = local;
@@ -19838,9 +19838,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orchid(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void orchid(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.145098039, 0.560784314, 0.160784314 }));
 	color_parameter = local;
@@ -19854,9 +19854,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void peru(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void peru(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.2, 0.48, 0.75 }));
 	color_parameter = local;
@@ -19870,9 +19870,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void pink(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void pink(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0.247058824, 0.203921569 }));
 	color_parameter = local;
@@ -19886,9 +19886,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void plum(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void plum(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.133333333, 0.37254902, 0.133333333 }));
 	color_parameter = local;
@@ -19902,9 +19902,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void salmon(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void salmon(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.0196078431, 0.5, 0.552941176 }));
 	color_parameter = local;
@@ -19918,9 +19918,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void sienna(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void sienna(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.37254902, 0.678431373, 0.823529412 }));
 	color_parameter = local;
@@ -19934,9 +19934,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void snow(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void snow(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0.0196078431, 0.0196078431 }));
 	color_parameter = local;
@@ -19950,9 +19950,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tan(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void tan(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.176470588, 0.294117647, 0.450980392 }));
 	color_parameter = local;
@@ -19966,9 +19966,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void thistle(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void thistle(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.152941176, 0.250980392, 0.152941176 }));
 	color_parameter = local;
@@ -19982,9 +19982,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tomato(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void tomato(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0, 0.611764706, 0.721568627 }));
 	color_parameter = local;
@@ -19998,9 +19998,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void turquoise(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void turquoise(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.75, 0.125, 0.1875 }));
 	color_parameter = local;
@@ -20014,9 +20014,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void wheat(::color::_internal::model< ::color::category::cmy< tag_name > > & color_parameter) {
+void wheat(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::cmy< double > right_type;
 	static left_type local(right_type({ 0.0392156863, 0.129411765, 0.298039216 }));
 	color_parameter = local;
@@ -20349,9 +20349,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void black(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void black(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0 }));
 	color_parameter = local;
@@ -20365,9 +20365,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gray50(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void gray50(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.5 }));
 	color_parameter = local;
@@ -20381,9 +20381,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void white(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void white(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 1.0000001 }));
 	color_parameter = local;
@@ -20397,9 +20397,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void red(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void red(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.2126729 }));
 	color_parameter = local;
@@ -20413,9 +20413,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void green(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void green(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.3575761 }));
 	color_parameter = local;
@@ -20429,9 +20429,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void blue(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void blue(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.072175 }));
 	color_parameter = local;
@@ -20445,9 +20445,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void cyan(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void cyan(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.7873272 }));
 	color_parameter = local;
@@ -20461,9 +20461,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void magenta(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void magenta(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.2848479 }));
 	color_parameter = local;
@@ -20477,9 +20477,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void yellow(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void yellow(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.9278251 }));
 	color_parameter = local;
@@ -20493,9 +20493,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aqua(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void aqua(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.7873272 }));
 	color_parameter = local;
@@ -20509,9 +20509,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void fuchsia(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void fuchsia(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.2848479 }));
 	color_parameter = local;
@@ -20525,9 +20525,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lime(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void lime(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.7151522 }));
 	color_parameter = local;
@@ -20541,9 +20541,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void maroon(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void maroon(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.10633645 }));
 	color_parameter = local;
@@ -20557,9 +20557,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void navy(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void navy(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.0360875 }));
 	color_parameter = local;
@@ -20573,9 +20573,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void olive(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void olive(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.46391255 }));
 	color_parameter = local;
@@ -20589,9 +20589,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orange(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void orange(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.67752183 }));
 	color_parameter = local;
@@ -20605,9 +20605,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void purple(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void purple(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.14242395 }));
 	color_parameter = local;
@@ -20621,9 +20621,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void silver(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void silver(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.750000075 }));
 	color_parameter = local;
@@ -20637,9 +20637,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void teal(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void teal(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.3936636 }));
 	color_parameter = local;
@@ -20653,9 +20653,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void violet(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void violet(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.630445436 }));
 	color_parameter = local;
@@ -20669,9 +20669,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void aquamarine(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void aquamarine(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.881492964 }));
 	color_parameter = local;
@@ -20685,9 +20685,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void azure(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void azure(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.986708044 }));
 	color_parameter = local;
@@ -20701,9 +20701,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void beige(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void beige(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.953708429 }));
 	color_parameter = local;
@@ -20717,9 +20717,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void bisque(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void bisque(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.892562325 }));
 	color_parameter = local;
@@ -20733,9 +20733,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void brown(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void brown(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.267289298 }));
 	color_parameter = local;
@@ -20749,9 +20749,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void chocolate(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void chocolate(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.478108 }));
 	color_parameter = local;
@@ -20765,9 +20765,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void coral(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void coral(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.59262325 }));
 	color_parameter = local;
@@ -20781,9 +20781,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void crimson(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void crimson(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.256555224 }));
 	color_parameter = local;
@@ -20797,9 +20797,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gainsboro(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void gainsboro(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.858823615 }));
 	color_parameter = local;
@@ -20813,9 +20813,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void gold(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void gold(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.815644363 }));
 	color_parameter = local;
@@ -20829,9 +20829,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void indigo(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void indigo(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.099345951 }));
 	color_parameter = local;
@@ -20845,9 +20845,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void ivory(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void ivory(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.995489162 }));
 	color_parameter = local;
@@ -20861,9 +20861,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void khaki(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void khaki(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.882714074 }));
 	color_parameter = local;
@@ -20877,9 +20877,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void lavender(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void lavender(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.907621659 }));
 	color_parameter = local;
@@ -20893,9 +20893,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void linen(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void linen(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.943915531 }));
 	color_parameter = local;
@@ -20909,9 +20909,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void moccasin(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void moccasin(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.9033332 }));
 	color_parameter = local;
@@ -20925,9 +20925,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void orchid(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void orchid(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.556490936 }));
 	color_parameter = local;
@@ -20941,9 +20941,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void peru(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void peru(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.560061214 }));
 	color_parameter = local;
@@ -20957,9 +20957,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void pink(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void pink(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.8085974 }));
 	color_parameter = local;
@@ -20973,9 +20973,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void plum(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void plum(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.695591129 }));
 	color_parameter = local;
@@ -20989,9 +20989,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void salmon(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void salmon(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.598345414 }));
 	color_parameter = local;
@@ -21005,9 +21005,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void sienna(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void sienna(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.376149096 }));
 	color_parameter = local;
@@ -21021,9 +21021,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void snow(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void snow(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.984562312 }));
 	color_parameter = local;
@@ -21037,9 +21037,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tan(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void tan(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.719581196 }));
 	color_parameter = local;
@@ -21053,9 +21053,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void thistle(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void thistle(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.776945947 }));
 	color_parameter = local;
@@ -21069,9 +21069,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void tomato(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void tomato(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.510416009 }));
 	color_parameter = local;
@@ -21085,9 +21085,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void turquoise(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void turquoise(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.737568587 }));
 	color_parameter = local;
@@ -21101,9 +21101,9 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-void wheat(::color::_internal::model< ::color::category::gray< tag_name > > & color_parameter) {
+void wheat(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::_internal::model< category_left_type > left_type;
+	typedef ::color::model< category_left_type > left_type;
 	typedef ::color::gray< double > right_type;
 	static left_type local(right_type({ 0.877599898 }));
 	color_parameter = local;
@@ -21116,7 +21116,7 @@ namespace color {
 	namespace compare {
 
 		template < typename category_name >
-bool darker(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+bool darker(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 	using namespace ::color::compare::operators;
 	return ::color::gray<float>(left) < ::color::gray<float>(right);
 }
@@ -21128,7 +21128,7 @@ namespace color {
 	namespace compare {
 
 		template < typename category_name >
-bool brighter(::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const& right) {
+bool brighter(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 	using namespace ::color::compare::operators;
 	return ::color::gray<float>(left) > ::color::gray<float>(right);
 }
@@ -21142,7 +21142,7 @@ namespace color {
 		template< typename category_name >
 		inline
 		typename ::color::trait::component< category_name >::return_image_type
-red(::color::_internal::model< category_name > const& color_parameter) {
+red(::color::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
@@ -21155,7 +21155,7 @@ namespace color {
 		template< typename category_name >
 		inline
 		typename ::color::trait::component< category_name >::return_image_type
-green(::color::_internal::model< category_name > const& color_parameter) {
+green(::color::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
@@ -21168,7 +21168,7 @@ namespace color {
 		template< typename category_name >
 		inline
 		typename ::color::trait::component< category_name >::return_image_type
-blue(::color::_internal::model< category_name > const& color_parameter) {
+blue(::color::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
@@ -21181,7 +21181,7 @@ namespace color {
 		template< typename category_name >
 		inline
 		typename ::color::trait::component< category_name >::return_image_type
-gray(::color::_internal::model< category_name > const& color_parameter) {
+gray(::color::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
@@ -21194,7 +21194,7 @@ namespace color {
 		template< typename category_name >
 		inline
 		typename ::color::trait::component< category_name >::return_image_type
-hue(::color::_internal::model< category_name > const& color_parameter) {
+hue(::color::model< category_name > const& color_parameter) {
 	return color_parameter.template get<0>();
 }
 
@@ -21207,15 +21207,15 @@ namespace color {
 		template< typename category_name >
 		inline
 		void
-black(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+black(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 black() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::black(dummy);
 	return dummy;
@@ -21228,8 +21228,8 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void gray50(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void gray50(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 	typedef ::color::trait::bound< category_name > bound_type;
 	typedef typename model_type::index_type index_type;
 	for(index_type index=0; index < model_type::size() ; ++index) {
@@ -21239,9 +21239,9 @@ void gray50(::color::_internal::model< category_name > & color_parameter) {
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 gray50() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::gray50(dummy);
 	return dummy;
@@ -21256,15 +21256,15 @@ namespace color {
 		template< typename category_name >
 		inline
 		void
-white(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+white(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 white() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::white(dummy);
 	return dummy;
@@ -21277,15 +21277,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void red(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void red(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 red() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::red(dummy);
 	return dummy;
@@ -21298,15 +21298,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void green(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void green(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 green() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::green(dummy);
 	return dummy;
@@ -21321,15 +21321,15 @@ namespace color {
 		template< typename category_name >
 		inline
 		void
-blue(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+blue(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 blue() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::blue(dummy);
 	return dummy;
@@ -21342,15 +21342,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void cyan(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void cyan(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 cyan() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::cyan(dummy);
 	return dummy;
@@ -21363,15 +21363,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void magenta(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void magenta(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 magenta() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::magenta(dummy);
 	return dummy;
@@ -21384,16 +21384,16 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void yellow(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void yellow(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 yellow() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::yellow(dummy);
 	return dummy;
@@ -21406,16 +21406,16 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void aqua(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void aqua(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 aqua() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::aqua(dummy);
 	return dummy;
@@ -21428,15 +21428,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void fuchsia(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void fuchsia(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 fuchsia() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::fuchsia(dummy);
 	return dummy;
@@ -21449,15 +21449,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void lime(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void lime(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 lime() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::lime(dummy);
 	return dummy;
@@ -21470,15 +21470,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void maroon(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void maroon(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 maroon() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::maroon(dummy);
 	return dummy;
@@ -21491,15 +21491,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void navy(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void navy(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 navy() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::navy(dummy);
 	return dummy;
@@ -21512,15 +21512,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void olive(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void olive(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 olive() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::olive(dummy);
 	return dummy;
@@ -21533,15 +21533,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void orange(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void orange(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 orange() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::orange(dummy);
 	return dummy;
@@ -21554,15 +21554,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void purple(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void purple(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 purple() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::purple(dummy);
 	return dummy;
@@ -21575,15 +21575,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void silver(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void silver(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 silver() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::silver(dummy);
 	return dummy;
@@ -21596,16 +21596,16 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void teal(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void teal(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 teal() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::teal(dummy);
 	return dummy;
@@ -21617,16 +21617,16 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void violet(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void violet(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 violet() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::violet(dummy);
 	return dummy;
@@ -21639,15 +21639,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void aquamarine(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void aquamarine(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 aquamarine() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::aquamarine(dummy);
 	return dummy;
@@ -21660,15 +21660,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void azure(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void azure(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 azure() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::azure(dummy);
 	return dummy;
@@ -21681,15 +21681,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void beige(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void beige(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 beige() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::beige(dummy);
 	return dummy;
@@ -21702,15 +21702,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void bisque(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void bisque(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 bisque() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::bisque(dummy);
 	return dummy;
@@ -21723,15 +21723,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void brown(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void brown(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 brown() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::brown(dummy);
 	return dummy;
@@ -21744,15 +21744,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void chocolate(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void chocolate(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 chocolate() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::chocolate(dummy);
 	return dummy;
@@ -21765,15 +21765,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void coral(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void coral(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 coral() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::coral(dummy);
 	return dummy;
@@ -21786,15 +21786,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void crimson(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void crimson(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 crimson() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::crimson(dummy);
 	return dummy;
@@ -21807,15 +21807,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void gainsboro(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void gainsboro(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 gainsboro() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::gainsboro(dummy);
 	return dummy;
@@ -21828,15 +21828,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void gold(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void gold(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 gold() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::gold(dummy);
 	return dummy;
@@ -21849,15 +21849,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void indigo(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void indigo(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 indigo() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::indigo(dummy);
 	return dummy;
@@ -21870,15 +21870,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void ivory(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void ivory(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 ivory() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::ivory(dummy);
 	return dummy;
@@ -21891,15 +21891,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void khaki(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void khaki(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 khaki() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::khaki(dummy);
 	return dummy;
@@ -21912,15 +21912,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void lavender(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void lavender(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 lavender() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::lavender(dummy);
 	return dummy;
@@ -21933,15 +21933,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void linen(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void linen(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 linen() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::linen(dummy);
 	return dummy;
@@ -21954,15 +21954,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void moccasin(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void moccasin(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 moccasin() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::moccasin(dummy);
 	return dummy;
@@ -21975,15 +21975,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void orchid(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void orchid(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 orchid() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::orchid(dummy);
 	return dummy;
@@ -21996,15 +21996,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void peru(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void peru(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 peru() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::peru(dummy);
 	return dummy;
@@ -22017,15 +22017,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void pink(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void pink(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 pink() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::pink(dummy);
 	return dummy;
@@ -22038,15 +22038,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void plum(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void plum(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 plum() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::plum(dummy);
 	return dummy;
@@ -22059,15 +22059,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void salmon(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void salmon(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 salmon() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::salmon(dummy);
 	return dummy;
@@ -22080,15 +22080,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void sienna(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void sienna(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 sienna() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::sienna(dummy);
 	return dummy;
@@ -22101,15 +22101,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void snow(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void snow(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 snow() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::snow(dummy);
 	return dummy;
@@ -22122,15 +22122,15 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void tan(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void tan(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 tan() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::tan(dummy);
 	return dummy;
@@ -22143,16 +22143,16 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void thistle(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void thistle(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 thistle() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::thistle(dummy);
 	return dummy;
@@ -22165,16 +22165,16 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void tomato(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void tomato(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 tomato() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::tomato(dummy);
 	return dummy;
@@ -22187,16 +22187,16 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void turquoise(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void turquoise(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 turquoise() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::turquoise(dummy);
 	return dummy;
@@ -22209,16 +22209,16 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
-void wheat(::color::_internal::model< category_name > & color_parameter) {
-	typedef ::color::_internal::model< category_name > model_type;
+void wheat(::color::model< category_name > & color_parameter) {
+	typedef ::color::model< category_name > model_type;
 	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
 inline
-::color::_internal::model< category_name >
+::color::model< category_name >
 wheat() {
-	typedef ::color::_internal::model< category_name > model_type;
+	typedef ::color::model< category_name > model_type;
 	static model_type dummy;
 	::color::make::wheat(dummy);
 	return dummy;
@@ -22235,8 +22235,8 @@ namespace color {
 		void
 		red
 		(
-			::color::_internal::model< category_name > & color_parameter,
-			typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+			::color::model< category_name > & color_parameter,
+			typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
 }
 	}
@@ -22250,8 +22250,8 @@ namespace color {
 		void
 		green
 		(
-			::color::_internal::model< category_name > & color_parameter,
-			typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+			::color::model< category_name > & color_parameter,
+			typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
 };
 
@@ -22266,8 +22266,8 @@ namespace color {
 		void
 		blue
 		(
-			::color::_internal::model< category_name > & color_parameter,
-			typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+			::color::model< category_name > & color_parameter,
+			typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
 };
 
@@ -22282,8 +22282,8 @@ namespace color {
 		void
 		gray
 		(
-			::color::_internal::model< category_name > & color_parameter,
-			typename ::color::_internal::model< category_name >::component_input_const_type component_parameter
+			::color::model< category_name > & color_parameter,
+			typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
 };
 
@@ -22304,7 +22304,7 @@ namespace color {
 				typedef ::color::trait::component<category_type> component_trait_type;
 				typedef ::color::trait::container< category_type > container_trait_type;
 
-				typedef typename ::color::_internal::model<category_type> model_type;
+				typedef typename ::color::model<category_type> model_type;
 
 				typedef typename component_trait_type::instance_type component_type;
 
@@ -22343,7 +22343,7 @@ static void process(model_type & result, model_type const& right) {
 template< typename category_name >
 void overburn
 (
-	::color::_internal::model<category_name> & result
+	::color::model<category_name> & result
 ) {
 	::color::fix::_internal::overburn<category_name>::process(result);
 }
@@ -22351,8 +22351,8 @@ void overburn
 template< typename category_name >
 void overburn
 (
-	::color::_internal::model<category_name> & result
-	,::color::_internal::model<category_name> const& right
+	::color::model<category_name> & result
+	,::color::model<category_name> const& right
 ) {
 	::color::fix::_internal::overburn<category_name>::process(result, right);
 }

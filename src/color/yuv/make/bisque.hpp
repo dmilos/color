@@ -10,10 +10,10 @@
 
      template< typename tag_name >
       inline
-      void bisque( ::color::_internal::model< ::color::category::yuv< tag_name > > & color_parameter )
+      void bisque( ::color::model< ::color::category::yuv< tag_name > > & color_parameter )
        {
         typedef ::color::category::yuv< tag_name >         category_left_type;
-        typedef ::color::_internal::model< category_left_type  > left_type;
+        typedef ::color::model< category_left_type  > left_type;
 
         typedef ::color::yuv< double >      right_type;
 

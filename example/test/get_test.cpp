@@ -6,8 +6,8 @@
 template< typename category_name >
  void test_get_red( )
   {
-   typedef color::_internal::model< typename color::akin::rgb< category_name >::akin_type > rgb_type;
-   typedef color::_internal::model< category_name > model_type;
+   typedef color::model< typename color::akin::rgb< category_name >::akin_type > rgb_type;
+   typedef color::model< category_name > model_type;
 
    model_type m;
    double e = 0;
@@ -43,8 +43,8 @@ template< typename category_name >
 template< typename category_name >
  void test_get_green( )
   {
-   typedef color::_internal::model< typename color::akin::rgb< category_name >::akin_type > rgb_type;
-   typedef color::_internal::model< category_name > model_type;
+   typedef color::model< typename color::akin::rgb< category_name >::akin_type > rgb_type;
+   typedef color::model< category_name > model_type;
 
    model_type m;
    double e = 0;
@@ -80,8 +80,8 @@ template< typename category_name >
 template< typename category_name >
  void test_get_blue( )
   {
-   typedef color::_internal::model< typename color::akin::rgb< category_name >::akin_type > rgb_type;
-   typedef color::_internal::model< category_name > model_type;
+   typedef color::model< typename color::akin::rgb< category_name >::akin_type > rgb_type;
+   typedef color::model< category_name > model_type;
 
    model_type m;
    double e = 0;

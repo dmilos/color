@@ -21,7 +21,7 @@
           public:
             typedef ::color::category::cmyk< tag_name >  category_type;
 
-            typedef ::color::_internal::model<category_type>  model_type;
+            typedef ::color::model<category_type>  model_type;
             typedef ::color::trait::bound<category_type>      bound_type;
             typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
             typedef  ::color::operation::_internal::invert< category_type > invert_type;

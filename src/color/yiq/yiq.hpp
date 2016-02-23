@@ -7,7 +7,7 @@
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
-#include "../_internal/model.hpp"
+#include "../generic/model.hpp"
 
 
 
@@ -33,7 +33,7 @@ namespace color
    }
 
   template< typename type_name >
-   using yiq = ::color::_internal::model< typename ::color::_internal::pick_yiq< type_name >::category_type >;
+   using yiq = ::color::model< typename ::color::_internal::pick_yiq< type_name >::category_type >;
 
  }
 

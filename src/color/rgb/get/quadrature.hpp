@@ -21,8 +21,8 @@
 
      template< typename tag_name >
       inline
-      typename ::color::_internal::model< typename ::color::akin::yiq< ::color::category::rgb<tag_name> >::akin_type >::component_const_type
-      quadrature( ::color::_internal::model< ::color::category::rgb<tag_name> > const& color_parameter )
+      typename ::color::model< typename ::color::akin::yiq< ::color::category::rgb<tag_name> >::akin_type >::component_const_type
+      quadrature( ::color::model< ::color::category::rgb<tag_name> > const& color_parameter )
        {
         typedef ::color::category::rgb<tag_name> category_type;
         typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;

@@ -6,12 +6,12 @@
 template< typename category_left_name, typename category_right_name>
  void check_conversion_back_and_forth
   (
-   color::_internal::model< category_left_name> &left,
-   color::_internal::model<category_right_name> &desno
+   color::model< category_left_name> &left,
+   color::model<category_right_name> &desno
   )
   {
-   typedef color::_internal::model< category_left_name> left_type;
-   typedef color::_internal::model< category_left_name> right_type;
+   typedef color::model< category_left_name> left_type;
+   typedef color::model< category_left_name> right_type;
 
    long double e0 = 0;
    long double e1 = 0;
@@ -96,13 +96,13 @@ template< typename category_left_name, typename category_right_name>
 template< typename category_left_name, typename category_middle_name, typename category_right_name>
  void check_conversion_pass
   (
-    color::_internal::model< category_left_name>  & left
-   ,color::_internal::model< category_middle_name> & middle
-   ,color::_internal::model<category_right_name> & desno
+    color::model< category_left_name>  & left
+   ,color::model< category_middle_name> & middle
+   ,color::model<category_right_name> & desno
   )
   {
-   typedef color::_internal::model< category_left_name> left_type;
-   typedef color::_internal::model< category_left_name> right_type;
+   typedef color::model< category_left_name> left_type;
+   typedef color::model< category_left_name> right_type;
 
    long double e0 = 0;
    long double e1 = 0;

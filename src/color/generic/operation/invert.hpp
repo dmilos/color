@@ -1,7 +1,7 @@
 #ifndef  color_generic_operation_invert_123
 #define color_generic_operation_invert_123
 
-#include "../../_internal/model.hpp"
+#include "../../generic/model.hpp"
 
 // ::color::operation::_internal::invert<category_name>::component<>( )
 // ::color::operation::_internal::invert<category_name>::process( )
@@ -25,7 +25,7 @@
             typedef ::color::trait::component< category_name >   component_trait_type;
             typedef ::color::trait::container< category_name >   container_trait_type;
 
-            typedef typename ::color::_internal::model<category_type>  model_type;
+            typedef typename ::color::model<category_type>  model_type;
 
 
             typedef typename component_trait_type::input_const_type component_input_const_type;
@@ -76,7 +76,7 @@
      template< typename category_name >
       void invert
        (
-         ::color::_internal::model<category_name>      & result
+         ::color::model<category_name>      & result
        )
        {
         ::color::operation::_internal::invert<category_name>::process( result );
@@ -85,8 +85,8 @@
      template< typename category_name >
       void invert
        (
-         ::color::_internal::model<category_name>      & result
-        ,::color::_internal::model<category_name> const& right
+         ::color::model<category_name>      & result
+        ,::color::model<category_name> const& right
        )
        {
         ::color::operation::_internal::invert<category_name>::process( result, right );

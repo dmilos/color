@@ -11,7 +11,7 @@ template< typename category_name >
    //std::cout << "  type - " << typeid( category_name ).name()   << std::endl;
    //std::cout << std::endl;
 
-   typedef color::_internal::model< category_name > model_type;
+   typedef color::model< category_name > model_type;
    typedef typename model_type::component_type     component_type;
    typedef typename model_type::container_type     container_type;
 

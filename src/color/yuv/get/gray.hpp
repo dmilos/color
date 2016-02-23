@@ -23,7 +23,7 @@
      template< typename tag_name >
       inline
       typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv<tag_name> >::akin_type >::return_type
-      gray( ::color::_internal::model< ::color::category::yuv<tag_name> > const& color_parameter )
+      gray( ::color::model< ::color::category::yuv<tag_name> > const& color_parameter )
        {
         typedef ::color::category::yuv< tag_name > category_type;
 

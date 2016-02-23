@@ -21,7 +21,7 @@
       void
       green
        (
-                  ::color::_internal::model< ::color::category::yuv< tag_name > >                                   & color_parameter
+                  ::color::model< ::color::category::yuv< tag_name > >                                   & color_parameter
         ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yuv< tag_name > >::akin_type >::input_const_type         component_parameter
        )
        {
@@ -30,7 +30,7 @@
         enum { green_p  = ::color::place::_internal::green<akin_type>::position_enum };
 
 
-        ::color::_internal::model< akin_type > rgb( color_parameter );
+        ::color::model< akin_type > rgb( color_parameter );
 
         rgb.template set< green_p > ( component_parameter );
 

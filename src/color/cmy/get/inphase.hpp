@@ -22,7 +22,7 @@
      template< typename tag_name >
       inline
       typename ::color::trait::component< typename ::color::akin::yiq< ::color::category::cmy< tag_name > >::akin_type >::return_type
-      inphase( ::color::_internal::model< ::color::category::cmy<tag_name> > const& color_parameter )
+      inphase( ::color::model< ::color::category::cmy<tag_name> > const& color_parameter )
        {
         typedef ::color::category::cmy< tag_name > category_type;
         typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;

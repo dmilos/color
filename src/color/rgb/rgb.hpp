@@ -8,7 +8,7 @@
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
-#include "../_internal/model.hpp"
+#include "../generic/model.hpp"
 
 
 namespace color
@@ -39,22 +39,22 @@ namespace color
    }
 
   template< typename type_name >
-   using rgb = ::color::_internal::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
+   using rgb = ::color::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
 
   template< typename value_name >
-   using rgba = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 0, 1, 2, 3 > > >;
+   using rgba = ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 0, 1, 2, 3 > > >;
 
   template< typename value_name >
-   using argb = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 1, 2, 3, 0 > > >;
+   using argb = ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 1, 2, 3, 0 > > >;
 
   template< typename value_name >
-   using bgr = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, 2, 1, 0 > > >;
+   using bgr = ::color::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, 2, 1, 0 > > >;
 
   template< typename value_name >
-   using bgra = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 2, 1, 0, 3 > > >;
+   using bgra = ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 2, 1, 0, 3 > > >;
 
   template< typename value_name >
-   using abgr = ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 3, 2, 1, 0 > > >;
+   using abgr = ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 3, 2, 1, 0 > > >;
 
  }
 

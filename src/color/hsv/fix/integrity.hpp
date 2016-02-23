@@ -21,7 +21,7 @@
             public:
               typedef category_name  category_type;
 
-              typedef typename ::color::_internal::model<category_type>  model_type;
+              typedef typename ::color::model<category_type>  model_type;
               typedef typename ::color::trait::bound<category_type>      bound_type;
 
               static void process( model_type &result )

@@ -7,7 +7,7 @@
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
-#include "../_internal/model.hpp"
+#include "../generic/model.hpp"
 
 
 
@@ -33,7 +33,7 @@ namespace color
    }
 
   template< typename type_name >
-   using cmy = ::color::_internal::model< typename ::color::_internal::pick_cmy< type_name >::category_type >;
+   using cmy = ::color::model< typename ::color::_internal::pick_cmy< type_name >::category_type >;
 
  }
 

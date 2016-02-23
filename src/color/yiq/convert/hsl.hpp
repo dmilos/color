@@ -27,10 +27,10 @@ namespace color
 
          typedef typename ::color::akin::rgb< hsl_category_type >::akin_type  rgb_category_type;
 
-         typedef ::color::_internal::model< yiq_category_type > yiq_model_type;
-         typedef ::color::_internal::model< hsl_category_type >  hsl_model_type;
+         typedef ::color::model< yiq_category_type > yiq_model_type;
+         typedef ::color::model< hsl_category_type >  hsl_model_type;
 
-         typedef ::color::_internal::model< rgb_category_type >  rgb_model_type;
+         typedef ::color::model< rgb_category_type >  rgb_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

@@ -16,8 +16,8 @@
 
      template< typename tag_name >
       inline
-      typename ::color::_internal::model< ::color::category::rgb< tag_name> >::component_const_type
-      green( ::color::_internal::model< ::color::category::rgb< tag_name> > const& color_parameter )
+      typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
+      green( ::color::model< ::color::category::rgb< tag_name> > const& color_parameter )
        {
         typedef ::color::category::rgb< tag_name>  category_type;
         enum{ green_p  = ::color::place::_internal::green<category_type>::position_enum };

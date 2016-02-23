@@ -3,7 +3,7 @@
 // ::color::operation::subtract( result, right )
 // ::color::operation::subtract( result, left, right )
 
-#include "../../_internal/model.hpp"
+#include "../../generic/model.hpp"
 
  namespace color
   {
@@ -21,7 +21,7 @@
             typedef ::color::trait::index<category_type>         index_trait_type;
             typedef ::color::trait::container< category_type >   container_trait_type;
 
-            typedef ::color::_internal::model<category_type>  model_type;
+            typedef ::color::model<category_type>  model_type;
 
             typedef typename index_trait_type::instance_type  index_type;
 
@@ -47,8 +47,8 @@
      template< typename category_name >
       void subtract
        (
-         ::color::_internal::model<category_name>      & result
-        ,color::_internal::model<category_name> const& right
+         ::color::model<category_name>      & result
+        ,color::model<category_name> const& right
        )
        {
         ::color::operation::_internal::subtract<category_name>::process( result, right );
@@ -57,9 +57,9 @@
      template< typename category_name >
       void subtract
        (
-         ::color::_internal::model<category_name>      & result
-        ,color::_internal::model<category_name> const& left
-        ,color::_internal::model<category_name> const& right
+         ::color::model<category_name>      & result
+        ,color::model<category_name> const& left
+        ,color::model<category_name> const& right
        )
        {
         ::color::operation::_internal::subtract<category_name>::process( result, left, right );

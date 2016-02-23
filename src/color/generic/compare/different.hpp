@@ -3,7 +3,7 @@
 
 // using namespace  ::color::compare::different
 
-#include "../../_internal/model.hpp"
+#include "../../generic/model.hpp"
 
 
  namespace color
@@ -14,8 +14,8 @@
      template < typename category_name >
       bool different
        (
-         ::color::_internal::model< category_name >  const& left
-        ,::color::_internal::model< category_name >  const& right
+         ::color::model< category_name >  const& left
+        ,::color::model< category_name >  const& right
        )
        {
         return left.container() != right.container();
@@ -27,7 +27,7 @@
        template< typename category_name >
         inline
         bool
-        operator !=( ::color::_internal::model< category_name > const& left, ::color::_internal::model< category_name > const&  right )
+        operator !=( ::color::model< category_name > const& left, ::color::model< category_name > const&  right )
          {
           return ::color::compare::different( left, right );
          }

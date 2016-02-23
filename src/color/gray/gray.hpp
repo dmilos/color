@@ -8,7 +8,7 @@
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
-#include "../_internal/model.hpp"
+#include "../generic/model.hpp"
 
 
 namespace color
@@ -33,7 +33,7 @@ namespace color
    }
 
   template< typename type_name >
-   using gray = ::color::_internal::model< typename ::color::_internal::pick_gray< type_name >::category_type >;
+   using gray = ::color::model< typename ::color::_internal::pick_gray< type_name >::category_type >;
 
  }
 

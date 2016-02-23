@@ -10,10 +10,10 @@
 
      template< typename tag_name >
       inline
-      void coral( ::color::_internal::model< ::color::category::hsv< tag_name > > & color_parameter )
+      void coral( ::color::model< ::color::category::hsv< tag_name > > & color_parameter )
        {
         typedef ::color::category::hsv< tag_name >         category_left_type;
-        typedef ::color::_internal::model< category_left_type  > left_type;
+        typedef ::color::model< category_left_type  > left_type;
 
         typedef ::color::hsv< double >      right_type;
 

@@ -2,7 +2,7 @@
 #define color_generic_check_overburn
 // ::color::check::overburn< category >( model )
 
-#include "../../_internal/model.hpp"
+#include "../../generic/model.hpp"
 
 namespace color
  {
@@ -17,7 +17,7 @@ namespace color
          public:
           typedef category_name category_type;
 
-          typedef ::color::_internal::model<category_type>          model_type;
+          typedef ::color::model<category_type>          model_type;
           typedef ::color::trait::bound<category_type>          bound_type;
           typedef ::color::trait::container< category_name >    container_trait_type;
           typedef ::color::trait::index<category_type>          index_trait_type;
@@ -48,7 +48,7 @@ namespace color
     template< typename category_name >
      inline
      typename ::color::trait::index<category_name>::instance_type
-     overburn( ::color::_internal::model<category_name> const& m )
+     overburn( ::color::model<category_name> const& m )
       {
        return  ::color::check::_internal::overburn<category_name>::process( m );
       }

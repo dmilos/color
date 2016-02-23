@@ -10,10 +10,10 @@
 
      template< typename tag_name >
       inline
-      void pink( ::color::_internal::model< ::color::category::cmyk< tag_name > > & color_parameter )
+      void pink( ::color::model< ::color::category::cmyk< tag_name > > & color_parameter )
        {
         typedef ::color::category::cmyk< tag_name >         category_left_type;
-        typedef ::color::_internal::model< category_left_type  > left_type;
+        typedef ::color::model< category_left_type  > left_type;
 
         typedef ::color::cmyk< double >      right_type;
 

@@ -20,7 +20,7 @@
           ::color::category::_internal::rgba_scramble < value_name, red_position, green_position, blue_position, alpha_position > 
          >
        >::return_image_type
-      alpha( ::color::_internal::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > > > const& color_parameter )
+      alpha( ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > > > const& color_parameter )
        {
         typedef ::color::category::_internal::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > tag_type;
         typedef ::color::category::rgb< tag_type >  category_type;

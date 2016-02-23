@@ -9,9 +9,9 @@
     {
 
      template< typename category_name >
-      void gray50( ::color::_internal::model< category_name > & color_parameter )
+      void gray50( ::color::model< category_name > & color_parameter )
        {
-        typedef ::color::_internal::model< category_name > model_type;
+        typedef ::color::model< category_name > model_type;
         typedef ::color::trait::bound< category_name > bound_type;
 
         typedef typename model_type::index_type index_type;
@@ -24,10 +24,10 @@
 
      template< typename category_name >
       inline
-      ::color::_internal::model< category_name >
+      ::color::model< category_name >
       gray50( )
        {
-        typedef ::color::_internal::model< category_name > model_type;
+        typedef ::color::model< category_name > model_type;
         static model_type dummy;
         // TODO Will call every time, That is no good.
         ::color::make::gray50( dummy );

@@ -8,7 +8,7 @@
 #include "../../generic/trait/index.hpp"
 #include "../../generic/trait/container.hpp"
 #include "../../generic/trait/scalar.hpp"
-#include "../../_internal/model.hpp"
+#include "../../generic/model.hpp"
 #include "../../generic/get/alpha.hpp"
 #include "../../generic/set/alpha.hpp"
 
@@ -36,7 +36,7 @@
 
             typedef ::color::trait::container< category_type >   container_trait_type;
             typedef ::color::trait::index< category_type >       index_trait_type;
-            typedef ::color::_internal::model<category_type>         model_type;
+            typedef ::color::model<category_type>         model_type;
 
             typedef typename index_trait_type::instance_type        index_type;
 
@@ -102,8 +102,8 @@
      template< typename category_name >
       void blend
        (
-         ::color::_internal::model<category_name>      & result
-        ,::color::_internal::model<category_name> const& upper
+         ::color::model<category_name>      & result
+        ,::color::model<category_name> const& upper
        )
        {
         enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
@@ -115,9 +115,9 @@
      template< typename category_name >
       void blend
        (
-         ::color::_internal::model<category_name>      & result
-        ,::color::_internal::model<category_name> const& lower
-        ,::color::_internal::model<category_name> const& upper
+         ::color::model<category_name>      & result
+        ,::color::model<category_name> const& lower
+        ,::color::model<category_name> const& upper
        )
        {
         enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
@@ -127,11 +127,11 @@
        }
 
      template< typename category_name >
-      ::color::_internal::model<category_name>
+      ::color::model<category_name>
       mix
        (
-         ::color::_internal::model<category_name> const& lower
-        ,::color::_internal::model<category_name> const& upper
+         ::color::model<category_name> const& lower
+        ,::color::model<category_name> const& upper
        )
        {
         enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
@@ -144,9 +144,9 @@
      template< typename category_name, typename scalar_name = double >
       void blend
        (
-         ::color::_internal::model<category_name>      & result
+         ::color::model<category_name>      & result
         ,scalar_name                              const& alpha
-        ,::color::_internal::model<category_name> const& upper
+        ,::color::model<category_name> const& upper
        )
        {
         enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
@@ -158,22 +158,22 @@
      template< typename category_name, typename scalar_name = double >
       void blend
        (
-         ::color::_internal::model<category_name>      & result
-        ,::color::_internal::model<category_name> const& lower
+         ::color::model<category_name>      & result
+        ,::color::model<category_name> const& lower
         ,scalar_name                              const& alpha
-        ,::color::_internal::model<category_name> const& upper
+        ,::color::model<category_name> const& upper
        )
        {
         ::color::operation::_internal::blend<category_name>::accumulate( result, lower, alpha, upper );
        }
 
      template< typename category_name, typename scalar_name = double >
-      ::color::_internal::model<category_name>
+      ::color::model<category_name>
       mix
        (
-         ::color::_internal::model<category_name> const& lower
+         ::color::model<category_name> const& lower
         ,scalar_name                              const& alpha
-        ,::color::_internal::model<category_name> const& upper
+        ,::color::model<category_name> const& upper
        )
        {
         return ::color::operation::_internal::blend<category_name>::mix( lower, alpha, upper );

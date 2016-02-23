@@ -5,7 +5,7 @@
 #include "../trait/container.hpp"
 #include "../trait/component.hpp"
 #include "../trait/index.hpp"
-#include "../../_internal/model.hpp"
+#include "../../generic/model.hpp"
 
  namespace color
   {
@@ -25,7 +25,7 @@
             typedef ::color::trait::component<category_type>     component_trait_type;
             typedef ::color::trait::container< category_type >   container_trait_type;
 
-            typedef typename ::color::_internal::model<category_type>  model_type;
+            typedef typename ::color::model<category_type>  model_type;
 
             typedef typename component_trait_type::instance_type  component_type;
 
@@ -73,7 +73,7 @@
      template< typename category_name >
       void overburn
        (
-         ::color::_internal::model<category_name>      & result
+         ::color::model<category_name>      & result
        )
        {
         ::color::fix::_internal::overburn<category_name>::process( result );
@@ -82,8 +82,8 @@
      template< typename category_name >
       void overburn
        (
-         ::color::_internal::model<category_name>      & result
-        ,::color::_internal::model<category_name> const& right
+         ::color::model<category_name>      & result
+        ,::color::model<category_name> const& right
        )
        {
         ::color::fix::_internal::overburn<category_name>::process( result, right );
