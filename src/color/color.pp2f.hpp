@@ -849,7 +849,6 @@ void init
 }
 
 namespace color {
-namespace _internal {
 
 template< typename category_name >
 class model {
@@ -948,7 +947,6 @@ private:
 	container_type m_container;
 };
 
-}
 }
 
 namespace color {
@@ -6066,11 +6064,11 @@ green(::color::model< ::color::category::cmyk< tag_name > > const& color_paramet
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
-	enum { yellow_p = ::color::place::_internal::yellow< category_type >::position_enum };
+	enum { magenta_p = ::color::place::_internal::magenta< category_type >::position_enum };
 	enum { key_p = ::color::place::_internal::key< category_type >::position_enum };
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize<category_type> normalize_type;
-	scalar_type m = normalize_type::template process< yellow_p >(color_parameter.template get< yellow_p >());
+	scalar_type m = normalize_type::template process< magenta_p >(color_parameter.template get< magenta_p >());
 	scalar_type k = normalize_type::template process< key_p >(color_parameter.template get< key_p >());
 	scalar_type g = (1-m) * (1-k);
 	return diverse_type::template process<green_p>(g);
@@ -6090,11 +6088,11 @@ blue(::color::model< ::color::category::cmyk< tag_name > > const& color_paramete
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue< akin_type >::position_enum };
-	enum { magenta_p = ::color::place::_internal::magenta< category_type >::position_enum };
+	enum { yellow_p = ::color::place::_internal::yellow< category_type >::position_enum };
 	enum { key_p = ::color::place::_internal::key< category_type >::position_enum };
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize<category_type> normalize_type;
-	scalar_type y = normalize_type::template process< magenta_p >(color_parameter.template get<magenta_p>());
+	scalar_type y = normalize_type::template process< yellow_p >(color_parameter.template get<yellow_p>());
 	scalar_type k = normalize_type::template process< key_p >(color_parameter.template get< key_p >());
 	scalar_type b = (1-y) * (1-k);
 	return diverse_type::template process<blue_p>(b);

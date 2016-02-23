@@ -5,6 +5,8 @@
 
 g++ -fexceptions -std=c++11 -g -I../src hello.cpp               -o  hello
 
+g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -o  akin
+
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2cmy.cpp     -o  convert_rgb2cmy
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2cmyk.cpp    -o  convert_rgb2cmyk
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2gray.cpp    -o  convert_rgb2gray
@@ -83,6 +85,9 @@ g++ -fexceptions -std=c++11 -g -I../src make_red_in_cmy.cpp           -o make_re
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_gray.cpp          -o make_red_in_gray
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_rgb.cpp           -o make_red_in_rgb
 
-
-
+g++ -fexceptions -std=c++11 -g -I../src operation_blend.cpp           -o operation_blend
+g++ -fexceptions -std=c++11 -g -I../src operation_convex.cpp          -o operation_convex
+g++ -fexceptions -std=c++11 -g -I../src operation_invert.cpp          -o operation_invert
+g++ -fexceptions -std=c++11 -g -I../src operation_mix.cpp             -o operation_mix
+g++ -fexceptions -std=c++11 -g -I../src operator_arithmetic.cpp       -o operator_arithmetic
 

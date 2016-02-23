@@ -17,6 +17,8 @@ doc/doxygen/html
 
 src/color/color.pp2f*.hpp
 
+example/akin
+
 example/convert_cmy2gray
 example/convert_cmy2rgb
 example/convert_gray2cmy
@@ -89,6 +91,11 @@ example/format_uint64
 example/format_uint8
 example/format_split422
 
+example/operation_blend
+example/operation_convex
+example/operation_invert
+example/operation_mix
+example/operator_arithmetic
 
 example/set_blue
 example/set_gray
