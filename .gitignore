@@ -97,6 +97,8 @@ example/operation_invert
 example/operation_mix
 example/operator_arithmetic
 
+example/place
+
 example/set_blue
 example/set_gray
 example/set_green
