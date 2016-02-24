@@ -33,7 +33,7 @@ int main( int argc, char *argv[] )
 void format_split332_rgb()
  {
   ::color::rgb< ::color::type::split332_t > r;
-  color::make::orange( r ); //!< Fill with some useful information
+  ::color::make::orange( r ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::rgb<::color::type::split332_t> = { ";
   std::cout<< std::setw(12) << std::right << r[0] << ","
@@ -60,7 +60,7 @@ void format_split332_cmyk()
  {
   ::color::cmyk< ::color::type::split332_t > ck;
 
-  color::make::orange( ck ); //!< Fill with some useful information
+  ::color::make::orange( ck ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<::color::type::split332_t> = { ";
   std::cout<< std::setw(12) << std::right << ck[0] << ","
@@ -75,7 +75,7 @@ void format_split332_gray()
  {
   ::color::gray< ::color::type::split332_t > g;
 
-  color::make::orange( g ); //!< Fill with some useful information
+  ::color::make::orange( g ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<::color::type::split332_t> = { ";
   std::cout<< std::setw(12) << std::right << g[0];
@@ -87,7 +87,7 @@ void format_split332_hsl()
  {
   ::color::hsl< ::color::type::split332_t > hl;
 
-  color::make::orange( hl ); //!< Fill with some useful information
+  ::color::make::orange( hl ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<::color::type::split332_t> = { ";
   std::cout<< std::setw(12) << std::right << hl[0] << ","

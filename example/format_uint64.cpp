@@ -34,7 +34,7 @@ void format_uint64_rgb()
  {
   ::color::rgb< std::uint64_t > r;
 
-  color::make::orange( r ); //!< Fill with some useful information
+  ::color::make::orange( r ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::rgb<std::uint64_t> = { ";
   std::cout<< std::setw(12) << std::right << r[0] << ","
@@ -62,7 +62,7 @@ void format_uint64_cmyk()
  {
   ::color::cmyk< std::uint64_t > ck;
 
-  color::make::orange( ck ); //!< Fill with some useful information
+  ::color::make::orange( ck ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<std::uint64_t> = { ";
   std::cout<< std::setw(12) << std::right << ck[0] << ","

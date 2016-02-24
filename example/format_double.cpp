@@ -32,10 +32,9 @@ int main( int argc, char *argv[] )
 
 void format_double_rgb()
  {
-
   ::color::rgb< double > r; //!< Make an instance
 
-  color::make::orange( r ); //!< Fill with some useful information
+  ::color::make::orange( r ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::rgb<double> = { ";
   std::cout<< std::setw(12) << std::right << r[0] << ","
@@ -63,7 +62,7 @@ void format_double_cmyk()
  {
   ::color::cmyk< double > ck; //!< Make an instance
 
-  color::make::orange( ck ); //!< Fill with some useful information
+  ::color::make::orange( ck ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<double> = { ";
   std::cout<< std::setw(12) << std::right << ck[0] << ","
@@ -78,7 +77,7 @@ void format_double_gray()
  {
   ::color::gray< double > g; //!< Make an instance
 
-  color::make::orange( g ); //!< Fill with some useful information
+  ::color::make::orange( g ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<double> = { ";
   std::cout<< std::setw(12) << std::right << g[0];
@@ -90,7 +89,7 @@ void format_double_hsl()
  {
   ::color::hsl< double > hl; //!< Make an instance
 
-  color::make::orange( hl ); //!< Fill with some useful information
+  ::color::make::orange( hl ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<double> = { ";
   std::cout<< std::setw(12) << std::right << hl[0] << ","

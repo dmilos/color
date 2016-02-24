@@ -62,7 +62,7 @@ void format_float_cmyk()
  {
   ::color::cmyk< float > ck; //!< Make an instance
 
-  color::make::orange( ck ); //!< Fill with some useful information
+  ::color::make::orange( ck ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<float> = { ";
   std::cout<< std::setw(12) << std::right << ck[0] << ","

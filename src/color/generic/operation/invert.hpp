@@ -3,6 +3,8 @@
 
 #include "../../generic/model.hpp"
 
+// ::color::operation::invert<category_name>( model<category_name> )
+
 // ::color::operation::_internal::invert<category_name>::component<>( )
 // ::color::operation::_internal::invert<category_name>::process( )
 // ::color::operation::_internal::invert<category_name>::process( )

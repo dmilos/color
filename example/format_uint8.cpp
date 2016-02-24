@@ -34,7 +34,7 @@ void format_uint8_rgb()
  {
   ::color::rgb< std::uint8_t > r;
 
-  color::make::orange( r ); //!< Fill with some useful information
+  ::color::make::orange( r ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::rgb<std::uint8_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)r[0] << ","
@@ -62,7 +62,7 @@ void format_uint8_cmyk()
  {
   ::color::cmyk< std::uint8_t > ck;
 
-  color::make::orange( ck ); //!< Fill with some useful information
+  ::color::make::orange( ck ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<std::uint8_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)ck[0] << ","
