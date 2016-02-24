@@ -17,6 +17,7 @@ void arithmetic_scale_1();
 
 int main( int argc, char *argv[] )
  {
+  std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
   std::cout<< "In this example all models use double for component" << std::endl;
   std::cout<< "You may chane it to some other type. e.g float, long double, std::uint16_t, ..." << std::endl;
 
@@ -32,7 +33,6 @@ int main( int argc, char *argv[] )
   arithmetic_scale_2();
   arithmetic_scale_1();
   std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
-
 
   return EXIT_SUCCESS;
  }

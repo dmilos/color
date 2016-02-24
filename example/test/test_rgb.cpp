@@ -15,16 +15,16 @@ void test_rgb_float_only()
   float ff = f[0];
   f.container();
   // long names discourage usage of it directly.
-  color::operation::addition::full( f,f,f);
-  color::operation::addition::accumulate( f, f);
-  color::operation::subtract::full( f,f,f);
-  color::operation::subtract::accumulate( f, f);
-  color::operation::invert::full( f,f);
-  color::operation::invert::accumulate( f);
-  color::operation::scale::accumulate( f , 0.5 );
-  color::operation::scale::full( f , 0.5, f );
-  color::operation::convex::accumulate( f , 0.5, f );
-  color::operation::convex::full( f , f, 0.5, f );
+  color::operation::addition( f,f,f);
+  color::operation::addition( f, f);
+  color::operation::subtract( f,f,f);
+  color::operation::subtract( f, f);
+  color::operation::invert( f,f);
+  color::operation::invert( f);
+  color::operation::scale( f , 0.5 );
+  color::operation::scale( f , 0.5, f );
+  color::operation::convex( f , 0.5, f );
+  color::operation::convex( f , f, 0.5, f );
   f = f + f;
   f = f - f;
   f += f;
@@ -52,16 +52,16 @@ void test_rgb_uint32_only()
   u32.set<2>( 30 );
 
   // long names discourage usage of it directly.
-  color::operation::addition::full( u32a, u32b, u32c );
-  color::operation::addition::accumulate( u32a, u32b );
-  color::operation::subtract::full( u32a, u32b, u32c );
-  color::operation::subtract::accumulate( u32a, u32b );
-  color::operation::invert::full( u32a, u32b );
-  color::operation::invert::accumulate( u32a );
-  color::operation::scale::accumulate( u32a, 0.5 );
-  color::operation::scale::full( u32a, 0.5, u32b );
-  color::operation::convex::accumulate( u32a, 0.5, u32b );
-  color::operation::convex::full( u32a, u32b, 0.5, u32c );
+  color::operation::addition( u32a, u32b, u32c );
+  color::operation::addition( u32a, u32b );
+  color::operation::subtract( u32a, u32b, u32c );
+  color::operation::subtract( u32a, u32b );
+  color::operation::invert( u32a, u32b );
+  color::operation::invert( u32a );
+  color::operation::scale( u32a, 0.5 );
+  color::operation::scale( u32a, 0.5, u32b );
+  color::operation::convex( u32a, 0.5, u32b );
+  color::operation::convex( u32a, u32b, 0.5, u32c );
   u32a = u32b + u32c;
   u32a = u32b - u32c;
   u32a += u32b;
