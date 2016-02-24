@@ -15,7 +15,17 @@ void format_uint16_yuv();
 
 int main( int argc, char *argv[] )
  {
-  // TODO
+  std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
+  std::cout<< "In this example all models use std::uint16_t for component" << std::endl;
+  format_uint16_rgb();
+  format_uint16_cmy();
+  format_uint16_cmyk();
+  format_uint16_gray();
+  format_uint16_hsl();
+  format_uint16_hsv();
+  format_uint16_yiq();
+  format_uint16_yuv();
+  std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
 
   return EXIT_SUCCESS;
  }
@@ -23,48 +33,113 @@ int main( int argc, char *argv[] )
 void format_uint16_rgb()
  {
   ::color::rgb< std::uint16_t > r;
-  // TODO
+
+  color::make::orange( r ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::rgb<std::uint16_t> = { ";
+  std::cout<< std::setw(12) << std::right << r[0] << ","
+           << std::setw(12) << std::right << r[1] << ","
+           << std::setw(12) << std::right << r[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_uint16_cmy()
  {
   ::color::cmy< std::uint16_t > c;
-  // TODO
+
+  ::color::make::orange( c ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
+  std::cout<< std::setw(12) << std::right << c[0] << ","
+           << std::setw(12) << std::right << c[1] << ","
+           << std::setw(12) << std::right << c[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_uint16_cmyk()
  {
   ::color::cmyk< std::uint16_t > ck;
-  // TODO
+
+  color::make::orange( ck ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
+  std::cout<< std::setw(12) << std::right << ck[0] << ","
+           << std::setw(12) << std::right << ck[1] << ","
+           << std::setw(12) << std::right << ck[2] << ","
+           << std::setw(12) << std::right << ck[3];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_uint16_gray()
  {
-  ::color::gray< std::uint16_t > ck;
-  // TODO
+  ::color::gray< std::uint16_t > g;
+
+  ::color::make::orange( g ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
+  std::cout<< std::setw(12) << std::right << g[0];
+  std::cout<< " };";
+  std::cout<< std::endl;
+
  }
 
 void format_uint16_hsl()
  {
   ::color::hsl< std::uint16_t > hl;
-  // TODO
+
+  ::color::make::orange( hl ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
+  std::cout<< std::setw(12) << std::right << hl[0] << ","
+           << std::setw(12) << std::right << hl[1] << ","
+           << std::setw(12) << std::right << hl[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_uint16_hsv()
  {
-  ::color::hsl< std::uint16_t > hv;
-  // TODO
+  ::color::hsv< std::uint16_t > hv;
+
+  ::color::make::orange( hv ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
+  std::cout<< std::setw(12) << std::right << hv[0] << ","
+           << std::setw(12) << std::right << hv[1] << ","
+           << std::setw(12) << std::right << hv[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_uint16_yiq()
  {
-  ::color::hsl< std::uint16_t > yq;
-  // TODO
+  ::color::yiq< std::uint16_t > yq;
+
+  ::color::make::orange( yq ); //!< Fill with some useful information
+
+
+  std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
+  std::cout<< std::setw(12) << std::right << yq[0] << ","
+           << std::setw(12) << std::right << yq[1] << ","
+           << std::setw(12) << std::right << yq[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_uint16_yuv()
  {
-  ::color::hsl< std::uint16_t > yv;
-  // TODO
+  ::color::yuv< std::uint16_t > yv;
+
+  ::color::make::orange( yv ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
+  std::cout<< std::setw(12) << std::right << yv[0] << ","
+           << std::setw(12) << std::right << yv[1] << ","
+           << std::setw(12) << std::right << yv[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 

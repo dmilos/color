@@ -15,7 +15,17 @@ void format_split233_yuv();
 
 int main( int argc, char *argv[] )
  {
-  // TODO
+  std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
+  std::cout<< "In this example all models use ::color::type::split233_t for component" << std::endl;
+  format_split233_rgb();
+  format_split233_cmy();
+  format_split233_cmyk();
+  format_split233_gray();
+  format_split233_hsl();
+  format_split233_hsv();
+  format_split233_yiq();
+  format_split233_yuv();
+  std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
 
   return EXIT_SUCCESS;
  }
@@ -23,48 +33,108 @@ int main( int argc, char *argv[] )
 void format_split233_rgb()
  {
   ::color::rgb< ::color::type::split233_t > r;
-  // TODO
+  color::make::orange( r ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::rgb<::color::type::split233_t> = { ";
+  std::cout<< std::setw(12) << std::right << (unsigned)r[0] << ","
+           << std::setw(12) << std::right << (unsigned)r[1] << ","
+           << std::setw(12) << std::right << (unsigned)r[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_split233_cmy()
  {
   ::color::cmy< ::color::type::split233_t > c;
-  // TODO
+  ::color::make::orange( c ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<::color::type::split233_t> = { ";
+  std::cout<< std::setw(12) << std::right << (unsigned)c[0] << ","
+           << std::setw(12) << std::right << (unsigned)c[1] << ","
+           << std::setw(12) << std::right << (unsigned)c[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_split233_cmyk()
  {
   ::color::cmyk< ::color::type::split233_t > ck;
-  // TODO
+
+  color::make::orange( ck ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<::color::type::split233_t> = { ";
+  std::cout<< std::setw(12) << std::right << (unsigned)ck[0] << ","
+           << std::setw(12) << std::right << (unsigned)ck[1] << ","
+           << std::setw(12) << std::right << (unsigned)ck[2] << ","
+           << std::setw(12) << std::right << (unsigned)ck[3];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_split233_gray()
  {
-  ::color::gray< ::color::type::split233_t > ck;
-  // TODO
+  ::color::gray< ::color::type::split233_t > g;
+
+  color::make::orange( g ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<::color::type::split233_t> = { ";
+  std::cout<< std::setw(12) << std::right << (unsigned)g[0];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_split233_hsl()
  {
   ::color::hsl< ::color::type::split233_t > hl;
-  // TODO
+
+  color::make::orange( hl ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<::color::type::split233_t> = { ";
+  std::cout<< std::setw(12) << std::right << (unsigned)hl[0] << ","
+           << std::setw(12) << std::right << (unsigned)hl[1] << ","
+           << std::setw(12) << std::right << (unsigned)hl[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_split233_hsv()
  {
-  ::color::hsl< ::color::type::split233_t > hv;
-  // TODO
+  ::color::hsv< ::color::type::split233_t > hv;
+  ::color::make::orange( hv ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<::color::type::split233_t> = { ";
+  std::cout<< std::setw(12) << std::right << (unsigned)hv[0] << ","
+           << std::setw(12) << std::right << (unsigned)hv[1] << ","
+           << std::setw(12) << std::right << (unsigned)hv[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_split233_yiq()
  {
-  ::color::hsl< ::color::type::split233_t > yq;
-  // TODO
+  ::color::yiq< ::color::type::split233_t > yq;
+  ::color::make::orange( yq ); //!< Fill with some useful information
+
+
+  std::cout<< "Orange in color::cmy<::color::type::split233_t> = { ";
+  std::cout<< std::setw(12) << std::right << (unsigned)yq[0] << ","
+           << std::setw(12) << std::right << (unsigned)yq[1] << ","
+           << std::setw(12) << std::right << (unsigned)yq[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
 void format_split233_yuv()
  {
-  ::color::hsl< ::color::type::split233_t > yv;
-  // TODO
+  ::color::yuv< ::color::type::split233_t > yv;
+
+  ::color::make::orange( yv ); //!< Fill with some useful information
+
+  std::cout<< "Orange in color::cmy<::color::type::split233_t> = { ";
+  std::cout<< std::setw(12) << std::right << (unsigned)yv[0] << ","
+           << std::setw(12) << std::right << (unsigned)yv[1] << ","
+           << std::setw(12) << std::right << (unsigned)yv[2];
+  std::cout<< " };";
+  std::cout<< std::endl;
  }
 
