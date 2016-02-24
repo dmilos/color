@@ -17,7 +17,7 @@ int main( int argc, char *argv[] )
  {
   std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
   std::cout<< "In this example all models use std::uint8_t for component" << std::endl;
-  std::cout<< "You may chane it to some other type. e.g float, bouble, long double, std::uint16_t, ..." << std::endl;
+  std::cout<< "You may chane it to some other type. e.g float, double, long double, std::uint16_t, ..." << std::endl;
   invert_rgb();
   invert_cmy();
   invert_cmyk();
