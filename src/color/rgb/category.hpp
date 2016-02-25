@@ -20,10 +20,10 @@ namespace color
     namespace _internal
      {
       template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position >
-       struct rgb_scramble : public ::color::category::_internal::scramble3< red_position, green_position, blue_position > {} ;
+       struct rgb_scramble : public ::color::category::_internal::scramble3< red_position, green_position, blue_position > {};
 
       template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position, unsigned alpha_position >
-        struct rgba_scramble : public ::color::category::_internal::scramble4< red_position, green_position, blue_position, alpha_position > {} ;
+        struct rgba_scramble : public ::color::category::_internal::scramble4< red_position, green_position, blue_position, alpha_position > {};
 
       using rgb_uint8   = ::color::category::_internal::rgb_scramble< std::uint8_t  ,   0, 1, 2 >;
       using rgb_uint16  = ::color::category::_internal::rgb_scramble< std::uint16_t ,   0, 1, 2 >;

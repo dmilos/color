@@ -91,11 +91,14 @@ example/format_uint64
 example/format_uint8
 example/format_split422
 
-example/operation_blend
+
 example/operation_convex
 example/operation_invert
 example/operation_mix
 example/operator_arithmetic
+example/operation_blend_alpha
+example/operation_blend_noalpha
+
 
 example/place
 
@@ -115,7 +118,6 @@ example/fix_unique
 
 
 example/test/out/
-
 example/test/gen*
 example/test/*.tga
 example/test/test
@@ -125,8 +127,3 @@ example/test/res
 example/test/gray/*.tga
 example/test/gray/ref/*.tga
 example/test/gray/ref
-
-
-
-
-

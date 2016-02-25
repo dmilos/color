@@ -3,17 +3,15 @@
 
 #include "color/color.hpp"
 
-void operation_convex_3();
-void operation_convex_2();
+void blend_rgb_noalpha2();
+void blend_rgb_noalpha3();
 
 int main( int argc, char *argv[] )
  {
-  std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
+  std::cout << "Hello World" << std::endl;
 
-  operation_convex_3( );
-
-  std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
-
+  blend_rgb_noalpha2();
+  blend_rgb_noalpha3();
 
   return EXIT_SUCCESS;
  }
@@ -31,30 +29,30 @@ template< typename category_name >
    std::cout << " }";
   }
 
-void operation_convex_2( )
+void blend_rgb_noalpha2()
  {
   ::color::rgb<double> a, b;
 
   ::color::make::orange( a );
   ::color::make::lime( b );
 
-  ::color::operation::convex( a, 0.1, b );
-  std::cout<< " convex::accumulate( a, 0.1, lime ) = ";
+  ::color::operation::blend( a, 0.1, b );
+  std::cout<< " blend( a, 0.1, lime ) = ";
   print( a );
   std::cout << std::endl;
 
-  ::color::operation::convex( a, 0.2, b );
-  std::cout<< " convex::accumulate( a, 0.2, lime ) = ";
+  ::color::operation::blend( a, 0.2, b );
+  std::cout<< " blend( a, 0.2, lime ) = ";
   print( a );
   std::cout << std::endl;
 
-  ::color::operation::convex( a, 0.3, b );
-  std::cout<< " convex::accumulate( a, 0.3, lime ) = ";
+  ::color::operation::blend( a, 0.3, b );
+  std::cout<< " blend( a, 0.3, lime ) = ";
   print( a );
   std::cout << std::endl;
  }
-  
-void operation_convex_3( )
+
+void blend_rgb_noalpha3( )
  {
   ::color::rgb<double> a, b;
 
@@ -63,18 +61,18 @@ void operation_convex_3( )
 
   ::color::rgb<double> j;
 
-  color::operation::convex( j , a, 0.25, b );
-  std::cout<< " convex::full( j , orange, 0.25, lime ) = ";
+  color::operation::blend( j , a, 0.2, b );
+  std::cout<< " blend( j , orange, 0.2, lime ) = ";
   print( j );
   std::cout << std::endl;
 
   color::operation::convex( j , a, 0.5, b );
-  std::cout<< " convex::full( j , orange, 0.5, lime ) = ";
+  std::cout<< " blend( j , orange, 0.5, lime ) = ";
   print( j );
   std::cout << std::endl;
 
   color::operation::convex( j , a, 0.75, b );
-  std::cout<< " convex::full( j , orange, 0.75, lime ) = ";
+  std::cout<< " blend( j , orange, 0.75, lime ) = ";
   print( j );
   std::cout << std::endl;
  }

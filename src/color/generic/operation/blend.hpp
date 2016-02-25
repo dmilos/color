@@ -145,13 +145,10 @@
       void blend
        (
          ::color::model<category_name>      & result
-        ,scalar_name                              const& alpha
+        ,scalar_name                   const& alpha
         ,::color::model<category_name> const& upper
        )
        {
-        enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
-        static_assert( 0 <= alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
-
         ::color::operation::_internal::blend<category_name>::accumulate( result, alpha, upper );
        }
 
@@ -160,7 +157,7 @@
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& lower
-        ,scalar_name                              const& alpha
+        ,scalar_name                   const& alpha
         ,::color::model<category_name> const& upper
        )
        {
@@ -172,7 +169,7 @@
       mix
        (
          ::color::model<category_name> const& lower
-        ,scalar_name                              const& alpha
+        ,scalar_name                   const& alpha
         ,::color::model<category_name> const& upper
        )
        {
