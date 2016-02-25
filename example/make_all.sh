@@ -89,7 +89,9 @@ g++ -fexceptions -std=c++11 -g -I../src operation_blend_noalpha.cpp   -o operati
 g++ -fexceptions -std=c++11 -g -I../src operation_blend_alpha.cpp     -o operation_blend_alpha
 g++ -fexceptions -std=c++11 -g -I../src operation_convex.cpp          -o operation_convex
 g++ -fexceptions -std=c++11 -g -I../src operation_invert.cpp          -o operation_invert
-g++ -fexceptions -std=c++11 -g -I../src operation_mix.cpp             -o operation_mix
+g++ -fexceptions -std=c++11 -g -I../src operation_mix_alpha.cpp       -o operation_mix_alpha
+g++ -fexceptions -std=c++11 -g -I../src operation_mix_noalpha.cpp     -o operation_mix_noalpha
+
 g++ -fexceptions -std=c++11 -g -I../src operator_arithmetic.cpp       -o operator_arithmetic
 
 g++ -fexceptions -std=c++11 -g -I../src place.cpp                     -o place
