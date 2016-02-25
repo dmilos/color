@@ -1272,16 +1272,16 @@ struct gray {
 	typedef void category_name;
 };
 
-using gray_bool = gray< ::color::category::_internal::gray_bool >;
-using gray_uint8 = gray< ::color::category::_internal::gray_uint8 >;
-using gray_uint16 = gray< ::color::category::_internal::gray_uint16 >;
-using gray_uint24 = gray< ::color::category::_internal::gray_uint24 >;
-using gray_uint32 = gray< ::color::category::_internal::gray_uint32 >;
-using gray_uint48 = gray< ::color::category::_internal::gray_uint48 >;
-using gray_uint64 = gray< ::color::category::_internal::gray_uint64 >;
-using gray_float = gray< ::color::category::_internal::gray_float >;
-using gray_double = gray< ::color::category::_internal::gray_double >;
-using gray_ldouble = gray< ::color::category::_internal::gray_ldouble >;
+using gray_bool = ::color::category::gray< ::color::category::_internal::gray_bool >;
+using gray_uint8 = ::color::category::gray< ::color::category::_internal::gray_uint8 >;
+using gray_uint16 = ::color::category::gray< ::color::category::_internal::gray_uint16 >;
+using gray_uint24 = ::color::category::gray< ::color::category::_internal::gray_uint24 >;
+using gray_uint32 = ::color::category::gray< ::color::category::_internal::gray_uint32 >;
+using gray_uint48 = ::color::category::gray< ::color::category::_internal::gray_uint48 >;
+using gray_uint64 = ::color::category::gray< ::color::category::_internal::gray_uint64 >;
+using gray_float = ::color::category::gray< ::color::category::_internal::gray_float >;
+using gray_double = ::color::category::gray< ::color::category::_internal::gray_double >;
+using gray_ldouble = ::color::category::gray< ::color::category::_internal::gray_ldouble >;
 
 }
 }
@@ -1307,16 +1307,16 @@ struct cmy {
 	typedef void category_name;
 };
 
-using cmy_bool = cmy< ::color::category::_internal::cmy_bool >;
-using cmy_uint8 = cmy< ::color::category::_internal::cmy_uint8 >;
-using cmy_uint16 = cmy< ::color::category::_internal::cmy_uint16 >;
-using cmy_uint24 = cmy< ::color::category::_internal::cmy_uint24 >;
-using cmy_uint32 = cmy< ::color::category::_internal::cmy_uint32 >;
-using cmy_uint48 = cmy< ::color::category::_internal::cmy_uint48 >;
-using cmy_uint64 = cmy< ::color::category::_internal::cmy_uint64 >;
-using cmy_float = cmy< ::color::category::_internal::cmy_float >;
-using cmy_double = cmy< ::color::category::_internal::cmy_double >;
-using cmy_ldouble = cmy< ::color::category::_internal::cmy_ldouble >;
+using cmy_bool = ::color::category::cmy< ::color::category::_internal::cmy_bool >;
+using cmy_uint8 = ::color::category::cmy< ::color::category::_internal::cmy_uint8 >;
+using cmy_uint16 = ::color::category::cmy< ::color::category::_internal::cmy_uint16 >;
+using cmy_uint24 = ::color::category::cmy< ::color::category::_internal::cmy_uint24 >;
+using cmy_uint32 = ::color::category::cmy< ::color::category::_internal::cmy_uint32 >;
+using cmy_uint48 = ::color::category::cmy< ::color::category::_internal::cmy_uint48 >;
+using cmy_uint64 = ::color::category::cmy< ::color::category::_internal::cmy_uint64 >;
+using cmy_float = ::color::category::cmy< ::color::category::_internal::cmy_float >;
+using cmy_double = ::color::category::cmy< ::color::category::_internal::cmy_double >;
+using cmy_ldouble = ::color::category::cmy< ::color::category::_internal::cmy_ldouble >;
 
 }
 }
@@ -1370,16 +1370,16 @@ struct cmyk {
 	typedef void category_name;
 };
 
-using cmyk_bool = cmyk< ::color::category::_internal::cmyk_bool >;
-using cmyk_uint8 = cmyk< ::color::category::_internal::cmyk_uint8 >;
-using cmyk_uint16 = cmyk< ::color::category::_internal::cmyk_uint16 >;
-using cmyk_uint24 = cmyk< ::color::category::_internal::cmyk_uint24 >;
-using cmyk_uint32 = cmyk< ::color::category::_internal::cmyk_uint32 >;
-using cmyk_uint48 = cmyk< ::color::category::_internal::cmyk_uint48 >;
-using cmyk_uint64 = cmyk< ::color::category::_internal::cmyk_uint64 >;
-using cmyk_float = cmyk< ::color::category::_internal::cmyk_float >;
-using cmyk_double = cmyk< ::color::category::_internal::cmyk_double >;
-using cmyk_ldouble = cmyk< ::color::category::_internal::cmyk_ldouble >;
+using cmyk_bool = ::color::category::cmyk< ::color::category::_internal::cmyk_bool >;
+using cmyk_uint8 = ::color::category::cmyk< ::color::category::_internal::cmyk_uint8 >;
+using cmyk_uint16 = ::color::category::cmyk< ::color::category::_internal::cmyk_uint16 >;
+using cmyk_uint24 = ::color::category::cmyk< ::color::category::_internal::cmyk_uint24 >;
+using cmyk_uint32 = ::color::category::cmyk< ::color::category::_internal::cmyk_uint32 >;
+using cmyk_uint48 = ::color::category::cmyk< ::color::category::_internal::cmyk_uint48 >;
+using cmyk_uint64 = ::color::category::cmyk< ::color::category::_internal::cmyk_uint64 >;
+using cmyk_float = ::color::category::cmyk< ::color::category::_internal::cmyk_float >;
+using cmyk_double = ::color::category::cmyk< ::color::category::_internal::cmyk_double >;
+using cmyk_ldouble = ::color::category::cmyk< ::color::category::_internal::cmyk_ldouble >;
 
 }
 }
@@ -1464,16 +1464,16 @@ struct hsl {
 	typedef void category_name;
 };
 
-using hsl_bool = hsl< ::color::category::_internal::hsl_bool >;
-using hsl_uint8 = hsl< ::color::category::_internal::hsl_uint8 >;
-using hsl_uint16 = hsl< ::color::category::_internal::hsl_uint16 >;
-using hsl_uint24 = hsl< ::color::category::_internal::hsl_uint24 >;
-using hsl_uint32 = hsl< ::color::category::_internal::hsl_uint32 >;
-using hsl_uint48 = hsl< ::color::category::_internal::hsl_uint48 >;
-using hsl_uint64 = hsl< ::color::category::_internal::hsl_uint64 >;
-using hsl_float = hsl< ::color::category::_internal::hsl_float >;
-using hsl_double = hsl< ::color::category::_internal::hsl_double >;
-using hsl_ldouble = hsl< ::color::category::_internal::hsl_ldouble >;
+using hsl_bool = ::color::category::hsl< ::color::category::_internal::hsl_bool >;
+using hsl_uint8 = ::color::category::hsl< ::color::category::_internal::hsl_uint8 >;
+using hsl_uint16 = ::color::category::hsl< ::color::category::_internal::hsl_uint16 >;
+using hsl_uint24 = ::color::category::hsl< ::color::category::_internal::hsl_uint24 >;
+using hsl_uint32 = ::color::category::hsl< ::color::category::_internal::hsl_uint32 >;
+using hsl_uint48 = ::color::category::hsl< ::color::category::_internal::hsl_uint48 >;
+using hsl_uint64 = ::color::category::hsl< ::color::category::_internal::hsl_uint64 >;
+using hsl_float = ::color::category::hsl< ::color::category::_internal::hsl_float >;
+using hsl_double = ::color::category::hsl< ::color::category::_internal::hsl_double >;
+using hsl_ldouble = ::color::category::hsl< ::color::category::_internal::hsl_ldouble >;
 
 }
 }
@@ -1527,16 +1527,16 @@ struct hsv {
 	typedef void category_name;
 };
 
-using hsv_bool = hsv< ::color::category::_internal::hsv_bool >;
-using hsv_uint8 = hsv< ::color::category::_internal::hsv_uint8 >;
-using hsv_uint16 = hsv< ::color::category::_internal::hsv_uint16 >;
-using hsv_uint24 = hsv< ::color::category::_internal::hsv_uint24 >;
-using hsv_uint32 = hsv< ::color::category::_internal::hsv_uint32 >;
-using hsv_uint48 = hsv< ::color::category::_internal::hsv_uint48 >;
-using hsv_uint64 = hsv< ::color::category::_internal::hsv_uint64 >;
-using hsv_float = hsv< ::color::category::_internal::hsv_float >;
-using hsv_double = hsv< ::color::category::_internal::hsv_double >;
-using hsv_ldouble = hsv< ::color::category::_internal::hsv_ldouble >;
+using hsv_bool = ::color::category::hsv< ::color::category::_internal::hsv_bool >;
+using hsv_uint8 = ::color::category::hsv< ::color::category::_internal::hsv_uint8 >;
+using hsv_uint16 = ::color::category::hsv< ::color::category::_internal::hsv_uint16 >;
+using hsv_uint24 = ::color::category::hsv< ::color::category::_internal::hsv_uint24 >;
+using hsv_uint32 = ::color::category::hsv< ::color::category::_internal::hsv_uint32 >;
+using hsv_uint48 = ::color::category::hsv< ::color::category::_internal::hsv_uint48 >;
+using hsv_uint64 = ::color::category::hsv< ::color::category::_internal::hsv_uint64 >;
+using hsv_float = ::color::category::hsv< ::color::category::_internal::hsv_float >;
+using hsv_double = ::color::category::hsv< ::color::category::_internal::hsv_double >;
+using hsv_ldouble = ::color::category::hsv< ::color::category::_internal::hsv_ldouble >;
 
 }
 }
@@ -1675,16 +1675,16 @@ struct yiq {
 	typedef void category_name;
 };
 
-using yiq_bool = yiq< ::color::category::_internal::yiq_bool >;
-using yiq_uint8 = yiq< ::color::category::_internal::yiq_uint8 >;
-using yiq_uint16 = yiq< ::color::category::_internal::yiq_uint16 >;
-using yiq_uint24 = yiq< ::color::category::_internal::yiq_uint24 >;
-using yiq_uint32 = yiq< ::color::category::_internal::yiq_uint32 >;
-using yiq_uint48 = yiq< ::color::category::_internal::yiq_uint48 >;
-using yiq_uint64 = yiq< ::color::category::_internal::yiq_uint64 >;
-using yiq_float = yiq< ::color::category::_internal::yiq_float >;
-using yiq_double = yiq< ::color::category::_internal::yiq_double >;
-using yiq_ldouble = yiq< ::color::category::_internal::yiq_ldouble >;
+using yiq_bool = ::color::category::yiq< ::color::category::_internal::yiq_bool >;
+using yiq_uint8 = ::color::category::yiq< ::color::category::_internal::yiq_uint8 >;
+using yiq_uint16 = ::color::category::yiq< ::color::category::_internal::yiq_uint16 >;
+using yiq_uint24 = ::color::category::yiq< ::color::category::_internal::yiq_uint24 >;
+using yiq_uint32 = ::color::category::yiq< ::color::category::_internal::yiq_uint32 >;
+using yiq_uint48 = ::color::category::yiq< ::color::category::_internal::yiq_uint48 >;
+using yiq_uint64 = ::color::category::yiq< ::color::category::_internal::yiq_uint64 >;
+using yiq_float = ::color::category::yiq< ::color::category::_internal::yiq_float >;
+using yiq_double = ::color::category::yiq< ::color::category::_internal::yiq_double >;
+using yiq_ldouble = ::color::category::yiq< ::color::category::_internal::yiq_ldouble >;
 
 }
 }
@@ -1738,16 +1738,16 @@ struct yuv {
 	typedef void category_name;
 };
 
-using yuv_bool = yuv< ::color::category::_internal::yuv_bool >;
-using yuv_uint8 = yuv< ::color::category::_internal::yuv_uint8 >;
-using yuv_uint16 = yuv< ::color::category::_internal::yuv_uint16 >;
-using yuv_uint24 = yuv< ::color::category::_internal::yuv_uint24 >;
-using yuv_uint32 = yuv< ::color::category::_internal::yuv_uint32 >;
-using yuv_uint48 = yuv< ::color::category::_internal::yuv_uint48 >;
-using yuv_uint64 = yuv< ::color::category::_internal::yuv_uint64 >;
-using yuv_float = yuv< ::color::category::_internal::yuv_float >;
-using yuv_double = yuv< ::color::category::_internal::yuv_double >;
-using yuv_ldouble = yuv< ::color::category::_internal::yuv_ldouble >;
+using yuv_bool = ::color::category::yuv< ::color::category::_internal::yuv_bool >;
+using yuv_uint8 = ::color::category::yuv< ::color::category::_internal::yuv_uint8 >;
+using yuv_uint16 = ::color::category::yuv< ::color::category::_internal::yuv_uint16 >;
+using yuv_uint24 = ::color::category::yuv< ::color::category::_internal::yuv_uint24 >;
+using yuv_uint32 = ::color::category::yuv< ::color::category::_internal::yuv_uint32 >;
+using yuv_uint48 = ::color::category::yuv< ::color::category::_internal::yuv_uint48 >;
+using yuv_uint64 = ::color::category::yuv< ::color::category::_internal::yuv_uint64 >;
+using yuv_float = ::color::category::yuv< ::color::category::_internal::yuv_float >;
+using yuv_double = ::color::category::yuv< ::color::category::_internal::yuv_double >;
+using yuv_ldouble = ::color::category::yuv< ::color::category::_internal::yuv_ldouble >;
 
 }
 }
@@ -16042,16 +16042,16 @@ namespace color {
 			typedef void category_name;
 		};
 
-		using xyz_bool = xyz< ::color::category::_internal::xyz_bool >;
-		using xyz_uint8 = xyz< ::color::category::_internal::xyz_uint8 >;
-		using xyz_uint16 = xyz< ::color::category::_internal::xyz_uint16 >;
-		using xyz_uint24 = xyz< ::color::category::_internal::xyz_uint24 >;
-		using xyz_uint32 = xyz< ::color::category::_internal::xyz_uint32 >;
-		using xyz_uint48 = xyz< ::color::category::_internal::xyz_uint48 >;
-		using xyz_uint64 = xyz< ::color::category::_internal::xyz_uint64 >;
-		using xyz_float = xyz< ::color::category::_internal::xyz_float >;
-		using xyz_double = xyz< ::color::category::_internal::xyz_double >;
-		using xyz_ldouble = xyz< ::color::category::_internal::xyz_ldouble >;
+		using xyz_bool = ::color::category::xyz< ::color::category::_internal::xyz_bool >;
+		using xyz_uint8 = ::color::category::xyz< ::color::category::_internal::xyz_uint8 >;
+		using xyz_uint16 = ::color::category::xyz< ::color::category::_internal::xyz_uint16 >;
+		using xyz_uint24 = ::color::category::xyz< ::color::category::_internal::xyz_uint24 >;
+		using xyz_uint32 = ::color::category::xyz< ::color::category::_internal::xyz_uint32 >;
+		using xyz_uint48 = ::color::category::xyz< ::color::category::_internal::xyz_uint48 >;
+		using xyz_uint64 = ::color::category::xyz< ::color::category::_internal::xyz_uint64 >;
+		using xyz_float = ::color::category::xyz< ::color::category::_internal::xyz_float >;
+		using xyz_double = ::color::category::xyz< ::color::category::_internal::xyz_double >;
+		using xyz_ldouble = ::color::category::xyz< ::color::category::_internal::xyz_ldouble >;
 
 	}
 }

@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-		<meta name="author" content="Dejan D. M. Milosavljevic">
-	<link rel="icon" href="../favicon.ico" type="image/ico"> 
-	<title>Model</title>
-</head>
-<body>
-	<h1 align="center">Model class</h1>
+	<head>
+		<meta charset="UTF-8">
+			<meta name="author" content="Dejan D. M. Milosavljevic">
+		<link rel="icon" href="../favicon.ico" type="image/ico"> 
+		<title>Model</title>
+	</head>
+	<body>
+		<h1 align="center">Model class</h1>
 
-	<dl>
-		<dt><h3>Description</h3></dt>
-		<dd>					All color class has same set of properties like <code><i>model</i></code> class. <br>
-				Depend of implementation of of some specific color model this class might or might not be in relation with <code><i>model</i></code> might no exist.<br>
-				<code><i>model</i></code> class by it self might or might not exists.<br>
-				In here it serve purpose to describe all color classes.<br>
+		<h3>TOC</h3>
+		<ul>
+			<li><h4><a href="TODO"></a>Description</a></h4></li>
+			<li><h4><a href="TODO"></a>Declaration</a></h4></li>
+			<li><h4><a href="TODO"></a>Definition</a></h4></li>
+			<li><h4><a href="TODO"></a>Members</a></h4>
+				<ul>
+					<li><h4><a href="TODO"></a>Typedefs</a></h4></li><dd></dd>
+					<li><h4><a href="TODO"></a>Functions</a></h4></li><dd></dd>
+					<li><h4><a href="TODO"></a>Data</a></h4></li><dd></dd>
+				</ul>
+
+			</li>
+			<li><h4><a href="TODO"></a>Examples</a></h4></li>
+		</ul>
+		<dl>
+			<dt><h3>Description</h3></dt>
+			<dd>All color class has same set of properties as <code><i>model</i></code> class.<br>
+				Every model/format can be instatiated by using of this class.
+			</dd>
+			<dt><h3>Declaration</h3></dt>
+			<dd>
+	<code><pre>
+    template&lt; typename category_name &gt;
+     class model;
+</pre></code>
 		</dd>
-		<dt><h3>Class <code>model</code></h3></dt>
+
+		<dt><h3>Definition( without inplementation )</h3></dt>
 		<dd>
 <pre><code>
     template&lt; typename category_name &gt;
@@ -25,16 +46,18 @@
        public:
         typedef category_name category_type;
 
-        typedef  <i>unspecified</i>     component_type
+        typedef  <i>unspecified</i>     component_type;
         typedef  <i>unspecified</i>     index_input_const_type
-        typedef  <i>unspecified</i>     index_type
-        typedef  <i>unspecified</i>     component_input_const_type
-        typedef  <i>unspecified</i>     component_return_const_type
-        typedef  <i>unspecified</i>     container_return_const_type
-        typedef  <i>unspecified</i>     container_return_type
-        typedef  <i>unspecified</i>     index_return_image_type
-        typedef  <i>unspecified</i>     container_type
+        typedef  <i>unspecified</i>     index_type;
+        typedef  <i>unspecified</i>     component_input_const_type;
+        typedef  <i>unspecified</i>     component_return_const_type;
+        typedef  <i>unspecified</i>     container_return_const_type;
+        typedef  <i>unspecified</i>     container_return_type;
+        typedef  <i>unspecified</i>     index_return_image_type;
+        typedef  <i>unspecified</i>     container_type;
         typedef  <i>unspecified</i>     set_return_type;
+
+        typedef  model&lt; typename category_name &gt;     this_type;
 
                  model( );
 
@@ -46,7 +69,7 @@
          explicit model( ::color::_internal::model&lt;other_category_name&gt; const&amp; that );
 
         template&lt; typename other_category_name &gt;
-         model operator=( ::color::_internal::model&lt;other_category_name&gt; const&amp; that );
+         this_type operator=( ::color::_internal::model&lt;other_category_name&gt; const&amp; that );
 
         component_return_const_type get( index_input_const_type index )const;
 
@@ -68,14 +91,26 @@
 
         private:
           container_type m_container;
-    };
-</code><pre>
+    };</code></pre>
+			</dd>
+			<dt><h3>Members</h3></dt>
+			<dd>
+				<dl>
+					<dt><h4>typedefs</h4></dt><dd>TODO</dd>
+					<dt><h4>functions</h4></dt><dd>TODO</dd>
+					<dt><h4>data</h4></dt><dd>TODO</dd>
+				</dl>
+			</dd>
 
+			<dt><h3>Examples</h3></dt>
+			<dd>
+				<ul>
+					<li><code>color::model&lt; color::category::rgb_float &gt; r; </code> Equal to: <code>color::rgb&lt;float&gt; r;</code> </li>
+					<li><code>color::model&lt; color::category::hsl_uint8 &gt; h; </code> Equal to: <code>color::hsl&lt;std::uint8_t&gt; h;</code> </li>
+				</ul>
+			</dd>
 
-		</dd>
-
-	</dl>
-
-<hr>
-</body>
+		</dl>
+		<hr>
+	</body>
 </html>

@@ -26,16 +26,16 @@ namespace color
        typedef void category_name;
       };
 
-    using gray_bool    = gray< ::color::category::_internal::gray_bool    >;
-    using gray_uint8   = gray< ::color::category::_internal::gray_uint8   >;
-    using gray_uint16  = gray< ::color::category::_internal::gray_uint16  >;
-    using gray_uint24  = gray< ::color::category::_internal::gray_uint24  >;
-    using gray_uint32  = gray< ::color::category::_internal::gray_uint32  >;
-    using gray_uint48  = gray< ::color::category::_internal::gray_uint48  >;
-    using gray_uint64  = gray< ::color::category::_internal::gray_uint64  >;
-    using gray_float   = gray< ::color::category::_internal::gray_float   >;
-    using gray_double  = gray< ::color::category::_internal::gray_double  >;
-    using gray_ldouble = gray< ::color::category::_internal::gray_ldouble >;
+    using gray_bool    = ::color::category::gray< ::color::category::_internal::gray_bool    >;
+    using gray_uint8   = ::color::category::gray< ::color::category::_internal::gray_uint8   >;
+    using gray_uint16  = ::color::category::gray< ::color::category::_internal::gray_uint16  >;
+    using gray_uint24  = ::color::category::gray< ::color::category::_internal::gray_uint24  >;
+    using gray_uint32  = ::color::category::gray< ::color::category::_internal::gray_uint32  >;
+    using gray_uint48  = ::color::category::gray< ::color::category::_internal::gray_uint48  >;
+    using gray_uint64  = ::color::category::gray< ::color::category::_internal::gray_uint64  >;
+    using gray_float   = ::color::category::gray< ::color::category::_internal::gray_float   >;
+    using gray_double  = ::color::category::gray< ::color::category::_internal::gray_double  >;
+    using gray_ldouble = ::color::category::gray< ::color::category::_internal::gray_ldouble >;
 
    }
  }

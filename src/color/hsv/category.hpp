@@ -26,16 +26,16 @@ namespace color
        typedef void category_name;
       };
 
-    using hsv_bool    = hsv< ::color::category::_internal::hsv_bool    >;
-    using hsv_uint8   = hsv< ::color::category::_internal::hsv_uint8   >;
-    using hsv_uint16  = hsv< ::color::category::_internal::hsv_uint16  >;
-    using hsv_uint24  = hsv< ::color::category::_internal::hsv_uint24  >;
-    using hsv_uint32  = hsv< ::color::category::_internal::hsv_uint32  >;
-    using hsv_uint48  = hsv< ::color::category::_internal::hsv_uint48  >;
-    using hsv_uint64  = hsv< ::color::category::_internal::hsv_uint64  >;
-    using hsv_float   = hsv< ::color::category::_internal::hsv_float   >;
-    using hsv_double  = hsv< ::color::category::_internal::hsv_double  >;
-    using hsv_ldouble = hsv< ::color::category::_internal::hsv_ldouble >;
+    using hsv_bool    = ::color::category::hsv< ::color::category::_internal::hsv_bool    >;
+    using hsv_uint8   = ::color::category::hsv< ::color::category::_internal::hsv_uint8   >;
+    using hsv_uint16  = ::color::category::hsv< ::color::category::_internal::hsv_uint16  >;
+    using hsv_uint24  = ::color::category::hsv< ::color::category::_internal::hsv_uint24  >;
+    using hsv_uint32  = ::color::category::hsv< ::color::category::_internal::hsv_uint32  >;
+    using hsv_uint48  = ::color::category::hsv< ::color::category::_internal::hsv_uint48  >;
+    using hsv_uint64  = ::color::category::hsv< ::color::category::_internal::hsv_uint64  >;
+    using hsv_float   = ::color::category::hsv< ::color::category::_internal::hsv_float   >;
+    using hsv_double  = ::color::category::hsv< ::color::category::_internal::hsv_double  >;
+    using hsv_ldouble = ::color::category::hsv< ::color::category::_internal::hsv_ldouble >;
 
    }
  }

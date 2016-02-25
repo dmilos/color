@@ -26,16 +26,16 @@ namespace color
        typedef void category_name;
       };
 
-    using yiq_bool    = yiq< ::color::category::_internal::yiq_bool    >;
-    using yiq_uint8   = yiq< ::color::category::_internal::yiq_uint8   >;
-    using yiq_uint16  = yiq< ::color::category::_internal::yiq_uint16  >;
-    using yiq_uint24  = yiq< ::color::category::_internal::yiq_uint24  >;
-    using yiq_uint32  = yiq< ::color::category::_internal::yiq_uint32  >;
-    using yiq_uint48  = yiq< ::color::category::_internal::yiq_uint48  >;
-    using yiq_uint64  = yiq< ::color::category::_internal::yiq_uint64  >;
-    using yiq_float   = yiq< ::color::category::_internal::yiq_float   >;
-    using yiq_double  = yiq< ::color::category::_internal::yiq_double  >;
-    using yiq_ldouble = yiq< ::color::category::_internal::yiq_ldouble >;
+    using yiq_bool    = ::color::category::yiq< ::color::category::_internal::yiq_bool    >;
+    using yiq_uint8   = ::color::category::yiq< ::color::category::_internal::yiq_uint8   >;
+    using yiq_uint16  = ::color::category::yiq< ::color::category::_internal::yiq_uint16  >;
+    using yiq_uint24  = ::color::category::yiq< ::color::category::_internal::yiq_uint24  >;
+    using yiq_uint32  = ::color::category::yiq< ::color::category::_internal::yiq_uint32  >;
+    using yiq_uint48  = ::color::category::yiq< ::color::category::_internal::yiq_uint48  >;
+    using yiq_uint64  = ::color::category::yiq< ::color::category::_internal::yiq_uint64  >;
+    using yiq_float   = ::color::category::yiq< ::color::category::_internal::yiq_float   >;
+    using yiq_double  = ::color::category::yiq< ::color::category::_internal::yiq_double  >;
+    using yiq_ldouble = ::color::category::yiq< ::color::category::_internal::yiq_ldouble >;
 
    }
  }

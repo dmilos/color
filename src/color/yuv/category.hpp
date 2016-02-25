@@ -26,16 +26,16 @@ namespace color
        typedef void category_name;
       };
 
-    using yuv_bool    = yuv< ::color::category::_internal::yuv_bool    >;
-    using yuv_uint8   = yuv< ::color::category::_internal::yuv_uint8   >;
-    using yuv_uint16  = yuv< ::color::category::_internal::yuv_uint16  >;
-    using yuv_uint24  = yuv< ::color::category::_internal::yuv_uint24  >;
-    using yuv_uint32  = yuv< ::color::category::_internal::yuv_uint32  >;
-    using yuv_uint48  = yuv< ::color::category::_internal::yuv_uint48  >;
-    using yuv_uint64  = yuv< ::color::category::_internal::yuv_uint64  >;
-    using yuv_float   = yuv< ::color::category::_internal::yuv_float   >;
-    using yuv_double  = yuv< ::color::category::_internal::yuv_double  >;
-    using yuv_ldouble = yuv< ::color::category::_internal::yuv_ldouble >;
+    using yuv_bool    = ::color::category::yuv< ::color::category::_internal::yuv_bool    >;
+    using yuv_uint8   = ::color::category::yuv< ::color::category::_internal::yuv_uint8   >;
+    using yuv_uint16  = ::color::category::yuv< ::color::category::_internal::yuv_uint16  >;
+    using yuv_uint24  = ::color::category::yuv< ::color::category::_internal::yuv_uint24  >;
+    using yuv_uint32  = ::color::category::yuv< ::color::category::_internal::yuv_uint32  >;
+    using yuv_uint48  = ::color::category::yuv< ::color::category::_internal::yuv_uint48  >;
+    using yuv_uint64  = ::color::category::yuv< ::color::category::_internal::yuv_uint64  >;
+    using yuv_float   = ::color::category::yuv< ::color::category::_internal::yuv_float   >;
+    using yuv_double  = ::color::category::yuv< ::color::category::_internal::yuv_double  >;
+    using yuv_ldouble = ::color::category::yuv< ::color::category::_internal::yuv_ldouble >;
 
    }
  }

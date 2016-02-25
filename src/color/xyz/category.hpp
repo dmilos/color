@@ -26,16 +26,16 @@ namespace color
        typedef void category_name;
       };
 
-    using xyz_bool    = xyz< ::color::category::_internal::xyz_bool    >;
-    using xyz_uint8   = xyz< ::color::category::_internal::xyz_uint8   >;
-    using xyz_uint16  = xyz< ::color::category::_internal::xyz_uint16  >;
-    using xyz_uint24  = xyz< ::color::category::_internal::xyz_uint24  >;
-    using xyz_uint32  = xyz< ::color::category::_internal::xyz_uint32  >;
-    using xyz_uint48  = xyz< ::color::category::_internal::xyz_uint48  >;
-    using xyz_uint64  = xyz< ::color::category::_internal::xyz_uint64  >;
-    using xyz_float   = xyz< ::color::category::_internal::xyz_float   >;
-    using xyz_double  = xyz< ::color::category::_internal::xyz_double  >;
-    using xyz_ldouble = xyz< ::color::category::_internal::xyz_ldouble >;
+    using xyz_bool    = ::color::category::xyz< ::color::category::_internal::xyz_bool    >;
+    using xyz_uint8   = ::color::category::xyz< ::color::category::_internal::xyz_uint8   >;
+    using xyz_uint16  = ::color::category::xyz< ::color::category::_internal::xyz_uint16  >;
+    using xyz_uint24  = ::color::category::xyz< ::color::category::_internal::xyz_uint24  >;
+    using xyz_uint32  = ::color::category::xyz< ::color::category::_internal::xyz_uint32  >;
+    using xyz_uint48  = ::color::category::xyz< ::color::category::_internal::xyz_uint48  >;
+    using xyz_uint64  = ::color::category::xyz< ::color::category::_internal::xyz_uint64  >;
+    using xyz_float   = ::color::category::xyz< ::color::category::_internal::xyz_float   >;
+    using xyz_double  = ::color::category::xyz< ::color::category::_internal::xyz_double  >;
+    using xyz_ldouble = ::color::category::xyz< ::color::category::_internal::xyz_ldouble >;
 
    }
  }

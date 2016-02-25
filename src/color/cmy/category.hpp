@@ -26,16 +26,16 @@ namespace color
        typedef void category_name;
       };
 
-    using cmy_bool    = cmy< ::color::category::_internal::cmy_bool    >;
-    using cmy_uint8   = cmy< ::color::category::_internal::cmy_uint8   >;
-    using cmy_uint16  = cmy< ::color::category::_internal::cmy_uint16  >;
-    using cmy_uint24  = cmy< ::color::category::_internal::cmy_uint24  >;
-    using cmy_uint32  = cmy< ::color::category::_internal::cmy_uint32  >;
-    using cmy_uint48  = cmy< ::color::category::_internal::cmy_uint48  >;
-    using cmy_uint64  = cmy< ::color::category::_internal::cmy_uint64  >;
-    using cmy_float   = cmy< ::color::category::_internal::cmy_float   >;
-    using cmy_double  = cmy< ::color::category::_internal::cmy_double  >;
-    using cmy_ldouble = cmy< ::color::category::_internal::cmy_ldouble >;
+    using cmy_bool    = ::color::category::cmy< ::color::category::_internal::cmy_bool    >;
+    using cmy_uint8   = ::color::category::cmy< ::color::category::_internal::cmy_uint8   >;
+    using cmy_uint16  = ::color::category::cmy< ::color::category::_internal::cmy_uint16  >;
+    using cmy_uint24  = ::color::category::cmy< ::color::category::_internal::cmy_uint24  >;
+    using cmy_uint32  = ::color::category::cmy< ::color::category::_internal::cmy_uint32  >;
+    using cmy_uint48  = ::color::category::cmy< ::color::category::_internal::cmy_uint48  >;
+    using cmy_uint64  = ::color::category::cmy< ::color::category::_internal::cmy_uint64  >;
+    using cmy_float   = ::color::category::cmy< ::color::category::_internal::cmy_float   >;
+    using cmy_double  = ::color::category::cmy< ::color::category::_internal::cmy_double  >;
+    using cmy_ldouble = ::color::category::cmy< ::color::category::_internal::cmy_ldouble >;
 
    }
  }

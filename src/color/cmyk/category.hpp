@@ -26,16 +26,16 @@ namespace color
        typedef void category_name;
       };
 
-    using cmyk_bool    = cmyk< ::color::category::_internal::cmyk_bool    >;
-    using cmyk_uint8   = cmyk< ::color::category::_internal::cmyk_uint8   >;
-    using cmyk_uint16  = cmyk< ::color::category::_internal::cmyk_uint16  >;
-    using cmyk_uint24  = cmyk< ::color::category::_internal::cmyk_uint24  >;
-    using cmyk_uint32  = cmyk< ::color::category::_internal::cmyk_uint32  >;
-    using cmyk_uint48  = cmyk< ::color::category::_internal::cmyk_uint48  >;
-    using cmyk_uint64  = cmyk< ::color::category::_internal::cmyk_uint64  >;
-    using cmyk_float   = cmyk< ::color::category::_internal::cmyk_float   >;
-    using cmyk_double  = cmyk< ::color::category::_internal::cmyk_double  >;
-    using cmyk_ldouble = cmyk< ::color::category::_internal::cmyk_ldouble >;
+    using cmyk_bool    = ::color::category::cmyk< ::color::category::_internal::cmyk_bool    >;
+    using cmyk_uint8   = ::color::category::cmyk< ::color::category::_internal::cmyk_uint8   >;
+    using cmyk_uint16  = ::color::category::cmyk< ::color::category::_internal::cmyk_uint16  >;
+    using cmyk_uint24  = ::color::category::cmyk< ::color::category::_internal::cmyk_uint24  >;
+    using cmyk_uint32  = ::color::category::cmyk< ::color::category::_internal::cmyk_uint32  >;
+    using cmyk_uint48  = ::color::category::cmyk< ::color::category::_internal::cmyk_uint48  >;
+    using cmyk_uint64  = ::color::category::cmyk< ::color::category::_internal::cmyk_uint64  >;
+    using cmyk_float   = ::color::category::cmyk< ::color::category::_internal::cmyk_float   >;
+    using cmyk_double  = ::color::category::cmyk< ::color::category::_internal::cmyk_double  >;
+    using cmyk_ldouble = ::color::category::cmyk< ::color::category::_internal::cmyk_ldouble >;
 
    }
  }
