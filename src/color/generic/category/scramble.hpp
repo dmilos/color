@@ -1,5 +1,5 @@
-#ifndef color_generic_category
-#define color_generic_category
+#ifndef color_generic_category_scramble
+#define color_generic_category_scramble
 
 namespace color
  {
@@ -33,8 +33,8 @@ namespace color
          //TODO C++14 static_assert( first_position  != third_position,   "First and third place used for different components."    );
          //TODO C++14 static_assert( first_position  != fourth_position,  "First and fourth place used for different components."   );
 
-         //TODO C++14 static_assert( second_position != third_position,   "Second and third place used for different components."  );
-         //TODO C++14 static_assert( second_position != fourth_position,  "Second and fourth place used for different components." );
+         //TODO C++14 static_assert( second_position != third_position,   "Second and third place used for different components."   );
+         //TODO C++14 static_assert( second_position != fourth_position,  "Second and fourth place used for different components."  );
 
          //TODO C++14 static_assert( third_position  != fourth_position,  "Third and fourth place used for different components."   );
         };

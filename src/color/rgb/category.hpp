@@ -3,7 +3,7 @@
 
 // ::color::category::rgb_ABC;
 // ::color::category::rgb< tag >;
-#include "../_internal/category.hpp"
+#include "../generic/category/category.hpp"
 
 
 namespace color

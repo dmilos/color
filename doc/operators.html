@@ -12,88 +12,276 @@
 	<dl>
 		<dt><h3>Description</h3></dt>
 		<dd>
-		TODO
+			Most easiest way to manipulate with color.
+		</dd>
+		<dt><h3>Note</h3></dt>
+		<dd>
+			For efficiently reason it is only possible to have operation only with same <a href="glossary.html#category">categeory</a>.<br>
+			To perform operation betwen different categories convert one side to apporpiret one.
 		</dd>
 		<dt><h3>List of Operators</h3></dt>
 		<dd>
-			Next operators are available on all <code>_model</code>s:
+			<dl>
+				<dt> <code> + </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>+</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt; typename category_name&gt;<br>
+						z::color::_internal::model&lt;category_name&gt; <b>operator +</b>( ::color::_internal::model&lt;category_name&gt; const&amp;left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+				</code>
+				</dd>
+					<dt>Description</dt>
+					<dd>TODO.</dd>
+					<dt>Example:</dt>
+					<dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-			<table>
-				<tr><td nowrap="nowrap">operator +</td><td><code>
-				template&lt; typename category_name&gt;<br>
-				::color::_internal::model&lt;category_name&gt; <b>operator +</b>( ::color::_internal::model&lt;category_name&gt; const&amp;left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
-				</code></td></tr>
-
-				<tr><td nowrap="nowrap">operator +=</td><td><code>
+			<dl>
+				<dt> <code> += </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>+=</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
 					template&lt;  typename category_name&gt;<br>
 					::color::_internal::model&lt;category_name&gt; &amp; <b>operator +=</b>( ::color::_internal::model&lt;category_name&gt; &amp; result, ::color::_internal::model&lt;category_name&gt; const&amp; right );
-				</code></td></tr>
+				</code>
+				</dd>
+					<dt>Description</dt>
+					<dd>TODO.</dd>
+					<dt>Example:</dt>
+					<dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator +</td><td><code>
+			<dl>
+				<dt> <code> - </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>-</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
 					template&lt;  typename category_name&gt;<br>
 					::color::_internal::model&lt;category_name&gt; <b>operator -</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
-				</code></td></tr>
+				</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator *</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					::color::_internal::model&lt;category_name&gt; <b>operator *</b>( scalar_name const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp; right );
-				</code></td></tr>
 
-				<tr><td nowrap="nowrap">operator *</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					::color::_internal::model&lt;category_name&gt; <b>operator *</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, scalar_name const &amp; right );
-				</code></td></tr>
+			<dl>
+				<dt> <code> * </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>*</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							::color::_internal::model&lt;category_name&gt; <b>operator *</b>( scalar_name const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp; right );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator /</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					::color::_internal::model&lt;category_name&gt; <b>operator /</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, scalar_name const&amp; right );
-				</code></td></tr>
+			<dl>
+				<dt> <code> * </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>*</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							::color::_internal::model&lt;category_name&gt; <b>operator *</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, scalar_name const &amp; right );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator -=</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					::color::_internal::model&lt;category_name&gt; &amp; <b>operator -=</b>( ::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp; left );
+			<dl>
+				<dt> <code> / </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>/</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							::color::_internal::model&lt;category_name&gt; <b>operator /</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, scalar_name const&amp; right );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator *=</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					::color::_internal::model&lt;category_name&gt; &amp; <b>operator *=</b>(::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp;  scalar );
-				</code></td></tr>
+			<dl>
+				<dt> <code> -= </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>-=</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							::color::_internal::model&lt;category_name&gt; &amp; <b>operator -=</b>( ::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp; left );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator /=</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					::color::_internal::model&lt;category_name&gt; &amp; <b>operator /=</b>(::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp; scalar );
-				</code></td></tr>
+			<dl>
+				<dt> <code> *= </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>*=</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							::color::_internal::model&lt;category_name&gt; &amp; <b>operator *=</b>(::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp;  scalar );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator ==</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					bool  operator ==( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
-				</code></td></tr>
+			<dl>
+				<dt> <code> /= </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>/=</i></dd>
+					<dt>Declaration</dt>
+					<dd>
 
-				<tr><td nowrap="nowrap">operator !=</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					bool <b>operator !=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
-				</code></td></tr>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							::color::_internal::model&lt;category_name&gt; &amp; <b>operator /=</b>(::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp; scalar );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator &lt;</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					bool <b>operator &lt;</b> ( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
-				</code></td></tr>
+			<dl>
+				<dt> <code> == </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>==</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							bool  operator ==( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator &gt;</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					bool <b>operator &gt;</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp; right );
-				</code></td></tr>
+			<dl>
+				<dt> <code> != </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>!=</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							bool <b>operator !=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator &lt;=</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					bool <b>operator &lt; =</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
-				</code></td></tr>
+			<dl>
+				<dt> <code> &lt; </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>&lt;</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							bool <b>operator &lt;</b> ( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-				<tr><td nowrap="nowrap">operator &gt;=</td><td><code>
-					template&lt;  typename category_name, typename scalar_name &gt;<br>
-					bool <b>operator &gt;=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
-				</code></td></tr>
+			<dl>
+				<dt> <code> &gt; </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>&gt;</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							bool <b>operator &gt;</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp; right );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
 
-			</table>
+			<dl>
+				<dt> <code> &lt;= </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>&lt;=</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							bool <b>operator &lt;=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
+
+			<dl>
+				<dt> <code> &gt;= </code> </dt>
+				<dl>
+					<dt>Name</dt>
+					<dd><i>&gt;=</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							template&lt;  typename category_name, typename scalar_name &gt;<br>
+							bool <b>operator &gt;=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+						</code>
+				</dd>
+					<dt>Description</dt><dd>TODO.</dd>
+					<dt>Example:</dt><dd>TODO.</dd>
+				</dl>
+			</dl><hr width="%20">
+
 
 		</dl>
 	</body>

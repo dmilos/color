@@ -1,5 +1,5 @@
-#ifndef color__internal_trait_2ad5c81b_a127_4589_b065_b9f05265855d
-#define color__internal_trait_2ad5c81b_a127_4589_b065_b9f05265855d
+#ifndef color__internal_utility_type_bound
+#define color__internal_utility_type_bound
 
 // ::color::_internal::utility::type::bound< number_name, number_const_return_name >
 

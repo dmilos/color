@@ -699,6 +699,62 @@ public:
 	}
 };
 
+template
+<
+typename category_name
+>
+struct reformat< category_name, category_name, typename ::color::trait::scalar<category_name>::instance_type > {
+public:
+	typedef category_name category_type;
+
+	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+
+	typedef typename ::color::trait::component< category_type >::return_type component_return_type;
+	typedef typename ::color::trait::index< category_type >::input_const_type index_const_input_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	typedef typename ::color::trait::component< category_type >::input_const_type component_const_input_type;
+
+	static
+	component_return_type
+	process
+	(
+		index_const_input_type left_index
+		,component_const_input_type right_component
+		,index_const_input_type right_index
+	) {
+		return right_component;
+	}
+
+	template
+	<
+	index_instance_type left_index_size
+	>
+	static
+	component_return_type
+	process
+	(
+		component_const_input_type right_component
+		,index_const_input_type right_index
+	) {
+		return right_component;
+	}
+
+	template
+	<
+	index_instance_type left_index_size
+	,index_instance_type right_index_size
+	>
+	static
+	component_return_type
+	process
+	(
+		component_const_input_type right_component
+	) {
+		return right_component;
+	}
+};
+
 }
 }
 
@@ -1572,6 +1628,13 @@ template< >struct gray< ::color::category::hsv_ldouble > {
 namespace color {
 
 namespace category {
+
+}
+}
+
+namespace color {
+
+namespace category {
 namespace _internal {
 
 template< unsigned first_position, unsigned second_position>
@@ -1602,10 +1665,10 @@ struct rgb {
 
 namespace _internal {
 template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position >
-struct rgb_scramble : public ::color::category::_internal::scramble3< red_position, green_position, blue_position > {} ;
+struct rgb_scramble : public ::color::category::_internal::scramble3< red_position, green_position, blue_position > {};
 
 template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position, unsigned alpha_position >
-struct rgba_scramble : public ::color::category::_internal::scramble4< red_position, green_position, blue_position, alpha_position > {} ;
+struct rgba_scramble : public ::color::category::_internal::scramble4< red_position, green_position, blue_position, alpha_position > {};
 
 using rgb_uint8 = ::color::category::_internal::rgb_scramble< std::uint8_t , 0, 1, 2 >;
 using rgb_uint16 = ::color::category::_internal::rgb_scramble< std::uint16_t , 0, 1, 2 >;
@@ -4899,8 +4962,6 @@ void blend
 	,scalar_name const& alpha
 	,::color::model<category_name> const& upper
 ) {
-	enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
-	static_assert(0 <= alpha_index, "Error: This combination of model/format has no alpha channel") ;
 	::color::operation::_internal::blend<category_name>::accumulate(result, alpha, upper);
 }
 
@@ -7353,6 +7414,25 @@ namespace color {
 	+ gray_const_type::Bc() * normalize_rgb_type::template process<blue_p >(color_parameter.template get<blue_p >());
 	value = normalize_akin_type::template process<0>(component_parameter) / value;
 	::color::operation::scale(color_parameter, value);
+}
+
+	}
+}
+
+namespace color {
+	namespace set {
+		template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position, unsigned alpha_position >
+		inline
+		void
+		alpha
+		(
+			::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble < value_name, red_position, green_position, blue_position, alpha_position > > > & color_parameter
+			,typename ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble < value_name, red_position, green_position, blue_position, alpha_position > > >::component_input_const_type component_parameter
+) {
+	typedef ::color::category::_internal::rgba_scramble < value_name, red_position, green_position, blue_position, alpha_position > tag_type;
+	typedef ::color::category::rgb<tag_type> category_type;
+	enum { alpha_p = ::color::place::_internal::alpha<category_type>::position_enum };
+	color_parameter.template set<alpha_p>(component_parameter);
 }
 
 	}
@@ -22361,15 +22441,34 @@ void overburn
 namespace color {
 	namespace category {
 
-		struct generic_bool {};
-		template< unsigned length > struct generic_number {};
-		template< unsigned length > struct generic_uint8 {};
-		template< unsigned length > struct generic_uint16 {};
-		template< unsigned length > struct generic_uint32 {};
-		template< unsigned length > struct generic_uint64 {};
-		template< unsigned length > struct generic_float {};
-		template< unsigned length > struct generic_double {};
-		template< unsigned length > struct generic_ldouble {};
+		namespace _internal {
+			struct generic_bool {};
+			struct generic_uint8 {};
+			struct generic_uint16 {};
+			struct generic_uint24 {};
+			struct generic_uint32 {};
+			struct generic_uint48 {};
+			struct generic_uint64 {};
+			struct generic_float {};
+			struct generic_double {};
+			struct generic_ldouble {};
+		}
+
+		template< typename tag_name>
+		struct generic {
+		};
+
+		using generic_bool = ::color::category::generic< ::color::category::_internal::generic_bool >;
+		using generic_uint8 = ::color::category::generic< ::color::category::_internal::generic_uint8 >;
+		using generic_uint16 = ::color::category::generic< ::color::category::_internal::generic_uint16 >;
+		using generic_uint24 = ::color::category::generic< ::color::category::_internal::generic_uint24 >;
+		using generic_uint32 = ::color::category::generic< ::color::category::_internal::generic_uint32 >;
+		using generic_uint48 = ::color::category::generic< ::color::category::_internal::generic_uint48 >;
+		using generic_uint64 = ::color::category::generic< ::color::category::_internal::generic_uint64 >;
+		using generic_float = ::color::category::generic< ::color::category::_internal::generic_float >;
+		using generic_double = ::color::category::generic< ::color::category::_internal::generic_double >;
+		using generic_ldouble = ::color::category::generic< ::color::category::_internal::generic_ldouble >;
+
 	}
 
 }

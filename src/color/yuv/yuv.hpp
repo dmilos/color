@@ -3,6 +3,7 @@
 
 
 #include "./category.hpp"
+
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
@@ -36,6 +37,11 @@ namespace color
    using yuv = ::color::model< typename ::color::_internal::pick_yuv< type_name >::category_type >;
 
  }
+
+
+
+
+
 #include "./place/place.hpp"
 
 #include "./get/get.hpp"

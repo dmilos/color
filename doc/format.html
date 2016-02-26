@@ -9,29 +9,31 @@
 	<body>
 		<h1 align="center">Formats</h1>
 		<dl>
-			<dt><h3>Description</h3></dt>			<dd>TODO</dd>
-			<dt><h3>See also</h3></dt>			
+			<dt><h3>Description</h3></dt>
+			<dd>The way how specific model will be present in memory.<br>
+				Depend of situation different prepresentations might be required.<br>
+				</dd>
+			<dt><h3>See also</h3></dt>
 			<dd>
 				<a href="./mc.html">Memory consuptions for specific combination of model-format</a>.
-
 			</dd>
-
 			<dt><h3>List of formats</h3></dt>
 			<dd>
 				<dl>
-					<dt><h4><code>std::uint8_t</code></h4></dt>			<dd>TODO</dd>
-					<dt><h4><code>std::uint16_t</code></h4></dt>			<dd>TODO</dd>
-					<dt><h4><code>std::uint32_t</code></h4></dt>			<dd>TODO</dd>
-					<dt><h4><code>float</code></h4></dt>			<dd>TODO</dd>
-					<dt><h4><code>double</code></h4></dt>			<dd>TODO</dd>
-					<dt><h4><code>long double</code></h4></dt>			<dd>TODO</dd>
-					<dt><h4><code>color::type::split233_t</code></h4>			<dd>TODO</dd>
-					<dt><h4><code>color::type::split332_t</code></h4>			<dd>TODO</dd>
-					<dt><h4><code>color::type::split442_t</code></h4>			<dd>TODO</dd>
-					<dt><h4><code>color::type::split556_t</code></h4>			<dd>TODO</dd>
-					<dt><h4><code>color::type::split565_t</code></h4>			<dd>TODO</dd>
-					<dt><h4><code>color::type::split655_t</code></h4>			<dd>TODO</dd>
-					<dt><h4><code>color::type::splitAAA2_t</code></h4>			<dd>TODO</dd>
+					<dt><h4><code>std::uint8_t</code>           </h4></dt>			<dd>Each componet is type of std::uint8_t.</dd>
+					<dt><h4><code>std::uint16_t</code>          </h4></dt>			<dd>Each componet is type of std::uint16_t.</dd>
+					<dt><h4><code>std::uint32_t</code>          </h4></dt>			<dd>Each componet is type of std::uint32_t.</dd>
+					<dt><h4><code>std::uint64_t</code>          </h4></dt>			<dd>Each componet is type of std::uint64_t.</dd>
+					<dt><h4><code>float</code>                  </h4></dt>			<dd>Each componet is type of float.</dd>
+					<dt><h4><code>double</code>                 </h4></dt>			<dd>Each componet is type of double.</dd>
+					<dt><h4><code>long double</code>            </h4></dt>			<dd>Each componet is type of long double.</dd>
+					<dt><h4><code>color::type::split233_t</code></h4>			<dd>Each componet is type of std::uint8_t and everything is pack on one singe std::uint8_t. First  2 insignificant bits is used for first component, next  3 for second and last 3 for third component.</dd>
+					<dt><h4><code>color::type::split332_t</code></h4>			<dd>Each componet is type of std::uint8_t and everything is pack on one singe std::uint8_t. First  3 insignificant bits is used for first component, next  3 for second and last 2 for third component.</dd>
+					<dt><h4><code>color::type::split442_t</code></h4>			<dd>Each componet is type of std::uint8_t and everything is pack on one singe std::uint8_t. First  4 insignificant bits is used for first component, next  4 for second and last 2 for third component.</dd>
+					<dt><h4><code>color::type::split556_t</code></h4>			<dd>Each componet is type of std::uint8_t and everything is pack on one singe std::uint8_t. First  5 insignificant bits is used for first component, next  5 for second and last 6 for third component.</dd>
+					<dt><h4><code>color::type::split565_t</code></h4>			<dd>Each componet is type of std::uint8_t and everything is pack on one singe std::uint8_t. First  5 insignificant bits is used for first component, next  6 for second and last 5 for third component.</dd>
+					<dt><h4><code>color::type::split655_t</code></h4>			<dd>Each componet is type of std::uint8_t and everything is pack on one singe std::uint8_t. First  6 insignificant bits is used for first component, next  5 for second and last 5 for third component.</dd>
+					<dt><h4><code>color::type::splitAAA2_t</code></h4>			<dd>Each componet is type of std::uint8_t and everything is pack on one singe std::uint8_t. First 10 insignificant bits is used for first component, next 10 for second and 10 for third component and 2 for fourth.</dd>
 				</dl>
 			</dd>
 		</dl>

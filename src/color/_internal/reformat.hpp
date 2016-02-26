@@ -23,8 +23,8 @@ namespace color
      struct reformat
       {
        public:
-         typedef  category_left_name   category_left_type;
-         typedef  category_right_name  category_right_type;
+         typedef category_left_name   category_left_type;
+         typedef category_right_name  category_right_type;
          typedef scalar_name            scalar_type;
 
          typedef ::color::_internal::diverse< category_left_type >   diverse_type;
@@ -102,7 +102,71 @@ namespace color
           }
       };
 
+    template
+     <
+       typename category_name
+     >
+     struct reformat< category_name, category_name, typename ::color::trait::scalar<category_name>::instance_type >
+      {
+       public:
+         typedef category_name   category_type;
+
+         typedef typename ::color::trait::scalar<category_name>::instance_type            scalar_type;
+
+         typedef typename ::color::trait::component< category_type >::return_type          component_return_type;
+         typedef typename ::color::trait::index< category_type >::input_const_type         index_const_input_type;
+         typedef typename ::color::trait::index< category_type >::instance_type            index_instance_type;
+
+         typedef typename ::color::trait::component< category_type >::input_const_type     component_const_input_type;
+
+         static
+         component_return_type
+         process
+          (
+            index_const_input_type       left_index
+           ,component_const_input_type   right_component
+           ,index_const_input_type       right_index
+          )
+          {
+           return right_component;
+          }
+
+         template
+          <
+           index_instance_type left_index_size
+          >
+         static
+         component_return_type
+         process
+          (
+            component_const_input_type   right_component
+           ,index_const_input_type       right_index
+          )
+          {
+           return right_component;
+          }
+
+         template
+          <
+            index_instance_type  left_index_size
+           ,index_instance_type right_index_size
+          >
+         static
+         component_return_type
+         process
+          (
+            component_const_input_type   right_component
+          )
+          {
+           return right_component;
+          }
+      };
+
+
    }
  }
- 
+
 #endif
+
+
+
