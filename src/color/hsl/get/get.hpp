@@ -5,3 +5,4 @@
 #include "./green.hpp"
 #include "./blue.hpp"
 
+#include "./hue.hpp"

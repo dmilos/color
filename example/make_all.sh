@@ -85,6 +85,9 @@ g++ -fexceptions -std=c++11 -g -I../src make_red_in_cmy.cpp           -o make_re
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_gray.cpp          -o make_red_in_gray
 g++ -fexceptions -std=c++11 -g -I../src make_red_in_rgb.cpp           -o make_red_in_rgb
 
+g++ -fexceptions -std=c++11 -g -I../src make_orange.cpp               -o make_orange
+
+
 g++ -fexceptions -std=c++11 -g -I../src operation_blend_noalpha.cpp   -o operation_blend_noalpha
 g++ -fexceptions -std=c++11 -g -I../src operation_blend_alpha.cpp     -o operation_blend_alpha
 g++ -fexceptions -std=c++11 -g -I../src operation_convex.cpp          -o operation_convex
@@ -96,3 +99,8 @@ g++ -fexceptions -std=c++11 -g -I../src operator_arithmetic.cpp       -o operato
 
 g++ -fexceptions -std=c++11 -g -I../src place.cpp                     -o place
 
+g++ -fexceptions -std=c++11 -g -I../src trait_bound.cpp               -o trait_bound
+g++ -fexceptions -std=c++11 -g -I../src trait_component.cpp           -o trait_component
+g++ -fexceptions -std=c++11 -g -I../src trait_container.cpp           -o trait_container
+g++ -fexceptions -std=c++11 -g -I../src trait_index.cpp               -o trait_index
+g++ -fexceptions -std=c++11 -g -I../src trait_scalar.cpp              -o trait_scalar

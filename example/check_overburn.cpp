@@ -4,9 +4,11 @@
 #include "color/color.hpp"
 
 void check_rgb();
+
 int main( int argc, char *argv[] )
  {
   check_rgb();
+
   return EXIT_SUCCESS;
  }
 
