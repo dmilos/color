@@ -56,16 +56,16 @@ void make_cmy_orange()
   color::cmy<std::uint8_t>   c4;
   color::cmy<float>          c5;
   color::cmy<double>         c6;
-  color::cmy<long double>    c6;
+  color::cmy<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::count << " "; print( c1 ); std::count << std::endl;
-  color::make::orange( c2 ); std::count << " "; print( c2 ); std::count << std::endl;
-  color::make::orange( c3 ); std::count << " "; print( c3 ); std::count << std::endl;
-  color::make::orange( c4 ); std::count << " "; print( c4 ); std::count << std::endl;
-  color::make::orange( c5 ); std::count << " "; print( c5 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
+  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
  }
 
 void make_cmyk_orange()
@@ -78,16 +78,16 @@ void make_cmyk_orange()
   color::cmyk<std::uint8_t>   c4;
   color::cmyk<float>          c5;
   color::cmyk<double>         c6;
-  color::cmyk<long double>    c6;
+  color::cmyk<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::count << " "; print( c1 ); std::count << std::endl;
-  color::make::orange( c2 ); std::count << " "; print( c2 ); std::count << std::endl;
-  color::make::orange( c3 ); std::count << " "; print( c3 ); std::count << std::endl;
-  color::make::orange( c4 ); std::count << " "; print( c4 ); std::count << std::endl;
-  color::make::orange( c5 ); std::count << " "; print( c5 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
+  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
  }
 
 void make_gray_orange()
@@ -100,16 +100,16 @@ void make_gray_orange()
   color::gray<std::uint64_t>  c4;
   color::gray<float>          c5;
   color::gray<double>         c6;
-  color::gray<long double>    c6;
+  color::gray<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::count << " "; print( c1 ); std::count << std::endl;
-  color::make::orange( c2 ); std::count << " "; print( c2 ); std::count << std::endl;
-  color::make::orange( c3 ); std::count << " "; print( c3 ); std::count << std::endl;
-  color::make::orange( c4 ); std::count << " "; print( c4 ); std::count << std::endl;
-  color::make::orange( c5 ); std::count << " "; print( c5 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
+  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
  }
 
 void make_hsl_orange()
@@ -122,16 +122,16 @@ void make_hsl_orange()
   color::hsl<std::uint64_t>  c4;
   color::hsl<float>          c5;
   color::hsl<double>         c6;
-  color::hsl<long double>    c6;
+  color::hsl<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::count << " "; print( c1 ); std::count << std::endl;
-  color::make::orange( c2 ); std::count << " "; print( c2 ); std::count << std::endl;
-  color::make::orange( c3 ); std::count << " "; print( c3 ); std::count << std::endl;
-  color::make::orange( c4 ); std::count << " "; print( c4 ); std::count << std::endl;
-  color::make::orange( c5 ); std::count << " "; print( c5 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
+  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
  }
 
 void make_hsv_orange()
@@ -144,16 +144,16 @@ void make_hsv_orange()
   color::hsv<std::uint64_t>  c4;
   color::hsv<float>          c5;
   color::hsv<double>         c6;
-  color::hsv<long double>    c6;
+  color::hsv<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::count << " "; print( c1 ); std::count << std::endl;
-  color::make::orange( c2 ); std::count << " "; print( c2 ); std::count << std::endl;
-  color::make::orange( c3 ); std::count << " "; print( c3 ); std::count << std::endl;
-  color::make::orange( c4 ); std::count << " "; print( c4 ); std::count << std::endl;
-  color::make::orange( c5 ); std::count << " "; print( c5 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
+  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
  }
 
 void make_rgb_orange()
@@ -166,16 +166,16 @@ void make_rgb_orange()
   color::rgb<std::uint64_t>  c4;
   color::rgb<float>          c5;
   color::rgb<double>         c6;
-  color::rgb<long double>    c6;
+  color::rgb<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::count << " "; print( c1 ); std::count << std::endl;
-  color::make::orange( c2 ); std::count << " "; print( c2 ); std::count << std::endl;
-  color::make::orange( c3 ); std::count << " "; print( c3 ); std::count << std::endl;
-  color::make::orange( c4 ); std::count << " "; print( c4 ); std::count << std::endl;
-  color::make::orange( c5 ); std::count << " "; print( c5 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
+  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
  }
 
 
@@ -189,16 +189,16 @@ void make_yiq_orange()
   color::yiq<std::uint64_t>  c4;
   color::yiq<float>          c5;
   color::yiq<double>         c6;
-  color::yiq<long double>    c6;
+  color::yiq<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::count << " "; print( c1 ); std::count << std::endl;
-  color::make::orange( c2 ); std::count << " "; print( c2 ); std::count << std::endl;
-  color::make::orange( c3 ); std::count << " "; print( c3 ); std::count << std::endl;
-  color::make::orange( c4 ); std::count << " "; print( c4 ); std::count << std::endl;
-  color::make::orange( c5 ); std::count << " "; print( c5 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
+  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
  }
 
 void make_yuv_orange()
@@ -211,14 +211,14 @@ void make_yuv_orange()
   color::yuv<std::uint64_t>  c4;
   color::yuv<float>          c5;
   color::yuv<double>         c6;
-  color::yuv<long double>    c6;
+  color::yuv<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::count << " "; print( c1 ); std::count << std::endl;
-  color::make::orange( c2 ); std::count << " "; print( c2 ); std::count << std::endl;
-  color::make::orange( c3 ); std::count << " "; print( c3 ); std::count << std::endl;
-  color::make::orange( c4 ); std::count << " "; print( c4 ); std::count << std::endl;
-  color::make::orange( c5 ); std::count << " "; print( c5 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
-  color::make::orange( c6 ); std::count << " "; print( c6 ); std::count << std::endl;
+  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
  }

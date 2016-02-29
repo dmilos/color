@@ -50,6 +50,20 @@ void trait_bound_in_cmyk()
   // TODO
  }
 
+void trait_bound_in_gray()
+ {
+  // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
+  color::gray<float> c;
+  // TODO
+ }
+
+void trait_bound_in_hsl()
+ {
+  // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
+  color::hsv<float> c;
+  // TODO
+ }
+
 void trait_bound_in_hsv()
  {
   // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double

@@ -2,9 +2,9 @@
 #define color_rgb_trait_component_splitAAA2
 
 
-#include "../../../generic/type/splitAAA2.hpp"
+#include "../../../generic/type/split4.hpp"
 
-#include "../../../_internal/utility/component/aaa2.hpp"
+#include "../../../_internal/utility/component/pack32.hpp"
 
 #include "../../../generic/trait/component.hpp"
 
@@ -15,8 +15,8 @@ namespace color
   namespace trait
    {
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position > 
-     struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position > > >
+     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position  > 
+     struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
       : public ::color::_internal::utility::component::cnentAAA2< unsigned >
       {
       };

@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_container_cnerAAA2
-#define color__internal_utility_container_cnerAAA2
+#ifndef color__internal_utility_container_split2
+#define color__internal_utility_container_split2
 
-// ::color::_internal::utility::container::cnerAAA2< index_name >
+// ::color::_internal::utility::container::split2< index_name >
 
 #include "../type/index.hpp"
 #include "../type/traitp.hpp"
@@ -16,16 +16,19 @@ namespace color
       namespace container
        {
 
-        template<  typename index_name >
-         struct cnerAAA2
+        template
+         <
+           typename container_name,
+           typename component_name,
+           typename index_name
+          ,unsigned first_size, unsigned second_size
+         >
+         struct split2
           {
            public:
-             typedef index_name     index_type;
-
-             typedef std::uint8_t   value_type;
-             typedef std::uint32_t  instance_type;
-
-
+             typedef container_name  instance_type;
+             typedef component_name     value_type;
+             typedef index_name         index_type;
 
              typedef instance_type const      const_type;
              typedef instance_type const&     return_image_type;
@@ -44,24 +47,25 @@ namespace color
 
              typedef ::color::_internal::utility::type::traitP< value_type >         component_trait_type;
 
-             typedef typename component_trait_type::const_type           component_const_type;
              typedef typename component_trait_type::instance_type        component_type;
+             typedef typename component_trait_type::const_type           component_const_type;
              typedef typename component_trait_type::return_image_type    component_return_const_type;
              typedef typename component_trait_type::input_const_type     component_input_const_type;
 
              typedef void set_return_type;
 
-             enum { size_enum = 4 };
+             enum { size_enum = 3 };
+             enum {  first_position = 0, 
+                    second_position = first_size, 
+                  };
 
 
              static component_return_const_type get( input_const_type container, index_input_const_type index )
               {
                switch( index )
                 {
-                 case( 0 ): return ( ( container >>  0 ) & 1023 );
-                 case( 1 ): return ( ( container >> 10 ) & 1023 );
-                 case( 2 ): return ( ( container >> 20 ) & 1023 );
-                 case( 3 ): return ( ( container >> 30 ) &    3 );
+                 case( 0 ): return ( ( container >> (  first_position ) ) & ( ( 1 <<  first_size )-1 ) );
+                 case( 1 ): return ( ( container >> ( second_position ) ) & ( ( 1 << second_size )-1 ) );
                 }
                return 0;
               }
@@ -71,10 +75,8 @@ namespace color
                {
                 switch( index )
                  {
-                  case( 0 ): return ( ( container >>  0 ) & 1023 );
-                  case( 1 ): return ( ( container >> 10 ) & 1023 );
-                  case( 2 ): return ( ( container >> 20 ) & 1023 );
-                  case( 3 ): return ( ( container >> 30 ) &    3 );
+                  case( 0 ): return ( ( container >> (  first_position ) ) & ( ( 1 <<  first_size )-1 ) );
+                  case( 1 ): return ( ( container >> ( second_position ) ) & ( ( 1 << second_size )-1 ) );
                  }
                 return 0;
                }
@@ -83,10 +85,8 @@ namespace color
               {
                switch( index )
                 {
-                 case(0) : container = ( container & ~( 1023 << (  0 ) ) )  |  ( ((instance_type)value) << (  0 ) ); break;
-                 case(1) : container = ( container & ~( 1023 << ( 10 ) ) )  |  ( ((instance_type)value) << ( 10 ) ); break;
-                 case(2) : container = ( container & ~( 1023 << ( 20 ) ) )  |  ( ((instance_type)value) << ( 20 ) ); break;
-                 case(3) : container = ( container & ~(    3 << ( 30 ) ) )  |  ( ((instance_type)value) << ( 30 ) ); break;
+                 case( 0 ) : container = ( container & ~(  ( ( 1 <<  first_size )-1 ) << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
+                 case( 1 ) : container = ( container & ~(  ( ( 1 << second_size )-1 ) << ( second_position ) ) )  |  ( ((instance_type)value) << ( second_position ) ); break;
                 }
               }
 
@@ -95,19 +95,18 @@ namespace color
                {
                 switch( index )
                  {
-                  case(0) : container = ( container & ~( 1023 << (  0 ) ) )  |  ( ((instance_type)value) << (  0 ) ); break;
-                  case(1) : container = ( container & ~( 1023 << ( 10 ) ) )  |  ( ((instance_type)value) << ( 10 ) ); break;
-                  case(2) : container = ( container & ~( 1023 << ( 20 ) ) )  |  ( ((instance_type)value) << ( 20 ) ); break;
-                  case(3) : container = ( container & ~(    3 << ( 30 ) ) )  |  ( ((instance_type)value) << ( 30 ) ); break;
+                  case( 0 ) : container = ( container & ~(  ( ( 1 <<  first_size )-1 ) << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
+                  case( 1 ) : container = ( container & ~(  ( ( 1 << second_size )-1 ) << ( second_position ) ) )  |  ( ((instance_type)value) << ( second_position ) ); break;
                  }
                }
 
              static /*constexpr*/ index_return_image_type size()
               {
-               static const index_instance_type local_length = 4;
+               static const index_instance_type local_length = 2;
                return local_length;
               }
           };
+
        }
      }
    }

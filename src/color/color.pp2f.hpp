@@ -2948,6 +2948,7 @@ struct component< ::color::category::rgb_uint8 >
 
 }
 }
+
 namespace color {
 namespace trait {
 
@@ -2975,9 +2976,17 @@ namespace utility {
 namespace component {
 
 template< typename index_name >
-struct cnent332
+struct pack8
 		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
 };
+
+template< typename index_name > using cnent2222 = ::color::_internal::utility::component::pack8<index_name>;
+template< typename index_name > using cnent233 = ::color::_internal::utility::component::pack8<index_name>;
+template< typename index_name > using cnent323 = ::color::_internal::utility::component::pack8<index_name>;
+template< typename index_name > using cnent332 = ::color::_internal::utility::component::pack8<index_name>;
+template< typename index_name > using cnent224 = ::color::_internal::utility::component::pack8<index_name>;
+template< typename index_name > using cnent242 = ::color::_internal::utility::component::pack8<index_name>;
+template< typename index_name > using cnent422 = ::color::_internal::utility::component::pack8<index_name>;
 
 }
 }
@@ -2988,28 +2997,22 @@ namespace color {
 namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split233_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::component::cnent233< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t, first_position, second_position, third_position > > >
 		: public ::color::_internal::utility::component::cnent332< unsigned > {
 };
 
 }
 }
-
-namespace color {
-namespace _internal {
-namespace utility {
-namespace component {
-
-template< typename index_name >
-struct cnent422
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
-};
-
-}
-}
-}
-}
-
 namespace color {
 namespace trait {
 
@@ -3027,9 +3030,15 @@ namespace utility {
 namespace component {
 
 template< typename index_name >
-struct cnent556
+struct pack16
 		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
 };
+
+template< typename index_name > using cnent556 = ::color::_internal::utility::component::pack16<index_name>;
+template< typename index_name > using cnent565 = ::color::_internal::utility::component::pack16<index_name>;
+template< typename index_name > using cnent655 = ::color::_internal::utility::component::pack16<index_name>;
+template< typename index_name > using cnent4444 = ::color::_internal::utility::component::pack16<index_name>;
+template< typename index_name > using cnent5551 = ::color::_internal::utility::component::pack16<index_name>;
 
 }
 }
@@ -3046,22 +3055,6 @@ struct component< ::color::category::rgb< ::color::category::_internal::rgb_scra
 
 }
 }
-
-namespace color {
-namespace _internal {
-namespace utility {
-namespace component {
-
-template< typename index_name >
-struct cnent565
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
-};
-
-}
-}
-}
-}
-
 namespace color {
 namespace trait {
 
@@ -3072,6 +3065,16 @@ struct component< ::color::category::rgb< ::color::category::_internal::rgb_scra
 
 }
 }
+namespace color {
+namespace trait {
+
+template< unsigned first_position, unsigned second_position, unsigned third_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::component::cnent655< unsigned > {
+};
+
+}
+}
 
 namespace color {
 namespace _internal {
@@ -3079,9 +3082,11 @@ namespace utility {
 namespace component {
 
 template< typename index_name >
-struct cnent655
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
+struct pack32
+		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
 };
+
+template< typename index_name > using cnentAAA2 = ::color::_internal::utility::component::pack32<index_name>;
 
 }
 }
@@ -3091,9 +3096,9 @@ struct cnent655
 namespace color {
 namespace trait {
 
-template< unsigned first_position, unsigned second_position, unsigned third_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent655< unsigned > {
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::component::cnentAAA2< unsigned > {
 };
 
 }
@@ -6484,14 +6489,20 @@ namespace color {
 					typedef typename index_trait_type::instance_type index_instance_type;
 					typedef typename index_trait_type::input_const_type index_input_const_type;
 
+					enum {
+						first_max = (1 << first_size) - 1,
+						second_max = (1 << second_size) - 1,
+						third_max = (1 << third_size) - 1,
+					};
+
 					template< index_instance_type index >
 static return_image_type maximum() {
-	static instance_type max_list[] = { (1 << first_size) - 1, (1 << second_size)-1, (1 << third_size) - 1 };
+	static instance_type max_list[] = { first_max, second_max, third_max };
 	return max_list[index];
 }
 
 static return_image_type maximum(index_input_const_type index) {
-	static instance_type max_list[] = { (1 << first_size) - 1, (1 << second_size)-1, (1 << third_size) - 1 };
+	static instance_type max_list[] = { first_max, second_max, third_max };
 	return max_list[index];
 }
 
@@ -6508,12 +6519,12 @@ static return_image_type minimum(index_input_const_type index) {
 
 template< index_instance_type index >
 static return_image_type range() {
-	static instance_type max_list[] = { (1 << first_size) - 1, (1 << second_size)-1, (1 << third_size) - 1 };
+	static instance_type max_list[] = { first_max, second_max, third_max };
 	return max_list[index];
 }
 
 static return_image_type range(index_input_const_type index) {
-	static instance_type max_list[] = { (1 << first_size) - 1, (1 << second_size)-1, (1 << third_size) - 1 };
+	static instance_type max_list[] = { first_max, second_max, third_max };
 	return max_list[index];
 }
 				};
@@ -6535,6 +6546,16 @@ using split556 = ::color::_internal::utility::bound::split3< std::uint16_t, unsi
 	}
 }
 
+namespace color {
+	namespace trait {
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position >
+		struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split233_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::bound::split233 {
+		};
+
+	}
+}
 namespace color {
 	namespace trait {
 
@@ -6581,6 +6602,92 @@ namespace color {
 		template< unsigned first_position, unsigned second_position, unsigned third_position >
 		struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
 		: public ::color::_internal::utility::bound::split655 {
+		};
+
+	}
+}
+
+namespace color {
+	namespace _internal {
+		namespace utility {
+			namespace bound {
+
+				template
+				<
+				typename unsigned_name
+				,typename index_name
+				,unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size
+				>
+				struct split4 {
+					public:
+					typedef unsigned_name unsigned_type;
+					typedef index_name index_type;
+
+					typedef ::color::_internal::utility::type::traitP< unsigned_type > trait_type;
+					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+					typedef typename trait_type::instance_type instance_type;
+					typedef typename trait_type::return_image_type return_image_type;
+
+					typedef typename index_trait_type::instance_type index_instance_type;
+					typedef typename index_trait_type::input_const_type index_input_const_type;
+
+					enum {
+						first_max = (1 << first_size) - 1,
+						second_max = (1 << second_size) - 1,
+						third_max = (1 << third_size) - 1,
+						fourth_max = (1 << fourth_size) - 1,
+					};
+
+					template< index_instance_type index >
+static return_image_type maximum() {
+	static instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
+	return max_list[index];
+}
+
+static return_image_type maximum(index_input_const_type index) {
+	static instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
+	return max_list[index];
+}
+
+template< index_instance_type index >
+static return_image_type minimum() {
+	static instance_type value=0;
+	return value;
+}
+
+static return_image_type minimum(index_input_const_type index) {
+	static instance_type value=0;
+	return value;
+}
+
+template< index_instance_type index >
+static return_image_type range() {
+	static instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
+	return max_list[index];
+}
+
+static return_image_type range(index_input_const_type index) {
+	static instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
+	return max_list[index];
+}
+				};
+
+using split2222 = ::color::_internal::utility::bound::split4< std::uint8_t, unsigned, 2, 2, 2, 2 >;
+using split5551 = ::color::_internal::utility::bound::split4< std::uint16_t, unsigned, 5, 5, 5, 1 >;
+using splitAAA2 = ::color::_internal::utility::bound::split4< std::uint32_t, unsigned, 10, 10, 10, 2 >;
+
+			}
+		}
+	}
+}
+
+namespace color {
+	namespace trait {
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::bound::splitAAA2 {
 		};
 
 	}
@@ -6720,15 +6827,25 @@ namespace color {
 					typedef void set_return_type;
 
 enum { size_enum = 3 };
+enum { first_position = 0,
+	   second_position = first_size,
+	   third_position = first_size + second_size
+	 };
+
+enum {
+	first_mask = (1 << first_size)-1 ,
+	second_mask = (1 << second_size)-1 ,
+	third_mask = (1 << third_size)-1
+};
 
 static component_return_const_type get(input_const_type container, index_input_const_type index) {
 	switch(index) {
 	case(0):
-		return ((container >> (0)) & ((1 << first_size)-1));
+			return ((container >> (first_position)) & first_mask);
 	case(1):
-		return ((container >> (first_size)) & ((1 << second_size)-1));
+		return ((container >> (second_position)) & second_mask);
 	case(2):
-		return ((container >> (first_size + second_size)) & ((1 << third_size)-1));
+		return ((container >> (third_position)) & third_mask);
 	}
 	return 0;
 }
@@ -6737,11 +6854,11 @@ template< index_instance_type index >
 static component_return_const_type get(input_const_type container) {
 	switch(index) {
 	case(0):
-		return ((container >> (0)) & ((1 << first_size)-1));
+		return ((container >> (first_position)) & first_mask);
 	case(1):
-		return ((container >> (first_size)) & ((1 << second_size)-1));
+		return ((container >> (second_position)) & second_mask);
 	case(2):
-		return ((container >> (first_size + second_size)) & ((1 << third_size)-1));
+		return ((container >> (third_position)) & third_mask);
 	}
 	return 0;
 }
@@ -6749,13 +6866,13 @@ static component_return_const_type get(input_const_type container) {
 static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
 	switch(index) {
 	case(0) :
-		container = (container & ~(((1 << first_size)-1) << (0))) | (((instance_type)value) << (0));
+		container = (container & ~(first_mask << (first_position))) | (((instance_type)value) << (first_position));
 		break;
 	case(1) :
-		container = (container & ~(((1 << second_size)-1) << (first_size))) | (((instance_type)value) << (first_size));
+		container = (container & ~(second_mask << (second_position))) | (((instance_type)value) << (second_position));
 		break;
 	case(2) :
-		container = (container & ~(((1 << third_size)-1) << (first_size + second_size))) | (((instance_type)value) << (first_size + second_size));
+		container = (container & ~(third_mask << (third_position))) | (((instance_type)value) << (third_position));
 		break;
 	}
 }
@@ -6764,13 +6881,13 @@ template< index_instance_type index >
 static set_return_type set(input_type container, component_input_const_type value) {
 	switch(index) {
 	case(0) :
-		container = (container & ~(((1 << first_size)-1) << (0))) | (((instance_type)value) << (0));
+		container = (container & ~(first_mask << (first_position))) | (((instance_type)value) << (first_position));
 		break;
 	case(1) :
-		container = (container & ~(((1 << second_size)-1) << (first_size))) | (((instance_type)value) << (first_size));
+		container = (container & ~(second_mask << (second_position))) | (((instance_type)value) << (second_position));
 		break;
 	case(2) :
-		container = (container & ~(((1 << third_size)-1) << (first_size + second_size))) | (((instance_type)value) << (first_size + second_size));
+		container = (container & ~(third_mask << (third_position))) | (((instance_type)value) << (third_position));
 		break;
 	}
 }
@@ -6798,6 +6915,16 @@ using split556 = ::color::_internal::utility::container::split3< std::uint16_t, 
 	}
 }
 
+namespace color {
+	namespace trait {
+
+		template< unsigned first_index, unsigned second_index, unsigned third_index >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split233_t, first_index, second_index, third_index > > >
+		: public ::color::_internal::utility::container::split233 {
+		};
+
+	}
+}
 namespace color {
 	namespace trait {
 
@@ -6851,6 +6978,154 @@ namespace color {
 
 namespace color {
 	namespace _internal {
+		namespace utility {
+			namespace container {
+
+				template
+				<
+				typename container_name,
+				typename component_name,
+				typename index_name
+				,unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size
+				>
+				struct split4 {
+					public:
+					typedef container_name instance_type;
+					typedef component_name value_type;
+					typedef index_name index_type;
+
+					typedef instance_type const const_type;
+					typedef instance_type const& return_image_type;
+					typedef instance_type & return_type;
+					typedef instance_type & return_original_type;
+					typedef instance_type const& input_const_type;
+					typedef instance_type & input_type;
+					typedef instance_type & output_type;
+
+					typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+					typedef typename index_trait_type::instance_type index_instance_type;
+
+					typedef typename index_trait_type::input_const_type index_input_const_type;
+					typedef typename index_trait_type::return_image_type index_return_image_type;
+
+					typedef ::color::_internal::utility::type::traitP< value_type > component_trait_type;
+
+					typedef typename component_trait_type::instance_type component_type;
+					typedef typename component_trait_type::const_type component_const_type;
+					typedef typename component_trait_type::return_image_type component_return_const_type;
+					typedef typename component_trait_type::input_const_type component_input_const_type;
+
+					typedef void set_return_type;
+
+enum { size_enum = 4 };
+
+enum {
+	first_position = 0,
+	second_position = first_size,
+	third_position = first_size + second_size,
+	fourth_position = first_size + second_size + third_size
+};
+
+enum {
+	first_mask = (1 << first_size)-1 ,
+	second_mask = (1 << second_size)-1 ,
+	third_mask = (1 << third_size)-1 ,
+	fourth_mask = (1 << fourth_size)-1
+};
+
+static component_return_const_type get(input_const_type container, index_input_const_type index) {
+	switch(index) {
+	case(0):
+			return ((container >> (first_position)) & first_mask);
+	case(1):
+		return ((container >> (second_position)) & second_mask);
+	case(2):
+		return ((container >> (third_position)) & third_mask);
+	case(3):
+		return ((container >> (fourth_position)) & fourth_mask);
+	}
+	return 0;
+}
+
+template< index_instance_type index >
+static component_return_const_type get(input_const_type container) {
+	switch(index) {
+	case(0):
+		return ((container >> (first_position)) & first_mask);
+	case(1):
+		return ((container >> (second_position)) & second_mask);
+	case(2):
+		return ((container >> (third_position)) & third_mask);
+	case(3):
+		return ((container >> (fourth_position)) & fourth_mask);
+	}
+	return 0;
+}
+
+static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
+	switch(index) {
+	case(0) :
+		container = (container & ~(first_mask << (first_position))) | (((instance_type)value) << (first_position));
+		break;
+	case(1) :
+		container = (container & ~(second_mask << (second_position))) | (((instance_type)value) << (second_position));
+		break;
+	case(2) :
+		container = (container & ~(third_mask << (third_position))) | (((instance_type)value) << (third_position));
+		break;
+	case(3) :
+		container = (container & ~(fourth_mask << (fourth_position))) | (((instance_type)value) << (fourth_position));
+		break;
+	}
+}
+
+template< index_instance_type index >
+static set_return_type set(input_type container, component_input_const_type value) {
+	switch(index) {
+	case(0) :
+		container = (container & ~(first_mask << (first_position))) | (((instance_type)value) << (first_position));
+		break;
+	case(1) :
+		container = (container & ~(second_mask << (second_position))) | (((instance_type)value) << (second_position));
+		break;
+	case(2) :
+		container = (container & ~(third_mask << (third_position))) | (((instance_type)value) << (third_position));
+		break;
+	case(3) :
+		container = (container & ~(fourth_mask << (fourth_position))) | (((instance_type)value) << (fourth_position));
+		break;
+	}
+}
+
+static index_return_image_type size() {
+	static const index_instance_type local_length = 4;
+	return local_length;
+}
+				};
+
+using split2222 = ::color::_internal::utility::container::split4< std::uint8_t, std::uint8_t, unsigned, 2, 2, 2, 2 >;
+using split5551 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t, unsigned, 5, 5, 5, 1 >;
+using splitAAA2 = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned, 10, 10, 10, 2 >;
+
+			}
+		}
+	}
+}
+
+namespace color {
+	namespace trait {
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::container::splitAAA2 {
+		};
+
+	}
+}
+
+namespace color {
+	namespace _internal {
 
 		template< typename type_name >
 		struct pick_rgb {
@@ -6896,6 +7171,10 @@ namespace color {
 		};
 		template<> struct pick_rgb< ::color::type::split655_t > {
 			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 0, 1, 2 > > category_type;
+		};
+
+		template<> struct pick_rgb< ::color::type::splitAAA2_t > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t , 0, 1, 2, 3 > > category_type;
 		};
 	}
 
@@ -8514,6 +8793,21 @@ blue(::color::model< ::color::category::hsl<tag_name> > const& color_parameter) 
 }
 
 namespace color {
+	namespace get {
+
+		template< typename tag_name >
+		inline
+		typename ::color::model< ::color::category::hsl< tag_name> >::component_const_type
+hue(::color::model< ::color::category::hsl< tag_name> > const& color_parameter) {
+	typedef ::color::category::hsl< tag_name> category_type;
+	enum { hue_p = ::color::place::_internal::hue<category_type>::position_enum };
+	return color_parameter.template get<hue_p>();
+}
+
+	}
+}
+
+namespace color {
 	namespace set {
 
 		template< typename tag_name >
@@ -9931,6 +10225,21 @@ blue(::color::model< ::color::category::hsv<tag_name> > const& color_parameter) 
 		break;
 	}
 	return diverse_type::template process<blue_p>(b);
+}
+
+	}
+}
+
+namespace color {
+	namespace get {
+
+		template< typename tag_name >
+		inline
+		typename ::color::model< ::color::category::hsv< tag_name> >::component_const_type
+hue(::color::model< ::color::category::hsv< tag_name> > const& color_parameter) {
+	typedef ::color::category::hsv< tag_name> category_type;
+	enum { hue_p = ::color::place::_internal::hue<category_type>::position_enum };
+	return color_parameter.template get<hue_p>();
 }
 
 	}
@@ -16439,37 +16748,37 @@ namespace color {
 	namespace make {
 
 		inline
-void black(::color::model< color::category::xyz_uint8 > & color_parameter) {
+void black(::color::model< ::color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
 
 inline
-void black(::color::model< color::category::xyz_uint16 > & color_parameter) {
+void black(::color::model< ::color::category::xyz_uint16 > & color_parameter) {
 	color_parameter.container() = 0x0;
 }
 
 inline
-void black(::color::model< color::category::xyz_uint32 > & color_parameter) {
+void black(::color::model< ::color::category::xyz_uint32 > & color_parameter) {
 	color_parameter.container() = 0xff000000u;
 }
 
 inline
-void black(::color::model< color::category::xyz_uint64 > & color_parameter) {
+void black(::color::model< ::color::category::xyz_uint64 > & color_parameter) {
 	color_parameter.container() = 0xffff000000000000ul;
 }
 
 inline
-void black(::color::model< color::category::xyz_float > & color_parameter) {
+void black(::color::model< ::color::category::xyz_float > & color_parameter) {
 	color_parameter.container() = std::array<float,3>({ 0, 0, 0 });
 }
 
 inline
-void black(::color::model< color::category::xyz_double> & color_parameter) {
+void black(::color::model< ::color::category::xyz_double> & color_parameter) {
 	color_parameter.container() = std::array<double,3>({ 0, 0, 0 });
 }
 
 inline
-void black(::color::model< color::category::xyz_ldouble> & color_parameter) {
+void black(::color::model< ::color::category::xyz_ldouble> & color_parameter) {
 	color_parameter.container() = std::array<long double,3>({ 0, 0, 0 });
 }
 
@@ -16644,37 +16953,37 @@ namespace color {
 	namespace make {
 
 		inline
-void blue(::color::model< color::category::xyz_uint8 > & color_parameter) {
+void blue(::color::model< ::color::category::xyz_uint8 > & color_parameter) {
 	color_parameter.container() = 0x7;
 }
 
 inline
-void blue(::color::model< color::category::xyz_uint16 > & color_parameter) {
+void blue(::color::model< ::color::category::xyz_uint16 > & color_parameter) {
 	color_parameter.container() = 0x8023;
 }
 
 inline
-void blue(::color::model< color::category::xyz_uint32 > & color_parameter) {
+void blue(::color::model< ::color::category::xyz_uint32 > & color_parameter) {
 	color_parameter.container() = 0xff920f20u;
 }
 
 inline
-void blue(::color::model< color::category::xyz_uint64 > & color_parameter) {
+void blue(::color::model< ::color::category::xyz_uint64 > & color_parameter) {
 	color_parameter.container() = 0xffff98150f60214ful;
 }
 
 inline
-void blue(::color::model< color::category::xyz_float > & color_parameter) {
+void blue(::color::model< ::color::category::xyz_float > & color_parameter) {
 	color_parameter.container() = std::array<float,3>({ 6.38603f, 0.339417f, 31.6108f });
 }
 
 inline
-void blue(::color::model< color::category::xyz_double> & color_parameter) {
+void blue(::color::model< ::color::category::xyz_double> & color_parameter) {
 	color_parameter.container() = std::array<double,3>({ 6.38603, 0.339417, 31.6108 });
 }
 
 inline
-void blue(::color::model< color::category::xyz_ldouble> & color_parameter) {
+void blue(::color::model< ::color::category::xyz_ldouble> & color_parameter) {
 	color_parameter.container() = std::array<long double,3>({ 6.38603, 0.339417, 31.6108 });
 }
 
@@ -22359,6 +22668,102 @@ namespace color {
 		inline
 		void
 		gray
+		(
+			::color::model< category_name > & color_parameter,
+			typename ::color::model< category_name >::component_input_const_type component_parameter
+) {
+};
+
+	}
+}
+
+namespace color {
+	namespace set {
+
+		template< typename category_name >
+		inline
+		void
+		hue
+		(
+			::color::model< category_name > & color_parameter,
+			typename ::color::model< category_name >::component_input_const_type component_parameter
+) {
+};
+
+	}
+}
+
+namespace color {
+	namespace set {
+
+		template< typename category_name >
+		inline
+		void
+		inphase
+		(
+			::color::model< category_name > & color_parameter,
+			typename ::color::model< category_name >::component_input_const_type component_parameter
+) {
+};
+
+	}
+}
+
+namespace color {
+	namespace set {
+
+		template< typename category_name >
+		inline
+		void
+		key
+		(
+			::color::model< category_name > & color_parameter,
+			typename ::color::model< category_name >::component_input_const_type component_parameter
+) {
+};
+
+	}
+}
+
+namespace color {
+	namespace set {
+
+		template< typename category_name >
+		inline
+		void
+		luma
+		(
+			::color::model< category_name > & color_parameter,
+			typename ::color::model< category_name >::component_input_const_type component_parameter
+) {
+};
+
+	}
+}
+
+namespace color {
+	namespace set {
+
+		template< typename category_name >
+		inline
+		void
+		luminance
+		(
+			::color::model< category_name > & color_parameter,
+			typename ::color::model< category_name >::component_input_const_type component_parameter
+) {
+};
+
+	}
+}
+
+namespace color {
+	namespace set {
+
+		template< typename category_name >
+		inline
+		void
+		quadrature
 		(
 			::color::model< category_name > & color_parameter,
 			typename ::color::model< category_name >::component_input_const_type component_parameter

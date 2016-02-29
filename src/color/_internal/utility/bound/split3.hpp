@@ -39,16 +39,23 @@ namespace color
              typedef typename index_trait_type::instance_type    index_instance_type;
              typedef typename index_trait_type::input_const_type index_input_const_type;
 
+             enum 
+              {
+                first_max  = (1 <<  first_size) - 1,
+               second_max  = (1 << second_size) - 1,
+                third_max  = (1 <<  third_size) - 1,
+              };
+
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   maximum( )
                {
-                static instance_type max_list[] = { (1 << first_size) - 1, ( 1 << second_size)-1, ( 1 << third_size) - 1 };
+                static instance_type max_list[] = { first_max, second_max, third_max };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_image_type   maximum( index_input_const_type  index )
               {
-                static instance_type max_list[] = { (1 << first_size) - 1, ( 1 << second_size)-1, ( 1 << third_size) - 1  };
+                static instance_type max_list[] = { first_max, second_max, third_max };
                 return max_list[index];
               }
 
@@ -68,13 +75,13 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   range()
                {
-                static instance_type max_list[] = { (1 << first_size) - 1, ( 1 << second_size)-1, ( 1 << third_size) - 1  };
+                static instance_type max_list[] = { first_max, second_max, third_max };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_image_type   range(   index_input_const_type  index )
               {
-                static instance_type max_list[] = { (1 << first_size) - 1, ( 1 << second_size)-1, ( 1 << third_size) - 1  };
+                static instance_type max_list[] = { first_max, second_max, third_max };
                 return max_list[index];
               }
           };           

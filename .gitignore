@@ -117,6 +117,7 @@ example/fix_integrity
 example/fix_overburn
 example/fix_unique
 
+example/make_orange
 
 example/test/out/
 example/test/gen*
@@ -128,3 +129,10 @@ example/test/res
 example/test/gray/*.tga
 example/test/gray/ref/*.tga
 example/test/gray/ref
+
+
+example/trait_bound
+example/trait_component
+example/trait_container
+example/trait_index
+example/trait_scalar

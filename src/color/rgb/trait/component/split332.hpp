@@ -4,11 +4,12 @@
 
 #include "../../../generic/type/split3.hpp"
 
-#include "../../../_internal/utility/component/cnent332.hpp"
+#include "../../../_internal/utility/component/pack8.hpp"
 
 #include "../../../generic/trait/component.hpp"
 
 #include "../../category.hpp"
+
 
 namespace color
  {
