@@ -1,13 +1,13 @@
-#ifndef  color_generic_operation_invert_123
-#define  color_generic_operation_invert_123
+#ifndef  color_generic_operation_gamma
+#define color_generic_operation_gamma
 
 #include "../../generic/model.hpp"
 
-// ::color::operation::invert<category_name>( model<category_name> )
+// ::color::operation::gamma<category_name>( model<category_name> )
 
-// ::color::operation::_internal::invert<category_name>::component<>( )
-// ::color::operation::_internal::invert<category_name>::process( )
-// ::color::operation::_internal::invert<category_name>::process( )
+// ::color::operation::_internal::gamma<category_name>::component<>( )
+// ::color::operation::_internal::gamma<category_name>::process( )
+// ::color::operation::_internal::gamma<category_name>::process( )
 
  namespace color
   {
@@ -17,7 +17,7 @@
       {
 
        template< typename category_name>
-        struct invert
+        struct gamma
          {
           public:
             typedef category_name  category_type;
@@ -36,38 +36,21 @@
             typedef typename index_trait_type::instance_type     index_type;
             typedef typename index_trait_type::input_const_type  index_input_const_type;
 
-
-            static component_return_type
-            component
-             (
-               component_input_const_type component
-              ,index_input_const_type     index
-             )
-             {
-              return bound_type::range(index) - component;
-             }
-
-            template< index_type index_size >
-             static
-             component_return_type
-             component( component_input_const_type component )
-             {
-              return bound_type::template range<index_size>() - component;
-             }
-
             static void process( model_type &result )
              {
+              TODO;
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, component( result.get( index ), index ) );
+                //result.set( index, component( result.get( index ), index ) );
                }
              }
 
             static void process(  model_type &result, model_type const& right )
              {
+              TODO;
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, component( right.get( index ), index ) );
+                //result.set( index, component( right.get( index ), index ) );
                }
              }
 
@@ -76,24 +59,23 @@
 
 
      template< typename category_name >
-      void invert
+      void gamma
        (
          ::color::model<category_name>      & result
        )
        {
-        ::color::operation::_internal::invert<category_name>::process( result );
+        ::color::operation::_internal::gamma<category_name>::process( result );
        }
 
      template< typename category_name >
-      void invert
+      void gamma
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& right
        )
        {
-        ::color::operation::_internal::invert<category_name>::process( result, right );
+        ::color::operation::_internal::gamma<category_name>::process( result, right );
        }
-
 
     }
   }
