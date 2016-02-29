@@ -2,9 +2,9 @@
 #define color_rgb_trait_component_splitAAA2
 
 
-#include "../../../generic/type/splitAAA2.hpp"
+#include "../../../generic/type/split4.hpp"
 
-#include "../../../_internal/utility/component/aaa2.hpp"
+#include "../../../_internal/utility/component/pack32.hpp"
 
 #include "../../../generic/trait/component.hpp"
 

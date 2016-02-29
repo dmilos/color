@@ -29,17 +29,6 @@ int main( int argc, char *argv[] )
   return EXIT_SUCCESS;
  }
 
-void trait_container_in_rgb()
- {
-  std::cout << "container for color::rgb< std::uint8_t  > is: " << typeid( ::color::trait::container< color::rgb< std::uint8_t  >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::rgb< std::uint16_t > is: " << typeid( ::color::trait::container< color::rgb< std::uint16_t >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::rgb< std::uint32_t > is: " << typeid( ::color::trait::container< color::rgb< std::uint32_t >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::rgb< std::uint64_t > is: " << typeid( ::color::trait::container< color::rgb< std::uint64_t >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::rgb< float         > is: " << typeid( ::color::trait::container< color::rgb< float         >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::rgb< double        > is: " << typeid( ::color::trait::container< color::rgb< double        >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::rgb< long double   > is: " << typeid( ::color::trait::container< color::rgb< long double   >::category_type >::instance_type ).name() << std::endl;
- }
-
 void trait_container_in_cmy()
  {
   std::cout << "container for color::cmy< std::uint8_t  > is: " << typeid( ::color::trait::container< color::cmy< std::uint8_t  >::category_type >::instance_type ).name() << std::endl;
@@ -53,14 +42,38 @@ void trait_container_in_cmy()
 
 void trait_container_in_cmyk()
  {
-  std::cout << "container for color::cmy< std::uint8_t  > is: " << typeid( ::color::trait::container< color::cmyk< std::uint8_t  >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::cmy< std::uint16_t > is: " << typeid( ::color::trait::container< color::cmyk< std::uint16_t >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::cmy< std::uint32_t > is: " << typeid( ::color::trait::container< color::cmyk< std::uint32_t >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::cmy< std::uint64_t > is: " << typeid( ::color::trait::container< color::cmyk< std::uint64_t >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::cmy< float         > is: " << typeid( ::color::trait::container< color::cmyk< float         >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::cmy< double        > is: " << typeid( ::color::trait::container< color::cmyk< double        >::category_type >::instance_type ).name() << std::endl;
-  std::cout << "container for color::cmy< long double   > is: " << typeid( ::color::trait::container< color::cmyk< long double   >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::cmyk< std::uint8_t  > is: " << typeid( ::color::trait::container< color::cmyk< std::uint8_t  >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::cmyk< std::uint16_t > is: " << typeid( ::color::trait::container< color::cmyk< std::uint16_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::cmyk< std::uint32_t > is: " << typeid( ::color::trait::container< color::cmyk< std::uint32_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::cmyk< std::uint64_t > is: " << typeid( ::color::trait::container< color::cmyk< std::uint64_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::cmyk< float         > is: " << typeid( ::color::trait::container< color::cmyk< float         >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::cmyk< double        > is: " << typeid( ::color::trait::container< color::cmyk< double        >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::cmyk< long double   > is: " << typeid( ::color::trait::container< color::cmyk< long double   >::category_type >::instance_type ).name() << std::endl;
  }
+
+void trait_container_in_gray()
+ {
+  std::cout << "container for color::gray< std::uint8_t  > is: " << typeid( ::color::trait::container< color::gray< std::uint8_t  >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::gray< std::uint16_t > is: " << typeid( ::color::trait::container< color::gray< std::uint16_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::gray< std::uint32_t > is: " << typeid( ::color::trait::container< color::gray< std::uint32_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::gray< std::uint64_t > is: " << typeid( ::color::trait::container< color::gray< std::uint64_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::gray< float         > is: " << typeid( ::color::trait::container< color::gray< float         >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::gray< double        > is: " << typeid( ::color::trait::container< color::gray< double        >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::gray< long double   > is: " << typeid( ::color::trait::container< color::gray< long double   >::category_type >::instance_type ).name() << std::endl;
+ }
+
+
+void trait_container_in_hsl()
+ {
+  std::cout << "container for color::hsl< std::uint8_t  > is: " << typeid( ::color::trait::container< color::hsl< std::uint8_t  >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::hsl< std::uint16_t > is: " << typeid( ::color::trait::container< color::hsl< std::uint16_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::hsl< std::uint32_t > is: " << typeid( ::color::trait::container< color::hsl< std::uint32_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::hsl< std::uint64_t > is: " << typeid( ::color::trait::container< color::hsl< std::uint64_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::hsl< float         > is: " << typeid( ::color::trait::container< color::hsl< float         >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::hsl< double        > is: " << typeid( ::color::trait::container< color::hsl< double        >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::hsl< long double   > is: " << typeid( ::color::trait::container< color::hsl< long double   >::category_type >::instance_type ).name() << std::endl;
+ }
+
 
 void trait_container_in_hsv()
  {
@@ -72,6 +85,18 @@ void trait_container_in_hsv()
   std::cout << "container for color::hsv< double        > is: " << typeid( ::color::trait::container< color::hsv< double        >::category_type >::instance_type ).name() << std::endl;
   std::cout << "container for color::hsv< long double   > is: " << typeid( ::color::trait::container< color::hsv< long double   >::category_type >::instance_type ).name() << std::endl;
  }
+
+ void trait_container_in_rgb()
+ {
+  std::cout << "container for color::rgb< std::uint8_t  > is: " << typeid( ::color::trait::container< color::rgb< std::uint8_t  >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::rgb< std::uint16_t > is: " << typeid( ::color::trait::container< color::rgb< std::uint16_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::rgb< std::uint32_t > is: " << typeid( ::color::trait::container< color::rgb< std::uint32_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::rgb< std::uint64_t > is: " << typeid( ::color::trait::container< color::rgb< std::uint64_t >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::rgb< float         > is: " << typeid( ::color::trait::container< color::rgb< float         >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::rgb< double        > is: " << typeid( ::color::trait::container< color::rgb< double        >::category_type >::instance_type ).name() << std::endl;
+  std::cout << "container for color::rgb< long double   > is: " << typeid( ::color::trait::container< color::rgb< long double   >::category_type >::instance_type ).name() << std::endl;
+ }
+
 
 void trait_container_in_yiq()
  {

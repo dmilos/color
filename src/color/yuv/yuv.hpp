@@ -11,7 +11,6 @@
 #include "./constant.hpp"
 
 
-
 namespace color
  {
   namespace _internal

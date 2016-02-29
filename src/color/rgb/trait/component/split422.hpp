@@ -4,7 +4,7 @@
 
 #include "../../../generic/type/split3.hpp"
 
-#include "../../../_internal/utility/component/cnent422.hpp"
+#include "../../../_internal/utility/component/pack8.hpp"
 
 #include "../../../generic/trait/component.hpp"
 
