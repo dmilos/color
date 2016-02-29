@@ -81,6 +81,7 @@ void print_bound()
   ss << print_bound< color::rgb< color::type::split655_t  > >( "color::rgb", "split655_t " ) << std::endl;
   ss << print_bound< color::rgb< color::type::split565_t  > >( "color::rgb", "split565_t " ) << std::endl;
   ss << print_bound< color::rgb< color::type::split556_t  > >( "color::rgb", "split556_t " ) << std::endl;
+  ss << print_bound< color::rgb< color::type::splitAAA2_t > >( "color::rgb", "splitAAA2_t" ) << std::endl;
 
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
   ss << print_semi_title( "Cyan","Yellow","Magenta" );

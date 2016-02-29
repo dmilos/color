@@ -127,9 +127,9 @@ namespace color
               }
           };
 
-         //using split2222 = ::color::_internal::utility::split4< std::uint8_t,  std::uint8_t,  unsigned, 2,   2,  2, 2 >;
-         //using split5551 = ::color::_internal::utility::split4< std::uint16_t, std::uint8_t,  unsigned, 5,   5,  5, 1 >;
-         //using splitAAA2 = ::color::_internal::utility::split4< std::uint32_t, std::uint16_t, unsigned, 10, 10, 10, 2 >;
+           using split2222 = ::color::_internal::utility::container::split4< std::uint8_t,  std::uint8_t,  unsigned, 2,   2,  2, 2 >;
+           using split5551 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t,  unsigned, 5,   5,  5, 1 >;
+           using splitAAA2 = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned, 10, 10, 10, 2 >;
 
        }
      }

@@ -18,7 +18,7 @@ namespace color
 
     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position > 
      struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
-      //TODO : public ::color::_internal::utility::container::splitAAA2
+      : public ::color::_internal::utility::container::splitAAA2
       {
       };
 
