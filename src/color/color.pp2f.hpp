@@ -3096,8 +3096,8 @@ template< typename index_name > using cnentAAA2 = ::color::_internal::utility::c
 namespace color {
 namespace trait {
 
-template< unsigned first_position, unsigned second_position, unsigned third_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position > > >
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
 		: public ::color::_internal::utility::component::cnentAAA2< unsigned > {
 };
 
@@ -7104,6 +7104,10 @@ static index_return_image_type size() {
 }
 				};
 
+using split2222 = ::color::_internal::utility::container::split4< std::uint8_t, std::uint8_t, unsigned, 2, 2, 2, 2 >;
+using split5551 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t, unsigned, 5, 5, 5, 1 >;
+using splitAAA2 = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned, 10, 10, 10, 2 >;
+
 			}
 		}
 	}
@@ -7114,8 +7118,7 @@ namespace color {
 
 		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 		struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
-
-		{
+		: public ::color::_internal::utility::container::splitAAA2 {
 		};
 
 	}
@@ -7168,6 +7171,10 @@ namespace color {
 		};
 		template<> struct pick_rgb< ::color::type::split655_t > {
 			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 0, 1, 2 > > category_type;
+		};
+
+		template<> struct pick_rgb< ::color::type::splitAAA2_t > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t , 0, 1, 2, 3 > > category_type;
 		};
 	}
 

@@ -66,12 +66,12 @@ void blend_rgb_noalpha3( )
   print( j );
   std::cout << std::endl;
 
-  color::operation::mix( j , a, 0.5, b );
+  j = color::operation::mix( a, 0.5, b );
   std::cout<< " blend( j , orange, 0.5, lime ) = ";
   print( j );
   std::cout << std::endl;
 
-  color::operation::mix( j , a, 0.75, b );
+  j ==color::operation::mix( a, 0.75, b );
   std::cout<< " blend( j , orange, 0.75, lime ) = ";
   print( j );
   std::cout << std::endl;
