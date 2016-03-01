@@ -12,23 +12,33 @@
 			<dt><h3>Description</h3></dt>
 			<dd>Get color property. From each color we can uniquely extract some information. </dd>
 			<dt><h3>TODO</h3></dt>
-			<dd> All functions has the same signature and their return akin values for akin type for given model.
+			<dd> All functions has the same signature and they return akin values for akin type for given model.<br><br>
 
-            TODO 
-     Generalized form.
-
-     template< typename category_name >
+            <dl>
+            	<dt>Generalized form</dt>
+            	<dd> 
+<pre>
+template< typename category_name >
       inline
       typename ::color::trait::component< category_name >::return_image_type
       blue( ::color::_internal::model< category_name > const& color_parameter );
+</pre>
 
-      Specialized
+            	</dd>
+            	<dt>Specialized</dt>
+            	<dd>
+<pre>
      template< typename tag_name >
       inline
       typename ::color::trait::component< typename ::color::akin::rgb<::color::category::<i>SomeModel</i>< tag_name > >::akin_type >::return_type
       blue( ::color::_internal::model< ::color::category::<i>SomeModel</i>< tag_name > > const& color_parameter );
+</pre>
+            		
 
+            	</dd>
+            </dl>
 
+     
             </dd>
 			<dt><h3>Function list</h3></dt>
 			<dd>
@@ -51,7 +61,11 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::hsv &lt; double &gt; h;<br>
+							::color::tirquise( h );<br>
+							std::cout &lt;&lt; ::coor::get::blue( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -62,7 +76,11 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::hsl &lt; double &gt; h;<br>
+							::color::orange( h );<br>
+							std::cout &lt;&lt; ::coor::get::gray( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -73,7 +91,11 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::yiq &lt; double &gt; h;<br>
+							::color::aqua( h );<br>
+							std::cout &lt;&lt; ::coor::get::green( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -84,7 +106,11 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::yiq &lt; double &gt; h;<br>
+							::color::aqua( h );<br>
+							std::cout &lt;&lt; ::coor::get::hue( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -95,7 +121,11 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::yiq &lt; double &gt; h;<br>
+							::color::aqua( h );<br>
+							std::cout &lt;&lt; ::coor::get::inphase( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -106,7 +136,11 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::yiq &lt; double &gt; h;<br>
+							::color::aqua( h );<br>
+							std::cout &lt;&lt; ::coor::get::key( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -117,7 +151,11 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::yiq &lt; double &gt; h;<br>
+							::color::aqua( h );<br>
+							std::cout &lt;&lt; ::coor::get::luma( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -128,9 +166,12 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
-				</dl><hr width="%20">
-
+					<dd>
+						<code>::color::yiq &lt; double &gt; h;<br>
+							::color::aqua( h );<br>
+							std::cout &lt;&lt; ::coor::get::luminance( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
+					</dl><hr width="%20">
 				<dl>
 					<dt>Name</dt>
 					<dd><i>quadrature</i></dd>
@@ -139,7 +180,11 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::yiq &lt; double &gt; h;<br>
+							::color::aqua( h );<br>
+							std::cout &lt;&lt; ::coor::get::quadrature( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -150,7 +195,11 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::yiq &lt; double &gt; h;<br>
+							::color::aqua( h );<br>
+							std::cout &lt;&lt; ::coor::get::red( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 			</dd>

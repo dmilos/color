@@ -11,11 +11,11 @@
 		<h1 align="center">Color Models</h1>
 		<dl>
 			<dt><h3>Description</h3></dt>
-			<dd> Color models.</dd>
-
+			<dd> Color models or what this  library make this library.</dd>
 			<dt><h3>Note</h3></dt>
 			<dd>
-				All models are aliases and for <code>type_name</code> they use :
+
+				All color models are combination of template class <code>color::model</code>  and next types as its template parameter :
 				<code>std::uint8_t</code>,
 				<code>std::uint16_t</code>,
 				<code>std::uint32_t</code>,
@@ -38,7 +38,7 @@
 
 						<dl>
 							<dt>Name</dt><dd>cmy</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using cmy = <i>unspecified</i>;</code><br> 
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using cmy = ::color::model&lt; <i>unspecified</i> &gt;</code>;<br> 
 							Above mentioned list of types applies to this <code>type_name</code>.
 							 </dd>
 							<dt>Decription</dt><dd></dd>
@@ -48,7 +48,7 @@
 
 						<dl>
 							<dt>Name</dt><dd>cmyk</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using cmyk = <i>unspecified</i>;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using cmyk = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd></dd>
 							<dt>Example:</dt><dd><code>::color::cmyk&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/CMYK_color_model">Wikipedia CMYK</a></dd>
@@ -56,7 +56,7 @@
 
 						<dl>
 							<dt>Name</dt><dd>gray</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using gray = <i>unspecified</i>;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using gray = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd></dd>
 							<dt>Example:</dt><dd><code>::color::gray&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Grayscale">Wikipedia Grayscale</a></dd>
@@ -64,7 +64,7 @@
 
 						<dl>
 							<dt>Name</dt><dd>hsl</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsl = <i>unspecified</i>;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsl = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd></dd>
 							<dt>Example:</dt><dd><code>::color::hsl&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/HSL_and_HSV">Wikipedia HSL</a></dd>
@@ -72,7 +72,7 @@
 
 						<dl>
 							<dt>Name</dt><dd>hsv</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsv = <i>unspecified</i>;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsv = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd></dd>
 							<dt>Example:</dt><dd><code>::color::hsv&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/HSL_and_HSV">Wikipedia HSV</a></dd>
@@ -80,7 +80,7 @@
 
 						<dl>
 							<dt>Name</dt><dd>rgb</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using rgb = <i>unspecified</i>;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using rgb = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd></dd>
 							<dt>Example:</dt><dd><code>::color::rgb&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/RGB_color_model">Wikipedia RGB</a></dd>
@@ -88,7 +88,7 @@
 
 						<dl>
 							<dt>Name</dt><dd>yiq</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yiq = <i>unspecified</i>;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yiq = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd></dd>
 							<dt>Example:</dt><dd><code>::color::yiq&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YIQ">Wikipedia YIQ</a></dd>
@@ -96,7 +96,7 @@
 
 						<dl>
 							<dt>Name</dt><dd>yuv</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yuv = <i>unspecified</i>;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yuv = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd></dd>
 							<dt>Example:</dt><dd><code>::color::yuv&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YUV">Wikipedia YUV</a></dd>
