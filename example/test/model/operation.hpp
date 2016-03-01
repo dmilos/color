@@ -37,6 +37,9 @@ template< typename category_name >
    // TODO color::operation::blend( u32b, u32a, u32b );
    // TODO color::operation::blend( u32a, u32b );
 
+   ::color::operation::combine( u32, 0.1, u32a, 0.2, u32b );
+   ::color::operation::combine( u32, 0.1, u32a, 0.2, u32b, 0.3, u32c );
+
    color::operation::mix( u32b, 0.5, u32c );
    // TODO color::operation::mix( u32a, u32b );
 
@@ -65,6 +68,9 @@ template< typename category_name >
 
    color::compare::darker( u32b, u32b  );
    color::compare::brighter( u32b, u32b  );
+   
+   color::operation::gamma( u32b, 0.5 );   
+   color::operation::gamma( u32a, u32b, 0.5 );   
 
    u32a = u32b + u32c;
    u32a = u32b - u32c;
@@ -75,12 +81,12 @@ template< typename category_name >
    u32a -= u32b;
    u32a /= 0.5;
    u32a *= 0.5;
-   
+
    u32a == u32b;
    u32a != u32b;
    u32a > u32b;
    u32a < u32b;
-   
+
    u32a >= u32b;
    u32a <= u32b;
 

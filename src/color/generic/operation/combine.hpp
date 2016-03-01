@@ -1,8 +1,8 @@
 #ifndef color_generic_operation_combine
 #define color_generic_operation_combine
 
-// ::color::operation::combine( result, alpha, upper )
-// ::color::operation::combine<alpha_index>( result, upper )
+// ::color::operation::combine( result, a0, c0, a1, c1 )
+// ::color::operation::combine( result, a0, c0, a1, c1, a2, c2 )
 
 
 #include "../../generic/trait/scalar.hpp"
@@ -24,7 +24,10 @@
           public:
             typedef category_name  category_type;
 
-            typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+            typedef ::color::trait::container< category_type >   container_trait_type;
+            typedef typename ::color::trait::scalar< category_name >::instance_type    scalar_type;
+            typedef typename ::color::trait::component< category_name >::instance_type component_type;
+            typedef typename ::color::trait::index<category_type>::instance_type       index_type;
 
             typedef ::color::model<category_type>         model_type;
 
@@ -37,7 +40,10 @@
                ,model_type  const& c1
               )
              {
-              // TODO
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
+               {
+                result.set( index, component_type( a0 * c0[index] + a1 * c1[index] ) );
+               }
              }
 
             static void process
@@ -51,7 +57,10 @@
                ,model_type  const& c2
               )
              {
-              // TODO
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
+               {
+                result.set( index, component_type( a0 * c0[ index ] + a1 * c1[ index ]  + a2 * c2[ index ] ) );
+               }
              }
 
          };
@@ -63,9 +72,9 @@
       void combine
        (
          ::color::model<category_name>      & result
-        ,typename ::color::::trait::scalar<category_name>::instance_type const& a0
+        ,typename ::color::trait::scalar<category_name>::instance_type const& a0
         ,::color::model<category_name> const& c0
-        ,typename ::color::::trait::scalar<category_name>::instance_type const& a1
+        ,typename ::color::trait::scalar<category_name>::instance_type const& a1
         ,::color::model<category_name> const& c1
        )
        {
@@ -76,11 +85,11 @@
       void combine
        (
          ::color::model<category_name>      & result
-        ,typename ::color::::trait::scalar<category_name>::instance_type const& a0
+        ,typename ::color::trait::scalar<category_name>::instance_type const& a0
         ,::color::model<category_name> const& c0
-        ,typename ::color::::trait::scalar<category_name>::instance_type const& a1
+        ,typename ::color::trait::scalar<category_name>::instance_type const& a1
         ,::color::model<category_name> const& c1
-        ,typename ::color::::trait::scalar<category_name>::instance_type const& a2
+        ,typename ::color::trait::scalar<category_name>::instance_type const& a2
         ,::color::model<category_name> const& c2
        )
        {

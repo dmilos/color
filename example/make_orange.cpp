@@ -59,13 +59,13 @@ void make_cmy_orange()
   color::cmy<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
-  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
-  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
-  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
-  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
-  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
-  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
+  color::make::orange( c1 ); std::cout << "color::cmy<std::uint64_t>  = "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << "color::cmy<std::uint32_t>  = "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << "color::cmy<std::uint16_t>  = "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << "color::cmy<std::uint8_t>   = "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << "color::cmy<float>          = "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << "color::cmy<double>         = "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << "color::cmy<long double>    = "; print( c7 ); std::cout << std::endl;
  }
 
 void make_cmyk_orange()
@@ -81,13 +81,13 @@ void make_cmyk_orange()
   color::cmyk<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
-  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
-  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
-  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
-  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
-  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
-  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
+  color::make::orange( c1 ); std::cout << "color::cmyk<std::uint64_t> = "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << "color::cmyk<std::uint32_t> = "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << "color::cmyk<std::uint16_t> = "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << "color::cmyk<std::uint8_t>  = "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << "color::cmyk<float>         = "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << "color::cmyk<double>        = "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << "color::cmyk<long double>   = "; print( c7 ); std::cout << std::endl;
  }
 
 void make_gray_orange()
@@ -103,13 +103,13 @@ void make_gray_orange()
   color::gray<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
-  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
-  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
-  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
-  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
-  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
-  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
+  color::make::orange( c1 ); std::cout << "color::gray<std::uint8_t>  = "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << "color::gray<std::uint16_t> = "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << "color::gray<std::uint32_t> = "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << "color::gray<std::uint64_t> = "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << "color::gray<float>         = "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << "color::gray<double>        = "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << "color::gray<long double>   = "; print( c7 ); std::cout << std::endl;
  }
 
 void make_hsl_orange()
@@ -125,13 +125,13 @@ void make_hsl_orange()
   color::hsl<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
-  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
-  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
-  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
-  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
-  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
-  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
+  color::make::orange( c1 ); std::cout << "color::hsl<std::uint8_t>  = "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << "color::hsl<std::uint16_t> = "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << "color::hsl<std::uint32_t> = "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << "color::hsl<std::uint64_t> = "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << "color::hsl<float>         = "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << "color::hsl<double>        = "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << "color::hsl<long double>   = "; print( c7 ); std::cout << std::endl;
  }
 
 void make_hsv_orange()
@@ -147,13 +147,13 @@ void make_hsv_orange()
   color::hsv<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
-  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
-  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
-  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
-  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
-  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
-  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
+  color::make::orange( c1 ); std::cout << "color::hsv<std::uint8_t>  = "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << "color::hsv<std::uint16_t> = "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << "color::hsv<std::uint32_t> = "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << "color::hsv<std::uint64_t> = "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << "color::hsv<float>         = "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << "color::hsv<double>        = "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << "color::hsv<long double>   = "; print( c7 ); std::cout << std::endl;
  }
 
 void make_rgb_orange()
@@ -169,13 +169,13 @@ void make_rgb_orange()
   color::rgb<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
-  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
-  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
-  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
-  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
-  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
-  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
+  color::make::orange( c1 ); std::cout << "color::rgb<std::uint8_t>  = "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << "color::rgb<std::uint16_t> = "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << "color::rgb<std::uint32_t> = "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << "color::rgb<std::uint64_t> = "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << "color::rgb<float>         = "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << "color::rgb<double>        = "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << "color::rgb<long double>   = "; print( c7 ); std::cout << std::endl;
  }
 
 
@@ -192,13 +192,13 @@ void make_yiq_orange()
   color::yiq<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
-  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
-  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
-  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
-  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
-  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
-  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
+  color::make::orange( c1 ); std::cout << "color::yiq<std::uint8_t>  = "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << "color::yiq<std::uint16_t> = "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << "color::yiq<std::uint32_t> = "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << "color::yiq<std::uint64_t> = "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << "color::yiq<float>         = "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << "color::yiq<double>        = "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << "color::yiq<long double>   = "; print( c7 ); std::cout << std::endl;
  }
 
 void make_yuv_orange()
@@ -214,11 +214,11 @@ void make_yuv_orange()
   color::yuv<long double>    c7;
 
   // make it orange
-  color::make::orange( c1 ); std::cout << " "; print( c1 ); std::cout << std::endl;
-  color::make::orange( c2 ); std::cout << " "; print( c2 ); std::cout << std::endl;
-  color::make::orange( c3 ); std::cout << " "; print( c3 ); std::cout << std::endl;
-  color::make::orange( c4 ); std::cout << " "; print( c4 ); std::cout << std::endl;
-  color::make::orange( c5 ); std::cout << " "; print( c5 ); std::cout << std::endl;
-  color::make::orange( c6 ); std::cout << " "; print( c6 ); std::cout << std::endl;
-  color::make::orange( c7 ); std::cout << " "; print( c7 ); std::cout << std::endl;
+  color::make::orange( c1 ); std::cout << "color::yuv<std::uint8_t>  = "; print( c1 ); std::cout << std::endl;
+  color::make::orange( c2 ); std::cout << "color::yuv<std::uint16_t> = "; print( c2 ); std::cout << std::endl;
+  color::make::orange( c3 ); std::cout << "color::yuv<std::uint32_t> = "; print( c3 ); std::cout << std::endl;
+  color::make::orange( c4 ); std::cout << "color::yuv<std::uint64_t> = "; print( c4 ); std::cout << std::endl;
+  color::make::orange( c5 ); std::cout << "color::yuv<float>         = "; print( c5 ); std::cout << std::endl;
+  color::make::orange( c6 ); std::cout << "color::yuv<double>        = "; print( c6 ); std::cout << std::endl;
+  color::make::orange( c7 ); std::cout << "color::yuv<long double>   = "; print( c7 ); std::cout << std::endl;
  }

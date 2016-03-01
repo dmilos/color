@@ -9,3 +9,7 @@
 
 #include "./normalize.hpp"
 #include "./diverse.hpp"
+
+#include "./combine.hpp"
+#include "./gamma.hpp"
+

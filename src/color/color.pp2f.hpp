@@ -5058,6 +5058,144 @@ diverse(typename ::color::trait::scalar<category_name>::instance_type const& sca
 }
 
 namespace color {
+	namespace operation {
+		namespace _internal {
+
+			template
+			<
+			typename category_name
+			>
+			struct combine {
+				public:
+				typedef category_name category_type;
+
+				typedef ::color::trait::container< category_type > container_trait_type;
+				typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+				typedef typename ::color::trait::component< category_name >::instance_type component_type;
+				typedef typename ::color::trait::index<category_type>::instance_type index_type;
+
+				typedef ::color::model<category_type> model_type;
+
+				static void process
+				(
+					model_type & result
+					,scalar_type const& a0
+					,model_type const& c0
+					,scalar_type const& a1
+					,model_type const& c1
+) {
+	for(index_type index = 0; index < container_trait_type::size(); index ++) {
+		result.set(index, component_type(a0 * c0[index] + a1 * c1[index]));
+	}
+}
+
+static void process
+(
+	model_type & result
+	,scalar_type const& a0
+	,model_type const& c0
+	,scalar_type const& a1
+	,model_type const& c1
+	,scalar_type const& a2
+	,model_type const& c2
+) {
+	for(index_type index = 0; index < container_trait_type::size(); index ++) {
+		result.set(index, component_type(a0 * c0[ index ] + a1 * c1[ index ] + a2 * c2[ index ]));
+	}
+}
+
+			};
+
+		}
+
+template< typename category_name >
+void combine
+(
+	::color::model<category_name> & result
+	,typename ::color::trait::scalar<category_name>::instance_type const& a0
+	,::color::model<category_name> const& c0
+	,typename ::color::trait::scalar<category_name>::instance_type const& a1
+	,::color::model<category_name> const& c1
+) {
+	::color::operation::_internal::combine<category_name>::process(result, a0, c0, a1, c1);
+}
+
+template< typename category_name >
+void combine
+(
+	::color::model<category_name> & result
+	,typename ::color::trait::scalar<category_name>::instance_type const& a0
+	,::color::model<category_name> const& c0
+	,typename ::color::trait::scalar<category_name>::instance_type const& a1
+	,::color::model<category_name> const& c1
+	,typename ::color::trait::scalar<category_name>::instance_type const& a2
+	,::color::model<category_name> const& c2
+) {
+	::color::operation::_internal::combine<category_name>::process(result, a0, c0, a1, c1, a2, c2);
+}
+
+	}
+}
+
+namespace color {
+	namespace operation {
+		namespace _internal {
+
+			template< typename category_name>
+			struct gamma {
+				public:
+				typedef category_name category_type;
+
+				typedef ::color::trait::container< category_name > container_trait_type;
+
+				typedef typename ::color::trait::index<category_type>::instance_type index_type;
+				typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+
+				typedef typename ::color::model<category_type> model_type;
+
+				typedef ::color::_internal::diverse< category_type > diverse_type;
+				typedef ::color::_internal::normalize< category_type > normalize_type;
+
+static void process(model_type &result, scalar_type const& g) {
+	for(index_type index = 0; index < container_trait_type::size(); index ++) {
+		scalar_type s = normalize_type::process(result[index], index);
+		result.set(index, diverse_type::process(std::pow(s, g), index));
+	}
+}
+
+static void process(model_type &result, model_type const& right, scalar_type const& g) {
+	for(index_type index = 0; index < container_trait_type::size(); index ++) {
+		scalar_type s = normalize_type::process(right[index], index);
+		result.set(index, diverse_type::process(std::pow(s, g), index));
+	}
+}
+
+			};
+		}
+
+template< typename category_name >
+void gamma
+(
+	::color::model<category_name> & result
+	,typename ::color::trait::scalar<category_name>::instance_type const& g
+) {
+	::color::operation::_internal::gamma<category_name>::process(result, g);
+}
+
+template< typename category_name >
+void gamma
+(
+	::color::model<category_name> & result
+	, ::color::model<category_name> const& right
+	,typename ::color::trait::scalar<category_name>::instance_type const& g
+) {
+	::color::operation::_internal::gamma<category_name>::process(result, right, g);
+}
+
+	}
+}
+
+namespace color {
 	namespace set {
 
 		template< typename tag_name >

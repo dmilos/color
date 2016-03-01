@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdint>
+#include <typeinfo>
 
 #include "color/color.hpp"
 
@@ -16,8 +17,8 @@ void trait_bound_in_yuv();
 int main( int argc, char *argv[] )
  {
   std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
-  trait_bound_in_rgb();
   trait_bound_in_cmy();
+  trait_bound_in_rgb();
   trait_bound_in_cmyk();
   trait_bound_in_gray();
   trait_bound_in_hsl();
@@ -29,61 +30,91 @@ int main( int argc, char *argv[] )
   return EXIT_SUCCESS;
  }
 
-void trait_bound_in_rgb()
- {
-  // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
-  color::rgb<float> c;
-  // TODO
- }
-
 void trait_bound_in_cmy()
  {
   // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
-  color::cmy<float> c;
-  // TODO
+  typedef ::color::cmy<float>::bound_type bound_type;
+
+  std::cout << " Bounds for "<< typeid( bound_type ).name() << std::endl;
+  std::cout << "    0: [" << bound_type::minimum( 0 ) << ", " << bound_type::maximum( 0 ) << "] |" << bound_type::range( 0 ) << "|" << std::endl;
+  std::cout << "    1: [" << bound_type::minimum( 1 ) << ", " << bound_type::maximum( 1 ) << "] |" << bound_type::range( 1 ) << "|" << std::endl;
+  std::cout << "    2: [" << bound_type::minimum( 2 ) << ", " << bound_type::maximum( 2 ) << "] |" << bound_type::range( 2 ) << "|" << std::endl;
  }
 
 void trait_bound_in_cmyk()
  {
   // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
-  color::cmy<float> c;
-  // TODO
+  typedef color::cmyk<float>::bound_type bound_type;
+
+  std::cout << " Bounds for "<< typeid( bound_type ).name() << std::endl;
+  std::cout << "    0: [" << bound_type::minimum( 0 ) << ", " << bound_type::maximum( 0 ) << "] |" << bound_type::range( 0 ) << "|" << std::endl;
+  std::cout << "    1: [" << bound_type::minimum( 1 ) << ", " << bound_type::maximum( 1 ) << "] |" << bound_type::range( 1 ) << "|" << std::endl;
+  std::cout << "    2: [" << bound_type::minimum( 2 ) << ", " << bound_type::maximum( 2 ) << "] |" << bound_type::range( 2 ) << "|" << std::endl;
  }
 
 void trait_bound_in_gray()
  {
   // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
-  color::gray<float> c;
-  // TODO
+  typedef color::gray<float>::bound_type bound_type;
+
+  std::cout << " Bounds for "<< typeid( bound_type ).name() << std::endl;
+  std::cout << "    0: [" << bound_type::minimum( 0 ) << ", " << bound_type::maximum( 0 ) << "] |" << bound_type::range( 0 ) << "|" << std::endl;
+  std::cout << "    1: [" << bound_type::minimum( 1 ) << ", " << bound_type::maximum( 1 ) << "] |" << bound_type::range( 1 ) << "|" << std::endl;
+  std::cout << "    2: [" << bound_type::minimum( 2 ) << ", " << bound_type::maximum( 2 ) << "] |" << bound_type::range( 2 ) << "|" << std::endl;
  }
 
 void trait_bound_in_hsl()
  {
   // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
-  color::hsv<float> c;
-  // TODO
+  typedef color::hsl<float>::bound_type bound_type;
+
+  std::cout << " Bounds for "<< typeid( bound_type ).name() << std::endl;
+  std::cout << "    0: [" << bound_type::minimum( 0 ) << ", " << bound_type::maximum( 0 ) << "] |" << bound_type::range( 0 ) << "|" << std::endl;
+  std::cout << "    1: [" << bound_type::minimum( 1 ) << ", " << bound_type::maximum( 1 ) << "] |" << bound_type::range( 1 ) << "|" << std::endl;
+  std::cout << "    2: [" << bound_type::minimum( 2 ) << ", " << bound_type::maximum( 2 ) << "] |" << bound_type::range( 2 ) << "|" << std::endl;
  }
 
 void trait_bound_in_hsv()
  {
   // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
-  color::hsv<float> c;
-  // TODO
+  typedef color::hsv<float>::bound_type bound_type;
+
+  std::cout << " Bounds for "<< typeid( bound_type ).name() << std::endl;
+  std::cout << "    0: [" << bound_type::minimum( 0 ) << ", " << bound_type::maximum( 0 ) << "] |" << bound_type::range( 0 ) << "|" << std::endl;
+  std::cout << "    1: [" << bound_type::minimum( 1 ) << ", " << bound_type::maximum( 1 ) << "] |" << bound_type::range( 1 ) << "|" << std::endl;
+  std::cout << "    2: [" << bound_type::minimum( 2 ) << ", " << bound_type::maximum( 2 ) << "] |" << bound_type::range( 2 ) << "|" << std::endl;
  }
+
+void trait_bound_in_rgb()
+ {
+  // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
+  typedef color::rgb<float>::bound_type bound_type;
+
+  std::cout << " Bounds for "<< typeid( bound_type ).name() << std::endl;
+  std::cout << "    0: [" << bound_type::minimum( 0 ) << ", " << bound_type::maximum( 0 ) << "] |" << bound_type::range( 0 ) << "|" << std::endl;
+  std::cout << "    1: [" << bound_type::minimum( 1 ) << ", " << bound_type::maximum( 1 ) << "] |" << bound_type::range( 1 ) << "|" << std::endl;
+  std::cout << "    2: [" << bound_type::minimum( 2 ) << ", " << bound_type::maximum( 2 ) << "] |" << bound_type::range( 2 ) << "|" << std::endl;
+ }
+
 
 void trait_bound_in_yiq()
  {
   // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
-  color::yiq<float> c;
-  // TODO
+  typedef color::yiq<float>::bound_type bound_type;
+
+  std::cout << " Bounds for "<< typeid( bound_type ).name() << std::endl;
+  std::cout << "    0: [" << bound_type::minimum( 0 ) << ", " << bound_type::maximum( 0 ) << "] |" << bound_type::range( 0 ) << "|" << std::endl;
+  std::cout << "    1: [" << bound_type::minimum( 1 ) << ", " << bound_type::maximum( 1 ) << "] |" << bound_type::range( 1 ) << "|" << std::endl;
+  std::cout << "    2: [" << bound_type::minimum( 2 ) << ", " << bound_type::maximum( 2 ) << "] |" << bound_type::range( 2 ) << "|" << std::endl;
  }
 
 void trait_bound_in_yuv()
  {
   // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
-  color::yuv<float> c;
-  // TODO
+  typedef color::yuv<float>::bound_type bound_type;
+
+  std::cout << " Bounds for "<< typeid( bound_type ).name() << std::endl;
+  std::cout << "    0: [" << bound_type::minimum( 0 ) << ", " << bound_type::maximum( 0 ) << "] |" << bound_type::range( 0 ) << "|" << std::endl;
+  std::cout << "    1: [" << bound_type::minimum( 1 ) << ", " << bound_type::maximum( 1 ) << "] |" << bound_type::range( 1 ) << "|" << std::endl;
+  std::cout << "    2: [" << bound_type::minimum( 2 ) << ", " << bound_type::maximum( 2 ) << "] |" << bound_type::range( 2 ) << "|" << std::endl;
  }
-
-
-

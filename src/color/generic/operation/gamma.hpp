@@ -3,9 +3,9 @@
 
 #include "../../generic/model.hpp"
 
-// ::color::operation::gamma<category_name>( model<category_name> )
+#include "./diverse.hpp"
+#include "./normalize.hpp"
 
-// ::color::operation::_internal::gamma<category_name>::component<>( )
 // ::color::operation::_internal::gamma<category_name>::process( )
 // ::color::operation::_internal::gamma<category_name>::process( )
 
@@ -22,35 +22,31 @@
           public:
             typedef category_name  category_type;
 
-            typedef ::color::trait::index<category_type>         index_trait_type;
-            typedef ::color::trait::bound<category_type>         bound_type;
-            typedef ::color::trait::component< category_name >   component_trait_type;
             typedef ::color::trait::container< category_name >   container_trait_type;
+
+            typedef typename ::color::trait::index<category_type>::instance_type     index_type;
+            typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
 
             typedef typename ::color::model<category_type>  model_type;
 
+            typedef ::color::_internal::diverse< category_type >    diverse_type;
+            typedef ::color::_internal::normalize< category_type > normalize_type;
 
-            typedef typename component_trait_type::input_const_type component_input_const_type;
-            typedef typename component_trait_type::return_type      component_return_type;
-
-            typedef typename index_trait_type::instance_type     index_type;
-            typedef typename index_trait_type::input_const_type  index_input_const_type;
-
-            static void process( model_type &result )
+            static void process( model_type &result, scalar_type const& g )
              {
-              TODO;
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                //result.set( index, component( result.get( index ), index ) );
+                scalar_type s = normalize_type::process( result[index], index );
+                result.set( index, diverse_type::process( std::pow( s, g ), index ) );
                }
              }
 
-            static void process(  model_type &result, model_type const& right )
+            static void process(  model_type &result, model_type const& right, scalar_type const& g )
              {
-              TODO;
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                //result.set( index, component( right.get( index ), index ) );
+                scalar_type s = normalize_type::process( right[index], index );
+                result.set( index, diverse_type::process( std::pow( s, g ), index ) );
                }
              }
 
@@ -61,20 +57,22 @@
      template< typename category_name >
       void gamma
        (
-         ::color::model<category_name>      & result
+                  ::color::model<category_name>                                  & result
+        ,typename ::color::trait::scalar<category_name>::instance_type      const& g
        )
        {
-        ::color::operation::_internal::gamma<category_name>::process( result );
+        ::color::operation::_internal::gamma<category_name>::process( result, g );
        }
 
      template< typename category_name >
       void gamma
        (
-         ::color::model<category_name>      & result
-        ,::color::model<category_name> const& right
+                  ::color::model<category_name>                                  & result
+        ,         ::color::model<category_name>                             const& right
+        ,typename ::color::trait::scalar<category_name>::instance_type      const& g
        )
        {
-        ::color::operation::_internal::gamma<category_name>::process( result, right );
+        ::color::operation::_internal::gamma<category_name>::process( result, right, g );
        }
 
     }
