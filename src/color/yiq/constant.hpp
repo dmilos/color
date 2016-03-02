@@ -36,9 +36,9 @@ namespace color
          static /* constexpr*/ scalar_type const a33(){ return  1.7046149754988293290; }
 
          // from RGB
-         static /* constexpr*/ scalar_type const b11(){ return  0.2990000000000000000; }
-         static /* constexpr*/ scalar_type const b12(){ return  0.5870000000000000000; }
-         static /* constexpr*/ scalar_type const b13(){ return  0.1140000000000000000; }
+         static /* constexpr*/ scalar_type const b11(){ return  0.2990000000000000000; } // TODO 0.298839
+         static /* constexpr*/ scalar_type const b12(){ return  0.5870000000000000000; } // TODO 0.586811
+         static /* constexpr*/ scalar_type const b13(){ return  0.1140000000000000000; } // TODO 0.114350
          static /* constexpr*/ scalar_type const b21(){ return  0.5957161349127745527; }
          static /* constexpr*/ scalar_type const b22(){ return -0.2744528378392564636; }
          static /* constexpr*/ scalar_type const b23(){ return -0.3212632970735180890; }

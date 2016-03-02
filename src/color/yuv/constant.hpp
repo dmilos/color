@@ -24,8 +24,8 @@ namespace color
 
          static /* constexpr*/ scalar_type const half(){ return  0.5; }
          static /* constexpr*/ scalar_type const one() { return  1; }
-         static /* constexpr*/ scalar_type const Wr()  { return  0.299; }
-         static /* constexpr*/ scalar_type const Wb()  { return  0.114; }
+         static /* constexpr*/ scalar_type const Wr()  { return  0.298839; }
+         static /* constexpr*/ scalar_type const Wb()  { return  0.114350; }
          static /* constexpr*/ scalar_type const Wg()  { return  this_type::one() - this_type::Wr()-this_type::Wb(); }
          static /* constexpr*/ scalar_type const Umax(){ return  0.436; }
          static /* constexpr*/ scalar_type const Vmax(){ return  0.615; }

@@ -1664,7 +1664,13 @@ namespace category {
 
 template< typename tag_name >
 struct rgb {
+	typedef tag_name tag_type;
+};
 
+template< typename tag_name >
+struct rgba
+		: public ::color::category::rgb< tag_name > {
+	typedef tag_name tag_type;
 };
 
 namespace _internal {
@@ -12357,10 +12363,10 @@ static scalar_type const one() {
 	return 1;
 }
 static scalar_type const Wr() {
-	return 0.299;
+	return 0.298839;
 }
 static scalar_type const Wb() {
-	return 0.114;
+	return 0.114350;
 }
 static scalar_type const Wg() {
 	return this_type::one() - this_type::Wr()-this_type::Wb();

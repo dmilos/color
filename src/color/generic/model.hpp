@@ -69,6 +69,12 @@ namespace color
        {
        }
 
+      //TODO template< unsigned constant_index >
+      //TODO explicit model( ::color::contant_t const&  )
+      //TODO  { // e.g ::color::rgb r< ::color::constant::tirquise_index> ();
+      //TODO   ::color::init::contant<constant_index>( this );
+      //TODO  }
+
       explicit model( std::initializer_list<component_type> const& ilist )
        {
         //TODO C++14 static_assert( container_trait_type::size_enum != ilist.size(), "Initializer list size do not match model/format length." );

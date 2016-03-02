@@ -14,7 +14,14 @@ namespace color
     template< typename tag_name >
      struct rgb
       {
-       // typedef void category_name;
+       typedef tag_name tag_type;
+      };
+
+    template< typename tag_name >
+     struct rgba
+      : public ::color::category::rgb< tag_name >
+      {
+       typedef tag_name tag_type;
       };
 
     namespace _internal
@@ -52,10 +59,16 @@ namespace color
 
     //using rgb_split233   = ::color::category::rgb< ::color::category::_internal::rgb_split233  >;
     //using rgb_split332   = ::color::category::rgb< ::color::category::_internal::rgb_split332  >;
+
     //using rgb_split422   = ::color::category::rgb< ::color::category::_internal::rgb_split422  >;
+
     //using rgb_split556   = ::color::category::rgb< ::color::category::_internal::rgb_split556  >;
     //using rgb_split655   = ::color::category::rgb< ::color::category::_internal::rgb_split655  >;
-    //using rgba_splitAAA2 = ::color::category::rgb< ::color::category::_internal::rgb_splitAAA2 >;
+
+    //using rgba_splitAAA2 = ::color::category::rgb< ::color::category::_internal::rgba_splitAAA2 >;
+    //using rgba_split2AAA = ::color::category::rgb< ::color::category::_internal::rgba_split2AAA >;
+    //using rgba_split1555 = ::color::category::rgb< ::color::category::_internal::rgba_split1555 >;
+    //using rgba_split5551 = ::color::category::rgb< ::color::category::_internal::rgba_split5551 >;
 
    }
  }
