@@ -20,10 +20,10 @@ void check_rgb()
   color::make::red( r );
 
   // First check has to be OK
-  std::cout << color::check::overburn( r ) << std::endl;
+  std::cout << "true == color::check::overburn( r ) == " << color::check::overburn( r ) << std::endl;
 
   r.set<0>( 20.0 );
 
   // This one has to fail
-  std::cout << color::check::overburn( r ) << std::endl;
+  std::cout << "false == color::check::overburn( r ) == " << color::check::overburn( r ) << std::endl;
  }

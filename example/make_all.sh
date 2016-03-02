@@ -28,14 +28,7 @@ g++ -fexceptions -std=c++11 -g -I../src convert_cmy2yuv.cpp     -o  convert_cmy2
 g++ -fexceptions -std=c++11 -g -I../src convert_gray2rgb.cpp    -o  convert_gray2rgb
 g++ -fexceptions -std=c++11 -g -I../src convert_gray2cmy.cpp    -o  convert_gray2cmy
 
-g++ -fexceptions -std=c++11 -g -I../src ctor_cmy.cpp                    -o  ctor_cmy
-g++ -fexceptions -std=c++11 -g -I../src ctor_cmyk.cpp                   -o  ctor_cmyk
-g++ -fexceptions -std=c++11 -g -I../src ctor_gray.cpp                   -o  ctor_gray
-g++ -fexceptions -std=c++11 -g -I../src ctor_hsl.cpp                    -o  ctor_hsl
-g++ -fexceptions -std=c++11 -g -I../src ctor_hsv.cpp                    -o  ctor_hsv
-g++ -fexceptions -std=c++11 -g -I../src ctor_rgb.cpp                    -o  ctor_rgb
-g++ -fexceptions -std=c++11 -g -I../src ctor_yiq.cpp                    -o  ctor_yiq
-g++ -fexceptions -std=c++11 -g -I../src ctor_yuv.cpp                    -o  ctor_yuv
+g++ -fexceptions -std=c++11 -g -I../src ctor.cpp                -o  ctor
 
 g++ -fexceptions -std=c++11 -g -I../src get_alpha.cpp               -o  get_alpha
 
