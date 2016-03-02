@@ -55,8 +55,8 @@ namespace color
              typedef void set_return_type;
 
              enum { size_enum = 3 };
-             enum {  first_position = 0, 
-                    second_position = first_size, 
+             enum {  first_position = 0,
+                    second_position = first_size,
                   };
 
 
@@ -64,6 +64,7 @@ namespace color
               {
                switch( index )
                 {
+                 default:
                  case( 0 ): return ( ( container >> (  first_position ) ) & ( ( 1 <<  first_size )-1 ) );
                  case( 1 ): return ( ( container >> ( second_position ) ) & ( ( 1 << second_size )-1 ) );
                 }
@@ -73,6 +74,7 @@ namespace color
              template< index_instance_type index >
               static component_return_const_type get( input_const_type container )
                {
+                //TODO C++14 static_assert( index <  length, "Index is out of range." );
                 switch( index )
                  {
                   case( 0 ): return ( ( container >> (  first_position ) ) & ( ( 1 <<  first_size )-1 ) );
@@ -85,6 +87,7 @@ namespace color
               {
                switch( index )
                 {
+                 default:
                  case( 0 ) : container = ( container & ~(  ( ( 1 <<  first_size )-1 ) << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
                  case( 1 ) : container = ( container & ~(  ( ( 1 << second_size )-1 ) << ( second_position ) ) )  |  ( ((instance_type)value) << ( second_position ) ); break;
                 }
@@ -93,6 +96,7 @@ namespace color
              template< index_instance_type index >
               static set_return_type set( input_type container, component_input_const_type value )
                {
+                //TODO C++14 static_assert( index < 2, "Index is out of range." );   
                 switch( index )
                  {
                   case( 0 ) : container = ( container & ~(  ( ( 1 <<  first_size )-1 ) << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;

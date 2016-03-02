@@ -69,14 +69,15 @@ namespace color
              template< index_instance_type index >
               static component_return_const_type get( input_const_type container )
                {
-               switch( index )
-                {
-                 default:
-                 case( 0 ): return container[first_position];
-                 case( 1 ): return container[second_position];
-                 case( 2 ): return container[third_position];
-                 case( 3 ): return container[fourth_position];
-                }
+                //TODO C++14 static_assert( index < 4, "Index is out of range." );      
+                switch( index )
+                 {
+                  default:
+                  case( 0 ): return container[first_position];
+                  case( 1 ): return container[second_position];
+                  case( 2 ): return container[third_position];
+                  case( 3 ): return container[fourth_position];
+                 }
                }
 
              static set_return_type set( input_type container, index_input_const_type index, component_input_const_type value )
@@ -94,14 +95,14 @@ namespace color
              template< index_instance_type index >
               static set_return_type set( input_type container, component_input_const_type value )
                {
-               switch( index )
-                {
-                 default:
-                 case( 0 ): container[first_position] = value; return;
-                 case( 1 ): container[second_position] = value; return;
-                 case( 2 ): container[third_position] = value; return;
-                 case( 3 ): container[fourth_position] = value; return;
-                }
+                //TODO C++14 static_assert( index < 4, "Index is out of range." );
+                switch( index )
+                 {
+                  case( 0 ): container[first_position] = value; return;
+                  case( 1 ): container[second_position] = value; return;
+                  case( 2 ): container[third_position] = value; return;
+                  case( 3 ): container[fourth_position] = value; return;
+                 }
                }
 
              static /*constexpr*/ index_return_image_type size()

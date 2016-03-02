@@ -62,6 +62,7 @@ namespace color
              template< index_instance_type index >
               static component_return_const_type get( input_const_type container )
                {
+                //TODO C++14 static_assert( index <  1, "Index is out of range." );
                 return container;
                }
 
@@ -73,6 +74,7 @@ namespace color
              template< index_instance_type index >
               static set_return_type set( input_type container, component_input_const_type value )
                {
+                //TODO C++14 static_assert( index <  1, "Index is out of range." );
                 container = value;
                }
 

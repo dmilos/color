@@ -1253,8 +1253,12 @@ template< unsigned first_size, unsigned second_size, unsigned third_size, unsign
 struct split4_t {};
 
 typedef ::color::type::split4_t< 2, 2, 2, 2 > split2222_t;
+
 typedef ::color::type::split4_t< 5, 5, 5, 1 > split5551_t;
+typedef ::color::type::split4_t< 1, 5, 5, 5 > split1555_t;
+
 typedef ::color::type::split4_t< 10, 10, 10, 2 > splitAAA2_t;
+typedef ::color::type::split4_t< 2, 10, 10, 10 > split2AAA_t;
 
 }
 }
@@ -2976,17 +2980,17 @@ namespace utility {
 namespace component {
 
 template< typename index_name >
-struct pack8
+struct pack_8
 		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
 };
 
-template< typename index_name > using cnent2222 = ::color::_internal::utility::component::pack8<index_name>;
-template< typename index_name > using cnent233 = ::color::_internal::utility::component::pack8<index_name>;
-template< typename index_name > using cnent323 = ::color::_internal::utility::component::pack8<index_name>;
-template< typename index_name > using cnent332 = ::color::_internal::utility::component::pack8<index_name>;
-template< typename index_name > using cnent224 = ::color::_internal::utility::component::pack8<index_name>;
-template< typename index_name > using cnent242 = ::color::_internal::utility::component::pack8<index_name>;
-template< typename index_name > using cnent422 = ::color::_internal::utility::component::pack8<index_name>;
+template< typename index_name > using cnent2222 = ::color::_internal::utility::component::pack_8<index_name>;
+template< typename index_name > using cnent233 = ::color::_internal::utility::component::pack_8<index_name>;
+template< typename index_name > using cnent323 = ::color::_internal::utility::component::pack_8<index_name>;
+template< typename index_name > using cnent332 = ::color::_internal::utility::component::pack_8<index_name>;
+template< typename index_name > using cnent224 = ::color::_internal::utility::component::pack_8<index_name>;
+template< typename index_name > using cnent242 = ::color::_internal::utility::component::pack_8<index_name>;
+template< typename index_name > using cnent422 = ::color::_internal::utility::component::pack_8<index_name>;
 
 }
 }
@@ -3030,15 +3034,16 @@ namespace utility {
 namespace component {
 
 template< typename index_name >
-struct pack16
+struct pack_16
 		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
 };
 
-template< typename index_name > using cnent556 = ::color::_internal::utility::component::pack16<index_name>;
-template< typename index_name > using cnent565 = ::color::_internal::utility::component::pack16<index_name>;
-template< typename index_name > using cnent655 = ::color::_internal::utility::component::pack16<index_name>;
-template< typename index_name > using cnent4444 = ::color::_internal::utility::component::pack16<index_name>;
-template< typename index_name > using cnent5551 = ::color::_internal::utility::component::pack16<index_name>;
+template< typename index_name > using cnent556 = ::color::_internal::utility::component::pack_16<index_name>;
+template< typename index_name > using cnent565 = ::color::_internal::utility::component::pack_16<index_name>;
+template< typename index_name > using cnent655 = ::color::_internal::utility::component::pack_16<index_name>;
+template< typename index_name > using cnent4444 = ::color::_internal::utility::component::pack_16<index_name>;
+template< typename index_name > using cnent5551 = ::color::_internal::utility::component::pack_16<index_name>;
+template< typename index_name > using cnent1555 = ::color::_internal::utility::component::pack_16<index_name>;
 
 }
 }
@@ -3082,11 +3087,12 @@ namespace utility {
 namespace component {
 
 template< typename index_name >
-struct pack32
+struct pack_32
 		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
 };
 
-template< typename index_name > using cnentAAA2 = ::color::_internal::utility::component::pack32<index_name>;
+template< typename index_name > using cnentAAA2 = ::color::_internal::utility::component::pack_32<index_name>;
+template< typename index_name > using cnent2AAA = ::color::_internal::utility::component::pack_32<index_name>;
 
 }
 }
@@ -6978,8 +6984,9 @@ enum {
 
 static component_return_const_type get(input_const_type container, index_input_const_type index) {
 	switch(index) {
-	case(0):
-			return ((container >> (first_position)) & first_mask);
+	default:
+		case(0):
+				return ((container >> (first_position)) & first_mask);
 	case(1):
 		return ((container >> (second_position)) & second_mask);
 	case(2):
@@ -7003,6 +7010,7 @@ static component_return_const_type get(input_const_type container) {
 
 static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
 	switch(index) {
+	default:
 	case(0) :
 		container = (container & ~(first_mask << (first_position))) | (((instance_type)value) << (first_position));
 		break;
@@ -7174,8 +7182,9 @@ enum {
 
 static component_return_const_type get(input_const_type container, index_input_const_type index) {
 	switch(index) {
-	case(0):
-			return ((container >> (first_position)) & first_mask);
+	default:
+		case(0):
+				return ((container >> (first_position)) & first_mask);
 	case(1):
 		return ((container >> (second_position)) & second_mask);
 	case(2):
@@ -7203,6 +7212,7 @@ static component_return_const_type get(input_const_type container) {
 
 static set_return_type set(input_type container, index_input_const_type index, component_input_const_type value) {
 	switch(index) {
+	default:
 	case(0) :
 		container = (container & ~(first_mask << (first_position))) | (((instance_type)value) << (first_position));
 		break;

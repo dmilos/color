@@ -76,6 +76,7 @@ namespace color
               {
                switch( index )
                 {
+                 default:
                  case( 0 ): return ( ( container >> (  first_position ) ) &  first_mask );
                  case( 1 ): return ( ( container >> ( second_position ) ) & second_mask );
                  case( 2 ): return ( ( container >> (  third_position ) ) &  third_mask );
@@ -87,6 +88,7 @@ namespace color
              template< index_instance_type index >
               static component_return_const_type get( input_const_type container )
                {
+                //TODO C++14 static_assert( index <  length, "Index is out of range." );   
                 switch( index )
                  {
                   case( 0 ): return ( ( container >> (  first_position ) ) &  first_mask );
@@ -101,6 +103,7 @@ namespace color
               {
                switch( index )
                 {
+                 default:
                  case( 0 ) : container = ( container & ~(  first_mask << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
                  case( 1 ) : container = ( container & ~( second_mask << ( second_position ) ) )  |  ( ((instance_type)value) << ( second_position ) ); break;
                  case( 2 ) : container = ( container & ~(  third_mask << (  third_position ) ) )  |  ( ((instance_type)value) << (  third_position ) ); break;
@@ -111,6 +114,7 @@ namespace color
              template< index_instance_type index >
               static set_return_type set( input_type container, component_input_const_type value )
                {
+                //TODO C++14 static_assert( index <  length, "Index is out of range." );   
                 switch( index )
                  {
                   case( 0 ) : container = ( container & ~(   first_mask << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
