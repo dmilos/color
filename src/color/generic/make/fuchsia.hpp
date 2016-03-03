@@ -48,9 +48,9 @@
          typedef category_name              category_type;
          typedef ::color::constant::fuchsia       color_type;
 
-         typedef ::color::trait::container<category_type>       container_type;
+         typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 
-         inline static void process( container_type & m )
+         inline static void process( container_output_type & m )
           {
            m = ::color::make::fuchsia<category_type>( ).container();
           }

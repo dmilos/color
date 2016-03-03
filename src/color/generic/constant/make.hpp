@@ -13,12 +13,13 @@
         typedef category_name category_type;
         typedef color_name       color_type;
 
-        typedef ::color::trait::container<category_type>       container_type;
+        typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 
-          static void process( container_type & m )
-           {
-            // do nothing;
-           }
+        static void process( container_output_type & m )
+         {
+          // do nothing;
+         }
+
        };
 
     }

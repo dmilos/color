@@ -13,10 +13,12 @@
 
 void ctor_test()
  {
-  ::color::rgb<double> r( ::color::constant::aqua() );
-  ::color::rgb<double> x( ::color::constant::black() );
+  ::color::rgb<double> r{ ::color::constant::aqua() };
+  ::color::rgb<double> x{ ::color::constant::turquoise() };
+  ::color::rgb<double>{ ::color::constant::black() };
   ::color::rgb<double>( {1,2,3} );
-  ::color::rgb<double>( std::array<double,3>() );
+
+  std::cout << r[0] << std::endl;
  }
 
 void RGB()
@@ -229,6 +231,7 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 
 int main(int argc, char const *argv[])
  {
+  ctor_test();
 
   void check_get();
   check_get();

@@ -70,10 +70,10 @@ namespace color
        {
        }
 
-      template< typename constant_name >
-       explicit model( constant_name const& cn = constant_name() )
+      template< typename color_name >
+       explicit model( color_name const& cn )
         { // e.g ::color::rgb r( ::color::make::tirquise_t() );
-         ::color::constant::make<constant_name,category_name>::process( this->m_container );
+         ::color::constant::make<color_name,category_name>::process( this->m_container );
         }
 
       explicit model( std::initializer_list<component_type> const& ilist )

@@ -63,9 +63,9 @@ void print_generic_header( std::string const& name )
   ss << "         typedef category_name              category_type;"                         << std::endl;
   ss << "         typedef ::color::constant::" << name << "       color_type;"               << std::endl;
   ss << ""                                                                                   << std::endl;
-  ss << "         typedef ::color::trait::container<category_type>       container_type;"    << std::endl;
+  ss << "         typedef typename ::color::trait::container<category_type>::output_type       container_output_type;"    << std::endl;
   ss << ""                                                                                   << std::endl;
-  ss << "         inline static void process( container_type & m )"                          << std::endl;
+  ss << "         inline static void process( container_output_type & m )"                   << std::endl;
   ss << "          {"                                                                        << std::endl;
   ss << "           m = ::color::make::" << name << "<category_type>( ).container();"        << std::endl;
   ss << "          }"                                                                        << std::endl;
