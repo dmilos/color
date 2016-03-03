@@ -80,7 +80,6 @@ g++ -fexceptions -std=c++11 -g -I../src make_red_in_rgb.cpp           -o make_re
 
 g++ -fexceptions -std=c++11 -g -I../src make_orange.cpp               -o make_orange
 
-
 g++ -fexceptions -std=c++11 -g -I../src operation_blend_noalpha.cpp   -o operation_blend_noalpha
 g++ -fexceptions -std=c++11 -g -I../src operation_blend_alpha.cpp     -o operation_blend_alpha
 g++ -fexceptions -std=c++11 -g -I../src operation_convex.cpp          -o operation_convex
@@ -97,3 +96,7 @@ g++ -fexceptions -std=c++11 -g -I../src trait_component.cpp           -o trait_c
 g++ -fexceptions -std=c++11 -g -I../src trait_container.cpp           -o trait_container
 g++ -fexceptions -std=c++11 -g -I../src trait_index.cpp               -o trait_index
 g++ -fexceptions -std=c++11 -g -I../src trait_scalar.cpp              -o trait_scalar
+
+g++ -fexceptions -std=c++11 -g -I../src tip_inplace_conversion.cpp    -o  tip_inplace_conversion
+g++ -fexceptions -std=c++11 -g -I../src tip_memfill.cpp               -o  tip_memfill
+g++ -fexceptions -std=c++11 -g -I../src tip_memset.cpp                -o  tip_memset

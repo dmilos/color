@@ -3,8 +3,12 @@
 
 // ::color::make::aqua( c )
 
+// TODO #include "model.hpp"
+// TODO #include "constant/make.hpp"
+
  namespace color
   {
+
    namespace make
     {
 
@@ -32,6 +36,29 @@
        }
 
     }
+
+    namespace constant
+     {
+
+      struct aqua /*: public ::color::constant:: */ {};
+
+      template< typename category_name >
+       struct make<::color::constant::aqua, category_name >
+        {
+         typedef category_name              category_type;
+         typedef ::color::constant::aqua       color_type;
+
+         typedef ::color::trait::container<category_type>       container_type;
+
+         inline static void process( container_type & m )
+          {
+           m = ::color::make::aqua<category_type>( ).container();
+          }
+
+        };
+
+     }
+
   }
 
 #endif

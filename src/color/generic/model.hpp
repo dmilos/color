@@ -11,6 +11,7 @@
 
 #include "../_internal/convert.hpp"
 #include "../_internal/init.hpp"
+#include "./constant/make.hpp"
 
 /**
  * @namespace color
@@ -69,11 +70,11 @@ namespace color
        {
        }
 
-      //TODO template< unsigned constant_index >
-      //TODO explicit model( ::color::contant_t const&  )
-      //TODO  { // e.g ::color::rgb r< ::color::constant::tirquise_index> ();
-      //TODO   ::color::init::contant<constant_index>( this );
-      //TODO  }
+      template< typename constant_name >
+       explicit model( constant_name const& cn = constant_name() )
+        { // e.g ::color::rgb r( ::color::make::tirquise_t() );
+         ::color::constant::make<constant_name,category_name>::process( this->m_container );
+        }
 
       explicit model( std::initializer_list<component_type> const& ilist )
        {

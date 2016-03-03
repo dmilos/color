@@ -11,6 +11,14 @@
 #include "./model/get.hpp"
 #include "./model/conversion.hpp"
 
+void ctor_test()
+ {
+  ::color::rgb<double> r( ::color::constant::aqua() );
+  ::color::rgb<double> x( ::color::constant::black() );
+  ::color::rgb<double>( {1,2,3} );
+  ::color::rgb<double>( std::array<double,3>() );
+ }
+
 void RGB()
  {
   ::color::gray<float>         g1;

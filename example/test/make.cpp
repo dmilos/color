@@ -14,19 +14,23 @@ void print_generic_header( std::string const& name )
  {
   std::stringstream ss;
 
-  ss << "#ifndef  color_generic_make_" << name << ""                                        << std::endl;
-  ss << "#define color_generic_make_" << name << ""                                         << std::endl << std::endl;
-  ss << "// ::color::make::" << name << "( c )"                                             << std::endl << std::endl;
+  ss << "#ifndef  color_generic_make_" << name << ""                                         << std::endl;
+  ss << "#define color_generic_make_" << name << ""                                          << std::endl << std::endl;
+  ss << "// ::color::make::" << name << "( c )"                                              << std::endl;
+  ss                                                                                         << std::endl;
+  ss << "// TODO #include \"model.hpp\""                                                     << std::endl;
+  ss << "// TODO #include \"constant/make.hpp\""                                             << std::endl;
+  ss                                                                                         << std::endl;
   ss << " namespace color"                                                                   << std::endl;
   ss << "  {"                                                                                << std::endl;
+  ss                                                                                         << std::endl;
   ss << "   namespace make"                                                                  << std::endl;
   ss << "    {"                                                                              << std::endl;
   ss                                                                                         << std::endl;
   ss << "     template< typename category_name >"                                            << std::endl;
-  ss << "      void " << name << "( ::color::model< category_name > & color_parameter )"    << std::endl;
+  ss << "      void " << name << "( ::color::model< category_name > & color_parameter )"     << std::endl;
   ss << "       {"                                                                           << std::endl;
-  ss << "        typedef ::color::model< category_name > model_type;"             << std::endl;
-  ss << "        typedef ::color::_internal::trait< category_name > trait_type;"             << std::endl;
+  ss << "        typedef ::color::model< category_name > model_type;"                        << std::endl;
   ss << "        typedef typename model_type::index_type index_type;"                        << std::endl;
   ss                                                                                         << std::endl;
   ss << "        // Do nothing to force specialization"                                      << std::endl;
@@ -34,10 +38,10 @@ void print_generic_header( std::string const& name )
   ss                                                                                         << std::endl;
   ss << "     template< typename category_name >"                                            << std::endl;
   ss << "      inline"                                                                       << std::endl;
-  ss << "      ::color::model< category_name >"                                   << std::endl;
-  ss << "      " << name << "( )"                                                            << std::endl;
+  ss << "      ::color::model< category_name >"                                              << std::endl;
+  ss << "      " << name << "()"                                                             << std::endl;
   ss << "       {"                                                                           << std::endl;
-  ss << "        typedef ::color::model< category_name > model_type;"             << std::endl;
+  ss << "        typedef ::color::model< category_name > model_type;"                        << std::endl;
   ss << "        static model_type dummy;"                                                   << std::endl;
   ss << "        // TODO Will call every time, That is no good."                             << std::endl;
   ss << "        ::color::make::" << name << "( dummy );"                                    << std::endl;
@@ -47,6 +51,29 @@ void print_generic_header( std::string const& name )
   ss << "       }"                                                                           << std::endl;
   ss                                                                                         << std::endl;
   ss << "    }"                                                                              << std::endl;
+  ss                                                                                         << std::endl;
+  ss << "    namespace constant"                                                             << std::endl;
+  ss << "     {"                                                                             << std::endl;
+  ss << ""                                                                                   << std::endl;
+  ss << "      struct " << name << " /*: public ::color::constant:: */ {};"                  << std::endl;
+  ss << ""                                                                                   << std::endl;
+  ss << "      template< typename category_name >"                                           << std::endl;
+  ss << "       struct make<::color::constant::" << name << ", category_name >"              << std::endl;
+  ss << "        {"                                                                          << std::endl;
+  ss << "         typedef category_name              category_type;"                         << std::endl;
+  ss << "         typedef ::color::constant::" << name << "       color_type;"               << std::endl;
+  ss << ""                                                                                   << std::endl;
+  ss << "         typedef ::color::trait::container<category_type>       container_type;"    << std::endl;
+  ss << ""                                                                                   << std::endl;
+  ss << "         inline static void process( container_type & m )"                          << std::endl;
+  ss << "          {"                                                                        << std::endl;
+  ss << "           m = ::color::make::" << name << "<category_type>( ).container();"        << std::endl;
+  ss << "          }"                                                                        << std::endl;
+  ss << ""                                                                                   << std::endl;
+  ss << "        };"                                                                         << std::endl;
+  ss << ""                                                                                   << std::endl;
+  ss << "     }"                                                                             << std::endl;
+  ss << ""                                                                                   << std::endl;
   ss << "  }"                                                                                << std::endl;
   ss << std::endl;
   ss << "#endif"                                                                             << std::endl;
@@ -315,6 +342,57 @@ void make_make_header()
   print_all_header<color::yiq>(  "yiq"  );
   print_all_header<color::yuv>(  "yuv"  );
   print_all_header<color::rgb>(  "rgb"  );
+
+    print_generic_header( "black"   );
+    print_generic_header( "white"   );
+    print_generic_header( "red"     );
+    print_generic_header( "lime"    );
+    print_generic_header( "blue"    );
+    print_generic_header( "aqua"    );
+    print_generic_header( "cyan"    );
+    print_generic_header( "fuchsia" );
+    print_generic_header( "gray50"  );
+    print_generic_header( "green"   );
+    print_generic_header( "magenta" );
+    print_generic_header( "maroon"  );
+    print_generic_header( "navy"    );
+    print_generic_header( "olive"   );
+    print_generic_header( "orange"  );
+    print_generic_header( "purple"  );
+    print_generic_header( "silver"  );
+    print_generic_header( "teal"    );
+    print_generic_header( "violet"  );
+    print_generic_header( "yellow"  );
+
+    print_generic_header( "aquamarine"  );
+    print_generic_header( "azure"       );
+    print_generic_header( "beige"       );
+    print_generic_header( "bisque"      );
+    print_generic_header( "brown"       );
+    print_generic_header( "chocolate"   );
+    print_generic_header( "coral"       );
+    print_generic_header( "crimson"     );
+    print_generic_header( "gainsboro"   );
+    print_generic_header( "gold"        );
+    print_generic_header( "indigo"      );
+    print_generic_header( "ivory"       );
+    print_generic_header( "khaki"       );
+    print_generic_header( "lavender"    );
+    print_generic_header( "linen"       );
+    print_generic_header( "moccasin"    );
+    print_generic_header( "orchid"      );
+    print_generic_header( "peru"        );
+    print_generic_header( "pink"        );
+    print_generic_header( "plum"        );
+    print_generic_header( "salmon"      );
+    print_generic_header( "sienna"      );
+    print_generic_header( "snow"        );
+    print_generic_header( "tan"         );
+    print_generic_header( "thistle"     );
+    print_generic_header( "tomato"      );
+    print_generic_header( "turquoise"   );
+    print_generic_header( "wheat"       );
+
  }
 
 std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> const& r )
@@ -331,9 +409,9 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
  }
 
 
-#define PRINT_COLORS(dp_name)                                                                                                                                \
+#define PRINT_COLORS(dp_name)                                                                                                                            \
     ss << "<tr>" << std::endl;                                                                                                                               \
-     ss << "<td  style=\"background-color:" #dp_name << "\"> W3  -" #dp_name << "</td>";   \
+     ss << "<td  style=\"background-color:" #dp_name << "\"> W3  -" #dp_name << "</td>";                                                                     \
      ss << "<td>" << print_color( "rgb -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::rgb_double >()  ) ) << "</td>";   \
      ss << "<td>" << print_color( "cmy -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::cmy_double >()  ) ) << "</td>";   \
      ss << "<td>" << print_color( "cmyk-" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::cmyk_double >() ) ) << "</td>";   \
@@ -343,6 +421,21 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
      ss << "<td>" << print_color( "yuv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::yuv_double >()  ) ) << "</td>";   \
      ss << "<td>" << print_color( "gray-" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::gray_double>()  ) ) << "</td>";   \
     ss << "</tr>" << std::endl
+
+#define PRINT_COLORS_new(dp_name)                                                                                                                         \
+    ss << "<tr>" << std::endl;                                                                                                                        \
+     ss << "<td  style=\"background-color:" #dp_name << "\"> W3  -" #dp_name << "</td>";                                                              \
+     ss << "<td>" << print_color( "rgb -" #dp_name, ::color::rgb<std::uint8_t>( ::color::rgb <double>( ::color::constant::dp_name() ) ) << "</td>";   \
+     ss << "<td>" << print_color( "cmy -" #dp_name, ::color::rgb<std::uint8_t>( ::color::cmy <double>( ::color::constant::dp_name() ) ) << "</td>";   \
+     ss << "<td>" << print_color( "cmyk-" #dp_name, ::color::rgb<std::uint8_t>( ::color::cmyk<double>( ::color::constant::dp_name() ) ) << "</td>";   \
+     ss << "<td>" << print_color( "hsl -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsl <double>( ::color::constant::dp_name() ) ) << "</td>";   \
+     ss << "<td>" << print_color( "hsv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsv <double>( ::color::constant::dp_name() ) ) << "</td>";   \
+     ss << "<td>" << print_color( "yiq -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yiq <double>( ::color::constant::dp_name() ) ) << "</td>";   \
+     ss << "<td>" << print_color( "yuv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yuv <double>( ::color::constant::dp_name() ) ) << "</td>";   \
+     ss << "<td>" << print_color( "gray-" #dp_name, ::color::rgb<std::uint8_t>( ::color::gray<double>( ::color::constant::dp_name() ) ) << "</td>";   \
+    ss << "</tr>" << std::endl
+
+
 
 void make_test_make()
  {

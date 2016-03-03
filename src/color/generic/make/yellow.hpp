@@ -3,8 +3,12 @@
 
 // ::color::make::yellow( c )
 
+// TODO #include "model.hpp"
+// TODO #include "constant/make.hpp"
+
  namespace color
   {
+
    namespace make
     {
 
@@ -20,7 +24,7 @@
      template< typename category_name >
       inline
       ::color::model< category_name >
-      yellow( )
+      yellow()
        {
         typedef ::color::model< category_name > model_type;
         static model_type dummy;
@@ -32,6 +36,29 @@
        }
 
     }
+
+    namespace constant
+     {
+
+      struct yellow /*: public ::color::constant:: */ {};
+
+      template< typename category_name >
+       struct make<::color::constant::yellow, category_name >
+        {
+         typedef category_name              category_type;
+         typedef ::color::constant::yellow       color_type;
+
+         typedef ::color::trait::container<category_type>       container_type;
+
+         inline static void process( container_type & m )
+          {
+           m = ::color::make::yellow<category_type>( ).container();
+          }
+
+        };
+
+     }
+
   }
 
 #endif

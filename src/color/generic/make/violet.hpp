@@ -1,14 +1,14 @@
-
-//RGB (127, 0, 255) 
-//CMYK(50, 100, 0, 0) 
-//HSV (270/360, 100%, 100%)
 #ifndef  color_generic_make_violet
 #define color_generic_make_violet
 
 // ::color::make::violet( c )
 
+// TODO #include "model.hpp"
+// TODO #include "constant/make.hpp"
+
  namespace color
   {
+
    namespace make
     {
 
@@ -24,7 +24,7 @@
      template< typename category_name >
       inline
       ::color::model< category_name >
-      violet( )
+      violet()
        {
         typedef ::color::model< category_name > model_type;
         static model_type dummy;
@@ -36,6 +36,29 @@
        }
 
     }
+
+    namespace constant
+     {
+
+      struct violet /*: public ::color::constant:: */ {};
+
+      template< typename category_name >
+       struct make<::color::constant::violet, category_name >
+        {
+         typedef category_name              category_type;
+         typedef ::color::constant::violet       color_type;
+
+         typedef ::color::trait::container<category_type>       container_type;
+
+         inline static void process( container_type & m )
+          {
+           m = ::color::make::violet<category_type>( ).container();
+          }
+
+        };
+
+     }
+
   }
 
 #endif

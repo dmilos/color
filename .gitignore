@@ -129,3 +129,8 @@ example/trait_component
 example/trait_container
 example/trait_index
 example/trait_scalar
+
+example/tip_inplace_conversion
+example/tip_memfill
+example/tip_memset
+
