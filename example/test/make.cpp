@@ -409,7 +409,7 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
  }
 
 
-#define PRINT_COLORS(dp_name)                                                                                                                            \
+#define PRINT_COLORS_old(dp_name)                                                                                                                            \
     ss << "<tr>" << std::endl;                                                                                                                               \
      ss << "<td  style=\"background-color:" #dp_name << "\"> W3  -" #dp_name << "</td>";                                                                     \
      ss << "<td>" << print_color( "rgb -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::rgb_double >()  ) ) << "</td>";   \
@@ -422,17 +422,17 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
      ss << "<td>" << print_color( "gray-" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::gray_double>()  ) ) << "</td>";   \
     ss << "</tr>" << std::endl
 
-#define PRINT_COLORS_new(dp_name)                                                                                                                         \
+#define PRINT_COLORS(dp_name)                                                                                                                         \
     ss << "<tr>" << std::endl;                                                                                                                        \
      ss << "<td  style=\"background-color:" #dp_name << "\"> W3  -" #dp_name << "</td>";                                                              \
-     ss << "<td>" << print_color( "rgb -" #dp_name, ::color::rgb<std::uint8_t>( ::color::rgb <double>( ::color::constant::dp_name() ) ) << "</td>";   \
-     ss << "<td>" << print_color( "cmy -" #dp_name, ::color::rgb<std::uint8_t>( ::color::cmy <double>( ::color::constant::dp_name() ) ) << "</td>";   \
-     ss << "<td>" << print_color( "cmyk-" #dp_name, ::color::rgb<std::uint8_t>( ::color::cmyk<double>( ::color::constant::dp_name() ) ) << "</td>";   \
-     ss << "<td>" << print_color( "hsl -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsl <double>( ::color::constant::dp_name() ) ) << "</td>";   \
-     ss << "<td>" << print_color( "hsv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsv <double>( ::color::constant::dp_name() ) ) << "</td>";   \
-     ss << "<td>" << print_color( "yiq -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yiq <double>( ::color::constant::dp_name() ) ) << "</td>";   \
-     ss << "<td>" << print_color( "yuv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yuv <double>( ::color::constant::dp_name() ) ) << "</td>";   \
-     ss << "<td>" << print_color( "gray-" #dp_name, ::color::rgb<std::uint8_t>( ::color::gray<double>( ::color::constant::dp_name() ) ) << "</td>";   \
+     ss << "<td>" << print_color( "rgb -" #dp_name, ::color::rgb<std::uint8_t>( ::color::rgb <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "cmy -" #dp_name, ::color::rgb<std::uint8_t>( ::color::cmy <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "cmyk-" #dp_name, ::color::rgb<std::uint8_t>( ::color::cmyk<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "hsl -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsl <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "hsv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsv <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "yiq -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yiq <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "yuv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yuv <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "gray-" #dp_name, ::color::rgb<std::uint8_t>( ::color::gray<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
     ss << "</tr>" << std::endl
 
 

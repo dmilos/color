@@ -40,7 +40,8 @@ example/convert_rgb2hsv
 
 example/hello
 
-example/ctor
+example/ctor_const
+example/ctor_list
 
 example/make_red_in_cmy
 example/make_red_in_gray

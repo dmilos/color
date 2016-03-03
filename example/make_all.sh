@@ -28,7 +28,8 @@ g++ -fexceptions -std=c++11 -g -I../src convert_cmy2yuv.cpp     -o  convert_cmy2
 g++ -fexceptions -std=c++11 -g -I../src convert_gray2rgb.cpp    -o  convert_gray2rgb
 g++ -fexceptions -std=c++11 -g -I../src convert_gray2cmy.cpp    -o  convert_gray2cmy
 
-g++ -fexceptions -std=c++11 -g -I../src ctor.cpp                -o  ctor
+g++ -fexceptions -std=c++11 -g -I../src ctor_list.cpp                -o  ctor_list
+g++ -fexceptions -std=c++11 -g -I../src ctor_const.cpp               -o  ctor_const
 
 g++ -fexceptions -std=c++11 -g -I../src get_alpha.cpp               -o  get_alpha
 

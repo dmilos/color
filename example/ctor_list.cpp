@@ -1,38 +1,31 @@
-
-
-
-
-
-
-
 #include <iostream>
 #include <iomanip>
 #include <cstdint>
 
 #include "color/color.hpp"
 
-void ctor_cmy();
-void ctor_cmyk();
-void ctor_gray();
-void ctor_hsl();
-void ctor_hsv();
-void ctor_rgb();
-void ctor_yiq();
-void ctor_yuv();
+void ctor_list_cmy();
+void ctor_list_cmyk();
+void ctor_list_gray();
+void ctor_list_hsl();
+void ctor_list_hsv();
+void ctor_list_rgb();
+void ctor_list_yiq();
+void ctor_list_yuv();
 
 int main( int argc, char *argv[] )
  {
 
  std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
 
-  ctor_cmy();
-  ctor_cmyk();
-  ctor_gray();
-  ctor_hsl();
-  ctor_hsv();
-  ctor_rgb();
-  ctor_yiq();
-  ctor_yuv();
+  ctor_list_cmy();
+  ctor_list_cmyk();
+  ctor_list_gray();
+  ctor_list_hsl();
+  ctor_list_hsv();
+  ctor_list_rgb();
+  ctor_list_yiq();
+  ctor_list_yuv();
 
   std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
 
@@ -52,7 +45,7 @@ template< typename category_name >
    std::cout << " }";
   }
 
-void ctor_cmy()
+void ctor_list_cmy()
  {
 //color::cmy<bool>           c0( { true, false, false } ); //!< Not yet supported
   color::cmy<std::uint8_t>   c1( { 7, 6 , 3} );
@@ -73,7 +66,7 @@ void ctor_cmy()
  }
 
 
-void ctor_cmyk()
+void ctor_list_cmyk()
  {
 //color::cmyk<bool>           c0( { true, false, false } ); //!< Not yet supported
   color::cmyk<std::uint8_t>   c1( { 7, 6 , 3, 2} );
@@ -93,7 +86,7 @@ void ctor_cmyk()
   std::cout<< " color::cmyk<long double>   =  "; print( c7 ); std::cout << std::endl;
  }
 
-void ctor_gray()
+void ctor_list_gray()
  {
   color::gray<bool>           c0( { true } );
   color::gray<std::uint8_t>   c1( { 120 } );
@@ -115,7 +108,7 @@ void ctor_gray()
  }
 
 
-void ctor_hsl()
+void ctor_list_hsl()
  {
   //color::hsl<bool>           c0( { true, false, false} ); //!< Not yet supported
   color::hsl<std::uint8_t>   c1( { 7, 6 , 3} );
@@ -136,7 +129,7 @@ void ctor_hsl()
  }
 
 
-void ctor_hsv()
+void ctor_list_hsv()
  {
 //color::hsv<bool>           c0( { true, false, false} ); //!< Not yet supported
   color::hsv<std::uint8_t>   c1( { 7, 6 , 3} );
@@ -156,7 +149,7 @@ void ctor_hsv()
   std::cout<< " color::hsv<long double>   =  "; print( c7 ); std::cout << std::endl;
  }
 
-void ctor_rgb()
+void ctor_list_rgb()
  {
   // color::rgb<bool>           c0( { true, false, false} ); //!< Not yet supported
   color::rgb<std::uint8_t>   c1( { 7, 6 , 3} );
@@ -176,7 +169,7 @@ void ctor_rgb()
   std::cout<< " color::rgb<long double>   =  "; print( c7 ); std::cout << std::endl;
  }
 
-void ctor_yiq()
+void ctor_list_yiq()
  {
 //color::yiq<bool>           c0( { true, false, false} ); //!< Not yet supported
   color::yiq<std::uint8_t>   c1( { 7, 6 , 3} );
@@ -196,7 +189,7 @@ void ctor_yiq()
   std::cout<< " color::yiq<long double>   =  "; print( c7 ); std::cout << std::endl;
  }
 
-void ctor_yuv()
+void ctor_list_yuv()
  {
   //color::yuv<bool>           c0( { true, false, false} ); //!< Not yet supported
   color::yuv<std::uint8_t>   c1( { 7, 6 , 3} );

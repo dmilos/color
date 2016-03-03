@@ -905,6 +905,23 @@ void init
 }
 
 namespace color {
+namespace constant {
+template< typename color_name, typename category_name >
+struct make {
+	typedef category_name category_type;
+	typedef color_name color_type;
+
+	typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+	static void process(container_output_type & m) {
+	}
+
+};
+
+}
+}
+
+namespace color {
 
 template< typename category_name >
 class model {
@@ -942,6 +959,11 @@ public:
 
 	explicit model(container_input_const_type container)
 		:m_container(container) {
+	}
+
+	template< typename color_name >
+	explicit model(color_name const& cn) {
+		::color::constant::make<color_name,category_name>::process(this->m_container);
 	}
 
 	explicit model(std::initializer_list<component_type> const& ilist) {
@@ -21741,15 +21763,14 @@ hue(::color::model< category_name > const& color_parameter) {
 
 	}
 }
-
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
-		inline
-		void
-black(::color::model< category_name > & color_parameter) {
+void black(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -21763,9 +21784,29 @@ black() {
 }
 
 	}
+
+namespace constant {
+
+	struct black {};
+
+	template< typename category_name >
+	struct make<::color::constant::black, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::black color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::black<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
@@ -21789,16 +21830,35 @@ gray50() {
 }
 
 	}
+
+namespace constant {
+
+	struct gray50 {};
+
+	template< typename category_name >
+	struct make<::color::constant::gray50, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::gray50 color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::gray50<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
-		inline
-		void
-white(::color::model< category_name > & color_parameter) {
+void white(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -21812,14 +21872,36 @@ white() {
 }
 
 	}
+
+namespace constant {
+
+	struct white {};
+
+	template< typename category_name >
+	struct make<::color::constant::white, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::white color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::white<category_type>().container();
+}
+
+	};
+
+}
+
 }
 
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void red(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -21833,14 +21915,35 @@ red() {
 }
 
 	}
+
+namespace constant {
+
+	struct red {};
+
+	template< typename category_name >
+	struct make<::color::constant::red, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::red color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::red<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void green(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -21854,16 +21957,35 @@ green() {
 }
 
 	}
+
+namespace constant {
+
+	struct green {};
+
+	template< typename category_name >
+	struct make<::color::constant::green, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::green color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::green<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
-		inline
-		void
-blue(::color::model< category_name > & color_parameter) {
+void blue(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -21877,14 +21999,36 @@ blue() {
 }
 
 	}
+
+namespace constant {
+
+	struct blue {};
+
+	template< typename category_name >
+	struct make<::color::constant::blue, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::blue color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::blue<category_type>().container();
+}
+
+	};
+
+}
+
 }
 
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void cyan(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -21898,14 +22042,35 @@ cyan() {
 }
 
 	}
+
+namespace constant {
+
+	struct cyan {};
+
+	template< typename category_name >
+	struct make<::color::constant::cyan, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::cyan color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::cyan<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void magenta(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -21919,9 +22084,29 @@ magenta() {
 }
 
 	}
+
+namespace constant {
+
+	struct magenta {};
+
+	template< typename category_name >
+	struct make<::color::constant::magenta, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::magenta color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::magenta<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
@@ -21941,9 +22126,30 @@ yellow() {
 }
 
 	}
+
+namespace constant {
+
+	struct yellow {};
+
+	template< typename category_name >
+	struct make<::color::constant::yellow, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::yellow color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::yellow<category_type>().container();
+}
+
+	};
+
+}
+
 }
 
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
@@ -21963,14 +22169,35 @@ aqua() {
 }
 
 	}
+
+namespace constant {
+
+	struct aqua {};
+
+	template< typename category_name >
+	struct make<::color::constant::aqua, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::aqua color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::aqua<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void fuchsia(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -21984,14 +22211,35 @@ fuchsia() {
 }
 
 	}
+
+namespace constant {
+
+	struct fuchsia {};
+
+	template< typename category_name >
+	struct make<::color::constant::fuchsia, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::fuchsia color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::fuchsia<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void lime(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22005,14 +22253,36 @@ lime() {
 }
 
 	}
+
+namespace constant {
+
+	struct lime {};
+
+	template< typename category_name >
+	struct make<::color::constant::lime, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::lime color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::lime<category_type>().container();
+}
+
+	};
+
+}
+
 }
 
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void maroon(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22026,14 +22296,35 @@ maroon() {
 }
 
 	}
+
+namespace constant {
+
+	struct maroon {};
+
+	template< typename category_name >
+	struct make<::color::constant::maroon, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::maroon color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::maroon<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void navy(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22047,14 +22338,35 @@ navy() {
 }
 
 	}
+
+namespace constant {
+
+	struct navy {};
+
+	template< typename category_name >
+	struct make<::color::constant::navy, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::navy color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::navy<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void olive(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22068,14 +22380,35 @@ olive() {
 }
 
 	}
+
+namespace constant {
+
+	struct olive {};
+
+	template< typename category_name >
+	struct make<::color::constant::olive, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::olive color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::olive<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void orange(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22089,14 +22422,35 @@ orange() {
 }
 
 	}
+
+namespace constant {
+
+	struct orange {};
+
+	template< typename category_name >
+	struct make<::color::constant::orange, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::orange color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::orange<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void purple(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22110,14 +22464,36 @@ purple() {
 }
 
 	}
+
+namespace constant {
+
+	struct purple {};
+
+	template< typename category_name >
+	struct make<::color::constant::purple, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::purple color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::purple<category_type>().container();
+}
+
+	};
+
+}
+
 }
 
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void silver(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22131,9 +22507,29 @@ silver() {
 }
 
 	}
+
+namespace constant {
+
+	struct silver {};
+
+	template< typename category_name >
+	struct make<::color::constant::silver, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::silver color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::silver<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
@@ -22153,8 +22549,29 @@ teal() {
 }
 
 	}
+
+namespace constant {
+
+	struct teal {};
+
+	template< typename category_name >
+	struct make<::color::constant::teal, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::teal color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::teal<category_type>().container();
+}
+
+	};
+
+}
+
 }
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
@@ -22174,14 +22591,36 @@ violet() {
 }
 
 	}
+
+namespace constant {
+
+	struct violet {};
+
+	template< typename category_name >
+	struct make<::color::constant::violet, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::violet color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::violet<category_type>().container();
+}
+
+	};
+
+}
+
 }
 
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void aquamarine(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22195,14 +22634,35 @@ aquamarine() {
 }
 
 	}
+
+namespace constant {
+
+	struct aquamarine {};
+
+	template< typename category_name >
+	struct make<::color::constant::aquamarine, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::aquamarine color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::aquamarine<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void azure(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22216,14 +22676,35 @@ azure() {
 }
 
 	}
+
+namespace constant {
+
+	struct azure {};
+
+	template< typename category_name >
+	struct make<::color::constant::azure, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::azure color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::azure<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void beige(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22237,14 +22718,35 @@ beige() {
 }
 
 	}
+
+namespace constant {
+
+	struct beige {};
+
+	template< typename category_name >
+	struct make<::color::constant::beige, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::beige color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::beige<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void bisque(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22258,14 +22760,35 @@ bisque() {
 }
 
 	}
+
+namespace constant {
+
+	struct bisque {};
+
+	template< typename category_name >
+	struct make<::color::constant::bisque, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::bisque color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::bisque<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void brown(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22279,14 +22802,35 @@ brown() {
 }
 
 	}
+
+namespace constant {
+
+	struct brown {};
+
+	template< typename category_name >
+	struct make<::color::constant::brown, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::brown color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::brown<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void chocolate(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22300,14 +22844,35 @@ chocolate() {
 }
 
 	}
+
+namespace constant {
+
+	struct chocolate {};
+
+	template< typename category_name >
+	struct make<::color::constant::chocolate, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::chocolate color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::chocolate<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void coral(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22321,14 +22886,35 @@ coral() {
 }
 
 	}
+
+namespace constant {
+
+	struct coral {};
+
+	template< typename category_name >
+	struct make<::color::constant::coral, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::coral color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::coral<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void crimson(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22342,14 +22928,35 @@ crimson() {
 }
 
 	}
+
+namespace constant {
+
+	struct crimson {};
+
+	template< typename category_name >
+	struct make<::color::constant::crimson, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::crimson color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::crimson<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void gainsboro(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22363,14 +22970,35 @@ gainsboro() {
 }
 
 	}
+
+namespace constant {
+
+	struct gainsboro {};
+
+	template< typename category_name >
+	struct make<::color::constant::gainsboro, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::gainsboro color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::gainsboro<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void gold(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22384,14 +23012,35 @@ gold() {
 }
 
 	}
+
+namespace constant {
+
+	struct gold {};
+
+	template< typename category_name >
+	struct make<::color::constant::gold, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::gold color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::gold<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void indigo(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22405,14 +23054,35 @@ indigo() {
 }
 
 	}
+
+namespace constant {
+
+	struct indigo {};
+
+	template< typename category_name >
+	struct make<::color::constant::indigo, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::indigo color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::indigo<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void ivory(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22426,14 +23096,35 @@ ivory() {
 }
 
 	}
+
+namespace constant {
+
+	struct ivory {};
+
+	template< typename category_name >
+	struct make<::color::constant::ivory, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::ivory color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::ivory<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void khaki(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22447,14 +23138,35 @@ khaki() {
 }
 
 	}
+
+namespace constant {
+
+	struct khaki {};
+
+	template< typename category_name >
+	struct make<::color::constant::khaki, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::khaki color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::khaki<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void lavender(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22468,14 +23180,35 @@ lavender() {
 }
 
 	}
+
+namespace constant {
+
+	struct lavender {};
+
+	template< typename category_name >
+	struct make<::color::constant::lavender, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::lavender color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::lavender<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void linen(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22489,14 +23222,35 @@ linen() {
 }
 
 	}
+
+namespace constant {
+
+	struct linen {};
+
+	template< typename category_name >
+	struct make<::color::constant::linen, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::linen color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::linen<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void moccasin(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22510,14 +23264,35 @@ moccasin() {
 }
 
 	}
+
+namespace constant {
+
+	struct moccasin {};
+
+	template< typename category_name >
+	struct make<::color::constant::moccasin, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::moccasin color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::moccasin<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void orchid(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22531,14 +23306,35 @@ orchid() {
 }
 
 	}
+
+namespace constant {
+
+	struct orchid {};
+
+	template< typename category_name >
+	struct make<::color::constant::orchid, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::orchid color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::orchid<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void peru(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22552,14 +23348,35 @@ peru() {
 }
 
 	}
+
+namespace constant {
+
+	struct peru {};
+
+	template< typename category_name >
+	struct make<::color::constant::peru, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::peru color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::peru<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void pink(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22573,14 +23390,35 @@ pink() {
 }
 
 	}
+
+namespace constant {
+
+	struct pink {};
+
+	template< typename category_name >
+	struct make<::color::constant::pink, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::pink color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::pink<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void plum(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22594,14 +23432,35 @@ plum() {
 }
 
 	}
+
+namespace constant {
+
+	struct plum {};
+
+	template< typename category_name >
+	struct make<::color::constant::plum, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::plum color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::plum<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void salmon(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22615,14 +23474,35 @@ salmon() {
 }
 
 	}
+
+namespace constant {
+
+	struct salmon {};
+
+	template< typename category_name >
+	struct make<::color::constant::salmon, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::salmon color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::salmon<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void sienna(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22636,14 +23516,35 @@ sienna() {
 }
 
 	}
+
+namespace constant {
+
+	struct sienna {};
+
+	template< typename category_name >
+	struct make<::color::constant::sienna, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::sienna color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::sienna<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void snow(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22657,14 +23558,35 @@ snow() {
 }
 
 	}
+
+namespace constant {
+
+	struct snow {};
+
+	template< typename category_name >
+	struct make<::color::constant::snow, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::snow color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::snow<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
 void tan(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
+	typedef typename model_type::index_type index_type;
 }
 
 template< typename category_name >
@@ -22678,9 +23600,29 @@ tan() {
 }
 
 	}
+
+namespace constant {
+
+	struct tan {};
+
+	template< typename category_name >
+	struct make<::color::constant::tan, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::tan color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::tan<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
@@ -22700,9 +23642,29 @@ thistle() {
 }
 
 	}
+
+namespace constant {
+
+	struct thistle {};
+
+	template< typename category_name >
+	struct make<::color::constant::thistle, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::thistle color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::thistle<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
@@ -22722,9 +23684,29 @@ tomato() {
 }
 
 	}
+
+namespace constant {
+
+	struct tomato {};
+
+	template< typename category_name >
+	struct make<::color::constant::tomato, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::tomato color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::tomato<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
@@ -22744,9 +23726,29 @@ turquoise() {
 }
 
 	}
+
+namespace constant {
+
+	struct turquoise {};
+
+	template< typename category_name >
+	struct make<::color::constant::turquoise, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::turquoise color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::turquoise<category_type>().container();
 }
 
+	};
+
+}
+
+}
 namespace color {
+
 	namespace make {
 
 		template< typename category_name >
@@ -22766,6 +23768,26 @@ wheat() {
 }
 
 	}
+
+namespace constant {
+
+	struct wheat {};
+
+	template< typename category_name >
+	struct make<::color::constant::wheat, category_name > {
+		typedef category_name category_type;
+		typedef ::color::constant::wheat color_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+inline static void process(container_output_type & m) {
+	m = ::color::make::wheat<category_type>().container();
+}
+
+	};
+
+}
+
 }
 
 namespace color {
