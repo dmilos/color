@@ -31,7 +31,7 @@
 						<dd>
 							<code>
 								template&lt; typename category_name&gt;<br>
-							z::color::_internal::model&lt;category_name&gt; <b>operator +</b>( ::color::_internal::model&lt;category_name&gt; const&amp;left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+							::color::model&lt;category_name&gt; <b>operator +</b>( ::color::model&lt;category_name&gt; const&amp;left, ::color::model&lt;category_name&gt; const&amp;  right );
 					</code>
 					</dd>
 						<dt>Description</dt>
@@ -41,11 +41,9 @@
 						<dt>Example:</dt>
 						<dd>
 						 <code>
-							::color::rgbl&lt;doublel&gt; a;<br>
-							::color::rgbl&lt;doublel&gt; b;<br>
-							::color::rgbl&lt;doublel&gt; c;<br>
-							::color::make::orange( b );<br>
-							::color::make::tirquise( c );<br>
+							::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
+							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+							::color::rgbl&lt;double&gt; c;<br>
 							a = b + c;<br>
 						 </code>
 						</dd>
@@ -62,7 +60,7 @@
 					<dd>
 						<code>
 					template&lt;  typename category_name&gt;<br>
-					::color::_internal::model&lt;category_name&gt; &amp; <b>operator +=</b>( ::color::_internal::model&lt;category_name&gt; &amp; result, ::color::_internal::model&lt;category_name&gt; const&amp; right );
+					::color::model&lt;category_name&gt; &amp; <b>operator +=</b>( ::color::model&lt;category_name&gt; &amp; result, ::color::model&lt;category_name&gt; const&amp; right );
 				</code>
 				</dd>
 					<dt>Description</dt>
@@ -71,13 +69,11 @@
 					<dd>Over burn will not be controlled.<br> Integrity will be respected.</dd>
 					<dt>Example:</dt>
 					<dd>
-					 <code>
-						::color::rgbl&lt;doublel&gt; a;<br>
-						::color::rgbl&lt;doublel&gt; b;<br>
-						::color::make::orange( a );<br>
-						::color::make::tirquise( b );<br>
-						a += b;<br>
-					 </code>	
+						<code>
+							::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
+							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+							a += b;<br>
+						</code>
 					</dd>
 				</dl></dd>
 			</dl><hr width="%20">
@@ -91,7 +87,7 @@
 					<dd>
 					<code>
 					template&lt;  typename category_name&gt;<br>
-					::color::_internal::model&lt;category_name&gt; <b>operator -</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+					::color::model&lt;category_name&gt; <b>operator -</b>( ::color::model&lt;category_name&gt; const&amp; left, ::color::model&lt;category_name&gt; const&amp;  right );
 				</code>
 				</dd>
 					<dt>Description</dt>
@@ -99,16 +95,14 @@
 					<dt>Note</dt>
 					<dd>Over burn will not be controlled.<br> Integrity will be respected.</dd>
 					<dt>Example:</dt>
-					<dd>	
+					<dd>
 						 <code>
-							::color::rgbl&lt;doublel&gt; a;<br>
-							::color::rgbl&lt;doublel&gt; b;<br>
-							::color::rgbl&lt;doublel&gt; c;<br>
-							::color::make::orange( b );<br>
-							::color::make::tirquise( c );<br>
+							::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
+							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+							::color::rgbl&lt;double&gt; c;<br>
 							a = b - c;<br>
 						 </code>
-					</dd>					
+					</dd>
 				</dl></dd>
 			</dl><hr width="%20">
 
@@ -121,7 +115,7 @@
 					<dd>
 						<code>
 					template&lt;  typename category_name&gt;<br>
-					::color::_internal::model&lt;category_name&gt; &amp; <b>operator -=</b>( ::color::_internal::model&lt;category_name&gt; &amp; result, ::color::_internal::model&lt;category_name&gt; const&amp; right );
+					::color::model&lt;category_name&gt; &amp; <b>operator -=</b>( ::color::model&lt;category_name&gt; &amp; result, ::color::model&lt;category_name&gt; const&amp; right );
 				</code>
 				</dd>
 					<dt>Description</dt>
@@ -130,13 +124,11 @@
 					<dd>Over burn will not be controlled.<br> Integrity will be respected.</dd>
 					<dt>Example:</dt>
 					<dd>
-					 <code>
-						::color::rgbl&lt;doublel&gt; a;<br>
-						::color::rgbl&lt;doublel&gt; b;<br>
-						::color::make::orange( a );<br>
-						::color::make::tirquise( b );<br>
+						<code>
+							::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
+							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
 						a -= b;<br>
-					 </code>	
+						</code>
 					</dd>
 				</dl></dd>
 			</dl><hr width="%20">
@@ -150,7 +142,7 @@
 					<dd>
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							::color::_internal::model&lt;category_name&gt; <b>operator *</b>( scalar_name const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp; right );
+							::color::model&lt;category_name&gt; <b>operator *</b>( scalar_name const&amp; left, ::color::model&lt;category_name&gt; const&amp; right );
 						</code>
 				</dd>
 					<dt>Description</dt>
@@ -160,11 +152,10 @@
 					<dt>Example:</dt>
 					<dd>
 					 <code>
-						::color::rgbl&lt;doublel&gt; a;<br>
-						::color::rgbl&lt;doublel&gt; b;<br>
-						::color::make::tirquise( b );<br>
+							::color::rgbl&lt;double&gt; a;<br>
+							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
 						a = 0.1 * b;<br>
-					 </code>	
+					 </code>
 					</dd>
 				</dl></dd>
 			</dl><hr width="%20">
@@ -178,7 +169,7 @@
 					<dd>
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							::color::_internal::model&lt;category_name&gt; <b>operator *</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, scalar_name const &amp; right );
+							::color::model&lt;category_name&gt; <b>operator *</b>( ::color::model&lt;category_name&gt; const&amp; left, scalar_name const &amp; right );
 						</code>
 				</dd>
 					<dt>Description</dt>
@@ -188,11 +179,11 @@
 					<dt>Example:</dt>
 					<dd>
 					 <code>
-						::color::rgbl&lt;doublel&gt; a;<br>
-						::color::rgbl&lt;doublel&gt; b;<br>
-						::color::make::tirquise( b );<br>
+							::color::rgbl&lt;double&gt; a;<br>
+							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+
 						a = b * 0.3;<br>
-					 </code>	
+					 </code>
 					</dd>
 				</dl></dd>
 			</dl><hr width="%20">
@@ -206,7 +197,7 @@
 					<dd>
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							::color::_internal::model&lt;category_name&gt; &amp; <b>operator *=</b>(::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp;  scalar );
+							::color::model&lt;category_name&gt; &amp; <b>operator *=</b>(::color::model&lt;category_name&gt; &amp; result, scalar_name const&amp;  scalar );
 						</code>
 					</dd>
 					<dt>Note</dt>
@@ -215,11 +206,10 @@
 					<dt>Example:</dt>
 					<dd>
 					 <code>
-						::color::rgbl&lt;doublel&gt; a;<br>
-						::color::make::tirquise( a );<br>
+							::color::rgbl&lt;double&gt; a{ :color::constant::turquoise{} };<br>
 						a *= 0.3;<br>
-					 </code>	
-					</dd>					
+					 </code>
+					</dd>
 				</dl></dd>
 			</dl><hr width="%20">
 
@@ -232,7 +222,7 @@
 					<dd>
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							::color::_internal::model&lt;category_name&gt; <b>operator /</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, scalar_name const&amp; right );
+							::color::model&lt;category_name&gt; <b>operator /</b>( ::color::model&lt;category_name&gt; const&amp; left, scalar_name const&amp; right );
 						</code>
 					</dd>
 					<dt>Description</dt><dd>Divide color by scalar. Equivalent with multiplication color by inverse value of scalar.</dd>
@@ -241,10 +231,8 @@
 					<dt>Example:</dt>
 					<dd>
 					 <code>
-						::color::rgbl&lt;doublel&gt; a;<br>
-						::color::rgbl&lt;doublel&gt; b;<br>
-						::color::make::orange( a );<br>
-						::color::make::tirquise( b );<br>
+							::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
+							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
 						a = b / 0.3;<br>
 					 </code>
 					</dd>
@@ -261,7 +249,7 @@
 
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							::color::_internal::model&lt;category_name&gt; &amp; <b>operator /=</b>(::color::_internal::model&lt;category_name&gt; &amp; result, scalar_name const&amp; scalar );
+							::color::model&lt;category_name&gt; &amp; <b>operator /=</b>(::color::model&lt;category_name&gt; &amp; result, scalar_name const&amp; scalar );
 						</code>
 					</dd>
 					<dt>Description</dt><dd>Accumulate version of division by scalar.</dd>
@@ -270,8 +258,7 @@
 					<dt>Example:</dt>
 					<dd>
 					 <code>
-						::color::rgbl&lt;doublel&gt; a;<br>
-						::color::make::orange( a );<br>
+						::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
 						a /= 0.3;<br>
 					 </code>
 					</dd>
@@ -287,7 +274,7 @@
 					<dd>
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							bool  operator ==( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+							bool  operator ==( ::color::model&lt;category_name&gt; const&amp; left, ::color::model&lt;category_name&gt; const&amp;  right );
 						</code>
 					</dd>
 					<dt>Description</dt><dd>Compare two color component by component.</dd>
@@ -311,7 +298,7 @@
 					<dd>
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							bool <b>operator !=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+							bool <b>operator !=</b>( ::color::model&lt;category_name&gt; const&amp; left, ::color::model&lt;category_name&gt; const&amp;  right );
 						</code>
 					</dd>
 					<dt>Description</dt><dd>Compare two color component by component.</dd>
@@ -335,7 +322,7 @@
 					<dd>
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							bool <b>operator &lt;</b> ( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+							bool <b>operator &lt;</b> ( ::color::model&lt;category_name&gt; const&amp; left, ::color::model&lt;category_name&gt; const&amp;  right );
 						</code>
 					</dd>
 					<dt>Description</dt><dd>Compare two color component by component.</dd>
@@ -359,7 +346,7 @@
 					<dd>
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							bool <b>operator &gt;</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp; right );
+							bool <b>operator &gt;</b>( ::color::model&lt;category_name&gt; const&amp; left, ::color::model&lt;category_name&gt; const&amp; right );
 						</code>
 					</dd>
 					<dt>Description</dt><dd>Compare two color component by component.</dd>
@@ -383,7 +370,7 @@
 					<dd>
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							bool <b>operator &lt;=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+							bool <b>operator &lt;=</b>( ::color::model&lt;category_name&gt; const&amp; left, ::color::model&lt;category_name&gt; const&amp;  right );
 						</code>
 					</dd>
 					<dt>Description</dt><dd>Compare two color component by component.</dd>
@@ -407,7 +394,7 @@
 					<dd>
 						<code>
 							template&lt;  typename category_name, typename scalar_name &gt;<br>
-							bool <b>operator &gt;=</b>( ::color::_internal::model&lt;category_name&gt; const&amp; left, ::color::_internal::model&lt;category_name&gt; const&amp;  right );
+							bool <b>operator &gt;=</b>( ::color::model&lt;category_name&gt; const&amp; left, ::color::model&lt;category_name&gt; const&amp;  right );
 						</code>
 					</dd>
 					<dt>Description</dt><dd>Compare two color component by components.</dd>

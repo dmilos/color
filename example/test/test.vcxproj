@@ -416,7 +416,7 @@
     <ClInclude Include="..\..\src\color\generic\type\normal.hpp" />
     <ClInclude Include="..\..\src\color\generic\type\split233.hpp" />
     <ClInclude Include="..\..\src\color\generic\type\split332.hpp" />
-    <ClInclude Include="..\..\src\color\generic\type\split442.hpp" />
+    <ClInclude Include="..\..\src\color\generic\type\split422.hpp" />
     <ClInclude Include="..\..\src\color\generic\type\split556.hpp" />
     <ClInclude Include="..\..\src\color\generic\type\split655.hpp" />
     <ClInclude Include="..\..\src\color\generic\type\splitAAA2.hpp" />

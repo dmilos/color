@@ -16,12 +16,12 @@
 
             <dl>
             	<dt>Generalized form:</dt>
-            	<dd> 
+            	<dd>
 					<code>
 						template&lt; typename category_name &grt; <br>
 					    &nbsp; inline <br>
 					    &nbsp; typename ::color::trait::component&lt; category_name &gt;::return_image_type <br>
-					    &nbsp; blue( ::color::_internal::model&lt; category_name &gt; const&amp; color_parameter ); <br>
+					    &nbsp; blue( ::color::model&lt; category_name &gt; const&amp; color_parameter ); <br>
 					</code>
 
             	</dd>
@@ -31,7 +31,7 @@
 					     template&lt; typename tag_name &gt;<br>
 					     &nbsp;  inline<br>
 					     &nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::<i>SomeModel</i>&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
-					     &nbsp;  blue( ::color::_internal::model&lt; ::color::category::<i>SomeModel</i>&lt; tag_name &gt; &gt; const&amp; color_parameter );
+					     &nbsp;  blue( ::color::model&lt; ::color::category::<i>SomeModel</i>&lt; tag_name &gt; &gt; const&amp; color_parameter );
 					</code>
 					<br>Example:
 					<blockquote>
@@ -39,14 +39,14 @@
 					     template&lt; typename tag_name &gt;<br>
 					     &nbsp;  inline<br>
 					     &nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::hsv&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
-					     &nbsp;  blue( ::color::_internal::model&lt; ::color::category::hsv&lt; tag_name &gt; &gt; const&amp; color_parameter );
+					     &nbsp;  blue( ::color::model&lt; ::color::category::hsv&lt; tag_name &gt; &gt; const&amp; color_parameter );
 					</code>
-					
+
 					</blockquote>
 	           	</dd>
             </dl>
 
-     
+
             </dd>
 			<dt><h3>Function list</h3></dt>
 			<dd>
@@ -70,8 +70,7 @@
 					<dd>TODO</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::hsv &lt; double &gt; h;<br>
-							::color::tirquise( h );<br>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
 							std::cout &lt;&lt; ::coor::get::blue( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">

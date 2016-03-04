@@ -72,7 +72,7 @@ namespace color
 
       template< typename color_name >
        explicit model( color_name const& cn )
-        { // e.g ::color::rgb r( ::color::make::tirquise_t() );
+        { // e.g ::color::rgb r( ::color::make::turquoise_t() );
          ::color::constant::make<color_name,category_name>::process( this->m_container );
         }
 

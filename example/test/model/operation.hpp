@@ -31,7 +31,7 @@ template< typename category_name >
 
    color::operation::convex( u32a, u32b, 0.5, u32c );
 
-   // TODO color::operation::blend( u32b, 0.5, u32c );
+   color::operation::blend( u32b, 0.5, u32c );
    color::operation::blend( u32b, u32b, 0.5, u32c );
 
    // TODO color::operation::blend( u32b, u32a, u32b );

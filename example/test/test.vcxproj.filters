@@ -4119,7 +4119,7 @@
     <ClInclude Include="..\..\src\color\generic\type\split332.hpp">
       <Filter>Source Files\src\generic\type</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\type\split442.hpp">
+    <ClInclude Include="..\..\src\color\generic\type\split422.hpp">
       <Filter>Source Files\src\generic\type</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\generic\type\split556.hpp">

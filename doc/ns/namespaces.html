@@ -91,8 +91,7 @@
 				<br>
 				Code sample:
 				<blockquote> <code>
-					::color::rgb&lt; double &gt; c; <br>
-					::color::make::pink( c ); // in c is pink color
+					::color::rgb&lt; double &gt; c{ ::color::constant::pink{} }; <br>
 				</code></blockquote>
 				For more details see <a href="./make.html">make</a>. <br>
 			</dd>
@@ -115,8 +114,7 @@
 				<br>
 				Code sample:
 				<blockquote> <code>
-					::color::hsv&lt; double &gt; c; <br>
-					::color::make::pink( c );   // in c is now pink color <br>
+					::color::rgb&lt; double &gt; c{ ::color::constant::pink{} }; <br>
 					::color::set::red( c, 0.5 ); // set red to be 0.5<br>
 				</code></blockquote>
 				For more details see <a href="./set.html">set</a>.

@@ -4,16 +4,16 @@
 		<meta charset="UTF-8">
 		<meta name="author" content="Dejan D. M. Milosavljevic">
 		<link rel="icon" href="../../favicon.ico" type="image/ico">
-		<title>Namespace fix</title>
+		<title>Namespace ::color::fix</title>
 	</head>
 	<body>
 		<h1 align="center">Namespace <code>color::fix</code></h1>
 		<dl>
 			<dt><h3>Description</h3></dt>
-			<dd>In some situations color component value might different than what is considered normal.<br>
+			<dd>In some situations color component value might be different than what is considered normal.<br>
 				Functions in this space will fix those inconsistency.
 			</dd>
-			<dt><h3>List</h3></dt>
+			<dt><h3>Function List:</h3></dt>
 			<dd>
 				<dl>
 					<dt>Name</dt>
@@ -22,13 +22,15 @@
 					<dd>
 						<code>
 						template&lt; typename category_name &gt; <br>
-						&nbsp;&nbsp;void integrity( ::color::_internal::model&lt;category_name&gt; &amp; m );
+						&nbsp;&nbsp;void integrity( ::color::model&lt;category_name&gt; &amp; m );
 						</code>
 					</dd>
 					<dt>Description</dt>
 					<dd>If color component or components satisfied some condition that color instance makes invalid.</dd>
-					<dt>Example</dt>
-					<dd>Hue value of <code>color::hsv&lt; double &gt;</code> can be set to be larger than 360 or smaller than 0.</dd>
+					<dt>Example:</dt>
+					<dd>Hue value of <code>color::hsv&lt; double &gt;</code> can be set to be larger than 360 or smaller than 0. <br>
+                          At least one of component, except key, of CMYK model has to be zero.
+					</dd>
 				</dl>
 				<hr width="%20">
 				<dl>
@@ -38,7 +40,7 @@
 					<dd>
 						<code>
 						template&lt; typename category_name &gt; <br>
-						&nbsp;&nbsp;void overburn( ::color::_internal::model&lt;category_name&gt; &amp; m );
+						&nbsp;&nbsp;void overburn( ::color::model&lt;category_name&gt; &amp; m );
 						</code>
 					</dd>
 					<dt>Description</dt>
@@ -54,13 +56,13 @@
 					<dd>
 						<code>
 						template&lt; typename category_name &gt; <br>
-						&nbsp;&nbsp;void unique( ::color::_internal::model&lt;category_name&gt; &amp; m );
+						&nbsp;&nbsp;void unique( ::color::model&lt;category_name&gt; &amp; m );
 						</code>
 					</dd>
 					<dt>Description</dt>
 					<dd>Some models allows several different combinations of component values which essential the same color</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>Saturation component is HSV/HSL is equal to zero. What ever values of the other components the same color is presented. </dd>
 				</dl>
 				<hr width="%20">
 
