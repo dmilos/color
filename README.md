@@ -33,5 +33,7 @@ r = b; //!< Reformat and convert in opposite direction.
 h = b; //!< Reformat and convert from BGR to HSV
 h = y; //!< Reformat and convert from YIQ to HSV
 ```
+Want to see more:
+  - [HTML Documentation ](doc/index.html)
+  - [Wiki page](https://github.com/dmilos/color/wiki)
 
-[Want to see more](doc/index.html)
