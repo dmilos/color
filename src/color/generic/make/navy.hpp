@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct navy /*: public ::color::constant:: */ {};
+      struct navy /*: public ::color::constant::_base */ {};
+      using  navy_t    = ::color::constant::navy;
+      using  navy_type = ::color::constant::navy;
 
       template< typename category_name >
        struct make<::color::constant::navy, category_name >

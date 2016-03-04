@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct aqua /*: public ::color::constant:: */ {};
+      struct aqua /*: public ::color::constant::_base */ {};
+      using  aqua_t    = ::color::constant::aqua;
+      using  aqua_type = ::color::constant::aqua;
 
       template< typename category_name >
        struct make<::color::constant::aqua, category_name >

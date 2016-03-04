@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct teal /*: public ::color::constant:: */ {};
+      struct teal /*: public ::color::constant::_base */ {};
+      using  teal_t    = ::color::constant::teal;
+      using  teal_type = ::color::constant::teal;
 
       template< typename category_name >
        struct make<::color::constant::teal, category_name >

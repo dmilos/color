@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct chocolate /*: public ::color::constant:: */ {};
+      struct chocolate /*: public ::color::constant::_base */ {};
+      using  chocolate_t    = ::color::constant::chocolate;
+      using  chocolate_type = ::color::constant::chocolate;
 
       template< typename category_name >
        struct make<::color::constant::chocolate, category_name >

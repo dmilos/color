@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct aquamarine /*: public ::color::constant:: */ {};
+      struct aquamarine /*: public ::color::constant::_base */ {};
+      using  aquamarine_t    = ::color::constant::aquamarine;
+      using  aquamarine_type = ::color::constant::aquamarine;
 
       template< typename category_name >
        struct make<::color::constant::aquamarine, category_name >

@@ -11,33 +11,32 @@
 
 		<h3>TOC</h3>
 		<ul>
-			<li><h4><a href="TODO"></a>Description</a></h4></li>
-			<li><h4><a href="TODO"></a>Declaration</a></h4></li>
-			<li><h4><a href="TODO"></a>Definition</a></h4></li>
-			<li><h4><a href="TODO"></a>Members</a></h4>
+			<li><h4><a href="#Description">Description</a></h4></li>
+			<li><h4><a href="#Declaration">Declaration</a></h4></li>
+			<li><h4><a href="#Definition">Definition</a></h4></li>
+			<li><h4><a href="#Members">Members</a></h4>
 				<ul>
-					<li><h4><a href="TODO"></a>Typedefs</a></h4></li><dd></dd>
-					<li><h4><a href="TODO"></a>Functions</a></h4></li><dd></dd>
-					<li><h4><a href="TODO"></a>Data</a></h4></li><dd></dd>
+					<li><h4><a href="#Typedefs">Typedefs</a></h4></li>
+					<li><h4><a href="#Functions">Functions</a></h4></li>
+					<li><h4><a href="#Data">Data</a></h4></li>
 				</ul>
-
 			</li>
-			<li><h4><a href="TODO"></a>Examples</a></h4></li>
+			<li><h4><a href="#Examples">Examples</a></h4></li>
 		</ul>
 		<dl>
-			<dt><h3>Description</h3></dt>
+			<dt><h3><a name="Description">Description</a></h3></dt>
 			<dd>All colors are alias of <code>model</code> for some specified <a href="./ns/category.html">category</a>.
 				Every color model/format can be instatiated by using of this class.
 			</dd>
-			<dt><h3>Declaration</h3></dt>
+			<dt><h3><a name="Declaration">Declaration</a></h3></dt>
 			<dd>
-	<code><pre>
-    template&lt; typename category_name &gt;
-     class model;
-</pre></code>
-		</dd>
+				<code>
+    				template&lt; typename category_name &gt;<br>
+     				&nbsp; class model;
+				</code>
+			</dd>
 
-		<dt><h3>Definition( without inplementation )</h3></dt>
+		<dt><h3><a name="Definition">Definition( without inplementation )</a></h3></dt>
 		<dd>
 <pre><code>
     template&lt; typename category_name &gt;
@@ -62,6 +61,9 @@
                  model( );
 
         explicit model( container_input_const_type container );
+
+        templatet&lt; typename color_name t&gt;
+         explicit model( color_name constt&amp; cn );
 
         explicit model( std::initializer_list&lt;component_type&gt; const&amp; ilist );
 
@@ -93,13 +95,13 @@
           container_type m_container;
     };</code></pre>
 			</dd>
-			<dt><h3>Members</h3></dt>
+			<dt><h3><a name="Members">Members</a></h3></dt>
 			<dd>
 				<dl>
-					<dt><h4>typedefs</h4></dt>
+					<dt><h4><a name="Typedefs">Typedefs</a></h4></dt>
 					<dd>
 					<dl>
-						<dt>category_type</dt>
+						<dt><code>category_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
@@ -108,7 +110,7 @@
 								<dd>TODO</dd>
 							</dl>
 						</dd>
-						<dt>component_type</dt>
+						<dt><code>component_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
@@ -117,7 +119,7 @@
 								<dd>TODO</dd>
 							</dl>
 						</dd>
-						<dt>index_input_const_type</dt>
+						<dt><code>index_input_const_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
@@ -126,8 +128,7 @@
 								<dd>TODO</dd>
 							</dl>
 						</dd>
-						<dt>index_type</dt><dd>TODO</dd>
-						<dt>component_input_const_type</dt>
+						<dt><code>index_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
@@ -136,7 +137,7 @@
 								<dd>TODO</dd>
 							</dl>
 						</dd>
-						<dt>component_return_const_type</dt>
+						<dt><code>component_input_const_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
@@ -145,7 +146,7 @@
 								<dd>TODO</dd>
 							</dl>
 						</dd>
-						<dt>container_return_const_type</dt>
+						<dt><code>component_return_const_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
@@ -154,7 +155,16 @@
 								<dd>TODO</dd>
 							</dl>
 						</dd>
-						<dt>container_return_type</dt>
+						<dt><code>container_return_const_type</code></dt>
+						<dd>
+							<dl>
+								<dt>Description</dt>
+								<dd>TODO</dd>
+								<dt>Definition</dt>
+								<dd>TODO</dd>
+							</dl>
+						</dd>
+						<dt><code>container_return_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
@@ -164,7 +174,7 @@
 							</dl>
 						</dd>
 
-						<dt>index_return_image_type</dt>
+						<dt><code>index_return_image_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
@@ -174,7 +184,7 @@
 							</dl>
 						</dd>
 
-						<dt>container_type</dt>
+						<dt><code>container_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
@@ -186,7 +196,7 @@
 							</dl>
 						</dd>
 
-						<dt>set_return_type</dt>
+						<dt><code>set_return_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
@@ -196,25 +206,19 @@
 							</dl>
 						</dd>
 
-						<dt>this_type</dt><dd>
+						<dt><code>this_type</code></dt><dd>
 							Definition:			<code>typedef  model&lt; typename category_name &gt;     this_type;</code> <br>
 							Not recomended to use. Might be removed ins some next iteration.
 						</dd>
 
 					</dl>
-
-
-
-
-
-
 					</dd>
-					<dt><h4>functions</h4></dt><dd>TODO</dd>
-					<dt><h4>data</h4></dt><dd>TODO</dd>
+					<dt><h4><a name="Functions">Functions</a></h4></dt><dd>TODO</dd>
+					<dt><h4><a name="Data">Data</a></h4></dt><dd>TODO</dd>
 				</dl>
 			</dd>
 
-			<dt><h3>Examples</h3></dt>
+			<dt><h3><a name="Examples">Examples</a></h3></dt>
 			<dd>
 				<ul>
 					<li><code>color::model&lt; color::category::rgb_float &gt; r; </code> Equal to: <code>color::rgb&lt;float&gt; r;</code> </li>

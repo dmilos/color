@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct ivory /*: public ::color::constant:: */ {};
+      struct ivory /*: public ::color::constant::_base */ {};
+      using  ivory_t    = ::color::constant::ivory;
+      using  ivory_type = ::color::constant::ivory;
 
       template< typename category_name >
        struct make<::color::constant::ivory, category_name >

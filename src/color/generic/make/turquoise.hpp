@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct turquoise /*: public ::color::constant:: */ {};
+      struct turquoise /*: public ::color::constant::_base */ {};
+      using  turquoise_t    = ::color::constant::turquoise;
+      using  turquoise_type = ::color::constant::turquoise;
 
       template< typename category_name >
        struct make<::color::constant::turquoise, category_name >

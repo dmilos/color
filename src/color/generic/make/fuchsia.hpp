@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct fuchsia /*: public ::color::constant:: */ {};
+      struct fuchsia /*: public ::color::constant::_base */ {};
+      using  fuchsia_t    = ::color::constant::fuchsia;
+      using  fuchsia_type = ::color::constant::fuchsia;
 
       template< typename category_name >
        struct make<::color::constant::fuchsia, category_name >

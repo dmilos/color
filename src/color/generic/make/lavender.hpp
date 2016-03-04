@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct lavender /*: public ::color::constant:: */ {};
+      struct lavender /*: public ::color::constant::_base */ {};
+      using  lavender_t    = ::color::constant::lavender;
+      using  lavender_type = ::color::constant::lavender;
 
       template< typename category_name >
        struct make<::color::constant::lavender, category_name >

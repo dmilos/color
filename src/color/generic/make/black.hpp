@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct black /*: public ::color::constant:: */ {};
+      struct black /*: public ::color::constant::_base */ {};
+      using  black_t    = ::color::constant::black;
+      using  black_type = ::color::constant::black;
 
       template< typename category_name >
        struct make<::color::constant::black, category_name >

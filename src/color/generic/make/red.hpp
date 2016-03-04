@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct red /*: public ::color::constant:: */ {};
+      struct red /*: public ::color::constant::_base */ {};
+      using  red_t    = ::color::constant::red;
+      using  red_type = ::color::constant::red;
 
       template< typename category_name >
        struct make<::color::constant::red, category_name >

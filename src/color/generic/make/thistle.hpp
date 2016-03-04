@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct thistle /*: public ::color::constant:: */ {};
+      struct thistle /*: public ::color::constant::_base */ {};
+      using  thistle_t    = ::color::constant::thistle;
+      using  thistle_type = ::color::constant::thistle;
 
       template< typename category_name >
        struct make<::color::constant::thistle, category_name >

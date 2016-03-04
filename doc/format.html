@@ -22,55 +22,239 @@
 			<dt><h3>List of formats</h3></dt>
 			<dd>
 				<dl>
-					<dt><h4><code>std::uint8_t</code>           </h4></dt>
-					<dd>Each componet is type of <code>std::uint8_t</code>.<br><br>
-						Example:<br>
-							<blockquote><code>color::rgb&lt; <u> std::uint8_t </u> &gt; r;</code></blockquote>
+					<dt><h4><code>std::uint8_t</code> </h4></dt>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint8_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::array&lt; std::uint8_t, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First component occupy position with index 0, etc. .</dd>
+							<dt>Note</dt>
+							<dd><code>color::rgb&lt; <u> std::uint8_t </u> &gt; r;</code></dd>
+						</dl>					
 					</dd>
-					<dt><h4><code><code>std::uint16_t</code></code>          </h4></dt>			
-					<dd>Each componet is type of <code>std::uint16_t</code>.<br><br>
-						Example:<br>
-							<blockquote><code>color::rgb&lt; <u> std::uint16_t </u> &gt; r;</code></blockquote>
+
+					<dt><h4><code><code>std::uint16_t</code></code>          </h4></dt>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint16_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::array&lt; std::uint16_t, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First component occupy position with index 0, etc. .</dd>
+							<dt>Note</dt>
+							<dd><code>color::rgb&lt; <u> std::uint16_t </u> &gt; r;</code></dd>
+						</dl>
 					</dd>
+
 					<dt><h4><code><code>std::uint32_t</code></code>          </h4></dt>
-					<dd>Each componet is type of <code>std::uint32_t</code>.<br><br>
-						Example:<br>
-							<blockquote><code>color::rgb&lt; <u> std::uint32_t </u> &gt; r;</code></blockquote>
-
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint32_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::array&lt; std::uint32_t, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First component occupy position with index 0, etc. .</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> std::uint32_t </u> &gt; r;</code></dd>
+						</dl>
 					</dd>
+
 					<dt><h4><code>std::uint64_t</code>          </h4></dt>			
-					<dd>Each componet is type of std::uint64_t.<br><br>
-						Example:<br>
-							<blockquote><code>color::rgb&lt; <u> std::uint64_t </u> &gt; r;</code></blockquote>
-
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint64_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::array&lt; std::uint64_t, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First component occupy position with index 0, etc. .</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> std::uint64_t </u> &gt; r;</code></dd>
+						</dl>
 					</dd>
-					<dt><h4><code>float</code>                  </h4></dt>			
-					<dd>Each componet is type of float.<br><br>
-						Example:<br>
-							<blockquote><code>color::rgb&lt; <u> float </u> &gt; r;</code></blockquote>
 
+					<dt><h4><code>float</code>                  </h4></dt>			
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>float</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::array&lt; float, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First component occupy position with index 0, etc. .</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> float </u> &gt; r;</code></dd>
+						</dl>
 					</dd>
 
 					<dt><h4><code>double</code>                 </h4></dt>			
-					<dd>Each componet is type of double.<br><br>
-						Example:<br>
-							<blockquote><code>color::rgb&lt; <u> double </u> &gt; r;</code></blockquote>
-
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>double</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::array&lt; double, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First component occupy position with index 0, etc. .</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> double </u> &gt; r;</code></dd>
+						</dl>
 					</dd>
-					<dt><h4><code>long double</code>            </h4></dt>			<dd>Each componet is type of long double.</dd>
-					<dt><h4><code>color::type::split233_t</code></h4>			<dd>Each componet is type of <code>std::uint8_t</code> and everything is pack on one singe <code>std::uint8_t</code>. First  2 insignificant bits is used for first component, next  3 for second and last 3 for third component.</dd>
-					<dt><h4><code>color::type::split332_t</code></h4>			<dd>Each componet is type of <code>std::uint8_t</code> and everything is pack on one singe <code>std::uint8_t</code>. First  3 insignificant bits is used for first component, next  3 for second and last 2 for third component.</dd>
-					<dt><h4><code>color::type::split442_t</code></h4>			<dd>Each componet is type of <code>std::uint8_t</code> and everything is pack on one singe <code>std::uint8_t</code>. First  4 insignificant bits is used for first component, next  4 for second and last 2 for third component.</dd>
-					<dt><h4><code>color::type::split556_t</code></h4>			<dd>Each componet is type of <code>std::uint8_t</code> and everything is pack on one singe <code>std::uint16_t</code>. First  5 insignificant bits is used for first component, next  5 for second and last 6 for third component.</dd>
-					<dt><h4><code>color::type::split565_t</code></h4>			<dd>Each componet is type of <code>std::uint8_t</code> and everything is pack on one singe <code>std::uint16_t</code>. First  5 insignificant bits is used for first component, next  6 for second and last 5 for third component.</dd>
-					<dt><h4><code>color::type::split655_t</code></h4>			<dd>Each componet is type of <code>std::uint8_t</code> and everything is pack on one singe <code>std::uint16_t</code>. First  6 insignificant bits is used for first component, next  5 for second and last 5 for third component.</dd>
-					<dt><h4><code>color::type::splitAAA2_t</code></h4>			<dd>Each componet is type of <code>std::uint16_t</code> and everything is pack on one singe <code>std::uint32_t</code>. First 10 insignificant bits is used for first component, next 10 for second and 10 for third component and 2 for fourth.
 
+					<dt><h4><code>long double</code>                 </h4></dt>			
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>long double</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::array&lt; long double, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First component occupy position with index 0, etc. .</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> long double </u> &gt; r;</code></dd>
+						</dl>
 					</dd>
+
+					<dt><h4><code>color::type::split233_t</code></h4>	
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint8_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::uint8_t</code>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First  2 insignificant bits is used for first component, next  3 for second and last 3 for third component.</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> color::type::split233_t </u> &gt; r;</code></dd>
+							<dt>Note</dt>
+							<dd>Size of container is fixed and equal to 3.</dd>
+						</dl>
+					</dd>
+
+					<dt><h4><code>color::type::split332_t</code></h4>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint8_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::uint8_t</code>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First  3 insignificant bits is used for first component, next  3 for second and last 2 for third component.</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> color::type::split332_t </u> &gt; r;</code></dd>
+							<dt>Note</dt>
+							<dd>Size of container is fixed and equal to 3.</dd>
+						</dl>
+					</dd>
+
+					<dt><h4><code>color::type::split442_t</code></h4>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint8_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::uint8_t</code>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First  4 insignificant bits is used for first component, next  4 for second and last 2 for third component.</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> color::type::split442_t </u> &gt; r;</code></dd>
+							<dt>Note</dt>
+							<dd>Size of container is fixed and equal to 3.</dd>
+						</dl>
+					</dd>
+
+					<dt><h4><code>color::type::split556_t</code></h4>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint8_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::uint16_t</code>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First  5 insignificant bits is used for first component, next  5 for second and last 6 for third component.</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> color::type::split556_t </u> &gt; r;</code></dd>
+							<dt>Note</dt>
+							<dd>Size of container is fixed and equal to 3.</dd>
+						</dl>
+					</dd>
+
+					<dt><h4><code>color::type::split565_t</code></h4>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint8_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::uint16_t</code>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First  5 insignificant bits is used for first component, next  6 for second and last 5 for third component.</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> color::type::split565_t </u> &gt; r;</code></dd>
+							<dt>Note</dt>
+							<dd>Size of container is fixed and equal to 3.</dd>
+						</dl>
+					</dd>
+
+					<dt><h4><code>color::type::split655_t</code></h4>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint8_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::uint16_t</code>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First  6 insignificant bits is used for first component, next  5 for second and last 5 for third component.</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> color::type::split655_t </u> &gt; r;</code></dd>
+							<dt>Note</dt>
+							<dd>Size of container is fixed and equal to 3.</dd>
+						</dl>
+					</dd>
+
+					<dt><h4><code>color::type::split5551_t</code></h4>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint8_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::uint16_t</code>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First 5 insignificant bits is used for first component, next 5 for second and 5 for third component and 1 for fourth..</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> color::type::split5551_t </u> &gt; r;</code></dd>
+							<dt>Note</dt>
+							<dd>Size of container is fixed and equal to 4.</dd>
+						</dl>
+					</dd>
+
+					<dt><h4><code>color::type::splitAAA2_t</code></h4>			
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint16_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::uint32_t</code>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First 10 insignificant bits is used for first component, next 10 for second and 10 for third component and 2 for fourth .</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> color::type::splitAAA2_t </u> &gt; r;</code></dd>
+							<dt>Note</dt>
+							<dd>Size of container is fixed and equal to 4.</dd>
+						</dl>
+					</dd>
+
 				</dl>
 			</dd>
 		</dl>
 	<hr>
+	<!-- <table border="1" cellpadding="0" cellspacing="0"><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr></table> -->
 	</body>
 </html>
+
+
 

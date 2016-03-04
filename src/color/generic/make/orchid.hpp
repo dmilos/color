@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct orchid /*: public ::color::constant:: */ {};
+      struct orchid /*: public ::color::constant::_base */ {};
+      using  orchid_t    = ::color::constant::orchid;
+      using  orchid_type = ::color::constant::orchid;
 
       template< typename category_name >
        struct make<::color::constant::orchid, category_name >

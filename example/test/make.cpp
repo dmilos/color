@@ -55,7 +55,9 @@ void print_generic_header( std::string const& name )
   ss << "    namespace constant"                                                             << std::endl;
   ss << "     {"                                                                             << std::endl;
   ss << ""                                                                                   << std::endl;
-  ss << "      struct " << name << " /*: public ::color::constant:: */ {};"                  << std::endl;
+  ss << "      struct " << name << " /*: public ::color::constant::_base */ {};"             << std::endl;
+  ss << "      using  " << name << "_t    = ::color::constant::" << name << ";"              << std::endl;
+  ss << "      using  " << name << "_type = ::color::constant::" << name << ";"              << std::endl;
   ss << ""                                                                                   << std::endl;
   ss << "      template< typename category_name >"                                           << std::endl;
   ss << "       struct make<::color::constant::" << name << ", category_name >"              << std::endl;

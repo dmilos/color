@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct azure /*: public ::color::constant:: */ {};
+      struct azure /*: public ::color::constant::_base */ {};
+      using  azure_t    = ::color::constant::azure;
+      using  azure_type = ::color::constant::azure;
 
       template< typename category_name >
        struct make<::color::constant::azure, category_name >

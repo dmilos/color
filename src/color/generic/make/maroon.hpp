@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct maroon /*: public ::color::constant:: */ {};
+      struct maroon /*: public ::color::constant::_base */ {};
+      using  maroon_t    = ::color::constant::maroon;
+      using  maroon_type = ::color::constant::maroon;
 
       template< typename category_name >
        struct make<::color::constant::maroon, category_name >

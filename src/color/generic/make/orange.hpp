@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct orange /*: public ::color::constant:: */ {};
+      struct orange /*: public ::color::constant::_base */ {};
+      using  orange_t    = ::color::constant::orange;
+      using  orange_type = ::color::constant::orange;
 
       template< typename category_name >
        struct make<::color::constant::orange, category_name >

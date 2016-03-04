@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct gold /*: public ::color::constant:: */ {};
+      struct gold /*: public ::color::constant::_base */ {};
+      using  gold_t    = ::color::constant::gold;
+      using  gold_type = ::color::constant::gold;
 
       template< typename category_name >
        struct make<::color::constant::gold, category_name >

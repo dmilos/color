@@ -7,6 +7,7 @@
   {
    namespace constant
     {
+
      template< typename color_name, typename category_name >
       struct make
        {
@@ -19,7 +20,6 @@
          {
           // do nothing;
          }
-
        };
 
     }

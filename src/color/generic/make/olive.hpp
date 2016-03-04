@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct olive /*: public ::color::constant:: */ {};
+      struct olive /*: public ::color::constant::_base */ {};
+      using  olive_t    = ::color::constant::olive;
+      using  olive_type = ::color::constant::olive;
 
       template< typename category_name >
        struct make<::color::constant::olive, category_name >

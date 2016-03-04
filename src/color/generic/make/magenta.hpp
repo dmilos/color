@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct magenta /*: public ::color::constant:: */ {};
+      struct magenta /*: public ::color::constant::_base */ {};
+      using  magenta_t    = ::color::constant::magenta;
+      using  magenta_type = ::color::constant::magenta;
 
       template< typename category_name >
        struct make<::color::constant::magenta, category_name >

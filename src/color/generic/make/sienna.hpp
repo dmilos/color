@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct sienna /*: public ::color::constant:: */ {};
+      struct sienna /*: public ::color::constant::_base */ {};
+      using  sienna_t    = ::color::constant::sienna;
+      using  sienna_type = ::color::constant::sienna;
 
       template< typename category_name >
        struct make<::color::constant::sienna, category_name >

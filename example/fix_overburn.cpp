@@ -19,12 +19,12 @@ void fix_rgb()
   // Do some initialization
   color::make::red( r );
 
-  // First check has to be OK
+  // First check has to be false i.e ther is no overburn
   std::cout << color::check::overburn( r ) << std::endl;
 
   r.set<0>( 20.0 );
 
-  // This one has to fail
+  // This one has to return true, i.e there is overburn
   std::cout << color::check::overburn( r ) << std::endl;
 
   // Fix

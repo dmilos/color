@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct silver /*: public ::color::constant:: */ {};
+      struct silver /*: public ::color::constant::_base */ {};
+      using  silver_t    = ::color::constant::silver;
+      using  silver_type = ::color::constant::silver;
 
       template< typename category_name >
        struct make<::color::constant::silver, category_name >

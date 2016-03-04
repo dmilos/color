@@ -24,18 +24,18 @@ namespace color
 
           typedef typename index_trait_type::instance_type          index_type;
 
-          static index_type process( model_type const& m )
+          static bool process( model_type const& m )
            {
             for( index_type index = 0; index < container_trait_type::size(); index ++ )
              {
               if( m.get( index ) <  bound_type::minimum( index ) )
                {
-                return index;
+                return true;
                 continue;
                }
               if(  bound_type::maximum( index ) < m.get( index ) )
                {
-                return index;
+                return true;
                 continue;
                }
              }
@@ -47,7 +47,7 @@ namespace color
 
     template< typename category_name >
      inline
-     typename ::color::trait::index<category_name>::instance_type
+     bool
      overburn( ::color::model<category_name> const& m )
       {
        return  ::color::check::_internal::overburn<category_name>::process( m );

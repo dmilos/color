@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct bisque /*: public ::color::constant:: */ {};
+      struct bisque /*: public ::color::constant::_base */ {};
+      using  bisque_t    = ::color::constant::bisque;
+      using  bisque_type = ::color::constant::bisque;
 
       template< typename category_name >
        struct make<::color::constant::bisque, category_name >

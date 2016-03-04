@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct lime /*: public ::color::constant:: */ {};
+      struct lime /*: public ::color::constant::_base */ {};
+      using  lime_t    = ::color::constant::lime;
+      using  lime_type = ::color::constant::lime;
 
       template< typename category_name >
        struct make<::color::constant::lime, category_name >

@@ -15,27 +15,35 @@
 			<dd> All functions has the same signature and they return akin values for akin type for given model.<br><br>
 
             <dl>
-            	<dt>Generalized form</dt>
+            	<dt>Generalized form:</dt>
             	<dd> 
-<pre>
-template< typename category_name >
-      inline
-      typename ::color::trait::component< category_name >::return_image_type
-      blue( ::color::_internal::model< category_name > const& color_parameter );
-</pre>
+					<code>
+						template&lt; typename category_name &grt; <br>
+					    &nbsp; inline <br>
+					    &nbsp; typename ::color::trait::component&lt; category_name &gt;::return_image_type <br>
+					    &nbsp; blue( ::color::_internal::model&lt; category_name &gt; const&amp; color_parameter ); <br>
+					</code>
 
             	</dd>
-            	<dt>Specialized</dt>
+            	<dt>Specialized:</dt>
             	<dd>
-<pre>
-     template< typename tag_name >
-      inline
-      typename ::color::trait::component< typename ::color::akin::rgb<::color::category::<i>SomeModel</i>< tag_name > >::akin_type >::return_type
-      blue( ::color::_internal::model< ::color::category::<i>SomeModel</i>< tag_name > > const& color_parameter );
-</pre>
-            		
-
-            	</dd>
+					<code>
+					     template&lt; typename tag_name &gt;<br>
+					     &nbsp;  inline<br>
+					     &nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::<i>SomeModel</i>&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
+					     &nbsp;  blue( ::color::_internal::model&lt; ::color::category::<i>SomeModel</i>&lt; tag_name &gt; &gt; const&amp; color_parameter );
+					</code>
+					<br>Example:
+					<blockquote>
+					<code>
+					     template&lt; typename tag_name &gt;<br>
+					     &nbsp;  inline<br>
+					     &nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::hsv&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
+					     &nbsp;  blue( ::color::_internal::model&lt; ::color::category::hsv&lt; tag_name &gt; &gt; const&amp; color_parameter );
+					</code>
+					
+					</blockquote>
+	           	</dd>
             </dl>
 
      

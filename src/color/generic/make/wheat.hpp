@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct wheat /*: public ::color::constant:: */ {};
+      struct wheat /*: public ::color::constant::_base */ {};
+      using  wheat_t    = ::color::constant::wheat;
+      using  wheat_type = ::color::constant::wheat;
 
       template< typename category_name >
        struct make<::color::constant::wheat, category_name >

@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct indigo /*: public ::color::constant:: */ {};
+      struct indigo /*: public ::color::constant::_base */ {};
+      using  indigo_t    = ::color::constant::indigo;
+      using  indigo_type = ::color::constant::indigo;
 
       template< typename category_name >
        struct make<::color::constant::indigo, category_name >

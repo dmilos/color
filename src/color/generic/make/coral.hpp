@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct coral /*: public ::color::constant:: */ {};
+      struct coral /*: public ::color::constant::_base */ {};
+      using  coral_t    = ::color::constant::coral;
+      using  coral_type = ::color::constant::coral;
 
       template< typename category_name >
        struct make<::color::constant::coral, category_name >

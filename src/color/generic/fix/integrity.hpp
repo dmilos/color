@@ -8,6 +8,7 @@ namespace color
  {
   namespace fix
    {
+
     namespace _internal
      {
 
@@ -29,6 +30,7 @@ namespace color
             //Model specific.
            }
         };
+
      }
 
 

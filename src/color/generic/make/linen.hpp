@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct linen /*: public ::color::constant:: */ {};
+      struct linen /*: public ::color::constant::_base */ {};
+      using  linen_t    = ::color::constant::linen;
+      using  linen_type = ::color::constant::linen;
 
       template< typename category_name >
        struct make<::color::constant::linen, category_name >

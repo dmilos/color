@@ -45,7 +45,9 @@
     namespace constant
      {
 
-      struct gray50 /*: public ::color::constant:: */ {};
+      struct gray50 /*: public ::color::constant::_base */ {};
+      using  gray50_t    = ::color::constant::gray50;
+      using  gray50_type = ::color::constant::gray50;
 
       template< typename category_name >
        struct make<::color::constant::gray50, category_name >

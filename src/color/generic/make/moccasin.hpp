@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct moccasin /*: public ::color::constant:: */ {};
+      struct moccasin /*: public ::color::constant::_base */ {};
+      using  moccasin_t    = ::color::constant::moccasin;
+      using  moccasin_type = ::color::constant::moccasin;
 
       template< typename category_name >
        struct make<::color::constant::moccasin, category_name >

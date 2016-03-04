@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct peru /*: public ::color::constant:: */ {};
+      struct peru /*: public ::color::constant::_base */ {};
+      using  peru_t    = ::color::constant::peru;
+      using  peru_type = ::color::constant::peru;
 
       template< typename category_name >
        struct make<::color::constant::peru, category_name >

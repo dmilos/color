@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct tan /*: public ::color::constant:: */ {};
+      struct tan /*: public ::color::constant::_base */ {};
+      using  tan_t    = ::color::constant::tan;
+      using  tan_type = ::color::constant::tan;
 
       template< typename category_name >
        struct make<::color::constant::tan, category_name >

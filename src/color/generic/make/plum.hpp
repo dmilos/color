@@ -40,7 +40,9 @@
     namespace constant
      {
 
-      struct plum /*: public ::color::constant:: */ {};
+      struct plum /*: public ::color::constant::_base */ {};
+      using  plum_t    = ::color::constant::plum;
+      using  plum_type = ::color::constant::plum;
 
       template< typename category_name >
        struct make<::color::constant::plum, category_name >
