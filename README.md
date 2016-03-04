@@ -34,4 +34,6 @@ h = b; //!< Reformat and convert from BGR to HSV
 h = y; //!< Reformat and convert from YIQ to HSV
 ```
 
-[Want to see more](doc/index.html)
+[HTML Documentation ](doc/index.html)
+[Wiki page](https://github.com/dmilos/color/wiki)
+
