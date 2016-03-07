@@ -12,8 +12,45 @@
 			<dt><h3>Description</h3></dt>
 			<dd>Set color property. To each color we can set some unique property</dd>
 			<dt><h3>TODO</h3></dt>
-			<dd> All functions has the same signature and their return akin values for akin type for given model.
-			<dd>
+			<dd> All functions has the same signature and their accept akin values for akin type for given model.
+
+				<dl>
+					<dt>Generalized form:</dt>
+					<dd>
+						<code>
+							template&lt; typename &lt; category_name &gt; <br>
+							&nbsp;inline void blue <br>
+							&nbsp;&nbsp;(  <br>
+							&nbsp;&nbsp;          ::color::model&lt; category_name >                                   & color_parameter,  <br>
+							&nbsp;&nbsp; typename ::color::model&lt; category_name >::component_input_const_type         component_parameter <br>
+							&nbsp;&nbsp;);
+						</code>
+
+				</dd>
+				<dt>Specialized:</dt>
+				<dd >
+					<code style="white-space: nowrap">
+						template&lt; typename tag_name ><br>
+						&nbsp;inline void blue<br>
+						&nbsp;&nbsp;(<br>
+						&nbsp;&nbsp;			::color::model&lt; ::color::category:::<i>SomeModel</i>< tag_name &gt; &gt;                                   & color_parameter<br>
+						&nbsp;&nbsp;,typename ::color::trait::component&lt; typename ::color::akin::rgb< ::color::category:::<i>SomeModel</i>< tag_name &gt; &gt;::akin_type >::input_const_type         component_parameter <br>
+						&nbsp;&nbsp;)
+					</code>
+				</dd>
+				<dt>Example:</dt>
+				<dd>
+					<code style="white-space: nowrap">
+						template&lt; typename tag_name ><br>
+						&nbsp;inline void blue<br>
+						&nbsp;&nbsp;(<br>
+						&nbsp;&nbsp;			::color::model&lt; ::color::category:::hsl&lt; tag_name &gt; &gt;                                   & color_parameter<br>
+						&nbsp;&nbsp;,typename ::color::trait::component&lt; typename ::color::akin::rgb&lt; ::color::category:::hsl&lt; tag_name &gt; &gt;::akin_type >::input_const_type         component_parameter <br>
+						&nbsp;&nbsp;)
+					</code>
+					</dd>
+				</dl>
+<dd>
 			<dt><h3>Function list</h3></dt>
 			<dd>
 				<dl>

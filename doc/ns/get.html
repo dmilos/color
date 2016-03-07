@@ -14,40 +14,40 @@
 			<dt><h3>TODO</h3></dt>
 			<dd> All functions has the same signature and they return akin values for akin type for given model.<br><br>
 
-            <dl>
-            	<dt>Generalized form:</dt>
-            	<dd>
-					<code>
-						template&lt; typename category_name &grt; <br>
+				<dl>
+					<dt>Generalized form:</dt>
+					<dd>
+						<code>
+						template&lt; typename &lt; category_name &gt; <br>
 					    &nbsp; inline <br>
 					    &nbsp; typename ::color::trait::component&lt; category_name &gt;::return_image_type <br>
 					    &nbsp; blue( ::color::model&lt; category_name &gt; const&amp; color_parameter ); <br>
 					</code>
 
-            	</dd>
-            	<dt>Specialized:</dt>
-            	<dd>
-					<code>
-					     template&lt; typename tag_name &gt;<br>
+				</dd>
+				<dt>Specialized:</dt>
+				<dd>
+					<code style="white-space: nowrap">
+					     template&lt; typename &lt; tag_name &gt;<br>
 					     &nbsp;  inline<br>
 					     &nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::<i>SomeModel</i>&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
 					     &nbsp;  blue( ::color::model&lt; ::color::category::<i>SomeModel</i>&lt; tag_name &gt; &gt; const&amp; color_parameter );
 					</code>
-					<br>Example:
-					<blockquote>
-					<code>
-					     template&lt; typename tag_name &gt;<br>
+				</dd>
+				<dt>Example:</dt>
+				<dd>
+					<code style="white-space: nowrap">
+					     template&lt; typename &lt; tag_name &gt;<br>
 					     &nbsp;  inline<br>
 					     &nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::hsv&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
 					     &nbsp;  blue( ::color::model&lt; ::color::category::hsv&lt; tag_name &gt; &gt; const&amp; color_parameter );
 					</code>
 
-					</blockquote>
-	           	</dd>
-            </dl>
+					</dd>
+				</dl>
 
 
-            </dd>
+			</dd>
 			<dt><h3>Function list</h3></dt>
 			<dd>
 				<dl>

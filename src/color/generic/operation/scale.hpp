@@ -54,7 +54,7 @@
       void scale
        (
          ::color::model<category_name>      & result
-        ,scalar_name                            const& scalar
+        ,scalar_name                   const& scalar
        )
        {
         ::color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar );
@@ -64,7 +64,7 @@
       void scale
        (
          ::color::model<category_name>      & result
-        ,scalar_name                            const& scalar
+        ,scalar_name                   const& scalar
         ,::color::model<category_name> const& right
        )
        {

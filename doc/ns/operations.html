@@ -10,9 +10,7 @@
 		<h1 align="center">Namespace <code>color::operation</code> </h1>
 		<dl>
 			<dt><h3>Description</h3></dt>
-			<dd>TODO</dd>
-			<dt><h3>Note</h3></dt>
-			<dd>TODO</dd>
+			<dd>Contain miscellaneous function for color processing an manipulation.</dd>
 			<dt><h3>Function list</h3></dt>
 			<dd>
 
@@ -22,9 +20,18 @@
 					<dt>Declaration</dt>
 					<dd></dd>
 					<dt>Description</dt>
-					<dd></dd>
+					<dd>Calculate onvex combination of given color.<br>
+					For color a and b, and scalar 0.3 convex combination is result = (1-0.3)a + 0.3 * b;
+
+					</dd>
 					<dt>Example</dt>
-					<dd></dd>
+					<dd>
+						TODO
+					</dd>
+					<dt>Link</dt>
+					<dd> <a href="https://en.wikipedia.org/wiki/Convex_combination"> Wikipedia Convex Combination </a> </dd>
+
+
 				</dl><hr width="%20">
 
 				<dl>
@@ -40,7 +47,7 @@
 						</code>
 					</dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Calculate invert color for given.</dd>
 					<dt>Example</dt>
 					<dd>TODO</dd>
 				</dl><hr width="%20">
@@ -55,23 +62,61 @@
 							&nbsp;&nbsp;::color::model&lt;category_name&gt; mix( ::color::model&lt;category_name&gt; const&amp; lower, ::color::model&lt;category_name&gt; const&amp; upper ); <br>
 							template&lt; typename category_name, typename scalar_name = double &gt; <br>
 							&nbsp;&nbsp;::color::model&lt;category_name&gt; mix( ::color::model&lt;category_name&gt; const&amp; lower, scalar_name  const&amp; alpha, ::color::model&lt;category_name&gt; const&amp; upper ); <br>
-						<code>
+						</code>
 					</dd>
 					<dt>Description</dt>
-					<dd></dd>
+					<dd>Blend two color in to new one by respect of alpha channel. Same as blend but return result instead to accept as first parameter.</dd>
 					<dt>Example</dt>
-					<dd></dd>
+					<dd>TODO</dd>
+					<dt>Link</dt>
+					<dd><a href="https://en.wikipedia.org/wiki/Alpha_compositing"> Wikipedia Alpha compositing </a> </dd>
 				</dl><hr width="%20">
 
 				<dl>
 					<dt>Name</dt>
 					<dd><i>blend</i></dd>
 					<dt>Declaration</dt>
-					<dd></dd>
+					<dd>
+<code>
+     template< typename category_name >                           <br>
+     &nbsp;void blend                                             <br>
+     &nbsp;&nbsp;(                                                <br>
+     &nbsp;&nbsp;  ::color::model<category_name>      &amp; result    <br>
+     &nbsp;&nbsp; ,::color::model<category_name> const&amp; upper     <br>
+     &nbsp;&nbsp;);                                               <br>
+                                                                  <br>
+     template< typename category_name >                           <br>
+     &nbsp;void blend                                             <br>
+     &nbsp;&nbsp;(                                                <br>
+     &nbsp;&nbsp;  ::color::model<category_name>      &amp; result    <br>
+     &nbsp;&nbsp; ,::color::model<category_name> const&amp; lower     <br>
+     &nbsp;&nbsp; ,::color::model<category_name> const&amp; upper     <br>
+     &nbsp;&nbsp;);                                               <br>
+
+     template< typename category_name, typename scalar_name = double >  <br>
+     &nbsp;void blend                                                        <br>
+     &nbsp;&nbsp;(                                                                <br>
+     &nbsp;&nbsp;  ::color::model<category_name>      &amp; result                    <br>
+     &nbsp;&nbsp; ,scalar_name                   const&amp; alpha                     <br>
+     &nbsp;&nbsp; ,::color::model<category_name> const&amp; upper                     <br>
+     &nbsp;&nbsp;);                                                               <br>
+
+     template< typename category_name, typename scalar_name = double >  <br>
+     &nbsp;void blend                                                        <br>
+     &nbsp;&nbsp;(                                                                <br>
+     &nbsp;&nbsp;  ::color::model<category_name>      &amp; result                    <br>
+     &nbsp;&nbsp; ,::color::model<category_name> const&amp; lower                     <br>
+     &nbsp;&nbsp; ,scalar_name                   const&amp; alpha                     <br>
+     &nbsp;&nbsp; ,::color::model<category_name> const&amp; upper                     <br>
+     &nbsp;&nbsp;);                                                               <br>
+</code>
+					</dd>
 					<dt>Description</dt>
-					<dd></dd>
+					<dd>Blend two color in to new one by respect of alpha channel. Same as mix but accep result as first paramater</dd>
 					<dt>Example</dt>
-					<dd></dd>
+					<dd>TODO</dd>
+					<dt>Link</dt>
+					<dd><a href="https://en.wikipedia.org/wiki/Alpha_compositing"> Wikipedia Alpha compositing </a> </dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -89,18 +134,36 @@
 					<dt>Description</dt>
 					<dd>Perform addition like they are vectors.</dd>
 					<dt>Example</dt>
-					<dd></dd>
+					<dd>TODO</dd>
 				</dl><hr width="%20">
 
 				<dl>
 					<dt>Name</dt>
 					<dd><i>scale</i></dd>
 					<dt>Declaration</dt>
-					<dd></dd>
+					<dd>
+					<code>
+						&nbsp;template< typename category_name, typename scalar_name >           <br>
+						&nbsp;&nbsp;void scale                                                   <br>
+						&nbsp;&nbsp;&nbsp;(                                                      <br>
+						&nbsp;&nbsp;&nbsp;  ::color::model<category_name>      &amp; result          <br>
+						&nbsp;&nbsp;&nbsp; , scalar_name                  const&amp; scalar          <br>
+						&nbsp;&nbsp;&nbsp;);                                                     <br>
+						&nbsp;                                                                   <br>
+						&nbsp;template< typename category_name, typename scalar_name >           <br>
+						&nbsp;&nbsp;void scale                                                   <br>
+						&nbsp;&nbsp;&nbsp;(                                                      <br>
+						&nbsp;&nbsp;&nbsp;  ::color::model<category_name>      &amp;result          <br>
+						&nbsp;&nbsp;&nbsp; ,scalar_name                   const&amp; scalar <br>
+						&nbsp;&nbsp;&nbsp; ,::color::model<category_name> const&amp; right           <br>
+						&nbsp;&nbsp;&nbsp;);
+					</code>
+
+					</dd>
 					<dt>Description</dt>
 					<dd>Scale component by given factor if not stated differently.</dd>
 					<dt>Example</dt>
-					<dd></dd>
+					<dd>TODO</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -118,7 +181,7 @@
 					<dt>Description</dt>
 					<dd>Perform subtraction like they are vectors.</dd>
 					<dt>Example</dt>
-					<dd></dd>
+					<dd>TODO</dd>
 				</dl><hr width="%20">
 
 			</dd>

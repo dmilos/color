@@ -22,6 +22,23 @@
 			<dt><h3>List of formats</h3></dt>
 			<dd>
 				<dl>
+
+					<dt><h4><code>bool</code> </h4></dt>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>bool</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::array&lt; bool, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First component occupy position with index 0, etc. .</dd>
+							<dt>Note</dt>
+							<dd>Not fully implemented</dd>
+							<dt>Example</dt>
+							<dd><code>color::gray&lt; <u> std::uint8_t </u> &gt; r;</code></dd>
+						</dl>
+					</dd>
+
 					<dt><h4><code>std::uint8_t</code> </h4></dt>
 					<dd>
 						<dl>
@@ -31,9 +48,9 @@
 							<dd>Type is: <code>std::array&lt; std::uint8_t, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
 							<dt>Memory Order</dt>
 							<dd>First component occupy position with index 0, etc. .</dd>
-							<dt>Note</dt>
+							<dt>Example</dt>
 							<dd><code>color::rgb&lt; <u> std::uint8_t </u> &gt; r;</code></dd>
-						</dl>					
+						</dl>
 					</dd>
 
 					<dt><h4><code><code>std::uint16_t</code></code>          </h4></dt>
@@ -45,7 +62,7 @@
 							<dd>Type is: <code>std::array&lt; std::uint16_t, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
 							<dt>Memory Order</dt>
 							<dd>First component occupy position with index 0, etc. .</dd>
-							<dt>Note</dt>
+							<dt>Example</dt>
 							<dd><code>color::rgb&lt; <u> std::uint16_t </u> &gt; r;</code></dd>
 						</dl>
 					</dd>
@@ -64,7 +81,7 @@
 						</dl>
 					</dd>
 
-					<dt><h4><code>std::uint64_t</code>          </h4></dt>			
+					<dt><h4><code>std::uint64_t</code>          </h4></dt>
 					<dd>
 						<dl>
 							<dt>Component</dt>
@@ -78,7 +95,7 @@
 						</dl>
 					</dd>
 
-					<dt><h4><code>float</code>                  </h4></dt>			
+					<dt><h4><code>float</code>                  </h4></dt>
 					<dd>
 						<dl>
 							<dt>Component</dt>
@@ -92,7 +109,7 @@
 						</dl>
 					</dd>
 
-					<dt><h4><code>double</code>                 </h4></dt>			
+					<dt><h4><code>double</code>                 </h4></dt>
 					<dd>
 						<dl>
 							<dt>Component</dt>
@@ -106,7 +123,7 @@
 						</dl>
 					</dd>
 
-					<dt><h4><code>long double</code>                 </h4></dt>			
+					<dt><h4><code>long double</code>                 </h4></dt>
 					<dd>
 						<dl>
 							<dt>Component</dt>
@@ -120,7 +137,7 @@
 						</dl>
 					</dd>
 
-					<dt><h4><code>color::type::split233_t</code></h4>	
+					<dt><h4><code>color::type::split233_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Component</dt>
@@ -232,7 +249,7 @@
 						</dl>
 					</dd>
 
-					<dt><h4><code>color::type::splitAAA2_t</code></h4>			
+					<dt><h4><code>color::type::splitAAA2_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Component</dt>
