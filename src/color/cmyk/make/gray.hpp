@@ -10,6 +10,22 @@
 
      template< typename tag_name >
       inline
+      void gray
+       (
+                  ::color::model< ::color::category::cmyk< tag_name > > & color_parameter
+        ,typename ::color::trait::scalar< ::color::category::cmyk< tag_name > >::input_const_type    percent
+       )
+       {
+        typedef ::color::category::cmyk< tag_name >      category_left_type;
+        typedef ::color::model< category_left_type  >            left_type;
+
+        typedef ::color::cmyk< double >      right_type;
+
+        color_parameter = right_type( { 0, 0, 0, 1 - percent/100 } );
+       }
+
+     template< typename tag_name >
+      inline
       void gray50( ::color::model< ::color::category::cmyk< tag_name > > & color_parameter )
        {
         typedef ::color::category::cmyk< tag_name >         category_left_type;

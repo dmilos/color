@@ -86,7 +86,6 @@ void print_generic_header( std::string const& name )
     ofs <<  ss.str();
    }
 
-
  }
 
 template < template<typename> class color_name >
@@ -403,7 +402,10 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
 
   ss <<  "<div style=\"background-color:rgb("<< (unsigned)r[0] <<","<< (unsigned)r[1] <<","<< (unsigned)r[2] <<");color:white\">";
 
-  ss << text << " - ";
+  if( 0 != text.size() )
+   {
+    ss << text << " - ";
+   }
   ss << "("<< (unsigned)r[0] <<","<< (unsigned)r[1] <<","<< (unsigned)r[2] <<")";
 
   ss << "</div>";
@@ -439,70 +441,129 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
 
 
 
-void make_test_make()
+
+template < typename model_type>
+std::string make_test_gray_single( std::string const& name )
  {
-   std::stringstream ss;
-   auto x = ::color::make::red< ::color::category::cmy_double >();
+  std::stringstream ss;
 
-   ss << "<table>" << std::endl;
+  model_type r;
 
-   PRINT_COLORS(black     );
-   PRINT_COLORS(white     );
-   PRINT_COLORS(red       );
-   PRINT_COLORS(lime      );
-   PRINT_COLORS(blue      );
-   PRINT_COLORS(aqua      );
-   PRINT_COLORS(cyan      );
-   PRINT_COLORS(fuchsia   );
-   PRINT_COLORS(gray50    );
-   PRINT_COLORS(green     );
-   PRINT_COLORS(magenta   );
-   PRINT_COLORS(maroon    );
-   PRINT_COLORS(navy      );
-   PRINT_COLORS(olive     );
-   PRINT_COLORS(orange    );
-   PRINT_COLORS(purple    );
-   PRINT_COLORS(silver    );
-   PRINT_COLORS(teal      );
-   PRINT_COLORS(violet    );
-   PRINT_COLORS(yellow    );
+  ss << "<tr>" << std::endl;
 
-   PRINT_COLORS(aquamarine);
-   PRINT_COLORS(azure     );
-   PRINT_COLORS(beige     );
-   PRINT_COLORS(bisque    );
-   PRINT_COLORS(brown     );
-   PRINT_COLORS(chocolate );
-   PRINT_COLORS(coral     );
-   PRINT_COLORS(crimson   );
-   PRINT_COLORS(gainsboro );
-   PRINT_COLORS(gold      );
-   PRINT_COLORS(indigo    );
-   PRINT_COLORS(ivory     );
-   PRINT_COLORS(khaki     );
-   PRINT_COLORS(lavender  );
-   PRINT_COLORS(linen     );
-   PRINT_COLORS(moccasin  );
-   PRINT_COLORS(orchid    );
-   PRINT_COLORS(peru      );
-   PRINT_COLORS(pink      );
-   PRINT_COLORS(plum      );
-   PRINT_COLORS(salmon    );
-   PRINT_COLORS(sienna    );
-   PRINT_COLORS(snow      );
-   PRINT_COLORS(tan       );
-   PRINT_COLORS(thistle   );
-   PRINT_COLORS(tomato    );
-   PRINT_COLORS(turquoise );
-   PRINT_COLORS(wheat     );
+     ss << "<td>" << name << "</td>";
+   ::color::make::gray( r,   0.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  10.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  16.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  20.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  25.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  30.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  33.3 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  40.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  50.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  60.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  66.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  70.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  75.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  80.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  83.3 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r,  90.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( r, 100.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
 
-   ss << "</table>" << std::endl;
+  ss << "</tr>" << std::endl;
 
-   ss << std::endl;
+  return ss.str();
+ }
+
+void make_test_gray_all()
+ {
+  std::stringstream ss;
+
+  ss << "<table>" << std::endl;
+  ss <<  make_test_gray_single< ::color::cmy< double> >( "cmy" );
+  ss <<  make_test_gray_single< ::color::cmyk<double> >( "cmyk" );
+  ss <<  make_test_gray_single< ::color::gray<double> >( "gray" );
+  ss <<  make_test_gray_single< ::color::hsv< double> >( "hsv" );
+  ss <<  make_test_gray_single< ::color::hsl< double> >( "hsl" );
+  ss <<  make_test_gray_single< ::color::rgb< double> >( "rgb" );
+  ss <<  make_test_gray_single< ::color::yiq< double> >( "yiq" );
+  ss <<  make_test_gray_single< ::color::yuv< double> >( "yuv" );
+
+  ss << "</table>" << std::endl;
 
    {
-    std::ofstream ofs( std::string( "./make_check.html" ). c_str() );
+    std::ofstream ofs( std::string( "./gray_test.html" ). c_str() );
     ofs <<  ss.str();
    }
+
+ }
+
+void make_test_make()
+ {
+  make_test_gray_all();
+
+  std::stringstream ss;
+  auto x = ::color::make::red< ::color::category::cmy_double >();
+
+  ss << "<table>" << std::endl;
+
+  PRINT_COLORS(black     );
+  PRINT_COLORS(white     );
+  PRINT_COLORS(red       );
+  PRINT_COLORS(lime      );
+  PRINT_COLORS(blue      );
+  PRINT_COLORS(aqua      );
+  PRINT_COLORS(cyan      );
+  PRINT_COLORS(fuchsia   );
+  PRINT_COLORS(gray50    );
+  PRINT_COLORS(green     );
+  PRINT_COLORS(magenta   );
+  PRINT_COLORS(maroon    );
+  PRINT_COLORS(navy      );
+  PRINT_COLORS(olive     );
+  PRINT_COLORS(orange    );
+  PRINT_COLORS(purple    );
+  PRINT_COLORS(silver    );
+  PRINT_COLORS(teal      );
+  PRINT_COLORS(violet    );
+  PRINT_COLORS(yellow    );
+
+  PRINT_COLORS(aquamarine);
+  PRINT_COLORS(azure     );
+  PRINT_COLORS(beige     );
+  PRINT_COLORS(bisque    );
+  PRINT_COLORS(brown     );
+  PRINT_COLORS(chocolate );
+  PRINT_COLORS(coral     );
+  PRINT_COLORS(crimson   );
+  PRINT_COLORS(gainsboro );
+  PRINT_COLORS(gold      );
+  PRINT_COLORS(indigo    );
+  PRINT_COLORS(ivory     );
+  PRINT_COLORS(khaki     );
+  PRINT_COLORS(lavender  );
+  PRINT_COLORS(linen     );
+  PRINT_COLORS(moccasin  );
+  PRINT_COLORS(orchid    );
+  PRINT_COLORS(peru      );
+  PRINT_COLORS(pink      );
+  PRINT_COLORS(plum      );
+  PRINT_COLORS(salmon    );
+  PRINT_COLORS(sienna    );
+  PRINT_COLORS(snow      );
+  PRINT_COLORS(tan       );
+  PRINT_COLORS(thistle   );
+  PRINT_COLORS(tomato    );
+  PRINT_COLORS(turquoise );
+  PRINT_COLORS(wheat     );
+
+  ss << "</table>" << std::endl;
+
+  ss << std::endl;
+
+  {
+   std::ofstream ofs( std::string( "./make_check.html" ). c_str() );
+   ofs <<  ss.str();
+  }
 
  }

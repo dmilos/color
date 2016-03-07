@@ -10,6 +10,22 @@
 
      template< typename tag_name >
       inline
+      void gray
+       (
+                  ::color::model< ::color::category::hsl< tag_name > > & color_parameter
+        ,typename ::color::trait::scalar< ::color::category::hsl< tag_name > >::input_const_type    percent
+       )
+       {
+        typedef ::color::category::hsl< tag_name >      category_left_type;
+        typedef ::color::model< category_left_type  >            left_type;
+
+        typedef ::color::hsl< double >      right_type;
+
+        color_parameter = right_type( { 0, 0, percent } );
+       }
+
+     template< typename tag_name >
+      inline
       void gray50( ::color::model< ::color::category::hsl< tag_name > > & color_parameter )
        {
         typedef ::color::category::hsl< tag_name >         category_left_type;

@@ -4,13 +4,34 @@
 // ::color::make::gray50( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+// TODO #include "constant/make.hpp"
 
  namespace color
   {
 
    namespace make
     {
+
+
+     template< typename category_name >
+      void gray
+       (
+                  ::color::model< category_name >                            & color_parameter
+        ,typename ::color::trait::scalar< category_name >::input_const_type    percent
+       )
+       {
+        typedef ::color::trait::bound< category_name > bound_type;
+        typedef ::color::trait::container< category_name > container_trait_type;
+
+        typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+        typedef typename ::color::trait::index< category_name >::instance_type index_type;
+
+        for( index_type index=0; index < container_trait_type::size() ; ++index )
+         {
+          color_parameter.set( index, ( ( scalar_type(100) - percent ) * bound_type::minimum( index ) + percent * bound_type::maximum( index ) ) / scalar_type(100) );
+         }
+       }
+
 
      template< typename category_name >
       void gray50( ::color::model< category_name > & color_parameter )

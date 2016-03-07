@@ -520,7 +520,8 @@ namespace color {
 namespace trait {
 
 template< typename category_name >
-struct scalar {
+struct scalar
+		: public ::color::_internal::utility::type::traitC< double > {
 public:
 	typedef double instance_type;
 
@@ -906,6 +907,7 @@ void init
 
 namespace color {
 namespace constant {
+
 template< typename color_name, typename category_name >
 struct make {
 	typedef category_name category_type;
@@ -915,7 +917,6 @@ struct make {
 
 	static void process(container_output_type & m) {
 	}
-
 };
 
 }
@@ -1070,14 +1071,14 @@ public:
 
 	typedef typename index_trait_type::instance_type index_type;
 
-	static index_type process(model_type const& m) {
+	static bool process(model_type const& m) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			if(m.get(index) < bound_type::minimum(index)) {
-				return index;
+				return true;
 				continue;
 			}
 			if(bound_type::maximum(index) < m.get(index)) {
-				return index;
+				return true;
 				continue;
 			}
 		}
@@ -1089,7 +1090,7 @@ public:
 
 template< typename category_name >
 inline
-typename ::color::trait::index<category_name>::instance_type
+bool
 overburn(::color::model<category_name> const& m) {
 	return ::color::check::_internal::overburn<category_name>::process(m);
 }
@@ -10130,6 +10131,7 @@ static void process(model_type &result, model_type const& right) {
 
 namespace color {
 	namespace fix {
+
 		namespace _internal {
 
 			template< typename category_name >
@@ -10145,6 +10147,7 @@ static void process(model_type & m) {
 static void process(model_type & result, model_type const& right) {
 }
 			};
+
 		}
 
 template< typename category_name >
@@ -13022,6 +13025,19 @@ namespace color {
 
 		template< typename tag_name >
 		inline
+		void gray
+		(
+			::color::model< ::color::category::yuv< tag_name > > & color_parameter
+			,typename ::color::trait::scalar< ::color::category::yuv< tag_name > >::input_const_type percent
+) {
+	typedef ::color::category::yuv< tag_name > category_left_type;
+	typedef ::color::model< category_left_type > left_type;
+	typedef ::color::yuv< double > right_type;
+	color_parameter = right_type({ percent/100, 0, 0 });
+}
+
+template< typename tag_name >
+inline
 void gray50(::color::model< ::color::category::yuv< tag_name > > & color_parameter) {
 	typedef ::color::category::yuv< tag_name > category_left_type;
 	typedef ::color::model< category_left_type > left_type;
@@ -13828,6 +13844,19 @@ namespace color {
 
 		template< typename tag_name >
 		inline
+		void gray
+		(
+			::color::model< ::color::category::yiq< tag_name > > & color_parameter
+			,typename ::color::trait::scalar< ::color::category::yiq< tag_name > >::input_const_type percent
+) {
+	typedef ::color::category::yiq< tag_name > category_left_type;
+	typedef ::color::model< category_left_type > left_type;
+	typedef ::color::yiq< double > right_type;
+	color_parameter = right_type({ percent/100, 0, 0 });
+}
+
+template< typename tag_name >
+inline
 void gray50(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_left_type;
 	typedef ::color::model< category_left_type > left_type;
@@ -14672,6 +14701,19 @@ namespace color {
 
 		template< typename tag_name >
 		inline
+		void gray
+		(
+			::color::model< ::color::category::hsv< tag_name > > & color_parameter
+			,typename ::color::trait::scalar< ::color::category::hsv< tag_name > >::input_const_type percent
+) {
+	typedef ::color::category::hsv< tag_name > category_left_type;
+	typedef ::color::model< category_left_type > left_type;
+	typedef ::color::hsv< double > right_type;
+	color_parameter = right_type({ 0, 0, percent });
+}
+
+template< typename tag_name >
+inline
 void gray50(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_left_type;
 	typedef ::color::model< category_left_type > left_type;
@@ -15633,6 +15675,19 @@ namespace color {
 
 		template< typename tag_name >
 		inline
+		void gray
+		(
+			::color::model< ::color::category::hsl< tag_name > > & color_parameter
+			,typename ::color::trait::scalar< ::color::category::hsl< tag_name > >::input_const_type percent
+) {
+	typedef ::color::category::hsl< tag_name > category_left_type;
+	typedef ::color::model< category_left_type > left_type;
+	typedef ::color::hsl< double > right_type;
+	color_parameter = right_type({ 0, 0, percent });
+}
+
+template< typename tag_name >
+inline
 void gray50(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_left_type;
 	typedef ::color::model< category_left_type > left_type;
@@ -18653,6 +18708,19 @@ namespace color {
 
 		template< typename tag_name >
 		inline
+		void gray
+		(
+			::color::model< ::color::category::cmyk< tag_name > > & color_parameter
+			,typename ::color::trait::scalar< ::color::category::cmyk< tag_name > >::input_const_type percent
+) {
+	typedef ::color::category::cmyk< tag_name > category_left_type;
+	typedef ::color::model< category_left_type > left_type;
+	typedef ::color::cmyk< double > right_type;
+	color_parameter = right_type({ 0, 0, 0, 1 - percent/100 });
+}
+
+template< typename tag_name >
+inline
 void gray50(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
 	typedef ::color::category::cmyk< tag_name > category_left_type;
 	typedef ::color::model< category_left_type > left_type;
@@ -19841,6 +19909,19 @@ namespace color {
 
 		template< typename tag_name >
 		inline
+		void gray
+		(
+			::color::model< ::color::category::cmy< tag_name > > & color_parameter
+			,typename ::color::trait::scalar< ::color::category::cmy< tag_name > >::input_const_type percent
+) {
+	typedef ::color::category::cmy< tag_name > category_left_type;
+	typedef ::color::model< category_left_type > left_type;
+	typedef ::color::cmy< double > right_type;
+	color_parameter = right_type({ 1-percent/100, 1-percent/100, 1-percent/100 });
+}
+
+template< typename tag_name >
+inline
 void gray50(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
 	typedef ::color::category::cmy< tag_name > category_left_type;
 	typedef ::color::model< category_left_type > left_type;
@@ -20928,6 +21009,19 @@ namespace color {
 
 		template< typename tag_name >
 		inline
+		void gray
+		(
+			::color::model< ::color::category::gray< tag_name > > & color_parameter
+			,typename ::color::trait::scalar< ::color::category::gray< tag_name > >::input_const_type percent
+) {
+	typedef ::color::category::gray< tag_name > category_left_type;
+	typedef ::color::model< category_left_type > left_type;
+	typedef ::color::gray< double > right_type;
+	color_parameter = right_type({ percent / 100 });
+}
+
+template< typename tag_name >
+inline
 void gray50(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
 	typedef ::color::category::gray< tag_name > category_left_type;
 	typedef ::color::model< category_left_type > left_type;
@@ -21788,6 +21882,8 @@ black() {
 namespace constant {
 
 	struct black {};
+	using black_t = ::color::constant::black;
+	using black_type = ::color::constant::black;
 
 	template< typename category_name >
 	struct make<::color::constant::black, category_name > {
@@ -21810,6 +21906,21 @@ namespace color {
 	namespace make {
 
 		template< typename category_name >
+		void gray
+		(
+			::color::model< category_name > & color_parameter
+			,typename ::color::trait::scalar< category_name >::input_const_type percent
+) {
+	typedef ::color::trait::bound< category_name > bound_type;
+	typedef ::color::trait::container< category_name > container_trait_type;
+	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+	typedef typename ::color::trait::index< category_name >::instance_type index_type;
+	for(index_type index=0; index < container_trait_type::size() ; ++index) {
+		color_parameter.set(index, ((scalar_type(100) - percent) * bound_type::minimum(index) + percent * bound_type::maximum(index)) / scalar_type(100));
+	}
+}
+
+template< typename category_name >
 void gray50(::color::model< category_name > & color_parameter) {
 	typedef ::color::model< category_name > model_type;
 	typedef ::color::trait::bound< category_name > bound_type;
@@ -21834,6 +21945,8 @@ gray50() {
 namespace constant {
 
 	struct gray50 {};
+	using gray50_t = ::color::constant::gray50;
+	using gray50_type = ::color::constant::gray50;
 
 	template< typename category_name >
 	struct make<::color::constant::gray50, category_name > {
@@ -21876,6 +21989,8 @@ white() {
 namespace constant {
 
 	struct white {};
+	using white_t = ::color::constant::white;
+	using white_type = ::color::constant::white;
 
 	template< typename category_name >
 	struct make<::color::constant::white, category_name > {
@@ -21919,6 +22034,8 @@ red() {
 namespace constant {
 
 	struct red {};
+	using red_t = ::color::constant::red;
+	using red_type = ::color::constant::red;
 
 	template< typename category_name >
 	struct make<::color::constant::red, category_name > {
@@ -21961,6 +22078,8 @@ green() {
 namespace constant {
 
 	struct green {};
+	using green_t = ::color::constant::green;
+	using green_type = ::color::constant::green;
 
 	template< typename category_name >
 	struct make<::color::constant::green, category_name > {
@@ -22003,6 +22122,8 @@ blue() {
 namespace constant {
 
 	struct blue {};
+	using blue_t = ::color::constant::blue;
+	using blue_type = ::color::constant::blue;
 
 	template< typename category_name >
 	struct make<::color::constant::blue, category_name > {
@@ -22046,6 +22167,8 @@ cyan() {
 namespace constant {
 
 	struct cyan {};
+	using cyan_t = ::color::constant::cyan;
+	using cyan_type = ::color::constant::cyan;
 
 	template< typename category_name >
 	struct make<::color::constant::cyan, category_name > {
@@ -22088,6 +22211,8 @@ magenta() {
 namespace constant {
 
 	struct magenta {};
+	using magenta_t = ::color::constant::magenta;
+	using magenta_type = ::color::constant::magenta;
 
 	template< typename category_name >
 	struct make<::color::constant::magenta, category_name > {
@@ -22130,6 +22255,8 @@ yellow() {
 namespace constant {
 
 	struct yellow {};
+	using yellow_t = ::color::constant::yellow;
+	using yellow_type = ::color::constant::yellow;
 
 	template< typename category_name >
 	struct make<::color::constant::yellow, category_name > {
@@ -22173,6 +22300,8 @@ aqua() {
 namespace constant {
 
 	struct aqua {};
+	using aqua_t = ::color::constant::aqua;
+	using aqua_type = ::color::constant::aqua;
 
 	template< typename category_name >
 	struct make<::color::constant::aqua, category_name > {
@@ -22215,6 +22344,8 @@ fuchsia() {
 namespace constant {
 
 	struct fuchsia {};
+	using fuchsia_t = ::color::constant::fuchsia;
+	using fuchsia_type = ::color::constant::fuchsia;
 
 	template< typename category_name >
 	struct make<::color::constant::fuchsia, category_name > {
@@ -22257,6 +22388,8 @@ lime() {
 namespace constant {
 
 	struct lime {};
+	using lime_t = ::color::constant::lime;
+	using lime_type = ::color::constant::lime;
 
 	template< typename category_name >
 	struct make<::color::constant::lime, category_name > {
@@ -22300,6 +22433,8 @@ maroon() {
 namespace constant {
 
 	struct maroon {};
+	using maroon_t = ::color::constant::maroon;
+	using maroon_type = ::color::constant::maroon;
 
 	template< typename category_name >
 	struct make<::color::constant::maroon, category_name > {
@@ -22342,6 +22477,8 @@ navy() {
 namespace constant {
 
 	struct navy {};
+	using navy_t = ::color::constant::navy;
+	using navy_type = ::color::constant::navy;
 
 	template< typename category_name >
 	struct make<::color::constant::navy, category_name > {
@@ -22384,6 +22521,8 @@ olive() {
 namespace constant {
 
 	struct olive {};
+	using olive_t = ::color::constant::olive;
+	using olive_type = ::color::constant::olive;
 
 	template< typename category_name >
 	struct make<::color::constant::olive, category_name > {
@@ -22426,6 +22565,8 @@ orange() {
 namespace constant {
 
 	struct orange {};
+	using orange_t = ::color::constant::orange;
+	using orange_type = ::color::constant::orange;
 
 	template< typename category_name >
 	struct make<::color::constant::orange, category_name > {
@@ -22468,6 +22609,8 @@ purple() {
 namespace constant {
 
 	struct purple {};
+	using purple_t = ::color::constant::purple;
+	using purple_type = ::color::constant::purple;
 
 	template< typename category_name >
 	struct make<::color::constant::purple, category_name > {
@@ -22511,6 +22654,8 @@ silver() {
 namespace constant {
 
 	struct silver {};
+	using silver_t = ::color::constant::silver;
+	using silver_type = ::color::constant::silver;
 
 	template< typename category_name >
 	struct make<::color::constant::silver, category_name > {
@@ -22553,6 +22698,8 @@ teal() {
 namespace constant {
 
 	struct teal {};
+	using teal_t = ::color::constant::teal;
+	using teal_type = ::color::constant::teal;
 
 	template< typename category_name >
 	struct make<::color::constant::teal, category_name > {
@@ -22595,6 +22742,8 @@ violet() {
 namespace constant {
 
 	struct violet {};
+	using violet_t = ::color::constant::violet;
+	using violet_type = ::color::constant::violet;
 
 	template< typename category_name >
 	struct make<::color::constant::violet, category_name > {
@@ -22638,6 +22787,8 @@ aquamarine() {
 namespace constant {
 
 	struct aquamarine {};
+	using aquamarine_t = ::color::constant::aquamarine;
+	using aquamarine_type = ::color::constant::aquamarine;
 
 	template< typename category_name >
 	struct make<::color::constant::aquamarine, category_name > {
@@ -22680,6 +22831,8 @@ azure() {
 namespace constant {
 
 	struct azure {};
+	using azure_t = ::color::constant::azure;
+	using azure_type = ::color::constant::azure;
 
 	template< typename category_name >
 	struct make<::color::constant::azure, category_name > {
@@ -22722,6 +22875,8 @@ beige() {
 namespace constant {
 
 	struct beige {};
+	using beige_t = ::color::constant::beige;
+	using beige_type = ::color::constant::beige;
 
 	template< typename category_name >
 	struct make<::color::constant::beige, category_name > {
@@ -22764,6 +22919,8 @@ bisque() {
 namespace constant {
 
 	struct bisque {};
+	using bisque_t = ::color::constant::bisque;
+	using bisque_type = ::color::constant::bisque;
 
 	template< typename category_name >
 	struct make<::color::constant::bisque, category_name > {
@@ -22806,6 +22963,8 @@ brown() {
 namespace constant {
 
 	struct brown {};
+	using brown_t = ::color::constant::brown;
+	using brown_type = ::color::constant::brown;
 
 	template< typename category_name >
 	struct make<::color::constant::brown, category_name > {
@@ -22848,6 +23007,8 @@ chocolate() {
 namespace constant {
 
 	struct chocolate {};
+	using chocolate_t = ::color::constant::chocolate;
+	using chocolate_type = ::color::constant::chocolate;
 
 	template< typename category_name >
 	struct make<::color::constant::chocolate, category_name > {
@@ -22890,6 +23051,8 @@ coral() {
 namespace constant {
 
 	struct coral {};
+	using coral_t = ::color::constant::coral;
+	using coral_type = ::color::constant::coral;
 
 	template< typename category_name >
 	struct make<::color::constant::coral, category_name > {
@@ -22932,6 +23095,8 @@ crimson() {
 namespace constant {
 
 	struct crimson {};
+	using crimson_t = ::color::constant::crimson;
+	using crimson_type = ::color::constant::crimson;
 
 	template< typename category_name >
 	struct make<::color::constant::crimson, category_name > {
@@ -22974,6 +23139,8 @@ gainsboro() {
 namespace constant {
 
 	struct gainsboro {};
+	using gainsboro_t = ::color::constant::gainsboro;
+	using gainsboro_type = ::color::constant::gainsboro;
 
 	template< typename category_name >
 	struct make<::color::constant::gainsboro, category_name > {
@@ -23016,6 +23183,8 @@ gold() {
 namespace constant {
 
 	struct gold {};
+	using gold_t = ::color::constant::gold;
+	using gold_type = ::color::constant::gold;
 
 	template< typename category_name >
 	struct make<::color::constant::gold, category_name > {
@@ -23058,6 +23227,8 @@ indigo() {
 namespace constant {
 
 	struct indigo {};
+	using indigo_t = ::color::constant::indigo;
+	using indigo_type = ::color::constant::indigo;
 
 	template< typename category_name >
 	struct make<::color::constant::indigo, category_name > {
@@ -23100,6 +23271,8 @@ ivory() {
 namespace constant {
 
 	struct ivory {};
+	using ivory_t = ::color::constant::ivory;
+	using ivory_type = ::color::constant::ivory;
 
 	template< typename category_name >
 	struct make<::color::constant::ivory, category_name > {
@@ -23142,6 +23315,8 @@ khaki() {
 namespace constant {
 
 	struct khaki {};
+	using khaki_t = ::color::constant::khaki;
+	using khaki_type = ::color::constant::khaki;
 
 	template< typename category_name >
 	struct make<::color::constant::khaki, category_name > {
@@ -23184,6 +23359,8 @@ lavender() {
 namespace constant {
 
 	struct lavender {};
+	using lavender_t = ::color::constant::lavender;
+	using lavender_type = ::color::constant::lavender;
 
 	template< typename category_name >
 	struct make<::color::constant::lavender, category_name > {
@@ -23226,6 +23403,8 @@ linen() {
 namespace constant {
 
 	struct linen {};
+	using linen_t = ::color::constant::linen;
+	using linen_type = ::color::constant::linen;
 
 	template< typename category_name >
 	struct make<::color::constant::linen, category_name > {
@@ -23268,6 +23447,8 @@ moccasin() {
 namespace constant {
 
 	struct moccasin {};
+	using moccasin_t = ::color::constant::moccasin;
+	using moccasin_type = ::color::constant::moccasin;
 
 	template< typename category_name >
 	struct make<::color::constant::moccasin, category_name > {
@@ -23310,6 +23491,8 @@ orchid() {
 namespace constant {
 
 	struct orchid {};
+	using orchid_t = ::color::constant::orchid;
+	using orchid_type = ::color::constant::orchid;
 
 	template< typename category_name >
 	struct make<::color::constant::orchid, category_name > {
@@ -23352,6 +23535,8 @@ peru() {
 namespace constant {
 
 	struct peru {};
+	using peru_t = ::color::constant::peru;
+	using peru_type = ::color::constant::peru;
 
 	template< typename category_name >
 	struct make<::color::constant::peru, category_name > {
@@ -23394,6 +23579,8 @@ pink() {
 namespace constant {
 
 	struct pink {};
+	using pink_t = ::color::constant::pink;
+	using pink_type = ::color::constant::pink;
 
 	template< typename category_name >
 	struct make<::color::constant::pink, category_name > {
@@ -23436,6 +23623,8 @@ plum() {
 namespace constant {
 
 	struct plum {};
+	using plum_t = ::color::constant::plum;
+	using plum_type = ::color::constant::plum;
 
 	template< typename category_name >
 	struct make<::color::constant::plum, category_name > {
@@ -23478,6 +23667,8 @@ salmon() {
 namespace constant {
 
 	struct salmon {};
+	using salmon_t = ::color::constant::salmon;
+	using salmon_type = ::color::constant::salmon;
 
 	template< typename category_name >
 	struct make<::color::constant::salmon, category_name > {
@@ -23520,6 +23711,8 @@ sienna() {
 namespace constant {
 
 	struct sienna {};
+	using sienna_t = ::color::constant::sienna;
+	using sienna_type = ::color::constant::sienna;
 
 	template< typename category_name >
 	struct make<::color::constant::sienna, category_name > {
@@ -23562,6 +23755,8 @@ snow() {
 namespace constant {
 
 	struct snow {};
+	using snow_t = ::color::constant::snow;
+	using snow_type = ::color::constant::snow;
 
 	template< typename category_name >
 	struct make<::color::constant::snow, category_name > {
@@ -23604,6 +23799,8 @@ tan() {
 namespace constant {
 
 	struct tan {};
+	using tan_t = ::color::constant::tan;
+	using tan_type = ::color::constant::tan;
 
 	template< typename category_name >
 	struct make<::color::constant::tan, category_name > {
@@ -23646,6 +23843,8 @@ thistle() {
 namespace constant {
 
 	struct thistle {};
+	using thistle_t = ::color::constant::thistle;
+	using thistle_type = ::color::constant::thistle;
 
 	template< typename category_name >
 	struct make<::color::constant::thistle, category_name > {
@@ -23688,6 +23887,8 @@ tomato() {
 namespace constant {
 
 	struct tomato {};
+	using tomato_t = ::color::constant::tomato;
+	using tomato_type = ::color::constant::tomato;
 
 	template< typename category_name >
 	struct make<::color::constant::tomato, category_name > {
@@ -23730,6 +23931,8 @@ turquoise() {
 namespace constant {
 
 	struct turquoise {};
+	using turquoise_t = ::color::constant::turquoise;
+	using turquoise_type = ::color::constant::turquoise;
 
 	template< typename category_name >
 	struct make<::color::constant::turquoise, category_name > {
@@ -23772,6 +23975,8 @@ wheat() {
 namespace constant {
 
 	struct wheat {};
+	using wheat_t = ::color::constant::wheat;
+	using wheat_type = ::color::constant::wheat;
 
 	template< typename category_name >
 	struct make<::color::constant::wheat, category_name > {
@@ -23997,6 +24202,7 @@ static void process(model_type & result, model_type const& right) {
 }
 
 			};
+
 		}
 
 template< typename category_name >

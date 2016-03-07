@@ -3,6 +3,9 @@
 
 // ::color::trait::scalar< category >
 
+#include "../../_internal/utility/type/traitc.hpp"
+
+
 namespace color
  {
   namespace trait
@@ -10,6 +13,7 @@ namespace color
 
     template< typename category_name >
      struct scalar
+      : public ::color::_internal::utility::type::traitC< double >
       {
        public:
         typedef double instance_type;

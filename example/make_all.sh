@@ -5,6 +5,8 @@
 
 g++ -fexceptions -std=c++11 -g -I../src hello.cpp               -o  hello
 
+g++ -fexceptions -std=c++11 -g -I../src pp2f.cpp               -o  pp2f
+
 g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -o  akin
 
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2cmy.cpp     -o  convert_rgb2cmy
