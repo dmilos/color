@@ -26,7 +26,7 @@
 		<dl>
 			<dt><h3><a name="Description">Description</a></h3></dt>
 			<dd>All colors are alias of <code>model</code> for some specified <a href="./ns/category.html">category</a>.
-				Every color model/format can be instatiated by using of this class.
+				Every color model/format can be instantiated by using of this class.
 			</dd>
 			<dt><h3><a name="Declaration">Declaration</a></h3></dt>
 			<dd>
@@ -36,7 +36,7 @@
 				</code>
 			</dd>
 
-		<dt><h3><a name="Definition">Definition( without inplementation )</a></h3></dt>
+		<dt><h3><a name="Definition">Definition( without implementation )</a></h3></dt>
 		<dd>
 <pre><code>
     template&lt; typename category_name &gt;
@@ -51,7 +51,7 @@
         typedef  <i>unspecified</i>     component_input_const_type;
         typedef  <i>unspecified</i>     component_return_const_type;
         typedef  <i>unspecified</i>     container_return_const_type;
-        typedef  <i>unspecified</i>     container_return_type;
+        typedef  <i>unspecified</i>     container_return_original_type;
         typedef  <i>unspecified</i>     index_return_image_type;
         typedef  <i>unspecified</i>     container_type;
         typedef  <i>unspecified</i>     set_return_type;
@@ -87,7 +87,7 @@
 
         container_return_const_type container()const;
 
-        container_return_type       container();
+        container_return_original_type       container();
 
         static index_return_image_type       size();
 
@@ -105,72 +105,75 @@
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>TODO</dd>
+								<dd>Category of color. It's enclose model an format in one type. </dd>
 								<dt>Definition</dt>
 								<dd>TODO</dd>
+								<dt>See also</dt>
+								<dd><a href="./ns/category.html">Categories</a></dd>
 							</dl>
 						</dd>
 						<dt><code>component_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>TODO</dd>
+								<dd>Type of component.</dd>
 								<dt>Definition</dt>
-								<dd>TODO</dd>
+								<dd>::color::trait::component&lt; category_type &gt;::instance_type</dd>
 							</dl>
 						</dd>
 						<dt><code>index_input_const_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>TODO</dd>
+								<dd>Type of index but constant and it ais always used as function parameter</dd>
 								<dt>Definition</dt>
-								<dd>TODO</dd>
+								<dd>::color::trait::index&lt; category_type &gt;::input_const_type</dd>
 							</dl>
 						</dd>
 						<dt><code>index_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>TODO</dd>
+								<dd>Unsigned like type used for iteratio/accesing color components.  </dd>
 								<dt>Definition</dt>
-								<dd>TODO</dd>
+								<dd>::color::trait::index&lt; category_type &gt;::instance_type</dd>
 							</dl>
 						</dd>
 						<dt><code>component_input_const_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>TODO</dd>
+								<dd>Type of component but constant and it ais always used as function parameter</dd>
 								<dt>Definition</dt>
-								<dd>TODO</dd>
+								<dd>::color::trait::component&lt; category_type &gt;::input_const_type</dd>
 							</dl>
 						</dd>
 						<dt><code>component_return_const_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>TODO</dd>
+								<dd>This type is used when function return somponent</dd>
 								<dt>Definition</dt>
-								<dd>TODO</dd>
+								<dd>::color::trait::component&lt; category_type &gt;::return_const_type</dd>
 							</dl>
 						</dd>
 						<dt><code>container_return_const_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>TODO</dd>
+								<dd>Original but unmodifiable version of container</dd>
 								<dt>Definition</dt>
-								<dd>TODO</dd>
+								<dd>::color::trait::component&lt; category_type &gt;::return_const_type</dd>
 							</dl>
 						</dd>
-						<dt><code>container_return_type</code></dt>
+
+						<dt><code>container_return_original_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>TODO</dd>
+								<dd>Original container with unrestricted acces. </dd>
 								<dt>Definition</dt>
-								<dd>TODO</dd>
+								<dd>::color::trait::component&lt; category_type &gt;::return_original_type</dd>
 							</dl>
 						</dd>
 
@@ -178,9 +181,9 @@
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>TODO</dd>
+								<dd>Type that will be returned</dd>
 								<dt>Definition</dt>
-								<dd>TODO</dd>
+								<dd> <code>typedef ::color:trait::container&lt; category_type&gt;::return_image_type index_return_image_type;</code> </dd>
 							</dl>
 						</dd>
 
@@ -200,15 +203,24 @@
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>TODO</dd>
+								<dd>Return type of set function.</dd>
 								<dt>Definition</dt>
 								<dd>TODO</dd>
+								<dt>Note</dt>
+								<dd>Usually void.</dd>
 							</dl>
 						</dd>
 
 						<dt><code>this_type</code></dt><dd>
-							Definition:			<code>typedef  model&lt; typename category_name &gt;     this_type;</code> <br>
-							Not recomended to use. Might be removed ins some next iteration.
+							<dl>
+								<dt>Description</dt>
+								<dd>Same type as original type;</dd>
+								<dt>definition</dt>
+								<dd><code>typedef  model&lt; typename category_name &gt;     this_type;</code></dd>
+								<dt>Note</dt>
+								<dd>Not recomended to use. Might be removed ins some next iteration.</dd>
+							</dl>
+
 						</dd>
 
 					</dl>
@@ -216,14 +228,85 @@
 					<dt><h4><a name="Functions">Functions</a></h4></dt>
 					<dd>
 						<dl>
-							<dt>get</dt><dd>TODO</dd>
-							<dt>get</dt><dd>TODO</dd>
-							<dt>set</dt><dd>TODO</dd>
-							<dt>set</dt><dd>TODO</dd>
-							<dt>operator[]</dt><dd>TODO</dd>
-							<dt>container()const</dt><dd>TODO</dd>
-							<dt>container</dt><dd>TODO</dd>
-							<dt>size</dt><dd>TODO</dd>
+							<dt>get()const</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>TODO</dd>
+									<dt>Definition</dt>
+									<dd><code>TODO</code></dd>
+								</dl>
+							</dd>
+							<dt>get</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>TODO</dd>
+									<dt>Definition</dt>
+									<dd><code>TODO</code></dd>
+								</dl>
+							</dd>
+
+							<dt>set</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>TODO</dd>
+									<dt>Definition</dt>
+									<dd><code>TODO</code></dd>
+								</dl>
+							</dd>
+
+							<dt>set</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>TODO</dd>
+									<dt>Definition</dt>
+									<dd><code>TODO</code></dd>
+								</dl>
+							</dd>
+
+							<dt>operator[]</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>TODO</dd>
+									<dt>Definition</dt>
+									<dd><code>TODO</code></dd>
+								</dl>
+							</dd>
+
+							<dt>container()const</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>TODO</dd>
+									<dt>Definition</dt>
+									<dd><code>TODO</code></dd>
+								</dl>
+							</dd>
+
+							<dt>container</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>TODO</dd>
+									<dt>Definition</dt>
+									<dd><code>TODO</code></dd>
+								</dl>
+							</dd>
+
+							<dt>size</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Number of components</dd>
+									<dt>Definition</dt>
+									<dd><code>TODO</code></dd>
+								</dl>
+							</dd>
+
 						</dl>
 
 					</dd>
@@ -237,11 +320,10 @@
 									<dt>Description</dt>
 									<dd>Serve to purpose to hold all colors data by respecting format.</dd>
 									<dt>Note</dt>
-									<dd>The one and only data meber.</dd>
+									<dd>The one and only data member.</dd>
 									<dt>type</dt>
 									<dd><code>container_type</code></dd>
 								</dl>
-
 
 							</dd>
 
