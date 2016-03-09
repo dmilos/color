@@ -21,7 +21,8 @@
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool equal( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
 					</dd>
-					<dt>Description</dt><dd>TODO</dd>
+					<dt>Description</dt>
+					<dd>Compare tow color using equality test. </dd>
 					<dt>Example</dt>
 					<dd>
 						<code>
@@ -39,7 +40,7 @@
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool different( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
 					</dd>
-					<dt>Description</dt><dd>TODO</dd>
+					<dt>Description</dt><dd>Compare tow color using different test. If at least one componetn is different tha other function will return true.</dd>
 					<dt>Example</dt>
 					<dd>
 						<code>
@@ -57,7 +58,7 @@
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool less_strict( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
 					</dd>
-					<dt>Description</dt><dd>TODO</dd>
+					<dt>Description</dt><dd>Lexicografical compare by components if left side is strictly less that right.</dd>
 					<dt>Example</dt>
 					<dd>
 						<code>
@@ -75,7 +76,8 @@
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool great_strict( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
 					</dd>
-					<dt>Description</dt><dd>TODO</dd>
+					<dt>Description</dt>
+					<dd>Lexicografical compare by components if left side is strictly great that right.</dd>
 					<dt>Example</dt>
 					<dd>
 						<code>
@@ -93,7 +95,8 @@
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool less_or_equal( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
 					</dd>
-					<dt>Description</dt><dd>TODO</dd>
+					<dt>Description</dt>
+					<dd>Lexicografical compare by components if left side is less or equal that right.</dd>
 					<dt>Example</dt>
 					<dd>
 						<code>
@@ -111,7 +114,8 @@
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool great_or_equal( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
 					</dd>
-					<dt>Description</dt><dd>TODO</dd>
+					<dt>Description</dt>
+					<dd>Lexicografical compare by components if left side is great or equal that right.</dd>
 					<dt>Example</dt>
 					<dd>
 						<code>
@@ -129,7 +133,10 @@
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool darker( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
 					</dd>
-					<dt>Description</dt><dd>TODO</dd>
+					<dt>Description</dt>
+					<dd>Equvalent with<br>
+					<blockquote><code>typedef typename ::color::trait::scalar&lt; category_name &gt; ::instance_type  scalar_type;<br>
+					::color::gray&lt; scalar_type &gt; ( left ) &lt; ::color::gray&lt; scalar_type &gt;( right );</code><blockquote> </dd>
 					<dt>Example</dt>
 					<dd>
 						<code>
@@ -147,7 +154,11 @@
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool brighter( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
 					</dd>
-					<dt>Description</dt><dd>TODO</dd>
+					<dt>Description</dt>
+					<dd>Equvalent with:<br>
+					<blockquote><code>typedef typename ::color::trait::scalar&lt; category_name &gt; ::instance_type  scalar_type;<br>
+									::color::gray&lt; scalar_type &gt; ( left ) &gt; ::color::gray&lt; scalar_type &gt;( right );</code><blockquote>
+					 </dd>
 					<dt>Example</dt>
 					<dd>
 						<code>
@@ -157,7 +168,6 @@
 						</code>
 					</dd>
 				</dl><hr width="%20">
-
 
 			</dd>
 		</dl>

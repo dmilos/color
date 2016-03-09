@@ -1,7 +1,7 @@
-# make all examples.
+# Make all examples.
 # No Scons, no CMake, no Make or any other make tool
 # One line one example
-# Designed for easy copy/paset
+# Designed for easy copy/paste
 
 g++ -fexceptions -std=c++11 -g -I../src hello.cpp               -o  hello
 
@@ -77,11 +77,10 @@ g++ -fexceptions -std=c++11 -g -I../src compare_great_strict.cpp          -o com
 g++ -fexceptions -std=c++11 -g -I../src compare_less_or_equal.cpp         -o compare_less_or_equal
 g++ -fexceptions -std=c++11 -g -I../src compare_less_strict.cpp           -o compare_less_strict
 
-g++ -fexceptions -std=c++11 -g -I../src make_red_in_cmy.cpp           -o make_red_in_cmy
-g++ -fexceptions -std=c++11 -g -I../src make_red_in_gray.cpp          -o make_red_in_gray
-g++ -fexceptions -std=c++11 -g -I../src make_red_in_rgb.cpp           -o make_red_in_rgb
-
-g++ -fexceptions -std=c++11 -g -I../src make_orange.cpp               -o make_orange
+g++ -fexceptions -std=c++11 -g -I../src make_bisque.cpp       -o make_bisque
+g++ -fexceptions -std=c++11 -g -I../src make_gray.cpp         -o make_gray
+g++ -fexceptions -std=c++11 -g -I../src make_orange.cpp       -o make_orange
+g++ -fexceptions -std=c++11 -g -I../src make_red.cpp          -o make_red
 
 g++ -fexceptions -std=c++11 -g -I../src operation_blend_noalpha.cpp   -o operation_blend_noalpha
 g++ -fexceptions -std=c++11 -g -I../src operation_blend_alpha.cpp     -o operation_blend_alpha

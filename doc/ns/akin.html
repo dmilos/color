@@ -18,20 +18,151 @@
             		<dt><code>category_type</code></dt>
 	            	<dd>Typedef of <code>category_name</code> template parameter.</dd>
     	        	<dt><code>akin_type</code></dt>
-        	   		<dd>Akin type</dd>
+        	   		<dd>Akin category type.</dd>
 	            </dl>
             </dd>
 			<dt><h3>List</h3></dt>
 			<dd>
 				<dl>
-					<dt>cmy</dt>    <dd>TODO</dd>
-					<dt>cmyk</dt>	<dd>TODO</dd>
-					<dt>gray</dt>	<dd>TODO</dd>
-					<dt>hsl</dt>	<dd>TODO</dd>
-					<dt>hsv</dt>	<dd>TODO</dd>
-					<dt>rgb</dt>	<dd>TODO</dd>
-					<dt>yiq</dt>	<dd>TODO</dd>
-					<dt>yuv</dt>	<dd>TODO</dd>
+					<dt>cmy</dt>
+					<dd>
+						<dl>
+							<dt>Description</dt>
+							<dd>
+								Hold CMY category  that is aking to provided category.
+							</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code>
+								template &lt; <i>category_name</i> &gt; <br>
+								&nbsp; struct ::color::akin::cmy;<code><br>
+								Where <code>category_name</code> is non CMY category.
+							</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::akin::cmy&lt; ::color::rgb&lt; float &gt;::category_type &gt;::akin_type;<code><br>
+							</dd>
+						</dl>
+					</dd>
+					<dt>cmyk</dt>
+					<dd>
+						<dl>
+							<dt>Description</dt><dd>Hold CMYK category  that is akin to provided category.</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code>
+								template &lt; <i>category_name</i> &gt; <br>
+								&nbsp; struct ::color::akin::cmyk;<code><br>
+								Where <code>category_name</code> is non CMYK category.
+							</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::akin::cmyk&lt; ::color::rgb&lt; float &gt;::category_type &gt;::akin_type;<code><br>
+							</dd>
+						</dl>
+					</dd>
+					<dt>gray</dt>
+					<dd>
+						<dl>
+							<dt>Description</dt><dd>Hold gray category  that is akin to provided category.</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code>
+								template &lt; <i>category_name</i> &gt; <br>
+								&nbsp; struct ::color::akin::gray;<code><br>
+								Where <code>category_name</code> is non Gray category.
+							</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::akin::gray&lt; ::color::rgb&lt; float &gt;::category_type &gt;::akin_type;<code><br>
+							</dd>
+						</dl>
+					</dd>
+					<dt>hsl</dt>
+					<dd>
+						<dl>
+							<dt>Description</dt><dd>Hold HSL category that is akin to provided category.</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code>
+								template &lt; <i>category_name</i> &gt; <br>
+								&nbsp; struct ::color::akin::HSL;<code><br>
+								Where <code>category_name</code> is non HSL category.
+							</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::akin::HSL&lt; ::color::rgb&lt; float &gt;::category_type &gt;::akin_type;<code><br>
+							</dd>
+						</dl>
+					</dd>
+					<dt>hsv</dt>
+					<dd>
+						<dl>
+							<dt>Description</dt><dd>Hold HSV category  that is akin to provided category.</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code>
+								template &lt; <i>category_name</i> &gt; <br>
+								&nbsp; struct ::color::akin::hsv;<code><br>
+								Where <code>category_name</code> is non HSV category.
+							</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::akin::hsv&lt; ::color::rgb&lt; float &gt;::category_type &gt;::akin_type;<code><br>
+							</dd>
+						</dl>
+					</dd>
+					<dt>rgb</dt>
+					<dd>
+						<dl>
+							<dt>Description</dt><dd>Hold RGB category  that is akin to provided category.</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code>
+								template &lt; <i>category_name</i> &gt; <br>
+								&nbsp; struct ::color::akin::rgb;<code><br>
+								Where <code>category_name</code> is non RGB category.
+							</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::akin::rgb&lt; ::color::rgb&lt; float &gt;::category_type &gt;::akin_type;<code><br>
+							</dd>
+						</dl>
+					</dd>
+					<dt>yiq</dt>
+					<dd>
+						<dl>
+							<dt>Description</dt><dd>Hold YIQ category  that is akin to provided category.</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code>
+								template &lt; <i>category_name</i> &gt; <br>
+								&nbsp; struct ::color::akin::yiq;<code><br>
+								Where <code>category_name</code> is non YIQ category.
+							</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::akin::yiq&lt; ::color::rgb&lt; float &gt;::category_type &gt;::akin_type;<code><br>
+							</dd>
+						</dl>
+					</dd>
+					<dt>yuv</dt>
+					<dd>
+						<dl>
+							<dt>Description</dt><dd>Hold YUV category  that is akin to provided category.</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code>
+								template &lt; <i>category_name</i> &gt; <br>
+								&nbsp; struct ::color::akin::yuv;<code><br>
+								Where <code>category_name</code> is non YUV category.
+							</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::akin::yuv&lt; ::color::rgb&lt; float &gt;::category_type &gt;::akin_type;<code><br>
+							</dd>
+						</dl>
+					</dd>
 				</dl>
 			</dd>
 		</dl>

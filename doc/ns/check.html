@@ -14,7 +14,7 @@
 			Functions in this space will detect those inconsistency.
 			</dd>
 			<!-- <dt><h3>Note</h3></dt>
-			<dd>TODO</dd> -->
+			<dd></dd> -->
 			<dt><h3>Function List:</h3></dt>
 			<dd>
 				<dl>
@@ -48,11 +48,14 @@
 						</code>
 					</dd>
 					<dt>Description</dt>
-					<dd>Value of some component is out of range but color is still vallid and it pass <i>integrity</i> check.</dd>
+					<dd>Value of some component is out of range but color is still vallid and it can pass <i>integrity</i> check.</dd>
 					<dt>Note</dt>
-					<dd><code>true</code> - everything is OK<br><code>false</code> - some of the component is out of range</dd>
+					<dd><code>false</code> - There is no overburn.<br>
+						<code>true</code> - some of the component is out of range.</dd>
 					<dt>Example</dt>
 					<dd>Red value of <code>color::rgb&lt; double &gt;</code> can goes beyond 1. </dd>
+					<dt>See also</dt>
+					<dd> <a href="../bound.html">Bounds.</a></dd>
 				</dl>
 				<hr width="%20">
 				<dl>
@@ -68,7 +71,8 @@
 					<dt>Description</dt>
 					<dd>Some models allows several different combinations of component values which essential the same color</dd>
 					<dt>Note</dt>
-					<dd><code>true</code> -color is unique<br><code>false</code> - there is other representations of this component combination</dd>
+					<dd><code>true</code> - color is unique<br>
+						<code>false</code> - there is other representations of this component combination</dd>
 					<dt>Example</dt>
 					<dd>Saturation component is HSV/HSL is equal to zero. What ever values of the other components the same color is presented. </dd>
 				</dl>

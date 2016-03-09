@@ -113,6 +113,10 @@ example/fix_overburn
 example/fix_unique
 
 example/make_orange
+example/make_bisque
+example/make_gray
+example/make_red
+
 
 example/test/out/
 example/test/gen*

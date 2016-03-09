@@ -20,12 +20,13 @@
 					<dt>Declaration</dt>
 					<dd>TODO</dd>
 					<dt>Description</dt>
-					<dd>Calculate onvex combination of given color.<br>
-					For color a and b, and scalar 0.3 convex combination is result = (1-0.3)a + 0.3 * b;
-
+					<dd>Calculate convex combination of two given color for given scalar.<br>
+						For color a and b, and scalar 0.3 convex combination is result = (1-0.3)a + 0.3 * b;
 					</dd>
 					<dt>Example</dt>
 					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
+						::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };</code>
 						TODO
 					</dd>
 					<dt>Link</dt>
@@ -49,7 +50,14 @@
 					<dt>Description</dt>
 					<dd>Calculate invert color for given.</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
+						::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };<br>
+						a = ::color::operation::invert( b ); <br>
+						::color::operation::invert( a, b );<br>
+						</code>
+					</dd>
+
 				</dl><hr width="%20">
 
 				<dl>
@@ -67,7 +75,12 @@
 					<dt>Description</dt>
 					<dd>Blend two color in to new one by respect of alpha channel. Same as blend but return result instead to accept as first parameter.</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::rgb&lt float &gt a{ ::color::constant::orange{} };<br>
+						::color::rgb&lt float &gt a{ ::color::constant::lime{} };</code>
+						TODO
+					</dd>
+
 					<dt>Link</dt>
 					<dd><a href="https://en.wikipedia.org/wiki/Alpha_compositing"> Wikipedia Alpha compositing </a> </dd>
 				</dl><hr width="%20">
@@ -114,7 +127,12 @@
 					<dt>Description</dt>
 					<dd>Blend two color in to new one by respect of alpha channel. Same as mix but accep result as first paramater</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
+						::color::rgb&lt; float &gt; a{ ::color::constant::lime{} };</code>
+						TODO
+					</dd>
+
 					<dt>Link</dt>
 					<dd><a href="https://en.wikipedia.org/wiki/Alpha_compositing"> Wikipedia Alpha compositing </a> </dd>
 				</dl><hr width="%20">
@@ -134,7 +152,15 @@
 					<dt>Description</dt>
 					<dd>Perform addition like they are vectors.</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
+						::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };<br>
+						::color::rgb&lt; float &gt; r{ ::color::constant::lime{} };<br>
+						r = color::operation::addition(a,b);<br>
+						color::operation::addition(r,a,b);<br>
+						</code>
+					</dd>
+
 				</dl><hr width="%20">
 
 				<dl>
@@ -144,26 +170,23 @@
 					<dd>
 					<code>
 						&nbsp;template< typename category_name, typename scalar_name >           <br>
-						&nbsp;&nbsp;void scale                                                   <br>
-						&nbsp;&nbsp;&nbsp;(                                                      <br>
-						&nbsp;&nbsp;&nbsp;  ::color::model<category_name>      &amp; result          <br>
-						&nbsp;&nbsp;&nbsp; , scalar_name                  const&amp; scalar          <br>
-						&nbsp;&nbsp;&nbsp;);                                                     <br>
+						&nbsp;&nbsp;void scale( ::color::model<category_name> &amp; result, scalar_name const&amp; scalar &nbsp;&nbsp;&nbsp;);                                                     <br>
 						&nbsp;                                                                   <br>
 						&nbsp;template< typename category_name, typename scalar_name >           <br>
-						&nbsp;&nbsp;void scale                                                   <br>
-						&nbsp;&nbsp;&nbsp;(                                                      <br>
-						&nbsp;&nbsp;&nbsp;  ::color::model<category_name>      &amp;result          <br>
-						&nbsp;&nbsp;&nbsp; ,scalar_name                   const&amp; scalar <br>
-						&nbsp;&nbsp;&nbsp; ,::color::model<category_name> const&amp; right           <br>
-						&nbsp;&nbsp;&nbsp;);
+						&nbsp;&nbsp;void scale( ::color::model<category_name>      &amp;result,scalar_name                   const&amp; scalar ,::color::model<category_name> const&amp; right );
 					</code>
 
 					</dd>
 					<dt>Description</dt>
 					<dd>Scale component by given factor if not stated differently.</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
+						::color::rgb&lt; float &gt; r{ ::color::constant::lime{} };</code>
+						r = color::operation::subtract(a, 0.6 );<br>
+						color::operation::subtract(r,0.6,b);<br>
+					</dd>
+
 				</dl><hr width="%20">
 
 				<dl>
@@ -181,7 +204,13 @@
 					<dt>Description</dt>
 					<dd>Perform subtraction like they are vectors.</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
+						::color::rgb&lt; float &gt; a{ ::color::constant::lime{} };</code>
+						r = color::operation::subtract(a,b);<br>
+						color::operation::subtract(r,a,b);<br>
+					</dd>
+
 				</dl><hr width="%20">
 
 			</dd>
