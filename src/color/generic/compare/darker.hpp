@@ -16,7 +16,8 @@
       bool darker( ::color::model< category_name > const& left, ::color::model< category_name > const& right )
        {
         using namespace ::color::compare::operators;
-        return ::color::gray<float>( left ) < ::color::gray<float>( right );
+        typedef typename ::color::trait::scalar< category_name >::instance_type  scalar_type;
+        return ::color::gray<scalar_type>( left ).container() < ::color::gray<scalar_type>( right ).container();
        }
 
     }

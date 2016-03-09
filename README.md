@@ -1,7 +1,7 @@
 # Yet another c++ library that implements color.
 Status:
 - Documentation
- - Examples coverage: 100%
+ - Examples coverage: ~90%
  - HTML coverage: ~80%
 - All planed functionality implemented
 - Ready for test use

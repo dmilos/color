@@ -3,6 +3,8 @@
 # One line one example
 # Designed for easy copy/paste
 
+# TODO COLOR_USE_PP2FILE
+
 g++ -fexceptions -std=c++11 -g -I../src hello.cpp               -o  hello
 
 g++ -fexceptions -std=c++11 -g -I../src pp2f.cpp               -o  pp2f
