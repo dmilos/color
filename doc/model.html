@@ -107,7 +107,7 @@
 								<dt>Description</dt>
 								<dd>Category of color. It's enclose model an format in one type. </dd>
 								<dt>Definition</dt>
-								<dd>TODO</dd>
+								<dd><code>typedef category_name category_type;</code></dd>
 								<dt>See also</dt>
 								<dd><a href="./ns/category.html">Categories</a></dd>
 							</dl>
@@ -205,7 +205,7 @@
 								<dt>Description</dt>
 								<dd>Return type of set function.</dd>
 								<dt>Definition</dt>
-								<dd>TODO</dd>
+								<dd><code>typedef typename container_trait_type::set_return_type        set_return_type;</code></dd>
 								<dt>Note</dt>
 								<dd>Usually void.</dd>
 							</dl>
@@ -232,18 +232,20 @@
 							<dd>
 								<dl>
 									<dt>Description</dt>
-									<dd>TODO</dd>
+									<dd>Get coponent for given index</dd>
 									<dt>Definition</dt>
-									<dd><code>TODO</code></dd>
+									<dd><code>component_return_const_type<br>&nbsp;&nbsp;get( index_input_const_type index )const </code></dd>
+									<dt>Note</dt>
+									<dd>This is version of get is slower then templete.</dd>
 								</dl>
 							</dd>
 							<dt>get</dt>
 							<dd>
 								<dl>
 									<dt>Description</dt>
-									<dd>TODO</dd>
+									<dd>Get coponent for given index. Index will be get from template parameter.</dd>
 									<dt>Definition</dt>
-									<dd><code>TODO</code></dd>
+									<dd><code>template&lt; index_type index &gt;<br>&nbsp;component_return_const_type &nbsp;get()const;</code></dd>
 								</dl>
 							</dd>
 
@@ -251,9 +253,11 @@
 							<dd>
 								<dl>
 									<dt>Description</dt>
-									<dd>TODO</dd>
+									<dd>Set component.</dd>
 									<dt>Definition</dt>
-									<dd><code>TODO</code></dd>
+									<dd><code>set_return_type&nbsp;&nbsp;set( index_input_const_type index, component_input_const_type component ) </code></dd>
+									<dt>Note</dt>
+									<dd>This version of <code>set</code> is slow in compare to template version.</dd>
 								</dl>
 							</dd>
 
@@ -261,19 +265,21 @@
 							<dd>
 								<dl>
 									<dt>Description</dt>
-									<dd>TODO</dd>
+									<dd>Set component value. Index come from template.</dd>
 									<dt>Definition</dt>
-									<dd><code>TODO</code></dd>
+									<dd><code>template&lt index_type index &gt;<br>&nbsp; set_return_type set( component_input_const_type component ) </code></dd>
+									<dt>Note</dt>
+									<dd>This version of <code>set</code> is faster and it is optimized to get only component for given index .</dd>
 								</dl>
 							</dd>
 
-							<dt>operator[]</dt>
+							<dt>operator[]const</dt>
 							<dd>
 								<dl>
 									<dt>Description</dt>
-									<dd>TODO</dd>
+									<dd>Return constant value of component.</dd>
 									<dt>Definition</dt>
-									<dd><code>TODO</code></dd>
+									<dd><code>component_return_const_type operator[]( index_input_const_type index )const </code></dd>
 								</dl>
 							</dd>
 
@@ -281,9 +287,9 @@
 							<dd>
 								<dl>
 									<dt>Description</dt>
-									<dd>TODO</dd>
+									<dd>Return constant referen to container</dd>
 									<dt>Definition</dt>
-									<dd><code>TODO</code></dd>
+									<dd><code> container_return_const_type container()const </code></dd>
 								</dl>
 							</dd>
 
@@ -291,9 +297,9 @@
 							<dd>
 								<dl>
 									<dt>Description</dt>
-									<dd>TODO</dd>
+									<dd>Return reference to container</dd>
 									<dt>Definition</dt>
-									<dd><code>TODO</code></dd>
+									<dd><code>container_return_original_type       container() </code></dd>
 								</dl>
 							</dd>
 
@@ -303,7 +309,7 @@
 									<dt>Description</dt>
 									<dd>Number of components</dd>
 									<dt>Definition</dt>
-									<dd><code>TODO</code></dd>
+									<dd><code>static unsigned       size() </code></dd>
 								</dl>
 							</dd>
 

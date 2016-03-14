@@ -25,7 +25,6 @@
 							&nbsp;&nbsp; typename ::color::model&lt; category_name >::component_input_const_type         component_parameter <br>
 							&nbsp;&nbsp;);
 						</code>
-
 				</dd>
 				<dt>Specialized:</dt>
 				<dd >
@@ -33,7 +32,7 @@
 						template&lt; typename tag_name ><br>
 						&nbsp;inline void blue<br>
 						&nbsp;&nbsp;(<br>
-						&nbsp;&nbsp;			::color::model&lt; ::color::category:::<i>SomeModel</i>< tag_name &gt; &gt;                                   & color_parameter<br>
+						&nbsp;&nbsp;          ::color::model&lt; ::color::category:::<i>SomeModel</i>< tag_name &gt; &gt;                                   & color_parameter<br>
 						&nbsp;&nbsp;,typename ::color::trait::component&lt; typename ::color::akin::rgb< ::color::category:::<i>SomeModel</i>< tag_name &gt; &gt;::akin_type >::input_const_type         component_parameter <br>
 						&nbsp;&nbsp;)
 					</code>
@@ -44,7 +43,7 @@
 						template&lt; typename tag_name ><br>
 						&nbsp;inline void blue<br>
 						&nbsp;&nbsp;(<br>
-						&nbsp;&nbsp;			::color::model&lt; ::color::category:::hsl&lt; tag_name &gt; &gt;                                   & color_parameter<br>
+						&nbsp;&nbsp;          ::color::model&lt; ::color::category:::hsl&lt; tag_name &gt; &gt;                                   & color_parameter<br>
 						&nbsp;&nbsp;,typename ::color::trait::component&lt; typename ::color::akin::rgb&lt; ::color::category:::hsl&lt; tag_name &gt; &gt;::akin_type >::input_const_type         component_parameter <br>
 						&nbsp;&nbsp;)
 					</code>
@@ -59,9 +58,15 @@
 					<dt>Declaration</dt>
 					<dd><code>TODO</code></dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Set alpha component or do nothing if not exists.</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>
+							// do nothing<br>
+							::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::set::alpha( h, 0.5 ) &lt;&lt; std::cout;<br></code>
+					</dd>
+
 				</dl><hr width="%20">
 
 				<dl>
@@ -70,9 +75,12 @@
 					<dt>Declaration</dt>
 					<dd><code>TODO</code></dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Recalculate color so ::color::get::blue will return given value. </dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::set::blue( h, 0.5 ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -81,9 +89,12 @@
 					<dt>Declaration</dt>
 					<dd><code>TODO</code></dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Adjust gray-nes of color</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::set::gray( h, 0.5 ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -92,9 +103,12 @@
 					<dt>Declaration</dt>
 					<dd><code>TODO</code></dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Set green of color</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::green::green( h, 0.5 ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -103,9 +117,12 @@
 					<dt>Declaration</dt>
 					<dd><code>TODO</code></dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Set hue of color. </dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::set::hue( h,180 ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -116,7 +133,10 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::set::inphase( h, 0 ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -127,7 +147,10 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::set::key( h,0 ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -138,7 +161,9 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::set::luma( h, 0 ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -149,7 +174,9 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::set::luminance( h, 0 ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -160,7 +187,9 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::set::quadrature( h, 0 ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>
@@ -171,7 +200,10 @@
 					<dt>Description</dt>
 					<dd>TODO</dd>
 					<dt>Example</dt>
-					<dd>TODO</dd>
+					<dt>Example</dt>
+						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
+							std::cout &lt;&lt; ::coor::set::red( h, 0 ) &lt;&lt; std::cout;<br></code>
+					</dd>
 				</dl><hr width="%20">
 
 			</dd>

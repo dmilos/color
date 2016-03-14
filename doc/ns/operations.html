@@ -18,7 +18,26 @@
 					<dt>Name</dt>
 					<dd><i>convex</i></dd>
 					<dt>Declaration</dt>
-					<dd>TODO</dd>
+					<dd>
+						<code>
+						template&lt; typename category_name, typename scalar_name &gt;                       <br>
+						&nbsp;&nbsp;void convex                                                              <br>
+						&nbsp;(                                                                              <br>
+						&nbsp;&nbsp; ::color::model&lt;category_name&gt;      &amp; result                   <br>
+						&nbsp;&nbsp;,scalar_name                            const&amp;scalar                 <br>
+						&nbsp;&nbsp;,color::model&lt;category_name&gt; const&amp;right                       <br>
+						&nbsp;);                                                                             <br>
+                                                                                                             <br>
+						template&lt; typename category_name, typename scalar_name &gt;                       <br>
+						&nbsp;void convex                                                                    <br>
+						&nbsp;&nbsp;(                                                                        <br>
+						&nbsp;&nbsp;&nbsp; ::color::model&lt;category_name&gt;      &amp;result              <br>
+						&nbsp;&nbsp;&nbsp;,color::model&lt;category_name&gt; const&amp;left                  <br>
+						&nbsp;&nbsp;&nbsp;,scalar_name                            const&amp;scalar           <br>
+						&nbsp;&nbsp;&nbsp;,color::model&lt;category_name&gt; const&amp;right                 <br>
+						&nbsp;&nbsp;);                                                                       <br>
+						</code>
+					</dd>
 					<dt>Description</dt>
 					<dd>Calculate convex combination of two given color for given scalar.<br>
 						For color a and b, and scalar 0.3 convex combination is result = (1-0.3)a + 0.3 * b;
@@ -26,12 +45,14 @@
 					<dt>Example</dt>
 					<dd>
 						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-						::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };</code>
-						TODO
+						::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };<br>
+						::color::rgb&lt; float &gt; r;<br>
+						::color::operation::convex( a, 0.3, b );<br>
+						color::operation::convex( r, a, 0.25, b );
+						</code>
 					</dd>
 					<dt>Link</dt>
 					<dd> <a href="https://en.wikipedia.org/wiki/Convex_combination"> Wikipedia Convex Combination </a> </dd>
-
 
 				</dl><hr width="%20">
 
@@ -77,8 +98,10 @@
 					<dt>Example</dt>
 					<dd>
 						<code>::color::rgb&lt float &gt a{ ::color::constant::orange{} };<br>
-						::color::rgb&lt float &gt a{ ::color::constant::lime{} };</code>
-						TODO
+						::color::rgb&lt float &gt a{ ::color::constant::lime{} };<br>
+						::color::rgb&lt float &gt r;<br>
+						r = color::operation::mix( a, 0.2, b ); 
+						</code>
 					</dd>
 
 					<dt>Link</dt>
@@ -126,11 +149,12 @@
 					</dd>
 					<dt>Description</dt>
 					<dd>Blend two color in to new one by respect of alpha channel. Same as mix but accep result as first paramater</dd>
-					<dt>Example</dt>
+					<dt>Example:</dt>
 					<dd>
 						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-						::color::rgb&lt; float &gt; a{ ::color::constant::lime{} };</code>
-						TODO
+						::color::rgb&lt; float &gt; a{ ::color::constant::lime{} };<br>
+						:color::operation::blend( a, 0.1, b );
+						</code>
 					</dd>
 
 					<dt>Link</dt>
