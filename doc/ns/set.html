@@ -10,8 +10,10 @@
 		<h1 align="center">Namespace <code>color::set</code></h1>
 		<dl>
 			<dt><h3>Description</h3></dt>
-			<dd>Set color property. To each color we can set some unique property</dd>
-			<dt><h3>TODO</h3></dt>
+			<dd>Set color property. To each color we can set some unique property.</dd>
+			<dt><h3>Note</h3></dt>
+			<dd>In most cases recalculation will occur e.g HSL color model has no red as component but it is possible (by design/intention of this library) to use </code>color::set::red</code>.</dd>
+			<dt><h3><a name="general">Note</a></h3></dt>
 			<dd> All functions has the same signature and their accept akin values for akin type for given model.
 
 				<dl>
@@ -32,7 +34,7 @@
 						template&lt; typename tag_name ><br>
 						&nbsp;inline void blue<br>
 						&nbsp;&nbsp;(<br>
-						&nbsp;&nbsp;          ::color::model&lt; ::color::category:::<i>SomeModel</i>< tag_name &gt; &gt;                                   & color_parameter<br>
+						&nbsp;&nbsp;          ::color::model&lt; ::color::category:::<i>SomeModel</i>< tag_name &gt; &gt;                                   &amp; color_parameter<br>
 						&nbsp;&nbsp;,typename ::color::trait::component&lt; typename ::color::akin::rgb< ::color::category:::<i>SomeModel</i>< tag_name &gt; &gt;::akin_type >::input_const_type         component_parameter <br>
 						&nbsp;&nbsp;)
 					</code>
@@ -43,7 +45,7 @@
 						template&lt; typename tag_name ><br>
 						&nbsp;inline void blue<br>
 						&nbsp;&nbsp;(<br>
-						&nbsp;&nbsp;          ::color::model&lt; ::color::category:::hsl&lt; tag_name &gt; &gt;                                   & color_parameter<br>
+						&nbsp;&nbsp;          ::color::model&lt; ::color::category:::hsl&lt; tag_name &gt; &gt;                                   &amp; color_parameter<br>
 						&nbsp;&nbsp;,typename ::color::trait::component&lt; typename ::color::akin::rgb&lt; ::color::category:::hsl&lt; tag_name &gt; &gt;::akin_type >::input_const_type         component_parameter <br>
 						&nbsp;&nbsp;)
 					</code>
@@ -56,7 +58,7 @@
 					<dt>Name</dt>
 					<dd><i>alpha</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Set alpha component or do nothing if not exists.</dd>
 					<dt>Example</dt>
@@ -73,7 +75,7 @@
 					<dt>Name</dt>
 					<dd><i>blue</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Recalculate color so ::color::get::blue will return given value. </dd>
 					<dt>Example</dt>
@@ -87,7 +89,7 @@
 					<dt>Name</dt>
 					<dd><i>gray</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Adjust gray-nes of color</dd>
 					<dt>Example</dt>
@@ -101,13 +103,13 @@
 					<dt>Name</dt>
 					<dd><i>green</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Set green of color</dd>
 					<dt>Example</dt>
 					<dd>
 						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
-							std::cout &lt;&lt; ::coor::green::green( h, 0.5 ) &lt;&lt; std::cout;<br></code>
+							std::cout &lt;&lt; ::coor::set::green( h, 0.5 ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">
 
@@ -115,13 +117,13 @@
 					<dt>Name</dt>
 					<dd><i>hue</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Set hue of color. </dd>
 					<dt>Example</dt>
 					<dd>
 						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
-							std::cout &lt;&lt; ::coor::set::hue( h,180 ) &lt;&lt; std::cout;<br></code>
+							std::cout &lt;&lt; ::coor::set::rgb( h,180 ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">
 
@@ -129,9 +131,9 @@
 					<dt>Name</dt>
 					<dd><i>inphase</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Set inphase of color.</dd>
 					<dt>Example</dt>
 					<dd>
 						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
@@ -143,9 +145,9 @@
 					<dt>Name</dt>
 					<dd><i>key</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Set key of color.</dd>
 					<dt>Example</dt>
 					<dd>
 						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
@@ -157,9 +159,9 @@
 					<dt>Name</dt>
 					<dd><i>luma</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Set luma of color.</dd>
 					<dt>Example</dt>
 						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
 							std::cout &lt;&lt; ::coor::set::luma( h, 0 ) &lt;&lt; std::cout;<br></code>
@@ -170,9 +172,9 @@
 					<dt>Name</dt>
 					<dd><i>luminance</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Set luminance of color.</dd>
 					<dt>Example</dt>
 						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
 							std::cout &lt;&lt; ::coor::set::luminance( h, 0 ) &lt;&lt; std::cout;<br></code>
@@ -183,9 +185,9 @@
 					<dt>Name</dt>
 					<dd><i>quadrature</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Set quadrature of color.</dd>
 					<dt>Example</dt>
 						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
 							std::cout &lt;&lt; ::coor::set::quadrature( h, 0 ) &lt;&lt; std::cout;<br></code>
@@ -196,9 +198,9 @@
 					<dt>Name</dt>
 					<dd><i>red</i></dd>
 					<dt>Declaration</dt>
-					<dd><code>TODO</code></dd>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
-					<dd>TODO</dd>
+					<dd>Set red of color.</dd>
 					<dt>Example</dt>
 					<dt>Example</dt>
 						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
