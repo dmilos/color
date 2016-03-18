@@ -12000,26 +12000,10 @@ namespace color {
 namespace color {
 	namespace akin {
 
-		template< >struct yuv< ::color::category::yuv_uint8 > {
-			typedef ::color::category::yuv_uint8 akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_uint16 > {
-			typedef ::color::category::yuv_uint16 akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_uint32 > {
-			typedef ::color::category::yuv_uint32 akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_uint64 > {
-			typedef ::color::category::yuv_uint64 akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_float > {
-			typedef ::color::category::yuv_float akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_double > {
-			typedef ::color::category::yuv_double akin_type;
-		};
-		template< >struct yuv< ::color::category::yuv_ldouble > {
-			typedef ::color::category::yuv_ldouble akin_type;
+		template< typename tag_name >
+		struct yuv< ::color::category::yuv< tag_name > > {
+			public:
+			typedef ::color::category::yuv< tag_name > akin_type;
 		};
 
 	}
@@ -21775,7 +21759,8 @@ namespace color {
 		template < typename category_name >
 bool darker(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 	using namespace ::color::compare::operators;
-	return ::color::gray<float>(left) < ::color::gray<float>(right);
+	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+	return ::color::gray<scalar_type>(left).container() < ::color::gray<scalar_type>(right).container();
 }
 
 	}
@@ -21787,7 +21772,8 @@ namespace color {
 		template < typename category_name >
 bool brighter(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 	using namespace ::color::compare::operators;
-	return ::color::gray<float>(left) > ::color::gray<float>(right);
+	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+	return ::color::gray<scalar_type>(left).container() > ::color::gray<scalar_type>(right).container();
 }
 
 	}

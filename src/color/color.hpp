@@ -7,10 +7,10 @@
 #include <initializer_list>
 #include <array>
 //#include <mutex>
-//#include <type_traits> 
+//#include <type_traits>
 
-//#include <iostream> 
-//#include <iomanip> 
+//#include <iostream>
+//#include <iomanip>
 
 #if defined COLOR_USE_PP2FILE
 #include "color.pp2f.hpp"

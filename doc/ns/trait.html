@@ -95,16 +95,63 @@
 					<dd>
 						<dl>
 							<dt>Description</dt>
-							<dd>Contain color component insome it specific manner.
+							<dd>Contain color component in some it specific manner.
 							 Instance, input/output parameters, return (non)modifiable types.
 							 </dd>
 							<dt>Members</dt>
 							<dd>
 								<dl>
-									<dt><code>get()const</code></code></dt><dd><dl><dt>Description</dt><dd>TODO</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>get</code></code></dt><dd><dl><dt>Description</dt><dd>TODO</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>set</code></code></dt><dd><dl><dt>Description</dt><dd>TODO</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>size</code></code></dt><dd><dl><dt>Description</dt><dd>Get size of container.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
+									<dt><code>get()const</code></code></dt>
+									<dd>
+										<dl>
+											<dt>Description</dt><dd>Get component for given index.</dd>
+											<dt>Declaration</dt>
+											<dd><code>static component_return_const_type get( input_const_type container, index_input_const_type index );</code></dd>
+											<dt>Example</dt>
+											<dd>TODO</dd>
+										</dl>
+									</dd>
+									<dt><code>get</code></code></dt>
+									<dd>
+										<dl>
+											<dt>Description</dt>
+											<dd>Get component for given index supplied in template.</dd>
+											<dt>Declaration</dt>
+											<dd><code>template&lt; index_instance_type index&gt; component_return_const_type get( input_const_type container );</code></dd>
+											<dt>Example</dt>
+											<dd>TODO</dd>
+										</dl>
+									</dd>
+									<dt><code>set</code></code></dt>
+									<dd>
+										<dl>
+											<dt>Description</dt><dd>Set component for given index and value.</dd>
+											<dt>Declaration</dt>
+											<dd><code>set_return_type set( input_type container, index_input_const_type index, component_input_const_type value );</code></dd>
+											<dt>Example</dt>
+											<dd>TODO</dd>
+										</dl>
+									</dd>
+									<dt><code>set</code></code></dt>
+									<dd>
+										<dl>
+											<dt>Description</dt><dd>Set component for given index and value.</dd>
+											<dt>Declaration</dt>
+											<dd><code>template&lt; index_instance_type index &gt; component_return_const_type get( input_const_type container );</code></dd>
+											<dt>Example</dt>
+											<dd>TODO</dd>
+										</dl>
+									</dd>
+									<dt><code>size</code></code></dt>
+									<dd>
+										<dl>
+											<dt>Description</dt><dd>Get size of container.</dd>
+											<dt>Declaration</dt>
+											<dd><code>index_return_image_type size();</code></dd>
+											<dt>Example</dt>
+											<dd>TODO</dd>
+										</dl>
+									</dd>
 								</dl>
 							</dd>
 						<dl>

@@ -38,4 +38,3 @@ h = y; //!< Reformat and convert from YIQ to HSV
 Want to see more:
   - [HTML Documentation ](doc/index.html)
   - [Wiki page](https://github.com/dmilos/color/wiki)
-
