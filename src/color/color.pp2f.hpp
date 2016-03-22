@@ -1504,29 +1504,10 @@ template< >struct gray< ::color::category::cmyk_ldouble > {
 namespace color {
 namespace akin {
 
-template< >struct gray< ::color::category::gray_bool > {
-	typedef ::color::category::gray_bool akin_type;
-};
-template< >struct gray< ::color::category::gray_uint8 > {
-	typedef ::color::category::gray_uint8 akin_type;
-};
-template< >struct gray< ::color::category::gray_uint16 > {
-	typedef ::color::category::gray_uint16 akin_type;
-};
-template< >struct gray< ::color::category::gray_uint32 > {
-	typedef ::color::category::gray_uint32 akin_type;
-};
-template< >struct gray< ::color::category::gray_uint64 > {
-	typedef ::color::category::gray_uint64 akin_type;
-};
-template< >struct gray< ::color::category::gray_float > {
-	typedef ::color::category::gray_float akin_type;
-};
-template< >struct gray< ::color::category::gray_double > {
-	typedef ::color::category::gray_double akin_type;
-};
-template< >struct gray< ::color::category::gray_ldouble > {
-	typedef ::color::category::gray_ldouble akin_type;
+template< typename tag_name >
+struct gray< ::color::category::gray< tag_name > > {
+public:
+	typedef ::color::category::gray< tag_name > akin_type;
 };
 
 }
@@ -3307,26 +3288,10 @@ gray
 namespace color {
 namespace akin {
 
-template< >struct cmy< ::color::category::cmy_uint8 > {
-	typedef ::color::category::cmy_uint8 akin_type;
-};
-template< >struct cmy< ::color::category::cmy_uint16 > {
-	typedef ::color::category::cmy_uint16 akin_type;
-};
-template< >struct cmy< ::color::category::cmy_uint32 > {
-	typedef ::color::category::cmy_uint32 akin_type;
-};
-template< >struct cmy< ::color::category::cmy_uint64 > {
-	typedef ::color::category::cmy_uint64 akin_type;
-};
-template< >struct cmy< ::color::category::cmy_float > {
-	typedef ::color::category::cmy_float akin_type;
-};
-template< >struct cmy< ::color::category::cmy_double > {
-	typedef ::color::category::cmy_double akin_type;
-};
-template< >struct cmy< ::color::category::cmy_ldouble > {
-	typedef ::color::category::cmy_ldouble akin_type;
+template< typename tag_name >
+struct cmy< ::color::category::cmy< tag_name > > {
+public:
+	typedef ::color::category::cmy< tag_name > akin_type;
 };
 
 }
@@ -5342,26 +5307,10 @@ namespace color {
 namespace color {
 	namespace akin {
 
-		template< >struct cmyk< ::color::category::cmyk_uint8 > {
-			typedef ::color::category::cmyk_uint8 akin_type;
-		};
-		template< >struct cmyk< ::color::category::cmyk_uint16 > {
-			typedef ::color::category::cmyk_uint16 akin_type;
-		};
-		template< >struct cmyk< ::color::category::cmyk_uint32 > {
-			typedef ::color::category::cmyk_uint32 akin_type;
-		};
-		template< >struct cmyk< ::color::category::cmyk_uint64 > {
-			typedef ::color::category::cmyk_uint64 akin_type;
-		};
-		template< >struct cmyk< ::color::category::cmyk_float > {
-			typedef ::color::category::cmyk_float akin_type;
-		};
-		template< >struct cmyk< ::color::category::cmyk_double > {
-			typedef ::color::category::cmyk_double akin_type;
-		};
-		template< >struct cmyk< ::color::category::cmyk_ldouble > {
-			typedef ::color::category::cmyk_ldouble akin_type;
+		template< typename tag_name >
+		struct cmyk< ::color::category::cmyk< tag_name > > {
+			public:
+			typedef ::color::category::cmyk< tag_name > akin_type;
 		};
 
 	}
@@ -6477,26 +6426,10 @@ namespace color {
 namespace color {
 	namespace akin {
 
-		template< >struct rgb< ::color::category::rgb_uint8 > {
-			typedef ::color::category::rgb_uint8 akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_uint16 > {
-			typedef ::color::category::rgb_uint16 akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_uint32 > {
-			typedef ::color::category::rgb_uint32 akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_uint64 > {
-			typedef ::color::category::rgb_uint64 akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_float > {
-			typedef ::color::category::rgb_float akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_double > {
-			typedef ::color::category::rgb_double akin_type;
-		};
-		template< >struct rgb< ::color::category::rgb_ldouble > {
-			typedef ::color::category::rgb_ldouble akin_type;
+		template< typename tag_name >
+		struct rgb< ::color::category::rgb< tag_name > > {
+			public:
+			typedef ::color::category::rgb< tag_name > akin_type;
 		};
 
 	}
@@ -8192,26 +8125,10 @@ namespace color {
 namespace color {
 	namespace akin {
 
-		template< >struct hsl< ::color::category::hsl_uint8 > {
-			typedef ::color::category::hsl_uint8 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_uint16 > {
-			typedef ::color::category::hsl_uint16 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_uint32 > {
-			typedef ::color::category::hsl_uint32 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_uint64 > {
-			typedef ::color::category::hsl_uint64 akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_float > {
-			typedef ::color::category::hsl_float akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_double > {
-			typedef ::color::category::hsl_double akin_type;
-		};
-		template< >struct hsl< ::color::category::hsl_ldouble > {
-			typedef ::color::category::hsl_ldouble akin_type;
+		template< typename tag_name >
+		struct hsl< ::color::category::hsl< tag_name > > {
+			public:
+			typedef ::color::category::hsl< tag_name > akin_type;
 		};
 
 	}
@@ -9460,26 +9377,10 @@ namespace color {
 namespace color {
 	namespace akin {
 
-		template< >struct hsv< ::color::category::hsv_uint8 > {
-			typedef ::color::category::hsv_uint8 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_uint16 > {
-			typedef ::color::category::hsv_uint16 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_uint32 > {
-			typedef ::color::category::hsv_uint32 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_uint64 > {
-			typedef ::color::category::hsv_uint64 akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_float > {
-			typedef ::color::category::hsv_float akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_double > {
-			typedef ::color::category::hsv_double akin_type;
-		};
-		template< >struct hsv< ::color::category::hsv_ldouble > {
-			typedef ::color::category::hsv_ldouble akin_type;
+		template< typename tag_name >
+		struct hsv< ::color::category::hsv< tag_name > > {
+			public:
+			typedef ::color::category::hsv< tag_name > akin_type;
 		};
 
 	}
@@ -11013,26 +10914,10 @@ namespace color {
 namespace color {
 	namespace akin {
 
-		template< >struct yiq< ::color::category::yiq_uint8 > {
-			typedef ::color::category::yiq_uint8 akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_uint16 > {
-			typedef ::color::category::yiq_uint16 akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_uint32 > {
-			typedef ::color::category::yiq_uint32 akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_uint64 > {
-			typedef ::color::category::yiq_uint64 akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_float > {
-			typedef ::color::category::yiq_float akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_double > {
-			typedef ::color::category::yiq_double akin_type;
-		};
-		template< >struct yiq< ::color::category::yiq_ldouble > {
-			typedef ::color::category::yiq_ldouble akin_type;
+		template< typename tag_name >
+		struct yiq< ::color::category::yiq< tag_name > > {
+			public:
+			typedef ::color::category::yiq< tag_name > akin_type;
 		};
 
 	}
