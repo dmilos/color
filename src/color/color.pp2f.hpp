@@ -1277,11 +1277,17 @@ struct split4_t {};
 
 typedef ::color::type::split4_t< 2, 2, 2, 2 > split2222_t;
 
+typedef ::color::type::split4_t< 4, 4, 4, 4 > split4444_t;
+
 typedef ::color::type::split4_t< 5, 5, 5, 1 > split5551_t;
 typedef ::color::type::split4_t< 1, 5, 5, 5 > split1555_t;
 
-typedef ::color::type::split4_t< 10, 10, 10, 2 > splitAAA2_t;
+typedef ::color::type::split4_t< 6, 6, 6, 6 > split6666_t;
+
+typedef ::color::type::split4_t< 8, 8, 8, 8 > split8888_t;
+
 typedef ::color::type::split4_t< 2, 10, 10, 10 > split2AAA_t;
+typedef ::color::type::split4_t< 10, 10, 10, 2 > splitAAA2_t;
 
 }
 }
@@ -3014,9 +3020,11 @@ struct pack_8
 };
 
 template< typename index_name > using cnent2222 = ::color::_internal::utility::component::pack_8<index_name>;
+
 template< typename index_name > using cnent233 = ::color::_internal::utility::component::pack_8<index_name>;
 template< typename index_name > using cnent323 = ::color::_internal::utility::component::pack_8<index_name>;
 template< typename index_name > using cnent332 = ::color::_internal::utility::component::pack_8<index_name>;
+
 template< typename index_name > using cnent224 = ::color::_internal::utility::component::pack_8<index_name>;
 template< typename index_name > using cnent242 = ::color::_internal::utility::component::pack_8<index_name>;
 template< typename index_name > using cnent422 = ::color::_internal::utility::component::pack_8<index_name>;
@@ -3070,7 +3078,9 @@ struct pack_16
 template< typename index_name > using cnent556 = ::color::_internal::utility::component::pack_16<index_name>;
 template< typename index_name > using cnent565 = ::color::_internal::utility::component::pack_16<index_name>;
 template< typename index_name > using cnent655 = ::color::_internal::utility::component::pack_16<index_name>;
+
 template< typename index_name > using cnent4444 = ::color::_internal::utility::component::pack_16<index_name>;
+
 template< typename index_name > using cnent5551 = ::color::_internal::utility::component::pack_16<index_name>;
 template< typename index_name > using cnent1555 = ::color::_internal::utility::component::pack_16<index_name>;
 
@@ -3119,6 +3129,8 @@ template< typename index_name >
 struct pack_32
 		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
 };
+
+template< typename index_name > using cnent8888 = ::color::_internal::utility::component::pack_32<index_name>;
 
 template< typename index_name > using cnentAAA2 = ::color::_internal::utility::component::pack_32<index_name>;
 template< typename index_name > using cnent2AAA = ::color::_internal::utility::component::pack_32<index_name>;
@@ -6847,8 +6859,15 @@ static return_image_type range(index_input_const_type index) {
 				};
 
 using split2222 = ::color::_internal::utility::bound::split4< std::uint8_t, unsigned, 2, 2, 2, 2 >;
+using split4444 = ::color::_internal::utility::bound::split4< std::uint16_t, unsigned, 4, 4, 4, 4 >;
+
+using split1555 = ::color::_internal::utility::bound::split4< std::uint16_t, unsigned, 1, 5, 5, 5 >;
 using split5551 = ::color::_internal::utility::bound::split4< std::uint16_t, unsigned, 5, 5, 5, 1 >;
+
+using split8888 = ::color::_internal::utility::bound::split4< std::uint32_t, unsigned, 8, 8, 8, 8 >;
+
 using splitAAA2 = ::color::_internal::utility::bound::split4< std::uint32_t, unsigned, 10, 10, 10, 2 >;
+using split2AAA = ::color::_internal::utility::bound::split4< std::uint32_t, unsigned, 2, 10, 10, 10 >;
 
 			}
 		}
@@ -7282,7 +7301,14 @@ static index_return_image_type size() {
 				};
 
 using split2222 = ::color::_internal::utility::container::split4< std::uint8_t, std::uint8_t, unsigned, 2, 2, 2, 2 >;
+using split4444 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t, unsigned, 4, 4, 4, 4 >;
+
+using split1555 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t, unsigned, 1, 5, 5, 5 >;
 using split5551 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t, unsigned, 5, 5, 5, 1 >;
+
+using split8888 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t, unsigned, 8, 8, 8, 8 >;
+
+using split2AAA = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned, 2, 10, 10, 10 >;
 using splitAAA2 = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned, 10, 10, 10, 2 >;
 
 			}
@@ -7337,9 +7363,11 @@ namespace color {
 		template<> struct pick_rgb< ::color::type::split332_t > {
 			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t , 0, 1, 2 > > category_type;
 		};
+
 		template<> struct pick_rgb< ::color::type::split422_t > {
 			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t , 0, 1, 2 > > category_type;
 		};
+
 		template<> struct pick_rgb< ::color::type::split556_t > {
 			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t , 0, 1, 2 > > category_type;
 		};
@@ -7350,7 +7378,43 @@ namespace color {
 			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 0, 1, 2 > > category_type;
 		};
 
-		template<> struct pick_rgb< ::color::type::splitAAA2_t > {
+		template< typename type_name >
+		struct pick_rgba {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t, 0, 1, 2, 3 > > category_type;
+		};
+
+		template<> struct pick_rgba< std::uint8_t > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t , 0, 1, 2, 3 > > category_type;
+		};
+		template<> struct pick_rgba< std::uint16_t > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint16_t , 0, 1, 2, 3 > > category_type;
+		};
+		template<> struct pick_rgba< std::uint32_t > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint32_t , 0, 1, 2, 3 > > category_type;
+		};
+		template<> struct pick_rgba< std::uint64_t > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint64_t , 0, 1, 2, 3 > > category_type;
+		};
+		template<> struct pick_rgba< float > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< float , 0, 1, 2, 3 > > category_type;
+		};
+		template<> struct pick_rgba< double > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< double , 0, 1, 2, 3 > > category_type;
+		};
+		template<> struct pick_rgba< long double > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< long double, 0, 1, 2, 3 > > category_type;
+		};
+
+		template<> struct pick_rgba< ::color::type::split2222_t > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t , 0, 1, 2, 3 > > category_type;
+		};
+		template<> struct pick_rgba< ::color::type::split4444_t > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t , 0, 1, 2, 3 > > category_type;
+		};
+		template<> struct pick_rgba< ::color::type::split8888_t > {
+			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t , 0, 1, 2, 3 > > category_type;
+		};
+		template<> struct pick_rgba< ::color::type::splitAAA2_t > {
 			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t , 0, 1, 2, 3 > > category_type;
 		};
 	}
@@ -7358,8 +7422,8 @@ namespace color {
 	template< typename type_name >
 	using rgb = ::color::model< typename ::color::_internal::pick_rgb< type_name >::category_type >;
 
-	template< typename value_name >
-	using rgba = ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 0, 1, 2, 3 > > >;
+	template< typename type_name >
+	using rgba = ::color::model< typename ::color::_internal::pick_rgba< type_name >::category_type >;
 
 	template< typename value_name >
 	using argb = ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, 1, 2, 3, 0 > > >;

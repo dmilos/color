@@ -22,9 +22,11 @@ namespace color
           };
 
         template< typename index_name > using cnent2222 = ::color::_internal::utility::component::pack_8<index_name>;
+
         template< typename index_name > using cnent233  = ::color::_internal::utility::component::pack_8<index_name>;
         template< typename index_name > using cnent323  = ::color::_internal::utility::component::pack_8<index_name>;
         template< typename index_name > using cnent332  = ::color::_internal::utility::component::pack_8<index_name>;
+
         template< typename index_name > using cnent224  = ::color::_internal::utility::component::pack_8<index_name>;
         template< typename index_name > using cnent242  = ::color::_internal::utility::component::pack_8<index_name>;
         template< typename index_name > using cnent422  = ::color::_internal::utility::component::pack_8<index_name>;

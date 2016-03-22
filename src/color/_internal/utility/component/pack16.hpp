@@ -24,10 +24,11 @@ namespace color
         template< typename index_name > using cnent556  = ::color::_internal::utility::component::pack_16<index_name>;
         template< typename index_name > using cnent565  = ::color::_internal::utility::component::pack_16<index_name>;
         template< typename index_name > using cnent655  = ::color::_internal::utility::component::pack_16<index_name>;
+
         template< typename index_name > using cnent4444 = ::color::_internal::utility::component::pack_16<index_name>;
+
         template< typename index_name > using cnent5551 = ::color::_internal::utility::component::pack_16<index_name>;
         template< typename index_name > using cnent1555 = ::color::_internal::utility::component::pack_16<index_name>;
-
 
        }
      }

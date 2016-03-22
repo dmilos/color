@@ -79,13 +79,20 @@
 							<dt>Members</dt>
 							<dd>
 								<dl>
-									<dt><code>instance_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make instance of component</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>const_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make constant instance of component</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>return_image_type</code></dt><dd><dl><dt>Description</dt><dd>Returned component which can not be modified.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>return_type</code></dt><dd><dl><dt>Description</dt><dd>Returned component without guaranteed properties</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>return_original_type</code></dt><dd><dl><dt>Description</dt><dd>Returned component which can be modified.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>input_const_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>input_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which might be modifiable.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
+									<dt><code>instance_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make instance of component</dd>
+									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::instance_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
+									<dt><code>const_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make constant instance of component</dd>
+									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::const_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
+									<dt><code>return_image_type</code></dt><dd><dl><dt>Description</dt><dd>Returned component which can not be modified.</dd>
+									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::return_image_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
+									<dt><code>return_type</code></dt><dd><dl><dt>Description</dt><dd>Returned component without guaranteed properties</dd>
+									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::return_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
+									<dt><code>return_original_type</code></dt><dd><dl><dt>Description</dt><dd>Returned component which can be modified.</dd>
+									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::return_original_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
+									<dt><code>input_const_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd>
+									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::input_const_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
+									<dt><code>input_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which might be modifiable.</dd>
+									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::input_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
 								</dl>
 							</dd>
 						<dl>

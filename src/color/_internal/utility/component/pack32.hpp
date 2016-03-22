@@ -21,6 +21,8 @@ namespace color
           {
           };
 
+        template< typename index_name > using cnent8888 = ::color::_internal::utility::component::pack_32<index_name>;
+
         template< typename index_name > using cnentAAA2 = ::color::_internal::utility::component::pack_32<index_name>;
         template< typename index_name > using cnent2AAA = ::color::_internal::utility::component::pack_32<index_name>;
 
