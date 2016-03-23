@@ -28,36 +28,35 @@ namespace color
    class model
     {
      public:
-      typedef category_name category_type;
+       typedef category_name category_type;
 
-      typedef ::color::trait::index< category_name >      index_trait_type;
-      typedef ::color::trait::component< category_name >  component_trait_type;
-      typedef ::color::trait::container< category_name >  container_trait_type;
-      typedef ::color::trait::bound< category_name >      bound_trait_type, bound_type;
+       typedef ::color::trait::index< category_name >      index_trait_type;
+       typedef ::color::trait::component< category_name >  component_trait_type;
+       typedef ::color::trait::container< category_name >  container_trait_type;
+       typedef ::color::trait::bound< category_name >      bound_trait_type, bound_type;
 
-      //typedef ::color::model<category_type>  this_type;
+       typedef ::color::model<category_type>  this_type, model_type;
 
-      typedef typename index_trait_type::instance_type          index_type;
-      typedef typename index_trait_type::const_type             index_const_type;
-      typedef typename index_trait_type::input_const_type       index_input_const_type;
-      typedef typename index_trait_type::return_image_type      index_return_image_type;
+       typedef typename index_trait_type::instance_type          index_type;
+       typedef typename index_trait_type::const_type             index_const_type;
+       typedef typename index_trait_type::input_const_type       index_input_const_type;
+       typedef typename index_trait_type::return_image_type      index_return_image_type;
 
-      typedef typename component_trait_type::instance_type       component_type;
-      typedef typename component_trait_type::const_type          component_const_type;
-      typedef typename component_trait_type::return_image_type   component_return_const_type;
-      typedef typename component_trait_type::return_type         component_return_type;
-      typedef typename component_trait_type::input_const_type    component_input_const_type;
-      typedef typename component_trait_type::input_type          component_input_type;
+       typedef typename component_trait_type::instance_type       component_type;
+       typedef typename component_trait_type::const_type          component_const_type;
+       typedef typename component_trait_type::return_image_type   component_return_const_type;
+       typedef typename component_trait_type::return_type         component_return_type;
+       typedef typename component_trait_type::input_const_type    component_input_const_type;
+       typedef typename component_trait_type::input_type          component_input_type;
 
-      typedef typename container_trait_type::instance_type          container_type;
-      typedef typename container_trait_type::const_type             container_const_type;
-      typedef typename container_trait_type::return_image_type      container_return_const_type;
-      typedef typename container_trait_type::return_original_type   container_return_original_type;
-      typedef typename container_trait_type::input_const_type       container_input_const_type;
-      typedef typename container_trait_type::input_type             container_input_type;
+       typedef typename container_trait_type::instance_type          container_type;
+       typedef typename container_trait_type::const_type             container_const_type;
+       typedef typename container_trait_type::return_image_type      container_return_const_type;
+       typedef typename container_trait_type::return_original_type   container_return_original_type;
+       typedef typename container_trait_type::input_const_type       container_input_const_type;
+       typedef typename container_trait_type::input_type             container_input_type;
 
-      typedef typename container_trait_type::set_return_type        set_return_type;
-
+       typedef typename container_trait_type::set_return_type        set_return_type;
 
                model( )
                {
@@ -113,19 +112,6 @@ namespace color
          return container_trait_type::template get<index>( this->m_container );
         }
 
-      //component_return_type
-      //get( index_input_const_type index )
-      // {
-      //  return container_trait_type::get( m_container, index );
-      // }
-
-      //template< index_type index >
-      // component_return_type
-      // get()
-      //  {
-      //   return container_trait_type::get<index>( m_container );
-      //  }
-
       set_return_type
       set( index_input_const_type index, component_input_const_type component )
        {
@@ -144,10 +130,34 @@ namespace color
         return this->get( index );
        }
 
-      //component_return_type       operator[]( index_input_const_type index )
-      // {
-      //  return this->get( index );
-      // }
+     private: // Very ugly but effective
+       class proxy
+        {
+         public:
+           proxy( model_type & model, index_type const& index )
+            : m_model( model ), m_index( index )
+           {
+           }
+           proxy & operator=( component_type const& component )
+            {
+             m_model.set( m_index, component );
+             return *this;
+            }
+           operator component_type()const
+            {
+             return m_model.get( m_index );
+            }
+         private:
+           model_type      & m_model;
+           index_type const& m_index;
+        };
+        typedef typename ::color::model< category_name >::proxy proxy_type;
+     public:
+
+      proxy_type       operator[]( index_input_const_type index )
+       {
+        return proxy{ *this, index };
+       }
 
       container_return_const_type container()const
        {

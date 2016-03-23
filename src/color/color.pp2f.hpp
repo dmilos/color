@@ -934,6 +934,8 @@ public:
 	typedef ::color::trait::container< category_name > container_trait_type;
 	typedef ::color::trait::bound< category_name > bound_trait_type, bound_type;
 
+	typedef ::color::model<category_type> this_type, model_type;
+
 	typedef typename index_trait_type::instance_type index_type;
 	typedef typename index_trait_type::const_type index_const_type;
 	typedef typename index_trait_type::input_const_type index_input_const_type;
@@ -996,6 +998,7 @@ public:
 	get()const {
 		return container_trait_type::template get<index>(this->m_container);
 	}
+
 	set_return_type
 	set(index_input_const_type index, component_input_const_type component) {
 		return container_trait_type::set(this->m_container, index, component);
@@ -1009,6 +1012,30 @@ public:
 
 	component_return_const_type operator[](index_input_const_type index)const {
 		return this->get(index);
+	}
+
+private:
+	class proxy {
+	public:
+		proxy(model_type & model, index_type const& index)
+			: m_model(model), m_index(index) {
+		}
+		proxy & operator=(component_type const& component) {
+			m_model.set(m_index, component);
+			return *this;
+		}
+		operator component_type()const {
+			return m_model.get(m_index);
+		}
+	private:
+		model_type & m_model;
+		index_type const& m_index;
+	};
+	typedef typename ::color::model< category_name >::proxy proxy_type;
+public:
+
+	proxy_type operator[](index_input_const_type index) {
+		return proxy { *this, index };
 	}
 
 	container_return_const_type container()const {

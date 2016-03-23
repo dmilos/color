@@ -18,6 +18,7 @@ void ctor_test()
   ::color::rgb<double>{ ::color::constant::black() };
   ::color::rgb<double>( {1,2,3} );
 
+  r[0] = 0.1;
   std::cout << r[0] << std::endl;
  }
 

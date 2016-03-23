@@ -54,6 +54,8 @@ g++ -fexceptions -std=c++11 -g -I../src format_split332.cpp         -o  format_s
 g++ -fexceptions -std=c++11 -g -I../src format_split422.cpp         -o  format_split422
 g++ -fexceptions -std=c++11 -g -I../src format_split556.cpp         -o  format_split556
 g++ -fexceptions -std=c++11 -g -I../src format_split655.cpp         -o  format_split655
+g++ -fexceptions -std=c++11 -g -I../src format_split8888.cpp        -o  format_split8888
+
 g++ -fexceptions -std=c++11 -g -I../src format_splitAAA2.cpp        -o  format_splitAAA2
 g++ -fexceptions -std=c++11 -g -I../src format_uint16.cpp           -o  format_uint16
 g++ -fexceptions -std=c++11 -g -I../src format_uint32.cpp           -o  format_uint32
