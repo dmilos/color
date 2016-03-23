@@ -137,7 +137,7 @@ namespace color
            using split1555 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t,  unsigned, 1,   5,  5,  5 >;
            using split5551 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t,  unsigned, 5,   5,  5,  1 >;
 
-           using split8888 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t,  unsigned, 8,   8,  8,  8 >;
+           using split8888 = ::color::_internal::utility::container::split4< std::uint32_t, std::uint8_t,  unsigned, 8,   8,  8,  8 >;
 
            using split2AAA = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned,  2, 10, 10, 10 >;
            using splitAAA2 = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned, 10, 10, 10,  2 >;
