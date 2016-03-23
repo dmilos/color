@@ -1289,6 +1289,8 @@ typedef ::color::type::split4_t< 8, 8, 8, 8 > split8888_t;
 typedef ::color::type::split4_t< 2, 10, 10, 10 > split2AAA_t;
 typedef ::color::type::split4_t< 10, 10, 10, 2 > splitAAA2_t;
 
+typedef ::color::type::split4_t< 16, 16, 16, 16 > splitGGGG_t;
+
 }
 }
 
@@ -1309,6 +1311,8 @@ typedef ::color::type::split3_t< 2, 2, 4 > split224_t;
 typedef ::color::type::split3_t< 6, 5, 5 > split655_t;
 typedef ::color::type::split3_t< 5, 6, 5 > split565_t;
 typedef ::color::type::split3_t< 5, 5, 6 > split556_t;
+
+typedef ::color::type::split3_t< 8, 8, 8 > split888_t;
 
 }
 }
@@ -2902,16 +2906,6 @@ namespace color {
 namespace trait {
 
 template< >
-struct component< ::color::category::rgb_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
 struct component< ::color::category::rgb_float >
 		: public ::color::_internal::utility::component::array< float, unsigned> {
 };
@@ -2922,8 +2916,29 @@ namespace color {
 namespace trait {
 
 template< >
+struct component< ::color::category::rgb_double >
+		: public ::color::_internal::utility::component::array< double, unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
 struct component< ::color::category::rgb_ldouble >
 		: public ::color::_internal::utility::component::array< long double, unsigned> {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::rgb_uint8 >
+		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -2954,16 +2969,6 @@ namespace trait {
 template< >
 struct component< ::color::category::rgb_uint64 >
 		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::rgb_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -3023,11 +3028,6 @@ struct component< ::color::category::rgb< ::color::category::_internal::rgb_scra
 		: public ::color::_internal::utility::component::cnent233< unsigned > {
 };
 
-}
-}
-namespace color {
-namespace trait {
-
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t, first_position, second_position, third_position > > >
 		: public ::color::_internal::utility::component::cnent332< unsigned > {
@@ -3035,12 +3035,23 @@ struct component< ::color::category::rgb< ::color::category::_internal::rgb_scra
 
 }
 }
+
 namespace color {
 namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t, first_position, second_position, third_position > > >
 		: public ::color::_internal::utility::component::cnent422< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split242_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::component::cnent242< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split224_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::component::cnent224< unsigned > {
 };
 
 }
@@ -3074,28 +3085,18 @@ namespace color {
 namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent556< unsigned > {
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::component::cnent655< unsigned > {
 };
-
-}
-}
-namespace color {
-namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split565_t, first_position, second_position, third_position > > >
 		: public ::color::_internal::utility::component::cnent565< unsigned > {
 };
 
-}
-}
-namespace color {
-namespace trait {
-
 template< unsigned first_position, unsigned second_position, unsigned third_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent655< unsigned > {
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::component::cnent556< unsigned > {
 };
 
 }
@@ -3127,6 +3128,69 @@ namespace trait {
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
 		: public ::color::_internal::utility::component::cnentAAA2< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::component::cnent2AAA< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::component::cnent2222< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::component::cnent4444< unsigned > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::component::cnent8888< unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace utility {
+namespace component {
+
+template< typename index_name >
+struct pack_64
+		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
+};
+
+template< typename index_name > using cnentGGGG = ::color::_internal::utility::component::pack_64<index_name>;
+}
+}
+}
+}
+
+namespace color {
+namespace trait {
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::component::cnentGGGG< unsigned > {
 };
 
 }
@@ -6495,16 +6559,6 @@ namespace color {
 	namespace trait {
 
 		template< >
-		struct bound< ::color::category::rgb_double >
-		: public ::color::_internal::utility::bound::general< double, unsigned > {
-		};
-
-	}
-}
-namespace color {
-	namespace trait {
-
-		template< >
 		struct bound< ::color::category::rgb_float >
 		: public ::color::_internal::utility::bound::general< float, unsigned > {
 		};
@@ -6515,8 +6569,29 @@ namespace color {
 	namespace trait {
 
 		template< >
+		struct bound< ::color::category::rgb_double >
+		: public ::color::_internal::utility::bound::general< double, unsigned > {
+		};
+
+	}
+}
+namespace color {
+	namespace trait {
+
+		template< >
 		struct bound< ::color::category::rgb_ldouble >
 		: public ::color::_internal::utility::bound::general< long double, unsigned > {
+		};
+
+	}
+}
+
+namespace color {
+	namespace trait {
+
+		template< >
+		struct bound< ::color::category::rgb_uint8 >
+		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 		};
 
 	}
@@ -6551,16 +6626,7 @@ namespace color {
 
 	}
 }
-namespace color {
-	namespace trait {
 
-		template< >
-		struct bound< ::color::category::rgb_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
-		};
-
-	}
-}
 namespace color {
 	namespace trait {
 
@@ -6672,10 +6738,10 @@ namespace color {
 		: public ::color::_internal::utility::bound::split233 {
 		};
 
-	}
-}
-namespace color {
-	namespace trait {
+		template< unsigned first_position, unsigned second_position, unsigned third_position >
+		struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split323_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::bound::split323 {
+		};
 
 		template< unsigned first_position, unsigned second_position, unsigned third_position >
 		struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t, first_position, second_position, third_position > > >
@@ -6684,6 +6750,7 @@ namespace color {
 
 	}
 }
+
 namespace color {
 	namespace trait {
 
@@ -6692,8 +6759,19 @@ namespace color {
 		: public ::color::_internal::utility::bound::split422 {
 		};
 
+		template< unsigned first_position, unsigned second_position, unsigned third_position >
+		struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split242_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::bound::split242 {
+		};
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position >
+		struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split224_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::bound::split224 {
+		};
+
 	}
 }
+
 namespace color {
 	namespace trait {
 
@@ -6702,20 +6780,10 @@ namespace color {
 		: public ::color::_internal::utility::bound::split556 {
 		};
 
-	}
-}
-namespace color {
-	namespace trait {
-
 		template< unsigned first_position, unsigned second_position, unsigned third_position >
 		struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split565_t, first_position, second_position, third_position > > >
 		: public ::color::_internal::utility::bound::split565 {
 		};
-
-	}
-}
-namespace color {
-	namespace trait {
 
 		template< unsigned first_position, unsigned second_position, unsigned third_position >
 		struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
@@ -6793,14 +6861,19 @@ static return_image_type range(index_input_const_type index) {
 
 using split2222 = ::color::_internal::utility::bound::split4< std::uint8_t, unsigned, 2, 2, 2, 2 >;
 using split4444 = ::color::_internal::utility::bound::split4< std::uint16_t, unsigned, 4, 4, 4, 4 >;
+using split6666 = ::color::_internal::utility::bound::split4< std::uint16_t, unsigned, 6, 6, 6, 6 >;
 
 using split1555 = ::color::_internal::utility::bound::split4< std::uint16_t, unsigned, 1, 5, 5, 5 >;
 using split5551 = ::color::_internal::utility::bound::split4< std::uint16_t, unsigned, 5, 5, 5, 1 >;
+
+using split6666 = ::color::_internal::utility::bound::split4< std::uint16_t, unsigned, 6, 6, 6, 6 >;
 
 using split8888 = ::color::_internal::utility::bound::split4< std::uint32_t, unsigned, 8, 8, 8, 8 >;
 
 using splitAAA2 = ::color::_internal::utility::bound::split4< std::uint32_t, unsigned, 10, 10, 10, 2 >;
 using split2AAA = ::color::_internal::utility::bound::split4< std::uint32_t, unsigned, 2, 10, 10, 10 >;
+
+using splitGGGG = ::color::_internal::utility::bound::split4< std::uint32_t, unsigned, 16, 16, 16, 16 >;
 
 			}
 		}
@@ -6815,19 +6888,55 @@ namespace color {
 		: public ::color::_internal::utility::bound::splitAAA2 {
 		};
 
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::bound::split2AAA {
+		};
+
 	}
 }
 
 namespace color {
 	namespace trait {
 
-		template< >
-		struct container< ::color::category::rgb_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::bound::split2222 {
 		};
 
 	}
 }
+namespace color {
+	namespace trait {
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::bound::split4444 {
+		};
+
+	}
+}
+namespace color {
+	namespace trait {
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::bound::split8888 {
+		};
+
+	}
+}
+namespace color {
+	namespace trait {
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::bound::splitGGGG {
+		};
+
+	}
+}
+
 namespace color {
 	namespace trait {
 
@@ -6842,8 +6951,29 @@ namespace color {
 	namespace trait {
 
 		template< >
+		struct container< ::color::category::rgb_double >
+		: public ::color::_internal::utility::container::array< double, 3 > {
+		};
+
+	}
+}
+namespace color {
+	namespace trait {
+
+		template< >
 		struct container< ::color::category::rgb_ldouble >
 		: public ::color::_internal::utility::container::array< long double, 3 > {
+		};
+
+	}
+}
+
+namespace color {
+	namespace trait {
+
+		template< >
+		struct container< ::color::category::rgb_uint8 >
+		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 		};
 
 	}
@@ -6878,16 +7008,7 @@ namespace color {
 
 	}
 }
-namespace color {
-	namespace trait {
 
-		template< >
-		struct container< ::color::category::rgb_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
-		};
-
-	}
-}
 namespace color {
 	namespace trait {
 
@@ -7050,10 +7171,10 @@ namespace color {
 		: public ::color::_internal::utility::container::split233 {
 		};
 
-	}
-}
-namespace color {
-	namespace trait {
+		template< unsigned first_position, unsigned second_position, unsigned third_position >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split323_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::container::split323 {
+		};
 
 		template< unsigned first_position, unsigned second_position, unsigned third_position >
 		struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t, first_position, second_position, third_position > > >
@@ -7062,6 +7183,7 @@ namespace color {
 
 	}
 }
+
 namespace color {
 	namespace trait {
 
@@ -7070,34 +7192,35 @@ namespace color {
 		: public ::color::_internal::utility::container::split422 {
 		};
 
-	}
-}
-namespace color {
-	namespace trait {
+		template< unsigned first_position, unsigned second_position, unsigned third_position >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split242_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::container::split242 {
+		};
 
 		template< unsigned first_position, unsigned second_position, unsigned third_position >
-		struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::split556 {
+		struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split224_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::container::split224 {
 		};
 
 	}
 }
-namespace color {
-	namespace trait {
 
-		template< unsigned first_position, unsigned second_position, unsigned third_position >
-		struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split565_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::split565 {
-		};
-
-	}
-}
 namespace color {
 	namespace trait {
 
 		template< unsigned first_position, unsigned second_position, unsigned third_position >
 		struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
 		: public ::color::_internal::utility::container::split655 {
+		};
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split565_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::container::split565 {
+		};
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t, first_position, second_position, third_position > > >
+		: public ::color::_internal::utility::container::split556 {
 		};
 
 	}
@@ -7244,6 +7367,8 @@ using split8888 = ::color::_internal::utility::container::split4< std::uint16_t,
 using split2AAA = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned, 2, 10, 10, 10 >;
 using splitAAA2 = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned, 10, 10, 10, 2 >;
 
+using splitGGGG = ::color::_internal::utility::container::split4< std::uint64_t, std::uint16_t, unsigned, 16, 16, 16, 16 >;
+
 			}
 		}
 	}
@@ -7255,6 +7380,52 @@ namespace color {
 		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 		struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
 		: public ::color::_internal::utility::container::splitAAA2 {
+		};
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::container::split2AAA {
+		};
+
+	}
+}
+
+namespace color {
+	namespace trait {
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::container::split2222 {
+		};
+
+	}
+}
+namespace color {
+	namespace trait {
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::container::split4444 {
+		};
+
+	}
+}
+namespace color {
+	namespace trait {
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::container::split8888 {
+		};
+
+	}
+}
+namespace color {
+	namespace trait {
+
+		template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+		struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, first_position, second_position, third_position, fourth_position > > >
+		: public ::color::_internal::utility::container::splitGGGG {
 		};
 
 	}
@@ -7432,9 +7603,10 @@ namespace color {
 alpha(::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > > > const& color_parameter) {
 	typedef ::color::category::_internal::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > tag_type;
 	typedef ::color::category::rgb< tag_type > category_type;
-	return color_parameter.template get< alpha_position >() ;
+	enum { alpha_enum = ::color::place::_internal::alpha< category_type >::position_enum };
+	static_assert(alpha_position != alpha_enum, "Internal: Mismach in aplha position.");
+	return color_parameter.template get< alpha_position >();
 }
-
 	}
 }
 

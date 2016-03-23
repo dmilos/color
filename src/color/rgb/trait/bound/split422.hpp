@@ -15,9 +15,21 @@ namespace color
   namespace trait
    {
 
-    template< unsigned first_position, unsigned second_position, unsigned third_position > 
+    template< unsigned first_position, unsigned second_position, unsigned third_position >
      struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t, first_position, second_position, third_position > > >
       : public ::color::_internal::utility::bound::split422
+      {
+      };
+
+    template< unsigned first_position, unsigned second_position, unsigned third_position >
+     struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split242_t, first_position, second_position, third_position > > >
+      : public ::color::_internal::utility::bound::split242
+      {
+      };
+
+    template< unsigned first_position, unsigned second_position, unsigned third_position >
+     struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split224_t, first_position, second_position, third_position > > >
+      : public ::color::_internal::utility::bound::split224
       {
       };
 

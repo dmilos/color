@@ -89,14 +89,19 @@ namespace color
 
          using split2222 = ::color::_internal::utility::bound::split4< std::uint8_t,   unsigned,  2,  2,  2,  2 >;
          using split4444 = ::color::_internal::utility::bound::split4< std::uint16_t,  unsigned,  4,  4,  4,  4 >;
+         using split6666 = ::color::_internal::utility::bound::split4< std::uint16_t,  unsigned,  6,  6,  6,  6 >;
 
          using split1555 = ::color::_internal::utility::bound::split4< std::uint16_t,  unsigned,  1,  5,  5,  5 >;
          using split5551 = ::color::_internal::utility::bound::split4< std::uint16_t,  unsigned,  5,  5,  5,  1 >;
+
+         using split6666 = ::color::_internal::utility::bound::split4< std::uint16_t,  unsigned,  6,  6,  6,  6 >;
 
          using split8888 = ::color::_internal::utility::bound::split4< std::uint32_t,  unsigned,  8,  8,  8,  8 >;
 
          using splitAAA2 = ::color::_internal::utility::bound::split4< std::uint32_t,  unsigned, 10, 10, 10,  2 >;
          using split2AAA = ::color::_internal::utility::bound::split4< std::uint32_t,  unsigned,  2, 10, 10, 10 >;
+
+         using splitGGGG = ::color::_internal::utility::bound::split4< std::uint32_t,  unsigned, 16, 16, 16, 16 >;
 
        }
      }

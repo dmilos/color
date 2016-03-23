@@ -58,6 +58,7 @@ namespace color
     template<> struct pick_rgba< ::color::type::split4444_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t , 0, 1, 2, 3 > > category_type; };
     template<> struct pick_rgba< ::color::type::split8888_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t , 0, 1, 2, 3 > > category_type; };
     template<> struct pick_rgba< ::color::type::splitAAA2_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t , 0, 1, 2, 3 > > category_type; };
+    template<> struct pick_rgba< ::color::type::splitGGGG_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t , 0, 1, 2, 3 > > category_type; };
    }
 
   template< typename type_name >

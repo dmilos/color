@@ -21,6 +21,7 @@ namespace color
           {
           };
 
+        template< typename index_name > using cnentGGGG = ::color::_internal::utility::component::pack_64<index_name>;
        }
      }
    }

@@ -23,6 +23,8 @@ namespace color
     typedef  ::color::type::split3_t< 5, 6, 5 > split565_t;
     typedef  ::color::type::split3_t< 5, 5, 6 > split556_t;
 
+    typedef  ::color::type::split3_t< 8, 8, 8 > split888_t;
+
    }
  }
 

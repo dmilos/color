@@ -25,6 +25,8 @@ namespace color
     typedef  ::color::type::split4_t<  2, 10, 10, 10 > split2AAA_t;
     typedef  ::color::type::split4_t< 10, 10, 10,  2 > splitAAA2_t;
 
+    typedef  ::color::type::split4_t< 16, 16, 16, 16 > splitGGGG_t;
+
    }
  }
 

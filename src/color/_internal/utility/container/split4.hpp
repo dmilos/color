@@ -142,6 +142,8 @@ namespace color
            using split2AAA = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned,  2, 10, 10, 10 >;
            using splitAAA2 = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned, 10, 10, 10,  2 >;
 
+           using splitGGGG = ::color::_internal::utility::container::split4< std::uint64_t, std::uint16_t, unsigned, 16, 16, 16,  16 >;
+
        }
      }
    }
