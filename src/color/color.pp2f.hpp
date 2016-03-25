@@ -1327,7 +1327,7 @@ namespace type {
 template< unsigned first_size, unsigned second_size, unsigned third_size >
 struct split3_t {};
 
-typedef ::color::type::split3_t< 2, 3, 3 > split233_t;
+typedef ::color::type::split3_t< 2, 3, 3 > split233_t, split233_type;
 typedef ::color::type::split3_t< 3, 2, 3 > split323_t;
 typedef ::color::type::split3_t< 3, 3, 2 > split332_t;
 
@@ -1728,6 +1728,14 @@ using rgb_uint64 = ::color::category::_internal::rgb_scramble< std::uint64_t , 0
 using rgb_float = ::color::category::_internal::rgb_scramble< float , 0, 1, 2 >;
 using rgb_double = ::color::category::_internal::rgb_scramble< double , 0, 1, 2 >;
 using rgb_ldouble = ::color::category::_internal::rgb_scramble< long double, 0, 1, 2 >;
+
+using rgb_split233 = ::color::category::_internal::rgb_scramble< ::color::type::split233_t , 0, 1, 2 >;
+using rgb_split323 = ::color::category::_internal::rgb_scramble< ::color::type::split323_t , 0, 1, 2 >;
+using rgb_split332 = ::color::category::_internal::rgb_scramble< ::color::type::split332_t , 0, 1, 2 >;
+using rgb_split422 = ::color::category::_internal::rgb_scramble< ::color::type::split422_t , 0, 1, 2 >;
+using rgb_split556 = ::color::category::_internal::rgb_scramble< ::color::type::split556_t , 0, 1, 2 >;
+using rgb_split565 = ::color::category::_internal::rgb_scramble< ::color::type::split565_t , 0, 1, 2 >;
+using rgb_split655 = ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 0, 1, 2 >;
 }
 
 using rgb_uint8 = ::color::category::rgb< ::color::category::_internal::rgb_uint8 >;
@@ -1737,6 +1745,13 @@ using rgb_uint64 = ::color::category::rgb< ::color::category::_internal::rgb_uin
 using rgb_float = ::color::category::rgb< ::color::category::_internal::rgb_float >;
 using rgb_double = ::color::category::rgb< ::color::category::_internal::rgb_double >;
 using rgb_ldouble = ::color::category::rgb< ::color::category::_internal::rgb_ldouble >;
+using rgb_split233 = ::color::category::rgb< ::color::category::_internal::rgb_split233 >;
+using rgb_split323 = ::color::category::rgb< ::color::category::_internal::rgb_split323 >;
+using rgb_split332 = ::color::category::rgb< ::color::category::_internal::rgb_split332 >;
+using rgb_split422 = ::color::category::rgb< ::color::category::_internal::rgb_split422 >;
+using rgb_split556 = ::color::category::rgb< ::color::category::_internal::rgb_split556 >;
+using rgb_split565 = ::color::category::rgb< ::color::category::_internal::rgb_split565 >;
+using rgb_split655 = ::color::category::rgb< ::color::category::_internal::rgb_split655 >;
 }
 }
 
@@ -7464,50 +7479,51 @@ namespace color {
 
 		template< typename type_name >
 		struct pick_rgb {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< std::uint8_t, 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_uint8 category_type;
 		};
 
 		template<> struct pick_rgb< std::uint8_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< std::uint8_t , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_uint8 category_type;
 		};
 		template<> struct pick_rgb< std::uint16_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< std::uint16_t , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_uint16 category_type;
 		};
 		template<> struct pick_rgb< std::uint32_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< std::uint32_t , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_uint32 category_type;
 		};
 		template<> struct pick_rgb< std::uint64_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< std::uint64_t , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_uint64 category_type;
 		};
 		template<> struct pick_rgb< float > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< float , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_float category_type;
 		};
 		template<> struct pick_rgb< double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< double , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_double category_type;
 		};
 		template<> struct pick_rgb< long double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< long double, 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_ldouble category_type;
 		};
 
 		template<> struct pick_rgb< ::color::type::split233_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split233_t , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_split233 category_type;
+		};
+		template<> struct pick_rgb< ::color::type::split323_t > {
+			typedef ::color::category::rgb_split323 category_type;
 		};
 		template<> struct pick_rgb< ::color::type::split332_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_split332 category_type;
 		};
-
 		template<> struct pick_rgb< ::color::type::split422_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_split422 category_type;
 		};
-
 		template<> struct pick_rgb< ::color::type::split556_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_split556 category_type;
 		};
 		template<> struct pick_rgb< ::color::type::split565_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split565_t , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_split565 category_type;
 		};
 		template<> struct pick_rgb< ::color::type::split655_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 0, 1, 2 > > category_type;
+			typedef ::color::category::rgb_split655 category_type;
 		};
 
 		template< typename type_name >

@@ -28,10 +28,10 @@ settings.accumulate( 'PDB', { 'configuration': configuration , 'synchronous' : '
 settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.get_custom( 'RTL' ) } )
 #settings.accumulate( 'pp2f', { 'output' : 'asd.pp2f', 'extension' : 'pp2f',  )
 
+settings.accumulate( 'macro',  { 'name' : 'COLOR_USE_PP2FILE'  } )
+
 # Accumulate source
 envObject = nucleotide.Environment( settings ).native()
-
-
 
 source = []
 source +=   [
@@ -52,7 +52,7 @@ source +=   [
 envProgram = nucleotide.Environment( settings ).native()
 
 # Create program
-program = envProgram.Program( target =  './out/test' + envProgram['PROGSUFFIX'], source = source  )
+program = envProgram.Program( target =  './out/test1' + envProgram['PROGSUFFIX'], source = source )
 
 # ... and return!
 Return( 'program' )
