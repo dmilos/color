@@ -8,7 +8,7 @@ namespace color
 
     namespace _internal
      {
-      struct cmyk_bool    {};
+    //struct cmyk_bool    {};
       struct cmyk_uint8   {};
       struct cmyk_uint16  {};
       struct cmyk_uint24  {};
@@ -26,7 +26,7 @@ namespace color
        typedef void category_name;
       };
 
-    using cmyk_bool    = ::color::category::cmyk< ::color::category::_internal::cmyk_bool    >;
+  //using cmyk_bool    = ::color::category::cmyk< ::color::category::_internal::cmyk_bool    >;
     using cmyk_uint8   = ::color::category::cmyk< ::color::category::_internal::cmyk_uint8   >;
     using cmyk_uint16  = ::color::category::cmyk< ::color::category::_internal::cmyk_uint16  >;
     using cmyk_uint24  = ::color::category::cmyk< ::color::category::_internal::cmyk_uint24  >;

@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_container_split3
-#define color__internal_utility_container_split3
+#ifndef color__internal_utility_container_split5
+#define color__internal_utility_container_split5
 
-// ::color::_internal::utility::container::split3< index_name >
+// ::color::_internal::utility::container::split5< index_name >
 
 #include "../type/index.hpp"
 #include "../type/traitp.hpp"
@@ -21,9 +21,9 @@ namespace color
            typename container_name,
            typename component_name,
            typename index_name
-          ,unsigned first_size, unsigned second_size, unsigned third_size
+          ,unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size, unsigned fifth_size
          >
-         struct split3
+         struct split5
           {
            public:
              typedef container_name  instance_type;
@@ -54,19 +54,23 @@ namespace color
 
              typedef void set_return_type;
 
-             enum { size_enum = 3 };
-             enum 
+             enum { size_enum = 4 };
+             enum
               {
                 first_position = 0,
                second_position = first_size,
-                third_position = first_size + second_size
+                third_position = first_size + second_size,
+               fourth_position = first_size + second_size + third_size
+                fifth_position = first_size + second_size + third_size + fourth_position
               };
 
              enum
               {
                 first_mask = ( 1 <<  first_size )-1 ,
                second_mask = ( 1 << second_size )-1 ,
-                third_mask = ( 1 <<  third_size )-1
+                third_mask = ( 1 <<  third_size )-1 ,
+               fourth_mask = ( 1 << fourth_size )-1
+                fifth_mask = ( 1 <<  fifth_size )-1
               };
 
              static component_return_const_type get( input_const_type container, index_input_const_type index )
@@ -77,6 +81,8 @@ namespace color
                  case( 0 ): return ( ( container >> (  first_position ) ) &  first_mask );
                  case( 1 ): return ( ( container >> ( second_position ) ) & second_mask );
                  case( 2 ): return ( ( container >> (  third_position ) ) &  third_mask );
+                 case( 3 ): return ( ( container >> ( fourth_position ) ) & fourth_mask );
+                 case( 4 ): return ( ( container >> (  fifth_position ) ) &  fifth_mask );
                 }
                return 0;
               }
@@ -84,12 +90,14 @@ namespace color
              template< index_instance_type index >
               static component_return_const_type get( input_const_type container )
                {
-                //TODO C++14 static_assert( index <  size_enum, "Index is out of range." );   
+                //TODO C++14 static_assert( index < size_enum, "Index is out of range." );
                 switch( index )
                  {
                   case( 0 ): return ( ( container >> (  first_position ) ) &  first_mask );
                   case( 1 ): return ( ( container >> ( second_position ) ) & second_mask );
                   case( 2 ): return ( ( container >> (  third_position ) ) &  third_mask );
+                  case( 3 ): return ( ( container >> ( fourth_position ) ) & fourth_mask );
+                  case( 4 ): return ( ( container >> ( fifth_position  ) ) &  fifth_mask );
                  }
                 return 0;
                }
@@ -102,40 +110,31 @@ namespace color
                  case( 0 ) : container = ( container & ~(  first_mask << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
                  case( 1 ) : container = ( container & ~( second_mask << ( second_position ) ) )  |  ( ((instance_type)value) << ( second_position ) ); break;
                  case( 2 ) : container = ( container & ~(  third_mask << (  third_position ) ) )  |  ( ((instance_type)value) << (  third_position ) ); break;
+                 case( 3 ) : container = ( container & ~( fourth_mask << ( fourth_position ) ) )  |  ( ((instance_type)value) << ( fourth_position ) ); break;
+                 case( 4 ) : container = ( container & ~(  fifth_mask << (  fifth_position ) ) )  |  ( ((instance_type)value) << (  fifth_position ) ); break;
                 }
               }
 
              template< index_instance_type index >
               static set_return_type set( input_type container, component_input_const_type value )
                {
-                //TODO C++14 static_assert( index <  size_enum, "Index is out of range." );
+                //TODO C++14 static_assert( index < size_enum, "Index is out of range." );
                 switch( index )
                  {
                   case( 0 ) : container = ( container & ~(   first_mask << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
                   case( 1 ) : container = ( container & ~(  second_mask << ( second_position ) ) )  |  ( ((instance_type)value) << ( second_position ) ); break;
                   case( 2 ) : container = ( container & ~(   third_mask << (  third_position ) ) )  |  ( ((instance_type)value) << (  third_position ) ); break;
+                  case( 3 ) : container = ( container & ~(  fourth_mask << ( fourth_position ) ) )  |  ( ((instance_type)value) << ( fourth_position ) ); break;
+                  case( 3 ) : container = ( container & ~(   fifth_mask << (  fifth_position ) ) )  |  ( ((instance_type)value) << (  fifth_position ) ); break;
                  }
                }
 
-             static /*constexpr*/ index_return_image_type size()
+             static index_return_image_type size()
               {
                static const index_instance_type local_length = size_enum;
                return local_length;
               }
           };
-
-
-         using split233 = ::color::_internal::utility::container::split3< std::uint8_t,  std::uint8_t, unsigned, 2, 3, 3 >;
-         using split323 = ::color::_internal::utility::container::split3< std::uint8_t,  std::uint8_t, unsigned, 3, 2, 3 >;
-         using split332 = ::color::_internal::utility::container::split3< std::uint8_t,  std::uint8_t, unsigned, 3, 3, 2 >;
-
-         using split422 = ::color::_internal::utility::container::split3< std::uint8_t,  std::uint8_t, unsigned, 4, 2, 2 >;
-         using split242 = ::color::_internal::utility::container::split3< std::uint8_t,  std::uint8_t, unsigned, 2, 4, 2 >;
-         using split224 = ::color::_internal::utility::container::split3< std::uint8_t,  std::uint8_t, unsigned, 2, 2, 4 >;
-
-         using split655 = ::color::_internal::utility::container::split3< std::uint16_t, std::uint8_t, unsigned, 6, 5, 5 >;
-         using split565 = ::color::_internal::utility::container::split3< std::uint16_t, std::uint8_t, unsigned, 5, 6, 5 >;
-         using split556 = ::color::_internal::utility::container::split3< std::uint16_t, std::uint8_t, unsigned, 5, 5, 6 >;
 
        }
      }

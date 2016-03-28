@@ -26,9 +26,8 @@ settings.accumulate( 'compiler:version',  { 'id' : '12.0'  } )
 
 settings.accumulate( 'PDB', { 'configuration': configuration , 'synchronous' : 'false', 'file-name': os.path.join( directory_pdb, name_full + '.pdb' ) } )
 settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.get_custom( 'RTL' ) } )
-#settings.accumulate( 'pp2f', { 'output' : 'asd.pp2f', 'extension' : 'pp2f',  )
 
-settings.accumulate( 'macro',  { 'name' : 'COLOR_USE_PP2FILE'  } )
+#settings.accumulate( 'macro',  { 'name' : 'COLOR_USE_PP2FILE'  } )
 
 # Accumulate source
 envObject = nucleotide.Environment( settings ).native()

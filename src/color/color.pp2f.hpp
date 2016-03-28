@@ -1410,7 +1410,7 @@ namespace color {
 namespace category {
 
 namespace _internal {
-struct cmy_bool {};
+
 struct cmy_uint8 {};
 struct cmy_uint16 {};
 struct cmy_uint24 {};
@@ -1427,7 +1427,6 @@ struct cmy {
 	typedef void category_name;
 };
 
-using cmy_bool = ::color::category::cmy< ::color::category::_internal::cmy_bool >;
 using cmy_uint8 = ::color::category::cmy< ::color::category::_internal::cmy_uint8 >;
 using cmy_uint16 = ::color::category::cmy< ::color::category::_internal::cmy_uint16 >;
 using cmy_uint24 = ::color::category::cmy< ::color::category::_internal::cmy_uint24 >;
@@ -1473,7 +1472,7 @@ namespace color {
 namespace category {
 
 namespace _internal {
-struct cmyk_bool {};
+
 struct cmyk_uint8 {};
 struct cmyk_uint16 {};
 struct cmyk_uint24 {};
@@ -1490,7 +1489,6 @@ struct cmyk {
 	typedef void category_name;
 };
 
-using cmyk_bool = ::color::category::cmyk< ::color::category::_internal::cmyk_bool >;
 using cmyk_uint8 = ::color::category::cmyk< ::color::category::_internal::cmyk_uint8 >;
 using cmyk_uint16 = ::color::category::cmyk< ::color::category::_internal::cmyk_uint16 >;
 using cmyk_uint24 = ::color::category::cmyk< ::color::category::_internal::cmyk_uint24 >;
@@ -1611,7 +1609,7 @@ namespace color {
 namespace category {
 
 namespace _internal {
-struct hsv_bool {};
+
 struct hsv_uint8 {};
 struct hsv_uint16 {};
 struct hsv_uint24 {};
@@ -1628,7 +1626,6 @@ struct hsv {
 	typedef void category_name;
 };
 
-using hsv_bool = ::color::category::hsv< ::color::category::_internal::hsv_bool >;
 using hsv_uint8 = ::color::category::hsv< ::color::category::_internal::hsv_uint8 >;
 using hsv_uint16 = ::color::category::hsv< ::color::category::_internal::hsv_uint16 >;
 using hsv_uint24 = ::color::category::hsv< ::color::category::_internal::hsv_uint24 >;
@@ -1720,7 +1717,9 @@ struct rgb_scramble : public ::color::category::_internal::scramble3< red_positi
 
 template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position, unsigned alpha_position >
 struct rgba_scramble : public ::color::category::_internal::scramble4< red_position, green_position, blue_position, alpha_position > {};
+}
 
+namespace _internal {
 using rgb_uint8 = ::color::category::_internal::rgb_scramble< std::uint8_t , 0, 1, 2 >;
 using rgb_uint16 = ::color::category::_internal::rgb_scramble< std::uint16_t , 0, 1, 2 >;
 using rgb_uint32 = ::color::category::_internal::rgb_scramble< std::uint32_t , 0, 1, 2 >;
@@ -1752,6 +1751,104 @@ using rgb_split422 = ::color::category::rgb< ::color::category::_internal::rgb_s
 using rgb_split556 = ::color::category::rgb< ::color::category::_internal::rgb_split556 >;
 using rgb_split565 = ::color::category::rgb< ::color::category::_internal::rgb_split565 >;
 using rgb_split655 = ::color::category::rgb< ::color::category::_internal::rgb_split655 >;
+
+namespace _internal {
+using rgba_uint8 = ::color::category::_internal::rgba_scramble< std::uint8_t , 0, 1, 2, 3 >;
+using rgba_uint16 = ::color::category::_internal::rgba_scramble< std::uint16_t , 0, 1, 2, 3 >;
+using rgba_uint32 = ::color::category::_internal::rgba_scramble< std::uint32_t , 0, 1, 2, 3 >;
+using rgba_uint64 = ::color::category::_internal::rgba_scramble< std::uint64_t , 0, 1, 2, 3 >;
+using rgba_float = ::color::category::_internal::rgba_scramble< float , 0, 1, 2, 3 >;
+using rgba_double = ::color::category::_internal::rgba_scramble< double , 0, 1, 2, 3 >;
+using rgba_ldouble = ::color::category::_internal::rgba_scramble< long double, 0, 1, 2, 3 >;
+
+using rgba_split2222 = ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, 0, 1, 2, 3 >;
+using rgba_split4444 = ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, 0, 1, 2, 3 >;
+using rgba_split8888 = ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, 0, 1, 2, 3 >;
+
+using rgba_split5551 = ::color::category::_internal::rgba_scramble< ::color::type::split5551_t, 0, 1, 2, 3 >;
+using rgba_splitAAA2 = ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, 0, 1, 2, 3 >;
+using rgba_splitGGGG = ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, 0, 1, 2, 3 >;
+}
+
+using rgba_uint8 = ::color::category::rgba< ::color::category::_internal::rgba_uint8 >;
+using rgba_uint16 = ::color::category::rgba< ::color::category::_internal::rgba_uint16 >;
+using rgba_uint32 = ::color::category::rgba< ::color::category::_internal::rgba_uint32 >;
+using rgba_uint64 = ::color::category::rgba< ::color::category::_internal::rgba_uint64 >;
+using rgba_float = ::color::category::rgba< ::color::category::_internal::rgba_float >;
+using rgba_double = ::color::category::rgba< ::color::category::_internal::rgba_double >;
+using rgba_ldouble = ::color::category::rgba< ::color::category::_internal::rgba_ldouble >;
+using rgba_split2222 = ::color::category::rgba< ::color::category::_internal::rgba_split2222 >;
+using rgba_split4444 = ::color::category::rgba< ::color::category::_internal::rgba_split4444 >;
+using rgba_split8888 = ::color::category::rgba< ::color::category::_internal::rgba_split8888 >;
+using rgba_split5551 = ::color::category::rgba< ::color::category::_internal::rgba_split5551 >;
+using rgba_splitAAA2 = ::color::category::rgba< ::color::category::_internal::rgba_splitAAA2 >;
+using rgba_splitGGGG = ::color::category::rgba< ::color::category::_internal::rgba_splitGGGG >;
+
+namespace _internal {
+using argb_uint8 = ::color::category::_internal::rgba_scramble< std::uint8_t , 3, 0, 1, 2 >;
+using argb_uint16 = ::color::category::_internal::rgba_scramble< std::uint16_t , 3, 0, 1, 2 >;
+using argb_uint32 = ::color::category::_internal::rgba_scramble< std::uint32_t , 3, 0, 1, 2 >;
+using argb_uint64 = ::color::category::_internal::rgba_scramble< std::uint64_t , 3, 0, 1, 2 >;
+using argb_float = ::color::category::_internal::rgba_scramble< float , 3, 0, 1, 2 >;
+using argb_double = ::color::category::_internal::rgba_scramble< double , 3, 0, 1, 2 >;
+using argb_ldouble = ::color::category::_internal::rgba_scramble< long double, 3, 0, 1, 2 >;
+
+using argb_split2222 = ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, 3, 0, 1, 2 >;
+using argb_split4444 = ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, 3, 0, 1, 2 >;
+using argb_split8888 = ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, 3, 0, 1, 2 >;
+
+using argb_split1555 = ::color::category::_internal::rgba_scramble< ::color::type::split1555_t, 3, 0, 1, 2 >;
+using argb_split2AAA = ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, 3, 0, 1, 2 >;
+using argb_splitGGGG = ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, 3, 0, 1, 2 >;
+}
+
+using argb_uint8 = ::color::category::rgba< ::color::category::_internal::argb_uint8 >;
+using argb_uint16 = ::color::category::rgba< ::color::category::_internal::argb_uint16 >;
+using argb_uint32 = ::color::category::rgba< ::color::category::_internal::argb_uint32 >;
+using argb_uint64 = ::color::category::rgba< ::color::category::_internal::argb_uint64 >;
+using argb_float = ::color::category::rgba< ::color::category::_internal::argb_float >;
+using argb_double = ::color::category::rgba< ::color::category::_internal::argb_double >;
+using argb_ldouble = ::color::category::rgba< ::color::category::_internal::argb_ldouble >;
+using argb_split2222 = ::color::category::rgba< ::color::category::_internal::argb_split2222 >;
+using argb_split4444 = ::color::category::rgba< ::color::category::_internal::argb_split4444 >;
+using argb_split8888 = ::color::category::rgba< ::color::category::_internal::argb_split8888 >;
+using argb_split1555 = ::color::category::rgba< ::color::category::_internal::argb_split1555 >;
+using argb_split2AAA = ::color::category::rgba< ::color::category::_internal::argb_split2AAA >;
+using argb_splitGGGG = ::color::category::rgba< ::color::category::_internal::argb_splitGGGG >;
+
+namespace _internal {
+using bgr_uint8 = ::color::category::_internal::rgb_scramble< std::uint8_t , 2, 0, 1 >;
+using bgr_uint16 = ::color::category::_internal::rgb_scramble< std::uint16_t , 2, 0, 1 >;
+using bgr_uint32 = ::color::category::_internal::rgb_scramble< std::uint32_t , 2, 0, 1 >;
+using bgr_uint64 = ::color::category::_internal::rgb_scramble< std::uint64_t , 2, 0, 1 >;
+using bgr_float = ::color::category::_internal::rgb_scramble< float , 2, 0, 1 >;
+using bgr_double = ::color::category::_internal::rgb_scramble< double , 2, 0, 1 >;
+using bgr_ldouble = ::color::category::_internal::rgb_scramble< long double, 2, 0, 1 >;
+
+using bgr_split233 = ::color::category::_internal::rgb_scramble< ::color::type::split233_t , 2, 0, 1 >;
+using bgr_split323 = ::color::category::_internal::rgb_scramble< ::color::type::split323_t , 2, 0, 1 >;
+using bgr_split332 = ::color::category::_internal::rgb_scramble< ::color::type::split332_t , 2, 0, 1 >;
+using bgr_split422 = ::color::category::_internal::rgb_scramble< ::color::type::split422_t , 2, 0, 1 >;
+using bgr_split556 = ::color::category::_internal::rgb_scramble< ::color::type::split556_t , 2, 0, 1 >;
+using bgr_split565 = ::color::category::_internal::rgb_scramble< ::color::type::split565_t , 2, 0, 1 >;
+using bgr_split655 = ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 2, 0, 1 >;
+}
+
+using bgr_uint8 = ::color::category::rgb< ::color::category::_internal::bgr_uint8 >;
+using bgr_uint16 = ::color::category::rgb< ::color::category::_internal::bgr_uint16 >;
+using bgr_uint32 = ::color::category::rgb< ::color::category::_internal::bgr_uint32 >;
+using bgr_uint64 = ::color::category::rgb< ::color::category::_internal::bgr_uint64 >;
+using bgr_float = ::color::category::rgb< ::color::category::_internal::bgr_float >;
+using bgr_double = ::color::category::rgb< ::color::category::_internal::bgr_double >;
+using bgr_ldouble = ::color::category::rgb< ::color::category::_internal::bgr_ldouble >;
+using bgr_split233 = ::color::category::rgb< ::color::category::_internal::bgr_split233 >;
+using bgr_split323 = ::color::category::rgb< ::color::category::_internal::bgr_split323 >;
+using bgr_split332 = ::color::category::rgb< ::color::category::_internal::bgr_split332 >;
+using bgr_split422 = ::color::category::rgb< ::color::category::_internal::bgr_split422 >;
+using bgr_split556 = ::color::category::rgb< ::color::category::_internal::bgr_split556 >;
+using bgr_split565 = ::color::category::rgb< ::color::category::_internal::bgr_split565 >;
+using bgr_split655 = ::color::category::rgb< ::color::category::_internal::bgr_split655 >;
+
 }
 }
 
@@ -1904,6 +2001,68 @@ template< >struct gray< ::color::category::yuv_double > {
 };
 template< >struct gray< ::color::category::yuv_ldouble > {
 	typedef ::color::category::gray_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< typename category_name >
+struct info {
+public:
+
+	enum { implemented_enum = false };
+	enum { meaningful_enum = false };
+
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template <> struct info< ::color::category::gray_bool > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::gray_uint8 > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::gray_uint16 > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::gray_uint32 > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::gray_uint64 > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::gray_float > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::gray_double > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::gray_ldouble > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
 };
 
 }
@@ -2526,7 +2685,7 @@ namespace _internal {
 
 template< typename type_name >
 struct pick_gray {
-	typedef ::color::category::gray_uint32 category_type;
+	typedef ::color::category::gray_uint8 category_type;
 };
 
 template<> struct pick_gray< bool > {
@@ -3594,6 +3753,48 @@ template< >struct cmy< ::color::category::yuv_double > {
 };
 template< >struct cmy< ::color::category::yuv_ldouble > {
 	typedef ::color::category::cmy_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template <> struct info< ::color::category::cmy_uint8 > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::cmy_uint16 > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::cmy_uint32 > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::cmy_uint64 > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::cmy_float > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::cmy_double > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
+};
+template <> struct info< ::color::category::cmy_ldouble > {
+public:
+	enum { implemented_enum = true };
+	enum { meaningful_enum = true };
 };
 
 }
@@ -5593,6 +5794,48 @@ namespace color {
 namespace color {
 	namespace trait {
 
+		template <> struct info< ::color::category::cmyk_uint8 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::cmyk_uint16 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::cmyk_uint32 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::cmyk_uint64 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::cmyk_float > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::cmyk_double > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::cmyk_ldouble > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+
+	}
+}
+
+namespace color {
+	namespace trait {
+
 		template< >
 		struct bound< ::color::category::cmyk_double >
 		: public ::color::_internal::utility::bound::general< double, unsigned > {
@@ -6600,6 +6843,84 @@ namespace color {
 namespace color {
 	namespace trait {
 
+		template <> struct info< ::color::category::rgb_uint8 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_uint16 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_uint32 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_uint64 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_float > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_double > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_ldouble > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+
+		template <> struct info< ::color::category::rgb_split233 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_split323 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_split332 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_split422 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_split556 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_split565 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::rgb_split655 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+
+	}
+}
+
+namespace color {
+	namespace trait {
+
 		template< >
 		struct bound< ::color::category::rgb_float >
 		: public ::color::_internal::utility::bound::general< float, unsigned > {
@@ -7115,10 +7436,11 @@ namespace color {
 					typedef void set_return_type;
 
 enum { size_enum = 3 };
-enum { first_position = 0,
-	   second_position = first_size,
-	   third_position = first_size + second_size
-	 };
+enum {
+	first_position = 0,
+	second_position = first_size,
+	third_position = first_size + second_size
+};
 
 enum {
 	first_mask = (1 << first_size)-1 ,
@@ -7183,7 +7505,7 @@ static set_return_type set(input_type container, component_input_const_type valu
 }
 
 static index_return_image_type size() {
-	static const index_instance_type local_length = 3;
+	static const index_instance_type local_length = size_enum;
 	return local_length;
 }
 				};
@@ -7311,7 +7633,6 @@ namespace color {
 					typedef void set_return_type;
 
 enum { size_enum = 4 };
-
 enum {
 	first_position = 0,
 	second_position = first_size,
@@ -7393,7 +7714,7 @@ static set_return_type set(input_type container, component_input_const_type valu
 }
 
 static index_return_image_type size() {
-	static const index_instance_type local_length = 4;
+	static const index_instance_type local_length = size_enum;
 	return local_length;
 }
 				};
@@ -7532,41 +7853,44 @@ namespace color {
 		};
 
 		template<> struct pick_rgba< std::uint8_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_uint8 category_type;
 		};
 		template<> struct pick_rgba< std::uint16_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint16_t , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_uint16 category_type;
 		};
 		template<> struct pick_rgba< std::uint32_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint32_t , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_uint32 category_type;
 		};
 		template<> struct pick_rgba< std::uint64_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint64_t , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_uint64 category_type;
 		};
 		template<> struct pick_rgba< float > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< float , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_float category_type;
 		};
 		template<> struct pick_rgba< double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< double , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_double category_type;
 		};
 		template<> struct pick_rgba< long double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< long double, 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_ldouble category_type;
 		};
 
 		template<> struct pick_rgba< ::color::type::split2222_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_split2222 category_type;
 		};
 		template<> struct pick_rgba< ::color::type::split4444_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_split4444 category_type;
 		};
 		template<> struct pick_rgba< ::color::type::split8888_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_split8888 category_type;
+		};
+		template<> struct pick_rgba< ::color::type::split5551_t > {
+			typedef ::color::category::rgba_split5551 category_type;
 		};
 		template<> struct pick_rgba< ::color::type::splitAAA2_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_splitAAA2 category_type;
 		};
 		template<> struct pick_rgba< ::color::type::splitGGGG_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t , 0, 1, 2, 3 > > category_type;
+			typedef ::color::category::rgba_splitGGGG category_type;
 		};
 
 		template< typename type_name >
@@ -7575,41 +7899,44 @@ namespace color {
 		};
 
 		template<> struct pick_argb< std::uint8_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_uint8 category_type;
 		};
 		template<> struct pick_argb< std::uint16_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint16_t , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_uint16 category_type;
 		};
 		template<> struct pick_argb< std::uint32_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint32_t , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_uint32 category_type;
 		};
 		template<> struct pick_argb< std::uint64_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint64_t , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_uint64 category_type;
 		};
 		template<> struct pick_argb< float > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< float , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_float category_type;
 		};
 		template<> struct pick_argb< double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< double , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_double category_type;
 		};
 		template<> struct pick_argb< long double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< long double, 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_ldouble category_type;
 		};
 
 		template<> struct pick_argb< ::color::type::split2222_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_split2222 category_type;
 		};
 		template<> struct pick_argb< ::color::type::split4444_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_split4444 category_type;
 		};
 		template<> struct pick_argb< ::color::type::split8888_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_split8888 category_type;
+		};
+		template<> struct pick_argb< ::color::type::split1555_t > {
+			typedef ::color::category::argb_split1555 category_type;
 		};
 		template<> struct pick_argb< ::color::type::split2AAA_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_split2AAA category_type;
 		};
 		template<> struct pick_argb< ::color::type::splitGGGG_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t , 3, 0, 1, 2 > > category_type;
+			typedef ::color::category::argb_splitGGGG category_type;
 		};
 
 		template< typename type_name >
@@ -7618,46 +7945,47 @@ namespace color {
 		};
 
 		template<> struct pick_bgr< std::uint8_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< std::uint8_t , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_uint8 category_type;
 		};
 		template<> struct pick_bgr< std::uint16_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< std::uint16_t , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_uint16 category_type;
 		};
 		template<> struct pick_bgr< std::uint32_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< std::uint32_t , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_uint32 category_type;
 		};
 		template<> struct pick_bgr< std::uint64_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< std::uint64_t , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_uint64 category_type;
 		};
 		template<> struct pick_bgr< float > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< float , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_float category_type;
 		};
 		template<> struct pick_bgr< double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< double , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_double category_type;
 		};
 		template<> struct pick_bgr< long double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< long double, 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_ldouble category_type;
 		};
 
 		template<> struct pick_bgr< ::color::type::split233_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split233_t , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_split233 category_type;
+		};
+		template<> struct pick_bgr< ::color::type::split323_t > {
+			typedef ::color::category::bgr_split323 category_type;
 		};
 		template<> struct pick_bgr< ::color::type::split332_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_split332 category_type;
 		};
-
 		template<> struct pick_bgr< ::color::type::split422_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_split422 category_type;
 		};
-
 		template<> struct pick_bgr< ::color::type::split556_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_split556 category_type;
 		};
 		template<> struct pick_bgr< ::color::type::split565_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split565_t , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_split565 category_type;
 		};
 		template<> struct pick_bgr< ::color::type::split655_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 2, 1, 0 > > category_type;
+			typedef ::color::category::bgr_split655 category_type;
 		};
 
 		template< typename type_name >
@@ -8609,6 +8937,48 @@ namespace color {
 		};
 		template< >struct hsl< ::color::category::yiq_ldouble > {
 			typedef ::color::category::hsl_ldouble akin_type;
+		};
+
+	}
+}
+
+namespace color {
+	namespace trait {
+
+		template <> struct info< ::color::category::hsl_uint8 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsl_uint16 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsl_uint32 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsl_uint64 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsl_float > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsl_double > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsl_ldouble > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
 		};
 
 	}
@@ -9861,6 +10231,48 @@ namespace color {
 		};
 		template< >struct hsv< ::color::category::yuv_ldouble > {
 			typedef ::color::category::hsv_ldouble akin_type;
+		};
+
+	}
+}
+
+namespace color {
+	namespace trait {
+
+		template <> struct info< ::color::category::hsv_uint8 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsv_uint16 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsv_uint32 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsv_uint64 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsv_float > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsv_double > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::hsv_ldouble > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
 		};
 
 	}
@@ -11348,6 +11760,48 @@ namespace color {
 }
 
 namespace color {
+	namespace trait {
+
+		template <> struct info< ::color::category::yiq_uint8 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yiq_uint16 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yiq_uint32 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yiq_uint64 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yiq_float > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yiq_double > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yiq_ldouble > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+
+	}
+}
+
+namespace color {
 	namespace _internal {
 		namespace utility {
 			namespace bound {
@@ -12349,6 +12803,48 @@ namespace color {
 		struct yuv< ::color::category::yuv< tag_name > > {
 			public:
 			typedef ::color::category::yuv< tag_name > akin_type;
+		};
+
+	}
+}
+
+namespace color {
+	namespace trait {
+
+		template <> struct info< ::color::category::yuv_uint8 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yuv_uint16 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yuv_uint32 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yuv_uint64 > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yuv_float > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yuv_double > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
+		};
+		template <> struct info< ::color::category::yuv_ldouble > {
+			public:
+			enum { implemented_enum = true };
+			enum { meaningful_enum = true };
 		};
 
 	}

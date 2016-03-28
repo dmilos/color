@@ -8,7 +8,7 @@ namespace color
 
     namespace _internal
      {
-      struct hsv_bool    {};
+    //struct hsv_bool    {};
       struct hsv_uint8   {};
       struct hsv_uint16  {};
       struct hsv_uint24  {};
@@ -26,7 +26,7 @@ namespace color
        typedef void category_name;
       };
 
-    using hsv_bool    = ::color::category::hsv< ::color::category::_internal::hsv_bool    >;
+  //using hsv_bool    = ::color::category::hsv< ::color::category::_internal::hsv_bool    >;
     using hsv_uint8   = ::color::category::hsv< ::color::category::_internal::hsv_uint8   >;
     using hsv_uint16  = ::color::category::hsv< ::color::category::_internal::hsv_uint16  >;
     using hsv_uint24  = ::color::category::hsv< ::color::category::_internal::hsv_uint24  >;

@@ -21,20 +21,23 @@ Key features:
 
 Code sample:
 ```c++
-color::rgb<float>         r( { 1.0, 0.55, 0.0 } );    //!< This will pack ONLY three consecutive floats in memory
-color::bgr<std::uint8_t>  b( { 127, 255, 212 } );     //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
-color::yiq<std::uint8_t>  y( { 192, 64, 92 } );       //!< Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
-color::hsv<double>        h( { 90.0, 50.0, 60.0 } );  //!< This will pack ONLY three consecutive doubles in memory
+color::rgb<float>         r( { 1.0, 0.55, 0.0 } );        //!< This will pack ONLY three consecutive floats in memory
+color::bgr<std::uint8_t>  b( ::color::constant::aqua{} ); //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
+color::yiq<std::uint8_t>  y( { 192, 64, 92 } );           //!< Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
+color::hsv<double>        h( { 90.0, 50.0, 60.0 } );      //!< This will pack ONLY three consecutive doubles in memory
 
-color::make::aqua( b );
-color::make::orange( r );
-color::make::turquoise( y );
+color::make::orange( r );     //!< Reset color to be  orange
+color::make::turquoise( y );  //!< Reset color to be turquoise
 
 b = r; //!< Reformat and convert.
 r = b; //!< Reformat and convert in opposite direction.
 h = b; //!< Reformat and convert from BGR to HSV
 h = y; //!< Reformat and convert from YIQ to HSV
+
+color::set::red( y ); //!< Set redness of YIQ
+
 ```
+
 Want to see more:
   - [HTML Documentation ](doc/index.html)
   - [Wiki page](https://github.com/dmilos/color/wiki)

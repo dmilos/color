@@ -19,7 +19,7 @@ namespace color
     template< typename type_name >
      struct pick_gray
       {
-       typedef ::color::category::gray_uint32 category_type;
+       typedef ::color::category::gray_uint8 category_type;
       };
 
     template<> struct pick_gray< bool           >{ typedef ::color::category::gray_bool    category_type; };
