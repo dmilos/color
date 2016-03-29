@@ -47,9 +47,13 @@
 							<dt>Container</dt>
 							<dd>Type is: <code>std::array&lt; std::uint8_t, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
 							<dt>Memory Order</dt>
-							<dd>First component occupy position with index 0, etc. .</dd>
+							<dd>First component occupy position with index 0, etc. .<br>
+							    First component is denoted by first letter in its abbreviation  .<br>
+								</dd>
 							<dt>Example</dt>
-							<dd><code>color::rgb&lt; <u> std::uint8_t </u> &gt; r;</code></dd>
+							<dd><code>color::rgb&lt; <u> std::uint8_t </u> &gt; r;</code><br>
+								<i>red</i> is first component in memory, second is <i>blue</i>, third is <i>green</i>.
+							</dd>
 						</dl>
 					</dd>
 
@@ -147,9 +151,11 @@
 							<dt>Memory Order</dt>
 							<dd>First  2 insignificant bits is used for first component, next  3 for second and last 3 for third component.</dd>
 							<dt>Example</dt>
-							<dd><code>color::rgb&lt; <u> color::type::split233_t </u> &gt; r;</code></dd>
+							<dd><code>color::rgb&lt; <u> color::type::split233_t </u> &gt; r;</code><br>
+								<i>red</i> take first 2 insignificant bits, <i>green</i> next 3, and last significant 3 bits belong to <i>blue</i>.
+							</dd>
 							<dt>Note</dt>
-							<dd>Size of container is fixed and equal to 3.</dd>
+							<dd>Size of container is fixed and equal to 1 byte.</dd>
 						</dl>
 					</dd>
 
@@ -165,7 +171,7 @@
 							<dt>Example</dt>
 							<dd><code>color::rgb&lt; <u> color::type::split332_t </u> &gt; r;</code></dd>
 							<dt>Note</dt>
-							<dd>Size of container is fixed and equal to 3.</dd>
+							<dd>Size of container is fixed and equal to 1 byte.</dd>
 						</dl>
 					</dd>
 
@@ -181,7 +187,7 @@
 							<dt>Example</dt>
 							<dd><code>color::rgb&lt; <u> color::type::split422_t </u> &gt; r;</code></dd>
 							<dt>Note</dt>
-							<dd>Size of container is fixed and equal to 3.</dd>
+							<dd>Size of container is fixed and equal to 1 byte.</dd>
 						</dl>
 					</dd>
 
@@ -197,7 +203,7 @@
 							<dt>Example</dt>
 							<dd><code>color::rgb&lt; <u> color::type::split556_t </u> &gt; r;</code></dd>
 							<dt>Note</dt>
-							<dd>Size of container is fixed and equal to 3.</dd>
+							<dd>Size of container is fixed and equal to 2 byte.</dd>
 						</dl>
 					</dd>
 
@@ -213,7 +219,7 @@
 							<dt>Example</dt>
 							<dd><code>color::rgb&lt; <u> color::type::split565_t </u> &gt; r;</code></dd>
 							<dt>Note</dt>
-							<dd>Size of container is fixed and equal to 3.</dd>
+							<dd>Size of container is fixed and equal to 2 bytes.</dd>
 						</dl>
 					</dd>
 
@@ -229,7 +235,7 @@
 							<dt>Example</dt>
 							<dd><code>color::rgb&lt; <u> color::type::split655_t </u> &gt; r;</code></dd>
 							<dt>Note</dt>
-							<dd>Size of container is fixed and equal to 3.</dd>
+							<dd>Size of container is fixed and equal to 2 bytes.</dd>
 						</dl>
 					</dd>
 
@@ -245,7 +251,7 @@
 							<dt>Example</dt>
 							<dd><code>color::rgb&lt; <u> color::type::split5551_t </u> &gt; r;</code></dd>
 							<dt>Note</dt>
-							<dd>Size of container is fixed and equal to 4.</dd>
+							<dd>Size of container is fixed and equal to 2 bytes.</dd>
 						</dl>
 					</dd>
 
@@ -261,8 +267,24 @@
 							<dt>Example</dt>
 							<dd><code>color::rgb&lt; <u> color::type::splitAAA2_t </u> &gt; r;</code></dd>
 							<dt>Note</dt>
-							<dd>Size of container is fixed and equal to 4.</dd>
+							<dd>Size of container is fixed and equal to 4 bytes.</dd>
 						</dl>
+
+					<dt><h4><code>color::type::splitGGGG_t</code></h4>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is: <code>std::uint16_t</code></dd>
+							<dt>Container</dt>
+							<dd>Type is: <code>std::uint64_t</code>.</dd>
+							<dt>Memory Order</dt>
+							<dd>First 16 insignificant bits is used for first component, next 16 for second and 16 for third component and 16 for fourth .</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> color::type::spliGGGG_t </u> &gt; r;</code></dd>
+							<dt>Note</dt>
+							<dd>Size of container is fixed and equal to 8 bytes.</dd>
+						</dl>
+
 					</dd>
 
 				</dl>

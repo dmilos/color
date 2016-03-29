@@ -46,14 +46,13 @@ namespace color
        typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t, 0, 1, 2, 3 > > category_type;
       };
 
-    template<> struct pick_rgba< std::uint8_t   >{ typedef ::color::category::rgba_uint8   category_type; };
-    template<> struct pick_rgba< std::uint16_t  >{ typedef ::color::category::rgba_uint16  category_type; };
-    template<> struct pick_rgba< std::uint32_t  >{ typedef ::color::category::rgba_uint32  category_type; };
-    template<> struct pick_rgba< std::uint64_t  >{ typedef ::color::category::rgba_uint64  category_type; };
-    template<> struct pick_rgba< float          >{ typedef ::color::category::rgba_float   category_type; };
-    template<> struct pick_rgba< double         >{ typedef ::color::category::rgba_double  category_type; };
-    template<> struct pick_rgba< long    double >{ typedef ::color::category::rgba_ldouble category_type; };
-
+    template<> struct pick_rgba< std::uint8_t               > { typedef ::color::category::rgba_uint8     category_type; };
+    template<> struct pick_rgba< std::uint16_t              > { typedef ::color::category::rgba_uint16    category_type; };
+    template<> struct pick_rgba< std::uint32_t              > { typedef ::color::category::rgba_uint32    category_type; };
+    template<> struct pick_rgba< std::uint64_t              > { typedef ::color::category::rgba_uint64    category_type; };
+    template<> struct pick_rgba< float                      > { typedef ::color::category::rgba_float     category_type; };
+    template<> struct pick_rgba< double                     > { typedef ::color::category::rgba_double    category_type; };
+    template<> struct pick_rgba< long    double             > { typedef ::color::category::rgba_ldouble   category_type; };
     template<> struct pick_rgba< ::color::type::split2222_t > { typedef ::color::category::rgba_split2222 category_type; };
     template<> struct pick_rgba< ::color::type::split4444_t > { typedef ::color::category::rgba_split4444 category_type; };
     template<> struct pick_rgba< ::color::type::split8888_t > { typedef ::color::category::rgba_split8888 category_type; };
@@ -68,14 +67,13 @@ namespace color
        typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t, 3, 0, 1, 2 > > category_type;
       };
 
-    template<> struct pick_argb< std::uint8_t   >{ typedef ::color::category::argb_uint8   category_type; };
-    template<> struct pick_argb< std::uint16_t  >{ typedef ::color::category::argb_uint16  category_type; };
-    template<> struct pick_argb< std::uint32_t  >{ typedef ::color::category::argb_uint32  category_type; };
-    template<> struct pick_argb< std::uint64_t  >{ typedef ::color::category::argb_uint64  category_type; };
-    template<> struct pick_argb< float          >{ typedef ::color::category::argb_float   category_type; };
-    template<> struct pick_argb< double         >{ typedef ::color::category::argb_double  category_type; };
-    template<> struct pick_argb< long    double >{ typedef ::color::category::argb_ldouble category_type; };
-
+    template<> struct pick_argb< std::uint8_t               > { typedef ::color::category::argb_uint8     category_type; };
+    template<> struct pick_argb< std::uint16_t              > { typedef ::color::category::argb_uint16    category_type; };
+    template<> struct pick_argb< std::uint32_t              > { typedef ::color::category::argb_uint32    category_type; };
+    template<> struct pick_argb< std::uint64_t              > { typedef ::color::category::argb_uint64    category_type; };
+    template<> struct pick_argb< float                      > { typedef ::color::category::argb_float     category_type; };
+    template<> struct pick_argb< double                     > { typedef ::color::category::argb_double    category_type; };
+    template<> struct pick_argb< long    double             > { typedef ::color::category::argb_ldouble   category_type; };
     template<> struct pick_argb< ::color::type::split2222_t > { typedef ::color::category::argb_split2222 category_type; };
     template<> struct pick_argb< ::color::type::split4444_t > { typedef ::color::category::argb_split4444 category_type; };
     template<> struct pick_argb< ::color::type::split8888_t > { typedef ::color::category::argb_split8888 category_type; };
@@ -113,19 +111,19 @@ namespace color
        typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t, 2, 1, 0, 3 > > category_type;
       };
 
-    template<> struct pick_bgra< std::uint8_t   >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t  , 2, 1, 0, 3 > > category_type; };
-    template<> struct pick_bgra< std::uint16_t  >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint16_t , 2, 1, 0, 3 > > category_type; };
-    template<> struct pick_bgra< std::uint32_t  >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint32_t , 2, 1, 0, 3 > > category_type; };
-    template<> struct pick_bgra< std::uint64_t  >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint64_t , 2, 1, 0, 3 > > category_type; };
-    template<> struct pick_bgra< float          >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< float         , 2, 1, 0, 3 > > category_type; };
-    template<> struct pick_bgra< double         >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< double        , 2, 1, 0, 3 > > category_type; };
-    template<> struct pick_bgra< long    double >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< long    double, 2, 1, 0, 3 > > category_type; };
-
-    template<> struct pick_bgra< ::color::type::split2222_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t , 2, 1, 0, 3 > > category_type; };
-    template<> struct pick_bgra< ::color::type::split4444_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t , 2, 1, 0, 3 > > category_type; };
-    template<> struct pick_bgra< ::color::type::split8888_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t , 2, 1, 0, 3 > > category_type; };
-    template<> struct pick_bgra< ::color::type::splitAAA2_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t , 2, 1, 0, 3 > > category_type; };
-    template<> struct pick_bgra< ::color::type::splitGGGG_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t , 2, 1, 0, 3 > > category_type; };
+    template<> struct pick_bgra< std::uint8_t               > { typedef ::color::category::bgra_uint8     category_type; };
+    template<> struct pick_bgra< std::uint16_t              > { typedef ::color::category::bgra_uint16    category_type; };
+    template<> struct pick_bgra< std::uint32_t              > { typedef ::color::category::bgra_uint32    category_type; };
+    template<> struct pick_bgra< std::uint64_t              > { typedef ::color::category::bgra_uint64    category_type; };
+    template<> struct pick_bgra< float                      > { typedef ::color::category::bgra_float     category_type; };
+    template<> struct pick_bgra< double                     > { typedef ::color::category::bgra_double    category_type; };
+    template<> struct pick_bgra< long    double             > { typedef ::color::category::bgra_ldouble   category_type; };
+    template<> struct pick_bgra< ::color::type::split2222_t > { typedef ::color::category::bgra_split2222 category_type; };
+    template<> struct pick_bgra< ::color::type::split4444_t > { typedef ::color::category::bgra_split4444 category_type; };
+    template<> struct pick_bgra< ::color::type::split5551_t > { typedef ::color::category::bgra_split5551 category_type; };
+    template<> struct pick_bgra< ::color::type::split8888_t > { typedef ::color::category::bgra_split8888 category_type; };
+    template<> struct pick_bgra< ::color::type::splitAAA2_t > { typedef ::color::category::bgra_splitAAA2 category_type; };
+    template<> struct pick_bgra< ::color::type::splitGGGG_t > { typedef ::color::category::bgra_splitGGGG category_type; };
 
     template< typename type_name >
      struct pick_abgr
@@ -133,19 +131,19 @@ namespace color
        typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t, 3, 2, 1, 0 > > category_type;
       };
 
-    template<> struct pick_abgr< std::uint8_t   >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t  , 3, 2, 1, 0 > > category_type; };
-    template<> struct pick_abgr< std::uint16_t  >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint16_t , 3, 2, 1, 0 > > category_type; };
-    template<> struct pick_abgr< std::uint32_t  >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint32_t , 3, 2, 1, 0 > > category_type; };
-    template<> struct pick_abgr< std::uint64_t  >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint64_t , 3, 2, 1, 0 > > category_type; };
-    template<> struct pick_abgr< float          >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< float         , 3, 2, 1, 0 > > category_type; };
-    template<> struct pick_abgr< double         >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< double        , 3, 2, 1, 0 > > category_type; };
-    template<> struct pick_abgr< long    double >{ typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< long    double, 3, 2, 1, 0 > > category_type; };
-
-    template<> struct pick_abgr< ::color::type::split2222_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t , 3, 2, 1, 0 > > category_type; };
-    template<> struct pick_abgr< ::color::type::split4444_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t , 3, 2, 1, 0 > > category_type; };
-    template<> struct pick_abgr< ::color::type::split8888_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t , 3, 2, 1, 0 > > category_type; };
-    template<> struct pick_abgr< ::color::type::split2AAA_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t , 3, 2, 1, 0 > > category_type; };
-    template<> struct pick_abgr< ::color::type::splitGGGG_t > { typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t , 3, 2, 1, 0 > > category_type; };
+    template<> struct pick_abgr< std::uint8_t               > { typedef ::color::category::abgr_uint8     category_type; };
+    template<> struct pick_abgr< std::uint16_t              > { typedef ::color::category::abgr_uint16    category_type; };
+    template<> struct pick_abgr< std::uint32_t              > { typedef ::color::category::abgr_uint32    category_type; };
+    template<> struct pick_abgr< std::uint64_t              > { typedef ::color::category::abgr_uint64    category_type; };
+    template<> struct pick_abgr< float                      > { typedef ::color::category::abgr_float     category_type; };
+    template<> struct pick_abgr< double                     > { typedef ::color::category::abgr_double    category_type; };
+    template<> struct pick_abgr< long    double             > { typedef ::color::category::abgr_ldouble   category_type; };
+    template<> struct pick_abgr< ::color::type::split2222_t > { typedef ::color::category::abgr_split2222 category_type; };
+    template<> struct pick_abgr< ::color::type::split4444_t > { typedef ::color::category::abgr_split4444 category_type; };
+    template<> struct pick_abgr< ::color::type::split1555_t > { typedef ::color::category::abgr_split1555 category_type; };
+    template<> struct pick_abgr< ::color::type::split8888_t > { typedef ::color::category::abgr_split8888 category_type; };
+    template<> struct pick_abgr< ::color::type::split2AAA_t > { typedef ::color::category::abgr_split2AAA category_type; };
+    template<> struct pick_abgr< ::color::type::splitGGGG_t > { typedef ::color::category::abgr_splitGGGG category_type; };
 
    }
 

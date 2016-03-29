@@ -1770,19 +1770,19 @@ using rgba_splitAAA2 = ::color::category::_internal::rgba_scramble< ::color::typ
 using rgba_splitGGGG = ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, 0, 1, 2, 3 >;
 }
 
-using rgba_uint8 = ::color::category::rgba< ::color::category::_internal::rgba_uint8 >;
-using rgba_uint16 = ::color::category::rgba< ::color::category::_internal::rgba_uint16 >;
-using rgba_uint32 = ::color::category::rgba< ::color::category::_internal::rgba_uint32 >;
-using rgba_uint64 = ::color::category::rgba< ::color::category::_internal::rgba_uint64 >;
-using rgba_float = ::color::category::rgba< ::color::category::_internal::rgba_float >;
-using rgba_double = ::color::category::rgba< ::color::category::_internal::rgba_double >;
-using rgba_ldouble = ::color::category::rgba< ::color::category::_internal::rgba_ldouble >;
-using rgba_split2222 = ::color::category::rgba< ::color::category::_internal::rgba_split2222 >;
-using rgba_split4444 = ::color::category::rgba< ::color::category::_internal::rgba_split4444 >;
-using rgba_split8888 = ::color::category::rgba< ::color::category::_internal::rgba_split8888 >;
-using rgba_split5551 = ::color::category::rgba< ::color::category::_internal::rgba_split5551 >;
-using rgba_splitAAA2 = ::color::category::rgba< ::color::category::_internal::rgba_splitAAA2 >;
-using rgba_splitGGGG = ::color::category::rgba< ::color::category::_internal::rgba_splitGGGG >;
+using rgba_uint8 = ::color::category::rgb< ::color::category::_internal::rgba_uint8 >;
+using rgba_uint16 = ::color::category::rgb< ::color::category::_internal::rgba_uint16 >;
+using rgba_uint32 = ::color::category::rgb< ::color::category::_internal::rgba_uint32 >;
+using rgba_uint64 = ::color::category::rgb< ::color::category::_internal::rgba_uint64 >;
+using rgba_float = ::color::category::rgb< ::color::category::_internal::rgba_float >;
+using rgba_double = ::color::category::rgb< ::color::category::_internal::rgba_double >;
+using rgba_ldouble = ::color::category::rgb< ::color::category::_internal::rgba_ldouble >;
+using rgba_split2222 = ::color::category::rgb< ::color::category::_internal::rgba_split2222 >;
+using rgba_split4444 = ::color::category::rgb< ::color::category::_internal::rgba_split4444 >;
+using rgba_split8888 = ::color::category::rgb< ::color::category::_internal::rgba_split8888 >;
+using rgba_split5551 = ::color::category::rgb< ::color::category::_internal::rgba_split5551 >;
+using rgba_splitAAA2 = ::color::category::rgb< ::color::category::_internal::rgba_splitAAA2 >;
+using rgba_splitGGGG = ::color::category::rgb< ::color::category::_internal::rgba_splitGGGG >;
 
 namespace _internal {
 using argb_uint8 = ::color::category::_internal::rgba_scramble< std::uint8_t , 3, 0, 1, 2 >;
@@ -1802,19 +1802,19 @@ using argb_split2AAA = ::color::category::_internal::rgba_scramble< ::color::typ
 using argb_splitGGGG = ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, 3, 0, 1, 2 >;
 }
 
-using argb_uint8 = ::color::category::rgba< ::color::category::_internal::argb_uint8 >;
-using argb_uint16 = ::color::category::rgba< ::color::category::_internal::argb_uint16 >;
-using argb_uint32 = ::color::category::rgba< ::color::category::_internal::argb_uint32 >;
-using argb_uint64 = ::color::category::rgba< ::color::category::_internal::argb_uint64 >;
-using argb_float = ::color::category::rgba< ::color::category::_internal::argb_float >;
-using argb_double = ::color::category::rgba< ::color::category::_internal::argb_double >;
-using argb_ldouble = ::color::category::rgba< ::color::category::_internal::argb_ldouble >;
-using argb_split2222 = ::color::category::rgba< ::color::category::_internal::argb_split2222 >;
-using argb_split4444 = ::color::category::rgba< ::color::category::_internal::argb_split4444 >;
-using argb_split8888 = ::color::category::rgba< ::color::category::_internal::argb_split8888 >;
-using argb_split1555 = ::color::category::rgba< ::color::category::_internal::argb_split1555 >;
-using argb_split2AAA = ::color::category::rgba< ::color::category::_internal::argb_split2AAA >;
-using argb_splitGGGG = ::color::category::rgba< ::color::category::_internal::argb_splitGGGG >;
+using argb_uint8 = ::color::category::rgb< ::color::category::_internal::argb_uint8 >;
+using argb_uint16 = ::color::category::rgb< ::color::category::_internal::argb_uint16 >;
+using argb_uint32 = ::color::category::rgb< ::color::category::_internal::argb_uint32 >;
+using argb_uint64 = ::color::category::rgb< ::color::category::_internal::argb_uint64 >;
+using argb_float = ::color::category::rgb< ::color::category::_internal::argb_float >;
+using argb_double = ::color::category::rgb< ::color::category::_internal::argb_double >;
+using argb_ldouble = ::color::category::rgb< ::color::category::_internal::argb_ldouble >;
+using argb_split2222 = ::color::category::rgb< ::color::category::_internal::argb_split2222 >;
+using argb_split4444 = ::color::category::rgb< ::color::category::_internal::argb_split4444 >;
+using argb_split8888 = ::color::category::rgb< ::color::category::_internal::argb_split8888 >;
+using argb_split1555 = ::color::category::rgb< ::color::category::_internal::argb_split1555 >;
+using argb_split2AAA = ::color::category::rgb< ::color::category::_internal::argb_split2AAA >;
+using argb_splitGGGG = ::color::category::rgb< ::color::category::_internal::argb_splitGGGG >;
 
 namespace _internal {
 using bgr_uint8 = ::color::category::_internal::rgb_scramble< std::uint8_t , 2, 0, 1 >;
@@ -1848,6 +1848,67 @@ using bgr_split422 = ::color::category::rgb< ::color::category::_internal::bgr_s
 using bgr_split556 = ::color::category::rgb< ::color::category::_internal::bgr_split556 >;
 using bgr_split565 = ::color::category::rgb< ::color::category::_internal::bgr_split565 >;
 using bgr_split655 = ::color::category::rgb< ::color::category::_internal::bgr_split655 >;
+
+namespace _internal {
+using bgra_uint8 = ::color::category::_internal::rgba_scramble< std::uint8_t , 2, 1, 0, 3 >;
+using bgra_uint16 = ::color::category::_internal::rgba_scramble< std::uint16_t , 2, 1, 0, 3 >;
+using bgra_uint32 = ::color::category::_internal::rgba_scramble< std::uint32_t , 2, 1, 0, 3 >;
+using bgra_uint64 = ::color::category::_internal::rgba_scramble< std::uint64_t , 2, 1, 0, 3 >;
+using bgra_float = ::color::category::_internal::rgba_scramble< float , 2, 1, 0, 3 >;
+using bgra_double = ::color::category::_internal::rgba_scramble< double , 2, 1, 0, 3 >;
+using bgra_ldouble = ::color::category::_internal::rgba_scramble< long double, 2, 1, 0, 3 >;
+using bgra_split2222 = ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, 2, 1, 0, 3 >;
+using bgra_split4444 = ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, 2, 1, 0, 3 >;
+using bgra_split5551 = ::color::category::_internal::rgba_scramble< ::color::type::split5551_t, 2, 1, 0, 3 >;
+using bgra_split8888 = ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, 2, 1, 0, 3 >;
+using bgra_splitAAA2 = ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, 2, 1, 0, 3 >;
+using bgra_splitGGGG = ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, 2, 1, 0, 3 >;
+}
+
+using bgra_uint8 = ::color::category::rgb< ::color::category::_internal::bgra_uint8 >;
+using bgra_uint16 = ::color::category::rgb< ::color::category::_internal::bgra_uint16 >;
+using bgra_uint32 = ::color::category::rgb< ::color::category::_internal::bgra_uint32 >;
+using bgra_uint64 = ::color::category::rgb< ::color::category::_internal::bgra_uint64 >;
+using bgra_float = ::color::category::rgb< ::color::category::_internal::bgra_float >;
+using bgra_double = ::color::category::rgb< ::color::category::_internal::bgra_double >;
+using bgra_ldouble = ::color::category::rgb< ::color::category::_internal::bgra_ldouble >;
+using bgra_split2222 = ::color::category::rgb< ::color::category::_internal::bgra_split2222 >;
+using bgra_split4444 = ::color::category::rgb< ::color::category::_internal::bgra_split4444 >;
+using bgra_split5551 = ::color::category::rgb< ::color::category::_internal::bgra_split5551 >;
+using bgra_split8888 = ::color::category::rgb< ::color::category::_internal::bgra_split8888 >;
+using bgra_splitAAA2 = ::color::category::rgb< ::color::category::_internal::bgra_splitAAA2 >;
+using bgra_splitGGGG = ::color::category::rgb< ::color::category::_internal::bgra_splitGGGG >;
+
+namespace _internal {
+using abgr_uint8 = ::color::category::_internal::rgba_scramble< std::uint8_t , 3, 2, 1, 0 >;
+using abgr_uint16 = ::color::category::_internal::rgba_scramble< std::uint16_t , 3, 2, 1, 0 >;
+using abgr_uint32 = ::color::category::_internal::rgba_scramble< std::uint32_t , 3, 2, 1, 0 >;
+using abgr_uint64 = ::color::category::_internal::rgba_scramble< std::uint64_t , 3, 2, 1, 0 >;
+using abgr_float = ::color::category::_internal::rgba_scramble< float , 3, 2, 1, 0 >;
+using abgr_double = ::color::category::_internal::rgba_scramble< double , 3, 2, 1, 0 >;
+using abgr_ldouble = ::color::category::_internal::rgba_scramble< long double, 3, 2, 1, 0 >;
+
+using abgr_split2222 = ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, 3, 2, 1, 0 >;
+using abgr_split4444 = ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, 3, 2, 1, 0 >;
+using abgr_split1555 = ::color::category::_internal::rgba_scramble< ::color::type::split1555_t, 3, 2, 1, 0 >;
+using abgr_split8888 = ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, 3, 2, 1, 0 >;
+using abgr_split2AAA = ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, 3, 2, 1, 0 >;
+using abgr_splitGGGG = ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, 3, 2, 1, 0 >;
+}
+
+using abgr_uint8 = ::color::category::rgb< ::color::category::_internal::abgr_uint8 >;
+using abgr_uint16 = ::color::category::rgb< ::color::category::_internal::abgr_uint16 >;
+using abgr_uint32 = ::color::category::rgb< ::color::category::_internal::abgr_uint32 >;
+using abgr_uint64 = ::color::category::rgb< ::color::category::_internal::abgr_uint64 >;
+using abgr_float = ::color::category::rgb< ::color::category::_internal::abgr_float >;
+using abgr_double = ::color::category::rgb< ::color::category::_internal::abgr_double >;
+using abgr_ldouble = ::color::category::rgb< ::color::category::_internal::abgr_ldouble >;
+using abgr_split2222 = ::color::category::rgb< ::color::category::_internal::abgr_split2222 >;
+using abgr_split4444 = ::color::category::rgb< ::color::category::_internal::abgr_split4444 >;
+using abgr_split1555 = ::color::category::rgb< ::color::category::_internal::abgr_split1555 >;
+using abgr_split8888 = ::color::category::rgb< ::color::category::_internal::abgr_split8888 >;
+using abgr_split2AAA = ::color::category::rgb< ::color::category::_internal::abgr_split2AAA >;
+using abgr_splitGGGG = ::color::category::rgb< ::color::category::_internal::abgr_splitGGGG >;
 
 }
 }
@@ -7873,7 +7934,6 @@ namespace color {
 		template<> struct pick_rgba< long double > {
 			typedef ::color::category::rgba_ldouble category_type;
 		};
-
 		template<> struct pick_rgba< ::color::type::split2222_t > {
 			typedef ::color::category::rgba_split2222 category_type;
 		};
@@ -7919,7 +7979,6 @@ namespace color {
 		template<> struct pick_argb< long double > {
 			typedef ::color::category::argb_ldouble category_type;
 		};
-
 		template<> struct pick_argb< ::color::type::split2222_t > {
 			typedef ::color::category::argb_split2222 category_type;
 		};
@@ -7994,41 +8053,43 @@ namespace color {
 		};
 
 		template<> struct pick_bgra< std::uint8_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_uint8 category_type;
 		};
 		template<> struct pick_bgra< std::uint16_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint16_t , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_uint16 category_type;
 		};
 		template<> struct pick_bgra< std::uint32_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint32_t , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_uint32 category_type;
 		};
 		template<> struct pick_bgra< std::uint64_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint64_t , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_uint64 category_type;
 		};
 		template<> struct pick_bgra< float > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< float , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_float category_type;
 		};
 		template<> struct pick_bgra< double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< double , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_double category_type;
 		};
 		template<> struct pick_bgra< long double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< long double, 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_ldouble category_type;
 		};
-
 		template<> struct pick_bgra< ::color::type::split2222_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_split2222 category_type;
 		};
 		template<> struct pick_bgra< ::color::type::split4444_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_split4444 category_type;
+		};
+		template<> struct pick_bgra< ::color::type::split5551_t > {
+			typedef ::color::category::bgra_split5551 category_type;
 		};
 		template<> struct pick_bgra< ::color::type::split8888_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_split8888 category_type;
 		};
 		template<> struct pick_bgra< ::color::type::splitAAA2_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_splitAAA2 category_type;
 		};
 		template<> struct pick_bgra< ::color::type::splitGGGG_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t , 2, 1, 0, 3 > > category_type;
+			typedef ::color::category::bgra_splitGGGG category_type;
 		};
 
 		template< typename type_name >
@@ -8037,41 +8098,43 @@ namespace color {
 		};
 
 		template<> struct pick_abgr< std::uint8_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_uint8 category_type;
 		};
 		template<> struct pick_abgr< std::uint16_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint16_t , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_uint16 category_type;
 		};
 		template<> struct pick_abgr< std::uint32_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint32_t , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_uint32 category_type;
 		};
 		template<> struct pick_abgr< std::uint64_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint64_t , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_uint64 category_type;
 		};
 		template<> struct pick_abgr< float > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< float , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_float category_type;
 		};
 		template<> struct pick_abgr< double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< double , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_double category_type;
 		};
 		template<> struct pick_abgr< long double > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< long double, 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_ldouble category_type;
 		};
-
 		template<> struct pick_abgr< ::color::type::split2222_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_split2222 category_type;
 		};
 		template<> struct pick_abgr< ::color::type::split4444_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_split4444 category_type;
+		};
+		template<> struct pick_abgr< ::color::type::split1555_t > {
+			typedef ::color::category::abgr_split1555 category_type;
 		};
 		template<> struct pick_abgr< ::color::type::split8888_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_split8888 category_type;
 		};
 		template<> struct pick_abgr< ::color::type::split2AAA_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_split2AAA category_type;
 		};
 		template<> struct pick_abgr< ::color::type::splitGGGG_t > {
-			typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t , 3, 2, 1, 0 > > category_type;
+			typedef ::color::category::abgr_splitGGGG category_type;
 		};
 
 	}
