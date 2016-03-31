@@ -7,6 +7,36 @@
 #include "color/color.hpp"
 
 
+template < typename category_name >
+ std::string print_sizeof_one( ) 
+  {
+   std::stringstream ss;
+
+  if( false == ::color::trait::info< category_name >::meaningful_enum )
+   {
+    ss << "<s>";    
+   }
+
+   if( false == ::color::trait::info< category_name >::implemented_enum )
+    {
+	 ss << "\"";
+    }
+
+   ss << sizeof( ::color::model<category_name> );
+
+   if( false == ::color::trait::info< category_name >::implemented_enum )
+    {
+	 ss << "\"";
+    }
+
+  if( false == ::color::trait::info< category_name >::meaningful_enum )
+   {
+    ss << "</s>";    
+   }
+
+  return ss.str();
+ }
+
 template < template<typename> class color_name >
 std::string print_sizeof( std::string const& name )
  {
@@ -34,6 +64,7 @@ std::string print_sizeof( std::string const& name )
   typedef color_name< color::type::split4444_t > split4444_type;
   typedef color_name< color::type::split8888_t > split8888_type;
 
+  typedef color_name< color::type::split5551_t > split5551_type;
   typedef color_name< color::type::splitAAA2_t > splitAAA2_type;
 
   std::stringstream ss;
@@ -42,29 +73,29 @@ std::string print_sizeof( std::string const& name )
 
   ss << "<td>"       << name  << "</td>" ;
 
-  ss << "<td>" << sizeof( b_type   ) << "</td>";
+  ss << "<td>" << print_sizeof_one<typename b_type::category_type>()  << "</td>";
 
-  ss << "<td>" << sizeof( u8_type  ) << "</td>";
-  ss << "<td>" << sizeof( u16_type ) << "</td>";
-  ss << "<td>" << sizeof( u24_type ) << "</td>";
-  ss << "<td>" << sizeof( u32_type ) << "</td>";
-  ss << "<td>" << sizeof( u48_type ) << "</td>";
-  ss << "<td>" << sizeof( u64_type ) << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  u8_type  ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  u16_type ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  u24_type ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  u32_type ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  u48_type ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  u64_type ::category_type>() << "</td>";
 
-  ss << "<td>" << sizeof( f_type   ) << "</td>";
-  ss << "<td>" << sizeof( d_type   ) << "</td>";
-  ss << "<td>" << sizeof( dl_type  ) << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  f_type   ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  d_type   ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  dl_type  ::category_type>() << "</td>";
 
-  ss << "<td>" << sizeof( split233_type   ) << "</td>";
-  ss << "<td>" << sizeof( split332_type   ) << "</td>";
-  ss << "<td>" << sizeof( split422_type   ) << "</td>";
-  ss << "<td>" << sizeof( split556_type   ) << "</td>";
-  ss << "<td>" << sizeof( split565_type   ) << "</td>";
-  ss << "<td>" << sizeof( split655_type   ) << "</td>";
-  ss << "<td>" << sizeof( split2222_type  ) << "</td>";
-  ss << "<td>" << sizeof( split4444_type  ) << "</td>";
-  ss << "<td>" << sizeof( split8888_type  ) << "</td>";
-  ss << "<td>" << sizeof( splitAAA2_type  ) << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  split233_type   ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  split332_type   ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  split422_type   ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  split556_type   ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  split565_type   ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  split655_type   ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  split2222_type  ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  split4444_type  ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  split8888_type  ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  splitAAA2_type  ::category_type>() << "</td>";
 
   ss << "</tr>";
 
@@ -108,10 +139,10 @@ void check_sizeof()
   ss << "</tr>" << std::endl;
 
   ss << print_sizeof<::color::rgb  > ( "<code>rgb </code>" );  ss << std::endl;
-  ss << print_sizeof<::color::rgba > ( "<code>rgba </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::rgba > ( "<code>rgba</code>" );  ss << std::endl;
   ss << print_sizeof<::color::cmy  > ( "<code>cmy </code>" );  ss << std::endl;
-  ss << print_sizeof<::color::cmyk >( "<code>cmyk</code>" );  ss << std::endl;
-  ss << print_sizeof<::color::gray >( "<code>gray</code>" );  ss << std::endl;
+  ss << print_sizeof<::color::cmyk > ( "<code>cmyk</code>" );  ss << std::endl;
+  ss << print_sizeof<::color::gray > ( "<code>gray</code>" );  ss << std::endl;
   ss << print_sizeof<::color::hsl  > ( "<code>hsl </code>" );  ss << std::endl;
   ss << print_sizeof<::color::hsv  > ( "<code>hsv </code>" );  ss << std::endl;
   ss << print_sizeof<::color::yiq  > ( "<code>yiq </code>" );  ss << std::endl;

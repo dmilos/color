@@ -200,7 +200,7 @@ namespace color
     using bgra_split2222  = ::color::category::rgb< ::color::category::_internal::bgra_split2222 >;
     using bgra_split4444  = ::color::category::rgb< ::color::category::_internal::bgra_split4444 >;
     using bgra_split5551  = ::color::category::rgb< ::color::category::_internal::bgra_split5551 >;
-	using bgra_split8888  = ::color::category::rgb< ::color::category::_internal::bgra_split8888 >;
+    using bgra_split8888  = ::color::category::rgb< ::color::category::_internal::bgra_split8888 >;
     using bgra_splitAAA2  = ::color::category::rgb< ::color::category::_internal::bgra_splitAAA2 >;
     using bgra_splitGGGG  = ::color::category::rgb< ::color::category::_internal::bgra_splitGGGG >;
 

@@ -9,6 +9,7 @@ namespace color
    {
 
     struct normal_t {};
+    //typedef normal_t normal_type;
 
    }
  }

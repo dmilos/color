@@ -9,6 +9,7 @@ namespace color
    {
 
     struct divert_t {};
+    //typedef divert_t divert_type;
 
    }
  }
