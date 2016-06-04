@@ -51,7 +51,7 @@ source +=   [
 envProgram = nucleotide.Environment( settings ).native()
 
 # Create program
-program = envProgram.Program( target =  './out/test1' + envProgram['PROGSUFFIX'], source = source )
+program = envProgram.Program( target =  './out/test' + envProgram['PROGSUFFIX'], source = source )
 
 # ... and return!
 Return( 'program' )

@@ -6,6 +6,9 @@ Status:
 - All planed functionality implemented
 - Ready for test use
 
+- Description
+ - Yet another c++ library that implements color.
+
 Key features:
 - No _virtual_ functions
 - Minimal memory footprint
