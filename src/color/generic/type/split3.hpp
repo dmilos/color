@@ -19,11 +19,17 @@ namespace color
     typedef  ::color::type::split3_t< 2, 4, 2 > split242_t;
     typedef  ::color::type::split3_t< 2, 2, 4 > split224_t;
 
+    typedef  ::color::type::split3_t< 5, 5, 5 > split555_t;
+
     typedef  ::color::type::split3_t< 6, 5, 5 > split655_t;
     typedef  ::color::type::split3_t< 5, 6, 5 > split565_t;
     typedef  ::color::type::split3_t< 5, 5, 6 > split556_t;
 
     typedef  ::color::type::split3_t< 8, 8, 8 > split888_t;
+
+    typedef  ::color::type::split3_t< 12, 10, 10 > splitCAA_t;
+    typedef  ::color::type::split3_t< 10, 12, 10 > splitACA_t;
+    typedef  ::color::type::split3_t< 10, 10, 12 > splitAAC_t;
 
    }
  }
