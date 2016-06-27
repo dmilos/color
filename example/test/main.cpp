@@ -1,5 +1,6 @@
 #include <vector>
 #include <fstream>
+#include <typeinfo>
 
 #include "color/color.hpp"
 

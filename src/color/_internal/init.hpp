@@ -1,7 +1,7 @@
-#ifndef color_generic_init
-#define color_generic_init
+#ifndef color__internal_container_init
+#define color__internal_container_init
 
-// ::color::make::white( c )
+// ::color::_internal::init( container, std::initializer_list< component > )
 
 #include "../generic/trait/index.hpp"
 #include "../generic/trait/container.hpp"
@@ -28,7 +28,7 @@
 
         auto ili = ilist.begin();
         index_type index=0;
-        for( ; index < std::min( container_trait_type::size(), ilist.size() ) ; ++index, ++ili )
+        for( ; index < std::min<index_type>( container_trait_type::size(), ilist.size() ) ; ++index, ++ili )
          {
           container_trait_type::set( container, index, *ili );
          }

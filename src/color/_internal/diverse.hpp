@@ -22,7 +22,7 @@ namespace color
          typedef ::color::trait::bound< category_name >      bound_trait_type;
          typedef ::color::trait::component< category_name >  component_trait_type;
          typedef ::color::trait::index< category_name >      index_trait_type;
- 
+
          typedef typename component_trait_type::instance_type    component_instance_type;
          typedef typename component_trait_type::return_type      component_return_type;
 
@@ -41,7 +41,7 @@ namespace color
           }
 
          template< index_instance_type index_size >
-          static 
+          static
           component_return_type
           process( scalar_type const& normal )
            {
@@ -55,5 +55,5 @@ namespace color
 
    }
  }
- 
+
 #endif

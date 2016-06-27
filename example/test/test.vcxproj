@@ -1210,14 +1210,11 @@
     <ClInclude Include="..\..\src\color\yuv\trait\index\uint8.hpp" />
     <ClInclude Include="..\..\src\color\yuv\trait\trait.hpp" />
     <ClInclude Include="..\..\src\color\yuv\yuv.hpp" />
-    <ClInclude Include="..\..\src\color\_internal\category.hpp" />
     <ClInclude Include="..\..\src\color\_internal\convert.hpp" />
     <ClInclude Include="..\..\src\color\_internal\diverse.hpp" />
     <ClInclude Include="..\..\src\color\_internal\init.hpp" />
-    <ClInclude Include="..\..\src\color\_internal\model.hpp" />
     <ClInclude Include="..\..\src\color\_internal\normalize.hpp" />
     <ClInclude Include="..\..\src\color\_internal\reformat.hpp" />
-    <ClInclude Include="..\..\src\color\_internal\trait.hpp" />
     <ClInclude Include="..\..\src\color\_internal\utility\bound\2222.hpp" />
     <ClInclude Include="..\..\src\color\_internal\utility\bound\332.hpp" />
     <ClInclude Include="..\..\src\color\_internal\utility\bound\422.hpp" />

@@ -44,3 +44,7 @@ color::set::red( y ); //!< Set redness of YIQ
 Want to see more:
   - [HTML Documentation ](doc/index.html)
   - [Wiki page](https://github.com/dmilos/color/wiki)
+
+Tested against:
+  - GCC 5.3.1 20160413
+  - MSVC 2015

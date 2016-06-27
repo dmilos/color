@@ -3417,30 +3417,6 @@
     <ClInclude Include="..\..\src\color\yiq\trait\component\uint8.hpp">
       <Filter>Source Files\src\yiq\trait\component</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\_internal\category.hpp">
-      <Filter>Source Files\src\_internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\_internal\convert.hpp">
-      <Filter>Source Files\src\_internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\_internal\diverse.hpp">
-      <Filter>Source Files\src\_internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\_internal\init.hpp">
-      <Filter>Source Files\src\_internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\_internal\model.hpp">
-      <Filter>Source Files\src\_internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\_internal\normalize.hpp">
-      <Filter>Source Files\src\_internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\_internal\reformat.hpp">
-      <Filter>Source Files\src\_internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\_internal\trait.hpp">
-      <Filter>Source Files\src\_internal</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\_internal\utility\bound\2222.hpp">
       <Filter>Source Files\src\_internal\utility\bound</Filter>
     </ClInclude>
@@ -4142,6 +4118,21 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\cmyk\check\integrity.hpp">
       <Filter>Source Files\src\cmyk\check</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\_internal\convert.hpp">
+      <Filter>Source Files\src\_internal\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\_internal\diverse.hpp">
+      <Filter>Source Files\src\_internal\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\_internal\init.hpp">
+      <Filter>Source Files\src\_internal\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\_internal\normalize.hpp">
+      <Filter>Source Files\src\_internal\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\_internal\reformat.hpp">
+      <Filter>Source Files\src\_internal\utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
