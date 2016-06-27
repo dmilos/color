@@ -47,4 +47,6 @@ Want to see more:
 
 Tested against:
   - GCC 5.3.1 20160413
+  - GCC 4.8.4
   - MSVC 2015 Update 2
+  - MSVC 2013 Update 5
