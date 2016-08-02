@@ -12,12 +12,12 @@
 			<dt><h3>Description</h3></dt>
 			<dd>Get color property. From each color we can uniquely extract some information. </dd>
 			<dt><h3>Note</h3></dt>
-			<dd> All functions has the same signature and they return akin values for akin type for given model.<br><br>
+			<dd><a name="general"/>All functions has the same signature and they return akin values for akin type for given model.<br><br>
 				<dl>
 					<dt>Generalized form:</dt>
 					<dd>
 						<code>
-						template&lt; typename &lt; category_name &gt; <br>
+						template&lt; typename  category_name &gt; <br>
 					    &nbsp; inline <br>
 					    &nbsp; typename ::color::trait::component&lt; category_name &gt;::return_image_type <br>
 					    &nbsp; blue( ::color::model&lt; category_name &gt; const&amp; color_parameter ); <br>
@@ -27,16 +27,16 @@
 				<dt>Specialized:</dt>
 				<dd>
 					<code style="white-space: nowrap">
-					     template&lt; typename &lt; tag_name &gt;<br>
+					     template&lt; typename  tag_name &gt;<br>
 					     &nbsp;  inline<br>
-					     &nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::<i>SomeModel</i>&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
-					     &nbsp;  blue( ::color::model&lt; ::color::category::<i>SomeModel</i>&lt; tag_name &gt; &gt; const&amp; color_parameter );
+					     &nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::<i>ModelName</i>&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
+					     &nbsp;  blue( ::color::model&lt; ::color::category::<i>ModelName</i>&lt; tag_name &gt; &gt; const&amp; color_parameter );
 					</code>
 				</dd>
 				<dt>Example:</dt>
 				<dd>
 					<code style="white-space: nowrap">
-					     template&lt; typename &lt; tag_name &gt;<br>
+					     template&lt; typename tag_name &gt;<br>
 					     &nbsp;  inline<br>
 					     &nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::hsv&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
 					     &nbsp;  blue( ::color::model&lt; ::color::category::hsv&lt; tag_name &gt; &gt; const&amp; color_parameter );
@@ -55,9 +55,11 @@
 					<dt>Declaration</dt>
 					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
-					<dd>Get alpha component. If alpha not exist maximum value for zeroth component will be returned.</dd>
+					<dd>Get alpha component.</dd>
+					<dt>Note</dt>
+					<dd>If alpha not exist maximum possible value for zeroth component will be returned.</dd>
 					<dt>Example</dt>
-					<dd><code>
+					<dd>
 						<code>::color::hsv &lt; double &gt; h{ ::color::constant::turquoise{} };<br>
 							std::cout &lt;&lt; ::coor::get::alpha( h ) &lt;&lt; std::cout;<br></code>
 					</dd>

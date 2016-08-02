@@ -61,16 +61,22 @@
 							<dd>Type is: <code>bool</code></dd>
 							<dt>Container</dt>
 							<dd>Type is: <code>std::array&lt; bool, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
+							<dt>Memory</dt>
+							<dd>
+								<dl>
+									<dt>Consumption</dt>
+									<dd>Size of instance is equal to: <code>sizeof( std::array&lt; bool, <i>_size_</i> &gt; )</code></dd>
+								</dl>
+							</dd>
 							<dt>Note</dt>
 							<dd>
 								<ul>
 									<li>First component is denoted by first letter of its abbreviation.</li>
 									<li>First component occupy position with index 0, etc. .</li>
-									<li>Size of instance is equal to: <i>_size_</i> * <code>sizeof( bool )</code> .</li>
 								</ul>
 							</dd>
 							<dt>Note</dt>
-							<dd>Not fully implemented</dd>
+							<dd>Not completely implemented.</dd>
 							<dt>Example</dt>
 							<dd><code>color::gray&lt; <u>bool</u> &gt; r;</code></dd>
 						</dl>
@@ -114,7 +120,9 @@
 								</ul>
 							</dd>
 							<dt>Example</dt>
-							<dd><code>color::rgb&lt; <u>std::uint16_t</u> &gt; r;</code></dd>
+							<dd><code>color::rgb&lt; <u>std::uint16_t</u> &gt; r;</code>
+								<i>red</i> is first component in memory, second is <i>blue</i>, third is <i>green</i>.
+							</dd>
 						</dl>
 					</dd>
 
@@ -367,7 +375,7 @@
 				</dl>
 			</dd>
 		</dl>
-	<hr>
+	<hr />
 	<!-- <table border="1" cellpadding="0" cellspacing="0"><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr></table> -->
 	</body>
 </html>
