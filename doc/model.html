@@ -62,13 +62,16 @@
 
         explicit model( container_input_const_type container );
 
-        template&lt; typename color_name &gt;
-         explicit model( color_name const&amp; cn );
+        template&lt; typename tag_name >
+         explicit model( ::color::constant::base&lt; tag_name &gt; const&amp; constant );
 
         explicit model( std::initializer_list&lt;component_type&gt; const&amp; ilist );
 
         template&lt; typename other_category_name &gt;
          explicit model( ::color::model&lt;other_category_name&gt; const&amp; that );
+
+        template&lt; typename tag_name &gt;
+         model operator=( ::color::constant::base&lt; tag_name &gt; const&amp; constant );
 
         template&lt; typename other_category_name &gt;
          this_type operator=( ::color::model&lt;other_category_name&gt; const&amp; that );
@@ -232,18 +235,18 @@
 							<dd>
 								<dl>
 									<dt>Description</dt>
-									<dd>Get coponent for given index</dd>
+									<dd>Get component for given index</dd>
 									<dt>Definition</dt>
 									<dd><code>component_return_const_type<br>&nbsp;&nbsp;get( index_input_const_type index )const </code></dd>
 									<dt>Note</dt>
 									<dd>This is version of get is slower then templete.</dd>
 								</dl>
 							</dd>
-							<dt>get</dt>
+							<dt>get&lt;index&gt;</dt>
 							<dd>
 								<dl>
 									<dt>Description</dt>
-									<dd>Get coponent for given index. Index will be get from template parameter.</dd>
+									<dd>Get component for given index. Index will be get from template parameter.</dd>
 									<dt>Definition</dt>
 									<dd><code>template&lt; index_type index &gt;<br>&nbsp;component_return_const_type &nbsp;get()const;</code></dd>
 								</dl>
@@ -261,7 +264,7 @@
 								</dl>
 							</dd>
 
-							<dt>set</dt>
+							<dt>set&lt;index&gt;</dt>
 							<dd>
 								<dl>
 									<dt>Description</dt>

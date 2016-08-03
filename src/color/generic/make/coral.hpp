@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct coral_type{};
+       }
 
-      struct coral /*: public ::color::constant::_base */ {};
-      using  coral_t    = ::color::constant::coral;
-      using  coral_type = ::color::constant::coral;
+      using  coral_type = ::color::constant::base< ::color::constant::_internal::coral_type >;
+      using  coral_t    = ::color::constant::coral_type;
+      using  coral      = ::color::constant::coral_type;
 
       template< typename category_name >
        struct make<::color::constant::coral, category_name >

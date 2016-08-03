@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct gold_type{};
+       }
 
-      struct gold /*: public ::color::constant::_base */ {};
-      using  gold_t    = ::color::constant::gold;
-      using  gold_type = ::color::constant::gold;
+      using  gold_type = ::color::constant::base< ::color::constant::_internal::gold_type >;
+      using  gold_t    = ::color::constant::gold_type;
+      using  gold      = ::color::constant::gold_type;
 
       template< typename category_name >
        struct make<::color::constant::gold, category_name >

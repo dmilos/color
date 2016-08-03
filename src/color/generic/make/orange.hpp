@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct orange_type{};
+       }
 
-      struct orange /*: public ::color::constant::_base */ {};
+      using  orange      = ::color::constant::base< ::color::constant::_internal::orange_type >;
       using  orange_t    = ::color::constant::orange;
       using  orange_type = ::color::constant::orange;
 

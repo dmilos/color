@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct fuchsia_type{};
+       }
 
-      struct fuchsia /*: public ::color::constant::_base */ {};
-      using  fuchsia_t    = ::color::constant::fuchsia;
-      using  fuchsia_type = ::color::constant::fuchsia;
+      using  fuchsia_type = ::color::constant::base< ::color::constant::_internal::fuchsia_type >;
+      using  fuchsia_t    = ::color::constant::fuchsia_type;
+      using  fuchsia      = ::color::constant::fuchsia_type;
 
       template< typename category_name >
        struct make<::color::constant::fuchsia, category_name >

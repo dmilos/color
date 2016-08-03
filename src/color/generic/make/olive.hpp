@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct olive_type{};
+       }
 
-      struct olive /*: public ::color::constant::_base */ {};
+      using  olive      = ::color::constant::base< ::color::constant::_internal::olive_type >;
       using  olive_t    = ::color::constant::olive;
       using  olive_type = ::color::constant::olive;
 

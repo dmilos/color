@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct maroon_type{};
+       }
 
-      struct maroon /*: public ::color::constant::_base */ {};
+      using  maroon      = ::color::constant::base< ::color::constant::_internal::maroon_type >;
       using  maroon_t    = ::color::constant::maroon;
       using  maroon_type = ::color::constant::maroon;
 

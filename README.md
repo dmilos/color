@@ -29,8 +29,8 @@ color::bgr<std::uint8_t>  b( ::color::constant::aqua{} ); //!< Three consecutive
 color::yiq<std::uint8_t>  y( { 192, 64, 92 } );           //!< Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
 color::hsv<double>        h( { 90.0, 50.0, 60.0 } );      //!< This will pack ONLY three consecutive doubles in memory
 
-color::make::orange( r );     //!< Reset color to be  orange
-color::make::turquoise( y );  //!< Reset color to be turquoise
+color::make::orange( r );                 //!< Set 'r' to be orange. Function call style.
+y = ::color::constant::turquoise_type{};  //!< Set 'y' to be turquoise. Assign from constant style.
 
 b = r; //!< Reformat and convert.
 r = b; //!< Reformat and convert in opposite direction.

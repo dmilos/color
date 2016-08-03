@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct tomato_type{};
+       }
 
-      struct tomato /*: public ::color::constant::_base */ {};
-      using  tomato_t    = ::color::constant::tomato;
-      using  tomato_type = ::color::constant::tomato;
+      using  tomato_type = ::color::constant::base< ::color::constant::_internal::tomato_type >;
+      using  tomato_t    = ::color::constant::tomato_type;
+      using  tomato      = ::color::constant::tomato_type;
 
       template< typename category_name >
        struct make<::color::constant::tomato, category_name >

@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct navy_type{};
+       }
 
-      struct navy /*: public ::color::constant::_base */ {};
+      using  navy      = ::color::constant::base< ::color::constant::_internal::navy_type >;
       using  navy_t    = ::color::constant::navy;
       using  navy_type = ::color::constant::navy;
 

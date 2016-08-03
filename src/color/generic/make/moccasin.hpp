@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct moccasin_type{};
+       }
 
-      struct moccasin /*: public ::color::constant::_base */ {};
+      using  moccasin      = ::color::constant::base< ::color::constant::_internal::moccasin_type >;
       using  moccasin_t    = ::color::constant::moccasin;
       using  moccasin_type = ::color::constant::moccasin;
 

@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct ivory_type{};
+       }
 
-      struct ivory /*: public ::color::constant::_base */ {};
-      using  ivory_t    = ::color::constant::ivory;
-      using  ivory_type = ::color::constant::ivory;
+      using  ivory_type = ::color::constant::base< ::color::constant::_internal::ivory_type >;
+      using  ivory_t    = ::color::constant::ivory_type;
+      using  ivory      = ::color::constant::ivory_type;
 
       template< typename category_name >
        struct make<::color::constant::ivory, category_name >

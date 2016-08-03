@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct lime_type{};
+       }
 
-      struct lime /*: public ::color::constant::_base */ {};
+      using  lime      = ::color::constant::base< ::color::constant::_internal::lime_type >;
       using  lime_t    = ::color::constant::lime;
       using  lime_type = ::color::constant::lime;
 

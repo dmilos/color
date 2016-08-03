@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct orchid_type{};
+       }
 
-      struct orchid /*: public ::color::constant::_base */ {};
+      using  orchid      = ::color::constant::base< ::color::constant::_internal::orchid_type >;
       using  orchid_t    = ::color::constant::orchid;
       using  orchid_type = ::color::constant::orchid;
 

@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct wheat_type{};
+       }
 
-      struct wheat /*: public ::color::constant::_base */ {};
-      using  wheat_t    = ::color::constant::wheat;
-      using  wheat_type = ::color::constant::wheat;
+      using  wheat_type = ::color::constant::base< ::color::constant::_internal::wheat_type >;
+      using  wheat_t    = ::color::constant::wheat_type;
+      using  wheat      = ::color::constant::wheat_type;
 
       template< typename category_name >
        struct make<::color::constant::wheat, category_name >

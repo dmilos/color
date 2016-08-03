@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct khaki_type{};
+       }
 
-      struct khaki /*: public ::color::constant::_base */ {};
-      using  khaki_t    = ::color::constant::khaki;
-      using  khaki_type = ::color::constant::khaki;
+      using  khaki_type = ::color::constant::base< ::color::constant::_internal::khaki_type >;
+      using  khaki_t    = ::color::constant::khaki_type;
+      using  khaki      = ::color::constant::khaki_type;
 
       template< typename category_name >
        struct make<::color::constant::khaki, category_name >

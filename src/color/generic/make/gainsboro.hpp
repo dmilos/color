@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct gainsboro_type{};
+       }
 
-      struct gainsboro /*: public ::color::constant::_base */ {};
-      using  gainsboro_t    = ::color::constant::gainsboro;
-      using  gainsboro_type = ::color::constant::gainsboro;
+      using  gainsboro_type = ::color::constant::base< ::color::constant::_internal::gainsboro_type >;
+      using  gainsboro_t    = ::color::constant::gainsboro_type;
+      using  gainsboro      = ::color::constant::gainsboro_type;
 
       template< typename category_name >
        struct make<::color::constant::gainsboro, category_name >

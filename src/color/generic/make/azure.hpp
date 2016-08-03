@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct azure_type{};
+       }
 
-      struct azure /*: public ::color::constant::_base */ {};
-      using  azure_t    = ::color::constant::azure;
-      using  azure_type = ::color::constant::azure;
+      using  azure_type = ::color::constant::base< ::color::constant::_internal::azure_type >;
+      using  azure_t    = ::color::constant::azure_type;
+      using  azure      = ::color::constant::azure_type;
 
       template< typename category_name >
        struct make<::color::constant::azure, category_name >

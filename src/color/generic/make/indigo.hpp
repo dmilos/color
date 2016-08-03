@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct indigo_type{};
+       }
 
-      struct indigo /*: public ::color::constant::_base */ {};
-      using  indigo_t    = ::color::constant::indigo;
-      using  indigo_type = ::color::constant::indigo;
+      using  indigo_type = ::color::constant::base< ::color::constant::_internal::indigo_type >;
+      using  indigo_t    = ::color::constant::indigo_type;
+      using  indigo      = ::color::constant::indigo_type;
 
       template< typename category_name >
        struct make<::color::constant::indigo, category_name >

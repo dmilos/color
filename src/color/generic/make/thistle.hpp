@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct thistle_type{};
+       }
 
-      struct thistle /*: public ::color::constant::_base */ {};
+      using  thistle      = ::color::constant::base< ::color::constant::_internal::thistle_type >;
       using  thistle_t    = ::color::constant::thistle;
       using  thistle_type = ::color::constant::thistle;
 

@@ -14,11 +14,13 @@
 
 void ctor_test()
  {
-  ::color::rgb<double> r{ ::color::constant::aqua() };
-  ::color::rgb<double> x{ ::color::constant::turquoise() };
-  ::color::rgb<double>{ ::color::constant::black() };
+  ::color::rgb<double> r{ ::color::constant::aqua_type{} };
+  ::color::rgb<double> x{ ::color::constant::turquoise_type{} };
+  ::color::rgb<double>{ ::color::constant::black_type{} };
   ::color::rgb<double>( {1,2,3} );
 
+  r = ::color::constant::turquoise_type{};
+  x = ::color::constant::orange_type{};
   r[0] = 0.1;
   std::cout << r[0] << std::endl;
  }

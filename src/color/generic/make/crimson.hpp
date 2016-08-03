@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct crimson_type{};
+       }
 
-      struct crimson /*: public ::color::constant::_base */ {};
-      using  crimson_t    = ::color::constant::crimson;
-      using  crimson_type = ::color::constant::crimson;
+      using  crimson_type = ::color::constant::base< ::color::constant::_internal::crimson_type >;
+      using  crimson_t    = ::color::constant::crimson_type;
+      using  crimson      = ::color::constant::crimson_type;
 
       template< typename category_name >
        struct make<::color::constant::crimson, category_name >

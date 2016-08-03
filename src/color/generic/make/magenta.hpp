@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct magenta_type{};
+       }
 
-      struct magenta /*: public ::color::constant::_base */ {};
+      using  magenta      = ::color::constant::base< ::color::constant::_internal::magenta_type >;
       using  magenta_t    = ::color::constant::magenta;
       using  magenta_type = ::color::constant::magenta;
 

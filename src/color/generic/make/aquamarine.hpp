@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct aquamarine_type{};
+       }
 
-      struct aquamarine /*: public ::color::constant::_base */ {};
+      using  aquamarine      = ::color::constant::base< ::color::constant::_internal::aquamarine_type >;
       using  aquamarine_t    = ::color::constant::aquamarine;
       using  aquamarine_type = ::color::constant::aquamarine;
 

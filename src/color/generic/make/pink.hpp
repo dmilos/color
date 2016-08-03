@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct pink_type{};
+       }
 
-      struct pink /*: public ::color::constant::_base */ {};
+      using  pink      = ::color::constant::base< ::color::constant::_internal::pink_type >;
       using  pink_t    = ::color::constant::pink;
       using  pink_type = ::color::constant::pink;
 

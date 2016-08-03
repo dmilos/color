@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct tan_type{};
+       }
 
-      struct tan /*: public ::color::constant::_base */ {};
+      using  tan      = ::color::constant::base< ::color::constant::_internal::tan_type >;
       using  tan_t    = ::color::constant::tan;
       using  tan_type = ::color::constant::tan;
 

@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct plum_type{};
+       }
 
-      struct plum /*: public ::color::constant::_base */ {};
+      using  plum      = ::color::constant::base< ::color::constant::_internal::plum_type >;
       using  plum_t    = ::color::constant::plum;
       using  plum_type = ::color::constant::plum;
 

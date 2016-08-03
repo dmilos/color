@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct lavender_type{};
+       }
 
-      struct lavender /*: public ::color::constant::_base */ {};
-      using  lavender_t    = ::color::constant::lavender;
-      using  lavender_type = ::color::constant::lavender;
+      using  lavender_type = ::color::constant::base< ::color::constant::_internal::lavender_type >;
+      using  lavender_t    = ::color::constant::lavender_type;
+      using  lavender      = ::color::constant::lavender_type;
 
       template< typename category_name >
        struct make<::color::constant::lavender, category_name >

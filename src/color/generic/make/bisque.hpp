@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct bisque_type{};
+       }
 
-      struct bisque /*: public ::color::constant::_base */ {};
-      using  bisque_t    = ::color::constant::bisque;
-      using  bisque_type = ::color::constant::bisque;
+      using  bisque_type = ::color::constant::base< ::color::constant::_internal::bisque_type >;
+      using  bisque_t    = ::color::constant::bisque_type;
+      using  bisque      = ::color::constant::bisque_type;
 
       template< typename category_name >
        struct make<::color::constant::bisque, category_name >

@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct turquoise_type{};
+       }
 
-      struct turquoise /*: public ::color::constant::_base */ {};
-      using  turquoise_t    = ::color::constant::turquoise;
-      using  turquoise_type = ::color::constant::turquoise;
+      using  turquoise_type = ::color::constant::base< ::color::constant::_internal::turquoise_type >;
+      using  turquoise_t    = ::color::constant::turquoise_type;
+      using  turquoise      = ::color::constant::turquoise_type;
 
       template< typename category_name >
        struct make<::color::constant::turquoise, category_name >
@@ -54,7 +58,8 @@
 
          inline static void process( container_output_type & m )
           {
-           m = ::color::make::turquoise<category_type>( ).container();
+           auto static s_container = ::color::make::turquoise<category_type>( ).container();
+           m = s_container;
           }
 
         };

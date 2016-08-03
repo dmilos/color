@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct snow_type{};
+       }
 
-      struct snow /*: public ::color::constant::_base */ {};
-      using  snow_t    = ::color::constant::snow;
-      using  snow_type = ::color::constant::snow;
+      using  snow_type = ::color::constant::base< ::color::constant::_internal::snow_type >;
+      using  snow_t    = ::color::constant::snow_type;
+      using  snow      = ::color::constant::snow_type;
 
       template< typename category_name >
        struct make<::color::constant::snow, category_name >

@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct salmon_type{};
+       }
 
-      struct salmon /*: public ::color::constant::_base */ {};
-      using  salmon_t    = ::color::constant::salmon;
-      using  salmon_type = ::color::constant::salmon;
+      using  salmon_type = ::color::constant::base< ::color::constant::_internal::salmon_type >;
+      using  salmon_t    = ::color::constant::salmon_type;
+      using  salmon      = ::color::constant::salmon_type;
 
       template< typename category_name >
        struct make<::color::constant::salmon, category_name >

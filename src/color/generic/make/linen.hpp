@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct linen_type{};
+       }
 
-      struct linen /*: public ::color::constant::_base */ {};
+      using  linen      = ::color::constant::base< ::color::constant::_internal::linen_type >;
       using  linen_t    = ::color::constant::linen;
       using  linen_type = ::color::constant::linen;
 

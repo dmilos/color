@@ -39,8 +39,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct peru_type{};
+       }
 
-      struct peru /*: public ::color::constant::_base */ {};
+      using  peru      = ::color::constant::base< ::color::constant::_internal::peru_type >;
       using  peru_t    = ::color::constant::peru;
       using  peru_type = ::color::constant::peru;
 

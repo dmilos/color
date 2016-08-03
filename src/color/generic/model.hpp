@@ -11,6 +11,7 @@
 
 #include "../_internal/convert.hpp"
 #include "../_internal/init.hpp"
+#include "./constant/base.hpp"
 #include "./constant/make.hpp"
 
 /**
@@ -65,14 +66,14 @@ namespace color
                }
 
       explicit model( container_input_const_type container )
-       :m_container(container)
+       :m_container( container )
        {
        }
 
-      template< typename color_name >
-       explicit model( color_name const& cn )
-        { // e.g ::color::rgb r( ::color::make::turquoise_t() );
-         ::color::constant::make<color_name,category_name>::process( this->m_container );
+      template< typename tag_name >
+       explicit model( ::color::constant::base< tag_name > const& constant )
+        {
+         *this = constant;
         }
 
       explicit model( std::initializer_list<component_type> const& ilist )
@@ -89,7 +90,14 @@ namespace color
       template< typename other_category_name >
        explicit model( ::color::model<other_category_name> const& that )
         {
-         ::color::_internal::convert<category_name, other_category_name>::process( this->m_container, that.container() );
+         *this = that;
+        }
+
+      template< typename tag_name >
+       model operator=( ::color::constant::base< tag_name > const& constant )
+        {
+         ::color::constant::make<::color::constant::base< tag_name >,category_name>::process( this->m_container );
+         return *this;
         }
 
       template< typename other_category_name >

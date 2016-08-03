@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct brown_type{};
+       }
 
-      struct brown /*: public ::color::constant::_base */ {};
-      using  brown_t    = ::color::constant::brown;
-      using  brown_type = ::color::constant::brown;
+      using  brown_type = ::color::constant::base< ::color::constant::_internal::brown_type >;
+      using  brown_t    = ::color::constant::brown_type;
+      using  brown      = ::color::constant::brown_type;
 
       template< typename category_name >
        struct make<::color::constant::brown, category_name >

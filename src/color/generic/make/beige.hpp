@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct beige_type{};
+       }
 
-      struct beige /*: public ::color::constant::_base */ {};
-      using  beige_t    = ::color::constant::beige;
-      using  beige_type = ::color::constant::beige;
+      using  beige_type = ::color::constant::base< ::color::constant::_internal::beige_type >;
+      using  beige_t    = ::color::constant::beige_type;
+      using  beige      = ::color::constant::beige_type;
 
       template< typename category_name >
        struct make<::color::constant::beige, category_name >

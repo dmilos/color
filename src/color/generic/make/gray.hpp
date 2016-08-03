@@ -89,8 +89,12 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct gray50_type{};
+       }
 
-      struct gray50 /*: public ::color::constant::_base */ {};
+      using  gray50      = ::color::constant::base< ::color::constant::_internal::gray50_type >;
       using  gray50_t    = ::color::constant::gray50;
       using  gray50_type = ::color::constant::gray50;
 

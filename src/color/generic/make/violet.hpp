@@ -39,10 +39,14 @@
 
     namespace constant
      {
+      namespace _internal
+       {
+        struct violet_type{};
+       }
 
-      struct violet /*: public ::color::constant::_base */ {};
-      using  violet_t    = ::color::constant::violet;
-      using  violet_type = ::color::constant::violet;
+      using  violet_type = ::color::constant::base< ::color::constant::_internal::violet_type >;
+      using  violet_t    = ::color::constant::violet_type;
+      using  violet      = ::color::constant::violet_type;
 
       template< typename category_name >
        struct make<::color::constant::violet, category_name >
