@@ -8,7 +8,7 @@ namespace color
 
     namespace _internal
      {
-    //struct cmy_bool    {};
+      //struct cmy_bool    {};
       struct cmy_uint8   {};
       struct cmy_uint16  {};
       struct cmy_uint24  {};
@@ -26,7 +26,7 @@ namespace color
        typedef void category_name;
       };
 
-  //using cmy_bool    = ::color::category::cmy< ::color::category::_internal::cmy_bool    >;
+    //using cmy_bool    = ::color::category::cmy< ::color::category::_internal::cmy_bool    >;
     using cmy_uint8   = ::color::category::cmy< ::color::category::_internal::cmy_uint8   >;
     using cmy_uint16  = ::color::category::cmy< ::color::category::_internal::cmy_uint16  >;
     using cmy_uint24  = ::color::category::cmy< ::color::category::_internal::cmy_uint24  >;

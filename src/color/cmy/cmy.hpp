@@ -19,7 +19,7 @@ namespace color
     template< typename type_name >
      struct pick_cmy
       {
-       typedef ::color::category::cmy_uint32 category_type;
+       typedef ::color::category::cmy_uint8 category_type;
       };
 
 

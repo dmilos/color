@@ -25,7 +25,7 @@
 		</ul>
 		<dl>
 			<dt><h3><a name="Description">Description</a></h3></dt>
-			<dd>All colors are alias of <code>model</code> for some specified <a href="./ns/category.html">category</a>.
+			<dd>All colors are alias of <code>model</code> for some specified <a href="./ns/category.html">category</a>.<br>
 				Every color model/format can be instantiated by using of this class.
 			</dd>
 			<dt><h3><a name="Declaration">Declaration</a></h3></dt>
@@ -62,8 +62,8 @@
 
         explicit model( container_input_const_type container );
 
-        templatet&lt; typename color_name t&gt;
-         explicit model( color_name constt&amp; cn );
+        template&lt; typename color_name &gt;
+         explicit model( color_name const&amp; cn );
 
         explicit model( std::initializer_list&lt;component_type&gt; const&amp; ilist );
 

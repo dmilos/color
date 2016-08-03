@@ -12,24 +12,52 @@
 			<dt><h3>TOC</h3></dt>
 			<dd>
 				<ul>
-					<li>color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968</li>
+					<li><a href="#UUID">color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968</a></li>
+					<li><a href="#UUID">PP2F</a></li>
 				</ul>
 			</dd>
 			<dt><h3>Description</h3></dt>
-            <dd>Macros for various use.<br>Currently one one macro is available.</dd>
+            <dd>Macros for various use.</dd>
 			<dt><h3>List</h3></dt>
 			<dd>
 				<dl>
-					<dt>Name</dt><dd>color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968</dd>
-					<dt>Description</dt><dd>Header of Color library is included and ready for use. </dd>
-					<dt>Example</dt>
+					<dt><code>color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968</code></dt>
 					<dd>
-						<code>
-							#ifdef color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968<br>
-							typedef ::coloe::rgb &lt; &gt; rgb_t;<br>
-							#endif<br>
-						</code>
+						<dl>
+							<dt><a name="UUID" />Name</dt>
+							<dd><code>color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968</code></dd>
+							<dt>Description</dt><dd>Header of Color library is included and ready for use. </dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#ifdef color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968<br>
+									typedef ::color::rgb &lt; std::uint8_t &gt; rgb_t;<br>
+									#else<br>
+									#error "Missing color library"<br>
+									#endif<br>
+								</code>
+							</dd>
+						</dl>
+
 					</dd>
+					<dt><code>COLOR_USE_PP2FILE</code></dt>
+					<dd>
+						<dl>
+							<dt><a name="PP2F" />Name</dt>
+							<dd><code> COLOR_USE_PP2FILE </code></dd>
+							<dt>Description</dt><dd>Instead to internally use files scattered across <code>color</code> folder use only one already preprocessed.
+								<br>This will speed up compilation process</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_USE_PP2FILE <br>
+									#include "color/color.hpp"<br>
+								</code>
+							</dd>
+						</dl>
+					</dd>
+
+
 				</dl>
 			</dd>
 		</dl>

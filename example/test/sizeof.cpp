@@ -8,30 +8,30 @@
 
 
 template < typename category_name >
- std::string print_sizeof_one( ) 
+ std::string print_sizeof_one( )
   {
    std::stringstream ss;
 
   if( false == ::color::trait::info< category_name >::meaningful_enum )
    {
-    ss << "<s>";    
+    ss << "<s>";
    }
 
    if( false == ::color::trait::info< category_name >::implemented_enum )
     {
-	 ss << "\"";
+     ss << "\"";
     }
 
    ss << sizeof( ::color::model<category_name> );
 
    if( false == ::color::trait::info< category_name >::implemented_enum )
     {
-	 ss << "\"";
+    ss << "\"";
     }
 
   if( false == ::color::trait::info< category_name >::meaningful_enum )
    {
-    ss << "</s>";    
+    ss << "</s>";
    }
 
   return ss.str();
@@ -55,17 +55,46 @@ std::string print_sizeof( std::string const& name )
 
   typedef color_name< color::type::split233_t >  split233_type;
   typedef color_name< color::type::split332_t >  split332_type;
-  typedef color_name< color::type::split422_t >  split422_type;
-  typedef color_name< color::type::split556_t >  split556_type;
-  typedef color_name< color::type::split565_t >  split565_type;
-  typedef color_name< color::type::split655_t >  split655_type;
 
-  typedef color_name< color::type::split2222_t > split2222_type;
-  typedef color_name< color::type::split4444_t > split4444_type;
-  typedef color_name< color::type::split8888_t > split8888_type;
+  typedef color_name< color::type::split233_t > split233_type;
+  typedef color_name< color::type::split323_t > split323_type;
+  typedef color_name< color::type::split332_t > split332_type;
 
-  typedef color_name< color::type::split5551_t > split5551_type;
-  typedef color_name< color::type::splitAAA2_t > splitAAA2_type;
+  typedef color_name< color::type::split422_t > split422_type;
+  typedef color_name< color::type::split242_t > split242_type;
+  typedef color_name< color::type::split224_t > split224_type;
+
+  typedef color_name< color::type::split555_t > split555_type;
+
+  typedef color_name< color::type::split655_t > split655_type;
+  typedef color_name< color::type::split565_t > split565_type;
+  typedef color_name< color::type::split556_t > split556_type;
+
+  typedef color_name< color::type::split888_t > split888_type;
+
+  typedef color_name< color::type::splitCAA_t > splitCAA_type;
+  typedef color_name< color::type::splitACA_t > splitACA_type;
+  typedef color_name< color::type::splitAAC_t > splitAAC_type;
+
+  typedef color_name< color::type::split2222_t >  split2222_type;
+
+  typedef color_name< color::type::split4444_t >  split4444_type;
+
+  typedef color_name< color::type::split5551_t >  split5551_type;
+  typedef color_name< color::type::split1555_t >  split1555_type;
+
+  typedef color_name< color::type::split6666_t >  split6666_type;
+
+  typedef color_name< color::type::split8888_t >  split8888_type;
+
+  typedef color_name< color::type::split2AAA_t >  split2AAA_type;
+  typedef color_name< color::type::splitAAA2_t >  splitAAA2_type;
+
+  typedef color_name< color::type::splitGGGG_t >  splitGGGG_type;
+
+
+
+
 
   std::stringstream ss;
 

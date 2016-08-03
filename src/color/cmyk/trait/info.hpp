@@ -3,6 +3,7 @@
 
 
 #include "../../generic/trait/info.hpp"
+
 #include "../category.hpp"
 
 namespace color
