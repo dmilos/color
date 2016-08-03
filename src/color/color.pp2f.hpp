@@ -1302,21 +1302,21 @@ namespace type {
 template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
 struct split4_t {};
 
-typedef ::color::type::split4_t< 2, 2, 2, 2 > split2222_t;
+typedef ::color::type::split4_t< 2, 2, 2, 2 > split2222_t, split2222_type;
 
-typedef ::color::type::split4_t< 4, 4, 4, 4 > split4444_t;
+typedef ::color::type::split4_t< 4, 4, 4, 4 > split4444_t, split4444_type;
 
-typedef ::color::type::split4_t< 5, 5, 5, 1 > split5551_t;
-typedef ::color::type::split4_t< 1, 5, 5, 5 > split1555_t;
+typedef ::color::type::split4_t< 5, 5, 5, 1 > split5551_t, split5551_type;
+typedef ::color::type::split4_t< 1, 5, 5, 5 > split1555_t, split1555_type;
 
-typedef ::color::type::split4_t< 6, 6, 6, 6 > split6666_t;
+typedef ::color::type::split4_t< 6, 6, 6, 6 > split6666_t, split6666_type;
 
-typedef ::color::type::split4_t< 8, 8, 8, 8 > split8888_t;
+typedef ::color::type::split4_t< 8, 8, 8, 8 > split8888_t, split8888_type;
 
-typedef ::color::type::split4_t< 2, 10, 10, 10 > split2AAA_t;
-typedef ::color::type::split4_t< 10, 10, 10, 2 > splitAAA2_t;
+typedef ::color::type::split4_t< 2, 10, 10, 10 > split2AAA_t, split2AAA_type;
+typedef ::color::type::split4_t< 10, 10, 10, 2 > splitAAA2_t, splitAAA2_type;
 
-typedef ::color::type::split4_t< 16, 16, 16, 16 > splitGGGG_t;
+typedef ::color::type::split4_t< 16, 16, 16, 16 > splitGGGG_t, splitGGGG_type;
 
 }
 }
@@ -1328,24 +1328,24 @@ template< unsigned first_size, unsigned second_size, unsigned third_size >
 struct split3_t {};
 
 typedef ::color::type::split3_t< 2, 3, 3 > split233_t, split233_type;
-typedef ::color::type::split3_t< 3, 2, 3 > split323_t;
-typedef ::color::type::split3_t< 3, 3, 2 > split332_t;
+typedef ::color::type::split3_t< 3, 2, 3 > split323_t, split323_type;
+typedef ::color::type::split3_t< 3, 3, 2 > split332_t, split332_type;
 
-typedef ::color::type::split3_t< 4, 2, 2 > split422_t;
-typedef ::color::type::split3_t< 2, 4, 2 > split242_t;
-typedef ::color::type::split3_t< 2, 2, 4 > split224_t;
+typedef ::color::type::split3_t< 4, 2, 2 > split422_t, split422_type;
+typedef ::color::type::split3_t< 2, 4, 2 > split242_t, split242_type;
+typedef ::color::type::split3_t< 2, 2, 4 > split224_t, split224_type;
 
-typedef ::color::type::split3_t< 5, 5, 5 > split555_t;
+typedef ::color::type::split3_t< 5, 5, 5 > split555_t, split555_type;
 
-typedef ::color::type::split3_t< 6, 5, 5 > split655_t;
-typedef ::color::type::split3_t< 5, 6, 5 > split565_t;
-typedef ::color::type::split3_t< 5, 5, 6 > split556_t;
+typedef ::color::type::split3_t< 6, 5, 5 > split655_t, split655_type;
+typedef ::color::type::split3_t< 5, 6, 5 > split565_t, split565_type;
+typedef ::color::type::split3_t< 5, 5, 6 > split556_t, split556_type;
 
-typedef ::color::type::split3_t< 8, 8, 8 > split888_t;
+typedef ::color::type::split3_t< 8, 8, 8 > split888_t, split888_type;
 
-typedef ::color::type::split3_t< 12, 10, 10 > splitCAA_t;
-typedef ::color::type::split3_t< 10, 12, 10 > splitACA_t;
-typedef ::color::type::split3_t< 10, 10, 12 > splitAAC_t;
+typedef ::color::type::split3_t< 12, 10, 10 > splitCAA_t, splitCAA_type;
+typedef ::color::type::split3_t< 10, 12, 10 > splitACA_t, splitACA_type;
+typedef ::color::type::split3_t< 10, 10, 12 > splitAAC_t, splitAAC_type;
 
 }
 }
@@ -1362,7 +1362,7 @@ struct split2_t {};
 namespace color {
 namespace type {
 
-typedef std::array< std::uint8_t, 3 > uint24_t;
+typedef std::array< std::uint8_t, 3 > uint24_t, uint24_type;
 
 }
 }
@@ -1372,7 +1372,7 @@ namespace type {
 
 typedef std::array< std::uint8_t, 6 > uint48_t, uint48c_t;
 
-typedef std::array< std::uint16_t, 3 > uint48s_t;
+typedef std::array< std::uint16_t, 3 > uint48s_t, uint48s_type;
 
 }
 }
@@ -1416,7 +1416,7 @@ namespace color {
 namespace category {
 
 namespace _internal {
-
+struct cmy_bool {};
 struct cmy_uint8 {};
 struct cmy_uint16 {};
 struct cmy_uint24 {};
@@ -1433,6 +1433,7 @@ struct cmy {
 	typedef void category_name;
 };
 
+using cmy_bool = ::color::category::cmy< ::color::category::_internal::cmy_bool >;
 using cmy_uint8 = ::color::category::cmy< ::color::category::_internal::cmy_uint8 >;
 using cmy_uint16 = ::color::category::cmy< ::color::category::_internal::cmy_uint16 >;
 using cmy_uint24 = ::color::category::cmy< ::color::category::_internal::cmy_uint24 >;
@@ -3837,6 +3838,11 @@ template< >struct cmy< ::color::category::yuv_ldouble > {
 namespace color {
 namespace trait {
 
+template <> struct info< ::color::category::cmy_bool > {
+public:
+	enum { implemented_enum = false};
+	enum { meaningful_enum = true };
+};
 template <> struct info< ::color::category::cmy_uint8 > {
 public:
 	enum { implemented_enum = true };
@@ -4165,7 +4171,7 @@ namespace _internal {
 
 template< typename type_name >
 struct pick_cmy {
-	typedef ::color::category::cmy_uint32 category_type;
+	typedef ::color::category::cmy_uint8 category_type;
 };
 
 template<> struct pick_cmy< std::uint8_t > {
