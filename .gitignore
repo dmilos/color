@@ -19,6 +19,9 @@ src/color/color.pp2f*.hpp
 
 example/akin
 
+example/assign_const
+
+
 example/convert_cmy2gray
 example/convert_cmy2rgb
 example/convert_gray2cmy

@@ -908,6 +908,16 @@ void init
 namespace color {
 namespace constant {
 
+template < typename tag_name >
+struct base {
+};
+
+}
+}
+
+namespace color {
+namespace constant {
+
 template< typename color_name, typename category_name >
 struct make {
 	typedef category_name category_type;
@@ -964,9 +974,9 @@ public:
 		:m_container(container) {
 	}
 
-	template< typename color_name >
-	explicit model(color_name const& cn) {
-		::color::constant::make<color_name,category_name>::process(this->m_container);
+	template< typename tag_name >
+	explicit model(::color::constant::base< tag_name > const& constant) {
+		*this = constant;
 	}
 
 	explicit model(std::initializer_list<component_type> const& ilist) {
@@ -979,7 +989,13 @@ public:
 
 	template< typename other_category_name >
 	explicit model(::color::model<other_category_name> const& that) {
-		::color::_internal::convert<category_name, other_category_name>::process(this->m_container, that.container());
+		*this = that;
+	}
+
+	template< typename tag_name >
+	model operator=(::color::constant::base< tag_name > const& constant) {
+		::color::constant::make<::color::constant::base< tag_name >,category_name>::process(this->m_container);
+		return *this;
 	}
 
 	template< typename other_category_name >
@@ -22768,6 +22784,7 @@ namespace color {
 
 									   }
 }
+
 namespace color {
 
 	namespace make {
@@ -22791,10 +22808,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct black_type {};
+		}
 
-		struct black {};
-		using black_t = ::color::constant::black;
-		using black_type = ::color::constant::black;
+		using black_type = ::color::constant::base< ::color::constant::_internal::black_type >;
+		using black_t = ::color::constant::black_type;
+		using black = ::color::constant::black_type;
 
 		template< typename category_name >
 		struct make<::color::constant::black, category_name > {
@@ -22878,8 +22898,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct gray50_type {};
+		}
 
-		struct gray50 {};
+		using gray50 = ::color::constant::base< ::color::constant::_internal::gray50_type >;
 		using gray50_t = ::color::constant::gray50;
 		using gray50_type = ::color::constant::gray50;
 
@@ -22922,10 +22945,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct white_type {};
+		}
 
-		struct white {};
-		using white_t = ::color::constant::white;
-		using white_type = ::color::constant::white;
+		using white_type = ::color::constant::base< ::color::constant::_internal::white_type >;
+		using white_t = ::color::constant::white_type;
+		using white = ::color::constant::white_type;
 
 		template< typename category_name >
 		struct make<::color::constant::white, category_name > {
@@ -22967,10 +22993,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct red_type {};
+		}
 
-		struct red {};
-		using red_t = ::color::constant::red;
-		using red_type = ::color::constant::red;
+		using red_type = ::color::constant::base< ::color::constant::_internal::red_type >;
+		using red_t = ::color::constant::red_type;
+		using red = ::color::constant::red_type;
 
 		template< typename category_name >
 		struct make<::color::constant::red, category_name > {
@@ -23011,10 +23040,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct green_type {};
+		}
 
-		struct green {};
-		using green_t = ::color::constant::green;
-		using green_type = ::color::constant::green;
+		using green_type = ::color::constant::base< ::color::constant::_internal::green_type >;
+		using green_t = ::color::constant::green_type;
+		using green = ::color::constant::green_type;
 
 		template< typename category_name >
 		struct make<::color::constant::green, category_name > {
@@ -23055,10 +23087,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct blue_type {};
+		}
 
-		struct blue {};
-		using blue_t = ::color::constant::blue;
-		using blue_type = ::color::constant::blue;
+		using blue_type = ::color::constant::base< ::color::constant::_internal::blue_type >;
+		using blue_t = ::color::constant::blue_type;
+		using blue = ::color::constant::blue_type;
 
 		template< typename category_name >
 		struct make<::color::constant::blue, category_name > {
@@ -23100,10 +23135,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct cyan_type {};
+		}
 
-		struct cyan {};
-		using cyan_t = ::color::constant::cyan;
-		using cyan_type = ::color::constant::cyan;
+		using cyan_type = ::color::constant::base< ::color::constant::_internal::cyan_type >;
+		using cyan_t = ::color::constant::cyan_type;
+		using cyan = ::color::constant::cyan_type;
 
 		template< typename category_name >
 		struct make<::color::constant::cyan, category_name > {
@@ -23144,8 +23182,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct magenta_type {};
+		}
 
-		struct magenta {};
+		using magenta = ::color::constant::base< ::color::constant::_internal::magenta_type >;
 		using magenta_t = ::color::constant::magenta;
 		using magenta_type = ::color::constant::magenta;
 
@@ -23188,10 +23229,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct yellow_type {};
+		}
 
-		struct yellow {};
-		using yellow_t = ::color::constant::yellow;
-		using yellow_type = ::color::constant::yellow;
+		using yellow_type = ::color::constant::base< ::color::constant::_internal::yellow_type >;
+		using yellow_t = ::color::constant::yellow_type;
+		using yellow = ::color::constant::yellow_type;
 
 		template< typename category_name >
 		struct make<::color::constant::yellow, category_name > {
@@ -23233,10 +23277,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct aqua_type {};
+		}
 
-		struct aqua {};
-		using aqua_t = ::color::constant::aqua;
-		using aqua_type = ::color::constant::aqua;
+		using aqua_type = ::color::constant::base< ::color::constant::_internal::aqua_type >;
+		using aqua_t = ::color::constant::aqua_type;
+		using aqua = ::color::constant::aqua_type;
 
 		template< typename category_name >
 		struct make<::color::constant::aqua, category_name > {
@@ -23277,10 +23324,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct fuchsia_type {};
+		}
 
-		struct fuchsia {};
-		using fuchsia_t = ::color::constant::fuchsia;
-		using fuchsia_type = ::color::constant::fuchsia;
+		using fuchsia_type = ::color::constant::base< ::color::constant::_internal::fuchsia_type >;
+		using fuchsia_t = ::color::constant::fuchsia_type;
+		using fuchsia = ::color::constant::fuchsia_type;
 
 		template< typename category_name >
 		struct make<::color::constant::fuchsia, category_name > {
@@ -23321,8 +23371,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct lime_type {};
+		}
 
-		struct lime {};
+		using lime = ::color::constant::base< ::color::constant::_internal::lime_type >;
 		using lime_t = ::color::constant::lime;
 		using lime_type = ::color::constant::lime;
 
@@ -23366,8 +23419,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct maroon_type {};
+		}
 
-		struct maroon {};
+		using maroon = ::color::constant::base< ::color::constant::_internal::maroon_type >;
 		using maroon_t = ::color::constant::maroon;
 		using maroon_type = ::color::constant::maroon;
 
@@ -23410,8 +23466,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct navy_type {};
+		}
 
-		struct navy {};
+		using navy = ::color::constant::base< ::color::constant::_internal::navy_type >;
 		using navy_t = ::color::constant::navy;
 		using navy_type = ::color::constant::navy;
 
@@ -23454,8 +23513,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct olive_type {};
+		}
 
-		struct olive {};
+		using olive = ::color::constant::base< ::color::constant::_internal::olive_type >;
 		using olive_t = ::color::constant::olive;
 		using olive_type = ::color::constant::olive;
 
@@ -23498,8 +23560,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct orange_type {};
+		}
 
-		struct orange {};
+		using orange = ::color::constant::base< ::color::constant::_internal::orange_type >;
 		using orange_t = ::color::constant::orange;
 		using orange_type = ::color::constant::orange;
 
@@ -23542,10 +23607,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct purple_type {};
+		}
 
-		struct purple {};
-		using purple_t = ::color::constant::purple;
-		using purple_type = ::color::constant::purple;
+		using purple_type = ::color::constant::base< ::color::constant::_internal::purple_type >;
+		using purple_t = ::color::constant::purple_type;
+		using purple = ::color::constant::purple_type;
 
 		template< typename category_name >
 		struct make<::color::constant::purple, category_name > {
@@ -23587,10 +23655,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct silver_type {};
+		}
 
-		struct silver {};
-		using silver_t = ::color::constant::silver;
-		using silver_type = ::color::constant::silver;
+		using silver_type = ::color::constant::base< ::color::constant::_internal::silver_type >;
+		using silver_t = ::color::constant::silver_type;
+		using silver = ::color::constant::silver_type;
 
 		template< typename category_name >
 		struct make<::color::constant::silver, category_name > {
@@ -23631,10 +23702,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct teal_type {};
+		}
 
-		struct teal {};
-		using teal_t = ::color::constant::teal;
-		using teal_type = ::color::constant::teal;
+		using teal_type = ::color::constant::base< ::color::constant::_internal::teal_type >;
+		using teal_t = ::color::constant::teal_type;
+		using teal = ::color::constant::teal_type;
 
 		template< typename category_name >
 		struct make<::color::constant::teal, category_name > {
@@ -23675,10 +23749,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct violet_type {};
+		}
 
-		struct violet {};
-		using violet_t = ::color::constant::violet;
-		using violet_type = ::color::constant::violet;
+		using violet_type = ::color::constant::base< ::color::constant::_internal::violet_type >;
+		using violet_t = ::color::constant::violet_type;
+		using violet = ::color::constant::violet_type;
 
 		template< typename category_name >
 		struct make<::color::constant::violet, category_name > {
@@ -23720,8 +23797,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct aquamarine_type {};
+		}
 
-		struct aquamarine {};
+		using aquamarine = ::color::constant::base< ::color::constant::_internal::aquamarine_type >;
 		using aquamarine_t = ::color::constant::aquamarine;
 		using aquamarine_type = ::color::constant::aquamarine;
 
@@ -23764,10 +23844,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct azure_type {};
+		}
 
-		struct azure {};
-		using azure_t = ::color::constant::azure;
-		using azure_type = ::color::constant::azure;
+		using azure_type = ::color::constant::base< ::color::constant::_internal::azure_type >;
+		using azure_t = ::color::constant::azure_type;
+		using azure = ::color::constant::azure_type;
 
 		template< typename category_name >
 		struct make<::color::constant::azure, category_name > {
@@ -23808,10 +23891,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct beige_type {};
+		}
 
-		struct beige {};
-		using beige_t = ::color::constant::beige;
-		using beige_type = ::color::constant::beige;
+		using beige_type = ::color::constant::base< ::color::constant::_internal::beige_type >;
+		using beige_t = ::color::constant::beige_type;
+		using beige = ::color::constant::beige_type;
 
 		template< typename category_name >
 		struct make<::color::constant::beige, category_name > {
@@ -23852,10 +23938,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct bisque_type {};
+		}
 
-		struct bisque {};
-		using bisque_t = ::color::constant::bisque;
-		using bisque_type = ::color::constant::bisque;
+		using bisque_type = ::color::constant::base< ::color::constant::_internal::bisque_type >;
+		using bisque_t = ::color::constant::bisque_type;
+		using bisque = ::color::constant::bisque_type;
 
 		template< typename category_name >
 		struct make<::color::constant::bisque, category_name > {
@@ -23896,10 +23985,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct brown_type {};
+		}
 
-		struct brown {};
-		using brown_t = ::color::constant::brown;
-		using brown_type = ::color::constant::brown;
+		using brown_type = ::color::constant::base< ::color::constant::_internal::brown_type >;
+		using brown_t = ::color::constant::brown_type;
+		using brown = ::color::constant::brown_type;
 
 		template< typename category_name >
 		struct make<::color::constant::brown, category_name > {
@@ -23940,10 +24032,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct chocolate_type {};
+		}
 
-		struct chocolate {};
-		using chocolate_t = ::color::constant::chocolate;
-		using chocolate_type = ::color::constant::chocolate;
+		using chocolate_type = ::color::constant::base< ::color::constant::_internal::chocolate_type >;
+		using chocolate_t = ::color::constant::chocolate_type;
+		using chocolate = ::color::constant::chocolate_type;
 
 		template< typename category_name >
 		struct make<::color::constant::chocolate, category_name > {
@@ -23984,10 +24079,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct coral_type {};
+		}
 
-		struct coral {};
-		using coral_t = ::color::constant::coral;
-		using coral_type = ::color::constant::coral;
+		using coral_type = ::color::constant::base< ::color::constant::_internal::coral_type >;
+		using coral_t = ::color::constant::coral_type;
+		using coral = ::color::constant::coral_type;
 
 		template< typename category_name >
 		struct make<::color::constant::coral, category_name > {
@@ -24028,10 +24126,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct crimson_type {};
+		}
 
-		struct crimson {};
-		using crimson_t = ::color::constant::crimson;
-		using crimson_type = ::color::constant::crimson;
+		using crimson_type = ::color::constant::base< ::color::constant::_internal::crimson_type >;
+		using crimson_t = ::color::constant::crimson_type;
+		using crimson = ::color::constant::crimson_type;
 
 		template< typename category_name >
 		struct make<::color::constant::crimson, category_name > {
@@ -24072,10 +24173,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct gainsboro_type {};
+		}
 
-		struct gainsboro {};
-		using gainsboro_t = ::color::constant::gainsboro;
-		using gainsboro_type = ::color::constant::gainsboro;
+		using gainsboro_type = ::color::constant::base< ::color::constant::_internal::gainsboro_type >;
+		using gainsboro_t = ::color::constant::gainsboro_type;
+		using gainsboro = ::color::constant::gainsboro_type;
 
 		template< typename category_name >
 		struct make<::color::constant::gainsboro, category_name > {
@@ -24116,10 +24220,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct gold_type {};
+		}
 
-		struct gold {};
-		using gold_t = ::color::constant::gold;
-		using gold_type = ::color::constant::gold;
+		using gold_type = ::color::constant::base< ::color::constant::_internal::gold_type >;
+		using gold_t = ::color::constant::gold_type;
+		using gold = ::color::constant::gold_type;
 
 		template< typename category_name >
 		struct make<::color::constant::gold, category_name > {
@@ -24160,10 +24267,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct indigo_type {};
+		}
 
-		struct indigo {};
-		using indigo_t = ::color::constant::indigo;
-		using indigo_type = ::color::constant::indigo;
+		using indigo_type = ::color::constant::base< ::color::constant::_internal::indigo_type >;
+		using indigo_t = ::color::constant::indigo_type;
+		using indigo = ::color::constant::indigo_type;
 
 		template< typename category_name >
 		struct make<::color::constant::indigo, category_name > {
@@ -24204,10 +24314,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct ivory_type {};
+		}
 
-		struct ivory {};
-		using ivory_t = ::color::constant::ivory;
-		using ivory_type = ::color::constant::ivory;
+		using ivory_type = ::color::constant::base< ::color::constant::_internal::ivory_type >;
+		using ivory_t = ::color::constant::ivory_type;
+		using ivory = ::color::constant::ivory_type;
 
 		template< typename category_name >
 		struct make<::color::constant::ivory, category_name > {
@@ -24248,10 +24361,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct khaki_type {};
+		}
 
-		struct khaki {};
-		using khaki_t = ::color::constant::khaki;
-		using khaki_type = ::color::constant::khaki;
+		using khaki_type = ::color::constant::base< ::color::constant::_internal::khaki_type >;
+		using khaki_t = ::color::constant::khaki_type;
+		using khaki = ::color::constant::khaki_type;
 
 		template< typename category_name >
 		struct make<::color::constant::khaki, category_name > {
@@ -24292,10 +24408,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct lavender_type {};
+		}
 
-		struct lavender {};
-		using lavender_t = ::color::constant::lavender;
-		using lavender_type = ::color::constant::lavender;
+		using lavender_type = ::color::constant::base< ::color::constant::_internal::lavender_type >;
+		using lavender_t = ::color::constant::lavender_type;
+		using lavender = ::color::constant::lavender_type;
 
 		template< typename category_name >
 		struct make<::color::constant::lavender, category_name > {
@@ -24336,8 +24455,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct linen_type {};
+		}
 
-		struct linen {};
+		using linen = ::color::constant::base< ::color::constant::_internal::linen_type >;
 		using linen_t = ::color::constant::linen;
 		using linen_type = ::color::constant::linen;
 
@@ -24380,8 +24502,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct moccasin_type {};
+		}
 
-		struct moccasin {};
+		using moccasin = ::color::constant::base< ::color::constant::_internal::moccasin_type >;
 		using moccasin_t = ::color::constant::moccasin;
 		using moccasin_type = ::color::constant::moccasin;
 
@@ -24424,8 +24549,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct orchid_type {};
+		}
 
-		struct orchid {};
+		using orchid = ::color::constant::base< ::color::constant::_internal::orchid_type >;
 		using orchid_t = ::color::constant::orchid;
 		using orchid_type = ::color::constant::orchid;
 
@@ -24468,8 +24596,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct peru_type {};
+		}
 
-		struct peru {};
+		using peru = ::color::constant::base< ::color::constant::_internal::peru_type >;
 		using peru_t = ::color::constant::peru;
 		using peru_type = ::color::constant::peru;
 
@@ -24512,8 +24643,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct pink_type {};
+		}
 
-		struct pink {};
+		using pink = ::color::constant::base< ::color::constant::_internal::pink_type >;
 		using pink_t = ::color::constant::pink;
 		using pink_type = ::color::constant::pink;
 
@@ -24556,8 +24690,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct plum_type {};
+		}
 
-		struct plum {};
+		using plum = ::color::constant::base< ::color::constant::_internal::plum_type >;
 		using plum_t = ::color::constant::plum;
 		using plum_type = ::color::constant::plum;
 
@@ -24600,10 +24737,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct salmon_type {};
+		}
 
-		struct salmon {};
-		using salmon_t = ::color::constant::salmon;
-		using salmon_type = ::color::constant::salmon;
+		using salmon_type = ::color::constant::base< ::color::constant::_internal::salmon_type >;
+		using salmon_t = ::color::constant::salmon_type;
+		using salmon = ::color::constant::salmon_type;
 
 		template< typename category_name >
 		struct make<::color::constant::salmon, category_name > {
@@ -24644,10 +24784,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct sienna_type {};
+		}
 
-		struct sienna {};
-		using sienna_t = ::color::constant::sienna;
-		using sienna_type = ::color::constant::sienna;
+		using sienna_type = ::color::constant::base< ::color::constant::_internal::sienna_type >;
+		using sienna_t = ::color::constant::sienna_type;
+		using sienna = ::color::constant::sienna_type;
 
 		template< typename category_name >
 		struct make<::color::constant::sienna, category_name > {
@@ -24688,10 +24831,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct snow_type {};
+		}
 
-		struct snow {};
-		using snow_t = ::color::constant::snow;
-		using snow_type = ::color::constant::snow;
+		using snow_type = ::color::constant::base< ::color::constant::_internal::snow_type >;
+		using snow_t = ::color::constant::snow_type;
+		using snow = ::color::constant::snow_type;
 
 		template< typename category_name >
 		struct make<::color::constant::snow, category_name > {
@@ -24732,8 +24878,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct tan_type {};
+		}
 
-		struct tan {};
+		using tan = ::color::constant::base< ::color::constant::_internal::tan_type >;
 		using tan_t = ::color::constant::tan;
 		using tan_type = ::color::constant::tan;
 
@@ -24776,8 +24925,11 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct thistle_type {};
+		}
 
-		struct thistle {};
+		using thistle = ::color::constant::base< ::color::constant::_internal::thistle_type >;
 		using thistle_t = ::color::constant::thistle;
 		using thistle_type = ::color::constant::thistle;
 
@@ -24820,10 +24972,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct tomato_type {};
+		}
 
-		struct tomato {};
-		using tomato_t = ::color::constant::tomato;
-		using tomato_type = ::color::constant::tomato;
+		using tomato_type = ::color::constant::base< ::color::constant::_internal::tomato_type >;
+		using tomato_t = ::color::constant::tomato_type;
+		using tomato = ::color::constant::tomato_type;
 
 		template< typename category_name >
 		struct make<::color::constant::tomato, category_name > {
@@ -24864,10 +25019,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct turquoise_type {};
+		}
 
-		struct turquoise {};
-		using turquoise_t = ::color::constant::turquoise;
-		using turquoise_type = ::color::constant::turquoise;
+		using turquoise_type = ::color::constant::base< ::color::constant::_internal::turquoise_type >;
+		using turquoise_t = ::color::constant::turquoise_type;
+		using turquoise = ::color::constant::turquoise_type;
 
 		template< typename category_name >
 		struct make<::color::constant::turquoise, category_name > {
@@ -24877,10 +25035,11 @@ namespace color {
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
 	inline static void process(container_output_type & m) {
-		m = ::color::make::turquoise<category_type>().container();
+		auto static s_container = ::color::make::turquoise<category_type>().container();
+		m = s_container;
 	}
 
-								};
+													  };
 
 													  }
 
@@ -24908,10 +25067,13 @@ namespace color {
 						  }
 
 	namespace constant {
+		namespace _internal {
+			struct wheat_type {};
+		}
 
-		struct wheat {};
-		using wheat_t = ::color::constant::wheat;
-		using wheat_type = ::color::constant::wheat;
+		using wheat_type = ::color::constant::base< ::color::constant::_internal::wheat_type >;
+		using wheat_t = ::color::constant::wheat_type;
+		using wheat = ::color::constant::wheat_type;
 
 		template< typename category_name >
 		struct make<::color::constant::wheat, category_name > {
