@@ -44,15 +44,14 @@
         struct linen_type{};
        }
 
-      using  linen      = ::color::constant::base< ::color::constant::_internal::linen_type >;
-      using  linen_t    = ::color::constant::linen;
-      using  linen_type = ::color::constant::linen;
+      using  linen_type = ::color::constant::base< ::color::constant::_internal::linen_type >;
+      using  linen_t    = ::color::constant::linen_type;
 
       template< typename category_name >
-       struct make<::color::constant::linen, category_name >
+       struct make<::color::constant::linen_type, category_name >
         {
          typedef category_name              category_type;
-         typedef ::color::constant::linen       color_type;
+         typedef ::color::constant::linen_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

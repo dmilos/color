@@ -44,15 +44,14 @@
         struct orchid_type{};
        }
 
-      using  orchid      = ::color::constant::base< ::color::constant::_internal::orchid_type >;
-      using  orchid_t    = ::color::constant::orchid;
-      using  orchid_type = ::color::constant::orchid;
+      using  orchid_type      = ::color::constant::base< ::color::constant::_internal::orchid_type >;
+      using  orchid_t    = ::color::constant::orchid_type;
 
       template< typename category_name >
-       struct make<::color::constant::orchid, category_name >
+       struct make<::color::constant::orchid_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::orchid       color_type;
+         typedef category_name                        category_type;
+         typedef ::color::constant::orchid_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

@@ -46,13 +46,12 @@
 
       using  wheat_type = ::color::constant::base< ::color::constant::_internal::wheat_type >;
       using  wheat_t    = ::color::constant::wheat_type;
-      using  wheat      = ::color::constant::wheat_type;
 
       template< typename category_name >
-       struct make<::color::constant::wheat, category_name >
+       struct make<::color::constant::wheat_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::wheat       color_type;
+         typedef category_name                       category_type;
+         typedef ::color::constant::wheat_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

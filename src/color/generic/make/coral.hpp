@@ -46,13 +46,12 @@
 
       using  coral_type = ::color::constant::base< ::color::constant::_internal::coral_type >;
       using  coral_t    = ::color::constant::coral_type;
-      using  coral      = ::color::constant::coral_type;
 
       template< typename category_name >
-       struct make<::color::constant::coral, category_name >
+       struct make<::color::constant::coral_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::coral       color_type;
+         typedef category_name                       category_type;
+         typedef ::color::constant::coral_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

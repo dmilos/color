@@ -44,15 +44,14 @@
         struct navy_type{};
        }
 
-      using  navy      = ::color::constant::base< ::color::constant::_internal::navy_type >;
-      using  navy_t    = ::color::constant::navy;
-      using  navy_type = ::color::constant::navy;
+      using  navy_type = ::color::constant::base< ::color::constant::_internal::navy_type >;
+      using  navy_t    = ::color::constant::navy_type;
 
       template< typename category_name >
-       struct make<::color::constant::navy, category_name >
+       struct make<::color::constant::navy_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::navy       color_type;
+         typedef category_name                      category_type;
+         typedef ::color::constant::navy_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

@@ -46,13 +46,12 @@
 
       using  indigo_type = ::color::constant::base< ::color::constant::_internal::indigo_type >;
       using  indigo_t    = ::color::constant::indigo_type;
-      using  indigo      = ::color::constant::indigo_type;
 
       template< typename category_name >
-       struct make<::color::constant::indigo, category_name >
+       struct make<::color::constant::indigo_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::indigo       color_type;
+         typedef category_name                        category_type;
+         typedef ::color::constant::indigo_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

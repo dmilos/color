@@ -46,13 +46,12 @@
 
       using  salmon_type = ::color::constant::base< ::color::constant::_internal::salmon_type >;
       using  salmon_t    = ::color::constant::salmon_type;
-      using  salmon      = ::color::constant::salmon_type;
 
       template< typename category_name >
-       struct make<::color::constant::salmon, category_name >
+       struct make<::color::constant::salmon_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::salmon       color_type;
+         typedef category_name                        category_type;
+         typedef ::color::constant::salmon_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

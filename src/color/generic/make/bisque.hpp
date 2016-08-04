@@ -46,19 +46,18 @@
 
       using  bisque_type = ::color::constant::base< ::color::constant::_internal::bisque_type >;
       using  bisque_t    = ::color::constant::bisque_type;
-      using  bisque      = ::color::constant::bisque_type;
 
       template< typename category_name >
-       struct make<::color::constant::bisque, category_name >
+       struct make<::color::constant::bisque_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::bisque       color_type;
+         typedef category_name                        category_type;
+         typedef ::color::constant::bisque_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 
          inline static void process( container_output_type & m )
           {
-           m = ::color::make::bisque<category_type>( ).container();
+           m = ::color::make::bisque<category_type>().container();
           }
 
         };

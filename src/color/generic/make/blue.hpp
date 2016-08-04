@@ -46,13 +46,12 @@
 
       using  blue_type = ::color::constant::base< ::color::constant::_internal::blue_type >;
       using  blue_t    = ::color::constant::blue_type;
-      using  blue      = ::color::constant::blue_type;
 
       template< typename category_name >
-       struct make<::color::constant::blue, category_name >
+       struct make<::color::constant::blue_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::blue       color_type;
+         typedef category_name                      category_type;
+         typedef ::color::constant::blue_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

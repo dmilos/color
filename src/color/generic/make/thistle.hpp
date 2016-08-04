@@ -44,15 +44,14 @@
         struct thistle_type{};
        }
 
-      using  thistle      = ::color::constant::base< ::color::constant::_internal::thistle_type >;
-      using  thistle_t    = ::color::constant::thistle;
-      using  thistle_type = ::color::constant::thistle;
+      using  thistle_type = ::color::constant::base< ::color::constant::_internal::thistle_type >;
+      using  thistle_t    = ::color::constant::thistle_type;
 
       template< typename category_name >
-       struct make<::color::constant::thistle, category_name >
+       struct make<::color::constant::thistle_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::thistle       color_type;
+         typedef category_name                         category_type;
+         typedef ::color::constant::thistle_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

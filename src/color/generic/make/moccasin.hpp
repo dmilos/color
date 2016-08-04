@@ -44,15 +44,14 @@
         struct moccasin_type{};
        }
 
-      using  moccasin      = ::color::constant::base< ::color::constant::_internal::moccasin_type >;
-      using  moccasin_t    = ::color::constant::moccasin;
-      using  moccasin_type = ::color::constant::moccasin;
+      using  moccasin_type = ::color::constant::base< ::color::constant::_internal::moccasin_type >;
+      using  moccasin_t    = ::color::constant::moccasin_type;
 
       template< typename category_name >
-       struct make<::color::constant::moccasin, category_name >
+       struct make<::color::constant::moccasin_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::moccasin       color_type;
+         typedef category_name                          category_type;
+         typedef ::color::constant::moccasin_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

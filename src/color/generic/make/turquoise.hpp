@@ -46,13 +46,12 @@
 
       using  turquoise_type = ::color::constant::base< ::color::constant::_internal::turquoise_type >;
       using  turquoise_t    = ::color::constant::turquoise_type;
-      using  turquoise      = ::color::constant::turquoise_type;
 
       template< typename category_name >
-       struct make<::color::constant::turquoise, category_name >
+       struct make<::color::constant::turquoise_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::turquoise       color_type;
+         typedef category_name                           category_type;
+         typedef ::color::constant::turquoise_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

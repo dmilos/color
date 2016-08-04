@@ -46,13 +46,12 @@
 
       using  lavender_type = ::color::constant::base< ::color::constant::_internal::lavender_type >;
       using  lavender_t    = ::color::constant::lavender_type;
-      using  lavender      = ::color::constant::lavender_type;
 
       template< typename category_name >
-       struct make<::color::constant::lavender, category_name >
+       struct make<::color::constant::lavender_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::lavender       color_type;
+         typedef category_name                          category_type;
+         typedef ::color::constant::lavender_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

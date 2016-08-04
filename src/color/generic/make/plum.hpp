@@ -44,15 +44,14 @@
         struct plum_type{};
        }
 
-      using  plum      = ::color::constant::base< ::color::constant::_internal::plum_type >;
-      using  plum_t    = ::color::constant::plum;
-      using  plum_type = ::color::constant::plum;
+      using  plum_type      = ::color::constant::base< ::color::constant::_internal::plum_type >;
+      using  plum_t    = ::color::constant::plum_type;
 
       template< typename category_name >
-       struct make<::color::constant::plum, category_name >
+       struct make<::color::constant::plum_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::plum       color_type;
+         typedef category_name                      category_type;
+         typedef ::color::constant::plum_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

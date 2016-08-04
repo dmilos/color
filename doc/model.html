@@ -36,7 +36,7 @@
 				</code>
 			</dd>
 
-		<dt><h3><a name="Definition">Definition( without implementation )</a></h3></dt>
+			<dt><h3><a name="Definition">Definition ( without implementation )</a></h3></dt>
 		<dd>
 <pre><code>
     template&lt; typename category_name &gt;
@@ -52,6 +52,7 @@
         typedef  <i>unspecified</i>     component_return_const_type;
         typedef  <i>unspecified</i>     container_return_const_type;
         typedef  <i>unspecified</i>     container_return_original_type;
+        typedef  <i>unspecified</i>     container_input_const_type;
         typedef  <i>unspecified</i>     index_return_image_type;
         typedef  <i>unspecified</i>     container_type;
         typedef  <i>unspecified</i>     set_return_type;
@@ -88,7 +89,7 @@
 
         component_return_const_type operator[]( index_input_const_type index )const;
 
-        container_return_const_type container()const;
+        container_return_const_type          container()const;
 
         container_return_original_type       container();
 
@@ -160,13 +161,14 @@
 								<dd>::color::trait::component&lt; category_type &gt;::return_const_type</dd>
 							</dl>
 						</dd>
+
 						<dt><code>container_return_const_type</code></dt>
 						<dd>
 							<dl>
 								<dt>Description</dt>
 								<dd>Original but unmodifiable version of container</dd>
 								<dt>Definition</dt>
-								<dd>::color::trait::component&lt; category_type &gt;::return_const_type</dd>
+								<dd>::color::trait::container&lt; category_type &gt;::return_const_type</dd>
 							</dl>
 						</dd>
 
@@ -174,9 +176,19 @@
 						<dd>
 							<dl>
 								<dt>Description</dt>
-								<dd>Original container with unrestricted acces. </dd>
+								<dd>Original container with unrestricted access. </dd>
 								<dt>Definition</dt>
-								<dd>::color::trait::component&lt; category_type &gt;::return_original_type</dd>
+								<dd>::color::trait::container&lt; category_type &gt;::return_original_type</dd>
+							</dl>
+						</dd>
+
+						<dt><code>container_input_const_type</code></dt>
+						<dd>
+							<dl>
+								<dt>Description</dt>
+								<dd>Input constant parameter. Usually constant reference. </dd>
+								<dt>Definition</dt>
+								<dd>::color::trait::container&lt; category_type &gt;::input_const_type</dd>
 							</dl>
 						</dd>
 
@@ -221,7 +233,7 @@
 								<dt>definition</dt>
 								<dd><code>typedef  model&lt; typename category_name &gt;     this_type;</code></dd>
 								<dt>Note</dt>
-								<dd>Not recomended to use. Might be removed ins some next iteration.</dd>
+								<dd>Not recommended to use. Might be removed ins some next iteration.</dd>
 							</dl>
 
 						</dd>
@@ -290,7 +302,7 @@
 							<dd>
 								<dl>
 									<dt>Description</dt>
-									<dd>Return constant referen to container</dd>
+									<dd>Return constant reference to container</dd>
 									<dt>Definition</dt>
 									<dd><code> container_return_const_type container()const </code></dd>
 								</dl>

@@ -46,13 +46,12 @@
 
       using  ivory_type = ::color::constant::base< ::color::constant::_internal::ivory_type >;
       using  ivory_t    = ::color::constant::ivory_type;
-      using  ivory      = ::color::constant::ivory_type;
 
       template< typename category_name >
-       struct make<::color::constant::ivory, category_name >
+       struct make<::color::constant::ivory_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::ivory       color_type;
+         typedef category_name                       category_type;
+         typedef ::color::constant::ivory_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

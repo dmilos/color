@@ -94,15 +94,14 @@
         struct gray50_type{};
        }
 
-      using  gray50      = ::color::constant::base< ::color::constant::_internal::gray50_type >;
-      using  gray50_t    = ::color::constant::gray50;
-      using  gray50_type = ::color::constant::gray50;
+      using  gray50_type = ::color::constant::base< ::color::constant::_internal::gray50_type >;
+      using  gray50_t    = ::color::constant::gray50_type;
 
       template< typename category_name >
-       struct make<::color::constant::gray50, category_name >
+       struct make<::color::constant::gray50_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::gray50       color_type;
+         typedef category_name                        category_type;
+         typedef ::color::constant::gray50_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

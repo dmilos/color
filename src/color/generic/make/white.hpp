@@ -46,13 +46,12 @@
 
       using  white_type = ::color::constant::base< ::color::constant::_internal::white_type >;
       using  white_t    = ::color::constant::white_type;
-      using  white      = ::color::constant::white_type;
 
       template< typename category_name >
-       struct make<::color::constant::white, category_name >
+       struct make<::color::constant::white_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::white       color_type;
+         typedef category_name                       category_type;
+         typedef ::color::constant::white_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

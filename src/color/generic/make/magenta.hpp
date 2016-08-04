@@ -44,15 +44,14 @@
         struct magenta_type{};
        }
 
-      using  magenta      = ::color::constant::base< ::color::constant::_internal::magenta_type >;
-      using  magenta_t    = ::color::constant::magenta;
-      using  magenta_type = ::color::constant::magenta;
+      using  magenta_type = ::color::constant::base< ::color::constant::_internal::magenta_type >;
+      using  magenta_t    = ::color::constant::magenta_type;
 
       template< typename category_name >
-       struct make<::color::constant::magenta, category_name >
+       struct make<::color::constant::magenta_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::magenta       color_type;
+         typedef category_name                         category_type;
+         typedef ::color::constant::magenta_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

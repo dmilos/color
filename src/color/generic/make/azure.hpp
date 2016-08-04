@@ -46,13 +46,12 @@
 
       using  azure_type = ::color::constant::base< ::color::constant::_internal::azure_type >;
       using  azure_t    = ::color::constant::azure_type;
-      using  azure      = ::color::constant::azure_type;
 
       template< typename category_name >
-       struct make<::color::constant::azure, category_name >
+       struct make<::color::constant::azure_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::azure       color_type;
+         typedef category_name                       category_type;
+         typedef ::color::constant::azure_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 
@@ -64,7 +63,6 @@
         };
 
      }
-
   }
 
 #endif

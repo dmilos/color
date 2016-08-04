@@ -44,15 +44,14 @@
         struct olive_type{};
        }
 
-      using  olive      = ::color::constant::base< ::color::constant::_internal::olive_type >;
-      using  olive_t    = ::color::constant::olive;
-      using  olive_type = ::color::constant::olive;
+      using  olive_type = ::color::constant::base< ::color::constant::_internal::olive_type >;
+      using  olive_t    = ::color::constant::olive_type;
 
       template< typename category_name >
-       struct make<::color::constant::olive, category_name >
+       struct make<::color::constant::olive_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::olive       color_type;
+         typedef category_name                       category_type;
+         typedef ::color::constant::olive_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

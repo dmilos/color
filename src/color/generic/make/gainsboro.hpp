@@ -46,13 +46,12 @@
 
       using  gainsboro_type = ::color::constant::base< ::color::constant::_internal::gainsboro_type >;
       using  gainsboro_t    = ::color::constant::gainsboro_type;
-      using  gainsboro      = ::color::constant::gainsboro_type;
 
       template< typename category_name >
-       struct make<::color::constant::gainsboro, category_name >
+       struct make<::color::constant::gainsboro_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::gainsboro       color_type;
+         typedef category_name                           category_type;
+         typedef ::color::constant::gainsboro_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

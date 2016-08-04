@@ -49,10 +49,10 @@
       using  purple      = ::color::constant::purple_type;
 
       template< typename category_name >
-       struct make<::color::constant::purple, category_name >
+       struct make<::color::constant::purple_type, category_name >
         {
          typedef category_name              category_type;
-         typedef ::color::constant::purple       color_type;
+         typedef ::color::constant::purple_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

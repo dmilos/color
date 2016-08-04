@@ -44,15 +44,14 @@
         struct peru_type{};
        }
 
-      using  peru      = ::color::constant::base< ::color::constant::_internal::peru_type >;
-      using  peru_t    = ::color::constant::peru;
-      using  peru_type = ::color::constant::peru;
+      using  peru_type      = ::color::constant::base< ::color::constant::_internal::peru_type >;
+      using  peru_t    = ::color::constant::peru_type;
 
       template< typename category_name >
-       struct make<::color::constant::peru, category_name >
+       struct make<::color::constant::peru_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::peru       color_type;
+         typedef category_name                      category_type;
+         typedef ::color::constant::peru_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

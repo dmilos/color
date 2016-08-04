@@ -46,13 +46,12 @@
 
       using  violet_type = ::color::constant::base< ::color::constant::_internal::violet_type >;
       using  violet_t    = ::color::constant::violet_type;
-      using  violet      = ::color::constant::violet_type;
 
       template< typename category_name >
-       struct make<::color::constant::violet, category_name >
+       struct make<::color::constant::violet_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::violet       color_type;
+         typedef category_name                        category_type;
+         typedef ::color::constant::violet_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

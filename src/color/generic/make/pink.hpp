@@ -44,15 +44,14 @@
         struct pink_type{};
        }
 
-      using  pink      = ::color::constant::base< ::color::constant::_internal::pink_type >;
-      using  pink_t    = ::color::constant::pink;
-      using  pink_type = ::color::constant::pink;
+      using  pink_type      = ::color::constant::base< ::color::constant::_internal::pink_type >;
+      using  pink_t    = ::color::constant::pink_type;
 
       template< typename category_name >
-       struct make<::color::constant::pink, category_name >
+       struct make<::color::constant::pink_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::pink       color_type;
+         typedef category_name                      category_type;
+         typedef ::color::constant::pink_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

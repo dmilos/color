@@ -46,13 +46,12 @@
 
       using  cyan_type = ::color::constant::base< ::color::constant::_internal::cyan_type >;
       using  cyan_t    = ::color::constant::cyan_type;
-      using  cyan      = ::color::constant::cyan_type;
 
       template< typename category_name >
-       struct make<::color::constant::cyan, category_name >
+       struct make<::color::constant::cyan_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::cyan       color_type;
+         typedef category_name                      category_type;
+         typedef ::color::constant::cyan_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

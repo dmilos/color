@@ -44,15 +44,14 @@
         struct maroon_type{};
        }
 
-      using  maroon      = ::color::constant::base< ::color::constant::_internal::maroon_type >;
-      using  maroon_t    = ::color::constant::maroon;
-      using  maroon_type = ::color::constant::maroon;
+      using  maroon_type = ::color::constant::base< ::color::constant::_internal::maroon_type >;
+      using  maroon_t    = ::color::constant::maroon_type;
 
       template< typename category_name >
-       struct make<::color::constant::maroon, category_name >
+       struct make<::color::constant::maroon_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::maroon       color_type;
+         typedef category_name                        category_type;
+         typedef ::color::constant::maroon_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

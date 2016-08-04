@@ -46,13 +46,12 @@
 
       using  khaki_type = ::color::constant::base< ::color::constant::_internal::khaki_type >;
       using  khaki_t    = ::color::constant::khaki_type;
-      using  khaki      = ::color::constant::khaki_type;
 
       template< typename category_name >
-       struct make<::color::constant::khaki, category_name >
+       struct make<::color::constant::khaki_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::khaki       color_type;
+         typedef category_name                       category_type;
+         typedef ::color::constant::khaki_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

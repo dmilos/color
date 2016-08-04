@@ -46,13 +46,12 @@
 
       using  sienna_type = ::color::constant::base< ::color::constant::_internal::sienna_type >;
       using  sienna_t    = ::color::constant::sienna_type;
-      using  sienna      = ::color::constant::sienna_type;
 
       template< typename category_name >
-       struct make<::color::constant::sienna, category_name >
+       struct make<::color::constant::sienna_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::sienna       color_type;
+         typedef category_name                        category_type;
+         typedef ::color::constant::sienna_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

@@ -46,13 +46,12 @@
 
       using  snow_type = ::color::constant::base< ::color::constant::_internal::snow_type >;
       using  snow_t    = ::color::constant::snow_type;
-      using  snow      = ::color::constant::snow_type;
 
       template< typename category_name >
-       struct make<::color::constant::snow, category_name >
+       struct make<::color::constant::snow_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::snow       color_type;
+         typedef category_name                      category_type;
+         typedef ::color::constant::snow_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

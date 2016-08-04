@@ -44,15 +44,14 @@
         struct tan_type{};
        }
 
-      using  tan      = ::color::constant::base< ::color::constant::_internal::tan_type >;
-      using  tan_t    = ::color::constant::tan;
-      using  tan_type = ::color::constant::tan;
+      using  tan_type = ::color::constant::base< ::color::constant::_internal::tan_type >;
+      using  tan_t    = ::color::constant::tan_type;
 
       template< typename category_name >
-       struct make<::color::constant::tan, category_name >
+       struct make<::color::constant::tan_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::tan       color_type;
+         typedef category_name                     category_type;
+         typedef ::color::constant::tan_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

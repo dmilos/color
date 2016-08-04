@@ -46,13 +46,12 @@
 
       using  fuchsia_type = ::color::constant::base< ::color::constant::_internal::fuchsia_type >;
       using  fuchsia_t    = ::color::constant::fuchsia_type;
-      using  fuchsia      = ::color::constant::fuchsia_type;
 
       template< typename category_name >
-       struct make<::color::constant::fuchsia, category_name >
+       struct make<::color::constant::fuchsia_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::fuchsia       color_type;
+         typedef category_name                         category_type;
+         typedef ::color::constant::fuchsia_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

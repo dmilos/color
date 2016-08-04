@@ -46,13 +46,12 @@
 
       using  silver_type = ::color::constant::base< ::color::constant::_internal::silver_type >;
       using  silver_t    = ::color::constant::silver_type;
-      using  silver      = ::color::constant::silver_type;
 
       template< typename category_name >
-       struct make<::color::constant::silver, category_name >
+       struct make<::color::constant::silver_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::silver       color_type;
+         typedef category_name                        category_type;
+         typedef ::color::constant::silver_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

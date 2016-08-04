@@ -92,10 +92,6 @@ std::string print_sizeof( std::string const& name )
 
   typedef color_name< color::type::splitGGGG_t >  splitGGGG_type;
 
-
-
-
-
   std::stringstream ss;
 
   ss << "<tr>";
@@ -129,6 +125,37 @@ std::string print_sizeof( std::string const& name )
   ss << "</tr>";
 
   return ss.str();
+ }
+
+
+std::string print_system_sizeof( )
+ {
+  std::stringstream ss;
+  ss << "<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" >" << std::endl;
+
+  ss << "<tr><td> Type </td> <td> Size</td> </tr> ";
+
+  ss << "<tr><td> char          </td> <td> "<< sizeof( char          )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> wchar_t       </td> <td> "<< sizeof( wchar_t       )<< "</td> </tr> " << std::endl;
+
+  ss << "<tr><td> std::uint8_t  </td> <td> "<< sizeof( std::uint8_t  )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> std::uint16_t </td> <td> "<< sizeof( std::uint16_t )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> std::uint32_t </td> <td> "<< sizeof( std::uint32_t )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> std::uint64_t </td> <td> "<< sizeof( std::uint64_t )<< "</td> </tr> " << std::endl;
+
+  ss << "<tr><td> void*         </td> <td> "<< sizeof( void*         )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> unsigned      </td> <td> "<< sizeof( unsigned      )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> short         </td> <td> "<< sizeof( short         )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> int           </td> <td> "<< sizeof( int           )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> long          </td> <td> "<< sizeof( long          )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> long long     </td> <td> "<< sizeof( long long     )<< "</td> </tr> " << std::endl;
+
+  ss << "<tr><td> float         </td> <td> "<< sizeof( float         )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> double        </td> <td> "<< sizeof( double        )<< "</td> </tr> " << std::endl;
+  ss << "<tr><td> long double   </td> <td> "<< sizeof( long double   )<< "</td> </tr> " << std::endl;
+
+  ss << "</table>";
+  return ss.str();;
  }
 
 void check_sizeof()
@@ -178,6 +205,10 @@ void check_sizeof()
   ss << print_sizeof<::color::yuv  > ( "<code>yuv </code>" );  ss << std::endl;
 
   ss << "</table>";
+
+  ss << "<br />";
+
+  ss << print_system_sizeof();
 
    {
     std::ofstream ofs( std::string( "./mc.html" ).c_str() );

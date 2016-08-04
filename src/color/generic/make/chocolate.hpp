@@ -46,13 +46,12 @@
 
       using  chocolate_type = ::color::constant::base< ::color::constant::_internal::chocolate_type >;
       using  chocolate_t    = ::color::constant::chocolate_type;
-      using  chocolate      = ::color::constant::chocolate_type;
 
       template< typename category_name >
-       struct make<::color::constant::chocolate, category_name >
+       struct make<::color::constant::chocolate_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::chocolate       color_type;
+         typedef category_name                           category_type;
+         typedef ::color::constant::chocolate_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

@@ -46,13 +46,12 @@
 
       using  gold_type = ::color::constant::base< ::color::constant::_internal::gold_type >;
       using  gold_t    = ::color::constant::gold_type;
-      using  gold      = ::color::constant::gold_type;
 
       template< typename category_name >
-       struct make<::color::constant::gold, category_name >
+       struct make<::color::constant::gold_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::gold       color_type;
+         typedef category_name                      category_type;
+         typedef ::color::constant::gold_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

@@ -46,13 +46,12 @@
 
       using  crimson_type = ::color::constant::base< ::color::constant::_internal::crimson_type >;
       using  crimson_t    = ::color::constant::crimson_type;
-      using  crimson      = ::color::constant::crimson_type;
 
       template< typename category_name >
-       struct make<::color::constant::crimson, category_name >
+       struct make<::color::constant::crimson_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::crimson       color_type;
+         typedef category_name                         category_type;
+         typedef ::color::constant::crimson_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

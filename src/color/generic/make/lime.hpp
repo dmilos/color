@@ -44,15 +44,14 @@
         struct lime_type{};
        }
 
-      using  lime      = ::color::constant::base< ::color::constant::_internal::lime_type >;
-      using  lime_t    = ::color::constant::lime;
-      using  lime_type = ::color::constant::lime;
+      using  lime_type = ::color::constant::base< ::color::constant::_internal::lime_type >;
+      using  lime_t    = ::color::constant::lime_type;
 
       template< typename category_name >
-       struct make<::color::constant::lime, category_name >
+       struct make<::color::constant::lime_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::lime       color_type;
+         typedef category_name                      category_type;
+         typedef ::color::constant::lime_type       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 

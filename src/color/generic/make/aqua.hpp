@@ -44,15 +44,14 @@
         struct aqua_type{};
        }
 
-      using  aqua_type = ::color::constant::base< ::color::constant::_internal::aqua_type >;
-      using  aqua_t    = ::color::constant::aqua_type;
-      using  aqua      = ::color::constant::aqua_type;
+      using  aqua_type       = ::color::constant::base< ::color::constant::_internal::aqua_type >;
+      using  aqua_t          = ::color::constant::aqua_type;
 
       template< typename category_name >
-       struct make<::color::constant::aqua, category_name >
+       struct make< ::color::constant::aqua_type, category_name >
         {
-         typedef category_name              category_type;
-         typedef ::color::constant::aqua       color_type;
+         typedef category_name                         category_type;
+         typedef ::color::constant::aqua_type          constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 
@@ -64,7 +63,6 @@
         };
 
      }
-
   }
 
 #endif
