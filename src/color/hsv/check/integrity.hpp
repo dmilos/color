@@ -5,6 +5,7 @@
 
 #include "../../generic/check/integrity.hpp"
 #include "../category.hpp"
+#include "../place/hue.hpp"
 
 namespace color
  {
@@ -22,10 +23,15 @@ namespace color
           typedef ::color::model<category_type>          model_type;
           typedef ::color::trait::bound< category_type >        bound_type;
 
+          enum
+           {
+             hue_p        = ::color::place::_internal::hue<category_type>::position_enum
+           };
+
           static bool process( model_type const& m )
            {
-            if( m.template get<0>() < bound_type::template minimum<0>() ) { return false; }
-            if( bound_type::template maximum<0>() < m.template get<0>() ) { return false; }
+            if( m.template get<hue_p>() < bound_type::template minimum<hue_p>() ) { return false; }
+            if( bound_type::template maximum<hue_p>() < m.template get<hue_p>() ) { return false; }
             return true;
            }
         };
@@ -35,14 +41,19 @@ namespace color
         {
          public:
           typedef ::color::category::hsv_double category_type;
-      
+
           typedef ::color::model<category_type>          model_type;
           typedef ::color::trait::bound< category_type >        bound_type;
-      
+
+          enum
+           {
+             hue_p        = ::color::place::_internal::hue<category_type>::position_enum
+           };
+
           static bool process( model_type const& m )
            {
-            if( m.template get<0>() < bound_type::template minimum<0>() ) { return false; }
-            if( bound_type::template maximum<0>() < m.template get<0>() ) { return false; }
+            if( m.template get<hue_p>() < bound_type::template minimum<hue_p>() ) { return false; }
+            if( bound_type::template maximum<hue_p>() < m.template get<hue_p>() ) { return false; }
             return true;
            }
         };
@@ -56,10 +67,15 @@ namespace color
           typedef ::color::model<category_type>          model_type;
           typedef ::color::trait::bound< category_type >        bound_type;
 
+          enum
+           {
+             hue_p        = ::color::place::_internal::hue<category_type>::position_enum
+           };
+
           static bool process( model_type const& m )
            {
-            if( m.template get<0>() < bound_type::template minimum<0>() ) { return false; }
-            if( bound_type::template maximum<0>() < m.template get<0>() ) { return false; }
+            if( m.template get<hue_p>() < bound_type::template minimum<hue_p>() ) { return false; }
+            if( bound_type::template maximum<hue_p>() < m.template get<hue_p>() ) { return false; }
             return true;
            }
         };

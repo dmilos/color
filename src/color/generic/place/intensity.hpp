@@ -1,8 +1,8 @@
-#ifndef color_generic_place_value
-#define color_generic_place_value
+#ifndef color_generic_place_intensity
+#define color_generic_place_intensity
 
-// ::color::place::value<category_name>()
-// ::color::place::_internal::value<category_name>::position_enum
+// ::color::place::intensity<category_name>()
+// ::color::place::_internal::intensity<category_name>::position_enum
 
 #include "../trait/index.hpp"
 
@@ -15,12 +15,12 @@
       {
 
        template< typename category_name >
-        struct value
+        struct intensity
          {
           public:
            typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
 
-           enum { position_enum = -12 };
+           enum { position_enum = -13 };
            enum { has_enum = false };
 
            static /*constexpr*/ index_instance_type position()
@@ -35,9 +35,9 @@
       inline
       /*constexpr*/
       typename ::color::trait::index< category_name >::instance_type
-      value()
+      intensity()
        {
-        return ::color::place::_internal::value<category_name>::position();
+        return ::color::place::_internal::intensity<category_name>::position();
        }
 
     }
