@@ -48,13 +48,13 @@ template< typename category_name >
 void ctor_const_cmy()
  {
 //color::cmy<bool>           c0( { true, false, false } ); //!< Not yet supported
-  color::cmy<std::uint8_t>   c1( ::color::constant::lavender{} );
-  color::cmy<std::uint16_t>  c2( ::color::constant::lavender{} );
-  color::cmy<std::uint32_t>  c3( ::color::constant::lavender{} );
-  color::cmy<std::uint64_t>  c4( ::color::constant::lavender{} );
-  color::cmy<float>          c5( ::color::constant::lavender{} );
-  color::cmy<double>         c6( ::color::constant::lavender{} );
-  color::cmy<long double>    c7( ::color::constant::lavender{} );
+  color::cmy<std::uint8_t>   c1( ::color::constant::lavender_type{} );
+  color::cmy<std::uint16_t>  c2( ::color::constant::lavender_type{} );
+  color::cmy<std::uint32_t>  c3( ::color::constant::lavender_type{} );
+  color::cmy<std::uint64_t>  c4( ::color::constant::lavender_type{} );
+  color::cmy<float>          c5( ::color::constant::lavender_type{} );
+  color::cmy<double>         c6( ::color::constant::lavender_type{} );
+  color::cmy<long double>    c7( ::color::constant::lavender_type{} );
 
   std::cout<< " color::cmy<std::uint8_t>  =  "; print( c1 ); std::cout << std::endl;
   std::cout<< " color::cmy<std::uint16_t> =  "; print( c2 ); std::cout << std::endl;
@@ -69,13 +69,13 @@ void ctor_const_cmy()
 void ctor_const_cmyk()
  {
 //color::cmyk<bool>           c0( { true, false, false } ); //!< Not yet supported
-  color::cmyk<std::uint8_t>   c1( ::color::constant::lavender{} );
-  color::cmyk<std::uint16_t>  c2( ::color::constant::lavender{} );
-  color::cmyk<std::uint32_t>  c3( ::color::constant::lavender{} );
-  color::cmyk<std::uint64_t>  c4( ::color::constant::lavender{} );
-  color::cmyk<float>          c5( ::color::constant::lavender{} );
-  color::cmyk<double>         c6( ::color::constant::lavender{} );
-  color::cmyk<long double>    c7( ::color::constant::lavender{} );
+  color::cmyk<std::uint8_t>   c1( ::color::constant::lavender_type{} );
+  color::cmyk<std::uint16_t>  c2( ::color::constant::lavender_type{} );
+  color::cmyk<std::uint32_t>  c3( ::color::constant::lavender_type{} );
+  color::cmyk<std::uint64_t>  c4( ::color::constant::lavender_type{} );
+  color::cmyk<float>          c5( ::color::constant::lavender_type{} );
+  color::cmyk<double>         c6( ::color::constant::lavender_type{} );
+  color::cmyk<long double>    c7( ::color::constant::lavender_type{} );
 
   std::cout<< " color::cmyk<std::uint8_t>  =  "; print( c1 ); std::cout << std::endl;
   std::cout<< " color::cmyk<std::uint16_t> =  "; print( c2 ); std::cout << std::endl;
@@ -111,13 +111,13 @@ void ctor_const_gray()
 void ctor_const_hsl()
  {
   //color::hsl<bool>           c0( { true, false, false} ); //!< Not yet supported
-  color::hsl<std::uint8_t>   c1( ::color::constant::lavender{} );
-  color::hsl<std::uint16_t>  c2( ::color::constant::lavender{} );
-  color::hsl<std::uint32_t>  c3( ::color::constant::lavender{} );
-  color::hsl<std::uint64_t>  c4( ::color::constant::lavender{} );
-  color::hsl<float>          c5( ::color::constant::lavender{} );
-  color::hsl<double>         c6( ::color::constant::lavender{} );
-  color::hsl<long double>    c7( ::color::constant::lavender{} );
+  color::hsl<std::uint8_t>   c1( ::color::constant::lavender_type{} );
+  color::hsl<std::uint16_t>  c2( ::color::constant::lavender_type{} );
+  color::hsl<std::uint32_t>  c3( ::color::constant::lavender_type{} );
+  color::hsl<std::uint64_t>  c4( ::color::constant::lavender_type{} );
+  color::hsl<float>          c5( ::color::constant::lavender_type{} );
+  color::hsl<double>         c6( ::color::constant::lavender_type{} );
+  color::hsl<long double>    c7( ::color::constant::lavender_type{} );
 
   std::cout<< " color::hsl<std::uint8_t>  =  "; print( c1 ); std::cout << std::endl;
   std::cout<< " color::hsl<std::uint16_t> =  "; print( c2 ); std::cout << std::endl;
@@ -132,13 +132,13 @@ void ctor_const_hsl()
 void ctor_const_hsv()
  {
 //color::hsv<bool>           c0( { true, false, false} ); //!< Not yet supported
-  color::hsv<std::uint8_t>   c1( ::color::constant::lavender{} );
-  color::hsv<std::uint16_t>  c2( ::color::constant::lavender{} );
-  color::hsv<std::uint32_t>  c3( ::color::constant::lavender{} );
-  color::hsv<std::uint64_t>  c4( ::color::constant::lavender{} );
-  color::hsv<float>          c5( ::color::constant::lavender{} );
-  color::hsv<double>         c6( ::color::constant::lavender{} );
-  color::hsv<long double>    c7( ::color::constant::lavender{} );
+  color::hsv<std::uint8_t>   c1( ::color::constant::lavender_type{} );
+  color::hsv<std::uint16_t>  c2( ::color::constant::lavender_type{} );
+  color::hsv<std::uint32_t>  c3( ::color::constant::lavender_type{} );
+  color::hsv<std::uint64_t>  c4( ::color::constant::lavender_type{} );
+  color::hsv<float>          c5( ::color::constant::lavender_type{} );
+  color::hsv<double>         c6( ::color::constant::lavender_type{} );
+  color::hsv<long double>    c7( ::color::constant::lavender_type{} );
 
   std::cout<< " color::hsv<std::uint8_t>  =  "; print( c1 ); std::cout << std::endl;
   std::cout<< " color::hsv<std::uint16_t> =  "; print( c2 ); std::cout << std::endl;
@@ -152,13 +152,13 @@ void ctor_const_hsv()
 void ctor_const_rgb()
  {
   // color::rgb<bool>           c0( { true, false, false} ); //!< Not yet supported
-  color::rgb<std::uint8_t>   c1( ::color::constant::lavender{} );
-  color::rgb<std::uint16_t>  c2( ::color::constant::lavender{} );
-  color::rgb<std::uint32_t>  c3( ::color::constant::lavender{} );
-  color::rgb<std::uint64_t>  c4( ::color::constant::lavender{} );
-  color::rgb<float>          c5( ::color::constant::lavender{} );
-  color::rgb<double>         c6( ::color::constant::lavender{} );
-  color::rgb<long double>    c7( ::color::constant::lavender{} );
+  color::rgb<std::uint8_t>   c1( ::color::constant::lavender_type{} );
+  color::rgb<std::uint16_t>  c2( ::color::constant::lavender_type{} );
+  color::rgb<std::uint32_t>  c3( ::color::constant::lavender_type{} );
+  color::rgb<std::uint64_t>  c4( ::color::constant::lavender_type{} );
+  color::rgb<float>          c5( ::color::constant::lavender_type{} );
+  color::rgb<double>         c6( ::color::constant::lavender_type{} );
+  color::rgb<long double>    c7( ::color::constant::lavender_type{} );
 
   std::cout<< " color::rgb<std::uint8_t>  =  "; print( c1 ); std::cout << std::endl;
   std::cout<< " color::rgb<std::uint16_t> =  "; print( c2 ); std::cout << std::endl;
@@ -172,13 +172,13 @@ void ctor_const_rgb()
 void ctor_const_yiq()
  {
 //color::yiq<bool>           c0( { true, false, false} ); //!< Not yet supported
-  color::yiq<std::uint8_t>   c1( ::color::constant::lavender{} );
-  color::yiq<std::uint16_t>  c2( ::color::constant::lavender{} );
-  color::yiq<std::uint32_t>  c3( ::color::constant::lavender{} );
-  color::yiq<std::uint64_t>  c4( ::color::constant::lavender{} );
-  color::yiq<float>          c5( ::color::constant::lavender{} );
-  color::yiq<double>         c6( ::color::constant::lavender{} );
-  color::yiq<long double>    c7( ::color::constant::lavender{} );
+  color::yiq<std::uint8_t>   c1( ::color::constant::lavender_type{} );
+  color::yiq<std::uint16_t>  c2( ::color::constant::lavender_type{} );
+  color::yiq<std::uint32_t>  c3( ::color::constant::lavender_type{} );
+  color::yiq<std::uint64_t>  c4( ::color::constant::lavender_type{} );
+  color::yiq<float>          c5( ::color::constant::lavender_type{} );
+  color::yiq<double>         c6( ::color::constant::lavender_type{} );
+  color::yiq<long double>    c7( ::color::constant::lavender_type{} );
 
   std::cout<< " color::yiq<std::uint8_t>  =  "; print( c1 ); std::cout << std::endl;
   std::cout<< " color::yiq<std::uint16_t> =  "; print( c2 ); std::cout << std::endl;
@@ -192,13 +192,13 @@ void ctor_const_yiq()
 void ctor_const_yuv()
  {
   //color::yuv<bool>           c0( { true, false, false} ); //!< Not yet supported
-  color::yuv<std::uint8_t>   c1( ::color::constant::lavender{} );
-  color::yuv<std::uint16_t>  c2( ::color::constant::lavender{} );
-  color::yuv<std::uint32_t>  c3( ::color::constant::lavender{} );
-  color::yuv<std::uint64_t>  c4( ::color::constant::lavender{} );
-  color::yuv<float>          c5( ::color::constant::lavender{} );
-  color::yuv<double>         c6( ::color::constant::lavender{} );
-  color::yuv<long double>    c7( ::color::constant::lavender{} );
+  color::yuv<std::uint8_t>   c1( ::color::constant::lavender_type{} );
+  color::yuv<std::uint16_t>  c2( ::color::constant::lavender_type{} );
+  color::yuv<std::uint32_t>  c3( ::color::constant::lavender_type{} );
+  color::yuv<std::uint64_t>  c4( ::color::constant::lavender_type{} );
+  color::yuv<float>          c5( ::color::constant::lavender_type{} );
+  color::yuv<double>         c6( ::color::constant::lavender_type{} );
+  color::yuv<long double>    c7( ::color::constant::lavender_type{} );
 
   std::cout<< " color::yuv<std::uint8_t>  =  "; print( c1 ); std::cout << std::endl;
   std::cout<< " color::yuv<std::uint16_t> =  "; print( c2 ); std::cout << std::endl;

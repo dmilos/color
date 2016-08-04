@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 
   // ---- In here fill image with RGB data ----
 
-  ::color::rgb<double> t( ::color::constant::turquoise{} );
+  ::color::rgb<double> t( ::color::constant::turquoise_type{} );
 
   // Guarantee by design of this library that ::color::ABC<double> is represented in memory only as std::array<double>
   // Guarantee by design of ISO C++ standard that std::array<double> will have only 3 consecutive doubles 
