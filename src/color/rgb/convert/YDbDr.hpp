@@ -56,15 +56,26 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           scalar_type Y  = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type Dr = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type Db = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+           static scalar_type const Wr   = YDbDr_const_type::Wr();
+           static scalar_type const Wb   = YDbDr_const_type::Wb();
+           static scalar_type const Wg   = YDbDr_const_type::Wg();
+           static scalar_type const Umax = YDbDr_const_type::Umax();
+           static scalar_type const Vmax = YDbDr_const_type::Vmax();
 
-           Dr -= 0.5;
-           Db -= 0.5;
-           scalar_type r =  Y + 0.000092303716148   * Db - 0.52591263066186533 * Dr;
-           scalar_type g =  Y - 0.12913289889050927 * Db + 0.26789932820759876 * Dr;
-           scalar_type b =  Y + 0.66467905997895482 * Db - 0.000079202543533   * Dr;
+           static scalar_type const b11 = 1, b12 = 0,                          b13 =  (1 - Wr) / Vmax;
+           static scalar_type const b21 = 1, b22 = - Wb*(1 - Wb) / Umax / Wg,  b23 = -Wr*(1 - Wr) / Vmax / Wg;
+           static scalar_type const b31 = 1, b32 = ((1 - Wb) / Umax),          b33 = 0;
+
+           scalar_type Y  = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+           scalar_type Db = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+           scalar_type Dr = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+
+           scalar_type u = YDbDr_const_type::DB_diverse( Db ) / YDbDr_const_type::DB_scale();
+           scalar_type v = YDbDr_const_type::DR_diverse( Dr ) / YDbDr_const_type::DR_scale();
+
+           scalar_type r = Y +           v * b13;
+           scalar_type g = Y + u * b22 + v * b23;
+           scalar_type b = Y + u * b32;
 
            container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r ) );
            container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( g ) );

@@ -52,14 +52,25 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
+           static scalar_type const Wr   = YDbDr_const_type::Wr();
+           static scalar_type const Wb   = YDbDr_const_type::Wb();
+           static scalar_type const Wg   = YDbDr_const_type::Wg();
+           static scalar_type const Umax = YDbDr_const_type::Umax();
+           static scalar_type const Vmax = YDbDr_const_type::Vmax();
 
            scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           scalar_type Y  =  0.298839 * r + 0.586811 * g + 0.114350 * b;        //!< TODO
-           scalar_type Db = -0.450    * r - 0.883    * g + 1.333    * b + 0.5;; //!< TODO
-           scalar_type Dr = -1.333    * r + 1.116    * g + 0.217    * b + 0.5;; //!< TODO
+           scalar_type Y = Wr * r + Wg * g + Wb * b;
+           scalar_type u = Umax * ( b - Y )/( 1- Wb );
+           scalar_type v = Vmax * ( r - Y )/( 1- Wr );
+
+           scalar_type Db = YDbDr_const_type::DB_scale() * u;
+           scalar_type Dr = YDbDr_const_type::DR_scale() * v;
+
+           Db = YDbDr_const_type::DB_normalize( Db );
+           Dr = YDbDr_const_type::DR_normalize( Dr );
 
            container_left_trait_type::template set<0>( left, diverse_type::template process<0>( Y  ) );
            container_left_trait_type::template set<1>( left, diverse_type::template process<1>( Db ) );
