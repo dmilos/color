@@ -2,10 +2,11 @@
 #include <iomanip>
 #include <algorithm>
 #include <cstring>
+#include <cstddef>
 
 #include "color/color.hpp"
 
-void memfill( char *buffer, std::size_t const& bufsize, const void *pattern, std::size_t::size_t const& patsize )
+void memfill( char *buffer, std::size_t bufsize, const void *pattern, std::size_t const& patsize )
  {
   for( ;  patsize < bufsize; buffer += patsize, bufsize -= patsize)
    {
@@ -14,8 +15,6 @@ void memfill( char *buffer, std::size_t const& bufsize, const void *pattern, std
   memcpy( buffer, pattern, bufsize );
 }
 
-
-
 int main(int argc, char const *argv[])
  {
   std::vector< std::array< double, 3 > >  image( 1000 * 1000 );
@@ -23,14 +22,14 @@ int main(int argc, char const *argv[])
   // <---- In here we fill somehow image with RGB data ---- />
 
 
-  ::color::rgb<double> t( ::color::constant::turquoise_type{} );
+  ::color::rgb<double> sample( ::color::constant::turquoise_type{} );
 
   // Guarantee by design of this library that ::color::ABC<double> is represented in memory only as std::array<double>
   // Guarantee by design of ISO C++ standard that std::array<double> will have only 3 consecutive doubles
-  memfill( image.data(),  sizeof( std::array< double, 3 > ) * image.size(), &t, sizeof( t ) );
+  memfill( reinterpret_cast<char*>(image.data()),  sizeof( std::array< double, 3 > ) * image.size(), &sample, sizeof( sample ) );
 
   //This will produce error and it is too Object oriented
-  // std::fill( image.begin(), image.end(), t );
+  // std::fill( image.begin(), image.end(), sample );
 
   return 0;
  }
