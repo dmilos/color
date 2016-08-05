@@ -277,7 +277,6 @@
     <ClInclude Include="..\..\src\color\cmy\trait\trait.hpp" />
     <ClInclude Include="..\..\src\color\color.body.hpp" />
     <ClInclude Include="..\..\src\color\color.hpp" />
-    <ClInclude Include="..\..\src\color\color.pp2f.hpp" />
     <ClInclude Include="..\..\src\color\generic\akin\akin.hpp" />
     <ClInclude Include="..\..\src\color\generic\akin\cmy.hpp" />
     <ClInclude Include="..\..\src\color\generic\akin\cmyk.hpp" />

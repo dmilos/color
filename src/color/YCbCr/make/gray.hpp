@@ -21,7 +21,7 @@
 
         typedef ::color::YCbCr< double >      right_type;
 
-        color_parameter = right_type( { percent/100, 0, 0 } );
+        color_parameter = right_type( { percent/ double(100), 0, 0 } );
        }
 
      template< typename tag_name >

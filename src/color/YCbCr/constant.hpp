@@ -12,7 +12,7 @@ namespace color
   namespace constant
    {
 
-    template< typename category_name >
+    template< typename category_name/*, enum reference_emum */ >
      struct YCbCr
       {
        public:
@@ -24,25 +24,25 @@ namespace color
 
          static /* constexpr*/ scalar_type const half(){ return  0.5; }
          static /* constexpr*/ scalar_type const one() { return  1; }
-         static /* constexpr*/ scalar_type const Wr()  { return  0.298839; }
-         static /* constexpr*/ scalar_type const Wb()  { return  0.114350; }
-         static /* constexpr*/ scalar_type const Wg()  { return  this_type::one() - this_type::Wr()-this_type::Wb(); }
-         static /* constexpr*/ scalar_type const Umax(){ return  0.436; }
-         static /* constexpr*/ scalar_type const Vmax(){ return  0.615; }
+         static /* constexpr*/ scalar_type const two() { return  2; }
+         static /* constexpr*/ scalar_type const Kry() { return  0.299; }
+         static /* constexpr*/ scalar_type const Kby() { return  0.114; }
+         static /* constexpr*/ scalar_type const Kgy() { return  this_type::one() - this_type::Kry()-this_type::Kby(); }
 
-         static /* constexpr*/ scalar_type const u_min()  { return  -this_type::Umax(); }
-         static /* constexpr*/ scalar_type const u_max()  { return   this_type::Umax(); }
-         static /* constexpr*/ scalar_type const u_range(){ return 2*this_type::Umax(); }
+         static /* constexpr*/ scalar_type const Cb_max(){ return 1-this_type::Kby() ; }
+         static /* constexpr*/ scalar_type const Cr_max(){ return 1-this_type::Kby() ; }
 
-         static /* constexpr*/ scalar_type const v_min()  { return  -this_type::Vmax(); }
-         static /* constexpr*/ scalar_type const v_max()  { return   this_type::Vmax(); }
-         static /* constexpr*/ scalar_type const v_range(){ return 2*this_type::Vmax(); }
+         static /* constexpr*/ scalar_type const Cb_min(){ return -(1-this_type::Kby()); }
+         static /* constexpr*/ scalar_type const Cr_min(){ return -(1-this_type::Kby()); }
 
-         static scalar_type u_deverse  ( scalar_type const& normal ){ return this_type::u_range() * normal + this_type::u_min(); }
-         static scalar_type u_normalize( scalar_type const& divert ){ return ( divert + this_type::u_min() ) /this_type::u_range(); }
+         static /* constexpr*/ scalar_type const Cb_range(){ return this_type::Cb_max() - this_type::Cb_min(); }
+         static /* constexpr*/ scalar_type const Cr_range(){ return this_type::Cr_max() - this_type::Cr_min(); }
 
-         static scalar_type v_deverse  ( scalar_type const& normal ){ return this_type::v_range() * normal + this_type::v_min(); }
-         static scalar_type v_normalize( scalar_type const& divert ){ return ( divert + this_type::v_min() ) /this_type::v_range(); }
+         static scalar_type Cb_diverse  ( scalar_type const& normal ){ return this_type::Cb_range() * normal + this_type::Cb_min(); }
+         static scalar_type Cb_normalize( scalar_type const& divert ){ return ( divert - this_type::Cb_min() ) /this_type::Cb_range(); }
+
+         static scalar_type Cr_diverse  ( scalar_type const& normal ){ return this_type::Cr_range() * normal + this_type::Cb_min(); }
+         static scalar_type Cr_normalize( scalar_type const& divert ){ return ( divert - this_type::Cb_min() ) /this_type::Cr_range(); }
       };
 
    }

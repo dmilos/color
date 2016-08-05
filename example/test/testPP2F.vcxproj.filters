@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{49c69032-5713-49e4-9ea9-b4da3e0484b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main">
+      <UniqueIdentifier>{7d0c2007-fcb6-4b63-b55b-e076d2cded07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\gray">
+      <UniqueIdentifier>{9e9d3bbe-a98d-43fe-be68-52cfc3681c84}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\color\color.hpp">
+      <Filter>Source Files\src</Filter>
+    </ClInclude>
+    <ClInclude Include="model\conversion.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\get.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\intrisic_conversion.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\invoke.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\make.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\operation.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="model\set.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\color.pp2f.hpp">
+      <Filter>Source Files\src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="targa.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="make.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="conversion.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="selfie.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="gray\main.cpp">
+      <Filter>Source Files\main\gray</Filter>
+    </ClCompile>
+    <ClCompile Include="get.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="set.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="sizeof.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="bound.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -57,12 +57,15 @@ namespace color
           )
           {
            scalar_type Y  = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type Cr = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type Cb = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+           scalar_type Cb = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+           scalar_type Cr = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type r = 0.999999999313539 * Y - 0.000686460756258 * Cb + 1.402090337753020 * Cr - 0.700701938498383;
-           scalar_type g = 0.999999655179080 * Y - 0.344820919791172 * Cb - 0.714045888993728 * Cr + 0.529433404392450;
-           scalar_type b = 1.000001771314820 * Y + 1.771314822995340 * Cb + 0.000093639899628 * Cr - 0.885704231447482;
+           Cb = YCbCr_const_type::Cb_diverse( Cb );
+           Cr = YCbCr_const_type::Cr_diverse( Cr );
+
+           scalar_type r = Y + Cr;
+           scalar_type g = Y - (YCbCr_const_type::Kby()/YCbCr_const_type::Kgy() ) * Cb - (YCbCr_const_type::Kry()/YCbCr_const_type::Kgy() ) * Cr;
+           scalar_type b = Y + Cb;
 
            container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r ) );
            container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( g ) );

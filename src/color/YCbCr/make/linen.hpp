@@ -17,7 +17,7 @@
 
         typedef ::color::YCbCr< double >      right_type;
 
-        static left_type local( right_type( { 0.946029724, -0.0259884314, 0.0244952784 } ) );
+        static left_type local( right_type( { 0.946049755, -0.0460497549, 0.034342402 } ) );
 
         color_parameter = local;
        }

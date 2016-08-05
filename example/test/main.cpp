@@ -20,14 +20,17 @@ void sandbox_test()
   y = ::color::constant::red_type{};
   r = y;
 
-  r = ::color::constant::red_type{};
-  y = r;
+  std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
 
-  std::cout << r[0] << std::endl;
-  std::cout << r[1] << std::endl;
-  std::cout << r[2] << std::endl;
+  r = ::color::constant::red_type{};
+  std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
+  y = r;
+  std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
+  r = y;
+
+  std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
  }
- 
+
 
 void ctor_test()
  {

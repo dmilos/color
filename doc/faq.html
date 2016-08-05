@@ -7,39 +7,49 @@
 		<title>FAQ</title>
 	</head>
 	<body>
-	<h1 align="center">FAQ</h1>
-	<dl>
-		<dt> Ther are too much files in project. Can you reduce? </dt>
-		<dd>
-			No.<br>
-			You can do that.<br><br>
-			Steps are:
-			<ol>
-				<li>Keep next two files: <code>color.hpp</code> and <code>color.pp2f.hpp</code> and delete others.</li>
-				<li> One of next:
-					<ul>
-						<li>In <code>color.hpp</code> add line <code>#define COLOR_USE_PP2FILE</code> before  <code>#if defined COLOR_USE_PP2FILE</code></li>
-						<li>define macro <code>COLOR_USE_PP2FILE</code> to be visible before include of <code>color.hpp</code></code><br><br>
-							Example:<br>
-								<blockquote><code>
-									#define COLOR_USE_PP2FILE<br>
-									#include "color/color.hpp"<br>
-								</code></blockquote>
-						</li>
-						<li>Add compile switch which defines COLOR_USE_PP2FILE as macro. <br><br>
-							Examples:<br>
-								<blockquote><code>
-									gcc: -D COLOR_USE_PP2FILE<br>
-									msvc: /DCOLOR_USE_PP2FILE<br>
-								</code></blockquote>
-						</li>
-
-				</li>
-			</ol>
-		</dd>
-	</dl>
-
-	<hr>
-
-</body>
+		<h1 align="center">FAQ</h1>
+		<dl>
+			<dt> There are too much files in project. How to reduce? </dt>
+			<dd>
+				Easy<br>
+				Steps are:
+				<ol>
+					<li>Keep next two files: <code>color.hpp</code> and <code>color.pp2f.hpp</code> and delete others.</li>
+					<li> One of next:
+						<ul>
+							<li>In <code>color.hpp</code> add line <code>#define COLOR_USE_PP2FILE</code> before  <code>#if defined COLOR_USE_PP2FILE</code></li>
+							<li>define macro <code>COLOR_USE_PP2FILE</code> to be visible before include of <code>color.hpp</code></code><br><br>
+								Example:<br>
+									<blockquote><code>
+										#define COLOR_USE_PP2FILE<br>
+										#include "color/color.hpp"<br>
+									</code></blockquote>
+							</li>
+							<li>Add compile switch which defines COLOR_USE_PP2FILE as macro. <br><br>
+								Examples:<br>
+									<blockquote><code>
+										gcc: -D COLOR_USE_PP2FILE<br>
+										msvc: /DCOLOR_USE_PP2FILE<br>
+									</code></blockquote>
+							</li>
+					</li>
+				</ol>
+			</dd>
+			<dt> How to reduce namespace path?</dt>
+			<dd>
+				<code>
+					#include "color/color.hpp"
+					namespace color
+					{
+						using namespace ::color::compare;
+						using namespace ::color::constant;
+						using namespace ::color::operation;
+						using namespace ::color::trait;
+						using namespace ::color::type;
+					}
+				<code>
+			</dd>
+		</dl>
+		<hr>
+	</body>
 </html>

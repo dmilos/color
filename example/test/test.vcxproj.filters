@@ -1362,9 +1362,6 @@
     <ClInclude Include="..\..\src\color\color.body.hpp">
       <Filter>Source Files\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\color.pp2f.hpp">
-      <Filter>Source Files\src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\cmyk\check\check.hpp">
       <Filter>Source Files\src\cmyk\check</Filter>
     </ClInclude>

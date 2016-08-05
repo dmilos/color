@@ -65,8 +65,8 @@ namespace color
            scalar_type i = normalize_type::template process<   inphase_p>( container_right_trait_type::template get<   inphase_p>( right ) );
            scalar_type q = normalize_type::template process<quadrature_p>( container_right_trait_type::template get<quadrature_p>( right ) );
 
-           i = yiq_const_type::i_deverse( i );
-           q = yiq_const_type::q_deverse( q );
+           i = yiq_const_type::i_diverse( i );
+           q = yiq_const_type::q_diverse( q );
 
            scalar_type r = a11 * y + a12 * i + a13 * q;
            scalar_type g = a21 * y + a22 * i + a23 * q;
