@@ -8,7 +8,7 @@ using namespace color::operation::arithmetic;
 #include "../print.hpp"
 
 template < template<typename> class color_name >
- void test_intrisic_conversion()
+ void test_reformatX()
   {
    //std::cout << std::endl;
    //std::cout << "{{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{"<< std::endl;

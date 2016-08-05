@@ -9,5 +9,10 @@
 #include "./yiq.hpp"
 #include "./yuv.hpp"
 
+#include "./YCbCr.hpp"
+#include "./YCgCo.hpp"
+#include "./YDbDr.hpp"
+#include "./YPbPr.hpp"
+
 //#include "./gray2.hpp"
 

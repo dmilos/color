@@ -26,6 +26,9 @@
       red( ::color::model< ::color::category::yuv<tag_name> > const& color_parameter )
        {
         typedef ::color::category::yuv< tag_name >  category_type;
+
+        typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
+
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_type;
         enum { red_p  = ::color::place::_internal::red<akin_type>::position_enum };
 
@@ -33,7 +36,6 @@
         typedef ::color::_internal::normalize<category_type>   normalize_type;
 
         typedef ::color::constant::yuv< category_type >  yuv_const_type; 
-        typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
 
         static scalar_type const Wr   = yuv_const_type::Wr();
         static scalar_type const Vmax = yuv_const_type::Vmax();

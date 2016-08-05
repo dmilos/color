@@ -12,5 +12,11 @@
 #include "./yiq/yiq.hpp"
 #include "./yuv/yuv.hpp"
 
+#include "./YPbPr/YPbPr.hpp"
+#include "./YCgCo/YCgCo.hpp"
+#include "./YCbCr/YCbCr.hpp"
+#include "./YDbDr/YDbDr.hpp"
+
+
 using namespace ::color::operation::arithmetic;
 using namespace ::color::compare::operators;

@@ -73,5 +73,10 @@ void test_selfie()
   std::cout<< "-- yiq_float"  << std::endl; test_make< color::category::yiq_double>();  std::cout << std::endl;
   std::cout<< "-- yuv_float"  << std::endl; test_make< color::category::yuv_double>();  std::cout << std::endl;
   std::cout<< "-- rgb_float"  << std::endl; test_make< color::category::rgb_double>();  std::cout << std::endl;
+
+  std::cout<< "-- YCbCr_float"  << std::endl; test_make< color::category::YCbCr_double>();  std::cout << std::endl;
+  std::cout<< "-- YCgCo_float"  << std::endl; test_make< color::category::YCgCo_double>();  std::cout << std::endl;
+  std::cout<< "-- YDbDr_float"  << std::endl; test_make< color::category::YDbDr_double>();  std::cout << std::endl;
+  std::cout<< "-- YPbPr_float"  << std::endl; test_make< color::category::YPbPr_double>();  std::cout << std::endl;
  }
 

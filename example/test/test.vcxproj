@@ -13,12 +13,10 @@
   <ItemGroup>
     <ClCompile Include="bound.cpp" />
     <ClCompile Include="conversion.cpp" />
-    <ClCompile Include="get.cpp" />
     <ClCompile Include="gray\main.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="make.cpp" />
     <ClCompile Include="selfie.cpp" />
-    <ClCompile Include="set.cpp" />
     <ClCompile Include="sizeof.cpp" />
     <ClCompile Include="targa.cpp" />
   </ItemGroup>
@@ -1262,10 +1260,10 @@
     <ClInclude Include="..\..\src\color\_internal\utility\type\traitp.hpp" />
     <ClInclude Include="model\conversion.hpp" />
     <ClInclude Include="model\get.hpp" />
-    <ClInclude Include="model\intrisic_conversion.hpp" />
     <ClInclude Include="model\invoke.hpp" />
     <ClInclude Include="model\make.hpp" />
     <ClInclude Include="model\operation.hpp" />
+    <ClInclude Include="model\reformat.hpp" />
     <ClInclude Include="model\set.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

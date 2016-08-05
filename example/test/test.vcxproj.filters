@@ -774,9 +774,6 @@
     <ClInclude Include="model\get.hpp">
       <Filter>Source Files\main</Filter>
     </ClInclude>
-    <ClInclude Include="model\intrisic_conversion.hpp">
-      <Filter>Source Files\main</Filter>
-    </ClInclude>
     <ClInclude Include="model\invoke.hpp">
       <Filter>Source Files\main</Filter>
     </ClInclude>
@@ -4134,6 +4131,9 @@
     <ClInclude Include="..\..\src\color\_internal\reformat.hpp">
       <Filter>Source Files\src\_internal\utility</Filter>
     </ClInclude>
+    <ClInclude Include="model\reformat.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -4153,12 +4153,6 @@
     </ClCompile>
     <ClCompile Include="gray\main.cpp">
       <Filter>Source Files\main\gray</Filter>
-    </ClCompile>
-    <ClCompile Include="get.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="set.cpp">
-      <Filter>Source Files\main</Filter>
     </ClCompile>
     <ClCompile Include="sizeof.cpp">
       <Filter>Source Files\main</Filter>

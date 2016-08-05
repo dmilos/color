@@ -138,6 +138,43 @@ void print_bound()
   ss << print_bound< color::cmyk<double       > >( "color::cmyk", "double        " ) << std::endl;
   ss << print_bound< color::cmyk<long double  > >( "color::cmyk", "long double   " ) << std::endl;
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
+
+  ss << print_semi_title( "Y","Cg","Co" );
+  ss << print_bound< color::YCgCo<std::uint8_t > >( "color::YPbPr", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::YCgCo<std::uint16_t> >( "color::YPbPr", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::YCgCo<std::uint32_t> >( "color::YPbPr", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::YCgCo<std::uint64_t> >( "color::YPbPr", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::YCgCo<float        > >( "color::YPbPr", "float         " ) << std::endl;
+  ss << print_bound< color::YCgCo<double       > >( "color::YPbPr", "double        " ) << std::endl;
+  ss << print_bound< color::YCgCo<long double  > >( "color::YPbPr", "long double   " ) << std::endl;
+
+  ss << print_semi_title( "Y","CbCr","Cr" );
+  ss << print_bound< color::YCbCr<std::uint8_t > >( "color::YPbPr", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::YCbCr<std::uint16_t> >( "color::YPbPr", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::YCbCr<std::uint32_t> >( "color::YPbPr", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::YCbCr<std::uint64_t> >( "color::YPbPr", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::YCbCr<float        > >( "color::YPbPr", "float         " ) << std::endl;
+  ss << print_bound< color::YCbCr<double       > >( "color::YPbPr", "double        " ) << std::endl;
+  ss << print_bound< color::YCbCr<long double  > >( "color::YPbPr", "long double   " ) << std::endl;
+
+  ss << print_semi_title( "Y","Db","Dr" );
+  ss << print_bound< color::YDbDr<std::uint8_t > >( "color::YPbPr", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::YDbDr<std::uint16_t> >( "color::YPbPr", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::YDbDr<std::uint32_t> >( "color::YPbPr", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::YDbDr<std::uint64_t> >( "color::YPbPr", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::YDbDr<float        > >( "color::YPbPr", "float         " ) << std::endl;
+  ss << print_bound< color::YDbDr<double       > >( "color::YPbPr", "double        " ) << std::endl;
+  ss << print_bound< color::YDbDr<long double  > >( "color::YPbPr", "long double   " ) << std::endl;
+
+  ss << print_semi_title( "Y","Pb","Pr" );
+  ss << print_bound< color::YPbPr<std::uint8_t > >( "color::YPbPr", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint16_t> >( "color::YPbPr", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint32_t> >( "color::YPbPr", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint64_t> >( "color::YPbPr", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<float        > >( "color::YPbPr", "float         " ) << std::endl;
+  ss << print_bound< color::YPbPr<double       > >( "color::YPbPr", "double        " ) << std::endl;
+  ss << print_bound< color::YPbPr<long double  > >( "color::YPbPr", "long double   " ) << std::endl;
+
   ss << print_semi_title( "X","Y","Z" );
   ss << print_bound< color::xyz<std::uint8_t > >( "color::xyz", "std::uint8_t  " ) << std::endl;
   ss << print_bound< color::xyz<std::uint16_t> >( "color::xyz", "std::uint16_t " ) << std::endl;

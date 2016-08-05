@@ -206,6 +206,15 @@ void check_conversion()
   check_conversion_back_and_forth( yi, yu );  check_conversion_back_and_forth( yu, yu );
   check_conversion_back_and_forth( yi, x  );  check_conversion_back_and_forth( yu, x  );
 
+  //check_conversion_back_and_forth( YPbPr, c  );  check_conversion_back_and_forth( YDbDr, c  );  check_conversion_back_and_forth( YCgCo, c  ); check_conversion_back_and_forth( YCbCr, c  );
+  //check_conversion_back_and_forth( YPbPr, ck );  check_conversion_back_and_forth( YDbDr, ck );  check_conversion_back_and_forth( YCgCo, ck ); check_conversion_back_and_forth( YCbCr, ck );
+  //check_conversion_back_and_forth( YPbPr, r  );  check_conversion_back_and_forth( YDbDr, r  );  check_conversion_back_and_forth( YCgCo, r  ); check_conversion_back_and_forth( YCbCr, r  );
+  //check_conversion_back_and_forth( YPbPr, hl );  check_conversion_back_and_forth( YDbDr, hl );  check_conversion_back_and_forth( YCgCo, hl ); check_conversion_back_and_forth( YCbCr, hl );
+  //check_conversion_back_and_forth( YPbPr, hv );  check_conversion_back_and_forth( YDbDr, hv );  check_conversion_back_and_forth( YCgCo, hv ); check_conversion_back_and_forth( YCbCr, hv );
+  //check_conversion_back_and_forth( YPbPr, yi );  check_conversion_back_and_forth( YDbDr, yi );  check_conversion_back_and_forth( YCgCo, yi ); check_conversion_back_and_forth( YCbCr, yi );
+  //check_conversion_back_and_forth( YPbPr, yu );  check_conversion_back_and_forth( YDbDr, yu );  check_conversion_back_and_forth( YCgCo, yu ); check_conversion_back_and_forth( YCbCr, yu );
+  //check_conversion_back_and_forth( YPbPr, x  );  check_conversion_back_and_forth( YDbDr, x  );  check_conversion_back_and_forth( YCgCo, x  ); check_conversion_back_and_forth( YCbCr, x  );
+
   //check_conversion_back_and_forth( x, c  );
   //check_conversion_back_and_forth( x, ck );
   //check_conversion_back_and_forth( x, r  );

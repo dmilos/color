@@ -7,10 +7,27 @@
 #include "./model/invoke.hpp"
 #include "./model/operation.hpp"
 #include "./model/make.hpp"
-#include "./model/intrisic_conversion.hpp"
+#include "./model/reformat.hpp"
 #include "./model/set.hpp"
 #include "./model/get.hpp"
 #include "./model/conversion.hpp"
+
+void sandbox_test()
+ {
+  ::color::YCbCr< double > y ( ::color::constant::red_type{} );
+  ::color::rgb< double >   r ( ::color::constant::red_type{} );
+
+  y = ::color::constant::red_type{};
+  r = y;
+
+  r = ::color::constant::red_type{};
+  y = r;
+
+  std::cout << r[0] << std::endl;
+  std::cout << r[1] << std::endl;
+  std::cout << r[2] << std::endl;
+ }
+ 
 
 void ctor_test()
  {
@@ -168,7 +185,7 @@ void make_blue()
 
   for( auto & c: image )
    {
-    c = color::hsl<double>( { 0, 50, 50 } );
+    c = color::hsl<double>( { 240, 100, 50 } );
    }
 
    {
@@ -235,6 +252,7 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 
 int main(int argc, char const *argv[])
  {
+  sandbox_test();
   ctor_test();
 
   void check_get();

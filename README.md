@@ -1,18 +1,18 @@
 # Yet another c++ library that implements color.
-Status:
+###Status:
 - Documentation
  - Examples coverage: ~90%
  - HTML coverage: ~80%
 - All planed functionality implemented
 - Ready for test use
 
-- Description
- - Yet another c++ library that implements color.
+###Description
+ - Yet another c++ library that implements color conversion and manipulation.
 
-Key features:
+###Key features:
 - No _virtual_ functions
 - Minimal memory footprint
-- Ability to copy _array_/_vector_ of colors with _memcpy_, _memmove_, initialize with _memset_.
+- Ability to copy _array_/_vector_ of colors with _memcpy_, _memmove_ and initialize with _memset_.
 - Conversions from/to different types ( and its formats ).
 - Headers only
 - No third parties
@@ -22,7 +22,7 @@ Key features:
  - No need to recompile or start some install process.
 - Color models: CMY, CMYK, GRAY, HSL, HSV, RGB, YIQ, YUV.
 
-Code sample:
+###Code sample:
 ```c++
 color::rgb<float>         r( { 1.0, 0.55, 0.0 } );        //!< This will pack ONLY three consecutive floats in memory
 color::bgr<std::uint8_t>  b( ::color::constant::aqua{} ); //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
@@ -39,13 +39,25 @@ h = y; //!< Reformat and convert from YIQ to HSV
 
 color::set::red( y ); //!< Set redness of YIQ
 
+::color::operation::blend( r, 0.1, color::rgb<float>( b ) ); //!< Blend two colors for given alpha. Accumulation style.
+y = color::operation::mix( r, 0.5, color::rgb<float>( b ) ); //!< Blend two colors for given alpha. return style.
 ```
 
-Want to see more:
+###Install:
+1. Clone this Repository:  
+ Examples:
+  - Windows : git clone https://github.com/dmilos/color.git c:\my-work-folder\my-git-folder\color
+  - Linux   : git clone https://github.com/dmilos/color.git /home/my-user-name/my-work-folder/my-git-folder/color
+2. Inform compiler where to find headers:  
+ Examples:
+  - MSVC : /Ic:\work\git\color
+  - gcc  : -I/home/my-user-name/work/git/color/src
+
+###Want to see more:
   - [HTML Documentation ](doc/index.html)
   - [Wiki page](https://github.com/dmilos/color/wiki)
 
-Tested against:
+###Tested against:
   - GCC 5.3.1 20160413
   - GCC 4.8.4
   - MSVC 2015 Update 2

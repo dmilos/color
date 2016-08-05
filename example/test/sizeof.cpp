@@ -204,6 +204,11 @@ void check_sizeof()
   ss << print_sizeof<::color::yiq  > ( "<code>yiq </code>" );  ss << std::endl;
   ss << print_sizeof<::color::yuv  > ( "<code>yuv </code>" );  ss << std::endl;
 
+  ss << print_sizeof<::color::YCbCr  > ( "<code>YCbCr </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::YCgCo  > ( "<code>YCgCo </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::YDbDr  > ( "<code>YDbDr </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::YPbPr  > ( "<code>YPbPr </code>" );  ss << std::endl;
+
   ss << "</table>";
 
   ss << "<br />";

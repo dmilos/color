@@ -26,13 +26,15 @@
       blue( ::color::model< ::color::category::yiq<tag_name> > const& color_parameter )
        {
         typedef ::color::category::yiq<tag_name> category_type;
-        typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
-        typedef typename ::color::akin::rgb<category_type>::akin_type          akin_type;
 
-        typedef ::color::constant::yiq<category_type> yiq_const_type;
+        typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
+
+        typedef typename ::color::akin::rgb<category_type>::akin_type          akin_type;
 
         typedef ::color::_internal::diverse<akin_type>       diverse_type;
         typedef ::color::_internal::normalize<category_type> normalize_type;
+
+        typedef ::color::constant::yiq<category_type> yiq_const_type;
 
         enum
          {
