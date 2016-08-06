@@ -12,7 +12,7 @@
       inline
       void aquamarine( ::color::model< ::color::category::rgb< tag_name > > & color_parameter )
        {
-        typedef ::color::category::rgb< tag_name     > category_left_type;
+        typedef ::color::category::rgb< tag_name    > category_left_type;
         typedef ::color::model< category_left_type  > left_type;
 
         typedef ::color::rgb< double >      right_type;

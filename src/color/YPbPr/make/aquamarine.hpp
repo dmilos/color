@@ -17,7 +17,7 @@
 
         typedef ::color::YPbPr< double >      right_type;
 
-        static left_type local( right_type( { 0.831297951, 0.500053775, 0.263711435 } ) );
+        static left_type local( right_type( { 0.831297951, 0.5, 0.263711435 } ) );
 
         color_parameter = local;
        }

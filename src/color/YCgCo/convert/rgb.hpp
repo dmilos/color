@@ -62,7 +62,7 @@ namespace color
            scalar_type Co =  0.5  * r  +  0.0 * g  -  0.5  * b;
 
            Cg = YCgCo_const_type::Cg_normalize( Cg );
-           Co = YCgCo_const_type::Cg_normalize( Co );
+           Co = YCgCo_const_type::Co_normalize( Co );
 
            container_left_trait_type::template set<0>( left, diverse_type::template process<0>( Y  ) );
            container_left_trait_type::template set<1>( left, diverse_type::template process<1>( Cg ) );

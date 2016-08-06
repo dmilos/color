@@ -21,7 +21,7 @@
 
         typedef ::color::YCgCo< double >      right_type;
 
-        color_parameter = right_type( { percent/100, -0.5, -0.5 } ); // TODO
+        color_parameter = right_type( { percent/100,  0, 0 } );
        }
 
      template< typename tag_name >
@@ -33,7 +33,7 @@
 
         typedef ::color::YCgCo< double >      right_type;
 
-        static left_type local( right_type( { 0.5, -0.5, -0.5 } ) );
+        static left_type local( right_type( { 0.5, 0, 0 } ) );
 
         color_parameter = local;
        }

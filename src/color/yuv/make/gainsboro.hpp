@@ -17,7 +17,7 @@
 
         typedef ::color::yuv< double >      right_type;
 
-        static left_type local( right_type( { 0.858823529, -5.55111512E-17, -1.11022302E-16 } ) );
+        static left_type local( right_type( { 0.858823529, 0, 0 } ) );
 
         color_parameter = local;
        }

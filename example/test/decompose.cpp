@@ -67,7 +67,7 @@ template< typename color_model >
          if( sub != channel )
           {
            //other[sub] = color_model::bound_type::minimum( sub );
-           other[sub] = 0;
+           other[sub] = 1;
           }
         }
 

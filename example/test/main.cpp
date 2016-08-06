@@ -279,55 +279,55 @@ int main(int argc, char const *argv[])
 
   make_blue();
 
-  make_image<color::hsl<double> >( "./image-hsl-1-00.tga" , 0.00, 1 );
-  make_image<color::hsl<double> >( "./image-hsl-1-05.tga" , 0.50, 1 );
-  make_image<color::hsl<double> >( "./image-hsl-1-10.tga" , 1.00, 1 );
+  make_image<color::hsl<double> >( "./palette/hsl-1-00.tga" , 0.00, 1 );
+  make_image<color::hsl<double> >( "./palette/hsl-1-05.tga" , 0.50, 1 );
+  make_image<color::hsl<double> >( "./palette/hsl-1-10.tga" , 1.00, 1 );
 
-  make_image<color::hsv<double> >( "./image-hsv-1-000.tga" , 0.00, 1 );
-  make_image<color::hsv<double> >( "./image-hsv-1-050.tga" , 0.50, 1 );
-  make_image<color::hsv<double> >( "./image-hsv-1-060.tga", 0.60, 1 );
-  make_image<color::hsv<double> >( "./image-hsv-1-075.tga", 0.70, 1 );
-  make_image<color::hsv<double> >( "./image-hsv-1-080.tga", 0.80, 1 );
-  make_image<color::hsv<double> >( "./image-hsv-1-090.tga", 0.90, 1 );
+  make_image<color::hsv<double> >( "./palette/hsv-1-000.tga" , 0.00, 1 );
+  make_image<color::hsv<double> >( "./palette/hsv-1-050.tga" , 0.50, 1 );
+  make_image<color::hsv<double> >( "./palette/hsv-1-060.tga", 0.60, 1 );
+  make_image<color::hsv<double> >( "./palette/hsv-1-075.tga", 0.70, 1 );
+  make_image<color::hsv<double> >( "./palette/hsv-1-080.tga", 0.80, 1 );
+  make_image<color::hsv<double> >( "./palette/hsv-1-090.tga", 0.90, 1 );
 
-  make_image<color::hsv<double> >( "./image-hsv-1-090.tga", 0.90, 1 );
-  make_image<color::hsv<double> >( "./image-hsv-1-091.tga", 0.91, 1);
-  make_image<color::hsv<double> >( "./image-hsv-1-092.tga", 0.92, 1);
-  make_image<color::hsv<double> >( "./image-hsv-1-093.tga", 0.93, 1);
-  make_image<color::hsv<double> >( "./image-hsv-1-094.tga", 0.94, 1);
-  make_image<color::hsv<double> >( "./image-hsv-1-095.tga", 0.95, 1);
-  make_image<color::hsv<double> >( "./image-hsv-1-096.tga", 0.96, 1);
-  make_image<color::hsv<double> >( "./image-hsv-1-097.tga", 0.97, 1);
-  make_image<color::hsv<double> >( "./image-hsv-1-098.tga", 0.98, 1);
-  make_image<color::hsv<double> >( "./image-hsv-1-099.tga", 0.99, 1);
-  make_image<color::hsv<double> >( "./image-hsv-1-100.tga", 1.0, 1 );
+  make_image<color::hsv<double> >( "./palette/hsv-1-090.tga", 0.90, 1 );
+  make_image<color::hsv<double> >( "./palette/hsv-1-091.tga", 0.91, 1);
+  make_image<color::hsv<double> >( "./palette/hsv-1-092.tga", 0.92, 1);
+  make_image<color::hsv<double> >( "./palette/hsv-1-093.tga", 0.93, 1);
+  make_image<color::hsv<double> >( "./palette/hsv-1-094.tga", 0.94, 1);
+  make_image<color::hsv<double> >( "./palette/hsv-1-095.tga", 0.95, 1);
+  make_image<color::hsv<double> >( "./palette/hsv-1-096.tga", 0.96, 1);
+  make_image<color::hsv<double> >( "./palette/hsv-1-097.tga", 0.97, 1);
+  make_image<color::hsv<double> >( "./palette/hsv-1-098.tga", 0.98, 1);
+  make_image<color::hsv<double> >( "./palette/hsv-1-099.tga", 0.99, 1);
+  make_image<color::hsv<double> >( "./palette/hsv-1-100.tga", 1.0, 1 );
 
-  make_image<color::rgb<double> >( "./image-rgb-0-00.tga" , 0.00,  0 );
-  make_image<color::rgb<double> >( "./image-rgb-0-05.tga" , 0.25,  0 );
-  make_image<color::rgb<double> >( "./image-rgb-0-05.tga" , 0.50,  0 );
-  make_image<color::rgb<double> >( "./image-rgb-0-05.tga" , 0.75,  0 );
-  make_image<color::rgb<double> >( "./image-rgb-0-10.tga" , 1.00,  0 );
+  make_image<color::rgb<double> >( "./palette/rgb-0-00.tga" , 0.00,  0 );
+  make_image<color::rgb<double> >( "./palette/rgb-0-05.tga" , 0.25,  0 );
+  make_image<color::rgb<double> >( "./palette/rgb-0-05.tga" , 0.50,  0 );
+  make_image<color::rgb<double> >( "./palette/rgb-0-05.tga" , 0.75,  0 );
+  make_image<color::rgb<double> >( "./palette/rgb-0-10.tga" , 1.00,  0 );
 
 
-  make_image<color::cmy<double> >( "./image-cmy.tga" , 0.5 );
-  make_image<color::cmyk<double> >("./image-cmyk.tga", 0.5 );
+  make_image<color::cmy<double> >( "./palette/cmy.tga" , 0.5 );
+  make_image<color::cmyk<double> >("./palette/cmyk.tga", 0.5 );
 
-  make_image<color::xyz<double> >( "./image-xyz-0.tga" , 0.5, 0 );
-  make_image<color::xyz<double> >( "./image-xyz-1.tga" , 0.5, 1 );
-  make_image<color::xyz<double> >( "./image-xyz-2.tga" , 0.5, 2 );
-  make_image<color::yiq<double> >( "./image-yiq.tga" , 0.5 );
+  make_image<color::xyz<double> >( "./palette/xyz-0.tga" , 0.5, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-1.tga" , 0.5, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-2.tga" , 0.5, 2 );
+  make_image<color::yiq<double> >( "./palette/yiq.tga" , 0.5 );
 
-  make_image<color::yuv<double> >("./image-yuv_0.0.tga", 0.0);
-  make_image<color::yuv<double> >("./image-yuv_0.1.tga", 0.1);
-  make_image<color::yuv<double> >("./image-yuv_0.2.tga", 0.2);
-  make_image<color::yuv<double> >("./image-yuv_0.3.tga", 0.3);
-  make_image<color::yuv<double> >("./image-yuv_0.4.tga", 0.4);
-  make_image<color::yuv<double> >("./image-yuv_0.5.tga", 0.5);
-  make_image<color::yuv<double> >("./image-yuv_0.6.tga", 0.6);
-  make_image<color::yuv<double> >("./image-yuv_0.7.tga", 0.7);
-  make_image<color::yuv<double> >("./image-yuv_0.8.tga", 0.8);
-  make_image<color::yuv<double> >("./image-yuv_0.9.tga", 0.9);
-  make_image<color::yuv<double> >("./image-yuv_1.0.tga", 1.0);
+  make_image<color::yuv<double> >("./palette/yuv_0.0.tga", 0.0);
+  make_image<color::yuv<double> >("./palette/yuv_0.1.tga", 0.1);
+  make_image<color::yuv<double> >("./palette/yuv_0.2.tga", 0.2);
+  make_image<color::yuv<double> >("./palette/yuv_0.3.tga", 0.3);
+  make_image<color::yuv<double> >("./palette/yuv_0.4.tga", 0.4);
+  make_image<color::yuv<double> >("./palette/yuv_0.5.tga", 0.5);
+  make_image<color::yuv<double> >("./palette/yuv_0.6.tga", 0.6);
+  make_image<color::yuv<double> >("./palette/yuv_0.7.tga", 0.7);
+  make_image<color::yuv<double> >("./palette/yuv_0.8.tga", 0.8);
+  make_image<color::yuv<double> >("./palette/yuv_0.9.tga", 0.9);
+  make_image<color::yuv<double> >("./palette/yuv_1.0.tga", 1.0);
 
   invoke();
 

@@ -17,7 +17,7 @@
 
         typedef ::color::YCgCo< double >      right_type;
 
-        static left_type local( right_type( { 0.671568627, -0.328431373, 0 } ) );
+        static left_type local( right_type( { 0.671568627, 0.171568627, 0.5 } ) );
 
         color_parameter = local;
        }

@@ -12,8 +12,8 @@
       inline
       void aqua( ::color::model< ::color::category::rgb< tag_name > > & color_parameter )
        {// Same as Cyan
-        typedef ::color::category::rgb< tag_name     > category_left_type;
-        typedef ::color::model< category_left_type  > left_type;
+        typedef ::color::category::rgb< tag_name    > category_left_type;
+        typedef ::color::model< category_left_type  >          left_type;
 
         typedef ::color::rgb< std::uint8_t >      right_type;
 
