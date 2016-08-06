@@ -22,6 +22,22 @@ namespace color
 
          typedef  ::color::constant::YCgCo<category_type> this_type;
 
+         static /* constexpr*/ scalar_type const half(){ return  0.5; }
+         static /* constexpr*/ scalar_type const one() { return  1; }
+
+         static /* constexpr*/ scalar_type const Cg_min()  { return  -0.5; }
+         static /* constexpr*/ scalar_type const Cg_max()  { return   0.5; }
+         static /* constexpr*/ scalar_type const Cg_range(){ return   1; }
+
+         static /* constexpr*/ scalar_type const Co_min()  { return  -0.5; }
+         static /* constexpr*/ scalar_type const Co_max()  { return   0.5; }
+         static /* constexpr*/ scalar_type const Co_range(){ return   1; }
+
+         static scalar_type Cg_diverse  ( scalar_type const& normal ){ return this_type::Cg_range() * normal + this_type::Cg_min(); }
+         static scalar_type Cg_normalize( scalar_type const& divert ){ return ( divert - this_type::Cg_min() ) /this_type::Cg_range(); }
+
+         static scalar_type v_diverse  ( scalar_type const& normal ){ return this_type::Co_range() * normal + this_type::Co_min(); }
+         static scalar_type v_normalize( scalar_type const& divert ){ return ( divert - this_type::Co_min() ) /this_type::Co_range(); }
 
       };
 

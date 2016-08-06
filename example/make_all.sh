@@ -11,7 +11,9 @@ g++ -fexceptions -std=c++11 -g -I../src pp2f.cpp               -o  pp2f
 
 g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -o  akin
 
-g++ -fexceptions -std=c++11 -g -I../src assign_const.cpp        -o  assign_const
+g++ -fexceptions -std=c++11 -g -I../src assign_const_heavy.cpp        -o  assign_const_heavy
+g++ -fexceptions -std=c++11 -g -I../src assign_const_simple.cpp       -o  assign_const_simple
+
 
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2cmy.cpp     -o  convert_rgb2cmy
 g++ -fexceptions -std=c++11 -g -I../src convert_rgb2cmyk.cpp    -o  convert_rgb2cmyk
@@ -69,7 +71,9 @@ g++ -fexceptions -std=c++11 -g -I../src format_uint8.cpp            -o  format_u
 
 g++ -fexceptions -std=c++11 -g -I../src check_integrity.cpp         -o  check_integrity
 g++ -fexceptions -std=c++11 -g -I../src check_overburn.cpp          -o  check_overburn
-g++ -fexceptions -std=c++11 -g -I../src check_unique.cpp            -o  check_unique
+
+g++ -fexceptions -std=c++11 -g -I../src check_unique_hsl.cpp        -o  check_unique_hsl  
+g++ -fexceptions -std=c++11 -g -I../src check_unique_hsv.cpp        -o  check_unique_hsv
 
 g++ -fexceptions -std=c++11 -g -I../src set_red.cpp                 -o  set_red
 g++ -fexceptions -std=c++11 -g -I../src set_green.cpp               -o  set_green

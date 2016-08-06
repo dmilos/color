@@ -12,6 +12,8 @@
 #include "./model/get.hpp"
 #include "./model/conversion.hpp"
 
+#include "./targa.hpp"
+
 void sandbox_test()
  {
   ::color::YCbCr< double > y ( ::color::constant::red_type{} );
@@ -176,13 +178,10 @@ void make_blue()
  {
   int height = 256;
   int width  = 256;
-  typedef unsigned char targa_header_struct[18];
 
   targa_header_struct header;
 
-  void targa_make_header(int height, int width, targa_header_struct header);
-
-  targa_make_header( height, width, header);
+  targa_make_header( width, height, header);
 
   std::vector< color::bgra<std::uint8_t> >   image(height * width);
 
@@ -205,15 +204,12 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
  {
   int height = 1000;
   int width  = 1000;
-  typedef unsigned char targa_header_struct[18];
 
   typedef ::color::_internal::diverse< typename model_name::category_type > diverse_type;
 
   targa_header_struct header;
 
-  void targa_make_header(int height, int width, targa_header_struct header);
-
-  targa_make_header( height, width, header);
+  targa_make_header( width, height, header);
 
   std::vector< color::bgra<std::uint8_t> >   image(height * width);
 
@@ -264,10 +260,13 @@ int main(int argc, char const *argv[])
   extern void make_test_make();
   make_test_make();
 
+  extern int decompose_test( int argc, char const *argv[] );
+  decompose_test( argc, argv );
+
   RGB();
 
-  extern int mainX( int argc, char const *argv[] );
-  mainX( argc, argv );
+  extern int gray_test( int argc, char const *argv[] );
+  gray_test( argc, argv );
 
   extern void make_make_header();
   make_make_header();

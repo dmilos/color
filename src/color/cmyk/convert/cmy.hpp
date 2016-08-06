@@ -45,7 +45,7 @@ namespace color
            scalar_type cm = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
            scalar_type cy = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type k = std::min( { cc, cm, cy } );
+           scalar_type k = std::min/*<scalar_type>*/( { cc, cm, cy } );
            scalar_type c = scalar_type(0);
            scalar_type m = scalar_type(0);
            scalar_type y = scalar_type(0);

@@ -60,6 +60,9 @@ namespace color
            scalar_type Cg = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
            scalar_type Co = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
+           Cg = YCgCo_const_type::Cg_diverse( Cg );
+           Co = YCgCo_const_type::Cg_diverse( Co );
+
            scalar_type r = Y - Cg + Co;
            scalar_type g = Y + Cg;
            scalar_type b = Y - Cg - Co;
