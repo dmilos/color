@@ -37,7 +37,7 @@
 
         enum
          {
-            luminance_p  = ::color::place::_internal::luminance<category_type>::position_enum
+                 luma_p  = ::color::place::_internal::luma<category_type>::position_enum
           ,   inphase_p  = ::color::place::_internal::inphase<category_type>::position_enum
           ,quadrature_p  = ::color::place::_internal::quadrature<category_type>::position_enum
          };
@@ -49,7 +49,7 @@
 
         static scalar_type a11 = yiq_const_type::a11(), a12 = yiq_const_type::a12(), a13 = yiq_const_type::a13();
 
-        scalar_type y = normalize_type::template process< luminance_p>( color_parameter.template get< luminance_p>() );
+        scalar_type y = normalize_type::template process<      luma_p >( color_parameter.template get<     luma_p>() );
         scalar_type i = normalize_type::template process<   inphase_p>( color_parameter.template get<   inphase_p>() );
         scalar_type q = normalize_type::template process<quadrature_p>( color_parameter.template get<quadrature_p>() );
 

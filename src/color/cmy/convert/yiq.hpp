@@ -46,7 +46,7 @@ namespace color
 
          enum
           {
-             luminance_p  = ::color::place::_internal::luminance<category_right_type>::position_enum
+                  luma_p  = ::color::place::_internal::luma<category_right_type>::position_enum
            ,   inphase_p  = ::color::place::_internal::inphase<category_right_type>::position_enum
            ,quadrature_p  = ::color::place::_internal::quadrature<category_right_type>::position_enum
           };
@@ -61,7 +61,7 @@ namespace color
            static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
            static scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
 
-           scalar_type y = normalize_type::template process< luminance_p>( container_right_trait_type::template get< luminance_p>( right ) );
+           scalar_type y = normalize_type::template process<      luma_p>( container_right_trait_type::template get<      luma_p>( right ) );
            scalar_type i = normalize_type::template process<   inphase_p>( container_right_trait_type::template get<   inphase_p>( right ) );
            scalar_type q = normalize_type::template process<quadrature_p>( container_right_trait_type::template get<quadrature_p>( right ) );
 

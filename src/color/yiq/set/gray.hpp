@@ -35,10 +35,10 @@
 
         enum
          {
-           luminance_p  = ::color::place::_internal::luminance<category_type>::position_enum
+           luma_p  = ::color::place::_internal::luma<category_type>::position_enum
          };
 
-        color_parameter.template set<luminance_p>( reformat_type::template process<luminance_p,0>( component_parameter ) );
+        color_parameter.template set<luma_p>( reformat_type::template process<luma_p,0>( component_parameter ) );
        }
 
     }

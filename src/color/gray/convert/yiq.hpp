@@ -15,7 +15,7 @@ namespace color
      struct convert
       <
         ::color::category::gray< gray_tag_name >
-       ,::color::category::yiq<yiq_tag_name>
+       ,::color::category::yiq< yiq_tag_name >
       >
       {
        public:
@@ -31,13 +31,18 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+         enum
+          {
+             luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( container_right_trait_type::template get<0>( right ) ) );
+           container_left_trait_type::template set<0>( left, reformat_type::template process<0,luma_p>( container_right_trait_type::template get<luma_p>( right ) ) );
           }
       };
 

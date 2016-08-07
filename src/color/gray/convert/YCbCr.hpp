@@ -1,8 +1,8 @@
-#ifndef color_gray_convert_yuv
-#define color_gray_convert_yuv
+#ifndef color_gray_convert_YCbCr
+#define color_gray_convert_YCbCr
 
 #include "../../_internal/convert.hpp"
-#include "../../yuv/yuv.hpp"
+#include "../../YCbCr/place/place.hpp"
 
 #include "../../_internal/reformat.hpp"
 
@@ -11,16 +11,16 @@ namespace color
   namespace _internal
    {
 
-    template< typename gray_tag_name, typename yuv_tag_name >
+    template< typename gray_tag_name, typename YCbCr_tag_name >
      struct convert
       <
         ::color::category::gray< gray_tag_name >
-       ,::color::category::yuv< yuv_tag_name >
+       ,::color::category::YCbCr< YCbCr_tag_name >
       >
       {
        public:
          typedef ::color::category::gray< gray_tag_name > category_left_type;
-         typedef ::color::category::yuv<yuv_tag_name> category_right_type;
+         typedef ::color::category::YCbCr<YCbCr_tag_name> category_right_type;
          typedef double scalar_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
@@ -33,7 +33,7 @@ namespace color
 
          enum
           {
-             luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
+            luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
           };
 
          static void process

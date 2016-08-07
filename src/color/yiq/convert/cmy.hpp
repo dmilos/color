@@ -38,7 +38,7 @@ namespace color
 
          enum
           {
-             luminance_p  = ::color::place::_internal::luminance<category_left_type>::position_enum
+                  luma_p  = ::color::place::_internal::luma<category_left_type>::position_enum
            ,   inphase_p  = ::color::place::_internal::inphase<category_left_type>::position_enum
            ,quadrature_p  = ::color::place::_internal::quadrature<category_left_type>::position_enum
           };
@@ -74,7 +74,7 @@ namespace color
            i = ( i / b21  + scalar_type(1) ) / scalar_type(2);
            q = ( q / b32n + scalar_type(1) ) / scalar_type(2);
 
-           container_left_trait_type::template set< luminance_p>( left, diverse_type::template process< luminance_p>( y ) );
+           container_left_trait_type::template set<      luma_p>( left, diverse_type::template process<      luma_p>( y ) );
            container_left_trait_type::template set<   inphase_p>( left, diverse_type::template process<   inphase_p>( i ) );
            container_left_trait_type::template set<quadrature_p>( left, diverse_type::template process<quadrature_p>( q ) );
           }

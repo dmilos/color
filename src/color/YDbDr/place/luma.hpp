@@ -1,9 +1,9 @@
-#ifndef color_yiq_place_luminance
-#define color_yiq_place_luminance
+#ifndef color_YDbDr_place_luma
+#define color_YDbDr_place_luma
 
-// ::color::place::luminance<category_name>()
+// ::color::place::luma<category_name>()
 
-#include "../../generic/place/luminance.hpp"
+#include "../../generic/place/luma.hpp"
 #include "../category.hpp"
 #include "../trait/index.hpp"
 
@@ -15,10 +15,10 @@
       {
 
        template< typename tag_name >
-        struct luminance< ::color::category::yiq< tag_name > >
+        struct luma< ::color::category::YDbDr< tag_name > >
          {
           public:
-           typedef ::color::category::yiq< tag_name > category_type;
+           typedef ::color::category::YDbDr< tag_name > category_type;
            typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
            enum { position_enum = 0 };
