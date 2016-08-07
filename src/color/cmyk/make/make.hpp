@@ -1,6 +1,3 @@
-//#include "../../generic/make/make.hpp"
-//#include "../../rgb/rgb.hpp"
-
 #include "./black.hpp"
 #include "./gray.hpp"
 #include "./white.hpp"
