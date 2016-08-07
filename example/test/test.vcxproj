@@ -11,17 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bound.cpp" />
-    <ClCompile Include="conversion.cpp" />
-    <ClCompile Include="gray\main.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="make.cpp" />
-    <ClCompile Include="place.cpp" />
-    <ClCompile Include="selfie.cpp" />
-    <ClCompile Include="sizeof.cpp" />
-    <ClCompile Include="targa.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\src\color\cmyk\akin\akin.hpp" />
     <ClInclude Include="..\..\src\color\cmyk\akin\cmy.hpp" />
     <ClInclude Include="..\..\src\color\cmyk\akin\cmyk.hpp" />
@@ -1258,13 +1247,22 @@
     <ClInclude Include="..\..\src\color\_internal\utility\type\index.hpp" />
     <ClInclude Include="..\..\src\color\_internal\utility\type\traitc.hpp" />
     <ClInclude Include="..\..\src\color\_internal\utility\type\traitp.hpp" />
-    <ClInclude Include="model\conversion.hpp" />
-    <ClInclude Include="model\get.hpp" />
-    <ClInclude Include="model\invoke.hpp" />
-    <ClInclude Include="model\make.hpp" />
-    <ClInclude Include="model\operation.hpp" />
-    <ClInclude Include="model\reformat.hpp" />
-    <ClInclude Include="model\set.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bound.cpp" />
+    <ClCompile Include="conversion.cpp" />
+    <ClCompile Include="decompose.cpp" />
+    <ClCompile Include="get_invoke.cpp" />
+    <ClCompile Include="get_test.cpp" />
+    <ClCompile Include="gray_test.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="make.cpp" />
+    <ClCompile Include="place.cpp" />
+    <ClCompile Include="selfie.cpp" />
+    <ClCompile Include="set_invoke.cpp" />
+    <ClCompile Include="sizeof.cpp" />
+    <ClCompile Include="targa.cpp" />
+    <ClCompile Include="test_rgb.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A4EF806E-8D6E-4793-A076-7DEBE3316341}</ProjectGuid>

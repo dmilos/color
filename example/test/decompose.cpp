@@ -92,8 +92,6 @@ int decompose_test( int argc, char const *argv[] )
 
   decompose< ::color::gray<double>  >( image, "../out/dec/gray", width, height );
 
-  decompose< ::color::gray<double>  >( image, "../out/dec/gray", width, height );
-
   decompose< ::color::rgb<double>   >( image, "../out/dec/rgb", width, height );
   decompose< ::color::cmy<double>   >( image, "../out/dec/cmy", width, height );
   decompose< ::color::cmyk<double>  >( image, "../out/dec/cmyk", width, height );

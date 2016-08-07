@@ -140,21 +140,21 @@ namespace color
 
     namespace _internal
      {
-      using bgr_uint8   = ::color::category::_internal::rgb_scramble< std::uint8_t  ,   2, 0, 1 >;
-      using bgr_uint16  = ::color::category::_internal::rgb_scramble< std::uint16_t ,   2, 0, 1 >;
-      using bgr_uint32  = ::color::category::_internal::rgb_scramble< std::uint32_t ,   2, 0, 1 >;
-      using bgr_uint64  = ::color::category::_internal::rgb_scramble< std::uint64_t ,   2, 0, 1 >;
-      using bgr_float   = ::color::category::_internal::rgb_scramble<      float  ,     2, 0, 1 >;
-      using bgr_double  = ::color::category::_internal::rgb_scramble<      double ,     2, 0, 1 >;
-      using bgr_ldouble = ::color::category::_internal::rgb_scramble<      long double, 2, 0, 1 >;
+      using bgr_uint8   = ::color::category::_internal::rgb_scramble< std::uint8_t  ,   2, 1, 0 >;
+      using bgr_uint16  = ::color::category::_internal::rgb_scramble< std::uint16_t ,   2, 1, 0 >;
+      using bgr_uint32  = ::color::category::_internal::rgb_scramble< std::uint32_t ,   2, 1, 0 >;
+      using bgr_uint64  = ::color::category::_internal::rgb_scramble< std::uint64_t ,   2, 1, 0 >;
+      using bgr_float   = ::color::category::_internal::rgb_scramble<      float  ,     2, 1, 0 >;
+      using bgr_double  = ::color::category::_internal::rgb_scramble<      double ,     2, 1, 0 >;
+      using bgr_ldouble = ::color::category::_internal::rgb_scramble<      long double, 2, 1, 0 >;
 
-      using bgr_split233 = ::color::category::_internal::rgb_scramble< ::color::type::split233_t , 2, 0, 1 >;
-      using bgr_split323 = ::color::category::_internal::rgb_scramble< ::color::type::split323_t , 2, 0, 1 >;
-      using bgr_split332 = ::color::category::_internal::rgb_scramble< ::color::type::split332_t , 2, 0, 1 >;
-      using bgr_split422 = ::color::category::_internal::rgb_scramble< ::color::type::split422_t , 2, 0, 1 >;
-      using bgr_split556 = ::color::category::_internal::rgb_scramble< ::color::type::split556_t , 2, 0, 1 >;
-      using bgr_split565 = ::color::category::_internal::rgb_scramble< ::color::type::split565_t , 2, 0, 1 >;
-      using bgr_split655 = ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 2, 0, 1 >;
+      using bgr_split233 = ::color::category::_internal::rgb_scramble< ::color::type::split233_t , 2, 1, 0 >;
+      using bgr_split323 = ::color::category::_internal::rgb_scramble< ::color::type::split323_t , 2, 1, 0 >;
+      using bgr_split332 = ::color::category::_internal::rgb_scramble< ::color::type::split332_t , 2, 1, 0 >;
+      using bgr_split422 = ::color::category::_internal::rgb_scramble< ::color::type::split422_t , 2, 1, 0 >;
+      using bgr_split556 = ::color::category::_internal::rgb_scramble< ::color::type::split556_t , 2, 1, 0 >;
+      using bgr_split565 = ::color::category::_internal::rgb_scramble< ::color::type::split565_t , 2, 1, 0 >;
+      using bgr_split655 = ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 2, 1, 0 >;
      }
 
     using bgr_uint8   = ::color::category::rgb< ::color::category::_internal::bgr_uint8   >;

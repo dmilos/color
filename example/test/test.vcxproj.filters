@@ -256,9 +256,6 @@
     <Filter Include="Source Files\src\hsv\fix">
       <UniqueIdentifier>{c81ef610-c5a3-4ed1-80c0-75b6ea820334}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\main\gray">
-      <UniqueIdentifier>{9e9d3bbe-a98d-43fe-be68-52cfc3681c84}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\src\gray\akin">
       <UniqueIdentifier>{162ad690-451b-4ffb-9c9e-3d34faf8c651}</UniqueIdentifier>
     </Filter>
@@ -767,24 +764,6 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\yuv\yuv.hpp">
       <Filter>Source Files\src\yuv</Filter>
-    </ClInclude>
-    <ClInclude Include="model\conversion.hpp">
-      <Filter>Source Files\main</Filter>
-    </ClInclude>
-    <ClInclude Include="model\get.hpp">
-      <Filter>Source Files\main</Filter>
-    </ClInclude>
-    <ClInclude Include="model\invoke.hpp">
-      <Filter>Source Files\main</Filter>
-    </ClInclude>
-    <ClInclude Include="model\make.hpp">
-      <Filter>Source Files\main</Filter>
-    </ClInclude>
-    <ClInclude Include="model\operation.hpp">
-      <Filter>Source Files\main</Filter>
-    </ClInclude>
-    <ClInclude Include="model\set.hpp">
-      <Filter>Source Files\main</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\color\yiq\yiq.hpp">
       <Filter>Source Files\src\yiq</Filter>
@@ -4128,36 +4107,48 @@
     <ClInclude Include="..\..\src\color\_internal\reformat.hpp">
       <Filter>Source Files\src\_internal\utility</Filter>
     </ClInclude>
-    <ClInclude Include="model\reformat.hpp">
-      <Filter>Source Files\main</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="targa.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="make.cpp">
+    <ClCompile Include="bound.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
     <ClCompile Include="conversion.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
+    <ClCompile Include="decompose.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="get_invoke.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="get_test.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="gray_test.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="make.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="place.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
     <ClCompile Include="selfie.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="gray\main.cpp">
-      <Filter>Source Files\main\gray</Filter>
+    <ClCompile Include="set_invoke.cpp">
+      <Filter>Source Files\main</Filter>
     </ClCompile>
     <ClCompile Include="sizeof.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="bound.cpp">
+    <ClCompile Include="targa.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="place.cpp">
+    <ClCompile Include="test_rgb.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
   </ItemGroup>
