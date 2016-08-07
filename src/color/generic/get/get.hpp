@@ -11,4 +11,6 @@
 
 #include "./hue.hpp"
 
+#include "./luma.hpp"
+
 #endif

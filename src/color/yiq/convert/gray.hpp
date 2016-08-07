@@ -7,6 +7,8 @@
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
 
+#include "../place/place.hpp"
+
 namespace color
  {
   namespace _internal
@@ -36,7 +38,7 @@ namespace color
 
          enum
           {
-             luminance_p  = ::color::place::_internal::luminance<category_left_type>::position_enum
+                  luma_p  = ::color::place::_internal::luma<category_left_type>::position_enum
            ,   inphase_p  = ::color::place::_internal::inphase<category_left_type>::position_enum
            ,quadrature_p  = ::color::place::_internal::quadrature<category_left_type>::position_enum
           };
@@ -49,7 +51,7 @@ namespace color
           {
            scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
 
-           container_left_trait_type::template set< luminance_p>( left, diverse_type::template process<luminance_p>( g ) );
+           container_left_trait_type::template set<      luma_p>( left, diverse_type::template process<luma_p>( g ) );
            container_left_trait_type::template set<   inphase_p>( left, bound_left_trait_type::template minimum<inphase_p>() );
            container_left_trait_type::template set<quadrature_p>( left, bound_left_trait_type::template minimum<quadrature_p>() );
           }
