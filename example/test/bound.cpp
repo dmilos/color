@@ -38,9 +38,9 @@ template< typename color_model >
      ss << "<td class=\"table_divider\"></td>";
      ss <<  print_triplet( bound_type::minimum(0), bound_type::maximum(0), bound_type::range(0) );
      ss << "<td class=\"table_divider\"></td>";
-     ss <<  print_triplet( bound_type::minimum(1), bound_type::maximum(1), bound_type::range(1) );
+     if( 1 < color_model::size() ) ss <<  print_triplet( bound_type::minimum(1), bound_type::maximum(1), bound_type::range(1) );
      ss << "<td class=\"table_divider\"></td>";
-     ss <<  print_triplet( bound_type::minimum(2), bound_type::maximum(2), bound_type::range(2) );
+     if( 2 < color_model::size() ) ss <<  print_triplet( bound_type::minimum(2), bound_type::maximum(2), bound_type::range(2) );
    ss << "<tr>";
 
    return ss.str();
@@ -67,6 +67,17 @@ void print_bound()
   std::stringstream ss;
   ss << "<table  border=1 cellspacing=0 > " << std::endl;
 
+  
+  ss << print_semi_title( "0","N/A","N/A" );
+  ss << print_bound< color::gray<std::uint8_t  > >( "color::gray", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::gray<std::uint16_t > >( "color::gray", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::gray<std::uint32_t > >( "color::gray", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::gray<std::uint64_t > >( "color::gray", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::gray<float         > >( "color::gray", "float         " ) << std::endl;
+  ss << print_bound< color::gray<double        > >( "color::gray", "double        " ) << std::endl;
+  ss << print_bound< color::gray<long double   > >( "color::gray", "long double   " ) << std::endl;
+  
+  
   ss << print_semi_title( "Red","Green","Blue" );
   ss << print_bound< color::rgb<std::uint8_t  > >( "color::rgb", "std::uint8_t  " ) << std::endl;
   ss << print_bound< color::rgb<std::uint16_t > >( "color::rgb", "std::uint16_t " ) << std::endl;

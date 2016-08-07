@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <vector>
+#include <typeinfo>
 
 #include "color/color.hpp"
 
@@ -10,8 +11,11 @@
 
 using namespace std;
 
-typedef std::vector< ::color::bgr< std::uint8_t  > > image_type;
-typedef std::vector< ::color::gray< std::uint8_t  > > gray_image_type;
+typedef ::color::gray< std::uint8_t  > gray_color_type;
+typedef ::color::bgr< std::uint8_t  > color_color_type;
+
+typedef std::vector< color_color_type > image_type;
+typedef std::vector< gray_color_type > gray_image_type;
 
 void load_image( image_type & image )
  {
@@ -113,6 +117,9 @@ void make_gray_satur_hsl( gray_image_type & gray, image_type const& image )
 
 int gray_test( int argc, char const *argv[] )
  {
+  std::cout << sizeof( gray_color_type )  << " == sizeof (" <<typeid( gray_color_type ).name() << ")" << std::endl;
+  std::cout << sizeof( color_color_type )  << " == sizeof (" <<typeid( color_color_type ).name() << ")" << std::endl;
+
   image_type image;
   load_image( image );
 
