@@ -31,13 +31,18 @@ namespace color
           typedef typename container_left_trait_type::input_type         container_left_input_type;
           typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+          enum
+           {
+             lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
+           };
+
           static void process
            (
              container_left_input_type         left
             ,container_right_const_input_type  right
            )
            {
-            container_left_trait_type::template set<0>( left, reformat_type::template process<0,2>( container_right_trait_type::template get<2>( right ) ) );
+            container_left_trait_type::template set<0>( left, reformat_type::template process<0,lightness_p>( container_right_trait_type::template get<lightness_p>( right ) ) );
            }
        };
 

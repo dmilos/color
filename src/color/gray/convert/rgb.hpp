@@ -41,18 +41,19 @@ namespace color
 
          typedef  ::color::constant::gray< category_left_type > gray_const_type;
 
+         enum
+          {
+             red_p = ::color::place::_internal::red<category_right_type>::position_enum
+           , green_p = ::color::place::_internal::green<category_right_type>::position_enum
+           , blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           enum
-            {
-               red_p = ::color::place::_internal::red<category_right_type>::position_enum
-             , green_p = ::color::place::_internal::green<category_right_type>::position_enum
-             , blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
-            };
 
            scalar_type value =
                  gray_const_type::Rc() * normalize_type::template process<red_p  > ( container_right_trait_type::template get<red_p  >( right ) )
