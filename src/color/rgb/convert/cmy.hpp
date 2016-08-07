@@ -1,6 +1,9 @@
 #ifndef color_rgb_convert_cmy
 #define color_rgb_convert_cmy
 
+#include "../category.hpp"
+#include "./../cmy/category.hpp"
+
 #include "../../_internal/convert.hpp"
 #include "../../cmy/cmy.hpp"
 

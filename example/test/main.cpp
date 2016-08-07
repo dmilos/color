@@ -254,6 +254,9 @@ int main(int argc, char const *argv[])
   sandbox_test();
   ctor_test();
 
+  void main_place();
+   main_place();
+
   void check_get();
   check_get();
 

@@ -1,15 +1,16 @@
 #ifndef color_rgb_convert_hsl
 #define color_rgb_convert_hsl
 
+#include "../category.hpp"
+#include "../../hsl/category.hpp"
+
 #include "../../_internal/convert.hpp"
 #include "../../hsl/hsl.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
 
-#include "../place/red.hpp"
-#include "../place/green.hpp"
-#include "../place/blue.hpp"
+#include "../place/place.hpp"
 
 namespace color
  {

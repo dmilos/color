@@ -1,6 +1,9 @@
 #ifndef color_rgb_convert_cmyk
 #define color_rgb_convert_cmyk
 
+#include "../category.hpp"
+#include "./../cmyk/category.hpp"
+
 #include "../../_internal/convert.hpp"
 #include "../../cmyk/place/place.hpp"
 #include "../../cmyk/cmyk.hpp"

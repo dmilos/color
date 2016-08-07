@@ -4,11 +4,12 @@
 #include <vector>
 #include <string>
 
-using namespace std;
 #include "color/color.hpp"
 
 
 #include "./targa.hpp"
+
+using namespace std;
 
 typedef std::vector< ::color::bgr< std::uint8_t  > > image_type;
 typedef std::vector< ::color::gray< std::uint8_t  > > gray_image_type;
@@ -67,12 +68,12 @@ template< typename color_model >
          if( sub != channel )
           {
            //other[sub] = color_model::bound_type::minimum( sub );
-           other[sub] = 1;
+           other[sub] = 0;
           }
         }
 
        image_type::value_type back( other );
-       ::color::fix::overburn( other );
+       ::color::fix::overburn( back );
        component.push_back( back );
       }
       save_image( name+ "-" + std::to_string( channel ) + ".tga", component, width, height );

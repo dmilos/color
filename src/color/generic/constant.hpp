@@ -20,11 +20,10 @@ namespace color
 
          typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
-         typedef  ::color::constant::yuv<category_type> this_type;
-
-          static /* constexpr*/ scalar_type const zero() { return 0; }
-          static /* constexpr*/ scalar_type const one()  { return 1; }
-          static /* constexpr*/ scalar_type const two()  { return 2; }
+         static /* constexpr*/ scalar_type const zero() { return scalar_type( 0   ); }
+         static /* constexpr*/ scalar_type const half() { return scalar_type( 0.5 ); }
+         static /* constexpr*/ scalar_type const one()  { return scalar_type( 1   ); }
+         static /* constexpr*/ scalar_type const two()  { return scalar_type( 2   ); }
       };
 
    }

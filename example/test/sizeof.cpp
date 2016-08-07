@@ -167,31 +167,31 @@ void check_sizeof()
   ss << "<tr>";
   ss << "<td>"       << "model"<< "</td>" ;
 
-  ss << "<td>"       << "<code>bool</code>                 "<< "</td>" ;
+  ss << "<td>"       << "<code>bool</code>            (" << sizeof( bool          ) << " )</td>" ;
 
-  ss << "<td>"       << "<code>uint8_t</code>         "<< "</td>" ;
-  ss << "<td>"       << "<code>uint16_t</code>        "<< "</td>" ;
-  ss << "<td>"       << "<code>uint24_t</code>"<< "</td>" ;
-  ss << "<td>"       << "<code>uint32_t</code>        "<< "</td>" ;
-  ss << "<td>"       << "<code>uint48_t"<< "</td>" ;
-  ss << "<td>"       << "<code>uint64_t</code>        "<< "</td>" ;
+  ss << "<td>"       << "<code>uint8_t</code>         (" << sizeof( std::uint8_t   ) << " )</td>" ;
+  ss << "<td>"       << "<code>uint16_t</code>        (" << sizeof( std::uint16_t  ) << " )</td>" ;
+  ss << "<td>"       << "<code>uint24_t</code>        (" << sizeof( ::color::type::uint24_t  ) << " )</td>" ;
+  ss << "<td>"       << "<code>uint32_t</code>        (" << sizeof( std::uint32_t  ) << " )</td>" ;
+  ss << "<td>"       << "<code>uint48_t               (" << sizeof( ::color::type::uint48_t  ) << " )</td>" ;
+  ss << "<td>"       << "<code>uint64_t</code>        (" << sizeof( std::uint64_t  ) << " )</td>" ;
 
-  ss << "<td>"       << "<code>float      </code>" << "</td>" ;
-  ss << "<td>"       << "<code>double     </code>" << "</td>" ;
-  ss << "<td>"       << "<code>long double</code>" << "</td>" ;
+  ss << "<td>"       << "<code>float      </code>     (" << sizeof( float        ) << " )</td>" ;
+  ss << "<td>"       << "<code>double     </code>     (" << sizeof( double       ) << " )</td>" ;
+  ss << "<td>"       << "<code>long double</code>     (" << sizeof( long double  ) << " )</td>" ;
 
-  ss << "<td>"       << "<code>split233</code>"  << "</td>" ;
-  ss << "<td>"       << "<code>split332</code>"  << "</td>" ;
-  ss << "<td>"       << "<code>split422</code>"  << "</td>" ;
-  ss << "<td>"       << "<code>split556</code>"  << "</td>" ;
-  ss << "<td>"       << "<code>split565</code>"  << "</td>" ;
-  ss << "<td>"       << "<code>split655</code>"  << "</td>" ;
+  ss << "<td>"       << "<code>split233</code>        (" << sizeof( ::color::type::split233_type  ) << " )</td>" ;
+  ss << "<td>"       << "<code>split332</code>        (" << sizeof( ::color::type::split332_type  ) << " )</td>" ;
+  ss << "<td>"       << "<code>split422</code>        (" << sizeof( ::color::type::split422_type  ) << " )</td>" ;
+  ss << "<td>"       << "<code>split556</code>        (" << sizeof( ::color::type::split556_type  ) << " )</td>" ;
+  ss << "<td>"       << "<code>split565</code>        (" << sizeof( ::color::type::split565_type  ) << " )</td>" ;
+  ss << "<td>"       << "<code>split655</code>        (" << sizeof( ::color::type::split655_type  ) << " )</td>" ;
 
-  ss << "<td>"       << "<code>split2222</code>"  << "</td>" ;
-  ss << "<td>"       << "<code>split4444</code>"  << "</td>" ;
-  ss << "<td>"       << "<code>split8888</code>"  << "</td>" ;
+  ss << "<td>"       << "<code>split2222</code>       (" << sizeof( ::color::type::split2222_type  ) << " )</td>" ;
+  ss << "<td>"       << "<code>split4444</code>       (" << sizeof( ::color::type::split4444_type  ) << " )</td>" ;
+  ss << "<td>"       << "<code>split8888</code>       (" << sizeof( ::color::type::split8888_type  ) << " )</td>" ;
 
-  ss << "<td>"       << "<code>splitAAA2</code>"  << "</td>" ;
+  ss << "<td>"       << "<code>splitAAA2</code>       (" << sizeof( ::color::type::splitAAA2_type  ) << " )</td>" ;
   ss << "</tr>" << std::endl;
 
   ss << print_sizeof<::color::rgb  > ( "<code>rgb </code>" );  ss << std::endl;

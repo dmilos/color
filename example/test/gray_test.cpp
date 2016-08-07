@@ -3,31 +3,33 @@
 #include <iomanip>
 #include <vector>
 
-using namespace std;
 #include "color/color.hpp"
 
+
 #include "./targa.hpp"
+
+using namespace std;
 
 typedef std::vector< ::color::bgr< std::uint8_t  > > image_type;
 typedef std::vector< ::color::gray< std::uint8_t  > > gray_image_type;
 
 void load_image( image_type & image )
  {
-  std::ifstream ifs( "..\\gray\\image.tga", std::ios_base::binary );
+  std::ifstream ifs( "..\\data\\Barns_grand_tetons.tga", std::ios_base::binary );
   char header[ 18 ];
   
   ifs.read( header, 18 );
 
-  image.resize( 660 * 360 );
+  image.resize( 1600 * 1195 );
 
-  ifs.read( reinterpret_cast<char *>( image.data() ), 660 * 360 * 3 );
+  ifs.read( reinterpret_cast<char *>( image.data() ), 1600 * 1195 * 3 );
  }
 
 void save_image( std::string const& name, gray_image_type const& image )
  {
   targa_header_struct header;
 
-  targa_make_gray_header( 660, 360, header );
+  targa_make_gray_header( 1600, 1195, header );
 
   std::ofstream of( name, std::ios_base::binary);
   of.write((const char *)header, 18);
@@ -115,15 +117,15 @@ int gray_test( int argc, char const *argv[] )
   load_image( image );
 
   gray_image_type gray;
-  gray.resize( 660*360 );
+  gray.resize( 1600 * 1195 );
 
-  make_gray_gray(      gray, image ); save_image( "gray.tga",      gray );
-  make_gray_yiq(       gray, image ); save_image( "yiq-y.tga",     gray );
-  make_gray_yuv(       gray, image ); save_image( "yuv-y.tga",     gray );
-  make_gray_hsl(       gray, image ); save_image( "hsl-l.tga",     gray );
-  make_gray_hsv(       gray, image ); save_image( "hsv-v.tga",     gray );
-  make_gray_satur_hsv( gray, image ); save_image( "satur-hsv.tga", gray );
-  make_gray_satur_hsl( gray, image ); save_image( "satur-hsl.tga", gray );
+  make_gray_gray(      gray, image ); save_image( "./gray/gray.tga",      gray );
+  make_gray_yiq(       gray, image ); save_image( "./gray/yiq-y.tga",     gray );
+  make_gray_yuv(       gray, image ); save_image( "./gray/yuv-y.tga",     gray );
+  make_gray_hsl(       gray, image ); save_image( "./gray/hsl-l.tga",     gray );
+  make_gray_hsv(       gray, image ); save_image( "./gray/hsv-v.tga",     gray );
+  make_gray_satur_hsv( gray, image ); save_image( "./gray/satur-hsv.tga", gray );
+  make_gray_satur_hsl( gray, image ); save_image( "./gray/satur-hsl.tga", gray );
 
   return EXIT_SUCCESS;
  }

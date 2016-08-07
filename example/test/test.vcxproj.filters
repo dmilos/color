@@ -4157,5 +4157,8 @@
     <ClCompile Include="bound.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
+    <ClCompile Include="place.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -11,10 +11,8 @@ namespace color
     template< typename category_name >
      struct rgb
       {
+       typedef category_name category_type;
        typedef void akin_type;
-       //red()
-       //green()
-       //blue()
       };
 
    }

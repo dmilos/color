@@ -19,8 +19,9 @@ src/color/color.pp2f*.hpp
 
 example/akin
 
-example/assign_const
 
+example/assign_const_heavy
+example/assign_const_simple
 
 example/convert_cmy2gray
 example/convert_cmy2rgb
@@ -111,8 +112,9 @@ example/set_red
 
 example/check_integrity
 example/check_overburn
-example/check_unique
 
+example/check_unique_hsl
+example/check_unique_hsv
 
 example/fix_integrity
 example/fix_overburn

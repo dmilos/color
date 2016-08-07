@@ -1,6 +1,5 @@
 
 #include "./generic/generic.hpp"
-#include "./generic/operation/operation.hpp"
 
 #include "./cmy/cmy.hpp"
 #include "./cmyk/cmyk.hpp"
@@ -17,6 +16,8 @@
 #include "./YCbCr/YCbCr.hpp"
 #include "./YDbDr/YDbDr.hpp"
 
+#include "./generic/operation/operation.hpp"
+#include "./generic/compare/compare.hpp"
 
 using namespace ::color::operation::arithmetic;
 using namespace ::color::compare::operators;

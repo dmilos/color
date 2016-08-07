@@ -1,10 +1,22 @@
 #ifndef color_gray_convert_hsl
 #define color_gray_convert_hsl
 
+#include "../category.hpp"
+#include "../../hsl/category.hpp"
+
 #include "../../_internal/convert.hpp"
+
+
+//#include "../../hsl/category.hpp"
+//#include "../../hsl/trait/container/container.hpp"
+//#include "../../hsl/place/lightness.hpp"
+
 #include "../../hsl/hsl.hpp"
 
 #include "../../_internal/reformat.hpp"
+
+#include "../place/place.hpp"
+
 
 namespace color
  {
@@ -33,7 +45,7 @@ namespace color
 
           enum
            {
-             lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
+             lightness_p = ::color::place::_internal::lightness<category_right_type>::position_enum
            };
 
           static void process

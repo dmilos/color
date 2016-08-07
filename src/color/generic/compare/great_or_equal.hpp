@@ -24,7 +24,7 @@
      namespace  operators
       {
 
-      template< typename category_name >
+       template< typename category_name >
         inline
         bool
         operator >=( ::color::model< category_name > const& left, ::color::model< category_name > const&  right )

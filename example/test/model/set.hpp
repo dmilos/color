@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "color/color.hpp"
+
 #include "../print.hpp"
 
 template< typename category_name >

@@ -3,6 +3,8 @@ import nucleotide
 
 #make setting
 settings = nucleotide.Settings( )
+settings.set_custom( 'configuration', 'debug' )
+settings.set_custom( 'configuration',   ARGUMENTS.get( 'configuration', settings.get_custom( 'configuration' ) ) ) 
 
 #Accumulate 
 # Nothing to accumulate. This is minimal

@@ -5,14 +5,15 @@ import nucleotide
 Import('settings')
 
 name_full = 'test'
-directory_pdb = './out'
-directory_obj = './out'
 
 settings.set_custom( 'RTL', 'dynamic' )
 settings.set_custom( 'architecture', 'i386' )
-settings.set_custom( 'configuration', 'debug' )
 
 configuration = settings.get_custom( 'configuration' )
+
+directory_pdb = './out/bin-' + configuration + '/'
+directory_obj = './out/bin-' + configuration + '/'
+directory_exe = './out/'
 
 # Accumulate Atoms
 settings.accumulate( 'include', { '0' : '../../src' } )
@@ -46,14 +47,14 @@ source +=   [
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'get_test'       ) + envObject[ 'OBJSUFFIX' ],  source = './get_test.cpp'   )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'gray_test'      ) + envObject[ 'OBJSUFFIX' ],  source = './gray_test.cpp'  )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'decompose'      ) + envObject[ 'OBJSUFFIX' ],  source = './decompose.cpp'  )
-
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'place'          ) + envObject[ 'OBJSUFFIX' ],  source = './place.cpp'      )
   ]
 
 # Make native environment
 envProgram = nucleotide.Environment( settings ).native()
 
 # Create program
-program = envProgram.Program( target =  './out/test' + envProgram['PROGSUFFIX'], source = source )
+program = envProgram.Program( target =  directory_exe+ 'test' + envProgram['PROGSUFFIX'], source = source )
 
 # ... and return!
 Return( 'program' )

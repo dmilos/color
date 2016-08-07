@@ -33,7 +33,7 @@ namespace color
 
          enum
           {
-            value_p      = ::color::place::_internal::value<category_left_type>::position_enum
+            value_p      = ::color::place::_internal::value<category_right_type>::position_enum
           };
 
          static void process

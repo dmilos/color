@@ -68,9 +68,9 @@ template< typename category_name >
 
    color::compare::darker( u32b, u32b  );
    color::compare::brighter( u32b, u32b  );
-   
-   color::operation::gamma( u32b, 0.5 );   
-   color::operation::gamma( u32a, u32b, 0.5 );   
+
+   color::operation::gamma( u32b, 0.5 );
+   color::operation::gamma( u32a, u32b, 0.5 );
 
    u32a = u32b + u32c;
    u32a = u32b - u32c;
