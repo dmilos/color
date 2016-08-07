@@ -4,7 +4,7 @@
 // ::color::make::lime( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/lime.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct lime_type{};
-       }
-
-      using  lime_type = ::color::constant::base< ::color::constant::_internal::lime_type >;
-      using  lime_t    = ::color::constant::lime_type;
 
       template< typename category_name >
        struct make<::color::constant::lime_type, category_name >

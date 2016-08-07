@@ -4,7 +4,7 @@
 // ::color::make::orchid( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/orchid.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct orchid_type{};
-       }
-
-      using  orchid_type      = ::color::constant::base< ::color::constant::_internal::orchid_type >;
-      using  orchid_t    = ::color::constant::orchid_type;
 
       template< typename category_name >
        struct make<::color::constant::orchid_type, category_name >

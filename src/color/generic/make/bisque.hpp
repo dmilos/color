@@ -4,7 +4,7 @@
 // ::color::make::bisque( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/bisque.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct bisque_type{};
-       }
-
-      using  bisque_type = ::color::constant::base< ::color::constant::_internal::bisque_type >;
-      using  bisque_t    = ::color::constant::bisque_type;
 
       template< typename category_name >
        struct make<::color::constant::bisque_type, category_name >

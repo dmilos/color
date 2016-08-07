@@ -4,7 +4,7 @@
 // ::color::make::gold( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/gold.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct gold_type{};
-       }
-
-      using  gold_type = ::color::constant::base< ::color::constant::_internal::gold_type >;
-      using  gold_t    = ::color::constant::gold_type;
 
       template< typename category_name >
        struct make<::color::constant::gold_type, category_name >

@@ -4,7 +4,7 @@
 // ::color::make::plum( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/plum.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct plum_type{};
-       }
-
-      using  plum_type      = ::color::constant::base< ::color::constant::_internal::plum_type >;
-      using  plum_t    = ::color::constant::plum_type;
 
       template< typename category_name >
        struct make<::color::constant::plum_type, category_name >

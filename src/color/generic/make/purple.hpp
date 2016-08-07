@@ -4,7 +4,7 @@
 // ::color::make::purple( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/purple.hpp"
 
  namespace color
   {
@@ -39,14 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct purple_type{};
-       }
-
-      using  purple_type = ::color::constant::base< ::color::constant::_internal::purple_type >;
-      using  purple_t    = ::color::constant::purple_type;
-      using  purple      = ::color::constant::purple_type;
 
       template< typename category_name >
        struct make<::color::constant::purple_type, category_name >

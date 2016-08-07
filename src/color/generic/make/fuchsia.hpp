@@ -4,7 +4,7 @@
 // ::color::make::fuchsia( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/fuchsia.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct fuchsia_type{};
-       }
-
-      using  fuchsia_type = ::color::constant::base< ::color::constant::_internal::fuchsia_type >;
-      using  fuchsia_t    = ::color::constant::fuchsia_type;
 
       template< typename category_name >
        struct make<::color::constant::fuchsia_type, category_name >

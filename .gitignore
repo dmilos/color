@@ -116,7 +116,10 @@ example/check_overburn
 example/check_unique_hsl
 example/check_unique_hsv
 
-example/fix_integrity
+example/fix_integrity_cmyk
+example/fix_integrity_hsl
+example/fix_integrity_hsv
+
 example/fix_overburn
 example/fix_unique
 

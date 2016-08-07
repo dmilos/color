@@ -4,7 +4,7 @@
 // ::color::make::moccasin( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/moccasin.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct moccasin_type{};
-       }
-
-      using  moccasin_type = ::color::constant::base< ::color::constant::_internal::moccasin_type >;
-      using  moccasin_t    = ::color::constant::moccasin_type;
 
       template< typename category_name >
        struct make<::color::constant::moccasin_type, category_name >

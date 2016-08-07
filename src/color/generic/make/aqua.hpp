@@ -1,10 +1,10 @@
-#ifndef  color_generic_make_aqua
+#ifndef color_generic_make_aqua
 #define color_generic_make_aqua
 
 // ::color::make::aqua( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/aqua.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct aqua_type{};
-       }
-
-      using  aqua_type       = ::color::constant::base< ::color::constant::_internal::aqua_type >;
-      using  aqua_t          = ::color::constant::aqua_type;
 
       template< typename category_name >
        struct make< ::color::constant::aqua_type, category_name >

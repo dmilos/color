@@ -4,7 +4,7 @@
 // ::color::make::lavender( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/lavender.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct lavender_type{};
-       }
-
-      using  lavender_type = ::color::constant::base< ::color::constant::_internal::lavender_type >;
-      using  lavender_t    = ::color::constant::lavender_type;
 
       template< typename category_name >
        struct make<::color::constant::lavender_type, category_name >

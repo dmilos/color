@@ -4,7 +4,7 @@
 // ::color::make::thistle( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/thistle.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct thistle_type{};
-       }
-
-      using  thistle_type = ::color::constant::base< ::color::constant::_internal::thistle_type >;
-      using  thistle_t    = ::color::constant::thistle_type;
 
       template< typename category_name >
        struct make<::color::constant::thistle_type, category_name >

@@ -4,7 +4,7 @@
 // ::color::make::coral( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/coral.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct coral_type{};
-       }
-
-      using  coral_type = ::color::constant::base< ::color::constant::_internal::coral_type >;
-      using  coral_t    = ::color::constant::coral_type;
 
       template< typename category_name >
        struct make<::color::constant::coral_type, category_name >

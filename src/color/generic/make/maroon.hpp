@@ -4,7 +4,7 @@
 // ::color::make::maroon( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/maroon.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct maroon_type{};
-       }
-
-      using  maroon_type = ::color::constant::base< ::color::constant::_internal::maroon_type >;
-      using  maroon_t    = ::color::constant::maroon_type;
 
       template< typename category_name >
        struct make<::color::constant::maroon_type, category_name >

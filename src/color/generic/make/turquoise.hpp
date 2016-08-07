@@ -4,7 +4,7 @@
 // ::color::make::turquoise( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/turquoise.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct turquoise_type{};
-       }
-
-      using  turquoise_type = ::color::constant::base< ::color::constant::_internal::turquoise_type >;
-      using  turquoise_t    = ::color::constant::turquoise_type;
 
       template< typename category_name >
        struct make<::color::constant::turquoise_type, category_name >

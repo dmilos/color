@@ -4,7 +4,7 @@
 // ::color::make::tan( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/tan.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct tan_type{};
-       }
-
-      using  tan_type = ::color::constant::base< ::color::constant::_internal::tan_type >;
-      using  tan_t    = ::color::constant::tan_type;
 
       template< typename category_name >
        struct make<::color::constant::tan_type, category_name >

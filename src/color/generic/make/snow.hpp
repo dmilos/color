@@ -4,7 +4,7 @@
 // ::color::make::snow( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/snow.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct snow_type{};
-       }
-
-      using  snow_type = ::color::constant::base< ::color::constant::_internal::snow_type >;
-      using  snow_t    = ::color::constant::snow_type;
 
       template< typename category_name >
        struct make<::color::constant::snow_type, category_name >

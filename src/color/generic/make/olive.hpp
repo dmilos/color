@@ -4,7 +4,7 @@
 // ::color::make::olive( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/olive.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct olive_type{};
-       }
-
-      using  olive_type = ::color::constant::base< ::color::constant::_internal::olive_type >;
-      using  olive_t    = ::color::constant::olive_type;
 
       template< typename category_name >
        struct make<::color::constant::olive_type, category_name >

@@ -4,7 +4,7 @@
 // ::color::make::navy( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/navy.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct navy_type{};
-       }
-
-      using  navy_type = ::color::constant::base< ::color::constant::_internal::navy_type >;
-      using  navy_t    = ::color::constant::navy_type;
 
       template< typename category_name >
        struct make<::color::constant::navy_type, category_name >

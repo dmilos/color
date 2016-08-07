@@ -4,7 +4,7 @@
 // ::color::make::khaki( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/khaki.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct khaki_type{};
-       }
-
-      using  khaki_type = ::color::constant::base< ::color::constant::_internal::khaki_type >;
-      using  khaki_t    = ::color::constant::khaki_type;
 
       template< typename category_name >
        struct make<::color::constant::khaki_type, category_name >

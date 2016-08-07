@@ -4,7 +4,7 @@
 // ::color::make::aquamarine( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/aquamarine.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct aquamarine_type{};
-       }
-
-      using  aquamarine_type = ::color::constant::base< ::color::constant::_internal::aquamarine_type >;
-      using  aquamarine_t    = ::color::constant::aquamarine_type;
 
       template< typename category_name >
        struct make<::color::constant::aquamarine_type, category_name >

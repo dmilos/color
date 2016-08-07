@@ -4,7 +4,7 @@
 // ::color::make::peru( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/peru.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct peru_type{};
-       }
-
-      using  peru_type      = ::color::constant::base< ::color::constant::_internal::peru_type >;
-      using  peru_t    = ::color::constant::peru_type;
 
       template< typename category_name >
        struct make<::color::constant::peru_type, category_name >

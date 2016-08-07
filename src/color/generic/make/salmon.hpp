@@ -4,7 +4,7 @@
 // ::color::make::salmon( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/salmon.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct salmon_type{};
-       }
-
-      using  salmon_type = ::color::constant::base< ::color::constant::_internal::salmon_type >;
-      using  salmon_t    = ::color::constant::salmon_type;
 
       template< typename category_name >
        struct make<::color::constant::salmon_type, category_name >

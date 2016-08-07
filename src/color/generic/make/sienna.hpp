@@ -4,7 +4,7 @@
 // ::color::make::sienna( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/sienna.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct sienna_type{};
-       }
-
-      using  sienna_type = ::color::constant::base< ::color::constant::_internal::sienna_type >;
-      using  sienna_t    = ::color::constant::sienna_type;
 
       template< typename category_name >
        struct make<::color::constant::sienna_type, category_name >

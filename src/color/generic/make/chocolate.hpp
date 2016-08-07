@@ -4,7 +4,7 @@
 // ::color::make::chocolate( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/chocolate.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct chocolate_type{};
-       }
-
-      using  chocolate_type = ::color::constant::base< ::color::constant::_internal::chocolate_type >;
-      using  chocolate_t    = ::color::constant::chocolate_type;
 
       template< typename category_name >
        struct make<::color::constant::chocolate_type, category_name >

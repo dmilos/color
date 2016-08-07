@@ -4,7 +4,7 @@
 // ::color::make::gainsboro( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/gainsboro.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct gainsboro_type{};
-       }
-
-      using  gainsboro_type = ::color::constant::base< ::color::constant::_internal::gainsboro_type >;
-      using  gainsboro_t    = ::color::constant::gainsboro_type;
 
       template< typename category_name >
        struct make<::color::constant::gainsboro_type, category_name >

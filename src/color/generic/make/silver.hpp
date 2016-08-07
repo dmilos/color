@@ -4,7 +4,7 @@
 // ::color::make::silver( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/silver.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct silver_type{};
-       }
-
-      using  silver_type = ::color::constant::base< ::color::constant::_internal::silver_type >;
-      using  silver_t    = ::color::constant::silver_type;
 
       template< typename category_name >
        struct make<::color::constant::silver_type, category_name >

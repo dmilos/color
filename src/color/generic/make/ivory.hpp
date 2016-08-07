@@ -4,7 +4,7 @@
 // ::color::make::ivory( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/ivory.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct ivory_type{};
-       }
-
-      using  ivory_type = ::color::constant::base< ::color::constant::_internal::ivory_type >;
-      using  ivory_t    = ::color::constant::ivory_type;
 
       template< typename category_name >
        struct make<::color::constant::ivory_type, category_name >

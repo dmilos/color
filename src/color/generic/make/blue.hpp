@@ -4,7 +4,7 @@
 // ::color::make::blue( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/blue.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct blue_type{};
-       }
-
-      using  blue_type = ::color::constant::base< ::color::constant::_internal::blue_type >;
-      using  blue_t    = ::color::constant::blue_type;
 
       template< typename category_name >
        struct make<::color::constant::blue_type, category_name >

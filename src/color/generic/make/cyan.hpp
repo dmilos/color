@@ -4,7 +4,7 @@
 // ::color::make::cyan( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/cyan.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct cyan_type{};
-       }
-
-      using  cyan_type = ::color::constant::base< ::color::constant::_internal::cyan_type >;
-      using  cyan_t    = ::color::constant::cyan_type;
 
       template< typename category_name >
        struct make<::color::constant::cyan_type, category_name >

@@ -4,7 +4,7 @@
 // ::color::make::azure( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/azure.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct azure_type{};
-       }
-
-      using  azure_type = ::color::constant::base< ::color::constant::_internal::azure_type >;
-      using  azure_t    = ::color::constant::azure_type;
 
       template< typename category_name >
        struct make<::color::constant::azure_type, category_name >

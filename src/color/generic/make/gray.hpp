@@ -4,7 +4,7 @@
 // ::color::make::gray50( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/gray.hpp"
 
  namespace color
   {
@@ -89,13 +89,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct gray50_type{};
-       }
-
-      using  gray50_type = ::color::constant::base< ::color::constant::_internal::gray50_type >;
-      using  gray50_t    = ::color::constant::gray50_type;
 
       template< typename category_name >
        struct make<::color::constant::gray50_type, category_name >

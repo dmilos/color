@@ -18,6 +18,7 @@
 
 #include "./generic/operation/operation.hpp"
 #include "./generic/compare/compare.hpp"
+#include "./generic/make/make.hpp"
 
 using namespace ::color::operation::arithmetic;
 using namespace ::color::compare::operators;

@@ -4,7 +4,7 @@
 // ::color::make::linen( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/linen.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct linen_type{};
-       }
-
-      using  linen_type = ::color::constant::base< ::color::constant::_internal::linen_type >;
-      using  linen_t    = ::color::constant::linen_type;
 
       template< typename category_name >
        struct make<::color::constant::linen_type, category_name >

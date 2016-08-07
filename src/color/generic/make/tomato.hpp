@@ -4,7 +4,7 @@
 // ::color::make::tomato( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/tomato.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct tomato_type{};
-       }
-
-      using  tomato_type = ::color::constant::base< ::color::constant::_internal::tomato_type >;
-      using  tomato_t    = ::color::constant::tomato_type;
 
       template< typename category_name >
        struct make<::color::constant::tomato_type, category_name >

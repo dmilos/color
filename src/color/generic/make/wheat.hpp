@@ -4,7 +4,7 @@
 // ::color::make::wheat( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/wheat.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct wheat_type{};
-       }
-
-      using  wheat_type = ::color::constant::base< ::color::constant::_internal::wheat_type >;
-      using  wheat_t    = ::color::constant::wheat_type;
 
       template< typename category_name >
        struct make<::color::constant::wheat_type, category_name >

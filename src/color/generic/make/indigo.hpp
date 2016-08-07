@@ -4,7 +4,7 @@
 // ::color::make::indigo( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/indigo.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct indigo_type{};
-       }
-
-      using  indigo_type = ::color::constant::base< ::color::constant::_internal::indigo_type >;
-      using  indigo_t    = ::color::constant::indigo_type;
 
       template< typename category_name >
        struct make<::color::constant::indigo_type, category_name >

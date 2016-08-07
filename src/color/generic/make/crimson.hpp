@@ -4,7 +4,7 @@
 // ::color::make::crimson( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/crimson.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct crimson_type{};
-       }
-
-      using  crimson_type = ::color::constant::base< ::color::constant::_internal::crimson_type >;
-      using  crimson_t    = ::color::constant::crimson_type;
 
       template< typename category_name >
        struct make<::color::constant::crimson_type, category_name >

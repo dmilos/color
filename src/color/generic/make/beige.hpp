@@ -4,7 +4,7 @@
 // ::color::make::beige( c )
 
 // TODO #include "model.hpp"
-// TODO #include "constant/make.hpp"
+#include "../constant/beige.hpp"
 
  namespace color
   {
@@ -39,13 +39,6 @@
 
     namespace constant
      {
-      namespace _internal
-       {
-        struct beige_type{};
-       }
-
-      using  beige_type = ::color::constant::base< ::color::constant::_internal::beige_type >;
-      using  beige_t    = ::color::constant::beige_type;
 
       template< typename category_name >
        struct make<::color::constant::beige_type, category_name >
