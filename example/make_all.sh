@@ -46,7 +46,10 @@ g++ -fexceptions -std=c++11 -g -I../src get_green.cpp               -o  get_gree
 g++ -fexceptions -std=c++11 -g -I../src get_blue.cpp                -o  get_blue
 g++ -fexceptions -std=c++11 -g -I../src get_gray.cpp                -o  get_gray
 
-g++ -fexceptions -std=c++11 -g -I../src fix_integrity.cpp           -o  fix_integrity
+g++ -fexceptions -std=c++11 -g -I../src fix_integrity_cmyk.cpp      -o  fix_integrity_cmyk
+g++ -fexceptions -std=c++11 -g -I../src fix_integrity_hsl.cpp       -o  fix_integrity_hsl
+g++ -fexceptions -std=c++11 -g -I../src fix_integrity_hsv.cpp       -o  fix_integrity_hsv
+
 g++ -fexceptions -std=c++11 -g -I../src fix_overburn.cpp            -o  fix_overburn
 g++ -fexceptions -std=c++11 -g -I../src fix_unique.cpp              -o  fix_unique
 
@@ -72,7 +75,7 @@ g++ -fexceptions -std=c++11 -g -I../src format_uint8.cpp            -o  format_u
 g++ -fexceptions -std=c++11 -g -I../src check_integrity.cpp         -o  check_integrity
 g++ -fexceptions -std=c++11 -g -I../src check_overburn.cpp          -o  check_overburn
 
-g++ -fexceptions -std=c++11 -g -I../src check_unique_hsl.cpp        -o  check_unique_hsl  
+g++ -fexceptions -std=c++11 -g -I../src check_unique_hsl.cpp        -o  check_unique_hsl
 g++ -fexceptions -std=c++11 -g -I../src check_unique_hsv.cpp        -o  check_unique_hsv
 
 g++ -fexceptions -std=c++11 -g -I../src set_red.cpp                 -o  set_red
