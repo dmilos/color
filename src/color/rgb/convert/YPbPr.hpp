@@ -60,11 +60,12 @@ namespace color
            scalar_type Pb = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
            scalar_type Pr = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-           Pb -= 0.5;
-           Pr -= 0.5;
-           scalar_type r = 0.99999999999914679361 * Y - 1.2188941887145875e-06 * Pb + 1.4019995886561440468  * Pr;
-           scalar_type g = 0.99999975910502514331 * Y - 0.34413567816504303521 * Pb - 0.71413649331646789076 * Pr;
-           scalar_type b = 1.00000124040004623180 * Y + 1.77200006607230409200 * Pb + 2.1453384174593273e-06 * Pr;
+           Pb = YPbPr_const_type::Pb_diverse( Pb );
+           Pr = YPbPr_const_type::Pr_diverse( Pr );
+
+           scalar_type r = YPbPr_const_type::a11() * Y + YPbPr_const_type::a12() * Pb + YPbPr_const_type::a13() * Pr;
+           scalar_type g = YPbPr_const_type::a21() * Y + YPbPr_const_type::a22() * Pb + YPbPr_const_type::a23() * Pr;
+           scalar_type b = YPbPr_const_type::a31() * Y + YPbPr_const_type::a32() * Pb + YPbPr_const_type::a33() * Pr;
 
            container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r ) );
            container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( g ) );

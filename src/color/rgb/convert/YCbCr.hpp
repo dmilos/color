@@ -63,9 +63,9 @@ namespace color
            Cb = YCbCr_const_type::Cb_diverse( Cb );
            Cr = YCbCr_const_type::Cr_diverse( Cr );
 
-           scalar_type r = Y + Cr;
-           scalar_type g = Y - (YCbCr_const_type::Kby()/YCbCr_const_type::Kgy() ) * Cb - (YCbCr_const_type::Kry()/YCbCr_const_type::Kgy() ) * Cr;
-           scalar_type b = Y + Cb;
+           scalar_type r = YCbCr_const_type::a11() * Y + YCbCr_const_type::a12() * Cb + YCbCr_const_type::a13() * Cr;
+           scalar_type g = YCbCr_const_type::a21() * Y + YCbCr_const_type::a22() * Cb + YCbCr_const_type::a23() * Cr;
+           scalar_type b = YCbCr_const_type::a31() * Y + YCbCr_const_type::a32() * Cb + YCbCr_const_type::a33() * Cr;
 
            container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r ) );
            container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( g ) );

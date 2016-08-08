@@ -29,7 +29,7 @@ namespace color
 
      }
 
-    template< typename tag_name >
+    template< typename tag_name/*, reference_etor reference_ent */ >
      struct YCbCr
       {
        typedef void category_name;

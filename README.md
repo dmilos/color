@@ -20,7 +20,7 @@
 - One file to include to start the fun
 - Out of the box ready
  - No need to recompile or start some install process.
-- Color models: CMY, CMYK, GRAY, HSL, HSV, RGB, YIQ, YUV.
+- Color models: CMY, CMYK, GRAY, HSL, HSV, RGB, YIQ, YUV, (new)YCgCo.
 
 ###Code sample:
 ```c++

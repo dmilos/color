@@ -170,50 +170,88 @@ template< typename category_left_name, typename category_middle_name, typename c
 
 void check_conversion()
  {
-  color::cmy<long double >   c;
-  color::cmyk<long double >  ck({0,0,0,0.5});
-  color::rgb<long double >   r;
-  color::hsl<long double >   hl;
-  color::hsv<long double >   hv;
-  color::yiq<long double >   yi;
-  color::yuv<long double >   yu;
-  color::xyz<long double >   x;
+  color::cmy<long double >     c;
+  color::cmyk<long double >    ck({0,0,0,0.5});
+  color::rgb<long double >     r;
+  color::hsl<long double >     hl;
+  color::hsv<long double >     hv;
+  color::yiq<long double >     yi;
+  color::yuv<long double >     yu;
+  color::xyz<long double >     x;
+  color::YPbPr<long double >  ypbpr;
+  color::YDbDr<long double >  ydbdr;
+  color::YCgCo<long double >  ycgco;
+  color::YCbCr<long double >  ycbcr;
 
-  check_conversion_back_and_forth( c, c  );  check_conversion_back_and_forth( ck, c  );  check_conversion_back_and_forth( r, c  );
-  check_conversion_back_and_forth( c, ck );  check_conversion_back_and_forth( ck, ck );  check_conversion_back_and_forth( r, ck );
-  check_conversion_back_and_forth( c, r  );  check_conversion_back_and_forth( ck, r  );  check_conversion_back_and_forth( r, r  );
-  check_conversion_back_and_forth( c, hl );  check_conversion_back_and_forth( ck, hl );  check_conversion_back_and_forth( r, hl );
-  check_conversion_back_and_forth( c, hv );  check_conversion_back_and_forth( ck, hv );  check_conversion_back_and_forth( r, hv );
-  check_conversion_back_and_forth( c, yi );  check_conversion_back_and_forth( ck, yi );  check_conversion_back_and_forth( r, yi );
-  check_conversion_back_and_forth( c, yu );  check_conversion_back_and_forth( ck, yu );  check_conversion_back_and_forth( r, yu );
-  check_conversion_back_and_forth( c, x  );  check_conversion_back_and_forth( ck, x  );  check_conversion_back_and_forth( r, x  );
+  check_conversion_back_and_forth( c, c  );  check_conversion_back_and_forth( ck, c  );
+  check_conversion_back_and_forth( c, ck );  check_conversion_back_and_forth( ck, ck );
+  check_conversion_back_and_forth( c, r  );  check_conversion_back_and_forth( ck, r  );
+  check_conversion_back_and_forth( c, hl );  check_conversion_back_and_forth( ck, hl );
+  check_conversion_back_and_forth( c, hv );  check_conversion_back_and_forth( ck, hv );
+  check_conversion_back_and_forth( c, yi );  check_conversion_back_and_forth( ck, yi );
+  check_conversion_back_and_forth( c, yu );  check_conversion_back_and_forth( ck, yu );
+  check_conversion_back_and_forth( c, x  );  check_conversion_back_and_forth( ck, x  );
+  check_conversion_back_and_forth( c, ypbpr  );  check_conversion_back_and_forth( ck, ypbpr  );
+  check_conversion_back_and_forth( c, ydbdr  );  check_conversion_back_and_forth( ck, ydbdr  );
+  check_conversion_back_and_forth( c, ycgco  );  check_conversion_back_and_forth( ck, ycgco  );
+  check_conversion_back_and_forth( c, ycbcr  );  check_conversion_back_and_forth( ck, ycbcr  );
 
-  check_conversion_back_and_forth( hl, c  );  check_conversion_back_and_forth( hv, c  );
-  check_conversion_back_and_forth( hl, ck );  check_conversion_back_and_forth( hv, ck );
-  check_conversion_back_and_forth( hl, r  );  check_conversion_back_and_forth( hv, r  );
-  check_conversion_back_and_forth( hl, hl );  check_conversion_back_and_forth( hv, hl );
-  check_conversion_back_and_forth( hl, hv );  check_conversion_back_and_forth( hv, hv );
-  check_conversion_back_and_forth( hl, yi );  check_conversion_back_and_forth( hv, yi );
-  check_conversion_back_and_forth( hl, yu );  check_conversion_back_and_forth( hv, yu );
-  check_conversion_back_and_forth( hl, x  );  check_conversion_back_and_forth( hv, x  );
+  check_conversion_back_and_forth( r, c  );
+  check_conversion_back_and_forth( r, ck );
+  check_conversion_back_and_forth( r, r  );
+  check_conversion_back_and_forth( r, hl );
+  check_conversion_back_and_forth( r, hv );
+  check_conversion_back_and_forth( r, yi );
+  check_conversion_back_and_forth( r, yu );
+  check_conversion_back_and_forth( r, x  );
+  check_conversion_back_and_forth( r, ypbpr  );
+  check_conversion_back_and_forth( r, ydbdr  );
+  check_conversion_back_and_forth( r, ycgco  );
+  check_conversion_back_and_forth( r, ycbcr  );
 
-  check_conversion_back_and_forth( yi, c  );  check_conversion_back_and_forth( yu, c  );
-  check_conversion_back_and_forth( yi, ck );  check_conversion_back_and_forth( yu, ck );
-  check_conversion_back_and_forth( yi, r  );  check_conversion_back_and_forth( yu, r  );
-  check_conversion_back_and_forth( yi, hl );  check_conversion_back_and_forth( yu, hl );
-  check_conversion_back_and_forth( yi, hv );  check_conversion_back_and_forth( yu, hv );
-  check_conversion_back_and_forth( yi, yi );  check_conversion_back_and_forth( yu, yi );
-  check_conversion_back_and_forth( yi, yu );  check_conversion_back_and_forth( yu, yu );
-  check_conversion_back_and_forth( yi, x  );  check_conversion_back_and_forth( yu, x  );
 
-  //check_conversion_back_and_forth( YPbPr, c  );  check_conversion_back_and_forth( YDbDr, c  );  check_conversion_back_and_forth( YCgCo, c  ); check_conversion_back_and_forth( YCbCr, c  );
-  //check_conversion_back_and_forth( YPbPr, ck );  check_conversion_back_and_forth( YDbDr, ck );  check_conversion_back_and_forth( YCgCo, ck ); check_conversion_back_and_forth( YCbCr, ck );
-  //check_conversion_back_and_forth( YPbPr, r  );  check_conversion_back_and_forth( YDbDr, r  );  check_conversion_back_and_forth( YCgCo, r  ); check_conversion_back_and_forth( YCbCr, r  );
-  //check_conversion_back_and_forth( YPbPr, hl );  check_conversion_back_and_forth( YDbDr, hl );  check_conversion_back_and_forth( YCgCo, hl ); check_conversion_back_and_forth( YCbCr, hl );
-  //check_conversion_back_and_forth( YPbPr, hv );  check_conversion_back_and_forth( YDbDr, hv );  check_conversion_back_and_forth( YCgCo, hv ); check_conversion_back_and_forth( YCbCr, hv );
-  //check_conversion_back_and_forth( YPbPr, yi );  check_conversion_back_and_forth( YDbDr, yi );  check_conversion_back_and_forth( YCgCo, yi ); check_conversion_back_and_forth( YCbCr, yi );
-  //check_conversion_back_and_forth( YPbPr, yu );  check_conversion_back_and_forth( YDbDr, yu );  check_conversion_back_and_forth( YCgCo, yu ); check_conversion_back_and_forth( YCbCr, yu );
-  //check_conversion_back_and_forth( YPbPr, x  );  check_conversion_back_and_forth( YDbDr, x  );  check_conversion_back_and_forth( YCgCo, x  ); check_conversion_back_and_forth( YCbCr, x  );
+  check_conversion_back_and_forth( hl,     c  );  check_conversion_back_and_forth( hv,     c  );
+  check_conversion_back_and_forth( hl,     ck );  check_conversion_back_and_forth( hv,     ck );
+  check_conversion_back_and_forth( hl,     r  );  check_conversion_back_and_forth( hv,     r  );
+  check_conversion_back_and_forth( hl,     hl );  check_conversion_back_and_forth( hv,     hl );
+  check_conversion_back_and_forth( hl,     hv );  check_conversion_back_and_forth( hv,     hv );
+  check_conversion_back_and_forth( hl,     yi );  check_conversion_back_and_forth( hv,     yi );
+  check_conversion_back_and_forth( hl,     yu );  check_conversion_back_and_forth( hv,     yu );
+  check_conversion_back_and_forth( hl,     x  );  check_conversion_back_and_forth( hv,     x  );
+  check_conversion_back_and_forth( hl, ypbpr  );  check_conversion_back_and_forth( hv, ypbpr  );
+  check_conversion_back_and_forth( hl, ydbdr  );  check_conversion_back_and_forth( hv, ydbdr  );
+  check_conversion_back_and_forth( hl, ycgco  );  check_conversion_back_and_forth( hv, ycgco  );
+  check_conversion_back_and_forth( hl, ycbcr  );  check_conversion_back_and_forth( hv, ycbcr  );
+
+
+  check_conversion_back_and_forth( yi,     c  );  check_conversion_back_and_forth( yu,     c  );
+  check_conversion_back_and_forth( yi,     ck );  check_conversion_back_and_forth( yu,     ck );
+  check_conversion_back_and_forth( yi,     r  );  check_conversion_back_and_forth( yu,     r  );
+  check_conversion_back_and_forth( yi,     hl );  check_conversion_back_and_forth( yu,     hl );
+  check_conversion_back_and_forth( yi,     hv );  check_conversion_back_and_forth( yu,     hv );
+  check_conversion_back_and_forth( yi,     yi );  check_conversion_back_and_forth( yu,     yi );
+  check_conversion_back_and_forth( yi,     yu );  check_conversion_back_and_forth( yu,     yu );
+  check_conversion_back_and_forth( yi,     x  );  check_conversion_back_and_forth( yu,     x  );
+  check_conversion_back_and_forth( yi, ypbpr  );  check_conversion_back_and_forth( yu, ypbpr  );
+  check_conversion_back_and_forth( yi, ydbdr  );  check_conversion_back_and_forth( yu, ydbdr  );
+  check_conversion_back_and_forth( yi, ycgco  );  check_conversion_back_and_forth( yu, ycgco  );
+  check_conversion_back_and_forth( yi, ycbcr  );  check_conversion_back_and_forth( yu, ycbcr  );
+
+
+  check_conversion_back_and_forth( ypbpr, c  );  check_conversion_back_and_forth( ydbdr, c  );  check_conversion_back_and_forth( ycgco, c  ); check_conversion_back_and_forth( ycbcr, c  );
+  check_conversion_back_and_forth( ypbpr, ck );  check_conversion_back_and_forth( ydbdr, ck );  check_conversion_back_and_forth( ycgco, ck ); check_conversion_back_and_forth( ycbcr, ck );
+  check_conversion_back_and_forth( ypbpr, r  );  check_conversion_back_and_forth( ydbdr, r  );  check_conversion_back_and_forth( ycgco, r  ); check_conversion_back_and_forth( ycbcr, r  );
+  check_conversion_back_and_forth( ypbpr, hl );  check_conversion_back_and_forth( ydbdr, hl );  check_conversion_back_and_forth( ycgco, hl ); check_conversion_back_and_forth( ycbcr, hl );
+  check_conversion_back_and_forth( ypbpr, hv );  check_conversion_back_and_forth( ydbdr, hv );  check_conversion_back_and_forth( ycgco, hv ); check_conversion_back_and_forth( ycbcr, hv );
+  check_conversion_back_and_forth( ypbpr, yi );  check_conversion_back_and_forth( ydbdr, yi );  check_conversion_back_and_forth( ycgco, yi ); check_conversion_back_and_forth( ycbcr, yi );
+  check_conversion_back_and_forth( ypbpr, yu );  check_conversion_back_and_forth( ydbdr, yu );  check_conversion_back_and_forth( ycgco, yu ); check_conversion_back_and_forth( ycbcr, yu );
+  check_conversion_back_and_forth( ypbpr, x  );  check_conversion_back_and_forth( ydbdr, x  );  check_conversion_back_and_forth( ycgco, x  ); check_conversion_back_and_forth( ycbcr, x  );
+
+  check_conversion_back_and_forth( ypbpr, ypbpr  );  check_conversion_back_and_forth( ydbdr, ypbpr  );  check_conversion_back_and_forth( ycgco, ypbpr  ); check_conversion_back_and_forth( ycbcr, ypbpr  );
+  check_conversion_back_and_forth( ypbpr, ydbdr  );  check_conversion_back_and_forth( ydbdr, ydbdr  );  check_conversion_back_and_forth( ycgco, ydbdr  ); check_conversion_back_and_forth( ycbcr, ydbdr  );
+  check_conversion_back_and_forth( ypbpr, ycgco  );  check_conversion_back_and_forth( ydbdr, ycgco  );  check_conversion_back_and_forth( ycgco, ycgco  ); check_conversion_back_and_forth( ycbcr, ycgco  );
+  check_conversion_back_and_forth( ypbpr, ycbcr  );  check_conversion_back_and_forth( ydbdr, ycbcr  );  check_conversion_back_and_forth( ycgco, ycbcr  ); check_conversion_back_and_forth( ycbcr, ycbcr  );
+
 
   //check_conversion_back_and_forth( x, c  );
   //check_conversion_back_and_forth( x, ck );

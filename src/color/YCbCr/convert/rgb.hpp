@@ -56,9 +56,9 @@ namespace color
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           scalar_type Y  =  YCbCr_const_type::Kry() * r + YCbCr_const_type::Kgy() * g + YCbCr_const_type::Kby() * b;
-           scalar_type Cb =  b - Y;
-           scalar_type Cr =  r - Y;
+           scalar_type Y  = YCbCr_const_type::b11() * r + YCbCr_const_type::b12() * g + YCbCr_const_type::b13() * b;
+           scalar_type Cb = YCbCr_const_type::b21() * r + YCbCr_const_type::b22() * g + YCbCr_const_type::b23() * b;
+           scalar_type Cr = YCbCr_const_type::b31() * r + YCbCr_const_type::b32() * g + YCbCr_const_type::b33() * b;
 
            Cb = YCbCr_const_type::Cb_normalize( Cb );
            Cr = YCbCr_const_type::Cr_normalize( Cr );
