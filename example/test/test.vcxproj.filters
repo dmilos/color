@@ -397,6 +397,9 @@
     <Filter Include="Source Files\src\yuv\place">
       <UniqueIdentifier>{0eec070e-5afc-4e60-983c-fd2dfca19113}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\yuv\contant">
+      <UniqueIdentifier>{06bd5ac6-de10-46ef-bb45-b87edec0d949}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\color\color.hpp">
@@ -4106,6 +4109,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\_internal\reformat.hpp">
       <Filter>Source Files\src\_internal\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\yuv\constant\reference.hpp">
+      <Filter>Source Files\src\yuv\contant</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

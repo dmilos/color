@@ -11,24 +11,62 @@ namespace color
  {
   namespace constant
    {
+    namespace yuv
+     {
 
-    template< typename category_name >
-     struct yuv
+      namespace _internal
+       {
+        template< typename scalar_name, ::color::constant::yuv::reference_enum reference_number = ::color::constant::yuv::error_entity  >
+         struct base
+          {
+           typedef scalar_name scalar_type;
+           static /* constexpr*/ scalar_type const Wr()  { return  0; }
+           static /* constexpr*/ scalar_type const Wb()  { return  0; }
+           static /* constexpr*/ scalar_type const Wg()  { return  0; }
+           static /* constexpr*/ scalar_type const Umax(){ return  0; }
+           static /* constexpr*/ scalar_type const Vmax(){ return  0; }
+          };
+
+        template< typename scalar_name >
+         struct base< scalar_name, ::color::constant::yuv::BT_601_entity >
+          {
+           typedef scalar_name scalar_type;
+
+
+           static /* constexpr*/ scalar_type const half(){ return  0.5; }
+           static /* constexpr*/ scalar_type const one() { return  1; }
+           static /* constexpr*/ scalar_type const Wr()  { return  0.2988390; }
+           static /* constexpr*/ scalar_type const Wb()  { return  0.1143500; }
+           static /* constexpr*/ scalar_type const Wg()  { return  1 - 0.2988390 - 0.1143500; }
+           static /* constexpr*/ scalar_type const Umax(){ return  0.436; }
+           static /* constexpr*/ scalar_type const Vmax(){ return  0.615; }
+          };
+
+        template< typename scalar_name >
+         struct base< scalar_name, ::color::constant::yuv::BT_709_entity >
+          {
+           typedef scalar_name scalar_type;
+           static /* constexpr*/ scalar_type const Wr()  { return  0.2126729; }
+           static /* constexpr*/ scalar_type const Wb()  { return  0.0721750; }
+           static /* constexpr*/ scalar_type const Wg()  { return  1 - 0.2126729 - 0.0721750; }
+           static /* constexpr*/ scalar_type const Umax(){ return  0.436; }
+           static /* constexpr*/ scalar_type const Vmax(){ return  0.615; }
+          };
+       }
+
+    template< typename category_name, ::color::constant::yuv::reference_enum reference_number = ::color::constant::yuv::BT_601_entity >
+     struct parameter 
+     : public ::color::constant::yuv::_internal::base< typename ::color::trait::scalar< category_name >::instance_type, reference_number >
       {
        public:
          typedef category_name  category_type;
 
          typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
-         typedef  ::color::constant::yuv<category_type> this_type;
+         typedef  ::color::constant::yuv::parameter<category_type> this_type;
 
          static /* constexpr*/ scalar_type const half(){ return  0.5; }
          static /* constexpr*/ scalar_type const one() { return  1; }
-         static /* constexpr*/ scalar_type const Wr()  { return  0.298839; }
-         static /* constexpr*/ scalar_type const Wb()  { return  0.114350; }
-         static /* constexpr*/ scalar_type const Wg()  { return  this_type::one() - this_type::Wr()-this_type::Wb(); }
-         static /* constexpr*/ scalar_type const Umax(){ return  0.436; }
-         static /* constexpr*/ scalar_type const Vmax(){ return  0.615; }
 
          static /* constexpr*/ scalar_type const u_min()  { return  -this_type::Umax(); }
          static /* constexpr*/ scalar_type const u_max()  { return   this_type::Umax(); }
@@ -45,6 +83,7 @@ namespace color
          static scalar_type v_normalize( scalar_type const& divert ){ return ( divert - this_type::v_min() ) /this_type::v_range(); }
       };
 
+    }
    }
  }
 

@@ -35,10 +35,10 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;
 
-        typedef ::color::constant::yuv< category_type >  yuv_const_type; 
+        typedef ::color::constant::yuv::parameter< category_type >  yuv_parameter_type; 
 
-        static scalar_type const Wr   = yuv_const_type::Wr();
-        static scalar_type const Vmax = yuv_const_type::Vmax();
+        static scalar_type const Wr   = yuv_parameter_type::Wr();
+        static scalar_type const Vmax = yuv_parameter_type::Vmax();
 
 
         static scalar_type const b11 = 1, b12 = 0,                          b13 =  (1 - Wr) / Vmax;

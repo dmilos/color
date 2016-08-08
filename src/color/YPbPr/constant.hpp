@@ -13,15 +13,15 @@ namespace color
    {
 
     /*
-    enum YPbPr_reference_etor
+    enum YPbPr_reference_enum
      {
-      YPbPr_reference_ITU_R_BT_2020_ent ( 0.2627, (1-r-b), 0.0593 )
-      YPbPr_reference_ITU_R_BT_709_ent  ( 0.2126, (1-r-b), 0.0722 )
-      YPbPr_reference_ITU_R_BT_601_ent  ( 0.299,  (1-r-b), 0.114  )
+      YPbPr_reference_ITU_R_BT_2020_entity ( 0.2627, (1-r-b), 0.0593 )
+      YPbPr_reference_ITU_R_BT_709_entity  ( 0.2126, (1-r-b), 0.0722 )( 0.2126729, (1-r-b) , 0.0721750 )
+      YPbPr_reference_ITU_R_BT_601_entity  ( 0.299,  (1-r-b), 0.114  )
      }
     */
 
-    template< typename category_name >
+    template< typename category_name/*, YPbPr_reference_enum reference_entity */ >
      struct YPbPr
       {
        public:

@@ -1091,6 +1091,7 @@
     <ClInclude Include="..\..\src\color\yuv\akin\yuv.hpp" />
     <ClInclude Include="..\..\src\color\yuv\category.hpp" />
     <ClInclude Include="..\..\src\color\yuv\constant.hpp" />
+    <ClInclude Include="..\..\src\color\yuv\constant\reference.hpp" />
     <ClInclude Include="..\..\src\color\yuv\convert\cmy.hpp" />
     <ClInclude Include="..\..\src\color\yuv\convert\cmyk.hpp" />
     <ClInclude Include="..\..\src\color\yuv\convert\convert.hpp" />

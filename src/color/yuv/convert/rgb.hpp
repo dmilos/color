@@ -36,7 +36,7 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-         typedef ::color::constant::yuv< category_left_type >  yuv_const_type;
+         typedef ::color::constant::yuv::parameter< category_left_type >  yuv_parameter_type;
 
          static void process
           (
@@ -51,11 +51,11 @@ namespace color
              ,blue_p  = ::color::place::_internal::blue<category_right_type>::position_enum
             };
 
-           static scalar_type const Wr   = yuv_const_type::Wr();
-           static scalar_type const Wb   = yuv_const_type::Wb();
-           static scalar_type const Wg   = yuv_const_type::Wg();
-           static scalar_type const Umax = yuv_const_type::Umax();
-           static scalar_type const Vmax = yuv_const_type::Vmax();
+           static scalar_type const Wr   = yuv_parameter_type::Wr();
+           static scalar_type const Wb   = yuv_parameter_type::Wb();
+           static scalar_type const Wg   = yuv_parameter_type::Wg();
+           static scalar_type const Umax = yuv_parameter_type::Umax();
+           static scalar_type const Vmax = yuv_parameter_type::Vmax();
 
            scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
