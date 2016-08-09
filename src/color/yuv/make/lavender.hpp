@@ -10,12 +10,26 @@
 
      template< typename tag_name >
       inline
-      void lavender( ::color::model< ::color::category::yuv< tag_name > > & color_parameter )
+      void lavender( ::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter )
        {
-        typedef ::color::category::yuv< tag_name >         category_left_type;
+        typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity >         category_left_type;
         typedef ::color::model< category_left_type  > left_type;
 
-        typedef ::color::yuv< double >      right_type;
+        typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity >      right_type;
+
+        static left_type local( right_type( { 0.910901961, 0.0341960784, -0.0078442561 } ) );
+
+        color_parameter = local;
+       }
+
+     template< typename tag_name >
+      inline
+      void lavender( ::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter )
+       {
+        typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity >         category_left_type;
+        typedef ::color::model< category_left_type  > left_type;
+
+        typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity >      right_type;
 
         static left_type local( right_type( { 0.910901961, 0.0341960784, -0.0078442561 } ) );
 

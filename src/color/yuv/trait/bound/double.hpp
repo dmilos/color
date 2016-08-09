@@ -14,8 +14,8 @@ namespace color
   namespace trait
    {
 
-    template< >
-     struct bound< ::color::category::yuv_double >
+    template< ::color::constant::yuv::reference_enum reference_number >
+     struct bound< ::color::category::yuv_double< reference_number > >
       : public ::color::_internal::utility::bound::yuv_scalar< unsigned, double >
       {
       };

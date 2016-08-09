@@ -15,15 +15,19 @@ namespace color
  {
   namespace _internal
    {
-    template< typename yuv_tag_name, typename rgb_tag_name >
+    template
+      <
+         typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
+        ,typename rgb_tag_name 
+      >
      struct convert
       <
-        ::color::category::yuv<   yuv_tag_name >
+        ::color::category::yuv<   yuv_tag_name, yuv_reference_number >
        ,::color::category::rgb<   rgb_tag_name >
       >
       {
        public:
-         typedef ::color::category::yuv<   yuv_tag_name > category_left_type;
+         typedef ::color::category::yuv<   yuv_tag_name, yuv_reference_number > category_left_type;
          typedef ::color::category::rgb<   rgb_tag_name > category_right_type;
          typedef double  scalar_type;
 
@@ -36,7 +40,7 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-         typedef ::color::constant::yuv::parameter< category_left_type >  yuv_parameter_type;
+         typedef ::color::constant::yuv::parameter< category_left_type,  static_cast<::color::constant::yuv::reference_enum>(category_left_type::reference_entity) >  yuv_parameter_type;
 
          static void process
           (

@@ -38,7 +38,7 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef ::color::constant::YPbPr< category_right_type > YPbPr_const_type;
+         typedef ::color::constant::YPbPr::parameter< category_right_type > YPbPr_parameter_type;
 
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -60,12 +60,12 @@ namespace color
            scalar_type Pb = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
            scalar_type Pr = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-           Pb = YPbPr_const_type::Pb_diverse( Pb );
-           Pr = YPbPr_const_type::Pr_diverse( Pr );
+           Pb = YPbPr_parameter_type::Pb_diverse( Pb );
+           Pr = YPbPr_parameter_type::Pr_diverse( Pr );
 
-           scalar_type r = YPbPr_const_type::a11() * Y + YPbPr_const_type::a12() * Pb + YPbPr_const_type::a13() * Pr;
-           scalar_type g = YPbPr_const_type::a21() * Y + YPbPr_const_type::a22() * Pb + YPbPr_const_type::a23() * Pr;
-           scalar_type b = YPbPr_const_type::a31() * Y + YPbPr_const_type::a32() * Pb + YPbPr_const_type::a33() * Pr;
+           scalar_type r = YPbPr_parameter_type::a11() * Y + YPbPr_parameter_type::a12() * Pb + YPbPr_parameter_type::a13() * Pr;
+           scalar_type g = YPbPr_parameter_type::a21() * Y + YPbPr_parameter_type::a22() * Pb + YPbPr_parameter_type::a23() * Pr;
+           scalar_type b = YPbPr_parameter_type::a31() * Y + YPbPr_parameter_type::a32() * Pb + YPbPr_parameter_type::a33() * Pr;
 
            container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r ) );
            container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( g ) );

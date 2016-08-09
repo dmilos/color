@@ -12,15 +12,19 @@ namespace color
   namespace _internal
    {
 
-    template< typename yuv_tag_name, typename gray_tag_name >
+    template
+      <
+        typename yuv_tag_name  , ::color::constant::yuv::reference_enum yuv_reference_number
+       ,typename gray_tag_name 
+      >
      struct convert
       <
-        ::color::category::yuv<   yuv_tag_name >
+        ::color::category::yuv<   yuv_tag_name, yuv_reference_number >
        ,::color::category::gray< gray_tag_name >
       >
       {
        public:
-         typedef ::color::category::yuv<   yuv_tag_name > category_left_type;
+         typedef ::color::category::yuv<   yuv_tag_name, yuv_reference_number > category_left_type;
          typedef ::color::category::gray< gray_tag_name > category_right_type;
          typedef double  scalar_type;
 

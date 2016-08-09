@@ -3,7 +3,7 @@
 
 #include "../../category.hpp"
 
-#include "../../../_internal/utility/container/bool.hpp"
+#include "../../../_internal/utility/container/boolean.hpp"
 
 #include "../../../generic/trait/container.hpp"
 

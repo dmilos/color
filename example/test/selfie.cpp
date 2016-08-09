@@ -71,7 +71,10 @@ void test_selfie()
   std::cout<< "-- hsl_float"  << std::endl; test_make< color::category::hsl_double>();  std::cout << std::endl;
   std::cout<< "-- hsv_float"  << std::endl; test_make< color::category::hsv_double>();  std::cout << std::endl;
   std::cout<< "-- yiq_float"  << std::endl; test_make< color::category::yiq_double>();  std::cout << std::endl;
-  std::cout<< "-- yuv_float"  << std::endl; test_make< color::category::yuv_double>();  std::cout << std::endl;
+
+  std::cout<< "-- yuv609_float"  << std::endl; test_make< color::category::yuv_double<::color::constant::yuv::BT_601_entity> >();  std::cout << std::endl;
+  std::cout<< "-- yuv701_float"  << std::endl; test_make< color::category::yuv_double<::color::constant::yuv::BT_709_entity> >();  std::cout << std::endl;
+
   std::cout<< "-- rgb_float"  << std::endl; test_make< color::category::rgb_double>();  std::cout << std::endl;
 
   std::cout<< "-- YCbCr_float"  << std::endl; test_make< color::category::YCbCr_double>();  std::cout << std::endl;

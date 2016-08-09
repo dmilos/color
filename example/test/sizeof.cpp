@@ -202,7 +202,7 @@ void check_sizeof()
   ss << print_sizeof<::color::hsl  > ( "<code>hsl </code>" );  ss << std::endl;
   ss << print_sizeof<::color::hsv  > ( "<code>hsv </code>" );  ss << std::endl;
   ss << print_sizeof<::color::yiq  > ( "<code>yiq </code>" );  ss << std::endl;
-  ss << print_sizeof<::color::yuv  > ( "<code>yuv </code>" );  ss << std::endl;
+//  ss << print_sizeof<::color::yuv  > ( "<code>yuv </code>" );  ss << std::endl;
 
   ss << print_sizeof<::color::YCbCr  > ( "<code>YCbCr </code>" );  ss << std::endl;
   ss << print_sizeof<::color::YCgCo  > ( "<code>YCgCo </code>" );  ss << std::endl;

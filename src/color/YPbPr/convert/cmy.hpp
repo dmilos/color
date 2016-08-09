@@ -37,7 +37,7 @@ namespace color
         typedef ::color::_internal::diverse< category_left_type >    diverse_type;
         typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-        typedef ::color::constant::YPbPr< category_left_type >  YPbPr_const_type;
+        typedef ::color::constant::YPbPr::parameter< category_left_type >  YPbPr_parameter_type;
 
         enum
          {
@@ -52,14 +52,13 @@ namespace color
           ,container_right_const_input_type  right
          )
          {
-
           scalar_type r = scalar_type(1) - normalize_type::template process<cyan_p    >( container_right_trait_type::template get<cyan_p    >( right ) );
           scalar_type g = scalar_type(1) - normalize_type::template process<magenta_p >( container_right_trait_type::template get<magenta_p >( right ) );
           scalar_type b = scalar_type(1) - normalize_type::template process<yellow_p  >( container_right_trait_type::template get<yellow_p  >( right ) );
 
-           scalar_type y  = 0; //!< TODO
-           scalar_type Pb = 0; //!< TODO
-           scalar_type Pr = 0; //!< TODO
+           scalar_type y  = YPbPr_parameter_type::a11() * r  +  YPbPr_parameter_type::a12() * g  + YPbPr_parameter_type::a13() * b ;
+           scalar_type Pb = YPbPr_parameter_type::a21() * r  +  YPbPr_parameter_type::a22() * g  + YPbPr_parameter_type::a23() * b ;
+           scalar_type Pr = YPbPr_parameter_type::a31() * r  +  YPbPr_parameter_type::a32() * g  + YPbPr_parameter_type::a33() * b ;
 
           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( y ) );
           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( Pb ) );

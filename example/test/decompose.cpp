@@ -67,8 +67,8 @@ template< typename color_model >
         {
          if( sub != channel )
           {
-           //other[sub] = color_model::bound_type::minimum( sub );
-           other[sub] = 0;
+           other[sub] = color_model::bound_type::minimum( sub );
+           //other[sub] = 0;
           }
         }
 
@@ -100,7 +100,9 @@ int decompose_test( int argc, char const *argv[] )
   decompose< ::color::hsl<double>   >( image, "../out/dec/hsl", width, height );
 
   decompose< ::color::yiq<double>   >( image, "../out/dec/yiq", width, height );
-  decompose< ::color::yuv<double>   >( image, "../out/dec/yuv", width, height );
+  
+  decompose< ::color::yuv<double, ::color::constant::yuv::BT_601_entity>   >( image, "../out/dec/yuv-601", width, height );
+  decompose< ::color::yuv<double, ::color::constant::yuv::BT_709_entity>   >( image, "../out/dec/yuv-709", width, height );
 
   decompose< ::color::YCbCr<double> >( image, "../out/dec/YCbCr", width, height );
   decompose< ::color::YCgCo<double> >( image, "../out/dec/YCgCo", width, height );

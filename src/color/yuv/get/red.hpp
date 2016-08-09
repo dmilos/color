@@ -20,12 +20,12 @@
    namespace get
     {
 
-     template< typename tag_name >
+     template< typename tag_name, ::color::constant::yuv::reference_enum reference_number >
       inline
-      typename ::color::trait::component< typename ::color::akin::rgb<::color::category::yuv<tag_name> >::akin_type >::return_type
-      red( ::color::model< ::color::category::yuv<tag_name> > const& color_parameter )
+      typename ::color::trait::component< typename ::color::akin::rgb<::color::category::yuv<tag_name,reference_number> >::akin_type >::return_type
+      red( ::color::model< ::color::category::yuv<tag_name,reference_number> > const& color_parameter )
        {
-        typedef ::color::category::yuv< tag_name >  category_type;
+        typedef ::color::category::yuv< tag_name, reference_number >  category_type;
 
         typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
 
@@ -35,7 +35,7 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;
 
-        typedef ::color::constant::yuv::parameter< category_type >  yuv_parameter_type; 
+        typedef ::color::constant::yuv::parameter< category_type, reference_number >  yuv_parameter_type; 
 
         static scalar_type const Wr   = yuv_parameter_type::Wr();
         static scalar_type const Vmax = yuv_parameter_type::Vmax();

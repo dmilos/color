@@ -55,12 +55,12 @@ void test_set_invoke()
   test_generic_set<::color::category::yiq_float>( 0.5 );
   test_generic_set<::color::category::yiq_double>( 0.5 );
 
-  test_generic_set<::color::category::yuv_uint8>( 0.5 );
-  test_generic_set<::color::category::yuv_uint16>( 0.5 );
-  test_generic_set<::color::category::yuv_uint32>( 0.5 );
-  test_generic_set<::color::category::yuv_uint64>( 0.5 );
-  test_generic_set<::color::category::yuv_float>( 0.5 );
-  test_generic_set<::color::category::yuv_double>( 0.5 );
+  //test_generic_set<::color::category::yuv_uint8>( 0.5 );
+  //test_generic_set<::color::category::yuv_uint16>( 0.5 );
+  //test_generic_set<::color::category::yuv_uint32>( 0.5 );
+  //test_generic_set<::color::category::yuv_uint64>( 0.5 );
+  //test_generic_set<::color::category::yuv_float>( 0.5 );
+  //test_generic_set<::color::category::yuv_double>( 0.5 );
 
 
 }

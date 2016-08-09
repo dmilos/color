@@ -10,14 +10,28 @@
 
      template< typename tag_name >
       inline
-      void bisque( ::color::model< ::color::category::yuv< tag_name > > & color_parameter )
+      void bisque( ::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter )
        {
-        typedef ::color::category::yuv< tag_name >         category_left_type;
+        typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity >         category_left_type;
         typedef ::color::model< category_left_type  > left_type;
 
-        typedef ::color::yuv< double >      right_type;
+        typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity >      right_type;
 
-        static left_type local( right_type( { 0.898125, -0.0728922122, 0.0893767832 } ) );
+        static left_type local( right_type( { 0.898061125, -0.0728895732, 0.0894122864 } ) );
+
+        color_parameter = local;
+       }
+
+     template< typename tag_name >
+      inline
+      void bisque( ::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter )
+       {
+        typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity >         category_left_type;
+        typedef ::color::model< category_left_type  > left_type;
+
+        typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity >      right_type;
+
+        static left_type local( right_type( { 0.892562237, -0.0669923052, 0.083922202 } ) );
 
         color_parameter = local;
        }

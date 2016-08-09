@@ -14,8 +14,8 @@ namespace color
   namespace trait
    {
 
-    template< >
-     struct container< ::color::category::yuv_uint16 >
+    template< ::color::constant::yuv::reference_enum reference_number >
+     struct container< ::color::category::yuv_uint16<reference_number> >
       : public ::color::_internal::utility::container::array< std::uint16_t, 3 >
       {
       };

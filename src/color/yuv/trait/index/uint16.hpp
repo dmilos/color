@@ -14,8 +14,8 @@ namespace color
   namespace trait
    {
 
-    template< >
-     struct index< ::color::category::yuv_uint16 >
+    template< ::color::constant::yuv::reference_enum reference_number >
+     struct index< ::color::category::yuv_uint16< reference_number > >
       : public ::color::_internal::utility::type::index< unsigned >
       {
       };

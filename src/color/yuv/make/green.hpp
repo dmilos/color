@@ -10,14 +10,28 @@
 
      template< typename tag_name >
       inline
-      void green( ::color::model< ::color::category::yuv< tag_name > > & color_parameter )
+      void green( ::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter )
        {
-        typedef ::color::category::yuv< tag_name >         category_left_type;
+        typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity >         category_left_type;
         typedef ::color::model< category_left_type  > left_type;
 
-        typedef ::color::yuv< double >      right_type;
+        typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity >      right_type;
 
-        static left_type local( right_type( { 0.2935, -0.144431151, -0.257492867 } ) );
+        static left_type local( right_type( { 0.2934055, -0.144441707, -0.257350855 } ) );
+
+        color_parameter = local;
+       }
+
+     template< typename tag_name >
+      inline
+      void green( ::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter )
+       {
+        typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity >         category_left_type;
+        typedef ::color::model< category_left_type  > left_type;
+
+        typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity >      right_type;
+
+        static left_type local( right_type( { 0.35757605, -0.168030779, -0.279311192 } ) );
 
         color_parameter = local;
        }

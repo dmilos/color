@@ -10,18 +10,32 @@
 
      template< typename tag_name >
       inline
-      void violet( ::color::model< ::color::category::yuv< tag_name > > & color_parameter )
+      void violet( ::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter )
        {
-        typedef ::color::category::yuv< tag_name >         category_left_type;
+        typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity >         category_left_type;
         typedef ::color::model< category_left_type  > left_type;
 
-        typedef ::color::yuv< double >      right_type;
+        typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity >      right_type;
 
         static left_type local( right_type( { 0.684721569, 0.122341681, 0.218111605 } ) );
 
         color_parameter = local;
        }
 
+     template< typename tag_name >
+      inline
+      void violet( ::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter )
+       {
+        typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity >         category_left_type;
+        typedef ::color::model< category_left_type  > left_type;
+
+        typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity >      right_type;
+
+        static left_type local( right_type( { 0.684721569, 0.122341681, 0.218111605 } ) );
+
+        color_parameter = local;
+       }
+       
     }
   }
 

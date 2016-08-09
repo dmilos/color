@@ -20,16 +20,20 @@ namespace color
   namespace _internal
    {
 
-    template< typename rgb_tag_name, typename yuv_tag_name >
+    template
+     <
+       typename rgb_tag_name
+      ,typename yuv_tag_name, ::color::constant::yuv::reference_enum reference_number 
+     >
      struct convert
       <
         ::color::category::rgb< rgb_tag_name >
-       ,::color::category::yuv< yuv_tag_name>
+       ,::color::category::yuv< yuv_tag_name, reference_number>
       >
       {
        public:
          typedef ::color::category::rgb< rgb_tag_name >  category_left_type;
-         typedef ::color::category::yuv<yuv_tag_name>    category_right_type;
+         typedef ::color::category::yuv<yuv_tag_name, reference_number>    category_right_type;
          typedef double  scalar_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
@@ -38,7 +42,7 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef ::color::constant::yuv::parameter< category_right_type > yuv_parameter_type;
+         typedef ::color::constant::yuv::parameter< category_right_type, static_cast<::color::constant::yuv::reference_enum>( category_right_type::reference_entity ) > yuv_parameter_type;
 
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;

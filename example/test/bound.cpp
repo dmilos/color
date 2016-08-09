@@ -76,8 +76,7 @@ void print_bound()
   ss << print_bound< color::gray<float         > >( "color::gray", "float         " ) << std::endl;
   ss << print_bound< color::gray<double        > >( "color::gray", "double        " ) << std::endl;
   ss << print_bound< color::gray<long double   > >( "color::gray", "long double   " ) << std::endl;
-  
-  
+
   ss << print_semi_title( "Red","Green","Blue" );
   ss << print_bound< color::rgb<std::uint8_t  > >( "color::rgb", "std::uint8_t  " ) << std::endl;
   ss << print_bound< color::rgb<std::uint16_t > >( "color::rgb", "std::uint16_t " ) << std::endl;
@@ -113,7 +112,8 @@ void print_bound()
   ss << print_bound< color::hsl<double        > >( "color::hsl", "double        " ) << std::endl;
   ss << print_bound< color::hsl<long double   > >( "color::hsl", "long double   " ) << std::endl;
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
-  ss << print_semi_title( "Hue","Saturation","Value" );
+
+  ss << print_semi_title( "Hue", "Saturation", "Value" );
   ss << print_bound< color::hsv<std::uint8_t  > >( "color::hsv", "std::uint8_t  " ) << std::endl;
   ss << print_bound< color::hsv<std::uint16_t > >( "color::hsv", "std::uint16_t " ) << std::endl;
   ss << print_bound< color::hsv<std::uint32_t > >( "color::hsv", "std::uint32_t " ) << std::endl;
@@ -122,6 +122,7 @@ void print_bound()
   ss << print_bound< color::hsv<double        > >( "color::hsv", "double        " ) << std::endl;
   ss << print_bound< color::hsv<long double   > >( "color::hsv", "long double   " ) << std::endl;
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
+
   ss << print_semi_title( "(Y)Luminance","In-phase","Quadrature" );
   ss << print_bound< color::yiq<std::uint8_t  > >( "color::yiq", "std::uint8_t  " ) << std::endl;
   ss << print_bound< color::yiq<std::uint16_t > >( "color::yiq", "std::uint16_t " ) << std::endl;
@@ -131,15 +132,26 @@ void print_bound()
   ss << print_bound< color::yiq<double        > >( "color::yiq", "double        " ) << std::endl;
   ss << print_bound< color::yiq<long double   > >( "color::yiq", "long double   " ) << std::endl;
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
+
   ss << print_semi_title( "(Y)Luminance","(U)Chrominance","(V)Chrominance" );
-  ss << print_bound< color::yuv<std::uint8_t  > >( "color::yuv", "std::uint8_t  " ) << std::endl;
-  ss << print_bound< color::yuv<std::uint16_t > >( "color::yuv", "std::uint16_t " ) << std::endl;
-  ss << print_bound< color::yuv<std::uint32_t > >( "color::yuv", "std::uint32_t " ) << std::endl;
-  ss << print_bound< color::yuv<std::uint64_t > >( "color::yuv", "std::uint64_t " ) << std::endl;
-  ss << print_bound< color::yuv<float         > >( "color::yuv", "float         " ) << std::endl;
-  ss << print_bound< color::yuv<double        > >( "color::yuv", "double        " ) << std::endl;
-  ss << print_bound< color::yuv<long double   > >( "color::yuv", "long double   " ) << std::endl;
+  ss << print_bound< color::yuv<std::uint8_t , ::color::constant::yuv::BT_601_entity > >( "color::yuv601", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::yuv<std::uint16_t, ::color::constant::yuv::BT_601_entity > >( "color::yuv601", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::yuv<std::uint32_t, ::color::constant::yuv::BT_601_entity > >( "color::yuv601", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::yuv<std::uint64_t, ::color::constant::yuv::BT_601_entity > >( "color::yuv601", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::yuv<float        , ::color::constant::yuv::BT_601_entity > >( "color::yuv601", "float         " ) << std::endl;
+  ss << print_bound< color::yuv<double       , ::color::constant::yuv::BT_601_entity > >( "color::yuv601", "double        " ) << std::endl;
+  ss << print_bound< color::yuv<long double  , ::color::constant::yuv::BT_601_entity > >( "color::yuv601", "long double   " ) << std::endl;
+
+  ss << print_semi_title( "(Y)Luminance","(U)Chrominance","(V)Chrominance" );
+  ss << print_bound< color::yuv<std::uint8_t , ::color::constant::yuv::BT_709_entity  > >( "color::yuv709", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::yuv<std::uint16_t, ::color::constant::yuv::BT_709_entity  > >( "color::yuv709", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::yuv<std::uint32_t, ::color::constant::yuv::BT_709_entity  > >( "color::yuv709", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::yuv<std::uint64_t, ::color::constant::yuv::BT_709_entity  > >( "color::yuv709", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::yuv<float        , ::color::constant::yuv::BT_709_entity  > >( "color::yuv709", "float         " ) << std::endl;
+  ss << print_bound< color::yuv<double       , ::color::constant::yuv::BT_709_entity  > >( "color::yuv709", "double        " ) << std::endl;
+  ss << print_bound< color::yuv<long double  , ::color::constant::yuv::BT_709_entity  > >( "color::yuv709", "long double   " ) << std::endl;
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
+
   ss << print_semi_title( "Cyan","Yellow","Magenta" );
   ss << print_bound< color::cmyk<std::uint8_t > >( "color::cmyk", "std::uint8_t  " ) << std::endl;
   ss << print_bound< color::cmyk<std::uint16_t> >( "color::cmyk", "std::uint16_t " ) << std::endl;

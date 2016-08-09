@@ -50,22 +50,32 @@ void make_gray_gray( gray_image_type & gray, image_type const& image )
    }
  }
 
+void make_gray_yuv601( gray_image_type & gray, image_type const& image )
+ {
+  auto gc = gray.begin();
+  for( auto & c : image )
+   {
+    gc->set<0>( ::color::yuv< std::uint8_t,  ::color::constant::yuv::BT_601_entity >( c )[0] );
+    ++gc;
+   }
+ }
+
+void make_gray_yuv709( gray_image_type & gray, image_type const& image )
+ {
+  auto gc = gray.begin();
+  for( auto & c : image )
+   {
+    gc->set<0>( ::color::yuv< std::uint8_t,  ::color::constant::yuv::BT_709_entity >( c )[0] );
+    ++gc;
+   }
+ }
+
 void make_gray_yiq( gray_image_type & gray, image_type const& image )
  {
   auto gc = gray.begin();
   for( auto & c : image )
    {
     gc->set<0>( ::color::yiq< std::uint8_t >( c )[0] );
-    ++gc;
-   }
- }
-
-void make_gray_yuv( gray_image_type & gray, image_type const& image )
- {
-  auto gc = gray.begin();
-  for( auto & c : image )
-   {
-    gc->set<0>( ::color::yuv< std::uint8_t >( c )[0] );
     ++gc;
    }
  }
@@ -127,8 +137,11 @@ int gray_test( int argc, char const *argv[] )
   gray.resize( 1600 * 1195 );
 
   make_gray_gray(      gray, image ); save_image( "./gray/gray.tga",      gray );
+
+  make_gray_yuv601(    gray, image ); save_image( "./gray/yuv601-y.tga",     gray );
+  make_gray_yuv709(    gray, image ); save_image( "./gray/yuv709-y.tga",     gray );
+
   make_gray_yiq(       gray, image ); save_image( "./gray/yiq-y.tga",     gray );
-  make_gray_yuv(       gray, image ); save_image( "./gray/yuv-y.tga",     gray );
   make_gray_hsl(       gray, image ); save_image( "./gray/hsl-l.tga",     gray );
   make_gray_hsv(       gray, image ); save_image( "./gray/hsv-v.tga",     gray );
   make_gray_satur_hsv( gray, image ); save_image( "./gray/satur-hsv.tga", gray );

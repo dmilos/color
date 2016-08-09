@@ -14,15 +14,19 @@ namespace color
   namespace _internal
    {
 
-    template< typename yuv_tag_name, typename YCbCr_tag_name >
+    template
+     <
+       typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
+      ,typename YCbCr_tag_name 
+     >
      struct convert
       <
-        ::color::category::yuv<  yuv_tag_name >
+        ::color::category::yuv<  yuv_tag_name, yuv_reference_number >
        ,::color::category::YCbCr<  YCbCr_tag_name >
       >
       {
        public:
-         typedef ::color::category::yuv< yuv_tag_name >    yuv_category_type, category_left_type;
+         typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number >    yuv_category_type, category_left_type;
          typedef ::color::category::YCbCr< YCbCr_tag_name >    YCbCr_category_type, category_right_type;
 
          typedef typename ::color::akin::rgb< YCbCr_category_type >::akin_type  rgb_category_type;

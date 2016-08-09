@@ -14,8 +14,8 @@ namespace color
   namespace trait
    {
 
-    template< >
-     struct component< ::color::category::yuv_double >
+    template< ::color::constant::yuv::reference_enum reference_number >
+     struct component< ::color::category::yuv_double<reference_number> >
       : public ::color::_internal::utility::component::array< double, unsigned >
       {
       };
