@@ -4,7 +4,7 @@
 // ::color::constant::yuv::parameter< category_name, reference_number >::Wr()
 
 #include "./reference.hpp"
-#include "../generic/trait/scalar.hpp"
+#include "../../generic/trait/scalar.hpp"
 #include "../category.hpp"
 
 

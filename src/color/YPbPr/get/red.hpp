@@ -34,7 +34,7 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;
 
-        typedef ::color::constant::YPbPr< category_type >  YPbPr_const_type; 
+        typedef ::color::constant::YPbPr::parameter< category_type >  YPbPr_const_type; 
 
         enum { red_p  = ::color::place::_internal::red<akin_type>::position_enum };
 

@@ -11,7 +11,7 @@ namespace color
     template< typename tag_name, ::color::constant::yuv::reference_enum reference_number >
      struct yuv
       {
-       typedef tag_name tag_name;
+       typedef tag_name tag_type;
 
        typedef ::color::constant::yuv::reference_enum reference_type;
 
