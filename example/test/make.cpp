@@ -458,7 +458,7 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
      ss << "<td>" << print_color( "hsl  -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsl  <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "hsv  -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsv  <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "yiq  -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yiq  <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
-     ss << "<td>" << print_color( "yuv607 -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yuv  <double, ::color::constant::yuv::BT_601_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "yuv601 -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yuv  <double, ::color::constant::yuv::BT_601_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "yuv709 -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yuv  <double, ::color::constant::yuv::BT_709_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "YCbCr-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YCbCr<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "YCgCo-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YCgCo<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \

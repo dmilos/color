@@ -17,7 +17,7 @@
 
         typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity >      right_type;
 
-        static left_type local( right_type( { 0.726247059, 0.0691003939, 0.123192666 } ) );
+        static left_type local( right_type( { 0.726292271, 0.0691054442, 0.123124723 } ) );
 
         color_parameter = local;
        }
@@ -31,7 +31,7 @@
 
         typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity >      right_type;
 
-        static left_type local( right_type( { 0.726247059, 0.0691003939, 0.123192666 } ) );
+        static left_type local( right_type( { 0.695591066, 0.0803911964, 0.133631237 } ) );
 
         color_parameter = local;
        }

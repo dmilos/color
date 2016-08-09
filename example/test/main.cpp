@@ -16,21 +16,23 @@
 
 void sandbox_test()
  {
-  ::color::YCbCr< double > y ( ::color::constant::red_type{} );
+  ::color::yuv< double, ::color::constant::yuv::BT_601_entity > y601;
+  ::color::yuv< double, ::color::constant::yuv::BT_709_entity > y709;
   ::color::rgb< double >   r ( ::color::constant::red_type{} );
 
-  y = ::color::constant::red_type{};
-  r = y;
+  y709 = r;
+  y601 = r;
 
   std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
 
-  r = ::color::constant::red_type{};
+  y601 = ::color::constant::red_type{};
+  r = y601;
   std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
-  y = r;
-  std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
-  r = y;
 
+  y709 = ::color::constant::red_type{};
+  r = y709;
   std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
+
  }
 
 
