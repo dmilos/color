@@ -12,12 +12,6 @@ namespace color
      struct yuv
       {
        typedef tag_name tag_type;
-
-       typedef ::color::constant::yuv::reference_enum reference_type;
-
-       enum { reference_entity = reference_number };
-
-       static /* constexpr*/ reference_type const reference()  { return  reference_entity; }
       };
 
     template< ::color::constant::yuv::reference_enum reference_number > using yuv_uint8   = ::color::category::yuv< std::uint8_t , reference_number >;
