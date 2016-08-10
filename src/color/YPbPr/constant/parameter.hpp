@@ -56,7 +56,7 @@ namespace color
           };
        }
 
-    template< typename category_name, ::color::constant::YPbPr::reference_enum reference_number = ::color::constant::YPbPr::BT_601_entity >
+    template< typename category_name, ::color::constant::YPbPr::reference_enum reference_number = ::color::constant::YPbPr::BT_709_entity >
      struct parameter
      : public ::color::constant::YPbPr::_internal::base< typename ::color::trait::scalar< category_name >::instance_type, reference_number >
       {

@@ -336,10 +336,20 @@ template < template<typename> class color_name >
    }
 
 template< typename type_type  >
-  using yuv601 = color::yuv<type_type, ::color::constant::yuv::BT_601_entity >;
+ using yuv601 = color::yuv <type_type, ::color::constant::yuv::BT_601_entity >;
 
 template< typename  type_type  >
-  using yuv709 = color::yuv<type_type, ::color::constant::yuv::BT_709_entity >;
+ using yuv709 = color::yuv< type_type, ::color::constant::yuv::BT_709_entity >;
+
+template< typename  type_type  >
+ using YPbPr601  = color::YPbPr< type_type, ::color::constant::YPbPr::BT_601_entity>;
+
+template< typename  type_type  >
+ using YPbPr709  = color::YPbPr< type_type, ::color::constant::YPbPr::BT_709_entity>;
+
+template< typename  type_type  >
+ using YPbPr2020 = color::YPbPr< type_type, ::color::constant::YPbPr::BT_2020_entity>;
+
 
 void make_make_header()
  {
@@ -359,8 +369,10 @@ void make_make_header()
   print_all_header<color::YCbCr>(  "YCbCr"  );
   print_all_header<color::YCgCo>(  "YCgCo"  );
   print_all_header<color::YDbDr>(  "YDbDr"  );
-  print_all_header<color::YPbPr>(  "YPbPr"  );
 
+  print_all_header<YPbPr601>(   "YPbPr601"  );
+  print_all_header<YPbPr709>(   "YPbPr709"  );
+  print_all_header<YPbPr2020>(  "YPbPr2020" );
 
     print_generic_header( "black"   );
     print_generic_header( "white"   );
@@ -463,7 +475,9 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
      ss << "<td>" << print_color( "YCbCr-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YCbCr<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "YCgCo-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YCgCo<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "YDbDr-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YDbDr<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
-     ss << "<td>" << print_color( "YPbPr-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YPbPr<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "YPbPr601-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YPbPr<double, ::color::constant::YPbPr::BT_601_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "YPbPr709"  #dp_name, ::color::rgb<std::uint8_t>( ::color::YPbPr<double, ::color::constant::YPbPr::BT_709_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "YPbPr2020" #dp_name, ::color::rgb<std::uint8_t>( ::color::YPbPr<double, ::color::constant::YPbPr::BT_2020_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
     ss << "</tr>" << std::endl
 
 
@@ -537,7 +551,10 @@ void make_test_gray_all()
   ss <<  make_test_gray_single< ::color::YCbCr< double> >( "YCbCr" );
   ss <<  make_test_gray_single< ::color::YCgCo< double> >( "YCgCo" );
   ss <<  make_test_gray_single< ::color::YDbDr< double> >( "YDbDr" );
-  ss <<  make_test_gray_single< ::color::YPbPr< double> >( "YPbPr" );
+
+  ss <<  make_test_gray_single< ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity> >(  "YPbPr601"  );
+  ss <<  make_test_gray_single< ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity> >(  "YPbPr709"  );
+  ss <<  make_test_gray_single< ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity> >( "YPbPr2020" );
 
   ss << "</table>" << std::endl;
 

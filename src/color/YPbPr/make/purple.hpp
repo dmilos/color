@@ -10,9 +10,37 @@
 
      template< typename tag_name >
       inline
-      void purple( ::color::model< ::color::category::YPbPr< tag_name > > & color_parameter )
+      void purple( ::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter )
        {
-        typedef ::color::category::YPbPr< tag_name >         category_left_type;
+        typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity >         category_left_type;
+        typedef ::color::model< category_left_type  > left_type;
+
+        typedef ::color::YPbPr< double >      right_type;
+
+        static left_type local( right_type( { 0.2065945, 0.6656315, 0.709344 } ) );
+
+        color_parameter = local;
+       }
+
+     template< typename tag_name >
+      inline
+      void purple( ::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter )
+       {
+        typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity >         category_left_type;
+        typedef ::color::model< category_left_type  > left_type;
+
+        typedef ::color::YPbPr< double >      right_type;
+
+        static left_type local( right_type( { 0.2065945, 0.6656315, 0.709344 } ) );
+
+        color_parameter = local;
+       }
+
+     template< typename tag_name >
+      inline
+      void purple( ::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter )
+       {
+        typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity >         category_left_type;
         typedef ::color::model< category_left_type  > left_type;
 
         typedef ::color::YPbPr< double >      right_type;

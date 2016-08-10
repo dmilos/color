@@ -158,6 +158,22 @@ std::string print_system_sizeof( )
   return ss.str();;
  }
 
+
+template< typename type_type  >
+ using yuv601 = color::yuv <type_type, ::color::constant::yuv::BT_601_entity >;
+
+template< typename  type_type  >
+ using yuv709 = color::yuv< type_type, ::color::constant::yuv::BT_709_entity >;
+
+template< typename  type_type  >
+ using YPbPr601  = ::color::YPbPr< type_type, ::color::constant::YPbPr::BT_601_entity>;
+
+template< typename  type_type  >
+ using YPbPr709  = ::color::YPbPr< type_type, ::color::constant::YPbPr::BT_709_entity>;
+
+template< typename  type_type  >
+ using YPbPr2020 = ::color::YPbPr< type_type, ::color::constant::YPbPr::BT_2020_entity>;
+
 void check_sizeof()
  {
   std::stringstream ss;
@@ -202,12 +218,18 @@ void check_sizeof()
   ss << print_sizeof<::color::hsl  > ( "<code>hsl </code>" );  ss << std::endl;
   ss << print_sizeof<::color::hsv  > ( "<code>hsv </code>" );  ss << std::endl;
   ss << print_sizeof<::color::yiq  > ( "<code>yiq </code>" );  ss << std::endl;
-//  ss << print_sizeof<::color::yuv  > ( "<code>yuv </code>" );  ss << std::endl;
+
+  ss << print_sizeof< yuv601  > ( "<code>yuv601 </code>" );  ss << std::endl;
+  ss << print_sizeof< yuv709  > ( "<code>yuv709 </code>" );  ss << std::endl;
+
+  ss << print_sizeof< YPbPr601   > ( "<code>YPbPr601  </code>" );  ss << std::endl;
+  ss << print_sizeof< YPbPr709   > ( "<code>YPbPr709  </code>" );  ss << std::endl;
+  ss << print_sizeof< YPbPr2020  > ( "<code>YPbPr2020 </code>" );  ss << std::endl;
 
   ss << print_sizeof<::color::YCbCr  > ( "<code>YCbCr </code>" );  ss << std::endl;
   ss << print_sizeof<::color::YCgCo  > ( "<code>YCgCo </code>" );  ss << std::endl;
   ss << print_sizeof<::color::YDbDr  > ( "<code>YDbDr </code>" );  ss << std::endl;
-  ss << print_sizeof<::color::YPbPr  > ( "<code>YPbPr </code>" );  ss << std::endl;
+
 
   ss << "</table>";
 

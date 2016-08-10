@@ -2,6 +2,7 @@
 #define color_contant_YPbPr_reference
 
 // ::color::constant::YPbPr::reference_enum
+// ::color::constant::YPbPr::BT_2020_entity
 
 
 namespace color

@@ -1,5 +1,6 @@
 #ifndef color_yuv_category
 #define color_yuv_category
+// ::color::category::yuv<tag,reference>
 
 #include "./constant/reference.hpp"
 

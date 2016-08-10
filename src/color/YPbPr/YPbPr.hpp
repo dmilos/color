@@ -13,32 +13,11 @@
 
 namespace color
  {
-  namespace _internal
-   {
-
-    template< typename type_name >
-     struct pick_YPbPr
-      {
-       typedef ::color::category::YPbPr_uint32 category_type;
-      };
-
-
-    template<> struct pick_YPbPr< std::uint8_t   >{ typedef ::color::category::YPbPr_uint8   category_type; };
-    template<> struct pick_YPbPr< std::uint16_t  >{ typedef ::color::category::YPbPr_uint16  category_type; };
-    template<> struct pick_YPbPr< std::uint32_t  >{ typedef ::color::category::YPbPr_uint32  category_type; };
-    template<> struct pick_YPbPr< std::uint64_t  >{ typedef ::color::category::YPbPr_uint64  category_type; };
-    template<> struct pick_YPbPr< float          >{ typedef ::color::category::YPbPr_float   category_type; };
-    template<> struct pick_YPbPr< double         >{ typedef ::color::category::YPbPr_double  category_type; };
-    template<> struct pick_YPbPr< long    double >{ typedef ::color::category::YPbPr_ldouble category_type; };
-   }
-
-  template< typename type_name >
-   using YPbPr = ::color::model< typename ::color::_internal::pick_YPbPr< type_name >::category_type >;
+  
+  template< typename type_name, ::color::constant::YPbPr::reference_enum reference_number = ::color::constant::YPbPr::BT_709_entity >
+   using YPbPr = ::color::model< ::color::category::YPbPr< type_name, reference_number > >;
 
  }
-
-
-
 
 
 #include "./place/place.hpp"

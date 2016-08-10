@@ -12,11 +12,11 @@
       inline
       void gray
        (
-                  ::color::model< ::color::category::YPbPr< tag_name > > & color_parameter
-        ,typename ::color::trait::scalar< ::color::category::YPbPr< tag_name > >::input_const_type    percent
+                  ::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter
+        ,typename ::color::trait::scalar< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > >::input_const_type    percent
        )
        {
-        typedef ::color::category::YPbPr< tag_name >      category_left_type;
+        typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity >      category_left_type;
         typedef ::color::model< category_left_type  >            left_type;
 
         typedef ::color::YPbPr< double >      right_type;
@@ -26,9 +26,69 @@
 
      template< typename tag_name >
       inline
-      void gray50( ::color::model< ::color::category::YPbPr< tag_name > > & color_parameter )
+      void gray50( ::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter )
        {
-        typedef ::color::category::YPbPr< tag_name >         category_left_type;
+        typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity >         category_left_type;
+        typedef ::color::model< category_left_type  > left_type;
+
+        typedef ::color::YPbPr< double >      right_type;
+
+        static left_type local( right_type( { 0.5, 0.5, 0.5 } ) );
+
+        color_parameter = local;
+       }
+
+     template< typename tag_name >
+      inline
+      void gray
+       (
+                  ::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter
+        ,typename ::color::trait::scalar< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > >::input_const_type    percent
+       )
+       {
+        typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity >      category_left_type;
+        typedef ::color::model< category_left_type  >            left_type;
+
+        typedef ::color::YPbPr< double >      right_type;
+
+        color_parameter = right_type( { percent/100, 0.5, 0.5 } );
+       }
+
+     template< typename tag_name >
+      inline
+      void gray50( ::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter )
+       {
+        typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity >         category_left_type;
+        typedef ::color::model< category_left_type  > left_type;
+
+        typedef ::color::YPbPr< double >      right_type;
+
+        static left_type local( right_type( { 0.5, 0.5, 0.5 } ) );
+
+        color_parameter = local;
+       }
+
+     template< typename tag_name >
+      inline
+      void gray
+       (
+                  ::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter
+        ,typename ::color::trait::scalar< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > >::input_const_type    percent
+       )
+       {
+        typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity >      category_left_type;
+        typedef ::color::model< category_left_type  >            left_type;
+
+        typedef ::color::YPbPr< double >      right_type;
+
+        color_parameter = right_type( { percent/100, 0.5, 0.5 } );
+       }
+
+     template< typename tag_name >
+      inline
+      void gray50( ::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter )
+       {
+        typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity >         category_left_type;
         typedef ::color::model< category_left_type  > left_type;
 
         typedef ::color::YPbPr< double >      right_type;

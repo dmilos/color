@@ -16,6 +16,9 @@
 
 void sandbox_test()
  {
+  ::color::YPbPr< double> yp601;
+
+
   ::color::yuv< double, ::color::constant::yuv::BT_601_entity > y601;
   ::color::yuv< double, ::color::constant::yuv::BT_709_entity > y709;
   ::color::rgb< double >   r ( ::color::constant::red_type{} );
@@ -32,6 +35,8 @@ void sandbox_test()
   y709 = ::color::constant::red_type{};
   r = y709;
   std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
+
+  yp601 = r;
 
  }
 
@@ -147,7 +152,7 @@ void make_blue()
 
   targa_make_header( width, height, header);
 
-  std::vector< color::bgra<std::uint8_t> >   image(height * width);
+  std::vector< color::bgra<std::uint8_t> >   image( height * width);
 
   for( auto & c: image )
    {

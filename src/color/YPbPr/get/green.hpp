@@ -20,12 +20,12 @@
    namespace get
     {
 
-     template< typename tag_name >
+     template< typename tag_name, ::color::constant::YPbPr::reference_enum reference_number >
       inline
-      typename ::color::trait::component< typename ::color::akin::rgb<::color::category::YPbPr<tag_name> >::akin_type >::return_type
-      green( ::color::model< ::color::category::YPbPr<tag_name> > const& color_parameter )
+      typename ::color::trait::component< typename ::color::akin::rgb<::color::category::YPbPr<tag_name,reference_number> >::akin_type >::return_type
+      green( ::color::model< ::color::category::YPbPr<tag_name,reference_number> > const& color_parameter )
        {
-        typedef ::color::category::YPbPr<tag_name>  category_type;
+        typedef ::color::category::YPbPr<tag_name,reference_number>  category_type;
 
         typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
 
