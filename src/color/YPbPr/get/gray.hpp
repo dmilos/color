@@ -25,7 +25,7 @@
       typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv<tag_name> >::akin_type >::return_type
       gray( ::color::model< ::color::category::YPbPr<tag_name,reference_number> > const& color_parameter )
        {
-        typedef ::color::category::YPbPr< tag_name > category_type;
+        typedef ::color::category::YPbPr< tag_name, reference_number > category_type;
 
         typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
 

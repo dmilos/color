@@ -33,9 +33,9 @@ namespace color
           {
            typedef scalar_name scalar_type;
 
-           static /* constexpr*/ scalar_type const CRed()   { return  0.299; }
-           static /* constexpr*/ scalar_type const CGreen() { return  1 - 0.299 - 0.114; }
-           static /* constexpr*/ scalar_type const CBlue()  { return  0.114; }
+           static /* constexpr*/ scalar_type const CRed()   { return  0.298839 ; }
+           static /* constexpr*/ scalar_type const CGreen() { return  1 - 0.298839 - 0.114350; }
+           static /* constexpr*/ scalar_type const CBlue()  { return  0.114350 ; }
           };
 
         template< typename scalar_name >
@@ -76,26 +76,26 @@ namespace color
          static /* constexpr*/ scalar_type const Pr_range(){ return  1.0; }
 
          // to RGB
-         static /* constexpr*/ scalar_type const a11(){ return this_type::CRed();   }
-         static /* constexpr*/ scalar_type const a12(){ return this_type::CGreen(); }
-         static /* constexpr*/ scalar_type const a13(){ return this_type::CBlue();  }
-         static /* constexpr*/ scalar_type const a21(){ return - this_type::CRed()/( 1- this_type::CBlue() ) / 2; }
-         static /* constexpr*/ scalar_type const a22(){ return - this_type::CGreen()/( 1- this_type::CBlue() ) / 2; }
-         static /* constexpr*/ scalar_type const a23(){ return 0.5; }
-         static /* constexpr*/ scalar_type const a31(){ return 0.5; }
-         static /* constexpr*/ scalar_type const a32(){ return - this_type::CGreen()/( 1- this_type::CRed() ) / 2; }
-         static /* constexpr*/ scalar_type const a33(){ return - this_type::CBlue()/( 1- this_type::CRed() ) / 2; }
+         static /* constexpr*/ scalar_type const a11(){ return 1; }
+         static /* constexpr*/ scalar_type const a12(){ return 0; }
+         static /* constexpr*/ scalar_type const a13(){ return 2*( 1- this_type::CRed() ); }
+         static /* constexpr*/ scalar_type const a21(){ return 1; }
+         static /* constexpr*/ scalar_type const a22(){ return 2 * this_type::CBlue()*( this_type::CBlue() - 1 ) / this_type::CGreen(); }
+         static /* constexpr*/ scalar_type const a23(){ return 2 * this_type::CRed() *( this_type::CRed()  - 1 ) / this_type::CGreen(); }
+         static /* constexpr*/ scalar_type const a31(){ return 1; }
+         static /* constexpr*/ scalar_type const a32(){ return 2*( 1- this_type::CBlue() ); }
+         static /* constexpr*/ scalar_type const a33(){ return 0; }
 
          // from RGB
-         static /* constexpr*/ scalar_type const b11(){ return 1; }
-         static /* constexpr*/ scalar_type const b12(){ return 0; }
-         static /* constexpr*/ scalar_type const b13(){ return 2*( 1- this_type::CRed() ); }
-         static /* constexpr*/ scalar_type const b21(){ return 1; }
-         static /* constexpr*/ scalar_type const b22(){ return 2 * this_type::CBlue()*( this_type::CBlue() - 1 ) / this_type::CGreen(); }
-         static /* constexpr*/ scalar_type const b23(){ return 2 * this_type::CRed() *( this_type::CRed()  - 1 ) / this_type::CGreen(); }
-         static /* constexpr*/ scalar_type const b31(){ return 1; }
-         static /* constexpr*/ scalar_type const b32(){ return 2*( 1- this_type::CBlue() ); }
-         static /* constexpr*/ scalar_type const b33(){ return 0; }
+         static /* constexpr*/ scalar_type const b11(){ return this_type::CRed();   }
+         static /* constexpr*/ scalar_type const b12(){ return this_type::CGreen(); }
+         static /* constexpr*/ scalar_type const b13(){ return this_type::CBlue();  }
+         static /* constexpr*/ scalar_type const b21(){ return - this_type::CRed()/( 1- this_type::CBlue() ) / 2; }
+         static /* constexpr*/ scalar_type const b22(){ return - this_type::CGreen()/( 1- this_type::CBlue() ) / 2; }
+         static /* constexpr*/ scalar_type const b23(){ return 0.5; }
+         static /* constexpr*/ scalar_type const b31(){ return 0.5; }
+         static /* constexpr*/ scalar_type const b32(){ return - this_type::CGreen()/( 1- this_type::CRed() ) / 2; }
+         static /* constexpr*/ scalar_type const b33(){ return - this_type::CBlue()/( 1- this_type::CRed() ) / 2; }
 
          static scalar_type Pb_normalize( scalar_type const& divert ){ return ( divert - this_type::Pb_min() ) /this_type::Pb_range(); }
          static scalar_type Pb_diverse  ( scalar_type const& normal ){ return this_type::Pb_range() * normal + this_type::Pb_min(); }
