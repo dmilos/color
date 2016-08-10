@@ -107,7 +107,10 @@ int decompose_test( int argc, char const *argv[] )
   decompose< ::color::YCbCr<double> >( image, "../out/dec/YCbCr", width, height );
   decompose< ::color::YCgCo<double> >( image, "../out/dec/YCgCo", width, height );
   decompose< ::color::YDbDr<double> >( image, "../out/dec/YDbDr", width, height );
-  decompose< ::color::YPbPr<double> >( image, "../out/dec/YPbPr", width, height );
+
+  decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_601_entity > >( image, "../out/dec/YPbPr601", width, height );
+  decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_709_entity > >( image, "../out/dec/YPbPr709", width, height );
+  decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_2020_entity > >( image, "../out/dec/YPbPr2020", width, height );
 
   return EXIT_SUCCESS;
  }

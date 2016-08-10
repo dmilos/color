@@ -16,27 +16,29 @@
 
 void sandbox_test()
  {
-  ::color::YPbPr< double> yp601;
+  ::color::YPbPr<double, ::color::constant::YPbPr::BT_601_entity >  yp601 ;
+  ::color::YPbPr<double, ::color::constant::YPbPr::BT_709_entity>   yp709 ;
+  ::color::YPbPr<double, ::color::constant::YPbPr::BT_2020_entity > yp2020;
 
-
-  ::color::yuv< double, ::color::constant::yuv::BT_601_entity > y601;
-  ::color::yuv< double, ::color::constant::yuv::BT_709_entity > y709;
   ::color::rgb< double >   r ( ::color::constant::red_type{} );
 
-  y709 = r;
-  y601 = r;
+  yp601  = r;
+  yp709  = r;
+  yp2020 = r;
 
   std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
 
-  y601 = ::color::constant::red_type{};
-  r = y601;
+  yp601 = ::color::constant::red_type{};
+  r = yp601;
   std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
 
-  y709 = ::color::constant::red_type{};
-  r = y709;
+  yp709 = ::color::constant::red_type{};
+  r = yp709;
   std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
 
-  yp601 = r;
+  yp2020 = ::color::constant::red_type{};
+  r = yp709;
+  std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
 
  }
 
@@ -315,4 +317,5 @@ int main(int argc, char const *argv[])
 
   return 0;
  }
+
 

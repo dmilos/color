@@ -190,13 +190,31 @@ void print_bound()
   ss << print_bound< color::YDbDr<long double  > >( "color::YDbDr", "long double   " ) << std::endl;
 
   ss << print_semi_title( "Y","Pb","Pr" );
-  ss << print_bound< color::YPbPr<std::uint8_t > >( "color::YPbPr", "std::uint8_t  " ) << std::endl;
-  ss << print_bound< color::YPbPr<std::uint16_t> >( "color::YPbPr", "std::uint16_t " ) << std::endl;
-  ss << print_bound< color::YPbPr<std::uint32_t> >( "color::YPbPr", "std::uint32_t " ) << std::endl;
-  ss << print_bound< color::YPbPr<std::uint64_t> >( "color::YPbPr", "std::uint64_t " ) << std::endl;
-  ss << print_bound< color::YPbPr<float        > >( "color::YPbPr", "float         " ) << std::endl;
-  ss << print_bound< color::YPbPr<double       > >( "color::YPbPr", "double        " ) << std::endl;
-  ss << print_bound< color::YPbPr<long double  > >( "color::YPbPr", "long double   " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint8_t , ::color::constant::YPbPr::BT_601_entity> >( "color::YPbPr601", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint16_t, ::color::constant::YPbPr::BT_601_entity> >( "color::YPbPr601", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint32_t, ::color::constant::YPbPr::BT_601_entity> >( "color::YPbPr601", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint64_t, ::color::constant::YPbPr::BT_601_entity> >( "color::YPbPr601", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<float        , ::color::constant::YPbPr::BT_601_entity> >( "color::YPbPr601", "float         " ) << std::endl;
+  ss << print_bound< color::YPbPr<double       , ::color::constant::YPbPr::BT_601_entity> >( "color::YPbPr601", "double        " ) << std::endl;
+  ss << print_bound< color::YPbPr<long double  , ::color::constant::YPbPr::BT_601_entity> >( "color::YPbPr601", "long double   " ) << std::endl;
+
+  ss << print_semi_title( "Y","Pb","Pr" );
+  ss << print_bound< color::YPbPr<std::uint8_t , ::color::constant::YPbPr::BT_709_entity> >( "color::YPbPr709", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint16_t, ::color::constant::YPbPr::BT_709_entity> >( "color::YPbPr709", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint32_t, ::color::constant::YPbPr::BT_709_entity> >( "color::YPbPr709", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint64_t, ::color::constant::YPbPr::BT_709_entity> >( "color::YPbPr709", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<float        , ::color::constant::YPbPr::BT_709_entity> >( "color::YPbPr709", "float         " ) << std::endl;
+  ss << print_bound< color::YPbPr<double       , ::color::constant::YPbPr::BT_709_entity> >( "color::YPbPr709", "double        " ) << std::endl;
+  ss << print_bound< color::YPbPr<long double  , ::color::constant::YPbPr::BT_709_entity> >( "color::YPbPr709", "long double   " ) << std::endl;
+
+  ss << print_semi_title( "Y","Pb","Pr" );
+  ss << print_bound< color::YPbPr<std::uint8_t , ::color::constant::YPbPr::BT_2020_entity > >( "color::YPbPr2020", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint16_t, ::color::constant::YPbPr::BT_2020_entity > >( "color::YPbPr2020", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint32_t, ::color::constant::YPbPr::BT_2020_entity > >( "color::YPbPr2020", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<std::uint64_t, ::color::constant::YPbPr::BT_2020_entity > >( "color::YPbPr2020", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::YPbPr<float        , ::color::constant::YPbPr::BT_2020_entity > >( "color::YPbPr2020", "float         " ) << std::endl;
+  ss << print_bound< color::YPbPr<double       , ::color::constant::YPbPr::BT_2020_entity > >( "color::YPbPr2020", "double        " ) << std::endl;
+  ss << print_bound< color::YPbPr<long double  , ::color::constant::YPbPr::BT_2020_entity > >( "color::YPbPr2020", "long double   " ) << std::endl;
 
   ss << print_semi_title( "X","Y","Z" );
   ss << print_bound< color::xyz<std::uint8_t > >( "color::xyz", "std::uint8_t  " ) << std::endl;

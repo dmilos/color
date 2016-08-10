@@ -475,7 +475,7 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
      ss << "<td>" << print_color( "YCbCr-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YCbCr<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "YCgCo-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YCgCo<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "YDbDr-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YDbDr<double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
-     ss << "<td>" << print_color( "YPbPr601-" #dp_name, ::color::rgb<std::uint8_t>( ::color::YPbPr<double, ::color::constant::YPbPr::BT_601_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "YPbPr601"  #dp_name, ::color::rgb<std::uint8_t>( ::color::YPbPr<double, ::color::constant::YPbPr::BT_601_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "YPbPr709"  #dp_name, ::color::rgb<std::uint8_t>( ::color::YPbPr<double, ::color::constant::YPbPr::BT_709_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "YPbPr2020" #dp_name, ::color::rgb<std::uint8_t>( ::color::YPbPr<double, ::color::constant::YPbPr::BT_2020_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
     ss << "</tr>" << std::endl
