@@ -14,8 +14,8 @@ namespace color
   namespace trait
    {
 
-    template< >
-     struct container< ::color::category::YPbPr_uint8 >
+    template< ::color::constant::YPbPr::reference_enum reference_number >
+     struct container< ::color::category::YPbPr_uint8<reference_number> >
       : public ::color::_internal::utility::container::array< std::uint8_t, 3 >
       {
       };

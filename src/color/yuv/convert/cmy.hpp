@@ -41,7 +41,7 @@ namespace color
         typedef ::color::_internal::diverse< category_left_type >    diverse_type;
         typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-        typedef ::color::constant::yuv::parameter< category_left_type, yuv_reference_number >  yuv_parameter_type;
+        typedef ::color::constant::yuv::parameter< yuv_tag_name, yuv_reference_number >  yuv_parameter_type;
 
         enum
          {

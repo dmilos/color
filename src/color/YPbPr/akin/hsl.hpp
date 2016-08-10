@@ -10,13 +10,13 @@ namespace color
   namespace akin
    {
 
-    template< >struct YPbPr< ::color::category::hsl_uint8   >{ typedef ::color::category::YPbPr_uint8   akin_type; };
-    template< >struct YPbPr< ::color::category::hsl_uint16  >{ typedef ::color::category::YPbPr_uint16  akin_type; };
-    template< >struct YPbPr< ::color::category::hsl_uint32  >{ typedef ::color::category::YPbPr_uint32  akin_type; };
-    template< >struct YPbPr< ::color::category::hsl_uint64  >{ typedef ::color::category::YPbPr_uint64  akin_type; };
-    template< >struct YPbPr< ::color::category::hsl_float   >{ typedef ::color::category::YPbPr_float   akin_type; };
-    template< >struct YPbPr< ::color::category::hsl_double  >{ typedef ::color::category::YPbPr_double  akin_type; };
-    template< >struct YPbPr< ::color::category::hsl_ldouble >{ typedef ::color::category::YPbPr_ldouble akin_type; };
+    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::hsl_uint8  , reference_number >{ typedef ::color::category::YPbPr_uint8  <reference_number> akin_type; };
+    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::hsl_uint16 , reference_number >{ typedef ::color::category::YPbPr_uint16 <reference_number> akin_type; };
+    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::hsl_uint32 , reference_number >{ typedef ::color::category::YPbPr_uint32 <reference_number> akin_type; };
+    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::hsl_uint64 , reference_number >{ typedef ::color::category::YPbPr_uint64 <reference_number> akin_type; };
+    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::hsl_float  , reference_number >{ typedef ::color::category::YPbPr_float  <reference_number> akin_type; };
+    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::hsl_double , reference_number >{ typedef ::color::category::YPbPr_double <reference_number> akin_type; };
+    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::hsl_ldouble, reference_number >{ typedef ::color::category::YPbPr_ldouble<reference_number> akin_type; };
 
    }
  }

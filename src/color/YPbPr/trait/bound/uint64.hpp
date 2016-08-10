@@ -14,8 +14,8 @@ namespace color
   namespace trait
    {
 
-    template< >
-     struct bound< ::color::category::YPbPr_uint64 >
+    template< ::color::constant::YPbPr::reference_enum reference_number >
+     struct bound< ::color::category::YPbPr_uint64<reference_number> >
       : public ::color::_internal::utility::bound::general< std::uint64_t, unsigned >
       {
       };

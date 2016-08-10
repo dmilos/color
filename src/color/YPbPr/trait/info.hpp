@@ -11,23 +11,14 @@ namespace color
   namespace trait
    {
 
-    template <> struct info< ::color::category::YPbPr_uint8   >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
-    template <> struct info< ::color::category::YPbPr_uint16  >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
-    template <> struct info< ::color::category::YPbPr_uint32  >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
-    template <> struct info< ::color::category::YPbPr_uint64  >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
-    template <> struct info< ::color::category::YPbPr_float   >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
-    template <> struct info< ::color::category::YPbPr_double  >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
-    template <> struct info< ::color::category::YPbPr_ldouble >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
+    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint8  <reference_number> >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
+    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint16 <reference_number> >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
+    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint32 <reference_number> >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
+    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint64 <reference_number> >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
+    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_float  <reference_number> >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
+    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_double <reference_number> >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
+    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_ldouble<reference_number> >  {  public: enum { implemented_enum = true }; enum { meaningful_enum = true }; };
 
-    /*
-    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint8  < reference_number > > {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint16 < reference_number > > {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint32 < reference_number > > {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint64 < reference_number > > {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_float  < reference_number > > {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_double < reference_number > > {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_ldouble< reference_number > > {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    */
    }
  }
 

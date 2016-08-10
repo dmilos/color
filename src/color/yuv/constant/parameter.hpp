@@ -1,7 +1,7 @@
 #ifndef color_contant_yuv_parameter
 #define color_contant_yuv_parameter
 
-// ::color::constant::yuv::parameter< category_name, reference_number >::Wr()
+// ::color::constant::yuv::parameter< tag_name, reference_number >::Wr()
 
 #include "./reference.hpp"
 #include "../../generic/trait/scalar.hpp"
@@ -56,16 +56,16 @@ namespace color
           };
        }
 
-    template< typename category_name, ::color::constant::yuv::reference_enum reference_number >
+    template< typename tag_name, ::color::constant::yuv::reference_enum reference_number >
      struct parameter 
-     : public ::color::constant::yuv::_internal::base< typename ::color::trait::scalar< category_name >::instance_type, reference_number >
+     : public ::color::constant::yuv::_internal::base< typename ::color::trait::scalar< ::color::category::yuv< tag_name, reference_number > >::instance_type, reference_number >
       {
        public:
-         typedef category_name  category_type;
+         typedef ::color::category::yuv< tag_name, reference_number >  category_type;
 
-         typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+         typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 
-         typedef  ::color::constant::yuv::parameter<category_type,reference_number> this_type;
+         typedef  ::color::constant::yuv::parameter<tag_name,reference_number> this_type;
 
          static /* constexpr*/ scalar_type const half(){ return  0.5; }
          static /* constexpr*/ scalar_type const one() { return  1; }

@@ -14,8 +14,8 @@ namespace color
   namespace trait
    {
 
-    template< >
-     struct bound< ::color::category::YPbPr_float >
+    template< ::color::constant::YPbPr::reference_enum reference_number >
+     struct bound< ::color::category::YPbPr_float< reference_number > >
       : public ::color::_internal::utility::bound::YPbPr_scalar< unsigned, float >
       {
       };

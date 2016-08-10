@@ -10,13 +10,13 @@ namespace color
   namespace akin
    {
 
-    template< >struct rgb< ::color::category::YPbPr_uint8   >{ typedef ::color::category::rgb_uint8   akin_type; };
-    template< >struct rgb< ::color::category::YPbPr_uint16  >{ typedef ::color::category::rgb_uint16  akin_type; };
-    template< >struct rgb< ::color::category::YPbPr_uint32  >{ typedef ::color::category::rgb_uint32  akin_type; };
-    template< >struct rgb< ::color::category::YPbPr_uint64  >{ typedef ::color::category::rgb_uint64  akin_type; };
-    template< >struct rgb< ::color::category::YPbPr_float   >{ typedef ::color::category::rgb_float   akin_type; };
-    template< >struct rgb< ::color::category::YPbPr_double  >{ typedef ::color::category::rgb_double  akin_type; };
-    template< >struct rgb< ::color::category::YPbPr_ldouble >{ typedef ::color::category::rgb_ldouble akin_type; };
+    template<  ::color::constant::YPbPr::reference_enum reference_number >struct rgb< ::color::category::YPbPr_uint8  <reference_number> >{ typedef ::color::category::rgb_uint8   akin_type; };
+    template<  ::color::constant::YPbPr::reference_enum reference_number >struct rgb< ::color::category::YPbPr_uint16 <reference_number> >{ typedef ::color::category::rgb_uint16  akin_type; };
+    template<  ::color::constant::YPbPr::reference_enum reference_number >struct rgb< ::color::category::YPbPr_uint32 <reference_number> >{ typedef ::color::category::rgb_uint32  akin_type; };
+    template<  ::color::constant::YPbPr::reference_enum reference_number >struct rgb< ::color::category::YPbPr_uint64 <reference_number> >{ typedef ::color::category::rgb_uint64  akin_type; };
+    template<  ::color::constant::YPbPr::reference_enum reference_number >struct rgb< ::color::category::YPbPr_float  <reference_number> >{ typedef ::color::category::rgb_float   akin_type; };
+    template<  ::color::constant::YPbPr::reference_enum reference_number >struct rgb< ::color::category::YPbPr_double <reference_number> >{ typedef ::color::category::rgb_double  akin_type; };
+    template<  ::color::constant::YPbPr::reference_enum reference_number >struct rgb< ::color::category::YPbPr_ldouble<reference_number> >{ typedef ::color::category::rgb_ldouble akin_type; };
 
    }
  }

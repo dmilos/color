@@ -35,7 +35,7 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;
 
-        typedef ::color::constant::yuv::parameter< category_type, reference_number >  yuv_parameter_type; 
+        typedef ::color::constant::yuv::parameter< tag_name, reference_number >  yuv_parameter_type; 
 
         static scalar_type const Wr   = yuv_parameter_type::Wr();
         static scalar_type const Vmax = yuv_parameter_type::Vmax();
