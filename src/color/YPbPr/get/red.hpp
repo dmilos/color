@@ -23,7 +23,7 @@
      template< typename tag_name, ::color::constant::YPbPr::reference_enum reference_number >
       inline
       typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::return_type
-      red( ::color::model< ::color::category::YPbPr<tag_name,reference_number> > const& color_parameter )
+      red( ::color::model< ::color::category::YPbPr< tag_name, reference_number> > const& color_parameter )
        {
         typedef ::color::category::YPbPr< tag_name,reference_number >  category_type;
 
@@ -34,7 +34,7 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;
 
-        typedef ::color::constant::YPbPr::parameter< category_type >  YPbPr_const_type; 
+        typedef ::color::constant::YPbPr::parameter< tag_name, reference_number >  YPbPr_const_type; 
 
         enum { red_p  = ::color::place::_internal::red<akin_type>::position_enum };
 

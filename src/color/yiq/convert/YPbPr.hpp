@@ -14,16 +14,21 @@ namespace color
   namespace _internal
    {
 
-    template< typename yiq_tag_name, typename YPbPr_tag_name >
+    template
+     <
+       typename yiq_tag_name
+      ,typename YPbPr_tag_name
+      ,::color::constant::YPbPr::reference_enum YPbPr_reference_number 
+     >
      struct convert
       <
         ::color::category::yiq< yiq_tag_name >
-       ,::color::category::YPbPr<  YPbPr_tag_name >
+       ,::color::category::YPbPr<  YPbPr_tag_name, YPbPr_reference_number >
       >
       {
        public:
          typedef ::color::category::yiq< yiq_tag_name >    yiq_category_type, category_left_type;
-         typedef ::color::category::YPbPr< YPbPr_tag_name >    YPbPr_category_type, category_right_type;
+         typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >    YPbPr_category_type, category_right_type;
 
          typedef typename ::color::akin::rgb< YPbPr_category_type >::akin_type  rgb_category_type;
 

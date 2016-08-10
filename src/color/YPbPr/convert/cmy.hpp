@@ -16,15 +16,19 @@ namespace color
   namespace _internal
    {
 
-    template< typename YPbPr_tag_name, typename cmy_tag_name >
+    template
+      <
+        typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
+       ,typename cmy_tag_name 
+      >
      struct convert
       <
-        ::color::category::YPbPr<  YPbPr_tag_name >
+        ::color::category::YPbPr<  YPbPr_tag_name, YPbPr_reference_number >
        ,::color::category::cmy<  cmy_tag_name >
       >
      {
       public:
-        typedef ::color::category::YPbPr<  YPbPr_tag_name > category_left_type;
+        typedef ::color::category::YPbPr<  YPbPr_tag_name, YPbPr_reference_number > category_left_type;
         typedef ::color::category::cmy<  cmy_tag_name > category_right_type;
         typedef double  scalar_type;
 
@@ -37,7 +41,7 @@ namespace color
         typedef ::color::_internal::diverse< category_left_type >    diverse_type;
         typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-        typedef ::color::constant::YPbPr::parameter< category_left_type >  YPbPr_parameter_type;
+        typedef ::color::constant::YPbPr::parameter< YPbPr_tag_name, YPbPr_reference_number >  YPbPr_parameter_type;
 
         enum
          {

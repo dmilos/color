@@ -16,18 +16,18 @@ namespace color
 
     template
       <
-        typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
-       ,typename YPbPr_tag_name 
+        typename yuv_tag_name,    ::color::constant::yuv::reference_enum yuv_reference_number
+       ,typename YPbPr_tag_name,  ::color::constant::YPbPr::reference_enum YPbPr_reference_number
       >
      struct convert
       <
-        ::color::category::yuv<  yuv_tag_name, yuv_reference_number >
-       ,::color::category::YPbPr<  YPbPr_tag_name >
+        ::color::category::yuv<      yuv_tag_name,   yuv_reference_number >
+       ,::color::category::YPbPr<  YPbPr_tag_name, YPbPr_reference_number >
       >
       {
        public:
-         typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number >          yuv_category_type,  category_left_type;
-         typedef ::color::category::YPbPr< YPbPr_tag_name >                        YPbPr_category_type, category_right_type;
+         typedef ::color::category::yuv<     yuv_tag_name,   yuv_reference_number >          yuv_category_type,  category_left_type;
+         typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >        YPbPr_category_type, category_right_type;
 
          typedef typename ::color::akin::rgb< YPbPr_category_type >::akin_type  rgb_category_type;
 

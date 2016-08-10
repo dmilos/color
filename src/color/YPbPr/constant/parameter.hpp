@@ -56,14 +56,14 @@ namespace color
           };
        }
 
-    template< typename category_name, ::color::constant::YPbPr::reference_enum reference_number = ::color::constant::YPbPr::BT_709_entity >
+    template< typename tag_name, ::color::constant::YPbPr::reference_enum reference_number  >
      struct parameter
-     : public ::color::constant::YPbPr::_internal::base< typename ::color::trait::scalar< category_name >::instance_type, reference_number >
+     : public ::color::constant::YPbPr::_internal::base< typename ::color::trait::scalar< ::color::category::YPbPr<tag_name,reference_number> >::instance_type, reference_number >
       {
        public:
-         typedef category_name  category_type;
+         typedef ::color::category::YPbPr<tag_name,reference_number >  category_type;
 
-         typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+         typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 
          typedef  ::color::constant::YPbPr::parameter<category_type,reference_number> this_type;
 

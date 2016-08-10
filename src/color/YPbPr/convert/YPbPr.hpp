@@ -20,16 +20,20 @@ namespace color
   namespace _internal
    {
         
-    template< typename tag_left_name, typename tag_right_name >
+    template
+     <
+       typename tag_left_name,  ::color::constant::YPbPr::reference_enum reference_left_number
+      ,typename tag_right_name, ::color::constant::YPbPr::reference_enum reference_right_number
+     >
      struct convert
        <
-         ::color::category::YPbPr< tag_left_name >
-        ,::color::category::YPbPr< tag_right_name>
+         ::color::category::YPbPr<  tag_left_name, reference_left_number  >
+        ,::color::category::YPbPr< tag_right_name, reference_right_number >
        >
        {
         public:
-           typedef ::color::category::YPbPr< tag_left_name > category_left_type;
-           typedef ::color::category::YPbPr< tag_right_name> category_right_type;
+           typedef ::color::category::YPbPr< tag_left_name , reference_left_number  > category_left_type;
+           typedef ::color::category::YPbPr< tag_right_name, reference_right_number > category_right_type;
 
            typedef double scalar_type;
 
