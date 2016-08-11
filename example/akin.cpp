@@ -21,7 +21,7 @@ template< typename type_name >
    std::cout << "    HSV:  " << typeid( typename ::color::akin::cmy< typename ::color::hsv<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    RGB:  " << typeid( typename ::color::akin::cmy< typename ::color::rgb<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    YIQ:  " << typeid( typename ::color::akin::cmy< typename ::color::yiq<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    YUV:  " << typeid( typename ::color::akin::cmy< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
+ //TODO std::cout << "    YUV:  " << typeid( typename ::color::akin::cmy< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
   }
 
 template< typename type_name >
@@ -39,7 +39,7 @@ template< typename type_name >
    std::cout << "    HSV:  " << typeid( typename ::color::akin::cmyk< typename ::color::hsv<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    RGB:  " << typeid( typename ::color::akin::cmyk< typename ::color::rgb<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    YIQ:  " << typeid( typename ::color::akin::cmyk< typename ::color::yiq<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    YUV:  " << typeid( typename ::color::akin::cmyk< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    YUV:  " << typeid( typename ::color::akin::cmyk< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
   }
 
 template< typename type_name >
@@ -57,7 +57,7 @@ template< typename type_name >
    std::cout << "    HSV:  " << typeid( typename ::color::akin::gray< typename ::color::hsv<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    RGB:  " << typeid( typename ::color::akin::gray< typename ::color::rgb<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    YIQ:  " << typeid( typename ::color::akin::gray< typename ::color::yiq<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    YUV:  " << typeid( typename ::color::akin::gray< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    YUV:  " << typeid( typename ::color::akin::gray< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
   }
 
 template< typename type_name >
@@ -75,7 +75,7 @@ template< typename type_name >
    std::cout << "    HSV:  " << typeid( typename ::color::akin::hsl< typename ::color::hsv<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    RGB:  " << typeid( typename ::color::akin::hsl< typename ::color::rgb<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    YIQ:  " << typeid( typename ::color::akin::hsl< typename ::color::yiq<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    YUV:  " << typeid( typename ::color::akin::hsl< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    YUV:  " << typeid( typename ::color::akin::hsl< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
   }
 
 template< typename type_name >
@@ -93,7 +93,7 @@ template< typename type_name >
    std::cout << "    HSV:  " << typeid( typename ::color::akin::hsv< typename ::color::hsv<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    RGB:  " << typeid( typename ::color::akin::hsv< typename ::color::rgb<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    YIQ:  " << typeid( typename ::color::akin::hsv< typename ::color::yiq<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    YUV:  " << typeid( typename ::color::akin::hsv< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    YUV:  " << typeid( typename ::color::akin::hsv< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
   }
 
 template< typename type_name >
@@ -111,7 +111,7 @@ template< typename type_name >
    std::cout << "    HSV:  " << typeid( typename ::color::akin::rgb< typename ::color::hsv<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    RGB:  " << typeid( typename ::color::akin::rgb< typename ::color::rgb<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    YIQ:  " << typeid( typename ::color::akin::rgb< typename ::color::yiq<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    YUV:  " << typeid( typename ::color::akin::rgb< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    YUV:  " << typeid( typename ::color::akin::rgb< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
   }
 
 template< typename type_name >
@@ -129,25 +129,25 @@ template< typename type_name >
    std::cout << "    HSV:  " << typeid( typename ::color::akin::yiq< typename ::color::hsv<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    RGB:  " << typeid( typename ::color::akin::yiq< typename ::color::rgb<  type_name>::category_type >::akin_type ).name() << std::endl;
    std::cout << "    YIQ:  " << typeid( typename ::color::akin::yiq< typename ::color::yiq<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    YUV:  " << typeid( typename ::color::akin::yiq< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    YUV:  " << typeid( typename ::color::akin::yiq< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
   }
 
-template< typename type_name >
+template< typename type_name/*, reference_number */ >
  void akin_yuv()
   {
-   typedef ::color::yuv< type_name > model_name;
-   std::cout << "Akin types for" << std::endl;
-   std::cout << "  model: "  << typeid( model_name ).name() << std::endl;
-   std::cout << "  category: "<< typeid( typename model_name::category_type ).name() << std::endl;
+   // typedef ::color::yuv< type_name, reference_number > model_name;
+   // std::cout << "Akin types for" << std::endl;
+   // std::cout << "  model: "  << typeid( model_name ).name() << std::endl;
+   // std::cout << "  category: "<< typeid( typename model_name::category_type ).name() << std::endl;
 
-   std::cout << "    CMY:  " << typeid( typename ::color::akin::yuv< typename ::color::cmy<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    CMYK: " << typeid( typename ::color::akin::yuv< typename ::color::cmyk< type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    gray: " << typeid( typename ::color::akin::yuv< typename ::color::gray< type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    HSL:  " << typeid( typename ::color::akin::yuv< typename ::color::hsl<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    HSV:  " << typeid( typename ::color::akin::yuv< typename ::color::hsv<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    RGB:  " << typeid( typename ::color::akin::yuv< typename ::color::rgb<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    YIQ:  " << typeid( typename ::color::akin::yuv< typename ::color::yiq<  type_name>::category_type >::akin_type ).name() << std::endl;
-   std::cout << "    YUV:  " << typeid( typename ::color::akin::yuv< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    CMY:  " << typeid( typename ::color::akin::yuv< typename ::color::cmy<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    CMYK: " << typeid( typename ::color::akin::yuv< typename ::color::cmyk< type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    gray: " << typeid( typename ::color::akin::yuv< typename ::color::gray< type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    HSL:  " << typeid( typename ::color::akin::yuv< typename ::color::hsl<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    HSV:  " << typeid( typename ::color::akin::yuv< typename ::color::hsv<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    RGB:  " << typeid( typename ::color::akin::yuv< typename ::color::rgb<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    YIQ:  " << typeid( typename ::color::akin::yuv< typename ::color::yiq<  type_name>::category_type >::akin_type ).name() << std::endl;
+   //TODO std::cout << "    YUV:  " << typeid( typename ::color::akin::yuv< typename ::color::yuv<  type_name>::category_type >::akin_type ).name() << std::endl;
   }
 
 int main( int argc, char *argv[] )

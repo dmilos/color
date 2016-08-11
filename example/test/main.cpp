@@ -154,7 +154,9 @@ void make_blue()
 
   targa_make_header( width, height, header);
 
-  std::vector< color::bgra<std::uint8_t> >   image( height * width);
+  std::vector< color::bgra<std::uint8_t> >   image( height * width );
+  
+  std::memset( (void * )image.data(), 0, image.size() * sizeof( color::bgra<std::uint8_t> ) );
 
   for( auto & c: image )
    {

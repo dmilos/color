@@ -50,8 +50,8 @@ y = color::operation::mix( r, 0.5, color::rgb<float>( b ) ); //!< Blend two colo
   - Linux   : git clone https://github.com/dmilos/color.git /home/my-user-name/my-work-folder/my-git-folder/color
 2. Inform compiler where to find headers:  
  Examples:
-  - MSVC : /Ic:\work\git\color
-  - gcc  : -I/home/my-user-name/work/git/color/src
+  - MSVC : /Ic:\my-work-folder\my-git-folder\color\src
+  - gcc  : -I/home/my-user-name/my-work-folder/my-git-folder/color/src
 
 ###Want to see more:
   - [HTML Documentation ](doc/index.html)

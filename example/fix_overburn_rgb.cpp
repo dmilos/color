@@ -32,4 +32,6 @@ void fix_rgb()
 
   // Check fix
   std::cout << color::check::overburn( r ) << std::endl;
+
+  return EXIT_SUCCESS;
  }

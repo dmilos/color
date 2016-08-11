@@ -9,7 +9,7 @@ g++ -fexceptions -std=c++11 -g -I../src hello.cpp               -o  hello
 
 g++ -fexceptions -std=c++11 -g -I../src pp2f.cpp               -o  pp2f
 
-g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -o  akin
+# TODO g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -o  akin
 
 g++ -fexceptions -std=c++11 -g -I../src assign_const_heavy.cpp        -o  assign_const_heavy
 g++ -fexceptions -std=c++11 -g -I../src assign_const_simple.cpp       -o  assign_const_simple
@@ -50,8 +50,10 @@ g++ -fexceptions -std=c++11 -g -I../src fix_integrity_cmyk.cpp      -o  fix_inte
 g++ -fexceptions -std=c++11 -g -I../src fix_integrity_hsl.cpp       -o  fix_integrity_hsl
 g++ -fexceptions -std=c++11 -g -I../src fix_integrity_hsv.cpp       -o  fix_integrity_hsv
 
-g++ -fexceptions -std=c++11 -g -I../src fix_overburn.cpp            -o  fix_overburn
-g++ -fexceptions -std=c++11 -g -I../src fix_unique.cpp              -o  fix_unique
+g++ -fexceptions -std=c++11 -g -I../src fix_overburn_rgb.cpp        -o  fix_overburn_rgb
+
+g++ -fexceptions -std=c++11 -g -I../src fix_unique_hsl.cpp          -o  fix_unique_hsl
+g++ -fexceptions -std=c++11 -g -I../src fix_unique_hsv.cpp          -o  fix_unique_hsv
 
 g++ -fexceptions -std=c++11 -g -I../src format_double.cpp           -o  format_double
 g++ -fexceptions -std=c++11 -g -I../src format_float.cpp            -o  format_float
@@ -96,6 +98,8 @@ g++ -fexceptions -std=c++11 -g -I../src make_bisque.cpp       -o make_bisque
 g++ -fexceptions -std=c++11 -g -I../src make_gray.cpp         -o make_gray
 g++ -fexceptions -std=c++11 -g -I../src make_orange.cpp       -o make_orange
 g++ -fexceptions -std=c++11 -g -I../src make_red.cpp          -o make_red
+g++ -fexceptions -std=c++11 -g -I../src make_rgb_red.cpp      -o make_rgb_red
+
 
 g++ -fexceptions -std=c++11 -g -I../src operation_blend_noalpha.cpp   -o operation_blend_noalpha
 g++ -fexceptions -std=c++11 -g -I../src operation_blend_alpha.cpp     -o operation_blend_alpha
@@ -117,3 +121,4 @@ g++ -fexceptions -std=c++11 -g -I../src trait_scalar.cpp              -o trait_s
 g++ -fexceptions -std=c++11 -g -I../src tip_inplace_conversion.cpp    -o  tip_inplace_conversion
 g++ -fexceptions -std=c++11 -g -I../src tip_memfill.cpp               -o  tip_memfill
 g++ -fexceptions -std=c++11 -g -I../src tip_memset.cpp                -o  tip_memset
+

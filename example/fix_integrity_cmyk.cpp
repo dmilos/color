@@ -25,4 +25,6 @@ int main( int argc, char *argv[] )
 
   // Check again
   std::cout << color::check::integrity( ck ) << std::endl;
+
+  return EXIT_SUCCESS;
  }
