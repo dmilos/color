@@ -41,8 +41,8 @@ namespace color
          static /* constexpr*/ scalar_type const DR_max()  { return - this_type::Umax() * this_type::DR_scale(); }
          static /* constexpr*/ scalar_type const DR_range(){ return this_type::DR_max() - this_type::DR_min(); }
 
-         static scalar_type DB_diverse  ( scalar_type const& normal ){ return this_type::DR_range() * normal + this_type::DB_min(); }
-         static scalar_type DB_normalize( scalar_type const& divert ){ return ( divert - this_type::DB_min() ) /this_type::DR_range(); }
+         static scalar_type DB_diverse  ( scalar_type const& normal ){ return this_type::DB_range() * normal + this_type::DB_min(); }
+         static scalar_type DB_normalize( scalar_type const& divert ){ return ( divert - this_type::DB_min() ) /this_type::DB_range(); }
 
          static scalar_type DR_diverse  ( scalar_type const& normal ){ return this_type::DR_range() * normal + this_type::DR_min(); }
          static scalar_type DR_normalize( scalar_type const& divert ){ return ( divert - this_type::DR_min() ) /this_type::DR_range(); }

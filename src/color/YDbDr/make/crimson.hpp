@@ -17,7 +17,7 @@
 
         typedef ::color::YDbDr< double >      right_type;
 
-        static left_type local( right_type( { 0.330752157, -2.86862847, -1.42661535 } ) );
+        static left_type local( right_type( { 0.330752156862745, 0.202628466079983, -1.42661535460591 } ) );
 
         color_parameter = local;
        }
