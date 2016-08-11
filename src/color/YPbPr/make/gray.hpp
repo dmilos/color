@@ -21,7 +21,7 @@
 
         typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity >      right_type;
 
-        color_parameter = right_type( { percent/100, 0.5, 0.5 } );
+        color_parameter = right_type( { percent/100, 0, 0 } );
        }
 
      template< typename tag_name >
@@ -33,7 +33,7 @@
 
         typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity >      right_type;
 
-        static left_type local( right_type( { 0.5, 0.5, 0.5 } ) );
+        static left_type local( right_type( { 0.5, 0, 0 } ) );
 
         color_parameter = local;
        }
@@ -51,7 +51,7 @@
 
         typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity >      right_type;
 
-        color_parameter = right_type( { percent/100, 0.5, 0.5 } );
+        color_parameter = right_type( { percent/100, 0, 0 } );
        }
 
      template< typename tag_name >
@@ -63,7 +63,7 @@
 
         typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity >      right_type;
 
-        static left_type local( right_type( { 0.5, 0.5, 0.5 } ) );
+        static left_type local( right_type( { 0.5, 0, 0 } ) );
 
         color_parameter = local;
        }
@@ -81,7 +81,7 @@
 
         typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity >      right_type;
 
-        color_parameter = right_type( { percent/100, 0.5, 0.5 } );
+        color_parameter = right_type( { percent/100, 0, 0 } );
        }
 
      template< typename tag_name >
@@ -93,7 +93,7 @@
 
         typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity >      right_type;
 
-        static left_type local( right_type( { 0.5, 0.5, 0.5 } ) );
+        static left_type local( right_type( { 0.5, 0, 0 } ) );
 
         color_parameter = local;
        }

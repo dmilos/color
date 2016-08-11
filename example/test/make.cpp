@@ -130,10 +130,10 @@ void print_header2( std::string const& model, std::string const& name, color::rg
   ss << "" << std::endl;
   ss << "        static left_type local( right_type( {";
 
-  ss << " " << std::setprecision(9) << c[0] ;
-  if( 1 < c.size() ){ ss << ", " << std::setprecision(9) << c[1];  }
-  if( 2 < c.size() ){ ss << ", " << std::setprecision(9) << c[2];  }
-  if( 3 < c.size() ){ ss << ", " << std::setprecision(9) << c[3];  }
+                      ss << " "  << std::setprecision(15) << c[0] ;
+  if( 1 < c.size() ){ ss << ", " << std::setprecision(15) << c[1];  }
+  if( 2 < c.size() ){ ss << ", " << std::setprecision(15) << c[2];  }
+  if( 3 < c.size() ){ ss << ", " << std::setprecision(15) << c[3];  }
 
   ss << " } ) );";
   ss << "" << std::endl;

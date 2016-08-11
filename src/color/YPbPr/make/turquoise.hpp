@@ -17,7 +17,7 @@
 
         typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity >      right_type;
 
-        static left_type local( right_type( { 0.68107875, 0.57420975, 0.192582 } ) );
+        static left_type local( right_type( { 0.68107875, 0.0741948004290635, -0.307403542125132 } ) );
 
         color_parameter = local;
        }
@@ -31,7 +31,7 @@
 
         typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity >      right_type;
 
-        static left_type local( right_type( { 0.68107875, 0.57420975, 0.192582 } ) );
+        static left_type local( right_type( { 0.7375685, 0.0403801902298386, -0.309635283734041 } ) );
 
         color_parameter = local;
        }
@@ -45,7 +45,7 @@
 
         typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity >      right_type;
 
-        static left_type local( right_type( { 0.68107875, 0.57420975, 0.192582 } ) );
+        static left_type local( right_type( { 0.70710625, 0.0560187891995322929, -0.309986606537366094 } ) );
 
         color_parameter = local;
        }

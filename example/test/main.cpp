@@ -225,11 +225,9 @@ int main(int argc, char const *argv[])
   sandbox_test();
   ctor_test();
 
-  extern int decompose_test( int argc, char const *argv[] );
-  decompose_test( argc, argv );
 
   void main_place();
-   main_place();
+  main_place();
 
   void check_get();
   check_get();
@@ -239,6 +237,9 @@ int main(int argc, char const *argv[])
 
   extern int gray_test( int argc, char const *argv[] );
   gray_test( argc, argv );
+
+  extern int decompose_test( int argc, char const *argv[] );
+  decompose_test( argc, argv );
 
   extern void make_make_header();
   make_make_header();

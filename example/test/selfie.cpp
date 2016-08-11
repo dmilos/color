@@ -80,6 +80,8 @@ void test_selfie()
   std::cout<< "-- YCbCr_float"  << std::endl; test_make< color::category::YCbCr_double>();  std::cout << std::endl;
   std::cout<< "-- YCgCo_float"  << std::endl; test_make< color::category::YCgCo_double>();  std::cout << std::endl;
   std::cout<< "-- YDbDr_float"  << std::endl; test_make< color::category::YDbDr_double>();  std::cout << std::endl;
-  //std::cout<< "-- YPbPr_float"  << std::endl; test_make< color::category::YPbPr_double>();  std::cout << std::endl;
+  std::cout<< "-- YPbPr_float"  << std::endl; test_make< color::category::YPbPr_double<::color::constant::YPbPr::BT_601_entity> >();  std::cout << std::endl;
+  std::cout<< "-- YPbPr_float"  << std::endl; test_make< color::category::YPbPr_double<::color::constant::YPbPr::BT_709_entity> >();  std::cout << std::endl;
+  std::cout<< "-- YPbPr_float"  << std::endl; test_make< color::category::YPbPr_double<::color::constant::YPbPr::BT_2020_entity> >();  std::cout << std::endl;
  }
 
