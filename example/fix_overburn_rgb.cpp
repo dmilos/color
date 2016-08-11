@@ -7,13 +7,6 @@ void fix_rgb();
 
 int main( int argc, char *argv[] )
  {
-  fix_rgb();
-
-  return EXIT_SUCCESS;
- }
-
-void fix_rgb()
- {
   color::rgb<double>  r;
 
   // Do some initialization
