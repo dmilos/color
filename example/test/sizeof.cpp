@@ -226,7 +226,6 @@ void check_sizeof()
   ss << print_sizeof< YPbPr709   > ( "<code>YPbPr709  </code>" );  ss << std::endl;
   ss << print_sizeof< YPbPr2020  > ( "<code>YPbPr2020 </code>" );  ss << std::endl;
 
-  ss << print_sizeof<::color::YCbCr  > ( "<code>YCbCr </code>" );  ss << std::endl;
   ss << print_sizeof<::color::YCgCo  > ( "<code>YCgCo </code>" );  ss << std::endl;
   ss << print_sizeof<::color::YDbDr  > ( "<code>YDbDr </code>" );  ss << std::endl;
 

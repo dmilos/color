@@ -14,7 +14,6 @@ void place_hsl();
 void place_hsv();
 
 void place_YCgCo();
-void place_YCbCr();
 void place_YDbDr();
 void place_yiq();
 void place_YPbPr();
@@ -32,7 +31,6 @@ void main_place()
   place_hsv();
   
   place_YCgCo();
-  place_YCbCr();
   place_YDbDr();
   place_yiq();
   place_YPbPr();
@@ -192,14 +190,7 @@ void place_hsv()
   check_place_value< ::color::hsv<long double>  ::category_type >();
  }
 
-void place_YCbCr()
- {
-  check_place_luma< ::color::YCbCr<std::uint8_t> ::category_type >();
-  check_place_luma< ::color::YCbCr<std::uint16_t>::category_type >();
-  check_place_luma< ::color::YCbCr<float>        ::category_type >();
-  check_place_luma< ::color::YCbCr<double>       ::category_type >();
-  check_place_luma< ::color::YCbCr<long double>  ::category_type >();
- }
+
 void place_YCgCo()
  {
   check_place_luma< ::color::YCgCo<std::uint8_t> ::category_type >();

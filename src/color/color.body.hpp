@@ -13,7 +13,6 @@
 
 #include "./YPbPr/YPbPr.hpp"
 #include "./YCgCo/YCgCo.hpp"
-#include "./YCbCr/YCbCr.hpp"
 #include "./YDbDr/YDbDr.hpp"
 
 #include "./generic/operation/operation.hpp"

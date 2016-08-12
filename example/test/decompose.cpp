@@ -104,7 +104,6 @@ int decompose_test( int argc, char const *argv[] )
   decompose< ::color::yuv<double, ::color::constant::yuv::BT_601_entity>   >( image, "../out/dec/yuv-601", width, height );
   decompose< ::color::yuv<double, ::color::constant::yuv::BT_709_entity>   >( image, "../out/dec/yuv-709", width, height );
 
-//decompose< ::color::YCbCr<double> >( image, "../out/dec/YCbCr", width, height );
   decompose< ::color::YCgCo<double> >( image, "../out/dec/YCgCo", width, height );
   decompose< ::color::YDbDr<double> >( image, "../out/dec/YDbDr", width, height );
 
