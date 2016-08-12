@@ -118,7 +118,6 @@ void invoke()
   test_conversion< color::rgb, color::gray >();
   test_conversion< color::rgb, color::yiq >();
 //  test_conversion< color::rgb, color::yuv >();
-  test_conversion< color::rgb, color::xyz >();
 
   test_conversion< color::cmy, color::cmy >();
   test_conversion< color::cmy, color::rgb >();
@@ -138,10 +137,6 @@ void invoke()
 
   //test_conversion< color::yuv, color::yuv >();
 //  test_conversion< color::yuv, color::rgb >();
-
-  test_conversion< color::xyz, color::xyz >();
-  test_conversion< color::xyz, color::rgb >();
-
 
  }
 
@@ -288,9 +283,6 @@ int main(int argc, char const *argv[])
   make_image<color::cmy<double> >( "./palette/cmy.tga" , 0.5 );
   make_image<color::cmyk<double> >("./palette/cmyk.tga", 0.5 );
 
-  make_image<color::xyz<double> >( "./palette/xyz-0.tga" , 0.5, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-1.tga" , 0.5, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-2.tga" , 0.5, 2 );
   make_image<color::yiq<double> >( "./palette/yiq.tga" , 0.5 );
 
   make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.0.tga", 0.0);

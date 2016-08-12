@@ -7,7 +7,6 @@
 #include "./hsl/hsl.hpp"
 #include "./hsv/hsv.hpp"
 #include "./rgb/rgb.hpp"
-//#include "./xyz/xyz.hpp"
 #include "./yiq/yiq.hpp"
 #include "./yuv/yuv.hpp"
 
