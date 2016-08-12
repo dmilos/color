@@ -38,7 +38,14 @@
 
         enum { blue_p  = ::color::place::_internal::blue<akin_type>::position_enum };
 
-        scalar_type b = 0; //!< TODO
+        scalar_type Y  = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+        scalar_type Cg = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+        scalar_type Co = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+
+        Cg = YCgCo_const_type::Cg_diverse( Cg );
+        Co = YCgCo_const_type::Co_diverse( Co );
+
+        scalar_type b = Y - Cg - Co;
 
         return diverse_type::template process<blue_p>( b );
        }

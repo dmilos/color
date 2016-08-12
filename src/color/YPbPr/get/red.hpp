@@ -8,11 +8,7 @@
 #include "../../rgb/trait/component.hpp"
 
 #include "../category.hpp"
-#include "../constant.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
-#include "../../generic/trait/scalar.hpp"
 
 
  namespace color
@@ -26,21 +22,10 @@
       red( ::color::model< ::color::category::YPbPr< tag_name, reference_number> > const& color_parameter )
        {
         typedef ::color::category::YPbPr< tag_name,reference_number >  category_type;
-
-        typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
-
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_type;
-
-        typedef ::color::_internal::diverse< akin_type >       diverse_type;
-        typedef ::color::_internal::normalize<category_type>   normalize_type;
-
-        typedef ::color::constant::YPbPr::parameter< tag_name, reference_number >  YPbPr_const_type; 
-
         enum { red_p  = ::color::place::_internal::red<akin_type>::position_enum };
 
-        scalar_type r = 0; //!< TODO
-
-        return diverse_type::template process<red_p>( r );
+        return ::color::model< akin_type >( color_parameter ).template get<red_p>();
        }
 
     }

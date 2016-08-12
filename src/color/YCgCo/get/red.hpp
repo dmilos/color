@@ -34,11 +34,18 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;
 
-        typedef ::color::constant::YCgCo< category_type >  YCgCo_const_type; 
+        typedef ::color::constant::YCgCo< category_type >  YCgCo_const_type;
 
         enum { red_p  = ::color::place::_internal::red<akin_type>::position_enum };
 
-        scalar_type r = 0; //!< TODO
+        scalar_type Y  = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
+        scalar_type Cg = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
+        scalar_type Co = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+
+        Cg = YCgCo_const_type::Cg_diverse( Cg );
+        Co = YCgCo_const_type::Co_diverse( Co );
+
+        scalar_type r = Y - Cg + Co;
 
         return diverse_type::template process<red_p>( r );
        }
