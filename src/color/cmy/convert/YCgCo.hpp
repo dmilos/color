@@ -1,18 +1,18 @@
 #ifndef color_cmy_convert_YCgCo
 #define color_cmy_convert_YCgCo
 
+#include "../category.hpp"
+
 #include "../../_internal/convert.hpp"
+
 #include "../../YCgCo/trait/container.hpp"
 #include "../../YCgCo/category.hpp"
 #include "../../YCgCo/constant.hpp"
 
+#include "../place/place.hpp"
+
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
-
-#include "../place/cyan.hpp"
-#include "../place/magenta.hpp"
-#include "../place/yellow.hpp"
-
 
 
 namespace color

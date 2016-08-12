@@ -1,18 +1,18 @@
 #ifndef color_cmy_convert_cmy
 #define color_cmy_convert_cmy
 
-#include "../place/place.hpp"
+#include "../category.hpp"
 
 #include "../../_internal/convert.hpp"
 
 
-#include "../category.hpp"
+
+
+
+#include "../place/place.hpp"
+
 #include "../trait/container.hpp"
-
-
 #include "../../_internal/reformat.hpp"
-
-
 
 
 namespace color
@@ -64,9 +64,9 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           container_left_trait_type::template set<cr_p>( left, reformat_type::template process<cr_p,cl_p>( container_right_trait_type::template get<cl_p>( right ) ) );
-           container_left_trait_type::template set<mr_p>( left, reformat_type::template process<mr_p,ml_p>( container_right_trait_type::template get<ml_p>( right ) ) );
-           container_left_trait_type::template set<yr_p>( left, reformat_type::template process<yr_p,yl_p>( container_right_trait_type::template get<yl_p>( right ) ) );
+           container_left_trait_type::template set<cl_p>( left, reformat_type::template process<cl_p,cr_p>( container_right_trait_type::template get<cr_p>( right ) ) );
+           container_left_trait_type::template set<ml_p>( left, reformat_type::template process<ml_p,mr_p>( container_right_trait_type::template get<mr_p>( right ) ) );
+           container_left_trait_type::template set<yl_p>( left, reformat_type::template process<yl_p,yr_p>( container_right_trait_type::template get<yr_p>( right ) ) );
           }
         };
    }

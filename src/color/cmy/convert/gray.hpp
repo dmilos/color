@@ -4,10 +4,16 @@
 #include "../category.hpp"
 
 #include "../../_internal/convert.hpp"
+
 #include "../../gray/gray.hpp"
+
+
+
+#include "../place/place.hpp"
 
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
+
 
 namespace color
  {

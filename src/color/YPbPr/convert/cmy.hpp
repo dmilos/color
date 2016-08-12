@@ -60,11 +60,14 @@ namespace color
           scalar_type g = scalar_type(1) - normalize_type::template process<magenta_p >( container_right_trait_type::template get<magenta_p >( right ) );
           scalar_type b = scalar_type(1) - normalize_type::template process<yellow_p  >( container_right_trait_type::template get<yellow_p  >( right ) );
 
-           scalar_type y  = YPbPr_parameter_type::a11() * r  +  YPbPr_parameter_type::a12() * g  + YPbPr_parameter_type::a13() * b ;
-           scalar_type Pb = YPbPr_parameter_type::a21() * r  +  YPbPr_parameter_type::a22() * g  + YPbPr_parameter_type::a23() * b ;
-           scalar_type Pr = YPbPr_parameter_type::a31() * r  +  YPbPr_parameter_type::a32() * g  + YPbPr_parameter_type::a33() * b ;
+           scalar_type Y  = YPbPr_parameter_type::b11() * r  +  YPbPr_parameter_type::b12() * g  + YPbPr_parameter_type::b13() * b ;
+           scalar_type Pb = YPbPr_parameter_type::b21() * r  +  YPbPr_parameter_type::b22() * g  + YPbPr_parameter_type::b23() * b ;
+           scalar_type Pr = YPbPr_parameter_type::b31() * r  +  YPbPr_parameter_type::b32() * g  + YPbPr_parameter_type::b33() * b ;
 
-          container_left_trait_type::template set<0>( left, diverse_type::template process<0>( y ) );
+           Pb = YPbPr_parameter_type::Pb_normalize( Pb );
+           Pr = YPbPr_parameter_type::Pr_normalize( Pr );
+
+          container_left_trait_type::template set<0>( left, diverse_type::template process<0>( Y ) );
           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( Pb ) );
           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( Pr ) );
          }

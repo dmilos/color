@@ -218,38 +218,8 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
    }
  }
 
-int main(int argc, char const *argv[])
+void test_pallete()
  {
-  sandbox_test();
-  ctor_test();
-
-
-  void main_place();
-  main_place();
-
-  void check_get();
-  check_get();
-
-  extern void make_test_make();
-  make_test_make();
-
-  extern int gray_test( int argc, char const *argv[] );
-  gray_test( argc, argv );
-
-  extern int decompose_test( int argc, char const *argv[] );
-  decompose_test( argc, argv );
-
-  extern void make_make_header();
-  make_make_header();
-
-  extern void print_bound();
-  print_bound();
-
-  extern void check_sizeof();
-  check_sizeof();
-
-  make_blue();
-
   make_image<color::hsl<double> >( "./palette/hsl-1-00.tga" , 0.00, 1 );
   make_image<color::hsl<double> >( "./palette/hsl-1-05.tga" , 0.50, 1 );
   make_image<color::hsl<double> >( "./palette/hsl-1-10.tga" , 1.00, 1 );
@@ -296,6 +266,41 @@ int main(int argc, char const *argv[])
   make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.8.tga", 0.8);
   make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.9.tga", 0.9);
   make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_1.0.tga", 1.0);
+
+ }
+
+int main(int argc, char const *argv[])
+ {
+  sandbox_test();
+  ctor_test();
+
+  void main_place();
+  main_place();
+
+  void check_get();
+  check_get();
+
+  extern void make_test_make();
+  make_test_make();
+
+  extern int gray_test( int argc, char const *argv[] );
+  gray_test( argc, argv );
+
+  extern int decompose_test( int argc, char const *argv[] );
+  decompose_test( argc, argv );
+
+  extern void make_make_header();
+  make_make_header();
+
+  extern void print_bound();
+  print_bound();
+
+  extern void check_sizeof();
+  check_sizeof();
+
+  test_pallete();
+
+  make_blue();
 
   invoke();
 

@@ -1,15 +1,19 @@
 #ifndef color_cmy_convert_rgb
 #define color_cmy_convert_rgb
 
+#include "../category.hpp"
+
 #include "../../_internal/convert.hpp"
+
 #include "../../rgb/place/place.hpp"
 #include "../../rgb/rgb.hpp"
 
-#include "../category.hpp"
+
 #include "../place/place.hpp"
 
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
+
 
 namespace color
  {

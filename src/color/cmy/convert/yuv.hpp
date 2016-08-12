@@ -1,11 +1,16 @@
 #ifndef color_cmy_convert_yuv
 #define color_cmy_convert_yuv
 
+#include "../category.hpp"
+
 #include "../../_internal/convert.hpp"
+
 #include "../../yuv/trait/container.hpp"
 #include "../../yuv/category.hpp"
 #include "../../yuv/constant.hpp"
 
+
+#include "../place/place.hpp"
 
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/normalize.hpp"

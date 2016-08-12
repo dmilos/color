@@ -1,11 +1,19 @@
 #ifndef color_cmy_convert_hsl
 #define color_cmy_convert_hsl
 
+#include "../category.hpp"
+
 #include "../../_internal/convert.hpp"
+
 #include "../../hsl/hsl.hpp"
+
+
+
+#include "../place/place.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
+
 
 namespace color
  {

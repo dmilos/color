@@ -1,13 +1,19 @@
 #ifndef color_cmy_convert_yiq
 #define color_cmy_convert_yiq
 
+#include "../category.hpp"
+
 #include "../../_internal/convert.hpp"
+
 #include "../../yiq/constant.hpp"
 #include "../../yiq/category.hpp"
 #include "../../yiq/trait/container.hpp"
 
+#include "../place/place.hpp"
+
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
+
 
 namespace color
  {
