@@ -1,6 +1,7 @@
 #include <vector>
 #include <fstream>
 #include <typeinfo>
+#include <cstring>
 
 #include "color/color.hpp"
 
@@ -156,7 +157,7 @@ void make_blue()
 
   std::vector< color::bgra<std::uint8_t> >   image( height * width );
   
-  std::memset( (void * )image.data(), 0, image.size() * sizeof( color::bgra<std::uint8_t> ) );
+  memset( (void * )image.data(), 0, image.size() * sizeof( color::bgra<std::uint8_t> ) );
 
   for( auto & c: image )
    {
