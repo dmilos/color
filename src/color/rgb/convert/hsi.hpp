@@ -2,15 +2,13 @@
 #define color_rgb_convert_hsi
 
 #include "../../_internal/convert.hpp"
-#include "../../hsi/place/place.hpp"
+
 #include "../../hsi/hsi.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
 
-#include "../place/red.hpp"
-#include "../place/green.hpp"
-#include "../place/blue.hpp"
+#include "../place/place.hpp"
 
 
 
@@ -42,6 +40,8 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+         typedef  ::color::constant::hsi< category_right_type > hsi_constant_type;
+
          enum
           {
             red_p   = ::color::place::_internal::red<category_left_type>::position_enum
@@ -53,7 +53,7 @@ namespace color
           {
             hue_p        = ::color::place::_internal::hue<category_right_type>::position_enum
            ,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-           ,value_p      = ::color::place::_internal::value<category_right_type>::position_enum
+           ,intensity_p  = ::color::place::_internal::intensity<category_right_type>::position_enum
           };
 
          static void process
@@ -64,10 +64,25 @@ namespace color
           {
            scalar_type h = normalize_type::template process<hue_p       >( container_right_trait_type::template get<hue_p       >( right ) );
            scalar_type s = normalize_type::template process<saturation_p>( container_right_trait_type::template get<saturation_p>( right ) );
-           scalar_type i = normalize_type::template process<intensity_p  >( container_right_trait_type::template get<intensity_p  >( right ) );
+           scalar_type i = normalize_type::template process<intensity_p >( container_right_trait_type::template get<intensity_p >( right ) );
 
-           // TODO
+           scalar_type min = i * ( 1 - s );
 
+           int region  = int( 3 * h );
+           h -= region * hsi_constant_type::third();
+           h *= hsi_constant_type::two_pi();
+           scalar_type n = i*( 1+ s*cos( h ) / cos( hsi_constant_type::deg60() - h ) );
+
+           scalar_type r;
+           scalar_type g;
+           scalar_type b;
+
+           switch( region  % 3 )
+            {
+             case 0: r = n; b = min; g = 3*i-(r+b); break;
+             case 1: g = n; r = min; b = 3*i-(r+g); break;
+             case 2: b = n; g = min; r = 3*i-(g+b); break;
+            }
            container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r ) );
            container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( g ) );
            container_left_trait_type::template set<blue_p >( left, diverse_type::template process<blue_p >( b ) );

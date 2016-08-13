@@ -35,6 +35,8 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+         typedef  ::color::constant::hsi< category_right_type > hsi_constant_type;
+
          enum
           {
                    hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
@@ -55,16 +57,41 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-
            scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           // TODO
+           scalar_type lo = std::min<scalar_type>( {r,g,b} );
+           scalar_type v =  std::max<scalar_type>( {r,g,b} );
+           scalar_type delta = v - lo;
+
+           scalar_type h = 0;
+           scalar_type i = ( r + g + b) / scalar_type(3);
+           scalar_type s = scalar_type(1) - lo / i;
+
+           scalar_type alpha = ( (r-g) + ( r- b) ) * scalar_type( 0.5 );
+           scalar_type beta =  (r-g)*(r-g) + (r-b)*(g-b) ;
+                       beta = sqrt( beta );
+           //scalar_type beta = sqrt( (g-b) * ( scalar_type( 3 ) / scalar_type( 4 ) ) );
+
+           scalar_type thetaX = atan2( beta, alpha );
+
+           scalar_type thetaA = acos( alpha/ beta );
+
+           if( b > g )
+            {
+             h = hsi_constant_type::two_pi() - thetaA;
+            }
+           else
+            {
+             h = thetaA;
+            }
+
+            h /= hsi_constant_type::two_pi();
 
            container_left_trait_type::template set<       hue_p>( left, diverse_type::template process<       hue_p>( h ) );
            container_left_trait_type::template set<saturation_p>( left, diverse_type::template process<saturation_p>( s ) );
-           container_left_trait_type::template set< intensity_p>( left, diverse_type::template process< intensity_p>( v ) );
+           container_left_trait_type::template set< intensity_p>( left, diverse_type::template process< intensity_p>( i ) );
           }
       };
 

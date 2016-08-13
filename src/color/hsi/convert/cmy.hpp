@@ -3,11 +3,13 @@
 
 #include "../../_internal/convert.hpp"
 
-#include "../../cmy/cmy.hpp"
-#include "../../cmy/place/place.hpp"
+#include "../category.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+
+#include "../../cmy/cmy.hpp"
+#include "../../rgb/rgb.hpp"
+
+
 
 namespace color
  {
@@ -22,11 +24,15 @@ namespace color
       >
       {
        public:
-         typedef ::color::category::hsi< hsi_tag_name > category_left_type;
-         typedef ::color::category::cmy< cmy_tag_name > category_right_type;
-         typedef double  scalar_type;
+         typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
+         typedef ::color::category::cmy< cmy_tag_name > cmy_category_type, category_right_type;
 
-         typedef ::color::trait::scalar<category_left_type> scalar_trait_type;
+         typedef typename ::color::akin::rgb< cmy_category_type >::akin_type  rgb_category_type;
+
+         typedef ::color::model< hsi_category_type > hsi_model_type;
+         typedef ::color::model< cmy_category_type >  cmy_model_type;
+
+         typedef ::color::model< rgb_category_type >  rgb_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
@@ -34,30 +40,13 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef ::color::_internal::diverse< category_left_type >    diverse_type;
-         typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-         enum
-          {
-            hue_p        = ::color::place::_internal::hue<category_left_type >::position_enum
-           ,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-           ,intensity_p  = ::color::place::_internal::intensity<category_left_type>::position_enum
-          };
-
-         enum
-          {
-            cyan_p       = ::color::place::_internal::cyan<category_right_type>::position_enum
-           ,yellow_p     = ::color::place::_internal::yellow<category_right_type>::position_enum
-           ,magenta_p    = ::color::place::_internal::magenta<category_right_type>::position_enum
-          };
-
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           // TODO
+           left = hsi_model_type( rgb_model_type( cmy_model_type( right ) ) ).container();
           }
       };
 

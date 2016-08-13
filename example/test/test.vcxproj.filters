@@ -1161,15 +1161,6 @@
     <ClInclude Include="..\..\src\color\generic\set\set.hpp">
       <Filter>Source Files\src\generic\set</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\category.hpp">
-      <Filter>Source Files\src\generic</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\generic.hpp">
-      <Filter>Source Files\src\generic</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\type.hpp">
-      <Filter>Source Files\src\generic</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\yiq\akin\akin.hpp">
       <Filter>Source Files\src\yiq\akin</Filter>
     </ClInclude>
@@ -3609,9 +3600,6 @@
     <ClInclude Include="..\..\src\color\yuv\constant.hpp">
       <Filter>Source Files\src\yuv</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\generic\constant.hpp">
-      <Filter>Source Files\src\generic</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\gray\convert\yuv.hpp">
       <Filter>Source Files\src\gray\convert</Filter>
     </ClInclude>
@@ -4112,6 +4100,18 @@
     </ClInclude>
     <ClInclude Include="..\..\src\color\yuv\constant\reference.hpp">
       <Filter>Source Files\src\yuv\contant</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\category.hpp">
+      <Filter>Source Files\src\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\constant.hpp">
+      <Filter>Source Files\src\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\generic.hpp">
+      <Filter>Source Files\src\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\color\generic\model.hpp">
+      <Filter>Source Files\src\generic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

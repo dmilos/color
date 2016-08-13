@@ -68,10 +68,11 @@ namespace color
       explicit model( container_input_const_type container )
        :m_container( container )
        {
+        // Do NOTHING is must!!!
        }
 
       template< typename tag_name >
-       explicit model( ::color::constant::base< tag_name > const& constant )
+       explicit model( ::color::constant::base< tag_name > const& constant )  //!< TODO Remove explicit?
         {
          *this = constant;
         }

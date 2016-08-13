@@ -357,6 +357,7 @@
     <ClInclude Include="..\..\src\color\generic\make\wheat.hpp" />
     <ClInclude Include="..\..\src\color\generic\make\white.hpp" />
     <ClInclude Include="..\..\src\color\generic\make\yellow.hpp" />
+    <ClInclude Include="..\..\src\color\generic\model.hpp" />
     <ClInclude Include="..\..\src\color\generic\operation\addition.hpp" />
     <ClInclude Include="..\..\src\color\generic\operation\blend.hpp" />
     <ClInclude Include="..\..\src\color\generic\operation\clamp.hpp" />
@@ -398,7 +399,6 @@
     <ClInclude Include="..\..\src\color\generic\trait\index.hpp" />
     <ClInclude Include="..\..\src\color\generic\trait\scalar.hpp" />
     <ClInclude Include="..\..\src\color\generic\trait\trait.hpp" />
-    <ClInclude Include="..\..\src\color\generic\type.hpp" />
     <ClInclude Include="..\..\src\color\generic\type\divert.hpp" />
     <ClInclude Include="..\..\src\color\generic\type\normal.hpp" />
     <ClInclude Include="..\..\src\color\generic\type\split233.hpp" />

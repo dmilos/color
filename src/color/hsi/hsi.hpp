@@ -9,8 +9,7 @@
 #include "./trait/trait.hpp"
 
 #include "../generic/model.hpp"
-
-
+#include "./constant.hpp"
 
 namespace color
  {

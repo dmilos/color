@@ -17,30 +17,28 @@
 
 void sandbox_test()
  {
-  ::color::YPbPr<double, ::color::constant::YPbPr::BT_601_entity >  yp601 ;
-  ::color::YPbPr<double, ::color::constant::YPbPr::BT_709_entity>   yp709 ;
-  ::color::YPbPr<double, ::color::constant::YPbPr::BT_2020_entity > yp2020;
+  ::color::hsi<double>  h;
+  ::color::rgb<double>  r;
 
-  ::color::rgb< double >   r ( ::color::constant::red_type{} );
+  r=  ::color::constant::gold_t{};
+  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  h = r; r = h;
+  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
 
-  yp601  = r;
-  yp709  = r;
-  yp2020 = r;
+  r =  ::color::constant::red_t{};
+  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  h = r; r = h;
+  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
 
-  std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
+  r =  ::color::constant::green_t{};
+  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  h = r; r = h;
+  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
 
-  yp601 = ::color::constant::red_type{};
-  r = yp601;
-  std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
-
-  yp709 = ::color::constant::red_type{};
-  r = yp709;
-  std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
-
-  yp2020 = ::color::constant::red_type{};
-  r = yp709;
-  std::cout << r[0] << ", "<< r[1] <<  ", " << r[2] << std::endl;
-
+  r =  ::color::constant::blue_t{};
+  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  h = r; r = h;
+  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
  }
 
 

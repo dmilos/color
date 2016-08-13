@@ -19,7 +19,7 @@ namespace color
  {
   namespace _internal
    {
-        
+
     template< typename tag_left_name, typename tag_right_name >
      struct convert
        <
@@ -41,16 +41,29 @@ namespace color
            typedef typename container_left_trait_type::input_type         container_left_input_type;
            typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+           enum
+            {
+              hr_p = ::color::place::_internal::hue<category_left_type>::position_enum
+             ,sr_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+             ,ir_p = ::color::place::_internal::intensity<category_left_type>::position_enum
+            };
+
+           enum
+            {
+              hl_p = ::color::place::_internal::hue<category_right_type>::position_enum
+             ,sl_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+             ,il_p = ::color::place::_internal::intensity<category_right_type>::position_enum
+            };
+
            static void process
             (
               container_left_input_type         left
              ,container_right_const_input_type  right
             )
-            { 
-             // TODO
-             container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( container_right_trait_type::template get<0>( right ) ) );
-             container_left_trait_type::template set<1>( left, reformat_type::template process<1,1>( container_right_trait_type::template get<1>( right ) ) );
-             container_left_trait_type::template set<2>( left, reformat_type::template process<2,2>( container_right_trait_type::template get<2>( right ) ) );
+            {
+             container_left_trait_type::template set<hl_p>( left, reformat_type::template process<hl_p,hr_p>( container_right_trait_type::template get<hr_p>( right ) ) );
+             container_left_trait_type::template set<sl_p>( left, reformat_type::template process<sl_p,sr_p>( container_right_trait_type::template get<sr_p>( right ) ) );
+             container_left_trait_type::template set<il_p>( left, reformat_type::template process<il_p,ir_p>( container_right_trait_type::template get<ir_p>( right ) ) );
             }
         };
    }

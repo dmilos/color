@@ -37,6 +37,11 @@ namespace color
 
          enum
           {
+            gray_p       = ::color::place::_internal::gray<category_right_type>::position_enum
+          };
+
+         enum
+          {
             hue_p        = ::color::place::_internal::hue<category_left_type>::position_enum
            ,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
            ,intensity_p  = ::color::place::_internal::intensity<category_left_type>::position_enum
@@ -48,7 +53,6 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           // TODO
            container_left_trait_type::template set<hue_p>(        left, bound_left_trait_type::template minimum<hue_p>() );
            container_left_trait_type::template set<saturation_p>( left, bound_left_trait_type::template minimum<saturation_p>() );
            container_left_trait_type::template set<intensity_p>(  left, reformat_type::template process<intensity_p,0>( container_right_trait_type::template get<0>( right ) ) );

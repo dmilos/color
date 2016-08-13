@@ -20,10 +20,13 @@ namespace color
 
          typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
-         static /* constexpr*/ scalar_type const zero() { return scalar_type( 0   ); }
-         static /* constexpr*/ scalar_type const half() { return scalar_type( 0.5 ); }
-         static /* constexpr*/ scalar_type const one()  { return scalar_type( 1   ); }
-         static /* constexpr*/ scalar_type const two()  { return scalar_type( 2   ); }
+         static /* constexpr*/ scalar_type const zero()  { return scalar_type( 0   ); }
+         static /* constexpr*/ scalar_type const half()  { return scalar_type( 0.5 ); }
+         static /* constexpr*/ scalar_type const one()   { return scalar_type( 1   ); }
+         static /* constexpr*/ scalar_type const two()   { return scalar_type( 2   ); }
+         static /* constexpr*/ scalar_type const pi( )   { return scalar_type( 3.141592653589793238462643383279502884197169399375105820974944592307816406286  ); }
+         static /* constexpr*/ scalar_type const two_pi(){ return scalar_type( 2 * 3.141592653589793238462643383279502884197169399375105820974944592307816406286 ); }
+
       };
 
    }
