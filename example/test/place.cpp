@@ -12,6 +12,7 @@ void place_CMYK();
 void place_gray();
 void place_hsl();
 void place_hsv();
+void place_hsi();
 
 void place_YCgCo();
 void place_YDbDr();
@@ -29,7 +30,7 @@ void main_place()
   place_gray();
   place_hsl();
   place_hsv();
-  
+  place_hsi();
   place_YCgCo();
   place_YDbDr();
   place_yiq();
@@ -190,6 +191,26 @@ void place_hsv()
   check_place_value< ::color::hsv<long double>  ::category_type >();
  }
 
+void place_hsi()
+ {
+  check_place_hue< ::color::hsi<std::uint8_t> ::category_type >();
+  check_place_hue< ::color::hsi<std::uint16_t>::category_type >();
+  check_place_hue< ::color::hsi<float>        ::category_type >();
+  check_place_hue< ::color::hsi<double>       ::category_type >();
+  check_place_hue< ::color::hsi<long double>  ::category_type >();
+
+  check_place_saturation< ::color::hsi<std::uint8_t> ::category_type >();
+  check_place_saturation< ::color::hsi<std::uint16_t>::category_type >();
+  check_place_saturation< ::color::hsi<float>        ::category_type >();
+  check_place_saturation< ::color::hsi<double>       ::category_type >();
+  check_place_saturation< ::color::hsi<long double>  ::category_type >();
+
+  check_place_intensity< ::color::hsi<std::uint8_t> ::category_type >();
+  check_place_intensity< ::color::hsi<std::uint16_t>::category_type >();
+  check_place_intensity< ::color::hsi<float>        ::category_type >();
+  check_place_intensity< ::color::hsi<double>       ::category_type >();
+  check_place_intensity< ::color::hsi<long double>  ::category_type >();
+ }
 
 void place_YCgCo()
  {

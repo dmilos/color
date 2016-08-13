@@ -70,6 +70,7 @@ void test_selfie()
   std::cout<< "-- cmyk_float" << std::endl; test_make< color::category::cmyk_double>(); std::cout << std::endl;
   std::cout<< "-- hsl_float"  << std::endl; test_make< color::category::hsl_double>();  std::cout << std::endl;
   std::cout<< "-- hsv_float"  << std::endl; test_make< color::category::hsv_double>();  std::cout << std::endl;
+  std::cout<< "-- hsi_float"  << std::endl; test_make< color::category::hsi_double>();  std::cout << std::endl;
   std::cout<< "-- yiq_float"  << std::endl; test_make< color::category::yiq_double>();  std::cout << std::endl;
 
   std::cout<< "-- yuv609_float"  << std::endl; test_make< color::category::yuv_double<::color::constant::yuv::BT_601_entity> >();  std::cout << std::endl;

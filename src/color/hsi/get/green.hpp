@@ -32,6 +32,8 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;
 
+        typedef  ::color::constant::hsi< category_type > hsi_constant_type;
+
         enum
          {
            red_p        = ::color::place::_internal::red<akin_type>::position_enum
@@ -40,35 +42,33 @@
          };
 
         enum
-         { 
+         {
            hue_p        = ::color::place::_internal::hue<category_type>::position_enum
           ,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
           ,intensity_p  = ::color::place::_internal::intensity<category_type>::position_enum
          };
 
-         
+
         scalar_type h = normalize_type::template process<hue_p       >( color_parameter.template get<hue_p       >() );
         scalar_type s = normalize_type::template process<saturation_p>( color_parameter.template get<saturation_p>() );
-        scalar_type v = normalize_type::template process<intensity_p >( color_parameter.template get<intensity_p >() );
+        scalar_type i = normalize_type::template process<intensity_p >( color_parameter.template get<intensity_p >() );
 
-        int region  = int( 6 * h );
-        scalar_type f = h * 6 - region ;
-        scalar_type p = v * (1 - s);
-        scalar_type q = v * (1 - f * s);
-        scalar_type t = v * (1 - (1 - f) * s);
+        scalar_type min = i * ( 1 - s );
 
+        int region  = int( 3 * h );
+        h -= region * hsi_constant_type::third();
+        h *= hsi_constant_type::two_pi();
+        scalar_type n = i*( 1+ s*cos( h ) / cos( hsi_constant_type::deg60() - h ) );
 
+        scalar_type r;
         scalar_type g;
+        scalar_type b;
 
-
-        switch( region  % 6 )
+        switch( region  % 3 )
          {
-          case 0:        g = t;        break;
-          case 1:        g = v;        break;
-          case 2:        g = v;        break;
-          case 3:        g = q;        break;
-          case 4:        g = p;        break;
-          case 5:        g = p;        break;
+          case 0: r = n; b = min; g = 3*i-(r+b); break;
+          case 1: g = n;                         break;
+          case 2:        g = min;                break;
          }
 
         return diverse_type::template process<green_p>( g );

@@ -48,6 +48,13 @@ void test_set_invoke()
   test_generic_set<::color::category::hsv_float>( 0.5 );
   test_generic_set<::color::category::hsv_double>( 0.5 );
 
+  test_generic_set<::color::category::hsi_uint8>( 0.5 );
+  test_generic_set<::color::category::hsi_uint16>( 0.5 );
+  test_generic_set<::color::category::hsi_uint32>( 0.5 );
+  test_generic_set<::color::category::hsi_uint64>( 0.5 );
+  test_generic_set<::color::category::hsi_float>( 0.5 );
+  test_generic_set<::color::category::hsi_double>( 0.5 );
+
   test_generic_set<::color::category::yiq_uint8>( 0.5 );
   test_generic_set<::color::category::yiq_uint16>( 0.5 );
   test_generic_set<::color::category::yiq_uint32>( 0.5 );

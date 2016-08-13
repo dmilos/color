@@ -135,6 +135,7 @@ void check_get()
   test_get_red< ::color::category::cmy_double>();
   test_get_red< ::color::category::cmyk_double>();
   test_get_red< ::color::category::hsv_double>();
+  test_get_red< ::color::category::hsi_double>();
   test_get_red< ::color::category::rgb_double>();
   test_get_red< ::color::category::yiq_double>();
   test_get_red< ::color::category::yuv_double<::color::constant::yuv::BT_601_entity > >();
@@ -150,6 +151,7 @@ void check_get()
   test_get_green< ::color::category::cmy_double>();
   test_get_green< ::color::category::cmyk_double>();
   test_get_green< ::color::category::hsv_double>();
+  test_get_green< ::color::category::hsi_double>();
   test_get_green< ::color::category::rgb_double>();
   test_get_green< ::color::category::yiq_double>();
   test_get_green< ::color::category::yuv_double<::color::constant::yuv::BT_601_entity > >();
@@ -165,6 +167,7 @@ void check_get()
   test_get_blue< ::color::category::cmy_double>();
   test_get_blue< ::color::category::cmyk_double>();
   test_get_blue< ::color::category::hsv_double>();
+  test_get_blue< ::color::category::hsi_double>();
   test_get_blue< ::color::category::rgb_double>();
   test_get_blue< ::color::category::yiq_double>();
   test_get_blue< ::color::category::yuv_double<::color::constant::yuv::BT_601_entity > >();

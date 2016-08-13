@@ -98,6 +98,7 @@ int decompose_test( int argc, char const *argv[] )
 
   decompose< ::color::hsv<double>   >( image, "../out/dec/hsv", width, height );
   decompose< ::color::hsl<double>   >( image, "../out/dec/hsl", width, height );
+  decompose< ::color::hsi<double>   >( image, "../out/dec/hsi", width, height );
 
   decompose< ::color::yiq<double>   >( image, "../out/dec/yiq", width, height );
   

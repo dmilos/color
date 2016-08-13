@@ -32,6 +32,8 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;
 
+        typedef  ::color::constant::hsi< category_type > hsi_constant_type;
+
         enum
          {
            red_p        = ::color::place::_internal::red<akin_type>::position_enum
@@ -46,12 +48,28 @@
           ,intensity_p   = ::color::place::_internal::intensity<category_type>::position_enum
          };
 
-         
         scalar_type h = normalize_type::template process<hue_p       >( color_parameter.template get<hue_p       >() );
         scalar_type s = normalize_type::template process<saturation_p>( color_parameter.template get<saturation_p>() );
-        scalar_type i = normalize_type::template process<intensity_p  >( color_parameter.template get<intensity_p >() );
+        scalar_type i = normalize_type::template process<intensity_p >( color_parameter.template get<intensity_p >() );
 
-        // blue
+        scalar_type min = i * ( 1 - s );
+
+        int region  = int( 3 * h );
+        h -= region * hsi_constant_type::third();
+        h *= hsi_constant_type::two_pi();
+        scalar_type n = i*( 1+ s*cos( h ) / cos( hsi_constant_type::deg60() - h ) );
+
+        scalar_type r;
+        scalar_type g;
+        scalar_type b;
+
+        switch( region  % 3 )
+         {
+          case 0:        b = min;               break;
+          case 1: g = n; r = min; b = 3*i-(r+g); break;
+          case 2: b = n;                       ; break;
+         }
+
         return diverse_type::template process<blue_p>( b );
        }
 

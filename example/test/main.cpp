@@ -102,6 +102,14 @@ void invoke()
   test_operation< color::category::hsv_double  >();
   test_operation< color::category::hsv_ldouble >();
 
+  test_operation< color::category::hsi_uint8   >();
+  test_operation< color::category::hsi_uint16  >();
+  test_operation< color::category::hsi_uint32  >();
+  test_operation< color::category::hsi_uint64  >();
+  test_operation< color::category::hsi_float   >();
+  test_operation< color::category::hsi_double  >();
+  test_operation< color::category::hsi_ldouble >();
+
 
   /*test_make< color::category::rgb_uint8   >();
   test_make< color::category::rgb_uint16  >();
@@ -218,6 +226,10 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 
 void test_pallete()
  {
+  make_image<color::hsi<double> >( "./palette/hsi-1-00.tga" , 0.00, 1 );
+  make_image<color::hsi<double> >( "./palette/hsi-1-05.tga" , 0.50, 1 );
+  make_image<color::hsi<double> >( "./palette/hsi-1-10.tga" , 1.00, 1 );
+
   make_image<color::hsl<double> >( "./palette/hsl-1-00.tga" , 0.00, 1 );
   make_image<color::hsl<double> >( "./palette/hsl-1-05.tga" , 0.50, 1 );
   make_image<color::hsl<double> >( "./palette/hsl-1-10.tga" , 1.00, 1 );

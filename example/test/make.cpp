@@ -357,6 +357,7 @@ void make_make_header()
   print_all_header<color::cmyk>( "cmyk" );
   print_all_header<color::gray>( "gray" );
   print_all_header<color::hsv>(  "hsv"  );
+  print_all_header<color::hsi>(  "hsi"  );
   print_all_header<color::hsl>(  "hsl"  );
   print_all_header<color::yiq>(  "yiq"  );
 
@@ -450,6 +451,7 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
      ss << "<td>" << print_color( "cmyk-" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::cmyk_double >() ) ) << "</td>";       \
      ss << "<td>" << print_color( "hsl -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::hsl_double >()  ) ) << "</td>";       \
      ss << "<td>" << print_color( "hsv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::hsv_double >()  ) ) << "</td>";       \
+     ss << "<td>" << print_color( "hsi -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::hsi_double >()  ) ) << "</td>";       \
      ss << "<td>" << print_color( "yiq -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::yiq_double >()  ) ) << "</td>";       \
      ss << "<td>" << print_color( "yuv -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::yuv_double >()  ) ) << "</td>";       \
      ss << "<td>" << print_color( "YCgCo -" #dp_name, ::color::rgb<std::uint8_t>( ::color::make::dp_name< ::color::category::YCgCo_double >()  ) ) << "</td>";   \
@@ -466,6 +468,7 @@ std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> co
      ss << "<td>" << print_color( "cmyk -" #dp_name, ::color::rgb<std::uint8_t>( ::color::cmyk <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "hsl  -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsl  <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "hsv  -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsv  <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
+     ss << "<td>" << print_color( "hsi  -" #dp_name, ::color::rgb<std::uint8_t>( ::color::hsi  <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "yiq  -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yiq  <double>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "yuv601 -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yuv  <double, ::color::constant::yuv::BT_601_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
      ss << "<td>" << print_color( "yuv709 -" #dp_name, ::color::rgb<std::uint8_t>( ::color::yuv  <double, ::color::constant::yuv::BT_709_entity>{ ::color::constant::dp_name{} } ) ) << "</td>";   \
@@ -538,6 +541,7 @@ void make_test_gray_all()
   ss <<  make_test_gray_single< ::color::cmyk<double> >( "cmyk" );
   ss <<  make_test_gray_single< ::color::gray<double> >( "gray" );
   ss <<  make_test_gray_single< ::color::hsv< double> >( "hsv" );
+  ss <<  make_test_gray_single< ::color::hsi< double> >( "hsi" );
   ss <<  make_test_gray_single< ::color::hsl< double> >( "hsl" );
   ss <<  make_test_gray_single< ::color::rgb< double> >( "rgb" );
   ss <<  make_test_gray_single< ::color::yiq< double> >( "yiq" );
