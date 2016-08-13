@@ -1,9 +1,12 @@
+
+#include "./gray.hpp"
+
 #include "./cmy.hpp"
 #include "./cmyk.hpp"
-#include "./gray.hpp"
 
 #include "./hsl.hpp"
 #include "./hsv.hpp"
+#include "./hsi.hpp"
 
 #include "./rgb.hpp"
 
