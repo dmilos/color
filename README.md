@@ -58,7 +58,6 @@ y = color::operation::mix( r, 0.5, color::rgb<float>( b ) ); //!< Blend two colo
   - [Wiki page](https://github.com/dmilos/color/wiki)
 
 ###Tested against:
-  - GCC 5.3.1 20160413
-  - GCC 4.8.4
+  - GCC 5.4.0 20160609
   - MSVC 2015 Update 2
   - MSVC 2013 Update 5
