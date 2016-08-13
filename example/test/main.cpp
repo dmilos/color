@@ -152,7 +152,7 @@ void make_blue()
 
   std::vector< color::bgra<std::uint8_t> >   image( height * width );
   
-  memset( (void * )image.data(), 0, image.size() * sizeof( color::bgra<std::uint8_t> ) );
+  memset( (void * )image.data(), 255, image.size() * sizeof( color::bgra<std::uint8_t> ) );
 
   for( auto & c: image )
    {

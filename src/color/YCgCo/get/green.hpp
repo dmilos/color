@@ -31,6 +31,8 @@
 
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_type;
 
+        typedef typename ::color::trait::container<category_type>          container_trait_type;
+
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;
 
@@ -38,9 +40,9 @@
 
         enum { green_p  = ::color::place::_internal::green<akin_type>::position_enum };
 
-        scalar_type Y  = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-        scalar_type Cg = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-        scalar_type Co = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+        scalar_type Y  = normalize_type::template process<0>( color_parameter.template get<0>() );
+        scalar_type Cg = normalize_type::template process<1>( color_parameter.template get<1>() );
+        scalar_type Co = normalize_type::template process<2>( color_parameter.template get<2>() );
 
         Cg = YCgCo_const_type::Cg_diverse( Cg );
         Co = YCgCo_const_type::Co_diverse( Co );

@@ -115,6 +115,20 @@ template< typename category_name >
     }
  }
 
+template< typename type_type  >
+ using yuv601 = color::yuv <type_type, ::color::constant::yuv::BT_601_entity >;
+
+template< typename  type_type  >
+ using yuv709 = color::yuv< type_type, ::color::constant::yuv::BT_709_entity >;
+
+template< typename  type_type  >
+ using YPbPr601  = color::YPbPr< type_type, ::color::constant::YPbPr::BT_601_entity>;
+
+template< typename  type_type  >
+ using YPbPr709  = color::YPbPr< type_type, ::color::constant::YPbPr::BT_709_entity>;
+
+template< typename  type_type  >
+ using YPbPr2020 = color::YPbPr< type_type, ::color::constant::YPbPr::BT_2020_entity>; 
 void check_get()
  {
   test_get_red< ::color::category::gray_double>();
@@ -123,7 +137,14 @@ void check_get()
   test_get_red< ::color::category::hsv_double>();
   test_get_red< ::color::category::rgb_double>();
   test_get_red< ::color::category::yiq_double>();
-  //test_get_red< ::color::category::yuv_double>();
+  test_get_red< ::color::category::yuv_double<::color::constant::yuv::BT_601_entity > >();
+  test_get_red< ::color::category::yuv_double<::color::constant::yuv::BT_709_entity > >();
+  test_get_red< ::color::category::YCgCo_double >();
+  test_get_red< ::color::category::YDbDr_double >();
+  test_get_red< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_601_entity > >();
+  test_get_red< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_709_entity > >();
+  test_get_red< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_2020_entity > >();
+
 
   test_get_green< ::color::category::gray_double>();
   test_get_green< ::color::category::cmy_double>();
@@ -131,7 +152,14 @@ void check_get()
   test_get_green< ::color::category::hsv_double>();
   test_get_green< ::color::category::rgb_double>();
   test_get_green< ::color::category::yiq_double>();
-  //test_get_green< ::color::category::yuv_double>();
+  test_get_green< ::color::category::yuv_double<::color::constant::yuv::BT_601_entity > >();
+  test_get_green< ::color::category::yuv_double<::color::constant::yuv::BT_709_entity > >();
+  test_get_green< ::color::category::YCgCo_double >();
+  test_get_green< ::color::category::YDbDr_double >();
+  
+  test_get_green< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_601_entity > >();
+  test_get_green< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_709_entity > >();
+  test_get_green< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_2020_entity > >();
 
   test_get_blue< ::color::category::gray_double>();
   test_get_blue< ::color::category::cmy_double>();
@@ -139,6 +167,11 @@ void check_get()
   test_get_blue< ::color::category::hsv_double>();
   test_get_blue< ::color::category::rgb_double>();
   test_get_blue< ::color::category::yiq_double>();
-  //test_get_blue< ::color::category::yuv_double>();
-
+  test_get_blue< ::color::category::yuv_double<::color::constant::yuv::BT_601_entity > >();
+  test_get_blue< ::color::category::yuv_double<::color::constant::yuv::BT_709_entity > >();
+  test_get_blue< ::color::category::YCgCo_double >();
+  test_get_blue< ::color::category::YDbDr_double >();
+  test_get_blue< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_601_entity > >();
+  test_get_blue< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_709_entity > >();
+  test_get_blue< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_2020_entity > >();
  }
