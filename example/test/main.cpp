@@ -304,23 +304,35 @@ void test_pallete()
   make_image<color::cmy<double> >( "./palette/cmy.tga" , 0.5 );
   make_image<color::cmyk<double> >("./palette/cmyk.tga", 0.5 );
 
-  make_image<color::yiq<double> >( "./palette/yiq-000.tga" , 0 );
-  make_image<color::yiq<double> >( "./palette/yiq-010.tga" , 0.1 );
-  make_image<color::yiq<double> >( "./palette/yiq-050.tga" , 0.5 );
-  make_image<color::yiq<double> >( "./palette/yiq-090.tga" , 0.9 );
-  make_image<color::yiq<double> >( "./palette/yiq-100.tga" , 1  );
+  make_image<color::yiq<double> >( "./palette/yiq-0-000.tga" , 0  , 0 );
+  make_image<color::yiq<double> >( "./palette/yiq-0-010.tga" , 0.1, 0 );
+  make_image<color::yiq<double> >( "./palette/yiq-0-050.tga" , 0.5, 0 );
+  make_image<color::yiq<double> >( "./palette/yiq-0-090.tga" , 0.9, 0 );
+  make_image<color::yiq<double> >( "./palette/yiq-0-100.tga" , 1  , 0 );
 
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-00.tga", 0.0, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-01.tga", 0.1, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-02.tga", 0.2, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-03.tga", 0.3, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-04.tga", 0.4, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-05.tga", 0.5, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-06.tga", 0.6, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-07.tga", 0.7, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-08.tga", 0.8, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-09.tga", 0.9, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-10.tga", 1.0, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-00.tga", 0.0, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-01.tga", 0.1, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-02.tga", 0.2, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-03.tga", 0.3, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-04.tga", 0.4, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-05.tga", 0.5, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-06.tga", 0.6, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-07.tga", 0.7, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-08.tga", 0.8, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-09.tga", 0.9, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-10.tga", 1.0, 0 );
+
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-00.tga", 0.0, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-01.tga", 0.1, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-02.tga", 0.2, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-03.tga", 0.3, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-04.tga", 0.4, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-05.tga", 0.5, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-06.tga", 0.6, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-07.tga", 0.7, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-08.tga", 0.8, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-09.tga", 0.9, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-10.tga", 1.0, 0 );
 
  }
 

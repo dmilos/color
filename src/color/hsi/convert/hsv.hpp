@@ -1,12 +1,12 @@
-#ifndef color_hsi_convert_hsl
-#define color_hsi_convert_hsl
+#ifndef color_hsi_convert_hsv
+#define color_hsi_convert_hsv
 
 #include "../../_internal/convert.hpp"
 
 #include "../category.hpp"
 
 
-#include "../../hsl/hsl.hpp"
+#include "../../hsv/hsv.hpp"
 #include "../../rgb/rgb.hpp"
 
 namespace color
@@ -14,21 +14,21 @@ namespace color
   namespace _internal
    {
 
-    template< typename hsi_tag_name, typename hsl_tag_name >
+    template< typename hsi_tag_name, typename hsv_tag_name >
      struct convert
       <
         ::color::category::hsi< hsi_tag_name >
-       ,::color::category::hsl< hsl_tag_name >
+       ,::color::category::hsv<  hsv_tag_name >
       >
       {
        public:
          typedef ::color::category::hsi< hsi_tag_name >    hsi_category_type, category_left_type;
-         typedef ::color::category::hsl< hsl_tag_name >    hsl_category_type, category_right_type;
+         typedef ::color::category::hsv< hsv_tag_name >    hsv_category_type, category_right_type;
 
-         typedef typename ::color::akin::rgb< hsl_category_type >::akin_type  rgb_category_type;
+         typedef typename ::color::akin::rgb< hsv_category_type >::akin_type  rgb_category_type;
 
          typedef ::color::model< hsi_category_type > hsi_model_type;
-         typedef ::color::model< hsl_category_type >  hsl_model_type;
+         typedef ::color::model< hsv_category_type >  hsv_model_type;
 
          typedef ::color::model< rgb_category_type >  rgb_model_type;
 
@@ -44,9 +44,9 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           left = hsi_model_type( rgb_model_type( hsl_model_type( right ) ) ).container();
+           left = hsi_model_type( rgb_model_type( hsv_model_type( right ) ) ).container();
           }
-      };
+        };
 
    }
  }
