@@ -35,6 +35,13 @@
 					</li>
 				</ol>
 			</dd>
+			<dt> Get return only constant values. Where is get which return something modifiable like operator[] </dt>
+			<dd>
+				This is by design.<br> When you use get you will be always sure that object is intact even is it non constant.
+				Just separation of jurisdiction. <code>get</code>s only read, <code>set</code>s only modify, read/modify reserved to <code>operator[]</code>.
+				To modify some component use function <code>set</code> or <code>operator[]</code>.
+			</dd>
+
 			<dt> How to reduce namespace path?</dt>
 			<dd>
 				<code>

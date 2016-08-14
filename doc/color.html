@@ -10,8 +10,26 @@
 
 		<h1 align="center">Color Models</h1>
 		<dl>
+			<dt><h3>TOC</h3></dt>
+			<dd>
+				<ul>
+					<li><a href="#cmy">cmy  </a></li>
+					<li><a href="#cmyk">cmyk </a></li>
+					<li><a href="#gray">gray </a></li>
+					<li><a href="#hsi">hsi  </a></li>
+					<li><a href="#hsl">hsl  </a></li>
+					<li><a href="#hsv">hsv  </a></li>
+					<li><a href="#rgb">rgb  </a></li>
+					<li><a href="#yiq">yiq  </a></li>
+					<li><a href="#yuv">yuv  </a></li>
+					<li><a href="#YCgCo">YCgCo</a></li>
+					<li><a href="#YDbDr">YDbDr</a></li>
+					<li><a href="#YPbPr">YPbPr</a></li>
+				</ul>
+			</dd>
+
 			<dt><h3>Description</h3></dt>
-			<dd> Color models or what this  library make this library.</dd>
+			<dd> Color models or what this library make this library.</dd>
 			<dt><h3>Note</h3></dt>
 			<dd>
 
@@ -37,7 +55,7 @@
 					<dd>
 
 						<dl>
-							<dt>Name</dt><dd>cmy</dd>
+							<dt>Name</dt><dd><a name="cmy" />cmy</dd>
 							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using cmy = ::color::model&lt; <i>unspecified</i> &gt;</code>;
 							 </dd>
 							<dt>Note</dt><dd></dd>
@@ -48,7 +66,7 @@
 						</dl><hr width="%20">
 
 						<dl>
-							<dt>Name</dt><dd>cmyk</dd>
+							<dt>Name</dt><dd><a name="cmyk" />cmyk</dd>
 							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using cmyk = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements CMYK color model.</dd>
 							<dt>Example:</dt><dd><code>::color::cmyk&lt; double &gt; c;</code></dd>
@@ -56,7 +74,7 @@
 						</dl><hr width="%20">
 
 						<dl>
-							<dt>Name</dt><dd>gray</dd>
+							<dt>Name</dt><dd><a name="gray" />gray</dd>
 							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using gray = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements gray color model.</dd>
 							<dt>Example:</dt><dd><code>::color::gray&lt; double &gt; c;</code></dd>
@@ -64,15 +82,23 @@
 						</dl><hr width="%20">
 
 						<dl>
-							<dt>Name</dt><dd>hsl</dd>
+							<dt>Name</dt><dd><a name="hsi" />hsi</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsi = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements HSI color model.</dd>
+							<dt>Example:</dt><dd><code>::color::hsi&lt; double &gt; c;</code></dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/HSL_and_HSV">Wikipedia HSI</a></dd>
+						</dl><hr width="%20">
+
+						<dl>
+							<dt>Name</dt><dd><a name="hsl" />hsl</dd>
 							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsl = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements HSL color model.</dd>
-							<dt>Example:</dt><dd><code>::color::hsl&lt; double &gt; c;</code></dd>
+							<dt>Example:</dt><dd><code>::color::hsli&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/HSL_and_HSV">Wikipedia HSL</a></dd>
 						</dl><hr width="%20">
 
 						<dl>
-							<dt>Name</dt><dd>hsv</dd>
+							<dt>Name</dt><dd><a name="hsv" />hsv</dd>
 							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsv = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements HSV color model.</dd>
 							<dt>Example:</dt><dd><code>::color::hsv&lt; double &gt; c;</code></dd>
@@ -80,7 +106,7 @@
 						</dl><hr width="%20">
 
 						<dl>
-							<dt>Name</dt><dd>rgb</dd>
+							<dt>Name</dt><dd><a name="rgb" />rgb</dd>
 							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using rgb = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements RGB color model.</dd>
 							<dt>Example:</dt><dd><code>::color::rgb&lt; double &gt; c;</code></dd>
@@ -88,7 +114,7 @@
 						</dl><hr width="%20">
 
 						<dl>
-							<dt>Name</dt><dd>yiq</dd>
+							<dt>Name</dt><dd><a name="yiq" />yiq</dd>
 							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yiq = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements YIQ color model.</dd>
 							<dt>Example:</dt><dd><code>::color::yiq&lt; double &gt; c;</code></dd>
@@ -96,12 +122,37 @@
 						</dl><hr width="%20">
 
 						<dl>
-							<dt>Name</dt><dd>yuv</dd>
+							<dt>Name</dt><dd><a name="yuv" />yuv</dd>
 							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yuv = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements YUV color model.</dd>
 							<dt>Example:</dt><dd><code>::color::yuv&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YUV">Wikipedia YUV</a></dd>
 						</dl><hr width="%20">
+
+						<dl>
+							<dt>Name</dt><dd><a name="YCgCo" />YCgCo</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using YCgCo = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements YCgCo color model.</dd>
+							<dt>Example:</dt><dd><code>::color::YCgCo&lt; double &gt; c;</code></dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YCgCo">Wikipedia YCgCo</a></dd>
+						</dl><hr width="%20">
+
+						<dl>
+							<dt>Name</dt><dd><a name="YDbDr" />YDbDr</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using YDbDr = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements YDbDr color model.</dd>
+							<dt>Example:</dt><dd><code>::color::YDbDr&lt; double &gt; c;</code></dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YDbDr">Wikipedia YDbDr</a></dd>
+						</dl><hr width="%20">
+
+						<dl>
+							<dt>Name</dt><dd><a name="YPbPr" />YPbPr</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using YPbPr = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements YPbPr color model.</dd>
+							<dt>Example:</dt><dd><code>::color::YPbPr&lt; double &gt; c;</code></dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YPbPr">Wikipedia YPbPr</a><br><a href="https://en.wikipedia.org/wiki/YCbCr">Wikipedia YCbCr</a></dd>
+						</dl><hr width="%20">
+
 					</dd>
 				</dl>
 			</dd>

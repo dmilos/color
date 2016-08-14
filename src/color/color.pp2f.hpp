@@ -1007,13 +1007,13 @@ public:
 	}
 
 	template< typename tag_name >
-	model operator=(::color::constant::base< tag_name > const& constant) {
+	model & operator=(::color::constant::base< tag_name > const& constant) {
 		::color::constant::make<::color::constant::base< tag_name >,category_name>::process(this->m_container);
 		return *this;
 	}
 
 	template< typename other_category_name >
-	model operator=(::color::model<other_category_name> const& that) {
+	model & operator=(::color::model<other_category_name> const& that) {
 		::color::_internal::convert< category_name, other_category_name>::process(this->m_container, that.container());
 		return *this;
 	}

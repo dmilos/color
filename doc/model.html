@@ -68,14 +68,16 @@
 
         explicit model( std::initializer_list&lt;component_type&gt; const&amp; ilist );
 
+        model( ::color::model&lt;category_type&gt; const&amp; that );
+
         template&lt; typename other_category_name &gt;
          explicit model( ::color::model&lt;other_category_name&gt; const&amp; that );
 
         template&lt; typename tag_name &gt;
-         model operator=( ::color::constant::base&lt; tag_name &gt; const&amp; constant );
+         this_type &amp; operator=( ::color::constant::base&lt; tag_name &gt; const&amp; constant );
 
         template&lt; typename other_category_name &gt;
-         this_type operator=( ::color::model&lt;other_category_name&gt; const&amp; that );
+         this_type &amp; operator=( ::color::model&lt;other_category_name&gt; const&amp; that );
 
         component_return_const_type get( index_input_const_type index )const;
 
@@ -89,9 +91,13 @@
 
         component_return_const_type operator[]( index_input_const_type index )const;
 
+        proxy_type                  operator[]( index_input_const_type index );
+
         container_return_const_type          container()const;
 
         container_return_original_type       container();
+
+        void container( container_input_const_type container );
 
         static index_return_image_type       size();
 
@@ -230,16 +236,29 @@
 							<dl>
 								<dt>Description</dt>
 								<dd>Same type as original type;</dd>
-								<dt>definition</dt>
+								<dt>Definition</dt>
 								<dd><code>typedef  model&lt; typename category_name &gt;     this_type;</code></dd>
 								<dt>Note</dt>
 								<dd>Not recommended to use. Might be removed ins some next iteration.</dd>
 							</dl>
-
 						</dd>
-
 					</dl>
+					<dt><h4><a name="Constructors">Constructors</a></h4></dt>
+					<dd>
+						<dl>
+							<dt>TODO</dt>
+							<dd></dd>
+						</dl>
 					</dd>
+
+					<dt><h4><a name="Constructors">Operators</a></h4></dt>
+					<dd>
+						<dl>
+							<dt>TODO</dt>
+							<dd></dd>
+						</dl>
+					</dd>
+
 					<dt><h4><a name="Functions">Functions</a></h4></dt>
 					<dd>
 						<dl>
@@ -251,7 +270,7 @@
 									<dt>Definition</dt>
 									<dd><code>component_return_const_type<br>&nbsp;&nbsp;get( index_input_const_type index )const </code></dd>
 									<dt>Note</dt>
-									<dd>This is version of get is slower then templete.</dd>
+									<dd>This is version of get is slower then template.</dd>
 								</dl>
 							</dd>
 							<dt>get&lt;index&gt;</dt>
@@ -298,6 +317,16 @@
 								</dl>
 							</dd>
 
+							<dt>operator[];</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Non-const modifiable version of <code>operator[]()code</code>. Modification of return value has effect on instance as using set function.</dd>
+									<dt>Definition</dt>
+									<dd><code>proxy_type operator[]( index_input_const_type index );</code></dd>
+								</dl>
+							</dd>
+
 							<dt>container()const</dt>
 							<dd>
 								<dl>
@@ -315,6 +344,16 @@
 									<dd>Return reference to container</dd>
 									<dt>Definition</dt>
 									<dd><code>container_return_original_type       container() </code></dd>
+								</dl>
+							</dd>
+
+							<dt>container</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Set content new content of container</dd>
+									<dt>Definition</dt>
+									<dd><code>void container( container_input_const_type container );</code></dd>
 								</dl>
 							</dd>
 
