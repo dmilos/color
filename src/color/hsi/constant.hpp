@@ -25,6 +25,12 @@ namespace color
 
          static /* constexpr*/ scalar_type const two(){ return  2; }
          static /* constexpr*/ scalar_type const third(){ return  scalar_type(1) / scalar_type(3); }
+         static /* constexpr*/ scalar_type const sixth(){ return  scalar_type(1) / scalar_type(6); }
+
+         static /* constexpr*/ scalar_type const sqrt_3(){ return  sqrt( scalar_type(3) ); }
+         static /* constexpr*/ scalar_type const inv_sqrt_3(){ return  scalar_type(1) / sqrt( scalar_type(3) ); }
+         static /* constexpr*/ scalar_type const two_third(){ return  scalar_type(2) / scalar_type(3); }
+
          static /* constexpr*/ scalar_type const pi(){ return  scalar_type( 3.141592653589793238462643383279502884197169399375105820974944592307816406286 ); }
          static /* constexpr*/ scalar_type const two_pi(){ return  2 * this_type::pi(); }
          static /* constexpr*/ scalar_type const deg60(){ return  this_type::pi() / scalar_type(3); }

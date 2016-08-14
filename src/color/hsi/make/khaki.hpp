@@ -17,7 +17,7 @@
 
         typedef ::color::hsi< double >      right_type;
 
-        static left_type local( right_type( { 54.1935484, 41.3333333, 93.75 } ) );
+        static left_type local( right_type( { 54.9669249507772, 30.8900523560209, 79.5833333333333 } ) );
 
         color_parameter = local;
        }

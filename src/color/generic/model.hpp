@@ -172,9 +172,15 @@ namespace color
        {
         return this->m_container;
        }
+
       container_return_original_type       container()
        {
         return this->m_container;
+       }
+
+      void container( container_input_const_type container )
+       {
+        this->m_container = container;
        }
 
       static /*constexpr*/ unsigned       size()

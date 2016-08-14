@@ -83,6 +83,7 @@ namespace color
              case 1: g = n; r = min; b = 3*i-(r+g); break;
              case 2: b = n; g = min; r = 3*i-(g+b); break;
             }
+
            container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r ) );
            container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( g ) );
            container_left_trait_type::template set<blue_p >( left, diverse_type::template process<blue_p >( b ) );

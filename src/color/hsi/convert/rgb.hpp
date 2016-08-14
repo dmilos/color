@@ -62,30 +62,23 @@ namespace color
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
            scalar_type lo = std::min<scalar_type>( {r,g,b} );
-           scalar_type v =  std::max<scalar_type>( {r,g,b} );
-           scalar_type delta = v - lo;
 
            scalar_type h = 0;
            scalar_type i = ( r + g + b) / scalar_type(3);
            scalar_type s = scalar_type(1) - lo / i;
 
-           scalar_type alpha = ( (r-g) + ( r- b) ) * scalar_type( 0.5 );
-           scalar_type beta =  (r-g)*(r-g) + (r-b)*(g-b) ;
-                       beta = sqrt( beta );
-           //scalar_type beta = sqrt( (g-b) * ( scalar_type( 3 ) / scalar_type( 4 ) ) );
+           scalar_type c1 = r - g* scalar_type( 0.5 ) - b * scalar_type( 0.5 );
+           scalar_type c2 = (g-b) * hsi_constant_type::sqrt_3() * scalar_type( 0.5 );
+           scalar_type thetaX = atan2( c2, c1 );
+           if( thetaX < 0 ){ thetaX += hsi_constant_type::two_pi(); }
+           h = thetaX;
 
-           scalar_type thetaX = atan2( beta, alpha );
-
-           scalar_type thetaA = acos( alpha/ beta );
-
-           if( b > g )
-            {
-             h = hsi_constant_type::two_pi() - thetaA;
-            }
-           else
-            {
-             h = thetaA;
-            }
+           //scalar_type alpha = ( (r-g) + ( r- b) ) * scalar_type( 0.5 );
+           //scalar_type beta =  (r-g)*(r-g) + (r-b)*(g-b) ;
+           //            beta = sqrt( beta );
+           //scalar_type thetaA = acos( alpha / beta );
+           //if( b > g ) { thetaA = hsi_constant_type::two_pi() - thetaA; }
+           //h = thetaA;
 
             h /= hsi_constant_type::two_pi();
 

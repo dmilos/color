@@ -15,30 +15,57 @@
 
 #include "./targa.hpp"
 
+void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
+ {
+  ::color::hsi<double>  h;
+  std::cout << "----" << s <<std::endl;
+  std::cout << "Original RGB: " << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  h = r; r = h;
+  std::cout << "BAck     RGB: " << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  std::cout << "HSV: " << h[0] << ", " << h[1] << ", " << h[2] << std::endl;
+  std::cout << "*******" << std::endl;
+ }
+
 void sandbox_test()
  {
   ::color::hsi<double>  h;
   ::color::rgb<double>  r;
 
-  r=  ::color::constant::gold_t{};
-  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
-  h = r; r = h;
-  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  h.container( { 240, 100, 10 } );  r = h;
+  h.container( { 240, 100, 30 } );  r = h;
+  h.container( { 240, 100, 33 } );  r = h;
+  h.container( { 240, 100, 34 } );  r = h;
+  h.container( { 240, 100, 67 } );  r = h;
+  h.container( { 240, 100, 68 } );  r = h;
+  h.container( { 240, 100, 100 } );  r = h;
 
-  r =  ::color::constant::red_t{};
-  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
-  h = r; r = h;
-  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  h.container( { 250, 75.6, 42.6 } );  r = h;
 
-  r =  ::color::constant::green_t{};
-  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
-  h = r; r = h;
-  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  sandbox_test2( ::color::rgb<double>(::color::constant::gold_t{}), "gold" );
+  sandbox_test2( ::color::rgb<double>(::color::constant::red_t{} ), "red"  );
+  sandbox_test2( ::color::rgb<double>(::color::constant::lime_t{}), "lime" );
+  sandbox_test2( ::color::rgb<double>(::color::constant::blue_t{}), "blue" );
 
-  r =  ::color::constant::blue_t{};
-  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
-  h = r; r = h;
-  std::cout << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  sandbox_test2( ::color::rgb<double>{ 1.000, 1.000, 0.5    }, "    ???°           ?????          ?????       " );  
+  sandbox_test2( ::color::rgb<double>{ 1.000, 1.000, 1.000, }, "    n/a            0.000          1.000       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.500, 0.500, 0.500, }, "    n/a            0.000          0.500       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.000, 0.000, 0.000, }, "    n/a            0.000          0.000       " );  
+  sandbox_test2( ::color::rgb<double>{ 1.000, 0.000, 0.000, }, "    0.0°           1.000          0.333       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.750, 0.750, 0.000, }, "   60.0°           1.000          0.500       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.000, 0.500, 0.000, }, "  120.0°           1.000          0.167       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.500, 1.000, 1.000, }, "  180.0°           0.400          0.833       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.500, 0.500, 1.000, }, "  240.0°           0.250          0.667       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.750, 0.250, 0.750, }, "  300.0°           0.571          0.583       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.628, 0.643, 0.142, }, "   61.5°           0.699          0.471       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.255, 0.104, 0.918, }, "  250.0°           0.756          0.426       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.116, 0.675, 0.255, }, "  133.8°           0.667          0.349       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.941, 0.785, 0.053, }, "   50.5°           0.911          0.593       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.704, 0.187, 0.897, }, "  284.8°           0.686          0.596       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.931, 0.463, 0.316, }, "   13.2°           0.446          0.570       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.998, 0.974, 0.532, }, "   57.4°           0.363          0.835       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.099, 0.795, 0.591, }, "  163.4°           0.800          0.495       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.211, 0.149, 0.597, }, "  247.3°           0.533          0.319       " );  
+  sandbox_test2( ::color::rgb<double>{ 0.495, 0.493, 0.721, }, "  240.4°           0.135          0.570       " );  
  }
 
 
@@ -187,6 +214,7 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
   targa_make_header( width, height, header);
 
   std::vector< color::bgra<std::uint8_t> >   image(height * width);
+  color::rgb<double >  check;
 
   for (int y = 0; y < height; y++)
    {
@@ -196,23 +224,33 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
       switch( side )
        {
         case( 0 ):
-         image[y * width + x] = model_name( { diverse_type::template process<0>( plane  ),
-                                              diverse_type::template process<1>( y / double(height) ),
-                                              diverse_type::template process<2>( x / double(width) )
-                                              , 0 } );
-         break;
+         {
+           model_name m( { diverse_type::template process<0>( plane  ),
+                                                diverse_type::template process<1>( y / double(height) ),
+                                                diverse_type::template process<2>( x / double(width) )
+                                                , 0 } );
+          ::color::fix::overburn( m );
+          image[y * width + x] = m;
+         }break;
         case( 1 ):
-          image[y * width + x] = model_name( { diverse_type::template process<0>( y / double(height) ),
+          {
+           model_name m( { diverse_type::template process<0>( y / double(height) ),
                                                diverse_type::template process<1>( plane ),
                                                diverse_type::template process<2>( x / double(width) )
                                                , 0 } );
-          break;
+           check = m;
+           ::color::fix::overburn( check );
+           image[y * width + x] = check;
+          }break;
         case( 2 ):
-          image[y * width + x] = model_name( { diverse_type::template process<0>( y / double(height) ),
+         {
+          model_name m( { diverse_type::template process<0>( y / double(height) ),
                                                diverse_type::template process<1>( x / double(width) ),
                                                diverse_type::template process<2>( plane )
                                                , 0 } );
-          break;
+          ::color::fix::overburn( m );
+          image[y * width + x] = m;
+         }break;
        }
      }
    }
@@ -226,16 +264,20 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 
 void test_pallete()
  {
-  make_image<color::hsi<double> >( "./palette/hsi-1-00.tga" , 0.00, 1 );
-  make_image<color::hsi<double> >( "./palette/hsi-1-05.tga" , 0.50, 1 );
-  make_image<color::hsi<double> >( "./palette/hsi-1-10.tga" , 1.00, 1 );
+  make_image<color::hsi<double> >( "./palette/hsi-1-000.tga" , 0.00, 1 );
+  make_image<color::hsi<double> >( "./palette/hsi-1-025.tga" , 0.25, 1 );
+  make_image<color::hsi<double> >( "./palette/hsi-1-050.tga" , 0.50, 1 );
+  make_image<color::hsi<double> >( "./palette/hsi-1-075.tga" , 0.75, 1 );
+  make_image<color::hsi<double> >( "./palette/hsi-1-100.tga" , 1.00, 1 );
 
-  make_image<color::hsl<double> >( "./palette/hsl-1-00.tga" , 0.00, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-05.tga" , 0.50, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-10.tga" , 1.00, 1 );
+  make_image<color::hsl<double> >( "./palette/hsl-1-000.tga" , 0.00, 1 );
+  make_image<color::hsl<double> >( "./palette/hsl-1-025.tga" , 0.25, 1 );
+  make_image<color::hsl<double> >( "./palette/hsl-1-005.tga" , 0.50, 1 );
+  make_image<color::hsl<double> >( "./palette/hsl-1-075.tga" , 0.75, 1 );
+  make_image<color::hsl<double> >( "./palette/hsl-1-100.tga" , 1.00, 1 );
 
-  make_image<color::hsv<double> >( "./palette/hsv-1-000.tga" , 0.00, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-050.tga" , 0.50, 1 );
+  make_image<color::hsv<double> >( "./palette/hsv-1-000.tga", 0.00, 1 );
+  make_image<color::hsv<double> >( "./palette/hsv-1-050.tga", 0.50, 1 );
   make_image<color::hsv<double> >( "./palette/hsv-1-060.tga", 0.60, 1 );
   make_image<color::hsv<double> >( "./palette/hsv-1-075.tga", 0.70, 1 );
   make_image<color::hsv<double> >( "./palette/hsv-1-080.tga", 0.80, 1 );
@@ -259,30 +301,38 @@ void test_pallete()
   make_image<color::rgb<double> >( "./palette/rgb-0-05.tga" , 0.75,  0 );
   make_image<color::rgb<double> >( "./palette/rgb-0-10.tga" , 1.00,  0 );
 
-
   make_image<color::cmy<double> >( "./palette/cmy.tga" , 0.5 );
   make_image<color::cmyk<double> >("./palette/cmyk.tga", 0.5 );
 
-  make_image<color::yiq<double> >( "./palette/yiq.tga" , 0.5 );
+  make_image<color::yiq<double> >( "./palette/yiq-000.tga" , 0 );
+  make_image<color::yiq<double> >( "./palette/yiq-010.tga" , 0.1 );
+  make_image<color::yiq<double> >( "./palette/yiq-050.tga" , 0.5 );
+  make_image<color::yiq<double> >( "./palette/yiq-090.tga" , 0.9 );
+  make_image<color::yiq<double> >( "./palette/yiq-100.tga" , 1  );
 
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.0.tga", 0.0);
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.1.tga", 0.1);
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.2.tga", 0.2);
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.3.tga", 0.3);
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.4.tga", 0.4);
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.5.tga", 0.5);
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.6.tga", 0.6);
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.7.tga", 0.7);
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.8.tga", 0.8);
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_0.9.tga", 0.9);
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_1.0.tga", 1.0);
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-00.tga", 0.0, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-01.tga", 0.1, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-02.tga", 0.2, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-03.tga", 0.3, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-04.tga", 0.4, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-05.tga", 0.5, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-06.tga", 0.6, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-07.tga", 0.7, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-08.tga", 0.8, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-09.tga", 0.9, 0 );
+  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >("./palette/yuv-601_-0-10.tga", 1.0, 0 );
 
  }
 
 int main(int argc, char const *argv[])
  {
   sandbox_test();
+
+  test_pallete();
+
   ctor_test();
+
+
 
   void main_place();
   main_place();
@@ -308,7 +358,7 @@ int main(int argc, char const *argv[])
   extern void check_sizeof();
   check_sizeof();
 
-  test_pallete();
+
 
   make_blue();
 
