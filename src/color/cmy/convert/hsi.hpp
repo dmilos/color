@@ -1,11 +1,11 @@
-#ifndef color_cmy_convert_hsv
-#define color_cmy_convert_hsv
+#ifndef color_cmy_convert_hsi
+#define color_cmy_convert_hsi
 
 #include "../category.hpp"
 
 #include "../../_internal/convert.hpp"
 
-#include "../../hsv/hsv.hpp"
+#include "../../hsi/hsi.hpp"
 
 
 
@@ -20,16 +20,16 @@ namespace color
   namespace _internal
    {
 
-    template< typename cmy_tag_name, typename hsv_tag_name >
+    template< typename cmy_tag_name, typename hsi_tag_name >
      struct convert
       <
         ::color::category::cmy< cmy_tag_name >
-       ,::color::category::hsv<hsv_tag_name>
+       ,::color::category::hsi<hsi_tag_name>
       >
       {
        public:
          typedef ::color::category::cmy< cmy_tag_name > category_left_type;
-         typedef ::color::category::hsv<hsv_tag_name> category_right_type;
+         typedef ::color::category::hsi<hsi_tag_name> category_right_type;
          typedef double  scalar_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
@@ -40,6 +40,8 @@ namespace color
 
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+         typedef  ::color::constant::hsi< category_right_type > hsi_constant_type;
 
          enum
           {
@@ -61,10 +63,27 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-
            scalar_type h = normalize_type::template process<hue_p       >( container_right_trait_type::template get<hue_p       >( right ) );
            scalar_type s = normalize_type::template process<saturation_p>( container_right_trait_type::template get<saturation_p>( right ) );
-           scalar_type v = normalize_type::template process<intensity_p >( container_right_trait_type::template get<intensity_p >( right ) );
+           scalar_type i = normalize_type::template process<intensity_p >( container_right_trait_type::template get<intensity_p >( right ) );
+
+           scalar_type min = i * ( 1 - s );
+
+           int region  = int( 3 * h );
+           h -= region * hsi_constant_type::third();
+           h *= hsi_constant_type::two_pi();
+           scalar_type n = i*( 1+ s*cos( h ) / cos( hsi_constant_type::deg60() - h ) );
+
+           scalar_type r;
+           scalar_type g;
+           scalar_type b;
+
+           switch( region  % 3 )
+            {
+             case 0: r = n; b = min; g = 3*i-(r+b); break;
+             case 1: g = n; r = min; b = 3*i-(r+g); break;
+             case 2: b = n; g = min; r = 3*i-(g+b); break;
+            }
 
            container_left_trait_type::template set<cyan_p   >( left, diverse_type::template process<cyan_p   >( scalar_type(1) - r ) );
            container_left_trait_type::template set<yellow_p >( left, diverse_type::template process<yellow_p >( scalar_type(1) - g ) );

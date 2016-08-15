@@ -1,17 +1,18 @@
 #ifndef color_rgb_convert_hsi
 #define color_rgb_convert_hsi
 
+#include "../category.hpp"
+
 #include "../../_internal/convert.hpp"
 
 #include "../../hsi/hsi.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+
 
 #include "../place/place.hpp"
 
-
-
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
 
 
 namespace color
