@@ -51,7 +51,7 @@ print_semi_title( std::string  const& a, std::string  const& b, std::string cons
  {
    std::stringstream ss;
     ss << "<tr>" <<  std::endl;
-    ss << "<td colspan=\"2\"></td>" <<  std::endl;
+    ss << "<td colspan=\"2\">&nbsp;</td>" <<  std::endl;
     ss << "<td class=\"table_divider\"></td>";
     ss << "<td colspan=\"3\">"+a+"</td>" <<  std::endl;
     ss << "<td class=\"table_divider\"></td>";

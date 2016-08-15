@@ -19,6 +19,8 @@
 					<li><a href="#Typedefs">Typedefs</a></li>
 					<li><a href="#Functions">Functions</a></li>
 					<li><a href="#Data">Data</a></li>
+					<li><a href="#Constructors">Constructors</a></li>
+					<li><a href="#Operators">Operators</a></li>
 				</ul>
 			</li>
 			<li><a href="#Examples">Examples</a></li>
@@ -59,7 +61,7 @@
 
         typedef  model&lt; typename category_name &gt;     this_type;
 
-                 model( );
+                 model();
 
         explicit model( container_input_const_type container );
 
@@ -251,11 +253,29 @@
 						</dl>
 					</dd>
 
-					<dt><h4><a name="Constructors">Operators</a></h4></dt>
+					<dt><h4><a name="Operators">Operators</a></h4></dt>
 					<dd>
 						<dl>
-							<dt>TODO</dt>
-							<dd></dd>
+
+							<dt>operator=(model)</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Assign constant value to instance</dd>
+									<dt>Definition</dt>
+									<dd><code>template&lt; typename tag_name &gt; this_type &amp; operator=( ::color::constant::base&lt; tag_name &gt; const&amp; constant );</code></dd>
+								</dl>
+							</dd>
+
+							<dt>operator=( model  )</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Assign other color model to instance</dd>
+									<dt>Definition</dt>
+									<dd><code> template&lt; typename other_category_name &gt; this_type &amp; operator=( ::color::model&lt;other_category_name&gt; const&amp; that );</code></dd>
+								</dl>
+							</dd>
 						</dl>
 					</dd>
 

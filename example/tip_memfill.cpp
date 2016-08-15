@@ -21,12 +21,11 @@ int main(int argc, char const *argv[])
 
   // <---- In here we fill somehow image with RGB data ---- />
 
-
   ::color::rgb<double> sample( ::color::constant::turquoise_type{} );
 
   // Guarantee by design of this library that ::color::ABC<double> is represented in memory only as std::array<double>
   // Guarantee by design of ISO C++ standard that std::array<double> will have only 3 consecutive doubles
-  memfill( reinterpret_cast<char*>(image.data()),  sizeof( std::array< double, 3 > ) * image.size(), &sample, sizeof( sample ) );
+  memfill( reinterpret_cast<char*>( image.data()),  sizeof( std::array< double, 3 > ) * image.size(), &sample, sizeof( sample ) );
 
   //This will produce error and it is too Object oriented
   // std::fill( image.begin(), image.end(), sample );
