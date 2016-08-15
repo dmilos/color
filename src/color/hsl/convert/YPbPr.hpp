@@ -1,9 +1,11 @@
 #ifndef color_hsl_convert_YPbPr
 #define color_hsl_convert_YPbPr
 
+#include "../category.hpp"
+
 #include "../../_internal/convert.hpp"
 
-#include "../category.hpp"
+
 
 
 #include "../../YPbPr/YPbPr.hpp"

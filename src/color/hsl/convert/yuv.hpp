@@ -1,9 +1,11 @@
 #ifndef color_hsl_convert_yuv
 #define color_hsl_convert_yuv
 
+#include "../category.hpp"
+
 #include "../../_internal/convert.hpp"
 
-#include "../category.hpp"
+
 
 
 #include "../../yuv/yuv.hpp"
