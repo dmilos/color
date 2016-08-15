@@ -4,7 +4,6 @@
 
 #include "color/color.hpp"
 
-void get_red_from_rgb();
 void get_red_from_cmy();
 void get_red_from_cmyk();
 void get_red_from_gray();
@@ -16,7 +15,6 @@ void get_red_from_yuv();
 
 int main( int argc, char *argv[] )
  {
-  get_red_from_rgb();
   get_red_from_cmy();
   get_red_from_cmyk();
   get_red_from_gray();
@@ -26,21 +24,6 @@ int main( int argc, char *argv[] )
   get_red_from_yuv();
 
   return EXIT_SUCCESS;
- }
-
-void get_red_from_rgb()
- {
-  // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
-  color::rgb<float> c;
-
-  // initialize c before getion
-  color::make::turquoise( c );
-
-  // Here is how to get red component.
-  auto red = color::get::red( c );
-
-  // Now do whatever you wan to do
-  std::cout << red << std::endl;
  }
 
 void get_red_from_cmy()

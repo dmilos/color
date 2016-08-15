@@ -2,56 +2,56 @@
 #define color_hsv_convert_hsi
 
 #include "../../_internal/convert.hpp"
-#include "../../hsi/hsi.hpp"
-
-#include "../../_internal/reformat.hpp"
-
-
 
 #include "../category.hpp"
 
 
-
-
+#include "../../hsi/hsi.hpp"
+#include "../../rgb/rgb.hpp"
 
 namespace color
  {
   namespace _internal
    {
-        
-    template< typename tag_left_name, typename tag_right_name >
+
+    template
+     <
+       typename hsv_tag_name
+      ,typename hsi_right_name 
+     >
      struct convert
-       <
-         ::color::category::hsv< tag_left_name >
-        ,::color::category::hsi< tag_right_name>
-       >
-       {
-        public:
-           typedef ::color::category::hsv< tag_left_name > category_left_type;
-           typedef ::color::category::hsi< tag_right_name> category_right_type;
+      <
+        ::color::category::hsv< hsv_tag_name >
+       ,::color::category::hsi< hsi_right_name>
+      >
+      {
+       public:
+         typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
+         typedef ::color::category::hsi< hsi_right_name> hsi_category_type, category_right_type;
 
-           typedef double scalar_type;
+         typedef typename ::color::akin::rgb< hsi_category_type >::akin_type  rgb_category_type;
 
-           typedef ::color::trait::container<category_left_type>     container_left_trait_type;
-           typedef ::color::trait::container<category_right_type>    container_right_trait_type;
+         typedef ::color::model< hsv_category_type > hsv_model_type;
+         typedef ::color::model< hsi_category_type >  hsi_model_type;
 
-           typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type >    reformat_type;
+         typedef ::color::model< rgb_category_type >  rgb_model_type;
 
-           typedef typename container_left_trait_type::input_type         container_left_input_type;
-           typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+         typedef ::color::trait::container<category_left_type>     container_left_trait_type;
+         typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
-           static void process
-            (
-              container_left_input_type         left
-             ,container_right_const_input_type  right
-            )
-            {
-             // TODO
-             //container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( container_right_trait_type::template get<0>( right ) ) );
-             //container_left_trait_type::template set<1>( left, reformat_type::template process<1,1>( container_right_trait_type::template get<1>( right ) ) );
-             //container_left_trait_type::template set<2>( left, reformat_type::template process<2,2>( container_right_trait_type::template get<2>( right ) ) );
-            }
+         typedef typename container_left_trait_type::input_type         container_left_input_type;
+         typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+
+         static void process
+          (
+            container_left_input_type         left
+           ,container_right_const_input_type  right
+          )
+          {
+           left = hsv_model_type( rgb_model_type( hsi_model_type( right ) ) ).container();
+          }
         };
+
    }
  }
 

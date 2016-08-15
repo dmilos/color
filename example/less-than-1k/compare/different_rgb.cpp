@@ -7,26 +7,26 @@
 /*
   color::yiq< double > a;
   color::yiq< float > b;
-  
+
   color::make::red( a );
   color::make::orange( a );
-  
+
   // This will produce ERROR.
-  std::cout << color::compare::great_or_equal( a, b ) << std::endl;
+  std::cout << color::compare::different( a, b ) << std::endl;
 */
 
 int main( int argc, char *argv[] )
  {
-  std::cout << "Hello World" << std::endl;
-  
   color::rgb< double > a;
   color::rgb< double > b;
-  
-  color::make::red( a );
-  color::make::orange( a );
 
-  std::cout << color::compare::great_or_equal( a, b ) << std::endl;
+  color::make::red( a );
+  color::make::orange( b );
+
+  std::cout << " a = " ; print( a );  std::cout << std::endl;
+  std::cout << " b = " ; print( b );  std::cout << std::endl;
+
+  std::cout << "color::compare::different( a, b )" << color::compare::different( a, b ) << std::endl;
 
   return EXIT_SUCCESS;
  }
-

@@ -33,8 +33,19 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+         enum
+          {
+            hl_p = ::color::place::_internal::hue<category_left_type>::position_enum
+           ,sl_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+           ,vl_p = ::color::place::_internal::value<category_left_type>::position_enum
+          };
 
-
+         enum
+          {
+            hr_p = ::color::place::_internal::hue<category_right_type>::position_enum
+           ,sr_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+           ,lr_p = ::color::place::_internal::lightness<category_right_type>::position_enum
+          };
 
          static void process
           (
@@ -42,16 +53,16 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           scalar_type h = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type ss = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type l = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+           scalar_type h = normalize_type::template  process<hr_p>( container_right_trait_type::template get<hr_p>( right ) );
+           scalar_type ss = normalize_type::template process<sr_p>( container_right_trait_type::template get<sr_p>( right ) );
+           scalar_type l = normalize_type::template  process<lr_p>( container_right_trait_type::template get<lr_p>( right ) );
 
            scalar_type v = ( 2 * l + ss*( 1 - fabs( 2*l-1 ) ) ) /2;
            scalar_type s = 2*( v - l ) / v;
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );
-           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( s ) );
-           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( v ) );
+           container_left_trait_type::template set<hl_p>( left, diverse_type::template process<hl_p>( h ) );
+           container_left_trait_type::template set<sl_p>( left, diverse_type::template process<sl_p>( s ) );
+           container_left_trait_type::template set<vl_p>( left, diverse_type::template process<vl_p>( v ) );
           }
       };
 

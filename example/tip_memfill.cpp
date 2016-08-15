@@ -30,5 +30,5 @@ int main(int argc, char const *argv[])
   //This will produce error and it is too Object oriented
   // std::fill( image.begin(), image.end(), sample );
 
-  return 0;
+  return EXIT_SUCCESS;
  }

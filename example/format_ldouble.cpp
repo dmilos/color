@@ -3,7 +3,6 @@
 
 #include "color/color.hpp"
 
-void format_ldouble_rgb();
 void format_ldouble_cmy();
 void format_ldouble_cmyk();
 void format_ldouble_gray();
@@ -17,7 +16,6 @@ int main( int argc, char *argv[] )
  {
   std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
   std::cout<< "In this example all models use long double for component" << std::endl;
-  format_ldouble_rgb();
   format_ldouble_cmy();
   format_ldouble_cmyk();
   format_ldouble_gray();
@@ -30,20 +28,6 @@ int main( int argc, char *argv[] )
   return EXIT_SUCCESS;
  }
  
-void format_ldouble_rgb()
- {
-  ::color::rgb< long double > r;//!< Make an instance
-
-  ::color::make::orange( r ); //!< Fill with some useful information
-
-  std::cout<< "Orange in color::rgb<long double> = { ";
-  std::cout<< std::setw(12) << std::right << r[0] << ","
-           << std::setw(12) << std::right << r[1] << ","
-           << std::setw(12) << std::right << r[2];
-  std::cout<< " };";
-  std::cout<< std::endl;
- }
-
 void format_ldouble_cmy()
  {
   ::color::cmy< long double > c;

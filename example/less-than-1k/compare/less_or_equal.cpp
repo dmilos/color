@@ -13,7 +13,6 @@
   
   // This will produce ERROR.
   std::cout << color::compare::less_or_equal( a, b ) << std::endl;
-
 */
 
 int main( int argc, char *argv[] )

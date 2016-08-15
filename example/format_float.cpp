@@ -3,7 +3,6 @@
 
 #include "color/color.hpp"
 
-void format_float_rgb();
 void format_float_cmy();
 void format_float_cmyk();
 void format_float_gray();
@@ -17,7 +16,6 @@ int main( int argc, char *argv[] )
  {
   std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
   std::cout<< "In this example all models use float for component" << std::endl;
-  format_float_rgb();
   format_float_cmy();
   format_float_cmyk();
   format_float_gray();
@@ -28,20 +26,6 @@ int main( int argc, char *argv[] )
   std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
 
   return EXIT_SUCCESS;
- }
-
-void format_float_rgb()
- {
-  ::color::rgb< float > r; //!< Make an instance
-
-  color::make::orange( r ); //!< Fill with some useful information
-
-  std::cout<< "Orange in color::rgb<float> = { ";
-  std::cout<< std::setw(12) << std::right << r[0] << ","
-           << std::setw(12) << std::right << r[1] << ","
-           << std::setw(12) << std::right << r[2];
-  std::cout<< " };";
-  std::cout<< std::endl;
  }
 
 void format_float_cmy()

@@ -3,7 +3,6 @@
 
 #include "color/color.hpp"
 
-void format_double_rgb();
 void format_double_cmy();
 void format_double_cmyk();
 void format_double_gray();
@@ -17,7 +16,6 @@ int main( int argc, char *argv[] )
  {
   std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
   std::cout<< "In this example all models use double for component" << std::endl;
-  format_double_rgb();
   format_double_cmy();
   format_double_cmyk();
   format_double_gray();
@@ -28,20 +26,6 @@ int main( int argc, char *argv[] )
   std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
 
   return EXIT_SUCCESS;
- }
-
-void format_double_rgb()
- {
-  ::color::rgb< double > r; //!< Make an instance
-
-  ::color::make::orange( r ); //!< Fill with some useful information
-
-  std::cout<< "Orange in color::rgb<double> = { ";
-  std::cout<< std::setw(12) << std::right << r[0] << ","
-           << std::setw(12) << std::right << r[1] << ","
-           << std::setw(12) << std::right << r[2];
-  std::cout<< " };";
-  std::cout<< std::endl;
  }
 
 void format_double_cmy()
