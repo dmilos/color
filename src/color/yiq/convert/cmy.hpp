@@ -46,8 +46,8 @@ namespace color
          enum
           {
             cyan_p       = ::color::place::_internal::cyan<category_right_type>::position_enum
-           ,yellow_p     = ::color::place::_internal::yellow<category_right_type>::position_enum
            ,magenta_p    = ::color::place::_internal::magenta<category_right_type>::position_enum
+           ,yellow_p     = ::color::place::_internal::yellow<category_right_type>::position_enum
           };
 
          static void process
@@ -64,8 +64,8 @@ namespace color
            static scalar_type const                              b32n = -b32;
 
            scalar_type r = scalar_type(1) - normalize_type::template process<cyan_p   >( container_right_trait_type::template get<cyan_p   >( right ) );
-           scalar_type g = scalar_type(1) - normalize_type::template process<yellow_p >( container_right_trait_type::template get<yellow_p >( right ) );
-           scalar_type b = scalar_type(1) - normalize_type::template process<magenta_p>( container_right_trait_type::template get<magenta_p>( right ) );
+           scalar_type g = scalar_type(1) - normalize_type::template process<magenta_p>( container_right_trait_type::template get<magenta_p>( right ) );
+           scalar_type b = scalar_type(1) - normalize_type::template process<yellow_p >( container_right_trait_type::template get<yellow_p >( right ) );
 
            scalar_type y = b11 * r + b12 * g + b13 * b;
            scalar_type i = b21 * r + b22 * g + b23 * b;

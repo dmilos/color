@@ -168,4 +168,69 @@ void image_conversion()
   make_image_conversion< hsv_t,      yiq_t >( "./conv/hsv2yiq.tga",      0.5 );
   make_image_conversion< hsv_t, YPbPr709_t >( "./conv/hsv2YPbPr709.tga", 0.5 );
   make_image_conversion< hsv_t,   yuv709_t >( "./conv/hsv2yuv709.tga",   0.5 );
+
+  make_image_conversion< YCgCo_t,      cmy_t >( "./conv/YCgCo2cmy.tga",      0.5 );
+  make_image_conversion< YCgCo_t,     cmyk_t >( "./conv/YCgCo2cmyk.tga",     0.5 );
+  make_image_conversion< YCgCo_t,     gray_t >( "./conv/YCgCo2gray.tga",     0.5 );
+  make_image_conversion< YCgCo_t,      rgb_t >( "./conv/YCgCo2rgb.tga",      0.5 );
+  make_image_conversion< YCgCo_t,      hsi_t >( "./conv/YCgCo2hsi.tga",      0.5 );
+  make_image_conversion< YCgCo_t,      hsl_t >( "./conv/YCgCo2hsl.tga",      0.5 );
+  make_image_conversion< YCgCo_t,      hsv_t >( "./conv/YCgCo2hsv.tga",      0.5 );
+  make_image_conversion< YCgCo_t,    YCgCo_t >( "./conv/YCgCo2YCgCo.tga",    0.5 );
+  make_image_conversion< YCgCo_t,    YDbDr_t >( "./conv/YCgCo2YDbDr.tga",    0.5 );
+  make_image_conversion< YCgCo_t,      yiq_t >( "./conv/YCgCo2yiq.tga",      0.5 );
+  make_image_conversion< YCgCo_t, YPbPr709_t >( "./conv/YCgCo2YPbPr709.tga", 0.5 );
+  make_image_conversion< YCgCo_t,   yuv709_t >( "./conv/YCgCo2yuv709.tga",   0.5 );
+
+  make_image_conversion< YDbDr_t,      cmy_t >( "./conv/YDbDr2cmy.tga",      0.5 );
+  make_image_conversion< YDbDr_t,     cmyk_t >( "./conv/YDbDr2cmyk.tga",     0.5 );
+  make_image_conversion< YDbDr_t,     gray_t >( "./conv/YDbDr2gray.tga",     0.5 );
+  make_image_conversion< YDbDr_t,      rgb_t >( "./conv/YDbDr2rgb.tga",      0.5 );
+  make_image_conversion< YDbDr_t,      hsi_t >( "./conv/YDbDr2hsi.tga",      0.5 );
+  make_image_conversion< YDbDr_t,      hsl_t >( "./conv/YDbDr2hsl.tga",      0.5 );
+  make_image_conversion< YDbDr_t,      hsv_t >( "./conv/YDbDr2hsv.tga",      0.5 );
+  make_image_conversion< YDbDr_t,    YCgCo_t >( "./conv/YDbDr2YCgCo.tga",    0.5 );
+  make_image_conversion< YDbDr_t,    YDbDr_t >( "./conv/YDbDr2YDbDr.tga",    0.5 );
+  make_image_conversion< YDbDr_t,      yiq_t >( "./conv/YDbDr2yiq.tga",      0.5 );
+  make_image_conversion< YDbDr_t, YPbPr709_t >( "./conv/YDbDr2YPbPr709.tga", 0.5 );
+  make_image_conversion< YDbDr_t,   yuv709_t >( "./conv/YDbDr2yuv709.tga",   0.5 );
+
+  make_image_conversion< yiq_t,      cmy_t >( "./conv/yiq2cmy.tga",      0.5 );
+  make_image_conversion< yiq_t,     cmyk_t >( "./conv/yiq2cmyk.tga",     0.5 );
+  make_image_conversion< yiq_t,     gray_t >( "./conv/yiq2gray.tga",     0.5 );
+  make_image_conversion< yiq_t,      rgb_t >( "./conv/yiq2rgb.tga",      0.5 );
+  make_image_conversion< yiq_t,      hsi_t >( "./conv/yiq2hsi.tga",      0.5 );
+  make_image_conversion< yiq_t,      hsl_t >( "./conv/yiq2hsl.tga",      0.5 );
+  make_image_conversion< yiq_t,      hsv_t >( "./conv/yiq2hsv.tga",      0.5 );
+  make_image_conversion< yiq_t,    YCgCo_t >( "./conv/yiq2YCgCo.tga",    0.5 );
+  make_image_conversion< yiq_t,    YDbDr_t >( "./conv/yiq2YDbDr.tga",    0.5 );
+  make_image_conversion< yiq_t,      yiq_t >( "./conv/yiq2yiq.tga",      0.5 );
+  make_image_conversion< yiq_t, YPbPr709_t >( "./conv/yiq2YPbPr709.tga", 0.5 );
+  make_image_conversion< yiq_t,   yuv709_t >( "./conv/yiq2yuv709.tga",   0.5 );
+
+  make_image_conversion< YPbPr709_t,      cmy_t >( "./conv/YPbPr709_2cmy.tga",      0.5 );
+  make_image_conversion< YPbPr709_t,     cmyk_t >( "./conv/YPbPr709_2cmyk.tga",     0.5 );
+  make_image_conversion< YPbPr709_t,     gray_t >( "./conv/YPbPr709_2gray.tga",     0.5 );
+  make_image_conversion< YPbPr709_t,      rgb_t >( "./conv/YPbPr709_2rgb.tga",      0.5 );
+  make_image_conversion< YPbPr709_t,      hsi_t >( "./conv/YPbPr709_2hsi.tga",      0.5 );
+  make_image_conversion< YPbPr709_t,      hsl_t >( "./conv/YPbPr709_2hsl.tga",      0.5 );
+  make_image_conversion< YPbPr709_t,      hsv_t >( "./conv/YPbPr709_2hsv.tga",      0.5 );
+  make_image_conversion< YPbPr709_t,    YCgCo_t >( "./conv/YPbPr709_2YCgCo.tga",    0.5 );
+  make_image_conversion< YPbPr709_t,    YDbDr_t >( "./conv/YPbPr709_2YDbDr.tga",    0.5 );
+  make_image_conversion< YPbPr709_t,      yiq_t >( "./conv/YPbPr709_2yiq.tga",      0.5 );
+  make_image_conversion< YPbPr709_t, YPbPr709_t >( "./conv/YPbPr709_2YPbPr709.tga", 0.5 );
+  make_image_conversion< YPbPr709_t,   yuv709_t >( "./conv/YPbPr709_2yuv709.tga",   0.5 );
+
+  make_image_conversion< yuv709_t,      cmy_t >( "./conv/yuv709_2cmy.tga",      0.5 );
+  make_image_conversion< yuv709_t,     cmyk_t >( "./conv/yuv709_2cmyk.tga",     0.5 );
+  make_image_conversion< yuv709_t,     gray_t >( "./conv/yuv709_2gray.tga",     0.5 );
+  make_image_conversion< yuv709_t,      rgb_t >( "./conv/yuv709_2rgb.tga",      0.5 );
+  make_image_conversion< yuv709_t,      hsi_t >( "./conv/yuv709_2hsi.tga",      0.5 );
+  make_image_conversion< yuv709_t,      hsl_t >( "./conv/yuv709_2hsl.tga",      0.5 );
+  make_image_conversion< yuv709_t,      hsv_t >( "./conv/yuv709_2hsv.tga",      0.5 );
+  make_image_conversion< yuv709_t,    YCgCo_t >( "./conv/yuv709_2YCgCo.tga",    0.5 );
+  make_image_conversion< yuv709_t,    YDbDr_t >( "./conv/yuv709_2YDbDr.tga",    0.5 );
+  make_image_conversion< yuv709_t,      yiq_t >( "./conv/yuv709_2yiq.tga",      0.5 );
+  make_image_conversion< yuv709_t, YPbPr709_t >( "./conv/yuv709_2YPbPr709.tga", 0.5 );
+  make_image_conversion< yuv709_t,   yuv709_t >( "./conv/yuv709_2yuv709.tga",   0.5 );
  }
