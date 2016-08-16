@@ -39,7 +39,7 @@ namespace color
           {
             hue_p        = ::color::place::_internal::hue<category_left_type>::position_enum
            ,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-           ,value_p       = ::color::place::_internal::value<category_left_type>::position_enum
+           ,value_p      = ::color::place::_internal::value<category_left_type>::position_enum
           };
 
          static void process

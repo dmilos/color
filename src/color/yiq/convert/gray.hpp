@@ -51,9 +51,17 @@ namespace color
           {
            scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
 
-           container_left_trait_type::template set<      luma_p>( left, diverse_type::template process<luma_p>( g ) );
-           container_left_trait_type::template set<   inphase_p>( left, bound_left_trait_type::template minimum<inphase_p>() );
-           container_left_trait_type::template set<quadrature_p>( left, bound_left_trait_type::template minimum<quadrature_p>() );
+                  auto       y = diverse_type::template process<0>( g );
+           static auto const i = diverse_type::template process<1>( 0.5 );
+           static auto const q = diverse_type::template process<2>( 0.5 );
+
+           container_left_trait_type::template set<0>( left, y );
+           container_left_trait_type::template set<1>( left, i );
+           container_left_trait_type::template set<2>( left, q );
+
+           container_left_trait_type::template set<      luma_p>( left, y );
+           container_left_trait_type::template set<   inphase_p>( left, i );
+           container_left_trait_type::template set<quadrature_p>( left, q );
           }
 
       };

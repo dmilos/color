@@ -10,7 +10,7 @@
 
 typedef std::vector< ::color::bgr< std::uint8_t  > > image_type;
 
-template< typename category_down_name, typename category_up_name>
+template< typename category_left_name, typename category_right_name >
  void make_image_conversion
   (
    std::string const& name
@@ -18,10 +18,9 @@ template< typename category_down_name, typename category_up_name>
   )
   {
    color::rgb<double> r;
-   blue = 0;
 
-   color::model< category_down_name>  up;
-   color::model< category_up_name> down;
+   color::model< category_left_name>  left;
+   color::model< category_right_name> right;
 
    image_type image;
 
@@ -36,9 +35,9 @@ template< typename category_down_name, typename category_up_name>
        r.template set<1>( y /(double)height );
        r.template set<2>( blue );
 
-       down = r;
-       up = down;
-       r = up;
+       right = r;
+       left = right;
+       r = left;
 
       image[ y*width + x] = r;
      }

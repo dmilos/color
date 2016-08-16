@@ -1252,6 +1252,7 @@
   <ItemGroup>
     <ClCompile Include="bound.cpp" />
     <ClCompile Include="conversion.cpp" />
+    <ClCompile Include="convsemi.cpp" />
     <ClCompile Include="decompose.cpp" />
     <ClCompile Include="get_invoke.cpp" />
     <ClCompile Include="get_test.cpp" />

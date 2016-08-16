@@ -15,7 +15,7 @@ namespace color
     template
      <
        typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
-      ,typename gray_tag_name 
+      ,typename gray_tag_name
      >
      struct convert
       <
@@ -46,9 +46,13 @@ namespace color
           {
            scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( g ) );
-           container_left_trait_type::template set<1>( left, bound_left_trait_type::template minimum<1>() );
-           container_left_trait_type::template set<2>( left, bound_left_trait_type::template minimum<2>() );
+                  auto        Y  = diverse_type::template process<0>( g );
+           static auto const  Pb = diverse_type::template process<1>( 0.5 );
+           static auto const  Pr = diverse_type::template process<2>( 0.5 );
+
+           container_left_trait_type::template set<0>( left, Y );
+           container_left_trait_type::template set<1>( left, Pb );
+           container_left_trait_type::template set<2>( left, Pr );
           }
       };
 

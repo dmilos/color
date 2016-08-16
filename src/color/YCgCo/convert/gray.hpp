@@ -42,9 +42,13 @@ namespace color
           {
            scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( g ) );
-           container_left_trait_type::template set<1>( left, bound_left_trait_type::template minimum<1>() );
-           container_left_trait_type::template set<2>( left, bound_left_trait_type::template minimum<2>() );
+                  auto        Y  = diverse_type::template process<0>( g );
+           static auto const  Cg = diverse_type::template process<1>( 0.5 );
+           static auto const  Co = diverse_type::template process<2>( 0.5 );
+
+           container_left_trait_type::template set<0>( left, Y  );
+           container_left_trait_type::template set<1>( left, Cg );
+           container_left_trait_type::template set<2>( left, Co );
           }
       };
 
