@@ -46,26 +46,26 @@ void sandbox_test()
   sandbox_test2( ::color::rgb<double>(::color::constant::lime_t{}), "lime" );
   sandbox_test2( ::color::rgb<double>(::color::constant::blue_t{}), "blue" );
 
-  sandbox_test2( ::color::rgb<double>{ 1.000, 1.000, 0.5    }, "    ???°           ?????          ?????       " );  
-  sandbox_test2( ::color::rgb<double>{ 1.000, 1.000, 1.000, }, "    n/a            0.000          1.000       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.500, 0.500, 0.500, }, "    n/a            0.000          0.500       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.000, 0.000, 0.000, }, "    n/a            0.000          0.000       " );  
-  sandbox_test2( ::color::rgb<double>{ 1.000, 0.000, 0.000, }, "    0.0°           1.000          0.333       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.750, 0.750, 0.000, }, "   60.0°           1.000          0.500       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.000, 0.500, 0.000, }, "  120.0°           1.000          0.167       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.500, 1.000, 1.000, }, "  180.0°           0.400          0.833       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.500, 0.500, 1.000, }, "  240.0°           0.250          0.667       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.750, 0.250, 0.750, }, "  300.0°           0.571          0.583       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.628, 0.643, 0.142, }, "   61.5°           0.699          0.471       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.255, 0.104, 0.918, }, "  250.0°           0.756          0.426       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.116, 0.675, 0.255, }, "  133.8°           0.667          0.349       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.941, 0.785, 0.053, }, "   50.5°           0.911          0.593       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.704, 0.187, 0.897, }, "  284.8°           0.686          0.596       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.931, 0.463, 0.316, }, "   13.2°           0.446          0.570       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.998, 0.974, 0.532, }, "   57.4°           0.363          0.835       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.099, 0.795, 0.591, }, "  163.4°           0.800          0.495       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.211, 0.149, 0.597, }, "  247.3°           0.533          0.319       " );  
-  sandbox_test2( ::color::rgb<double>{ 0.495, 0.493, 0.721, }, "  240.4°           0.135          0.570       " );  
+  sandbox_test2( ::color::rgb<double>{ 1.000, 1.000, 0.5    }, "    ???°           ?????          ?????       " );
+  sandbox_test2( ::color::rgb<double>{ 1.000, 1.000, 1.000, }, "    n/a            0.000          1.000       " );
+  sandbox_test2( ::color::rgb<double>{ 0.500, 0.500, 0.500, }, "    n/a            0.000          0.500       " );
+  sandbox_test2( ::color::rgb<double>{ 0.000, 0.000, 0.000, }, "    n/a            0.000          0.000       " );
+  sandbox_test2( ::color::rgb<double>{ 1.000, 0.000, 0.000, }, "    0.0°           1.000          0.333       " );
+  sandbox_test2( ::color::rgb<double>{ 0.750, 0.750, 0.000, }, "   60.0°           1.000          0.500       " );
+  sandbox_test2( ::color::rgb<double>{ 0.000, 0.500, 0.000, }, "  120.0°           1.000          0.167       " );
+  sandbox_test2( ::color::rgb<double>{ 0.500, 1.000, 1.000, }, "  180.0°           0.400          0.833       " );
+  sandbox_test2( ::color::rgb<double>{ 0.500, 0.500, 1.000, }, "  240.0°           0.250          0.667       " );
+  sandbox_test2( ::color::rgb<double>{ 0.750, 0.250, 0.750, }, "  300.0°           0.571          0.583       " );
+  sandbox_test2( ::color::rgb<double>{ 0.628, 0.643, 0.142, }, "   61.5°           0.699          0.471       " );
+  sandbox_test2( ::color::rgb<double>{ 0.255, 0.104, 0.918, }, "  250.0°           0.756          0.426       " );
+  sandbox_test2( ::color::rgb<double>{ 0.116, 0.675, 0.255, }, "  133.8°           0.667          0.349       " );
+  sandbox_test2( ::color::rgb<double>{ 0.941, 0.785, 0.053, }, "   50.5°           0.911          0.593       " );
+  sandbox_test2( ::color::rgb<double>{ 0.704, 0.187, 0.897, }, "  284.8°           0.686          0.596       " );
+  sandbox_test2( ::color::rgb<double>{ 0.931, 0.463, 0.316, }, "   13.2°           0.446          0.570       " );
+  sandbox_test2( ::color::rgb<double>{ 0.998, 0.974, 0.532, }, "   57.4°           0.363          0.835       " );
+  sandbox_test2( ::color::rgb<double>{ 0.099, 0.795, 0.591, }, "  163.4°           0.800          0.495       " );
+  sandbox_test2( ::color::rgb<double>{ 0.211, 0.149, 0.597, }, "  247.3°           0.533          0.319       " );
+  sandbox_test2( ::color::rgb<double>{ 0.495, 0.493, 0.721, }, "  240.4°           0.135          0.570       " );
  }
 
 
@@ -184,7 +184,7 @@ void make_blue()
   targa_make_header( width, height, header);
 
   std::vector< color::bgra<std::uint8_t> >   image( height * width );
-  
+
   memset( (void * )image.data(), 255, image.size() * sizeof( color::bgra<std::uint8_t> ) );
 
   for( auto & c: image )
@@ -344,7 +344,8 @@ int main(int argc, char const *argv[])
 
   ctor_test();
 
-
+  void image_conversion();
+  image_conversion();
 
   void main_place();
   main_place();

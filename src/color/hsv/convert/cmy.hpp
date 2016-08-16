@@ -47,8 +47,8 @@ namespace color
          enum
           {
             cyan_p       = ::color::place::_internal::cyan<category_right_type>::position_enum
-           ,yellow_p     = ::color::place::_internal::yellow<category_right_type>::position_enum
            ,magenta_p    = ::color::place::_internal::magenta<category_right_type>::position_enum
+           ,yellow_p     = ::color::place::_internal::yellow<category_right_type>::position_enum
           };
 
          static void process
@@ -58,8 +58,8 @@ namespace color
           )
           {
            scalar_type r = scalar_type(1) - normalize_type::template process<cyan_p   >( container_right_trait_type::template get<cyan_p   >( right ) );
-           scalar_type g = scalar_type(1) - normalize_type::template process<yellow_p >( container_right_trait_type::template get<yellow_p >( right ) );
-           scalar_type b = scalar_type(1) - normalize_type::template process<magenta_p>( container_right_trait_type::template get<magenta_p>( right ) );
+           scalar_type g = scalar_type(1) - normalize_type::template process<magenta_p>( container_right_trait_type::template get<magenta_p >( right ) );
+           scalar_type b = scalar_type(1) - normalize_type::template process<yellow_p >( container_right_trait_type::template get<yellow_p>( right ) );
 
            scalar_type lo = std::min<scalar_type>( {r,g,b} );
            scalar_type v =  std::max<scalar_type>( {r,g,b} );
@@ -67,7 +67,6 @@ namespace color
 
            scalar_type h = 0;
            scalar_type s = 0;
-
 
            if(    ( false == scalar_trait_type::is_small( v ) )
                && ( false == scalar_trait_type::is_small( delta ) ) )
@@ -87,7 +86,6 @@ namespace color
               {
                h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
               }
-
             }
 
            container_left_trait_type::template set<hue_p       >( left, diverse_type::template process<hue_p       >( h ) );

@@ -48,7 +48,8 @@ source +=   [
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'gray_test'   ) + envObject[ 'OBJSUFFIX' ],  source = './gray_test.cpp'  )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'decompose'   ) + envObject[ 'OBJSUFFIX' ],  source = './decompose.cpp'  )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'place'       ) + envObject[ 'OBJSUFFIX' ],  source = './place.cpp'      )
-  ]
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'convsemi'    ) + envObject[ 'OBJSUFFIX' ],  source = './convsemi.cpp'   )
+   ]
 
 # Make native environment
 envProgram = nucleotide.Environment( settings ).native()

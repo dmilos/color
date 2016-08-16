@@ -44,8 +44,8 @@ namespace color
          enum
           {
             cyan_p       = ::color::place::_internal::cyan<category_left_type>::position_enum
-           ,yellow_p     = ::color::place::_internal::yellow<category_left_type>::position_enum
            ,magenta_p    = ::color::place::_internal::magenta<category_left_type>::position_enum
+           ,yellow_p     = ::color::place::_internal::yellow<category_left_type>::position_enum
           };
 
          enum
@@ -61,16 +61,15 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-
            scalar_type h = normalize_type::template process<hue_p       >( container_right_trait_type::template get<hue_p       >( right ) );
            scalar_type s = normalize_type::template process<saturation_p>( container_right_trait_type::template get<saturation_p>( right ) );
            scalar_type v = normalize_type::template process<value_p     >( container_right_trait_type::template get<value_p     >( right ) );
 
            int region  = int( 6 * h );
            scalar_type f = h * 6 - region ;
-           scalar_type p = v * ( scalar_type(1) - s);
-           scalar_type q = v * ( scalar_type(1) - f * s);
-           scalar_type t = v * ( scalar_type(1) - (1 - f) * s);
+           scalar_type p = v * ( 1 - s);
+           scalar_type q = v * ( 1 - f * s);
+           scalar_type t = v * ( 1 - (1 - f) * s);
 
            scalar_type r;
            scalar_type g;
@@ -87,8 +86,8 @@ namespace color
             }
 
            container_left_trait_type::template set<cyan_p   >( left, diverse_type::template process<cyan_p   >( scalar_type(1) - r ) );
-           container_left_trait_type::template set<yellow_p >( left, diverse_type::template process<yellow_p >( scalar_type(1) - g ) );
-           container_left_trait_type::template set<magenta_p>( left, diverse_type::template process<magenta_p>( scalar_type(1) - b ) );
+           container_left_trait_type::template set<magenta_p>( left, diverse_type::template process<magenta_p>( scalar_type(1) - g ) );
+           container_left_trait_type::template set<yellow_p >( left, diverse_type::template process<yellow_p >( scalar_type(1) - b ) );
           }
       };
 

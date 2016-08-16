@@ -12,7 +12,7 @@ template< typename category_left_name, typename category_right_name>
   )
   {
    typedef color::model< category_left_name> left_type;
-   typedef color::model< category_left_name> right_type;
+   typedef color::model< category_right_name> right_type;
 
    long double e0 = 0;
    long double e1 = 0;
