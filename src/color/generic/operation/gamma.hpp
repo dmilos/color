@@ -32,22 +32,24 @@
             typedef ::color::_internal::diverse< category_type >    diverse_type;
             typedef ::color::_internal::normalize< category_type > normalize_type;
 
-            static void process( model_type &result, scalar_type const& g )
+            static model_type & process( model_type &result, scalar_type const& g )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 scalar_type s = normalize_type::process( result[index], index );
                 result.set( index, diverse_type::process( std::pow( s, g ), index ) );
                }
+              return result;
              }
 
-            static void process(  model_type &result, model_type const& right, scalar_type const& g )
+            static model_type & process(  model_type & result, model_type const& right, scalar_type const& g )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 scalar_type s = normalize_type::process( right[index], index );
                 result.set( index, diverse_type::process( std::pow( s, g ), index ) );
                }
+              return result;
              }
 
          };
@@ -61,7 +63,7 @@
         ,typename ::color::trait::scalar<category_name>::instance_type      const& g
        )
        {
-        ::color::operation::_internal::gamma<category_name>::process( result, g );
+        /*return */::color::operation::_internal::gamma<category_name>::process( result, g );
        }
 
      template< typename category_name >
@@ -72,7 +74,7 @@
         ,typename ::color::trait::scalar<category_name>::instance_type      const& g
        )
        {
-        ::color::operation::_internal::gamma<category_name>::process( result, right, g );
+        /*return */ ::color::operation::_internal::gamma<category_name>::process( result, right, g );
        }
 
     }

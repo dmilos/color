@@ -55,20 +55,22 @@
               return bound_type::template range<index_size>() - component;
              }
 
-            static void process( model_type &result )
+            static model_type & process( model_type &result )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, component( result.get( index ), index ) );
                }
+              return result;
              }
 
-            static void process(  model_type &result, model_type const& right )
+            static model_type & process(  model_type &result, model_type const& right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, component( right.get( index ), index ) );
                }
+              return result;
              }
 
          };
@@ -81,7 +83,7 @@
          ::color::model<category_name>      & result
        )
        {
-        ::color::operation::_internal::invert<category_name>::process( result );
+        /*return */::color::operation::_internal::invert<category_name>::process( result );
        }
 
      template< typename category_name >
@@ -91,7 +93,7 @@
         ,::color::model<category_name> const& right
        )
        {
-        ::color::operation::_internal::invert<category_name>::process( result, right );
+        /*return*/ ::color::operation::_internal::invert<category_name>::process( result, right );
        }
 
 

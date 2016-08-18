@@ -31,7 +31,7 @@
 
             typedef ::color::model<category_type>         model_type;
 
-            static void process
+            static model_type & process
              (
                 model_type       & result
                ,scalar_type const& a0
@@ -44,9 +44,10 @@
                {
                 result.set( index, component_type( a0 * c0[index] + a1 * c1[index] ) );
                }
+              return result;
              }
 
-            static void process
+            static model_type & process
              (
                 model_type       & result
                ,scalar_type const& a0
@@ -61,6 +62,7 @@
                {
                 result.set( index, component_type( a0 * c0[ index ] + a1 * c1[ index ]  + a2 * c2[ index ] ) );
                }
+              return result;
              }
 
          };
@@ -78,7 +80,7 @@
         ,::color::model<category_name> const& c1
        )
        {
-        ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1 );
+        /*return*/ ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1 );
        }
 
      template< typename category_name >
@@ -93,7 +95,7 @@
         ,::color::model<category_name> const& c2
        )
        {
-        ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1, a2, c2 );
+        /*return*/ ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1, a2, c2 );
        }
 
     }

@@ -30,20 +30,22 @@
 
             typedef typename index_trait_type::instance_type  index_type;
 
-            static void process( model_input_type  result, scalar_const_input_type const& scalar )
+            static model_type & process( model_input_type  result, scalar_const_input_type const& scalar )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, result.get( index ) * scalar );
                }
+              return result;
              }
 
-            static void process(  model_input_type  result, scalar_const_input_type scalar, model_const_input_type right )
+            static model_type & process(  model_input_type  result, scalar_const_input_type scalar, model_const_input_type right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, scalar * right.get( index ) );
                }
+              return result;
              }
 
          };
@@ -57,7 +59,7 @@
         ,scalar_name                   const& scalar
        )
        {
-        ::color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar );
+        /*return*/ ::color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar );
        }
 
      template< typename category_name, typename scalar_name >
@@ -68,7 +70,7 @@
         ,::color::model<category_name> const& right
        )
        {
-        ::color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar, right );
+        /*return*/ ::color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar, right );
        }
 
     }

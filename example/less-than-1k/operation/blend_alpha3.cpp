@@ -1,0 +1,25 @@
+#include <iostream>
+#include <iomanip>
+
+#include "color/color.hpp"
+
+int main( int argc, char *argv[] )
+ {
+  ::color::rgba<double> a, b;
+
+  ::color::make::orange( a );
+  ::color::make::lime( b );
+
+  ::color::rgba<double> j;
+
+  ::color::set::alpha( a, 0.5 );
+  ::color::set::alpha( b, 0.25 );
+
+  ::color::operation::blend( j, a, b );
+  std::cout<< " j = blend( orange(0.5), lime(0.25) ) = ";
+  std::cout << j[0] << ", " << j[1] << ", " << j[2] << std::endl;
+  std::cout << std::endl;
+
+  return EXIT_SUCCESS;
+ }
+

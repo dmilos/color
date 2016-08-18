@@ -4504,16 +4504,18 @@ public:
 		return bound_type::template range<index_size>() - component;
 	}
 
-	static void process(model_type &result) {
+	static model_type & process(model_type &result) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component(result.get(index), index));
 		}
+		return result;
 	}
 
-	static void process(model_type &result, model_type const& right) {
+	static model_type & process(model_type &result, model_type const& right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component(right.get(index), index));
 		}
+		return result;
 	}
 
 };
@@ -5163,16 +5165,18 @@ public:
 
 	typedef typename index_trait_type::instance_type index_type;
 
-	static void process(model_type &result, model_type const& right) {
+	static model_type & process(model_type &result, model_type const& right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, result.get(index) - right.get(index));
 		}
+		return result;
 	}
 
-	static void process(model_type &result, model_type const& left, model_type const& right) {
+	static model_type & process(model_type &result, model_type const& left, model_type const& right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, left.get(index) - right.get(index));
 		}
+		return result;
 	}
 
 };
@@ -5221,16 +5225,18 @@ public:
 
 	typedef typename index_trait_type::instance_type index_type;
 
-	static void process(model_input_type result, scalar_const_input_type const& scalar) {
+	static model_type & process(model_input_type result, scalar_const_input_type const& scalar) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, result.get(index) * scalar);
 		}
+		return result;
 	}
 
-	static void process(model_input_type result, scalar_const_input_type scalar, model_const_input_type right) {
+	static model_type & process(model_input_type result, scalar_const_input_type scalar, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, scalar * right.get(index));
 		}
+		return result;
 	}
 
 };
@@ -5378,16 +5384,18 @@ public:
 
 	typedef typename index_trait_type::instance_type index_type;
 
-	static void process(model_input_type result, scalar_const_input_type scalar, model_const_input_type right) {
+	static model_type & process(model_input_type result, scalar_const_input_type scalar, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, scalar * result.get(index) +(scalar_type(1) - scalar) *right.get(index));
 		}
+		return result;
 	}
 
-	static void process(model_input_type result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right) {
+	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, scalar * left.get(index) +(scalar_type(1) - scalar) *right.get(index));
 		}
+		return result;
 	}
 
 };
@@ -5636,7 +5644,7 @@ namespace color {
 
 				typedef ::color::model<category_type> model_type;
 
-				static void process
+				static model_type & process
 				(
 					model_type & result
 					,scalar_type const& a0
@@ -5647,9 +5655,10 @@ namespace color {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component_type(a0 * c0[index] + a1 * c1[index]));
 		}
+		return result;
 	}
 
-	static void process
+	static model_type & process
 	(
 		model_type & result
 		,scalar_type const& a0
@@ -5662,6 +5671,7 @@ namespace color {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component_type(a0 * c0[ index ] + a1 * c1[ index ] + a2 * c2[ index ]));
 		}
+		return result;
 	}
 
 	   };
@@ -5716,18 +5726,20 @@ namespace color {
 				typedef ::color::_internal::diverse< category_type > diverse_type;
 				typedef ::color::_internal::normalize< category_type > normalize_type;
 
-	static void process(model_type &result, scalar_type const& g) {
+	static model_type & process(model_type &result, scalar_type const& g) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			scalar_type s = normalize_type::process(result[index], index);
 			result.set(index, diverse_type::process(std::pow(s, g), index));
 		}
+		return result;
 	}
 
-	static void process(model_type &result, model_type const& right, scalar_type const& g) {
+	static model_type & process(model_type & result, model_type const& right, scalar_type const& g) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			scalar_type s = normalize_type::process(right[index], index);
 			result.set(index, diverse_type::process(std::pow(s, g), index));
 		}
+		return result;
 	}
 
 	   };
@@ -7218,17 +7230,24 @@ namespace color {
 		typedef ::color::trait::bound< category_type > bound_type;
 		typedef ::color::trait::scalar< category_type > scalar_trait_type;
 
+	enum {
+		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_type>::position_enum
+	};
+
 	static bool process(model_type const& m) {
-		if(m.template get<3>() == bound_type::template maximum<3>()) {
+		if(m.template get<key_p>() == bound_type::template maximum<key_p>()) {
 			return false;
 		}
-		if(true == scalar_trait_type::is_small(m.template get<0>() - bound_type::template minimum<0>())) {
+		if(true == scalar_trait_type::is_small(m.template get< cyan_p>() - bound_type::template minimum< cyan_p>())) {
 			return true;
 		}
-		if(true == scalar_trait_type::is_small(m.template get<1>() - bound_type::template minimum<1>())) {
+		if(true == scalar_trait_type::is_small(m.template get<magenta_p>() - bound_type::template minimum<magenta_p>())) {
 			return true;
 		}
-		if(true == scalar_trait_type::is_small(m.template get<2>() - bound_type::template minimum<2>())) {
+		if(true == scalar_trait_type::is_small(m.template get< key_p>() - bound_type::template minimum< key_p>())) {
 			return true;
 		}
 		return false;
@@ -7244,17 +7263,24 @@ namespace color {
 		typedef ::color::trait::bound< category_type > bound_type;
 		typedef ::color::trait::scalar< category_type > scalar_trait_type;
 
+	enum {
+		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_type>::position_enum
+	};
+
 	static bool process(model_type const& m) {
-		if(m.template get<3>() == bound_type::template maximum<3>()) {
+		if(m.template get<key_p>() == bound_type::template maximum<key_p>()) {
 			return false;
 		}
-		if(true == scalar_trait_type::is_small(m.template get<0>() - bound_type::template minimum<0>())) {
+		if(true == scalar_trait_type::is_small(m.template get< cyan_p>() - bound_type::template minimum< cyan_p>())) {
 			return true;
 		}
-		if(true == scalar_trait_type::is_small(m.template get<1>() - bound_type::template minimum<1>())) {
+		if(true == scalar_trait_type::is_small(m.template get<magenta_p>() - bound_type::template minimum<magenta_p>())) {
 			return true;
 		}
-		if(true == scalar_trait_type::is_small(m.template get<2>() - bound_type::template minimum<2>())) {
+		if(true == scalar_trait_type::is_small(m.template get< key_p>() - bound_type::template minimum< key_p>())) {
 			return true;
 		}
 		return false;
@@ -7270,17 +7296,24 @@ namespace color {
 		typedef ::color::trait::bound< category_type > bound_type;
 		typedef ::color::trait::scalar< category_type > scalar_trait_type;
 
+	enum {
+		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_type>::position_enum
+	};
+
 	static bool process(model_type const& m) {
-		if(m.template get<3>() == bound_type::template maximum<3>()) {
+		if(m.template get<key_p>() == bound_type::template maximum<key_p>()) {
 			return false;
 		}
-		if(true == scalar_trait_type::is_small(m.template get<0>() - bound_type::template minimum<0>())) {
+		if(true == scalar_trait_type::is_small(m.template get< cyan_p>() - bound_type::template minimum< cyan_p>())) {
 			return true;
 		}
-		if(true == scalar_trait_type::is_small(m.template get<1>() - bound_type::template minimum<1>())) {
+		if(true == scalar_trait_type::is_small(m.template get<magenta_p>() - bound_type::template minimum<magenta_p>())) {
 			return true;
 		}
-		if(true == scalar_trait_type::is_small(m.template get<2>() - bound_type::template minimum<2>())) {
+		if(true == scalar_trait_type::is_small(m.template get< key_p>() - bound_type::template minimum< key_p>())) {
 			return true;
 		}
 		return false;
@@ -11744,8 +11777,8 @@ namespace color {
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-		,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -11754,8 +11787,8 @@ namespace color {
 		,container_right_const_input_type right
 	) {
 		scalar_type r = scalar_type(1) - normalize_type::template process<cyan_p >(container_right_trait_type::template get<cyan_p >(right));
-		scalar_type g = scalar_type(1) - normalize_type::template process<yellow_p >(container_right_trait_type::template get<yellow_p >(right));
-		scalar_type b = scalar_type(1) - normalize_type::template process<magenta_p>(container_right_trait_type::template get<magenta_p>(right));
+		scalar_type g = scalar_type(1) - normalize_type::template process<magenta_p>(container_right_trait_type::template get<magenta_p >(right));
+		scalar_type b = scalar_type(1) - normalize_type::template process<yellow_p >(container_right_trait_type::template get<yellow_p>(right));
 		scalar_type lo = std::min<scalar_type>({r,g,b});
 		scalar_type v = std::max<scalar_type>({r,g,b});
 		scalar_type delta = v - lo;
@@ -11844,21 +11877,33 @@ namespace color {
 			typedef ::color::_internal::diverse< category_left_type > diverse_type;
 			typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-			static void process
-			(
-				container_left_input_type left
-				,container_right_const_input_type right
+	enum {
+		hl_p = ::color::place::_internal::hue<category_left_type>::position_enum
+		,sl_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		,vl_p = ::color::place::_internal::value<category_left_type>::position_enum
+	};
+
+	enum {
+		hr_p = ::color::place::_internal::hue<category_right_type>::position_enum
+		,sr_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,lr_p = ::color::place::_internal::lightness<category_right_type>::position_enum
+	};
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
 	) {
-		scalar_type h = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type ss = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type l = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type h = normalize_type::template process<hr_p>(container_right_trait_type::template get<hr_p>(right));
+		scalar_type ss = normalize_type::template process<sr_p>(container_right_trait_type::template get<sr_p>(right));
+		scalar_type l = normalize_type::template process<lr_p>(container_right_trait_type::template get<lr_p>(right));
 		scalar_type v = (2 * l + ss*(1 - fabs(2*l-1))) /2;
 		scalar_type s = 2*(v - l) / v;
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(h));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(s));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(v));
+		container_left_trait_type::template set<hl_p>(left, diverse_type::template process<hl_p>(h));
+		container_left_trait_type::template set<sl_p>(left, diverse_type::template process<sl_p>(s));
+		container_left_trait_type::template set<vl_p>(left, diverse_type::template process<vl_p>(v));
 	}
-											  };
+												 };
 
 										   }
 }
@@ -11885,17 +11930,30 @@ namespace color {
 			typedef typename container_left_trait_type::input_type container_left_input_type;
 			typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-			static void process
-			(
-				container_left_input_type left
-				,container_right_const_input_type right
+	enum {
+		hl_p = ::color::place::_internal::hue<category_left_type>::position_enum
+		,sl_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		,vl_p = ::color::place::_internal::value<category_left_type>::position_enum
+	};
+
+	enum {
+		hr_p = ::color::place::_internal::hue<category_right_type>::position_enum
+		,sr_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,vr_p = ::color::place::_internal::value<category_right_type>::position_enum
+	};
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
 	) {
-		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
-		container_left_trait_type::template set<1>(left, reformat_type::template process<1,1>(container_right_trait_type::template get<1>(right)));
-		container_left_trait_type::template set<2>(left, reformat_type::template process<2,2>(container_right_trait_type::template get<2>(right)));
+		container_left_trait_type::template set<hl_p>(left, reformat_type::template process<hl_p,hr_p>(container_right_trait_type::template get<hr_p>(right)));
+		container_left_trait_type::template set<sl_p>(left, reformat_type::template process<sl_p,sr_p>(container_right_trait_type::template get<sr_p>(right)));
+		container_left_trait_type::template set<vl_p>(left, reformat_type::template process<vl_p,vr_p>(container_right_trait_type::template get<vr_p>(right)));
 	}
-																					};
-											  }
+																					   };
+
+												 }
 }
 
 namespace color {
@@ -14087,12 +14145,18 @@ namespace color {
 		,container_right_const_input_type right
 	) {
 		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		container_left_trait_type::template set< luma_p>(left, diverse_type::template process<luma_p>(g));
-		container_left_trait_type::template set< inphase_p>(left, bound_left_trait_type::template minimum<inphase_p>());
-		container_left_trait_type::template set<quadrature_p>(left, bound_left_trait_type::template minimum<quadrature_p>());
+		auto y = diverse_type::template process<0>(g);
+		static auto const i = diverse_type::template process<1>(0.5);
+		static auto const q = diverse_type::template process<2>(0.5);
+		container_left_trait_type::template set<0>(left, y);
+		container_left_trait_type::template set<1>(left, i);
+		container_left_trait_type::template set<2>(left, q);
+		container_left_trait_type::template set< luma_p>(left, y);
+		container_left_trait_type::template set< inphase_p>(left, i);
+		container_left_trait_type::template set<quadrature_p>(left, q);
 	}
 
-														 };
+										   };
 
 										   }
 }
@@ -14130,8 +14194,8 @@ namespace color {
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-		,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -14144,8 +14208,8 @@ namespace color {
 		static scalar_type b31 = yiq_const_type::b31(), b32 = yiq_const_type::b32(), b33 = yiq_const_type::b33();
 		static scalar_type const b32n = -b32;
 		scalar_type r = scalar_type(1) - normalize_type::template process<cyan_p >(container_right_trait_type::template get<cyan_p >(right));
-		scalar_type g = scalar_type(1) - normalize_type::template process<yellow_p >(container_right_trait_type::template get<yellow_p >(right));
-		scalar_type b = scalar_type(1) - normalize_type::template process<magenta_p>(container_right_trait_type::template get<magenta_p>(right));
+		scalar_type g = scalar_type(1) - normalize_type::template process<magenta_p>(container_right_trait_type::template get<magenta_p>(right));
+		scalar_type b = scalar_type(1) - normalize_type::template process<yellow_p >(container_right_trait_type::template get<yellow_p >(right));
 		scalar_type y = b11 * r + b12 * g + b13 * b;
 		scalar_type i = b21 * r + b22 * g + b23 * b;
 		scalar_type q = b31 * r + b32 * g + b33 * b;
@@ -14398,17 +14462,29 @@ namespace color {
 			typedef typename container_left_trait_type::input_type container_left_input_type;
 			typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-			static void process
-			(
-				container_left_input_type left
-				,container_right_const_input_type right
+	enum {
+		ll_p = ::color::place::_internal::luma<category_left_type>::position_enum
+		,il_p = ::color::place::_internal::inphase<category_left_type>::position_enum
+		,ql_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
+	};
+
+	enum {
+		lr_p = ::color::place::_internal::luma<category_right_type>::position_enum
+		,ir_p = ::color::place::_internal::inphase<category_right_type>::position_enum
+		,qr_p = ::color::place::_internal::quadrature<category_right_type>::position_enum
+	};
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
 	) {
-		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
-		container_left_trait_type::template set<1>(left, reformat_type::template process<1,1>(container_right_trait_type::template get<1>(right)));
-		container_left_trait_type::template set<2>(left, reformat_type::template process<2,2>(container_right_trait_type::template get<2>(right)));
+		container_left_trait_type::template set<ll_p>(left, reformat_type::template process<ll_p,lr_p>(container_right_trait_type::template get<lr_p>(right)));
+		container_left_trait_type::template set<il_p>(left, reformat_type::template process<il_p,ir_p>(container_right_trait_type::template get<ir_p>(right)));
+		container_left_trait_type::template set<ql_p>(left, reformat_type::template process<ql_p,qr_p>(container_right_trait_type::template get<qr_p>(right)));
 	}
-																					};
-											  }
+																					   };
+												 }
 }
 
 namespace color {
@@ -15080,7 +15156,7 @@ namespace color {
 				typedef ::color::category::yuv< tag_name, reference_number > category_type;
 				typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
-				enum { position_enum = 1 };
+				enum { position_enum = 0 };
 				enum { has_enum = true };
 
 	static index_instance_type position() {
@@ -15316,11 +15392,14 @@ namespace color {
 				,container_right_const_input_type right
 	) {
 		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
-		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
-		container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
+		auto y = diverse_type::template process<0>(g);
+		static auto const u = diverse_type::template process<1>(0.5);
+		static auto const v = diverse_type::template process<2>(0.5);
+		container_left_trait_type::template set<0>(left, y);
+		container_left_trait_type::template set<1>(left, u);
+		container_left_trait_type::template set<2>(left, v);
 	}
-											  };
+										   };
 
 										   }
 }
@@ -16607,11 +16686,14 @@ namespace color {
 				,container_right_const_input_type right
 	) {
 		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
-		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
-		container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
+		auto Y = diverse_type::template process<0>(g);
+		static auto const Cg = diverse_type::template process<1>(0.5);
+		static auto const Co = diverse_type::template process<2>(0.5);
+		container_left_trait_type::template set<0>(left, Y);
+		container_left_trait_type::template set<1>(left, Cg);
+		container_left_trait_type::template set<2>(left, Co);
 	}
-											  };
+										   };
 
 										   }
 }
@@ -17891,11 +17973,14 @@ namespace color {
 				,container_right_const_input_type right
 	) {
 		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
-		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
-		container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
+		auto Y = diverse_type::template process<0>(g);
+		static auto const Db = diverse_type::template process<1>(0.5);
+		static auto const Dr = diverse_type::template process<2>(0.5);
+		container_left_trait_type::template set<0>(left, Y);
+		container_left_trait_type::template set<1>(left, Db);
+		container_left_trait_type::template set<2>(left, Dr);
 	}
-											  };
+										   };
 
 										   }
 }
@@ -19337,11 +19422,14 @@ namespace color {
 				,container_right_const_input_type right
 	) {
 		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
-		container_left_trait_type::template set<1>(left, bound_left_trait_type::template minimum<1>());
-		container_left_trait_type::template set<2>(left, bound_left_trait_type::template minimum<2>());
+		auto Y = diverse_type::template process<0>(g);
+		static auto const Pb = diverse_type::template process<1>(0.5);
+		static auto const Pr = diverse_type::template process<2>(0.5);
+		container_left_trait_type::template set<0>(left, Y);
+		container_left_trait_type::template set<1>(left, Pb);
+		container_left_trait_type::template set<2>(left, Pr);
 	}
-											  };
+										   };
 
 										   }
 }
@@ -26607,25 +26695,33 @@ namespace color {
 
 						}
 }
+
 namespace color {
 	namespace _internal {
 
-		template< typename tag_left_name, typename tag_right_name >
+		template
+		<
+			typename hsv_tag_name
+			,typename hsi_right_name
+			>
 		struct convert
 		<
-			::color::category::hsv< tag_left_name >
-			,::color::category::hsi< tag_right_name>
+			::color::category::hsv< hsv_tag_name >
+			,::color::category::hsi< hsi_right_name>
 			> {
 			public:
-			typedef ::color::category::hsv< tag_left_name > category_left_type;
-			typedef ::color::category::hsi< tag_right_name> category_right_type;
+			typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
+			typedef ::color::category::hsi< hsi_right_name> hsi_category_type, category_right_type;
 
-			typedef double scalar_type;
+			typedef typename ::color::akin::rgb< hsi_category_type >::akin_type rgb_category_type;
+
+			typedef ::color::model< hsv_category_type > hsv_model_type;
+			typedef ::color::model< hsi_category_type > hsi_model_type;
+
+			typedef ::color::model< rgb_category_type > rgb_model_type;
 
 			typedef ::color::trait::container<category_left_type> container_left_trait_type;
 			typedef ::color::trait::container<category_right_type> container_right_trait_type;
-
-			typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
 
 			typedef typename container_left_trait_type::input_type container_left_input_type;
 			typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -26635,8 +26731,10 @@ namespace color {
 				container_left_input_type left
 				,container_right_const_input_type right
 	) {
+		left = hsv_model_type(rgb_model_type(hsi_model_type(right))).container();
 	}
-												};
+											 };
+
 											 }
 }
 
@@ -27734,6 +27832,48 @@ namespace color {
 											  };
 
 										   }
+}
+
+namespace color {
+	namespace _internal {
+
+		template
+		<
+			typename hsl_tag_name
+			,typename hsi_tag_name
+			>
+		struct convert
+		<
+			::color::category::hsl< hsl_tag_name >
+			,::color::category::hsi< hsi_tag_name >
+			> {
+			public:
+			typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_left_type;
+			typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_right_type;
+
+			typedef typename ::color::akin::rgb< hsi_category_type >::akin_type rgb_category_type;
+
+			typedef ::color::model< hsl_category_type > hsl_model_type;
+			typedef ::color::model< hsi_category_type > hsi_model_type;
+
+			typedef ::color::model< rgb_category_type > rgb_model_type;
+
+			typedef ::color::trait::container<category_left_type> container_left_trait_type;
+			typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+			typedef typename container_left_trait_type::input_type container_left_input_type;
+			typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+			static void process
+			(
+				container_left_input_type left
+				,container_right_const_input_type right
+	) {
+		left = hsl_model_type(rgb_model_type(hsi_model_type(right))).container();
+	}
+											 };
+
+											 }
 }
 
 namespace color {
@@ -30229,14 +30369,27 @@ namespace color {
 			typedef ::color::_internal::diverse< category_left_type > diverse_type;
 			typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-			static void process
-			(
-				container_left_input_type left
-				,container_right_const_input_type right
+	enum {
+		cl_p = ::color::place::_internal::cyan<category_left_type>::position_enum
+		,ml_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		,yl_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,kl_p = ::color::place::_internal::key<category_left_type>::position_enum
+	};
+
+	enum {
+		cr_p = ::color::place::_internal::cyan<category_right_type>::position_enum
+		,mr_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yr_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+	};
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
 	) {
-		scalar_type cc = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		scalar_type cm = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
-		scalar_type cy = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type cc = normalize_type::template process<cr_p>(container_right_trait_type::template get<cr_p>(right));
+		scalar_type cm = normalize_type::template process<mr_p>(container_right_trait_type::template get<mr_p>(right));
+		scalar_type cy = normalize_type::template process<yr_p>(container_right_trait_type::template get<yr_p>(right));
 		scalar_type k = std::min({ cc, cm, cy });
 		scalar_type c = scalar_type(0);
 		scalar_type m = scalar_type(0);
@@ -30246,12 +30399,12 @@ namespace color {
 			m = (cm-k) / (1-k);
 			y = (cy-k) / (1-k);
 		}
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(c));
-		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(m));
-		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(y));
-		container_left_trait_type::template set<3>(left, diverse_type::template process<3>(k));
+		container_left_trait_type::template set<cl_p>(left, diverse_type::template process<cl_p>(c));
+		container_left_trait_type::template set<ml_p>(left, diverse_type::template process<ml_p>(m));
+		container_left_trait_type::template set<yl_p>(left, diverse_type::template process<yl_p>(y));
+		container_left_trait_type::template set<kl_p>(left, diverse_type::template process<kl_p>(k));
 	}
-											  };
+												 };
 
 										   }
 }
@@ -32913,8 +33066,8 @@ namespace color {
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-		,yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	enum {
@@ -32933,9 +33086,9 @@ namespace color {
 		scalar_type v = normalize_type::template process<value_p >(container_right_trait_type::template get<value_p >(right));
 		int region = int(6 * h);
 		scalar_type f = h * 6 - region ;
-		scalar_type p = v * (scalar_type(1) - s);
-		scalar_type q = v * (scalar_type(1) - f * s);
-		scalar_type t = v * (scalar_type(1) - (1 - f) * s);
+		scalar_type p = v * (1 - s);
+		scalar_type q = v * (1 - f * s);
+		scalar_type t = v * (1 - (1 - f) * s);
 		scalar_type r;
 		scalar_type g;
 		scalar_type b;
@@ -32960,8 +33113,87 @@ namespace color {
 			break;
 		}
 		container_left_trait_type::template set<cyan_p >(left, diverse_type::template process<cyan_p >(scalar_type(1) - r));
-		container_left_trait_type::template set<yellow_p >(left, diverse_type::template process<yellow_p >(scalar_type(1) - g));
-		container_left_trait_type::template set<magenta_p>(left, diverse_type::template process<magenta_p>(scalar_type(1) - b));
+		container_left_trait_type::template set<magenta_p>(left, diverse_type::template process<magenta_p>(scalar_type(1) - g));
+		container_left_trait_type::template set<yellow_p >(left, diverse_type::template process<yellow_p >(scalar_type(1) - b));
+	}
+													  };
+
+										   }
+}
+
+namespace color {
+	namespace _internal {
+
+		template< typename cmy_tag_name, typename hsi_tag_name >
+		struct convert
+		<
+			::color::category::cmy< cmy_tag_name >
+			,::color::category::hsi<hsi_tag_name>
+			> {
+			public:
+			typedef ::color::category::cmy< cmy_tag_name > category_left_type;
+			typedef ::color::category::hsi<hsi_tag_name> category_right_type;
+			typedef double scalar_type;
+
+			typedef ::color::trait::container<category_left_type> container_left_trait_type;
+			typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+			typedef typename container_left_trait_type::input_type container_left_input_type;
+			typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+			typedef ::color::_internal::diverse< category_left_type > diverse_type;
+			typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+			typedef ::color::constant::hsi< category_right_type > hsi_constant_type;
+
+	enum {
+		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+	};
+
+	enum {
+		hue_p = ::color::place::_internal::hue<category_right_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,intensity_p = ::color::place::_internal::intensity<category_right_type>::position_enum
+	};
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type h = normalize_type::template process<hue_p >(container_right_trait_type::template get<hue_p >(right));
+		scalar_type s = normalize_type::template process<saturation_p>(container_right_trait_type::template get<saturation_p>(right));
+		scalar_type i = normalize_type::template process<intensity_p >(container_right_trait_type::template get<intensity_p >(right));
+		scalar_type min = i * (1 - s);
+		int region = int(3 * h);
+		h -= region * hsi_constant_type::third();
+		h *= hsi_constant_type::two_pi();
+		scalar_type n = i*(1+ s*cos(h) / cos(hsi_constant_type::deg60() - h));
+		scalar_type r;
+		scalar_type g;
+		scalar_type b;
+		switch(region % 3) {
+		case 0:
+			r = n;
+			b = min;
+			g = 3*i-(r+b);
+			break;
+		case 1:
+			g = n;
+			r = min;
+			b = 3*i-(r+g);
+			break;
+		case 2:
+			b = n;
+			g = min;
+			r = 3*i-(g+b);
+			break;
+		}
+		container_left_trait_type::template set<cyan_p >(left, diverse_type::template process<cyan_p >(scalar_type(1) - r));
+		container_left_trait_type::template set<magenta_p>(left, diverse_type::template process<magenta_p>(scalar_type(1) - g));
+		container_left_trait_type::template set<yellow_p >(left, diverse_type::template process<yellow_p >(scalar_type(1) - b));
 	}
 													  };
 
@@ -33071,10 +33303,10 @@ namespace color {
 		scalar_type g = a21 * y + a22 * i + a23 * q;
 		scalar_type b = a31 * y + a32 * i + a33 * q;
 		container_left_trait_type::template set< cyan_p>(left, diverse_type::template process< cyan_p>(scalar_type(1) - r));
-		container_left_trait_type::template set< yellow_p>(left, diverse_type::template process< yellow_p>(scalar_type(1) - g));
-		container_left_trait_type::template set< magenta_p>(left, diverse_type::template process<magenta_p>(scalar_type(1) - b));
+		container_left_trait_type::template set< magenta_p>(left, diverse_type::template process<magenta_p>(scalar_type(1) - g));
+		container_left_trait_type::template set< yellow_p>(left, diverse_type::template process< yellow_p>(scalar_type(1) - b));
 	}
-													   };
+													  };
 
 										   }
 }

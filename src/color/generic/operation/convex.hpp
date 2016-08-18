@@ -30,20 +30,22 @@
 
             typedef typename index_trait_type::instance_type  index_type;
 
-            static void process( model_input_type result, scalar_const_input_type scalar, model_const_input_type right )
+            static model_type & process( model_input_type result, scalar_const_input_type scalar, model_const_input_type right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, scalar * result.get( index ) +( scalar_type( 1 ) - scalar ) *right.get( index )  );
                }
+              return result;
              }
 
-            static void process(  model_input_type  result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right )
+            static model_type & process(  model_input_type  result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, scalar * left.get( index ) +(scalar_type( 1 ) - scalar ) *right.get( index )  );
                }
+              return result;
              }
 
          };
