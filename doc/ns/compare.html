@@ -3,20 +3,39 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="author" content="Dejan D. M. Milosavljevic">
-		<link rel="icon" href="../../favicon.ico" type="image/ico"> 
+		<link rel="icon" href="../../favicon.ico" type="image/ico">
 		<title>Compare</title>
 	</head>
 	<body>
 		<h1 align="center">Namespace <code>color::compare</code> </h1>
 		<dl>
-			<dt><h3>Description</h3></dt>
+			<dt><h3>TOC</h3></dt>
+			<dd>
+				<ul>
+					<li><a href="#Description">Description</a></li>
+					<li><a href="#List">List</a>
+						<ul>
+							<li><a href="#equal">equal</a></li>
+							<li><a href="#different">different </a></li>
+							<li><a href="#less_strict">less_strict </a></li>
+							<li><a href="#great_strict">great_strict </a></li>
+							<li><a href="#less_or_equal">less_or_equal</a></li>
+							<li><a href="#great_or_equal">great_or_equal </a></li>
+							<li><a href="#darker">darker</a></li>
+							<li><a href="#brighter">brighter</a></li>
+						</ul>
+					</li>
+				</ul>
+			</dd>
+
+			<dt><a name="#Description" /><h3>Description</h3></dt>
 			<dd>Contain functions to compare color by some criteria.</dd>
-			<dt><h3>List of functions</h3></dt>
+			<dt><a name="#List" /><h3>List</h3></dt>
 			<dd>
 
 				<dl>
 					<dt>Name</dt>
-					<dd><i>equal</i></dd>
+					<dd><a name="#equal" /><i>equal</i></dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool equal( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
@@ -35,7 +54,7 @@
 
 				<dl>
 					<dt>Name</dt>
-					<dd><i>different</i></dd>
+					<dd><a name="#different" /><i>different</i></dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool different( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
@@ -53,7 +72,7 @@
 
 				<dl>
 					<dt>Name</dt>
-					<dd><i>less_strict</i></dd>
+					<dd><a name="#less_strict" /><i>less_strict</i></dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool less_strict( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
@@ -71,7 +90,7 @@
 
 				<dl>
 					<dt>Name</dt>
-					<dd><i>great_strict</i></dd>
+					<dd><a name="#great_strict" /><i>great_strict</i></dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool great_strict( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
@@ -90,7 +109,7 @@
 
 				<dl>
 					<dt>Name</dt>
-					<dd><i>less_or_equal</i></dd>
+					<dd><a name="#less_or_equal" /><i>less_or_equal</i></dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool less_or_equal( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
@@ -109,7 +128,7 @@
 
 				<dl>
 					<dt>Name</dt>
-					<dd><i>great_or_equal</i></dd>
+					<dd><a name="#great_or_equal" /><i>great_or_equal</i></dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool great_or_equal( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
@@ -128,7 +147,7 @@
 
 				<dl>
 					<dt>Name</dt>
-					<dd><i>darker</i></dd>
+					<dd><a name="#darker" /><i>darker</i></dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool darker( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
@@ -149,7 +168,7 @@
 
 				<dl>
 					<dt>Name</dt>
-					<dd><i>brighter</i></dd>
+					<dd><a name="#brighter" /><i>brighter</i></dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>template &lt; typename category_name &gt; <br>&nbsp;&nbsp;bool brighter( color::_internal::model&lt; category_name &gt; const&amp; left, color::_internal::model&lt; category_name &gt; const&amp; right );</code>
