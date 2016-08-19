@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="author" content="Dejan D. M. Milosavljevic">
-		<link rel="icon" href="../../favicon.ico" type="image/ico"> 
+		<link rel="icon" href="../../favicon.ico" type="image/ico">
 		<title>Namespaces</title>
 	</head>
 	<body>
@@ -16,7 +16,7 @@
 			<li><a href="#color::category"><code>color::category</code></a></li>
 			<li><a href="#color::check"><code>color::check</code></a></li>
 			<li><a href="#color::compare"><code>color::compare</code></a></li>
-			<li><a href="#color::constant"><code>color::constant</code></a></li>			
+			<li><a href="#color::constant"><code>color::constant</code></a></li>
 			<li><a href="#color::fix"><code>color::fix</code></a></li>
 			<li><a href="#color::get"><code>color::get</code></a></li>
 			<li><a href="#color::make"><code>color::make</code></a></li>
@@ -35,8 +35,20 @@
 
 			<dt><a name="color::akin" /><h3><code>color::akin</code></h3></dt>
 			<dd>
-				Mach most similar model/formats. e.g akin type for <code>::color::rgb&lt; double &gt;</code> is <code>::color::hsl&lt; double &gt;</code> and vice versa.
-				<br>For more details see <a href="./akin.html" >akin</a>.
+				<dl>
+					<dt>Main Page</dt>
+					<dd><a href="./akin.html" >Akin Main page.</a></dd>
+					<dt>Description</dt>
+					<dd>Mach most similar model/formats. e.g akin type for <code>::color::rgb&lt; double &gt;</code> is <code>::color::hsl&lt; double &gt;</code> and vice versa.</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>
+							typedef ::color::rgb&lt; double &gt; <b>rgb_t</b>; <br>
+							typedef ::color::akin::hsl&lt; rgb_t::category_type &gt;::akin_type hsl_category_t;<br>
+							typedef ::color::model&lt; hsl_category_t &gt; <b>hsl_t</b>;<br>
+						</code>
+					</dd>
+				</dl>
 			</dd>
 
 			<dt><a name="color::category" /><h3><code>color::category</code></h3></dt>
@@ -53,25 +65,39 @@
 
 			<dt><a name="color::compare" /><h3><code>color::compare</code></h3></dt>
 			<dd>
-				Compare two functions according to some criteria. Usually it is by lexicographic compare respecting.<br><br>
-				Code sample:
-				<blockquote> <code>
-					::color::rgb&lt; double &gt; a, b; <br>
-					std::cout &lt;&lt; ::color::compare::darker( a,b );<br>
-					std::cout &lt;&lt; ::color::compare::brighter( a,b );<br>
-				</code></blockquote>
-				For more details see <a href="./compare.html" >compare</a>.
+				<dl>
+					<dt>Main Page</dt>
+					<dd><a href="./compare.html" >Compare main Page</a></dd>
+					<dt>Description</dt>
+					<dd>Compare two functions according to some criteria. Usually it is by lexicographic compare respecting</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>
+							::color::rgb&lt; double &gt; a, b; <br>
+							std::cout &lt;&lt; ::color::compare::darker( a,b );<br>
+							std::cout &lt;&lt; ::color::compare::brighter( a,b );<br>
+						</code>
+					</dd>
+				</dl>
+
+
 			</dd>
 
 			<dt><a name="color::constant" /><h3><code>color::constant</code></h3></dt>
 			<dd>
-				Contain various constants and constant like types for easy color manipulation.<br><br>
-				Code sample:
-				<blockquote> <code>
-					::color::rgb&lt; double &gt; a( ::color::constant::aqua_t{} ); <br>
-					a = ::color::constant::orange_t{};
-				</code></blockquote>
-				For more details see <a href="./constant.html" >constant</a>.
+				<dl>
+					<dt>Main Page</dt>
+					<dd><a href="./constant.html" >Constant Main Page</a></dd>
+					<dt>Description</dt>
+					<dd>Contain various constants and constant like types for easy color manipulation.</dd>
+					<dt>Example</dt>
+					<dd>
+						 <code>
+							::color::rgb&lt; double &gt; a( ::color::constant::aqua_t{} ); <br>
+							a = ::color::constant::orange_t{};
+						</code>
+					</dd>
+				</dl>
 			</dd>
 
 			<dt><a name="color::fix" /><h3><code>color::fix</code></h3></dt>
@@ -88,13 +114,18 @@
 
 			<dt><a name="color::make" /><h3><code>color::make</code></h3></dt>
 			<dd>
-				Make color by given name.<br>
-				<br>
-				Code sample:
-				<blockquote> <code>
-					::color::rgb&lt; double &gt; c{ ::color::constant::pink{} }; <br>
-				</code></blockquote>
-				For more details see <a href="./make.html">make</a>. <br>
+				<dl>
+					<dt>Main Page</dt>
+					<dd><a href="./make.html"><code>make</code> Main Page</a></dd>
+					<dt>Description</dt>
+					<dd>Make color by given name.</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>
+							::color::rgb&lt; double &gt; c{ ::color::constant::pink{} }; <br>
+						</code>
+					</dd>
+				</dl>
 			</dd>
 
 			<dt><a name="color::operation" /><h3><code>color::operation</code></h3></dt>
@@ -111,14 +142,19 @@
 
 			<dt><a name="color::set" /><h3><code>color::set</code></h3></dt>
 			<dd>
-				Set some property of color. Similarly  to get this operation might be instant or need calculation.<br>
-				<br>
-				Code sample:
-				<blockquote> <code>
-					::color::rgb&lt; double &gt; c{ ::color::constant::pink{} }; <br>
-					::color::set::red( c, 0.5 ); // set red to be 0.5<br>
-				</code></blockquote>
-				For more details see <a href="./set.html">set</a>.
+				<dl>
+					<dt>Main Page</dt>
+					<dd><a href="./set.html">set Main page</a></dd>
+					<dt>Description</dt>
+					<dd>Set some property of color. Similarly  to get this operation might be instant or need calculation.</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>
+							::color::rgb&lt; double &gt; c{ ::color::constant::pink{} }; <br>
+							::color::set::red( c, 0.5 ); // set red to be 0.5<br>
+						</code>
+					</dd>
+				</dl>
 			</dd>
 
 			<dt><a name="color::trait" /><h3><code>color::trait</code></h3></dt>

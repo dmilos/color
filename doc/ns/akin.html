@@ -13,7 +13,6 @@
 			<dd>
 				<ul>
 					<li><a href="#Description">Description</a></li>
-					<li><a href="#Note">Note</a></li>
 					<li><a href="#List">List</a>
 						<ul>
 							<li><a href="#cmy">cmy</a></li>
@@ -31,15 +30,6 @@
 
 			<dt><a name="#Description" /><h3>Description</h3></dt>
 			<dd>Get corresponding or akin formats across different models.</dd>
-			<dt><h3>Note</h3></dt>
-			<dd>All types of this namespace has only two members
-				<dl>
-					<dt><code>category_type</code></dt>
-					<dd>Typedef of <code>category_name</code> template parameter.</dd>
-					<dt><code>akin_type</code></dt>
-					<dd>Akin category type.</dd>
-				</dl>
-			</dd>
 			<dt><a name="#List" /><h3>List</h3></dt>
 			<dd>
 				<dl>
@@ -53,7 +43,7 @@
 							<dt>Declaration</dt>
 							<dd>
 								<code>
-								template &lt; <i>category_name</i> &gt; <br>
+								template &lt; typename <i>category_name</i> &gt; <br>
 								&nbsp; struct ::color::akin::cmy;</code><br>
 								Where <code>category_name</code> is non CMY category.
 							</dd>
@@ -61,7 +51,7 @@
 							<dd>
 								<code> typedef ::color::rgb&lt; float &gt; rgb_t;//!&lt; Our RGB<br>
 									typedef ::color::akin::cmy&lt; rgb_t::category_type &gt;::akin_type cmy_category_t;<br>
-									typedef ::model&lt cmy_category_t&gt; cmy_t;//!&lt; CMY that match format of our RGB.<br>
+									typedef ::model&lt cmy_category_t &gt; cmy_t;//!&lt; CMY that match format of our RGB.<br>
 								</code><br>
 							</dd>
 						</dl>
@@ -73,7 +63,7 @@
 							<dt>Declaration</dt>
 							<dd>
 								<code>
-								template &lt; <i>category_name</i> &gt; <br>
+								template &lt; typename <i>category_name</i> &gt; <br>
 								&nbsp; struct ::color::akin::cmyk;</code><br>
 								Where <code>category_name</code> is non CMYK category.
 							</dd>
@@ -90,7 +80,7 @@
 							<dt>Declaration</dt>
 							<dd>
 								<code>
-								template &lt; <i>category_name</i> &gt; <br>
+								template &lt; typename <i>category_name</i> &gt; <br>
 								&nbsp; struct ::color::akin::gray;</code><br>
 								Where <code>category_name</code> is non Gray category.
 							</dd>
@@ -107,7 +97,7 @@
 							<dt>Declaration</dt>
 							<dd>
 								<code>
-								template &lt; <i>category_name</i> &gt; <br>
+								template &lt; typename <i>category_name</i> &gt; <br>
 								&nbsp; struct ::color::akin::HSL;</code><br>
 								Where <code>category_name</code> is non HSL category.
 							</dd>
@@ -124,7 +114,7 @@
 							<dt>Declaration</dt>
 							<dd>
 								<code>
-								template &lt; <i>category_name</i> &gt; <br>
+								template &lt; typename <i>category_name</i> &gt; <br>
 								&nbsp; struct ::color::akin::hsv;</code><br>
 								Where <code>category_name</code> is non HSV category.
 							</dd>
@@ -141,7 +131,7 @@
 							<dt>Declaration</dt>
 							<dd>
 								<code>
-								template &lt; <i>category_name</i> &gt; <br>
+								template &lt; typename <i>category_name</i> &gt; <br>
 								&nbsp; struct ::color::akin::rgb;</code><br>
 								Where <code>category_name</code> is non RGB category.
 							</dd>
@@ -158,7 +148,7 @@
 							<dt>Declaration</dt>
 							<dd>
 								<code>
-								template &lt; <i>category_name</i> &gt; <br>
+								template &lt; typename <i>category_name</i> &gt; <br>
 								&nbsp; struct ::color::akin::yiq;</code><br>
 								Where <code>category_name</code> is non YIQ category.
 							</dd>
@@ -175,7 +165,7 @@
 							<dt>Declaration</dt>
 							<dd>
 								<code>
-								template &lt; <i>category_name</i> &gt; <br>
+								template &lt; typename <i>category_name</i> &gt; <br>
 								&nbsp; struct ::color::akin::yuv;</code><br>
 								Where <code>category_name</code> is non YUV category.
 							</dd>

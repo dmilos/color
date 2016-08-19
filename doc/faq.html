@@ -34,19 +34,21 @@
 							</li>
 					</li>
 				</ol>
+				<br><br>
 			</dd>
-			<dt> Get return only constant values. Where is get which return something modifiable like operator[] </dt>
+			<dt> Get return only constant values. Where is get which return something modifiable like <code>operator[]</code> ?</dt>
 			<dd>
 				This is by design.<br> When you use get you will be always sure that object is intact even is it non constant.
 				Just separation of jurisdiction.
 				<code>get</code>s only read,
 				<code>set</code>s only modify,
 				<code>operator[]</code> will do the both read/modify.
+				<br><br>
 			</dd>
 
 			<dt> How to reduce namespace path?</dt>
 			<dd>
-				Try this:
+				Try this:<br>
 				<code>
 					#include "color/color.hpp"<br>
 					namespace color<br>
