@@ -38,22 +38,25 @@
 			<dt> Get return only constant values. Where is get which return something modifiable like operator[] </dt>
 			<dd>
 				This is by design.<br> When you use get you will be always sure that object is intact even is it non constant.
-				Just separation of jurisdiction. <code>get</code>s only read, <code>set</code>s only modify, read/modify reserved to <code>operator[]</code>.
-				To modify some component use function <code>set</code> or <code>operator[]</code>.
+				Just separation of jurisdiction.
+				<code>get</code>s only read,
+				<code>set</code>s only modify,
+				<code>operator[]</code> will do the both read/modify.
 			</dd>
 
 			<dt> How to reduce namespace path?</dt>
 			<dd>
+				Try this:
 				<code>
-					#include "color/color.hpp"
-					namespace color
-					{
-						using namespace ::color::compare;
-						using namespace ::color::constant;
-						using namespace ::color::operation;
-						using namespace ::color::trait;
-						using namespace ::color::type;
-					}
+					#include "color/color.hpp"<br>
+					namespace color<br>
+					&nbsp;{<br>
+					&nbsp;	using namespace ::color::compare;<br>
+					&nbsp;	using namespace ::color::constant;<br>
+					&nbsp;	using namespace ::color::operation;<br>
+					&nbsp;	using namespace ::color::trait;<br>
+					&nbsp;	using namespace ::color::type;<br>
+					&nbsp;}<br>
 				<code>
 			</dd>
 		</dl>

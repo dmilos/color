@@ -248,8 +248,65 @@
 					<dt><h4><a name="Constructors">Constructors</a></h4></dt>
 					<dd>
 						<dl>
-							<dt>TODO</dt>
-							<dd></dd>
+							<dt>model();</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Empty constructor. Nothing will be done. No action will be performed. Internal data will NOT be initialized.</dd>
+									<dt>Definition</dt>
+									<dd><code>model();</code></dd>
+								</dl>
+							</dd>
+
+							<dt>model( container )</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Initialize color with container. Only one assignment of container class will be performed.</dd>
+									<dt>Definition</dt>
+									<dd><code>explicit model( container_input_const_type container );</code></dd>
+								</dl>
+							</dd>
+
+							<dt>model( contant )</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Initialize intanc with contant</dd>
+									<dt>Definition</dt>
+									<dd><code>template&lt; typename tag_name &gt;<br>&nbsp; &nbsp;explicit model( ::color::constant::base< tag_name > const&amp; constant );</code></dd>
+								</dl>
+							</dd>
+
+							<dt>model( initializer_list )</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Initialize instance with list.</dd>
+									<dt>Definition</dt>
+									<dd><code>explicit model( std::initializer_list<component_type> const& ilist );</code></dd>
+								</dl>
+							</dd>
+
+							<dt>model(model)</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Copy constructor </dd>
+									<dt>Definition</dt>
+									<dd><code>model( ::color::model&lt;category_type&gt; const&amp that );</code></dd>
+								</dl>
+							</dd>
+
+							<dt>model( other )</dt>
+							<dd>
+								<dl>
+									<dt>Description</dt>
+									<dd>Copy constructor from another model.</dd>
+									<dt>Definition</dt>
+									<dd><code>template&lt; typename other_category_name &gt;<br>&nbsp; &nbsp;  explicit model( ::color::model&lt;other_category_name&gt; const&amp; that );</code></dd>
+								</dl>
+							</dd>
 						</dl>
 					</dd>
 
@@ -257,7 +314,7 @@
 					<dd>
 						<dl>
 
-							<dt>operator=(model)</dt>
+							<dt>operator=( constant )</dt>
 							<dd>
 								<dl>
 									<dt>Description</dt>
@@ -267,7 +324,7 @@
 								</dl>
 							</dd>
 
-							<dt>operator=( model  )</dt>
+							<dt>operator=( model )</dt>
 							<dd>
 								<dl>
 									<dt>Description</dt>

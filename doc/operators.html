@@ -10,19 +10,49 @@
 	<h1 align="center">Operators</h1>
 
 	<dl>
-		<dt><h3>Description</h3></dt>
+		<dt><h3>TOC</h3></dt>
+		<dd>
+			<ul>
+				<li><a href="#Description">Description</a></li>
+				<li><a href="#Note">Note</a></li>
+				<li><a href="#Note">Operators</a>
+					<ul>
+						<li><a href="#addition">+</li>
+						<li><a href="#assign_addition">+=</li>
+						<li><a href="#subtraction">-</li>
+						<li><a href="#assign_subtraction">-=</li>
+						<li><a href="#multiply_left">*</li>
+						<li><a href="#multiply_right">*</li>
+						<li><a href="#multiply_assign">*=</li>
+						<li><a href="#divide">/</li>
+						<li><a href="#divide_assign">/=</li>
+						<li><a href="#equal">==</li>
+						<li><a href="#not_equal">!=</li>
+						<li><a href="#less_than">&lt;</li>
+						<li><a href="#great_than">&gt;</li></li>
+						<li><a href="#less_than_equal">&lt;=</li>
+						<li><a href="#great_than_equal">&gt;=</li></li>
+					</ul>
+
+				</li>
+			</ul>
+
+		</dd>
+
+
+		<dt><a name="Description"/><h3>Description</h3></dt>
 		<dd>
 			Most easiest way to manipulate with color.
 		</dd>
-		<dt><h3>Note</h3></dt>
+		<dt><a name="Note"/><h3>Note</h3></dt>
 		<dd>
 			For efficiently reason it is only possible to have operation only with same <a href="glossary.html#category">categeory</a>.<br>
 			To perform operation between different categories convert one side to appropriate one.
 		</dd>
-		<dt><h3>List of Operators</h3></dt>
+		<dt><a name="Operators"/><h3>Operators</h3></dt>
 		<dd>
 			<dl>
-				<dt> <code> + </code> </dt>
+				<dt><a name="addition"/> <code> + </code> </dt>
 				<dd>
 					<dl>
 						<dt>Name</dt>
@@ -37,13 +67,13 @@
 						<dt>Description</dt>
 						<dd>Add two colors.<br> Mostly addition will be performed like we add two vectors by adding component by coordinates.</dd>
 						<dt>Note</dt>
-						<dd>Over burn will not be controlled.<br> Integrity will be controlled.</dd>
+						<dd>Over burn will not be controlled.<br>Integrity will be respected.</dd>
 						<dt>Example:</dt>
 						<dd>
 						 <code>
-							::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
-							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
-							::color::rgbl&lt;double&gt; c;<br>
+							::color::rgba&lt;double&gt; a{ :color::constant::orange{} };<br>
+							::color::rgba&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+							::color::rgba&lt;double&gt; c;<br>
 							a = b + c;<br>
 						 </code>
 						</dd>
@@ -52,7 +82,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> += </code> </dt>
+				<dt><a name="assign_addition"/> <code> += </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>+=</i></dd>
@@ -70,8 +100,8 @@
 					<dt>Example:</dt>
 					<dd>
 						<code>
-							::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
-							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+							::color::rgba&lt;double&gt; a{ :color::constant::orange{} };<br>
+							::color::rgba&lt;double&gt; b{ :color::constant::turquoise{} };<br>
 							a += b;<br>
 						</code>
 					</dd>
@@ -79,7 +109,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> - </code> </dt>
+				<dt><a name="subtraction"/>  <code> - </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>-</i></dd>
@@ -97,9 +127,9 @@
 					<dt>Example:</dt>
 					<dd>
 						 <code>
-							::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
-							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
-							::color::rgbl&lt;double&gt; c;<br>
+							::color::rgba&lt;double&gt; a{ :color::constant::orange{} };<br>
+							::color::rgba&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+							::color::rgba&lt;double&gt; c;<br>
 							a = b - c;<br>
 						 </code>
 					</dd>
@@ -107,7 +137,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> -= </code> </dt>
+				<dt><a name="assign_subtraction"/>  <code> -= </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>-=</i></dd>
@@ -125,8 +155,8 @@
 					<dt>Example:</dt>
 					<dd>
 						<code>
-							::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
-							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+							::color::rgba&lt;double&gt; a{ :color::constant::orange{} };<br>
+							::color::rgba&lt;double&gt; b{ :color::constant::turquoise{} };<br>
 						a -= b;<br>
 						</code>
 					</dd>
@@ -134,7 +164,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> * </code> </dt>
+				<dt><a name="multiply_left"/>  <code> * </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>*</i></dd>
@@ -152,8 +182,8 @@
 					<dt>Example:</dt>
 					<dd>
 					 <code>
-							::color::rgbl&lt;double&gt; a;<br>
-							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+							::color::rgba&lt;double&gt; a;<br>
+							::color::rgba&lt;double&gt; b{ :color::constant::turquoise{} };<br>
 						a = 0.1 * b;<br>
 					 </code>
 					</dd>
@@ -161,7 +191,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> * </code> </dt>
+				<dt><a name="multiply_right"/> <code> * </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>*</i></dd>
@@ -179,8 +209,8 @@
 					<dt>Example:</dt>
 					<dd>
 					 <code>
-							::color::rgbl&lt;double&gt; a;<br>
-							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+							::color::rgba&lt;double&gt; a;<br>
+							::color::rgba&lt;double&gt; b{ :color::constant::turquoise{} };<br>
 
 						a = b * 0.3;<br>
 					 </code>
@@ -189,7 +219,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> *= </code> </dt>
+				<dt><a name="multiply_assign"/> <code> *= </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>*=</i></dd>
@@ -206,7 +236,7 @@
 					<dt>Example:</dt>
 					<dd>
 					 <code>
-							::color::rgbl&lt;double&gt; a{ :color::constant::turquoise{} };<br>
+							::color::rgba&lt;double&gt; a{ :color::constant::turquoise{} };<br>
 						a *= 0.3;<br>
 					 </code>
 					</dd>
@@ -214,7 +244,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> / </code> </dt>
+				<dt><a name="divide"/> <code> / </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>/</i></dd>
@@ -231,8 +261,8 @@
 					<dt>Example:</dt>
 					<dd>
 					 <code>
-							::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
-							::color::rgbl&lt;double&gt; b{ :color::constant::turquoise{} };<br>
+							::color::rgba&lt;double&gt; a{ :color::constant::orange{} };<br>
+							::color::rgba&lt;double&gt; b{ :color::constant::turquoise{} };<br>
 						a = b / 0.3;<br>
 					 </code>
 					</dd>
@@ -240,7 +270,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> /= </code> </dt>
+				<dt><a name="divide_assign"/> <code> /= </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>/=</i></dd>
@@ -258,7 +288,7 @@
 					<dt>Example:</dt>
 					<dd>
 					 <code>
-						::color::rgbl&lt;double&gt; a{ :color::constant::orange{} };<br>
+						::color::rgba&lt;double&gt; a{ :color::constant::orange{} };<br>
 						a /= 0.3;<br>
 					 </code>
 					</dd>
@@ -266,7 +296,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> == </code> </dt>
+				<dt><a name="equal"/> <code> == </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>==</i></dd>
@@ -290,7 +320,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> != </code> </dt>
+				<dt><a name="not_equal"/> <code> != </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>!=</i></dd>
@@ -314,7 +344,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> &lt; </code> </dt>
+				<dt><a name="less_than"/> <code> &lt; </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>&lt;</i></dd>
@@ -338,7 +368,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> &gt; </code> </dt>
+				<dt<a name="great_than"/> <code> &gt; </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>&gt;</i></dd>
@@ -362,7 +392,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> &lt;= </code> </dt>
+				<dt><a name="less_than_equal"/> <code> &lt;= </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>&lt;=</i></dd>
@@ -386,7 +416,7 @@
 			</dl><hr width="%20">
 
 			<dl>
-				<dt> <code> &gt;= </code> </dt>
+				<dt><a name="great_than_equal"/> <code> &gt;= </code> </dt>
 				<dd><dl>
 					<dt>Name</dt>
 					<dd><i>&gt;=</i></dd>
@@ -408,7 +438,6 @@
 					</dd>
 				</dl></dd>
 			</dl><hr width="%20">
-
 		</dl>
 	</body>
 </html>
