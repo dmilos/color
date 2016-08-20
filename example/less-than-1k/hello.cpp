@@ -9,7 +9,7 @@ int main( int argc, char *argv[] )
 
   r = ::color::constant::lavender_type{};
 
-  std::cout << "Red: " r[0] << ",  Green: " << r[1] << ", Blue: " << r[2] << std::endl;
+  std::cout << "Red: " << r[0] << ",  Green: " << r[1] << ", Blue: " << r[2] << std::endl;
 
   return EXIT_SUCCESS;
  }

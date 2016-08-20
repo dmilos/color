@@ -3,7 +3,9 @@
 
 #include "color/color.hpp"
 
+
 int main( int argc, char *argv[] )
+ {
   ::color::hsv< std::uint8_t > hv;
 
   ::color::make::orange( hv ); //!< Fill with some useful information

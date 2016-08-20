@@ -1,0 +1,9 @@
+g++ -fexceptions -std=c++11 -g -I../../../src bound_cmy.cpp       -o  bound_cmy
+g++ -fexceptions -std=c++11 -g -I../../../src bound_cmyk.cpp      -o  bound_cmyk
+g++ -fexceptions -std=c++11 -g -I../../../src bound_gray.cpp      -o  bound_gray
+g++ -fexceptions -std=c++11 -g -I../../../src bound_hsi.cpp       -o  bound_hsi
+g++ -fexceptions -std=c++11 -g -I../../../src bound_hsl.cpp       -o  bound_hsl
+g++ -fexceptions -std=c++11 -g -I../../../src bound_hsv.cpp       -o  bound_hsv
+g++ -fexceptions -std=c++11 -g -I../../../src bound_rgb.cpp       -o  bound_rgb
+g++ -fexceptions -std=c++11 -g -I../../../src bound_yiq.cpp       -o  bound_yiq
+g++ -fexceptions -std=c++11 -g -I../../../src bound_yuv.cpp       -o  bound_yuv

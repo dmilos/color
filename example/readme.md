@@ -1,7 +1,7 @@
 #Examples
 
 ###less-than-1k
-In folder 'less-than-1k' are most important examples!
+In folder 'less-than-1k' are the most important examples!
 All of them are less than 1Kb in size!
 All examples are single file and ready to compile.
 Compiling with GCC

@@ -23,8 +23,8 @@ int main( int argc, char *argv[] )
   color::make::red( a );
   color::make::orange( b );
 
-  std::cout << " a = " ; print( a );  std::cout << std::endl;
-  std::cout << " b = " ; print( b );  std::cout << std::endl;
+  std::cout << a[0] << ", " << a[1] << ", " << a[2] << std::endl;
+  std::cout << b[0] << ", " << b[1] << ", " << b[2] << std::endl;
 
   std::cout << "color::compare::different( a, b )" << color::compare::different( a, b ) << std::endl;
 

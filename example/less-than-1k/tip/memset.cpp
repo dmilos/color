@@ -1,7 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <algorithm>
-
+#include <vector>
+#include <array>
 #include <cstring>
 
 #include "color/color.hpp"

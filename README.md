@@ -24,7 +24,7 @@
 
 ###Code sample:
 ```c++
-color::rgb<float>         r( { 1.0, 0.55, 0.0 } );        //!< This will pack ONLY three consecutive floats in memory
+color::rgb<::color::type::split655_t>   r;                //!< One std::uint16_t in memory. 6 bits for red, 5 bits for green and 5 bits for blue.
 color::bgr<std::uint8_t>  b( ::color::constant::aqua{} ); //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
 color::yiq<std::uint8_t>  y( { 192, 64, 92 } );           //!< Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
 color::hsv<double>        h( { 90.0, 50.0, 60.0 } );      //!< This will pack ONLY three consecutive doubles in memory

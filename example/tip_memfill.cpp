@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cstring>
 #include <cstddef>
+#include <vector>
+#include <array>
 
 #include "color/color.hpp"
 
