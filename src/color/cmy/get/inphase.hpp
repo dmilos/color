@@ -35,11 +35,11 @@
         typedef ::color::constant::yiq< akin_type > yiq_const_type;
 
         enum
-        {
-             cyan_p  = ::color::place::_internal::cyan<category_type>::position_enum
-         ,magenta_p  = ::color::place::_internal::magenta<category_type>::position_enum
-         , yellow_p  = ::color::place::_internal::yellow<category_type>::position_enum
-        };
+         {
+              cyan_p  = ::color::place::_internal::cyan<category_type>::position_enum
+          ,magenta_p  = ::color::place::_internal::magenta<category_type>::position_enum
+          , yellow_p  = ::color::place::_internal::yellow<category_type>::position_enum
+         };
 
         scalar_type value =
            + yiq_const_type::b21() * ( 1 - normalize_type::template process<   cyan_p>( color_parameter.template get<   cyan_p>() ) )

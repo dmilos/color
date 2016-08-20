@@ -1,5 +1,3 @@
-#include <iostream>
-#include <iomanip>
 #include <algorithm>
 #include <cstring>
 #include <cstddef>
@@ -10,9 +8,9 @@
 
 void memfill( char *buffer, std::size_t bufsize, const void *pattern, std::size_t const& patsize )
  {
-  for( ;  patsize < bufsize; buffer += patsize, bufsize -= patsize)
+  for( ; patsize < bufsize; buffer += patsize, bufsize -= patsize)
    {
-    memcpy(buffer, pattern, patsize);
+    memcpy( buffer, pattern, patsize );
    }
   memcpy( buffer, pattern, bufsize );
 }
@@ -25,7 +23,7 @@ int main(int argc, char const *argv[])
 
   ::color::rgb<double> sample( ::color::constant::turquoise_type{} );
 
-  // Guarantee by design of this library that ::color::ABC<double> is represented in memory only as std::array<double>
+  // Guarantee by design of this library that ::color::ABC<double> is represented in memory only with std::array<double>
   // Guarantee by design of ISO C++ standard that std::array<double> will have only 3 consecutive doubles
   memfill( reinterpret_cast<char*>( image.data()),  sizeof( std::array< double, 3 > ) * image.size(), &sample, sizeof( sample ) );
 

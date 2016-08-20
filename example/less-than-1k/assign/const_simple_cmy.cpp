@@ -11,5 +11,7 @@ int main( int argc, char *argv[] )
   c = ::color::constant::lavender_type{};
 
   //  now you may do whatever you want to do with c
+  std::cout << c[0] << ", " << c[1] << ", " << c[2] << std::endl;
+
   return EXIT_SUCCESS;
  }
