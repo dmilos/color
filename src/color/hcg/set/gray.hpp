@@ -30,7 +30,13 @@
         typedef double  scalar_type;
 
         typedef ::color::_internal::reformat< category_type, akin_type, scalar_type >    reformat_type;
-        color_parameter.template set<0>( reformat_type::template process<0,0>( component_parameter ) );
+
+        enum
+         {
+          value_p = ::color::place::_internal::value<category_type>::position_enum
+         };
+
+        color_parameter.template set<value_p>( reformat_type::template process<value_p,0>( component_parameter ) );
        }
 
     }

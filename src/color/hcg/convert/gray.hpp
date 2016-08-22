@@ -1,11 +1,13 @@
 #ifndef color_hcg_convert_gray
 #define color_hcg_convert_gray
 
+#include "../category.hpp"
+#include "../place/place.hpp"
+
 #include "../../_internal/convert.hpp"
 #include "../../gray/gray.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+#include "../../_internal/reformat.hpp"
 
 namespace color
  {
@@ -15,24 +17,30 @@ namespace color
     template< typename hcg_tag_name, typename gray_tag_name >
      struct convert
       <
-        ::color::category::hcg<   hcg_tag_name >
-       ,::color::category::gray< gray_tag_name >
+        ::color::category::hcg< hcg_tag_name >
+       ,::color::category::gray<   gray_tag_name >
       >
       {
        public:
          typedef ::color::category::hcg<   hcg_tag_name > category_left_type;
          typedef ::color::category::gray< gray_tag_name > category_right_type;
-         typedef double  scalar_type;
+         typedef double scalar_type;
 
          typedef ::color::trait::bound<category_left_type>         bound_left_trait_type;
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
+         typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type >    reformat_type;
+
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef ::color::_internal::diverse< category_left_type >    diverse_type;
-         typedef ::color::_internal::normalize< category_right_type > normalize_type;
+         enum
+          {
+            hue_p        = ::color::place::_internal::hue<category_left_type>::position_enum
+           ,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+           ,value_p      = ::color::place::_internal::value<category_left_type>::position_enum
+          };
 
          static void process
           (
@@ -40,15 +48,9 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-
-                  auto       h    = diverse_type::template process<0>( 0 );
-           static auto const c    = diverse_type::template process<1>( 0 );
-           static auto const gray = diverse_type::template process<2>( g );
-
-           container_left_trait_type::template set<0>( left, h    );
-           container_left_trait_type::template set<1>( left, c    );
-           container_left_trait_type::template set<2>( left, gray );
+           container_left_trait_type::template set<hue_p>(        left, bound_left_trait_type::template minimum<hue_p>() );
+           container_left_trait_type::template set<saturation_p>( left, bound_left_trait_type::template minimum<saturation_p>() );
+           container_left_trait_type::template set<value_p>(      left, reformat_type::template process<value_p,0>( container_right_trait_type::template get<0>( right ) ) );
           }
       };
 

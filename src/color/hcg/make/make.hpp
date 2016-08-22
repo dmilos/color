@@ -1,6 +1,3 @@
-#include "../category.hpp"
-#include "../trait/trait.hpp"
-
 #include "./black.hpp"
 #include "./gray.hpp"
 #include "./white.hpp"
@@ -12,6 +9,7 @@
 #include "./cyan.hpp"
 #include "./magenta.hpp"
 #include "./yellow.hpp"
+
 
 #include "./aqua.hpp"
 #include "./fuchsia.hpp"
@@ -26,6 +24,7 @@
 #include "./silver.hpp"
 #include "./teal.hpp"
 #include "./violet.hpp"
+
 
 
 #include "./aquamarine.hpp"

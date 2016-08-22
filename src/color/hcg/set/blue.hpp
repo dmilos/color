@@ -10,7 +10,6 @@
 #include "../../rgb/trait/component.hpp"
 
 
-
  namespace color
   {
    namespace set
@@ -30,11 +29,11 @@
         enum { blue_p  = ::color::place::_internal::blue<akin_type>::position_enum };
 
 
-        ::color::model< akin_type > rgb_instance( color_parameter );
+        ::color::model< akin_type > rgb( color_parameter );
 
-        rgb_instance.template set<blue_p > ( component_parameter );
+        rgb.template set<blue_p > ( component_parameter );
 
-        color_parameter = rgb_instance;
+        color_parameter = rgb;
        }
 
     }

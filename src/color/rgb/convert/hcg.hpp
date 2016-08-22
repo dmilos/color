@@ -1,18 +1,19 @@
 #ifndef color_rgb_convert_hcg
 #define color_rgb_convert_hcg
 
-#include "../category.hpp"
-
 #include "../../_internal/convert.hpp"
-
+#include "../../hcg/place/place.hpp"
 #include "../../hcg/hcg.hpp"
-
-
-
-#include "../place/place.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
+
+#include "../place/red.hpp"
+#include "../place/green.hpp"
+#include "../place/blue.hpp"
+
+
+
 
 
 namespace color
@@ -48,23 +49,47 @@ namespace color
            ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
           };
 
+         enum
+          {
+            hue_p        = ::color::place::_internal::hue<category_right_type>::position_enum
+           ,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+           ,value_p      = ::color::place::_internal::value<category_right_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           scalar_type h    = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type c    = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type gray = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+           scalar_type h = normalize_type::template process<hue_p       >( container_right_trait_type::template get<hue_p       >( right ) );
+           scalar_type s = normalize_type::template process<saturation_p>( container_right_trait_type::template get<saturation_p>( right ) );
+           scalar_type gg = normalize_type::template process<value_p     >( container_right_trait_type::template get<value_p     >( right ) );
 
-           scalar_type r     = 0; // TODO
-           scalar_type green = 0; // TODO
-           scalar_type b     = 0; // TODO
+           int region  = int( 6 * h );
+           scalar_type f = h * 6 - region ;
+           scalar_type p = gg * (1 - s);
+           scalar_type v = s + p;
+           scalar_type q = f * s + p;
+           scalar_type t = (1.0 - f) * s + p;
 
-           container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r     ) );
-           container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( green ) );
-           container_left_trait_type::template set<blue_p >( left, diverse_type::template process<blue_p >( b     ) );
+           scalar_type r;
+           scalar_type g;
+           scalar_type b;
+
+           switch( region  % 6 )
+            {
+             case 0: r = v, g = t, b = p; break;
+             case 1: r = q, g = v, b = p; break;
+             case 2: r = p, g = v, b = t; break;
+             case 3: r = p, g = q, b = v; break;
+             case 4: r = t, g = p, b = v; break;
+             case 5: r = v, g = p, b = q; break;
+            }
+
+           container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r ) );
+           container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( g ) );
+           container_left_trait_type::template set<blue_p >( left, diverse_type::template process<blue_p >( b ) );
           }
       };
 

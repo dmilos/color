@@ -13,7 +13,7 @@ namespace color
  {
   namespace trait
    {
-
+       
     template< >
      struct bound< ::color::category::hcg_uint8 >
       : public ::color::_internal::utility::bound::general< std::uint8_t, unsigned >
