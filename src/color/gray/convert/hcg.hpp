@@ -1,5 +1,5 @@
-#ifndef color_gray_convert_hsl
-#define color_gray_convert_hsl
+#ifndef color_gray_convert_hcg
+#define color_gray_convert_hcg
 
 #include "../category.hpp"
 #include "../../hcg/category.hpp"

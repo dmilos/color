@@ -133,6 +133,16 @@ void print_bound()
   ss << print_bound< color::hsi<long double   > >( "color::hsi", "long double   " ) << std::endl;
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
 
+  ss << print_semi_title( "Hue", "Chroma", "Gray" );
+  ss << print_bound< color::hcg<std::uint8_t  > >( "color::hcg", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::hcg<std::uint16_t > >( "color::hcg", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::hcg<std::uint32_t > >( "color::hcg", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::hcg<std::uint64_t > >( "color::hcg", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::hcg<float         > >( "color::hcg", "float         " ) << std::endl;
+  ss << print_bound< color::hcg<double        > >( "color::hcg", "double        " ) << std::endl;
+  ss << print_bound< color::hcg<long double   > >( "color::hcg", "long double   " ) << std::endl;
+  ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
+
 
   ss << print_semi_title( "(Y)Luminance","In-phase","Quadrature" );
   ss << print_bound< color::yiq<std::uint8_t  > >( "color::yiq", "std::uint8_t  " ) << std::endl;

@@ -36,12 +36,19 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-           enum
-            {
-              red_p   = ::color::place::_internal::red<category_right_type>::position_enum
-             ,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-             ,blue_p  = ::color::place::_internal::blue<category_right_type>::position_enum
-            };
+         enum
+          {
+            hue_p    = ::color::place::_internal::hue<category_left_type>::position_enum
+         //,chroma_p = ::color::place::_internal::chroma<category_left_type>::position_enum
+           ,gray_p   = ::color::place::_internal::gray<category_left_type>::position_enum
+          };
+
+         enum
+          {
+            red_p   = ::color::place::_internal::red<category_right_type>::position_enum
+           ,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+           ,blue_p  = ::color::place::_internal::blue<category_right_type>::position_enum
+          };
 
          static void process
           (
@@ -53,11 +60,11 @@ namespace color
            scalar_type green = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           scalar_type h = 0; // TODO
-           scalar_type c = 0; // TODO
-           scalar_type gray = 0; // TODO
+           scalar_type hue  = r; // TODO
+           scalar_type c    = green; // TODO
+           scalar_type gray = b; // TODO
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );
+           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( hue ) );
            container_left_trait_type::template set<1>( left, diverse_type::template process<1>( c ) );
            container_left_trait_type::template set<2>( left, diverse_type::template process<2>( gray ) );
           }

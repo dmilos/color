@@ -48,6 +48,14 @@ namespace color
            ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
           };
 
+         enum
+          {
+            hue_p    = ::color::place::_internal::hue<category_left_type>::position_enum
+         //,chroma_p = ::color::place::_internal::chroma<category_left_type>::position_enum
+           ,gray_p   = ::color::place::_internal::gray<category_left_type>::position_enum
+          };
+
+
          static void process
           (
             container_left_input_type         left
@@ -58,9 +66,9 @@ namespace color
            scalar_type c    = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
            scalar_type gray = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type r     = 0; // TODO
-           scalar_type green = 0; // TODO
-           scalar_type b     = 0; // TODO
+           scalar_type r     = h; // TODO
+           scalar_type green = c; // TODO
+           scalar_type b     = gray; // TODO
 
            container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r     ) );
            container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( green ) );
