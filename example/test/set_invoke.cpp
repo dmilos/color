@@ -55,6 +55,14 @@ void test_set_invoke()
   test_generic_set<::color::category::hsi_float>( 0.5 );
   test_generic_set<::color::category::hsi_double>( 0.5 );
 
+  test_generic_set<::color::category::hcg_uint8>( 0.5 );
+  test_generic_set<::color::category::hcg_uint16>( 0.5 );
+  test_generic_set<::color::category::hcg_uint32>( 0.5 );
+  test_generic_set<::color::category::hcg_uint64>( 0.5 );
+  test_generic_set<::color::category::hcg_float>( 0.5 );
+  test_generic_set<::color::category::hcg_double>( 0.5 );
+
+
   test_generic_set<::color::category::yiq_uint8>( 0.5 );
   test_generic_set<::color::category::yiq_uint16>( 0.5 );
   test_generic_set<::color::category::yiq_uint32>( 0.5 );

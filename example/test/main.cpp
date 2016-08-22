@@ -137,6 +137,13 @@ void invoke()
   test_operation< color::category::hsi_double  >();
   test_operation< color::category::hsi_ldouble >();
 
+  test_operation< color::category::hcg_uint8   >();
+  test_operation< color::category::hcg_uint16  >();
+  test_operation< color::category::hcg_uint32  >();
+  test_operation< color::category::hcg_uint64  >();
+  test_operation< color::category::hcg_float   >();
+  test_operation< color::category::hcg_double  >();
+  test_operation< color::category::hcg_ldouble >();
 
   /*test_make< color::category::rgb_uint8   >();
   test_make< color::category::rgb_uint16  >();

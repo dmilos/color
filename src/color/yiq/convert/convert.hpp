@@ -7,6 +7,7 @@
 #include "./hsl.hpp"
 #include "./hsv.hpp"
 #include "./hsi.hpp"
+#include "./hcg.hpp"
 
 #include "./rgb.hpp"
 

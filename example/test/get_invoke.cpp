@@ -54,6 +54,13 @@ void test_get_invoke( double value )
   test_generic_get< ::color::category::hsi_double  >();
   test_generic_get< ::color::category::hsi_ldouble >();
 
+  test_generic_get< ::color::category::hcg_uint8   >();
+  test_generic_get< ::color::category::hcg_uint16  >();
+  test_generic_get< ::color::category::hcg_uint32  >();
+  test_generic_get< ::color::category::hcg_uint64  >();
+  test_generic_get< ::color::category::hcg_float   >();
+  test_generic_get< ::color::category::hcg_double  >();
+  test_generic_get< ::color::category::hcg_ldouble >();
 
 // TODO YUV, YPbPr, etc
  }
