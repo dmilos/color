@@ -22,7 +22,7 @@ namespace color
       >
       {
        public:
-         typedef ::color::category::hcg< hcg_tag_name > hcg_category_type, category_left_type;
+         typedef ::color::category::hcg< hcg_tag_name >    hcg_category_type, category_left_type;
          typedef ::color::category::YCgCo< YCgCo_tag_name >    YCgCo_category_type, category_right_type;
 
          typedef typename ::color::akin::rgb< YCgCo_category_type >::akin_type  rgb_category_type;

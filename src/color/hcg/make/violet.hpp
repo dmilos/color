@@ -17,7 +17,7 @@
 
         typedef ::color::hcg< double >      right_type;
 
-        static left_type local( right_type( { 0.684801615686274, -0.527557460144976, -0.666473438008011 } ) );
+        static left_type local( right_type( { 300, 45.3781513, 93.3333333 } ) );
 
         color_parameter = local;
        }

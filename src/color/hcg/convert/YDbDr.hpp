@@ -17,7 +17,7 @@ namespace color
     template< typename hcg_tag_name, typename YDbDr_tag_name >
      struct convert
       <
-        ::color::category::hcg<  hcg_tag_name >
+        ::color::category::hcg< hcg_tag_name >
        ,::color::category::YDbDr<  YDbDr_tag_name >
       >
       {
@@ -27,7 +27,7 @@ namespace color
 
          typedef typename ::color::akin::rgb< YDbDr_category_type >::akin_type  rgb_category_type;
 
-         typedef ::color::model< hcg_category_type >  hcg_model_type;
+         typedef ::color::model< hcg_category_type > hcg_model_type;
          typedef ::color::model< YDbDr_category_type >  YDbDr_model_type;
 
          typedef ::color::model< rgb_category_type >  rgb_model_type;

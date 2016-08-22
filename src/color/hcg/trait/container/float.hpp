@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct container< ::color::category::hcg_float >
-      : public ::color::_internal::utility::container::array< float, 3 >
+      : public  ::color::_internal::utility::container::array< float, 3 >
       {
       };
 

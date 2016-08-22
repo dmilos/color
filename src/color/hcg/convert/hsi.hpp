@@ -14,20 +14,24 @@ namespace color
   namespace _internal
    {
 
-    template< typename hcg_tag_name, typename hsi_tag_name >
+    template
+     <
+       typename hcg_tag_name
+      ,typename hsi_right_name 
+     >
      struct convert
       <
-        ::color::category::hcg<  hcg_tag_name >
-       ,::color::category::hsi<  hsi_tag_name >
+        ::color::category::hcg< hcg_tag_name >
+       ,::color::category::hsi< hsi_right_name>
       >
       {
        public:
-         typedef ::color::category::hcg< hcg_tag_name >    hcg_category_type, category_left_type;
-         typedef ::color::category::hsi< hsi_tag_name >    hsi_category_type, category_right_type;
+         typedef ::color::category::hcg< hcg_tag_name > hcg_category_type, category_left_type;
+         typedef ::color::category::hsi< hsi_right_name> hsi_category_type, category_right_type;
 
          typedef typename ::color::akin::rgb< hsi_category_type >::akin_type  rgb_category_type;
 
-         typedef ::color::model< hcg_category_type >  hcg_model_type;
+         typedef ::color::model< hcg_category_type > hcg_model_type;
          typedef ::color::model< hsi_category_type >  hsi_model_type;
 
          typedef ::color::model< rgb_category_type >  rgb_model_type;

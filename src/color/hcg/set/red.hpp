@@ -10,7 +10,6 @@
 #include "../../rgb/trait/component.hpp"
 
 
-
  namespace color
   {
    namespace set

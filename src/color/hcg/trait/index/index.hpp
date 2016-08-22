@@ -7,8 +7,6 @@
 
 #include "../../../generic/trait/index.hpp"
 
-
-
 namespace color
  {
   namespace trait
