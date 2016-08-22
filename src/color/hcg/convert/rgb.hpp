@@ -27,6 +27,8 @@ namespace color
          typedef ::color::category::rgb<   rgb_tag_name > category_right_type;
          typedef double  scalar_type;
 
+         typedef ::color::trait::scalar< hcg_tag_name >       scalar_trait_type;
+
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
@@ -56,17 +58,64 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
+           scalar_type red   = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
            scalar_type green = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
-           scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
+           scalar_type blue  = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           scalar_type hue  = r; // TODO
-           scalar_type c    = green; // TODO
-           scalar_type gray = b; // TODO
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( hue ) );
-           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( c ) );
-           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( gray ) );
+           const scalar_type min = std::min/*<scalar_type>*/( { red, green, blue } );
+           const scalar_type max = std::max/*<scalar_type>*/( { red, green, blue } );
+           const scalar_type delta = max - min;
+
+           if( true == scalar_trait_type::is_small( delta ) )
+            {
+             scalar_type hue    = scalar_type( 0 );
+             scalar_type chroma = scalar_type( 0 );
+             scalar_type gray   = min;
+
+             container_left_trait_type::template set<0>( left, diverse_type::template process<0>( hue    ) );
+             container_left_trait_type::template set<1>( left, diverse_type::template process<1>( chroma ) );
+             container_left_trait_type::template set<2>( left, diverse_type::template process<2>( gray   ) );
+
+             return;
+           }
+
+           scalar_type hue    ;
+           scalar_type chroma = delta;
+           scalar_type gray   ;
+
+           if( false == scalar_trait_type::is_small( scalar_type( 1 ) - delta ) )
+            {
+             gray = min /( scalar_type( 1 ) - delta);
+            }
+           else
+            {
+             gray = scalar_type( 1 );
+            }
+
+           if( red == max )
+            {
+             hue = ( green - blue) / delta;
+            }else
+           if( green == max )
+            {
+             hue = 2.0 + (blue - red) / delta;
+            }else
+           if( blue == max )
+            {
+             hue = 4.0 + (red - green) / delta;
+            }
+
+           hue /= scalar_type( 6 );
+
+           if( hue < scalar_type( 0 ) )
+            {
+             hue += scalar_type( 1 );
+            }
+
+           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( hue    ) );
+           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( chroma ) );
+           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( gray   ) );
           }
       };
 

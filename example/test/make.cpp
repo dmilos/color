@@ -359,6 +359,8 @@ void make_make_header()
   print_all_header<color::hsv>(  "hsv"  );
   print_all_header<color::hsi>(  "hsi"  );
   print_all_header<color::hsl>(  "hsl"  );
+  print_all_header<color::hsl>(  "hcg"  );
+
   print_all_header<color::yiq>(  "yiq"  );
 
   print_all_header<yuv601>(  "yuv601"  );

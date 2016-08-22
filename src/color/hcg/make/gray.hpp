@@ -21,7 +21,7 @@
 
         typedef ::color::hcg< double >      right_type;
 
-        color_parameter = right_type( { percent/100, 0, 0 } );
+        color_parameter = right_type( { 0, 0, percent/100 } );
        }
 
      template< typename tag_name >
@@ -33,7 +33,7 @@
 
         typedef ::color::hcg< double >      right_type;
 
-        static left_type local( right_type( { 0.5, 0, 0 } ) );
+        static left_type local( right_type( { 0, 0, 50 } ) );
 
         color_parameter = local;
        }
