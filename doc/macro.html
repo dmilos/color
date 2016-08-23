@@ -17,6 +17,18 @@
 						<ul>
 							<li><a href="#UUID">color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968</a></li>
 							<li><a href="#PP2F">COLOR_USE_PP2FILE</a></li>
+							<li><a href="#GRAY ">COLOR_EXCLUDE_MODEL_GRAY </a></li>
+							<li><a href="#CMY  ">COLOR_EXCLUDE_MODEL_CMY  </a></li>
+							<li><a href="#CMYK ">COLOR_EXCLUDE_MODEL_CMYK </a></li>
+							<li><a href="#HSL  ">COLOR_EXCLUDE_MODEL_HSL  </a></li>
+							<li><a href="#HSV  ">COLOR_EXCLUDE_MODEL_HSV  </a></li>
+							<li><a href="#HSI  ">COLOR_EXCLUDE_MODEL_HSI  </a></li>
+							<li><a href="#RGB  ">COLOR_EXCLUDE_MODEL_RGB  </a></li>
+							<li><a href="#YIQ  ">COLOR_EXCLUDE_MODEL_YIQ  </a></li>
+							<li><a href="#YUV  ">COLOR_EXCLUDE_MODEL_YUV  </a></li>
+							<li><a href="#YCgCo">COLOR_EXCLUDE_MODEL_YCgCo</a></li>
+							<li><a href="#YDbDr">COLOR_EXCLUDE_MODEL_YDbDr</a></li>
+							<li><a href="#YPbPr">COLOR_EXCLUDE_MODEL_YPbPr</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -26,12 +38,13 @@
 			<dt><a name="List" /><h3>List</h3></dt>
 			<dd>
 				<dl>
-					<dt><code>color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968</code></dt>
+					<dt><a name="UUID" /><code>color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968</code></dt>
 					<dd>
 						<dl>
-							<dt><a name="UUID" />Name</dt>
+							<dt>Name</dt>
 							<dd><code>color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968</code></dd>
-							<dt>Description</dt><dd>Header of Color library is included and ready for use. </dd>
+							<dt>Description</dt>
+							<dd>Header of Color library is included and ready for use. </dd>
 							<dt>Example</dt>
 							<dd>
 								<code>
@@ -43,14 +56,15 @@
 								</code>
 							</dd>
 						</dl>
-
 					</dd>
-					<dt><code>COLOR_USE_PP2FILE</code></dt>
+
+					<dt><a name="PP2F" /><code>COLOR_USE_PP2FILE</code></dt>
 					<dd>
 						<dl>
-							<dt><a name="PP2F" />Name</dt>
+							<dt>Name</dt>
 							<dd><code> COLOR_USE_PP2FILE </code></dd>
-							<dt>Description</dt><dd>Instead to internally use files scattered across <code>color</code> folder use only one already preprocessed.
+							<dt>Description</dt>
+							<dd>Instead to internally use files scattered across <code>color</code> folder use only one already preprocessed.
 								<br>This will speed up compilation process</dd>
 							<dt>Example</dt>
 							<dd>
@@ -62,6 +76,215 @@
 						</dl>
 					</dd>
 
+					<dt><a name="GRAY" /><code>COLOR_EXCLUDE_MODEL_GRAY</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_GRAY </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to GRAY i.e completly drop anything related to GRAY</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_GRAY <br>
+									#include "color/color.hpp"<br>
+									::color::GRAY&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+
+					<dt><a name="CMY" /><code>COLOR_EXCLUDE_MODEL_CMY</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_CMY</code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to CMY i.e completly drop anything related to CMY</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_CMY <br>
+									#include "color/color.hpp"<br>
+									::color::CMY&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+
+					<dt><a name="CMYK" /><code>COLOR_EXCLUDE_MODEL_CMYK</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_CMYK </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to CMYK i.e completly drop anything related to CMYK</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_CMYK <br>
+									#include "color/color.hpp"<br>
+									::color::CMYK&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+
+					<dt><a name="HSL" /><code>COLOR_EXCLUDE_MODEL_HSL</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_HSL </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to HSL i.e completly drop anything related to HSL</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_HSL <br>
+									#include "color/color.hpp"<br>
+									::color::HSL&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+
+					<dt><a name="HSV" /><code>COLOR_EXCLUDE_MODEL_HSV</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_HSV </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to HSV i.e completly drop anything related to HSV</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_HSV <br>
+									#include "color/color.hpp"<br>
+									::color::HSV&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+
+					<dt><a name="HSI" /><code>COLOR_EXCLUDE_MODEL_HSI</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_HSI </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to HSI i.e completly drop anything related to HSI</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_HSI <br>
+									#include "color/color.hpp"<br>
+									::color::HSI&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+					<dt><a name="RGB" /><code>COLOR_EXCLUDE_MODEL_RGB</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_RGB </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to RGB i.e completly drop anything related to RGB</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_RGB <br>
+									#include "color/color.hpp"<br>
+									::color::RGB&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+					<dt><a name="YIQ" /><code>COLOR_EXCLUDE_MODEL_YIQ</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_YIQ </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to YIQ i.e completly drop anything related to YIQ</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_YIQ <br>
+									#include "color/color.hpp"<br>
+									::color::YIQ&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+					<dt><a name="YUV" /><code>COLOR_EXCLUDE_MODEL_YUV</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_YUV </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to YUV i.e completly drop anything related to YUV</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_YUV <br>
+									#include "color/color.hpp"<br>
+									::color::YUV&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+					<dt><a name="YCgCo" /><code>COLOR_EXCLUDE_MODEL_YCgCo</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_YCgCo </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to YCgCo i.e completly drop anything related to YCgCo</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_YCgCo<br>
+									#include "color/color.hpp"<br>
+									::color::YCgCo&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+					<dt><a name="YDbDr" /><code>COLOR_EXCLUDE_MODEL_YDbDr</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_YDbDr </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to YDbDr i.e completly drop anything related to YDbDr</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_YDbDr<br>
+									#include "color/color.hpp"<br>
+									::color::YDbDr&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
+					<dt><a name="YPbPr" /><code>COLOR_EXCLUDE_MODEL_YPbPr</code></dt>
+					<dd>
+						<dl>
+							<dt>Name</dt>
+							<dd><code> COLOR_EXCLUDE_MODEL_YPbPr </code></dd>
+							<dt>Description</dt>
+							<dd>Exclude files related to YPbPr i.e completly drop anything related to YPbPr</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+									#define  COLOR_EXCLUDE_MODEL_YPbPr<br>
+									#include "color/color.hpp"<br>
+									::color::YPbPr&lt; double&gt; a; //!&lt; This wiil produce error.
+								</code>
+							</dd>
+						</dl>
+					</dd>
 
 				</dl>
 			</dd>
@@ -69,3 +292,17 @@
 		<hr />
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
