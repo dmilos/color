@@ -41,7 +41,7 @@ namespace color
          enum
           {
             hue_p    = ::color::place::_internal::hue<category_left_type>::position_enum
-         //,chroma_p = ::color::place::_internal::chroma<category_left_type>::position_enum
+           ,chroma_p = ::color::place::_internal::chroma<category_left_type>::position_enum
            ,gray_p   = ::color::place::_internal::gray<category_left_type>::position_enum
           };
 
@@ -73,9 +73,9 @@ namespace color
              scalar_type chroma = scalar_type( 0 );
              scalar_type gray   = min;
 
-             container_left_trait_type::template set<0>( left, diverse_type::template process<0>( hue    ) );
-             container_left_trait_type::template set<1>( left, diverse_type::template process<1>( chroma ) );
-             container_left_trait_type::template set<2>( left, diverse_type::template process<2>( gray   ) );
+             container_left_trait_type::template set<hue_p   >( left, diverse_type::template process<hue_p   >( hue    ) );
+             container_left_trait_type::template set<chroma_p>( left, diverse_type::template process<chroma_p>( chroma ) );
+             container_left_trait_type::template set<gray_p  >( left, diverse_type::template process<gray_p  >( gray   ) );
 
              return;
            }
@@ -113,9 +113,9 @@ namespace color
              hue += scalar_type( 1 );
             }
 
-           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( hue    ) );
-           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( chroma ) );
-           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( gray   ) );
+           container_left_trait_type::template set<hue_p   >( left, diverse_type::template process<hue_p   >( hue    ) );
+           container_left_trait_type::template set<chroma_p>( left, diverse_type::template process<chroma_p>( chroma ) );
+           container_left_trait_type::template set<gray_p  >( left, diverse_type::template process<gray_p  >( gray   ) );
           }
       };
 

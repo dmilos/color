@@ -50,9 +50,9 @@ namespace color
 
          enum
           {
-            hue_p    = ::color::place::_internal::hue<category_left_type>::position_enum
-         //,chroma_p = ::color::place::_internal::chroma<category_left_type>::position_enum
-           ,gray_p   = ::color::place::_internal::gray<category_left_type>::position_enum
+            hue_p    = ::color::place::_internal::hue<category_right_type>::position_enum
+           ,chroma_p = ::color::place::_internal::chroma<category_right_type>::position_enum
+           ,gray_p   = ::color::place::_internal::gray<category_right_type>::position_enum
           };
 
 
@@ -62,9 +62,9 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           scalar_type hue    = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
-           scalar_type chroma = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
-           scalar_type gray   = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
+           scalar_type hue    = normalize_type::template process<hue_p   >( container_right_trait_type::template get<hue_p   >( right ) );
+           scalar_type chroma = normalize_type::template process<chroma_p>( container_right_trait_type::template get<chroma_p>( right ) );
+           scalar_type gray   = normalize_type::template process<gray_p  >( container_right_trait_type::template get<gray_p  >( right ) );
 
            int region  = int( 6 * hue );
            scalar_type f = hue * 6 - region;

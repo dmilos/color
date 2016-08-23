@@ -17,12 +17,12 @@
 
 void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
  {
-  ::color::hsi<double>  h;
+  ::color::hcg<double>  h;
   std::cout << "----" << s <<std::endl;
   std::cout << "Original RGB: " << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
   h = r; r = h;
   std::cout << "BAck     RGB: " << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
-  std::cout << "HSV: " << h[0] << ", " << h[1] << ", " << h[2] << std::endl;
+  std::cout << "HCG: " << h[0] << ", " << h[1] << ", " << h[2] << std::endl;
   std::cout << "*******" << std::endl;
  }
 

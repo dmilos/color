@@ -34,6 +34,13 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
+         enum
+          {
+            hue_p    = ::color::place::_internal::hue<category_left_type>::position_enum
+           ,chroma_p = ::color::place::_internal::chroma<category_left_type>::position_enum
+           ,gray_p   = ::color::place::_internal::gray<category_left_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
@@ -42,13 +49,13 @@ namespace color
           {
            scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
 
-                  auto       h    = diverse_type::template process<0>( 0 );
-           static auto const c    = diverse_type::template process<1>( 0 );
-           static auto const gray = diverse_type::template process<2>( g );
+           static auto       hue    = diverse_type::template process<hue_p   >( 0 );
+           static auto const chroma = diverse_type::template process<chroma_p>( 0 );
+                  auto const gray   = diverse_type::template process<gray_p  >( g );
 
-           container_left_trait_type::template set<0>( left, h    );
-           container_left_trait_type::template set<1>( left, c    );
-           container_left_trait_type::template set<2>( left, gray );
+           container_left_trait_type::template set<hue_p   >( left, hue    );
+           container_left_trait_type::template set<chroma_p>( left, chroma );
+           container_left_trait_type::template set<gray_p  >( left, gray   );
           }
       };
 

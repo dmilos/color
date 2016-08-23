@@ -45,7 +45,9 @@ namespace color
 
           enum
            {
-             gray_p = ::color::place::_internal::gray<category_right_type>::position_enum
+             hue_p    = ::color::place::_internal::hue<category_right_type>::position_enum
+            ,chroma_p = ::color::place::_internal::chroma<category_right_type>::position_enum
+            ,gray_p   = ::color::place::_internal::gray<category_right_type>::position_enum
            };
 
           static void process
