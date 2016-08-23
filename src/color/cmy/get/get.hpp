@@ -5,8 +5,10 @@
 #include "./green.hpp"
 #include "./blue.hpp"
 
+#ifndef COLOR_EXCLUDE_MODEL_YIQ
 #include "./inphase.hpp"
 #include "./quadrature.hpp"
+#endif
 
 #include "./gray.hpp"
 

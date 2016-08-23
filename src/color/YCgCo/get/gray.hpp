@@ -22,7 +22,7 @@
 
      template< typename tag_name >
       inline
-      typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv<tag_name> >::akin_type >::return_type
+      typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YCgCo<tag_name> >::akin_type >::return_type
       gray( ::color::model< ::color::category::YCgCo<tag_name> > const& color_parameter )
        {
         typedef ::color::category::YCgCo< tag_name > category_type;

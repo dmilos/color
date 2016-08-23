@@ -6,7 +6,7 @@
 #include "../category.hpp"
 
 #include "../../gray/place/place.hpp"
-#include "../../gray/akin/hsl.hpp"
+#include "../../gray/akin/YPbPr.hpp"
 #include "../../gray/trait/component.hpp"
 
 

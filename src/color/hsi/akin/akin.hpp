@@ -18,7 +18,7 @@
 #endif
 
 #ifndef COLOR_EXCLUDE_MODEL_HSV
-#include "./hsv.hpp"
+// TODO #include "./hsv.hpp"
 #endif
 
 #ifndef COLOR_EXCLUDE_MODEL_HSI
