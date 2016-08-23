@@ -45,6 +45,9 @@ namespace color
           )
           {
            left = hcg_model_type( rgb_model_type( hsv_model_type( right ) ) ).container();
+           // TODO scalar_type h = h;
+           // TODO scalar_type c = v * s;
+           // TODO scalar_type g = (v - c) / (1 - c);
           }
         };
 

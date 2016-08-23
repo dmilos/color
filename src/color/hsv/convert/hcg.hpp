@@ -17,7 +17,7 @@ namespace color
     template
      <
        typename hsv_tag_name
-      ,typename hcg_right_name 
+      ,typename hcg_right_name
      >
      struct convert
       <
@@ -42,6 +42,8 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+
+
          static void process
           (
             container_left_input_type         left
@@ -49,6 +51,11 @@ namespace color
           )
           {
            left = hsv_model_type( rgb_model_type( hcg_model_type( right ) ) ).container();
+
+           // TODO scalar_type h = h;
+           // TODO scalar_type v = c + g / (1 - c);
+           // TODO scalar_type s = c / v;
+
           }
         };
 
