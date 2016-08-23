@@ -571,7 +571,6 @@ void make_test_gray_all()
 
 void make_test_make()
  {
-  make_test_gray_all();
 
   std::stringstream ss;
   auto x = ::color::make::red< ::color::category::cmy_double >();

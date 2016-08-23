@@ -21,7 +21,7 @@
 
         typedef ::color::hcg< double >      right_type;
 
-        color_parameter = right_type( { 0, 0, percent/100 } );
+        color_parameter = right_type( { 0, 0, percent } );
        }
 
      template< typename tag_name >

@@ -347,9 +347,11 @@ int main(int argc, char const *argv[])
  {
   sandbox_test();
 
+  void make_test_gray_all();
+  make_test_gray_all();
+
   void image_conversion();
   image_conversion();
-
 
   test_pallete();
 
