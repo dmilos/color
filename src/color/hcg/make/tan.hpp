@@ -6,7 +6,7 @@
  namespace color
   {
    namespace make
-    { //RGB equivalents: std::array<double,3>( { 0.823529, 0.705882, 0.54902 } ) - rgb(210,180,140) - #D2B48C
+    { //RGB equivalents: std::array<double,3>( { 0.823529, 0.705882, 0.54902 } ) - rgb(209,180,140) - #D1B48C
 
      template< typename tag_name >
       inline
@@ -17,7 +17,7 @@
 
         typedef ::color::hcg< double >      right_type;
 
-        static left_type local( right_type( { 34.2857142857143, 43.75, 68.6274509803922 } ) );
+        static left_type local( right_type( { 34.2857142857143, 27.4509803921569, 75.6756756756757 } ) );
 
         color_parameter = local;
        }
