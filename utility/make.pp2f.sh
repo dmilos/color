@@ -1,7 +1,7 @@
 mkdir out
 
 
-g++ ../src/color/color.body.hpp  -o ./out/color.pp2f0.hpp -E  -D COLOR_EXCLUDE_MODEL_YPbPr
+g++ ../src/color/color.body.hpp  -o ./out/color.pp2f0.hpp -E 
 
 
 sed '/^#/ d'                    < ./out/color.pp2f0.hpp > ./out/color.pp2f1.hpp
