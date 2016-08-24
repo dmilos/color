@@ -7,7 +7,7 @@
 #include "../place/place.hpp"
 
 #include "../../gray/place/place.hpp"
-#include "../../gray/akin/hsl.hpp"
+#include "../../gray/akin/yiq.hpp"
 #include "../../gray/trait/component.hpp"
 
 

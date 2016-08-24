@@ -155,7 +155,7 @@ namespace trait {
 
 template< typename category_name >
 struct index
-		: public ::color::_internal::utility::type::index< unsigned > {
+	: public ::color::_internal::utility::type::index< unsigned > {
 public:
 
 	typedef ::color::_internal::utility::type::index< unsigned > utility_type;
@@ -506,11 +506,11 @@ namespace color {
 namespace trait {
 template< typename category_name >
 struct bound
-		: public ::color::_internal::utility::bound::general
-		<
-		typename ::color::trait::component< category_name >::instance_type
-		,typename ::color::trait::index< category_name >::instance_type
-		> {
+	: public ::color::_internal::utility::bound::general
+	  <
+	  typename ::color::trait::component< category_name >::instance_type
+	,typename ::color::trait::index< category_name >::instance_type
+	  > {
 public:
 	typedef category_name category_type;
 
@@ -535,7 +535,7 @@ namespace trait {
 
 template< typename category_name >
 struct scalar
-		: public ::color::_internal::utility::type::traitC< double > {
+	: public ::color::_internal::utility::type::traitC< double > {
 public:
 	typedef double instance_type;
 
@@ -1065,7 +1065,7 @@ private:
 public:
 
 	proxy_type operator[](index_input_const_type index) {
-		return proxy { *this, index };
+		return proxy{ *this, index };
 	}
 
 	container_return_const_type container()const {
@@ -3131,7 +3131,7 @@ struct rgb {
 
 template< typename tag_name >
 struct rgba
-		: public ::color::category::rgb< tag_name > {
+	: public ::color::category::rgb< tag_name > {
 	typedef tag_name tag_type;
 };
 
@@ -3526,7 +3526,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_double >
-		: public ::color::_internal::utility::bound::general< double, unsigned > {
+	: public ::color::_internal::utility::bound::general< double, unsigned > {
 };
 
 }
@@ -3536,7 +3536,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_float >
-		: public ::color::_internal::utility::bound::general< float, unsigned > {
+	: public ::color::_internal::utility::bound::general< float, unsigned > {
 };
 
 }
@@ -3546,7 +3546,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_ldouble >
-		: public ::color::_internal::utility::bound::general< long double, unsigned > {
+	: public ::color::_internal::utility::bound::general< long double, unsigned > {
 };
 
 }
@@ -3556,7 +3556,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -3566,7 +3566,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -3576,7 +3576,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -3586,7 +3586,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -3628,7 +3628,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -3638,7 +3638,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
+	: public ::color::_internal::utility::component::array< float, unsigned> {
 };
 
 }
@@ -3648,7 +3648,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -3658,7 +3658,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -3668,7 +3668,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -3678,7 +3678,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -3688,7 +3688,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -3765,7 +3765,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -3775,7 +3775,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -3785,7 +3785,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -3795,7 +3795,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_uint16 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -3805,7 +3805,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_uint32 >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -3815,7 +3815,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_uint64 >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -3825,7 +3825,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -3909,7 +3909,7 @@ namespace trait {
 
 template< typename tag_name >
 struct index< ::color::category::rgb< tag_name> >
-		: public ::color::_internal::utility::type::index< unsigned > {
+	: public ::color::_internal::utility::type::index< unsigned > {
 };
 
 }
@@ -4121,7 +4121,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
+	: public ::color::_internal::utility::component::array< float, unsigned> {
 };
 
 }
@@ -4131,7 +4131,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -4141,7 +4141,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -4152,7 +4152,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -4162,7 +4162,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -4172,7 +4172,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -4182,7 +4182,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -4193,7 +4193,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::array< value_name, unsigned > {
+	: public ::color::_internal::utility::component::array< value_name, unsigned > {
 };
 
 }
@@ -4203,7 +4203,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position , unsigned forth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, first_position, second_position, third_position, forth_position > > >
-		: public ::color::_internal::utility::component::array< value_name, unsigned > {
+	: public ::color::_internal::utility::component::array< value_name, unsigned > {
 };
 
 }
@@ -4272,7 +4272,7 @@ namespace component {
 
 template< typename index_name >
 struct pack_8
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
 };
 
 template< typename index_name > using cnent2222 = ::color::_internal::utility::component::pack_8<index_name>;
@@ -4295,12 +4295,12 @@ namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split233_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent233< unsigned > {
+	: public ::color::_internal::utility::component::cnent233< unsigned > {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent332< unsigned > {
+	: public ::color::_internal::utility::component::cnent332< unsigned > {
 };
 
 }
@@ -4311,17 +4311,17 @@ namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent422< unsigned > {
+	: public ::color::_internal::utility::component::cnent422< unsigned > {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split242_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent242< unsigned > {
+	: public ::color::_internal::utility::component::cnent242< unsigned > {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split224_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent224< unsigned > {
+	: public ::color::_internal::utility::component::cnent224< unsigned > {
 };
 
 }
@@ -4334,7 +4334,7 @@ namespace component {
 
 template< typename index_name >
 struct pack_16
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
 };
 
 template< typename index_name > using cnent556 = ::color::_internal::utility::component::pack_16<index_name>;
@@ -4356,17 +4356,17 @@ namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent655< unsigned > {
+	: public ::color::_internal::utility::component::cnent655< unsigned > {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split565_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent565< unsigned > {
+	: public ::color::_internal::utility::component::cnent565< unsigned > {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent556< unsigned > {
+	: public ::color::_internal::utility::component::cnent556< unsigned > {
 };
 
 }
@@ -4379,7 +4379,7 @@ namespace component {
 
 template< typename index_name >
 struct pack_32
-		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
 };
 
 template< typename index_name > using cnent8888 = ::color::_internal::utility::component::pack_32<index_name>;
@@ -4397,12 +4397,12 @@ namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnentAAA2< unsigned > {
+	: public ::color::_internal::utility::component::cnentAAA2< unsigned > {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnent2AAA< unsigned > {
+	: public ::color::_internal::utility::component::cnent2AAA< unsigned > {
 };
 
 }
@@ -4413,7 +4413,7 @@ namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnent2222< unsigned > {
+	: public ::color::_internal::utility::component::cnent2222< unsigned > {
 };
 
 }
@@ -4423,7 +4423,7 @@ namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnent4444< unsigned > {
+	: public ::color::_internal::utility::component::cnent4444< unsigned > {
 };
 
 }
@@ -4433,7 +4433,7 @@ namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnent8888< unsigned > {
+	: public ::color::_internal::utility::component::cnent8888< unsigned > {
 };
 
 }
@@ -4446,7 +4446,7 @@ namespace component {
 
 template< typename index_name >
 struct pack_64
-		: public ::color::_internal::utility::component::Unsigned< std::uint32_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint32_t, index_name > {
 };
 
 template< typename index_name > using cnentGGGG = ::color::_internal::utility::component::pack_64<index_name>;
@@ -4460,7 +4460,7 @@ namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnentGGGG< unsigned > {
+	: public ::color::_internal::utility::component::cnentGGGG< unsigned > {
 };
 
 }
@@ -4634,7 +4634,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -4644,7 +4644,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
+	: public ::color::_internal::utility::component::array< float, unsigned> {
 };
 
 }
@@ -4654,7 +4654,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -4664,7 +4664,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -4674,7 +4674,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -4684,7 +4684,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -4694,7 +4694,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -4821,8 +4821,8 @@ inphase(::color::model< ::color::category::cmy<tag_name> > const& color_paramete
 	typedef ::color::constant::yiq< akin_type > yiq_const_type;
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
 	};
 	scalar_type value =
 		+ yiq_const_type::b21() * (1 - normalize_type::template process< cyan_p>(color_parameter.template get< cyan_p>()))
@@ -4851,8 +4851,8 @@ quadrature(::color::model< ::color::category::cmy<tag_name> > const& color_param
 	typedef ::color::constant::yiq< akin_type > yiq_const_type;
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
 	};
 	scalar_type value =
 		+ yiq_const_type::b31() * (1 - normalize_type::template process< cyan_p>(color_parameter.template get< cyan_p>()))
@@ -4899,7 +4899,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_bool >
-		: public ::color::_internal::utility::component::array< bool, unsigned > {
+	: public ::color::_internal::utility::component::array< bool, unsigned > {
 };
 
 }
@@ -4909,7 +4909,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -4919,7 +4919,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_float >
-		: public ::color::_internal::utility::component::array< float, unsigned > {
+	: public ::color::_internal::utility::component::array< float, unsigned > {
 };
 
 }
@@ -4929,7 +4929,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned > {
+	: public ::color::_internal::utility::component::array< long double, unsigned > {
 };
 
 }
@@ -4940,7 +4940,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_uint16 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned > {
 };
 
 }
@@ -4950,7 +4950,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_uint32 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint32_t, unsigned > {
 };
 
 }
@@ -4960,7 +4960,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_uint64 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint64_t, unsigned> {
+	: public ::color::_internal::utility::component::Unsigned< std::uint64_t, unsigned> {
 };
 
 }
@@ -4970,7 +4970,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_uint8 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned > {
 };
 
 }
@@ -5016,8 +5016,8 @@ gray(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) 
 	typedef ::color::constant::gray< akin_type > gray_const_type;
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
 	};
 	scalar_type value =
 		gray_const_type::Rc() * (1 - normalize_type::template process< cyan_p>(color_parameter.template get< cyan_p>()))
@@ -10374,7 +10374,7 @@ namespace color {
 		gray
 		(
 			::color::model< ::color::category::hsl<tag_name > > & color_parameter
-			,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
+			,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsl< tag_name > >::akin_type >::input_const_type component_parameter
 	) {
 		typedef ::color::category::hsl< tag_name > category_type;
 		typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -15173,7 +15173,7 @@ namespace color {
 
 		template< typename tag_name, ::color::constant::yuv::reference_enum reference_number >
 		inline
-		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv<tag_name> >::akin_type >::return_type
+		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yuv<tag_name,reference_number> >::akin_type >::return_type
 	gray(::color::model< ::color::category::yuv<tag_name, reference_number> > const& color_parameter) {
 		typedef ::color::category::yuv< tag_name, reference_number > category_type;
 		typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
@@ -16448,7 +16448,7 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv<tag_name> >::akin_type >::return_type
+		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YCgCo<tag_name> >::akin_type >::return_type
 	gray(::color::model< ::color::category::YCgCo<tag_name> > const& color_parameter) {
 		typedef ::color::category::YCgCo< tag_name > category_type;
 		typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
@@ -17768,7 +17768,7 @@ namespace color {
 
 		template< typename tag_name >
 		inline
-		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv<tag_name> >::akin_type >::return_type
+		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YDbDr<tag_name> >::akin_type >::return_type
 	gray(::color::model< ::color::category::YDbDr<tag_name> > const& color_parameter) {
 		typedef ::color::category::YDbDr< tag_name > category_type;
 		typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
@@ -19213,7 +19213,7 @@ namespace color {
 
 		template< typename tag_name, ::color::constant::YPbPr::reference_enum reference_number >
 		inline
-		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv<tag_name> >::akin_type >::return_type
+		typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::return_type
 	gray(::color::model< ::color::category::YPbPr<tag_name,reference_number> > const& color_parameter) {
 		typedef ::color::category::YPbPr< tag_name, reference_number > category_type;
 		typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
@@ -30287,7 +30287,7 @@ namespace color {
 		gray
 		(
 			::color::model< ::color::category::cmyk<tag_name > > & color_parameter
-			,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
+			,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::cmyk< tag_name > >::akin_type >::input_const_type component_parameter
 	) {
 		typedef typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type rgb_category_type;
 		::color::model< rgb_category_type > rgb(color_parameter);
@@ -36511,4 +36511,3 @@ namespace color {
 
 using namespace ::color::operation::arithmetic;
 using namespace ::color::compare::operators;
-

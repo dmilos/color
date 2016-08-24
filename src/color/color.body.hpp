@@ -13,9 +13,9 @@
 #include "./yiq/yiq.hpp"
 #include "./yuv/yuv.hpp"
 
-#include "./YPbPr/YPbPr.hpp"
 #include "./YCgCo/YCgCo.hpp"
 #include "./YDbDr/YDbDr.hpp"
+#include "./YPbPr/YPbPr.hpp"
 
 #include "./generic/operation/operation.hpp"
 #include "./generic/compare/compare.hpp"
