@@ -1,8 +1,7 @@
-#define COLOR_NEED_MODEL_HSL
+#ifndef color_hsl_standalone_
+#define color_hsl_standalone_
 
-#include "./exclusive-pre.hpp"
+#include "./color.std.hpp"
+#include "./hsl.body.hpp"
 
-#include "./hsl/hsl.hpp"
-
-#include "./exclusive-post.hpp"
-
+#endif

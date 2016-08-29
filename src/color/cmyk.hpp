@@ -1,8 +1,7 @@
-#define COLOR_NEED_MODEL_CMYK
+#ifndef color_cmyk_standalone_
+#define color_cmyk_standalone_
 
-#include "./exclusive-pre.hpp"
+#include "./color.std.hpp"
+#include "./cmyk.body.hpp"
 
-#include "./cmyk/cmyk.hpp"
-
-#include "./exclusive-post.hpp"
-
+#endif

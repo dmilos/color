@@ -1,11 +1,11 @@
 #ifdef COLOR_NEED_MODEL_CMY
-#include "./cmy/cmy/akin/akin.hpp"
-#include "./cmy/cmy/convert/convert.hpp"
+#include "./cmy/akin/akin.hpp"
+#include "./cmy/convert/convert.hpp"
 #endif
 
 #ifdef COLOR_NEED_MODEL_CMYK
-#include "./cmyk/cmyk/akin/akin.hpp"
-#include "./cmyk/cmyk/convert/convert.hpp"
+#include "./cmyk/akin/akin.hpp"
+#include "./cmyk/convert/convert.hpp"
 #endif
 
 

@@ -1,8 +1,7 @@
-#define COLOR_NEED_MODEL_HSI
+#ifndef color_hsi_standalone_
+#define color_hsi_standalone_
 
-#include "./exclusive-pre.hpp"
+#include "./color.std.hpp"
+#include "./hsi.body.hpp"
 
-#include "./hsi/hsi.hpp"
-
-#include "./exclusive-post.hpp"
-
+#endif
