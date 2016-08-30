@@ -1,8 +1,7 @@
-#define COLOR_NEED_MODEL_CMY
+#ifndef color_cmy_standalone_
+#define color_cmy_standalone_
 
-#include "./exclusive-pre.hpp"
+#include "./color.std.hpp"
+#include "./cmy.body.hpp"
 
-#include "./cmy/cmy.hpp"
-
-#include "./exclusive-post.hpp"
-
+#endif
