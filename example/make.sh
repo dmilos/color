@@ -6,13 +6,12 @@
 # TODO COLOR_USE_PP2FILE
 
 
-g++ -fexceptions -std=c++11 -g -I../src pp2f.cpp               -o  pp2f
-
 # TODO g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -o  akin
+
+g++ -std=c++11 -g -I../src  readme.cpp                        -o  readme
 
 g++ -std=c++11 -g -I../src  akin.cpp                          -o  akin
 g++ -std=c++11 -g -I../src  assign_const_heavy.cpp            -o  assign_const_heavy
-g++ -std=c++11 -g -I../src  ctor_const.cpp                    -o  ctor_const
 g++ -std=c++11 -g -I../src  ctor_list.cpp                     -o  ctor_list
 g++ -std=c++11 -g -I../src  format_double.cpp                 -o  format_double
 g++ -std=c++11 -g -I../src  format_float.cpp                  -o  format_float

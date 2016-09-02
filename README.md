@@ -25,7 +25,7 @@
 ###Code sample:
 ```c++
 color::rgb<::color::type::split655_t>   r;                //!< One std::uint16_t in memory. 6 bits for red, 5 bits for green and 5 bits for blue.
-color::bgr<std::uint8_t>  b( ::color::constant::aqua{} ); //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
+color::bgr<std::uint8_t>  b( ::color::constant::aqua_type{} ); //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
 color::yiq<std::uint8_t>  y( { 192, 64, 92 } );           //!< Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
 color::hsv<double>        h( { 90.0, 50.0, 60.0 } );      //!< This will pack ONLY three consecutive doubles in memory
 
@@ -37,10 +37,10 @@ r = b; //!< Reformat and convert in opposite direction.
 h = b; //!< Reformat and convert from BGR to HSV
 h = y; //!< Reformat and convert from YIQ to HSV
 
-color::set::red( y ); //!< Set redness of YIQ
+color::set::red( y, 127 ); //!< Set redness of YIQ
 
-::color::operation::blend( r, 0.1, color::rgb<float>( b ) ); //!< Blend two colors for given alpha. Accumulation style.
-y = color::operation::mix( r, 0.5, color::rgb<float>( b ) ); //!< Blend two colors for given alpha. return style.
+::color::operation::blend( y, 0.1, color::yiq<std::uint8_t>( r ) ); //!< Blend two colors for given alpha. Accumulation style.
+b = color::operation::mix( y, 0.5, color::yiq<std::uint8_t>( h ) ); //!< Blend two colors for given alpha. return style.
 ```
 
 ###Install:
