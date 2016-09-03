@@ -3,6 +3,9 @@
 
 // ::color::set::gray( c, val )
 
+#include "../../generic/trait/scalar.hpp"
+#include "../../generic/operation/scale.hpp"
+
 #include "../../gray/akin/rgb.hpp"
 #include "../../gray/trait/component.hpp"
 #include "../../gray/constant.hpp"
@@ -11,7 +14,6 @@
 
 #include "../../_internal/normalize.hpp"
 
-#include "../../generic/trait/scalar.hpp"
 
  namespace color
   {
@@ -52,7 +54,6 @@
 
         ::color::operation::scale( color_parameter, value );
        }
-
 
     }
   }

@@ -45,142 +45,187 @@
 		<dt><a name="Description"/><h3>List</h3></dt>
 		<dd>
 			<dl>
-				<dt><code>color.hpp</code></dt>
+				<dt><h4><code>color.hpp</code></h4></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl><dt>Description</dt><dd>One file that's include all models.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/color.hpp"
+							<code>
+                             #include &lt;iostream&gt;<br>
+                             #include &lt;iomanip&gt;<br><br>
+
+                             #include "color/color.hpp"<br><br>
+
+                             int main( int argc, char *argv[] )<br>
+                             &nbsp;{<br>
+                             &nbsp; color::rgb&lt; double &gt;  r;<br>
+                             &nbsp; r = ::color::constant::lavender_type{};<br>
+                             &nbsp; std::cout &lt;&lt; "Red: " &lt;&lt; r[0] &lt;&lt; ",  Green: " &lt;&lt; r[1] &lt;&lt; ", Blue: " &lt;&lt; r[2] &lt;&lt; std::endl;<br>
+                             &nbsp; return EXIT_SUCCESS;<br>
+                             &nbsp;}
 							</code>
 						</dd>
 					</dl>
 				</dd>
-				<dt><code>color.pp2f.hpp</code></dt>
+				<dt><h4><code>color.pp2f.hpp</code></h4></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl><dt>Description</dt><dd>All models in one file. This is pre processed file if you want to decrease number of files in your ptoject.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>TODO
+							<code>
+                             #include &lt;iostream&gt;<br>
+                             #include &lt;iomanip&gt;<br><br>
+
+                             #define COLOR_USE_PP2FILE <br><br>
+                             #include "color/color.hpp"<br><br>
+
+                             int main( int argc, char *argv[] )<br>
+                             &nbsp;{<br>
+                             &nbsp; color::rgb&lt; double &gt;  r;<br>
+                             &nbsp; r = ::color::constant::lavender_type{};<br>
+                             &nbsp; std::cout &lt;&lt; "Red: " &lt;&lt; r[0] &lt;&lt; ",  Green: " &lt;&lt; r[1] &lt;&lt; ", Blue: " &lt;&lt; r[2] &lt;&lt; std::endl;<br>
+                             &nbsp; return EXIT_SUCCESS;<br>
+                             &nbsp;}
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>cmy.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl>
+						<dt>Description</dt><dd>Include only files for cmy model</dd>
+						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/cmy.hpp" 
+							<code>#include "color/cmy.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>cmyk.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl>
+						<dt>Description</dt><dd>Include only files for cmyk model</dd>
+						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/cmyk.hpp" 
+							<code>#include "color/cmyk.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>gray.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl><dt>Description</dt><dd>Include only files for cmyk model</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/gray.hpp" 
+							<code>#include "color/gray.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>hsi.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl>
+						<dt>Description</dt><dd>Include only files for hsi model</dd>
+						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/hsi.hpp" 
+							<code>#include "color/hsi.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>hsl.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl>
+						<dt>Description</dt><dd>Include only files for hsl model</dd>
+					<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/hsl.hpp" 
+							<code>#include "color/hsl.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>hsv.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl>
+						<dt>Description</dt><dd>Include only files for hsv model</dd>
+						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/hsv.hpp" 
+							<code>#include "color/hsv.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>rgb.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl><dt>Description</dt><dd>Include only files for rgb model</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/rgb.hpp" 
+							<code>#include "color/rgb.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>YCgCo.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl>
+					<dt>Description</dt><dd>Include only files for YCgCo model</dd>
+					<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/YCgCo.hpp" 
+							<code>#include "color/YCgCo.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>YDbDr.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl>
+						<dt>Description</dt><dd>Include only files for YDbDr model</dd>
+						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/YDbDr.hpp" 
+							<code>#include "color/YDbDr.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>yiq.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl>
+						<dt>Description</dt><dd>Include only files for yiq model</dd>
+						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/yiq.hpp" 
+							<code>#include "color/yiq.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>YPbPr.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl>
+						<dt>Description</dt><dd>Include only files for YPbPr model</dd>
+						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/YPbPr.hpp" 
+							<code>#include "color/YPbPr.hpp"
 							</code>
 						</dd>
 					</dl>
 				</dd>
 				<dt><code>yuv.hpp</code></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>TODO</dd>
+					<dl>
+						<dt>Description</dt><dd>Include only files for yuv model</dd>
+						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
 						<dt>Example</dt>
 						<dd>
-							<code>#include "color/yuv.hpp" 
+							<code>#include "color/yuv.hpp"
 							</code>
 						</dd>
 					</dl>

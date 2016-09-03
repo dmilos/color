@@ -1,10 +1,11 @@
 #include "color/rgb.hpp"
-#include "color/cmyk.hpp"
+#include "color/yiq.hpp"
+
 
 int main( int argc, char *argv[] )
  {
 
-    color::cmyk<double >      ck { ::color::constant::bisque_type{}    };
+
 
 
 
@@ -13,9 +14,11 @@ int main( int argc, char *argv[] )
 
 
 
+    color::yiq< double >      yi { ::color::constant::salmon_type{}    };
 
 
-  r = ck;
+
+  r = yi;
 
   return EXIT_SUCCESS;
  }

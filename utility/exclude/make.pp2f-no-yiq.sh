@@ -1,16 +1,18 @@
-mkdir out
+if [ -f ./out ]; then 
+    mkdir out
+fi  
 
-if [ -f ./out/color.pp2f0.hpp ]; then 
-    rm  ./out/color.pp2f0.hpp 
+if [ -f ./out/color.pp2f0-no-yiq.hpp ]; then 
+    rm  ./out/color.pp2f0-no-yiq.hpp 
 fi
-if [ -f ./out/color.pp2f1.hpp ]; then 
-    rm  ./out/color.pp2f1.hpp 
+if [ -f ./out/color.pp2f1-no-yiq.hpp ]; then 
+    rm  ./out/color.pp2f1-no-yiq.hpp 
 fi
-if [ -f ./out/color.pp2f2.hpp ]; then 
-    rm  ./out/color.pp2f2.hpp 
+if [ -f ./out/color.pp2f2-no-yiq.hpp ]; then 
+    rm  ./out/color.pp2f2-no-yiq.hpp 
 fi
-if [ -f ./out/color.pp2f3.hpp ]; then 
-    rm  ./out/color.pp2f3.hpp 
+if [ -f ./out/color.pp2f3-no-yiq.hpp ]; then 
+    rm  ./out/color.pp2f3-no-yiq.hpp 
 fi
 
 g++ ../../src/color/color.body.hpp  -o ./out/color.pp2f0.hpp -E  -D COLOR_EXCLUDE_MODEL_YIQ
