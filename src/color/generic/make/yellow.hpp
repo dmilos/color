@@ -6,8 +6,6 @@
 // TODO #include "model.hpp"
 #include "../constant/yellow.hpp"
 
-#include "../constant/base.hpp"
-
  namespace color
   {
 
