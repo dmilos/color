@@ -4,13 +4,15 @@
 // ::color::set::gray( c, val )
 
 #include "../../generic/trait/scalar.hpp"
-#include "../../generic/operation/operation.hpp"
+#include "../../generic/operation/scale.hpp"
+
+#include "../../gray/akin/rgb.hpp"
+#include "../../gray/trait/component.hpp"
 #include "../../gray/constant.hpp"
 
+#include "../category.hpp"
 
-
-
-
+#include "../../_internal/normalize.hpp"
 
 
  namespace color
@@ -23,13 +25,13 @@
       void
       gray
        (
-         ::color::model< ::color::category::cmy<tag_name> >                                   & color_parameter,
-         typename ::color::model< ::color::category::cmy<tag_name> >::component_input_const_type         component_parameter
+         ::color::model< ::color::category::cmy<tag_name> >                                   & color_parameter
+        ,typename ::color::trait::component< typename ::color::akin::gray<::color::category::cmy<tag_name> >::akin_type  >::input_const_type         component_parameter
        )
        {
         typedef ::color::category::cmy< tag_name >    category_type;
-        typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
         typedef typename ::color::trait::scalar< category_type >::instance_type   scalar_type;
+        typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
 
         typedef ::color::_internal::normalize< category_type > normalize_cmy_type;
         typedef ::color::_internal::normalize< akin_type >     normalize_akin_type;
