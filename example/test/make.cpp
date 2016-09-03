@@ -536,7 +536,7 @@ void make_test_gray_all()
  {
   std::stringstream ss;
 
-  ss << "<table>" << std::endl;
+  ss << "<table cellpadding=\"0\" cellspacing=\"0\">" << std::endl;
   ss <<  make_test_gray_single< ::color::cmy< double> >( "cmy" );
   ss <<  make_test_gray_single< ::color::cmyk<double> >( "cmyk" );
   ss <<  make_test_gray_single< ::color::gray<double> >( "gray" );
@@ -571,7 +571,7 @@ void make_test_make()
   std::stringstream ss;
   auto x = ::color::make::red< ::color::category::cmy_double >();
 
-  ss << "<table>" << std::endl;
+  ss << "<table cellpadding=\"0\" cellspacing=\"0\">" << std::endl;
 
   PRINT_COLORS(black_type  );
   PRINT_COLORS(white_type  );
