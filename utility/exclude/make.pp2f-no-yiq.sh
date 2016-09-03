@@ -1,3 +1,10 @@
+#!/bin/bash 
+
+output_dir=out
+copyright_file=../../src/color/copyright.hpp
+include_color=../../src
+
+
 if [ -f ./out ]; then 
     mkdir out
 fi  

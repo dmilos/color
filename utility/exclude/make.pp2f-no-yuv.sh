@@ -1,16 +1,25 @@
-mkdir out
+#!/bin/bash 
 
-if [ -f ./out/color.pp2f0.hpp ]; then 
-    rm  ./out/color.pp2f0.hpp 
+output_dir=out
+copyright_file=../../src/color/copyright.hpp
+include_color=../../src
+
+
+if [ -f ./out ]; then
+    mkdir out
 fi
-if [ -f ./out/color.pp2f1.hpp ]; then 
-    rm  ./out/color.pp2f1.hpp 
+
+if [ -f ./out/color.pp2f0.hpp ]; then
+    rm  ./out/color.pp2f0.hpp
 fi
-if [ -f ./out/color.pp2f2.hpp ]; then 
-    rm  ./out/color.pp2f2.hpp 
+if [ -f ./out/color.pp2f1.hpp ]; then
+    rm  ./out/color.pp2f1.hpp
 fi
-if [ -f ./out/color.pp2f3.hpp ]; then 
-    rm  ./out/color.pp2f3.hpp 
+if [ -f ./out/color.pp2f2.hpp ]; then
+    rm  ./out/color.pp2f2.hpp
+fi
+if [ -f ./out/color.pp2f3.hpp ]; then
+    rm  ./out/color.pp2f3.hpp
 fi
 
 g++ ../../src/color/color.body.hpp  -o ./out/color.pp2f0.hpp -E  -D COLOR_EXCLUDE_MODEL_YUV

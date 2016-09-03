@@ -4,8 +4,9 @@ output_dir=out
 copyright_file=../../src/color/copyright.hpp
 include_color=../../src
 
-if [ -f ./${output_dir} ]; then 
-    mkdir $(output_dir)
+
+if [ ! -d ./${output_dir} ]; then 
+    mkdir ${output_dir}
 fi
 
 

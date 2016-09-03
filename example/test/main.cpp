@@ -338,6 +338,9 @@ void test_pallete()
 
 int main(int argc, char const *argv[])
  {
+  // int main_rgb_only( int argc, char const *argv[] );
+  // main_rgb_only( argc, argv );
+
   sandbox_test();
 
   void image_conversion();

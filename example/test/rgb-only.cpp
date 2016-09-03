@@ -3,8 +3,8 @@
 #include "color/rgb.hpp"
 
 
-
-int main( int argc, char *argv[] )
+int main_rgb_only( int argc, char const *argv[] )
+//int main( int argc, char const *argv[] )
  {
   //color::cmy< double >       c { ::color::constant::beige_type{}     };
   //color::cmyk<double >      ck { ::color::constant::bisque_type{}    };
@@ -18,7 +18,7 @@ int main( int argc, char *argv[] )
   //color::YPbPr<double >  ypbpr { ::color::constant::plum_type{}      };
   //color::yiq< double >      yi { ::color::constant::salmon_type{}    };
   //color::yuv< double >   yu601 { ::color::constant::tomato_type{}    };
-
+ 
   std::cout << r[0] << ", "<< r[1] << ", "<< r[2] << std::endl;
 
   return EXIT_SUCCESS;

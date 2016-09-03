@@ -400,6 +400,9 @@
     <Filter Include="Source Files\src\yuv\contant">
       <UniqueIdentifier>{06bd5ac6-de10-46ef-bb45-b87edec0d949}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\main\exclusive">
+      <UniqueIdentifier>{a8af9bab-bc38-4811-8f4b-d5c538696fd2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\color\color.hpp">
@@ -4159,6 +4162,9 @@
     </ClCompile>
     <ClCompile Include="convsemi.cpp">
       <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="rgb-only.cpp">
+      <Filter>Source Files\main\exclusive</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

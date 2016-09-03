@@ -1260,6 +1260,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="make.cpp" />
     <ClCompile Include="place.cpp" />
+    <ClCompile Include="rgb-only.cpp" />
     <ClCompile Include="selfie.cpp" />
     <ClCompile Include="set_invoke.cpp" />
     <ClCompile Include="sizeof.cpp" />

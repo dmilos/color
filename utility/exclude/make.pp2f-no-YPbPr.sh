@@ -1,16 +1,25 @@
-mkdir out
+#!/bin/bash 
 
-if [ -f ./out/color.pp2f0-no-YPbPr.hpp ]; then 
-    rm  ./out/color.pp2f0-no-YPbPr.hpp 
+output_dir=out
+copyright_file=../../src/color/copyright.hpp
+include_color=../../src
+
+
+if [ -f ./out ]; then
+    mkdir out
 fi
-if [ -f ./out/color.pp2f1-no-YPbPr.hpp ]; then 
-    rm  ./out/color.pp2f1-no-YPbPr.hpp 
+
+if [ -f ./out/color.pp2f0-no-YPbPr.hpp ]; then
+    rm  ./out/color.pp2f0-no-YPbPr.hpp
 fi
-if [ -f ./out/color.pp2f2-no-YPbPr.hpp ]; then 
-    rm  ./out/color.pp2f2-no-YPbPr.hpp 
+if [ -f ./out/color.pp2f1-no-YPbPr.hpp ]; then
+    rm  ./out/color.pp2f1-no-YPbPr.hpp
 fi
-if [ -f ./out/color.pp2f3-no-YPbPr.hpp ]; then 
-    rm  ./out/color.pp2f3-no-YPbPr.hpp 
+if [ -f ./out/color.pp2f2-no-YPbPr.hpp ]; then
+    rm  ./out/color.pp2f2-no-YPbPr.hpp
+fi
+if [ -f ./out/color.pp2f3-no-YPbPr.hpp ]; then
+    rm  ./out/color.pp2f3-no-YPbPr.hpp
 fi
 
 g++ ../../src/color/color.body.hpp  -o ./out/color.pp2f0-no-YPbPr.hpp -E  -D COLOR_EXCLUDE_MODEL_YPbPr

@@ -1,4 +1,13 @@
-mkdir out
+#!/bin/bash 
+
+output_dir=out
+copyright_file=../../src/color/copyright.hpp
+include_color=../../src
+
+
+if [ -f ./out ]; then
+    mkdir out
+fi
 
 if [ -f ./out/color.pp2f0.hpp ]; then 
     rm  ./out/color.pp2f0.hpp 
