@@ -4,31 +4,40 @@ output_dir=out
 copyright_file=../../src/color/copyright.hpp
 include_color=../../src
 
+pp2f0=color.pp2f0-no-YPbPr.hpp
+pp2f1=color.pp2f1-no-YPbPr.hpp
+pp2f2=color.pp2f2-no-YPbPr.hpp
+pp2f3=color.pp2f3-no-YPbPr.hpp
+pp2f4=color.pp2f4-no-YPbPr.hpp
 
-if [ -f ./out ]; then
-    mkdir out
+
+if [ ! -d ./${output_dir} ]; then
+    mkdir ${output_dir}
 fi
 
-if [ -f ./out/color.pp2f0-no-YPbPr.hpp ]; then
-    rm  ./out/color.pp2f0-no-YPbPr.hpp
+if [ -f ./${output_dir}/${pp2f0} ]; then
+    rm  ./${output_dir}/${pp2f0}
 fi
-if [ -f ./out/color.pp2f1-no-YPbPr.hpp ]; then
-    rm  ./out/color.pp2f1-no-YPbPr.hpp
+if [ -f ./${output_dir}/${pp2f1} ]; then
+    rm  ./${output_dir}/${pp2f1}
 fi
-if [ -f ./out/color.pp2f2-no-YPbPr.hpp ]; then
-    rm  ./out/color.pp2f2-no-YPbPr.hpp
+if [ -f ./${output_dir}/${pp2f2} ]; then
+    rm  ./${output_dir}/${pp2f2}
 fi
-if [ -f ./out/color.pp2f3-no-YPbPr.hpp ]; then
-    rm  ./out/color.pp2f3-no-YPbPr.hpp
+if [ -f ./${output_dir}/${pp2f3} ]; then
+    rm  ./${output_dir}/${pp2f3}
 fi
 
-g++ ../../src/color/color.body.hpp  -o ./out/color.pp2f0-no-YPbPr.hpp -E  -D COLOR_EXCLUDE_MODEL_YPbPr
+if [ -f ./${output_dir}/${pp2f4} ]; then
+    rm  ./${output_dir}/${pp2f4}
+fi
 
 
-sed '/^#/ d'                    < ./out/color.pp2f0-no-YPbPr.hpp > ./out/color.pp2f1-no-YPbPr.hpp
-astyle --options=./astyle.conf  < ./out/color.pp2f1-no-YPbPr.hpp > ./out/color.pp2f2-no-YPbPr.hpp
-cat -s                          < ./out/color.pp2f2-no-YPbPr.hpp > ./out/color.pp2f3-no-YPbPr.hpp
+g++ ../../src/color/color.body.hpp  -o ./${output_dir}/${pp2f0} -E  -D COLOR_EXCLUDE_MODEL_YPbPr
 
-rm  ./out/color.pp2f4-no-YPbPr.hpp
-cat                             < ../../src/color/copyright.hpp     > ./out/color.pp2f4-no-YPbPr.hpp
-cat                             < ./out/color.pp2f3.hpp            >> ./out/color.pp2f4-no-YPbPr.hpp
+sed '/^#/ d'                    < ./${output_dir}/${pp2f0} > ./${output_dir}/${pp2f1}
+astyle --options=./astyle.conf  < ./${output_dir}/${pp2f1} > ./${output_dir}/${pp2f2}
+cat -s                          < ./${output_dir}/${pp2f2} > ./${output_dir}/${pp2f3}
+
+cat                             < ../../src/color/copyright.hpp     > ./${output_dir}/${pp2f4}
+cat                             < ./${output_dir}/${pp2f3}            >> ./${output_dir}/${pp2f4}
