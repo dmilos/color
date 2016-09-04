@@ -23,6 +23,10 @@ cd ./ctor
 ./make.sh
 cd ..
 
+cd ./exclude
+./make.sh
+cd ..
+
 cd ./fix
 ./make.sh
 cd ..

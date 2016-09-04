@@ -17,7 +17,6 @@
 						<ul>
 							<li><a href="#UUID">color_a9f1aad2_e23c_4f7e_9dce_0f1c116f4968</a></li>
 							<li><a href="#PP2F">COLOR_USE_PP2FILE</a></li>
-							<li><a href="#GRAY ">COLOR_EXCLUDE_MODEL_GRAY </a></li>
 							<li><a href="#CMY  ">COLOR_EXCLUDE_MODEL_CMY  </a></li>
 							<li><a href="#CMYK ">COLOR_EXCLUDE_MODEL_CMYK </a></li>
 							<li><a href="#HSL  ">COLOR_EXCLUDE_MODEL_HSL  </a></li>
@@ -79,24 +78,6 @@
 						</dl>
 					</dd>
 
-					<dt><a name="GRAY" /><code>COLOR_EXCLUDE_MODEL_GRAY</code></dt>
-					<dd>
-						<dl>
-							<dt>Name</dt>
-							<dd><code> COLOR_EXCLUDE_MODEL_GRAY </code></dd>
-							<dt>Description</dt>
-							<dd>Exclude files related to GRAY i.e completly drop anything related to GRAY</dd>
-							<dt>Example</dt>
-							<dd>
-								<code>
-									#define  COLOR_EXCLUDE_MODEL_GRAY <br>
-									#include "color/color.hpp"<br>
-									::color::GRAY&lt; double&gt; a; //!&lt; This wiil produce error.
-								</code>
-							</dd>
-						</dl>
-					</dd>
-
 					<dt><a name="CMY" /><code>COLOR_EXCLUDE_MODEL_CMY</code></dt>
 					<dd>
 						<dl>
@@ -109,7 +90,7 @@
 								<code>
 									#define  COLOR_EXCLUDE_MODEL_CMY <br>
 									#include "color/color.hpp"<br>
-									::color::CMY&lt; double&gt; a; //!&lt; This wiil produce error.
+									::color::cmy&lt; double&gt; a; //!&lt; This wiil produce error.
 								</code>
 							</dd>
 						</dl>
@@ -127,7 +108,7 @@
 								<code>
 									#define  COLOR_EXCLUDE_MODEL_CMYK <br>
 									#include "color/color.hpp"<br>
-									::color::CMYK&lt; double&gt; a; //!&lt; This wiil produce error.
+									::color::cmyk&lt; double&gt; a; //!&lt; This wiil produce error.
 								</code>
 							</dd>
 						</dl>
@@ -145,7 +126,7 @@
 								<code>
 									#define  COLOR_EXCLUDE_MODEL_HSL <br>
 									#include "color/color.hpp"<br>
-									::color::HSL&lt; double&gt; a; //!&lt; This wiil produce error.
+									::color::hsl&lt; double&gt; a; //!&lt; This wiil produce error.
 								</code>
 							</dd>
 						</dl>
@@ -163,7 +144,7 @@
 								<code>
 									#define  COLOR_EXCLUDE_MODEL_HSV <br>
 									#include "color/color.hpp"<br>
-									::color::HSV&lt; double&gt; a; //!&lt; This wiil produce error.
+									::color::hsv&lt; double&gt; a; //!&lt; This wiil produce error.
 								</code>
 							</dd>
 						</dl>
@@ -181,7 +162,7 @@
 								<code>
 									#define  COLOR_EXCLUDE_MODEL_HSI <br>
 									#include "color/color.hpp"<br>
-									::color::HSI&lt; double&gt; a; //!&lt; This wiil produce error.
+									::color::hsi&lt; double&gt; a; //!&lt; This wiil produce error.
 								</code>
 							</dd>
 						</dl>
@@ -198,7 +179,7 @@
 								<code>
 									#define  COLOR_EXCLUDE_MODEL_YIQ <br>
 									#include "color/color.hpp"<br>
-									::color::YIQ&lt; double&gt; a; //!&lt; This wiil produce error.
+									::color::yiq&lt; double&gt; a; //!&lt; This wiil produce error.
 								</code>
 							</dd>
 						</dl>
@@ -215,7 +196,7 @@
 								<code>
 									#define  COLOR_EXCLUDE_MODEL_YUV <br>
 									#include "color/color.hpp"<br>
-									::color::YUV&lt; double&gt; a; //!&lt; This wiil produce error.
+									::color::yuv&lt; double&gt; a; //!&lt; This wiil produce error.
 								</code>
 							</dd>
 						</dl>

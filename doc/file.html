@@ -19,18 +19,7 @@
 					<ul>
 						<li><a href="#addition">color.hpp</li>
 						<li><a href="#pp2f">color.pp2f.hpp</li>
-						<li><a href="#">cmy.hpp</li>
-						<li><a href="#">cmyk.hpp</li>
-						<li><a href="#">gray.hpp</li>
-						<li><a href="#">hsi.hpp</li>
-						<li><a href="#">hsl.hpp</li>
-						<li><a href="#">hsv.hpp</li>
-						<li><a href="#">rgb.hpp</li>
-						<li><a href="#">YCgCo.hpp</li>
-						<li><a href="#">YDbDr.hpp</li>
-						<li><a href="#">yiq.hpp</li>
-						<li><a href="#">YPbPr.hpp</li>
-						<li><a href="#">yuv.hpp</li>
+						<li><a href="#pp2f">color.std.hpp</li>
 					</ul>
 
 				</li>
@@ -69,7 +58,7 @@
 				</dd>
 				<dt><h4><code>color.pp2f.hpp</code></h4></dt>
 				<dd>
-					<dl><dt>Description</dt><dd>All models in one file. This is pre processed file if you want to decrease number of files in your ptoject.</dd>
+					<dl><dt>Description</dt><dd>All models in one file. This is pre processed file if you want to decrease number of files in your project.</dd>
 						<dt>Example</dt>
 						<dd>
 							<code>
@@ -90,146 +79,16 @@
 						</dd>
 					</dl>
 				</dd>
-				<dt><code>cmy.hpp</code></dt>
+				<dt><h4><code>color.std.hpp</code></h4></dt>
 				<dd>
 					<dl>
-						<dt>Description</dt><dd>Include only files for cmy model</dd>
-						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/cmy.hpp"
-							</code>
-						</dd>
+						<dt>Description</dt><dd>Internal file with one purpose to include only headers from standard library.</dd>
+						<dt>Note</dt>
+						<dd>This file may or may not appear in future version of this library.</dd>
 					</dl>
 				</dd>
-				<dt><code>cmyk.hpp</code></dt>
-				<dd>
-					<dl>
-						<dt>Description</dt><dd>Include only files for cmyk model</dd>
-						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/cmyk.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
-				<dt><code>gray.hpp</code></dt>
-				<dd>
-					<dl><dt>Description</dt><dd>Include only files for cmyk model</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/gray.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
-				<dt><code>hsi.hpp</code></dt>
-				<dd>
-					<dl>
-						<dt>Description</dt><dd>Include only files for hsi model</dd>
-						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/hsi.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
-				<dt><code>hsl.hpp</code></dt>
-				<dd>
-					<dl>
-						<dt>Description</dt><dd>Include only files for hsl model</dd>
-					<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/hsl.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
-				<dt><code>hsv.hpp</code></dt>
-				<dd>
-					<dl>
-						<dt>Description</dt><dd>Include only files for hsv model</dd>
-						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/hsv.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
-				<dt><code>rgb.hpp</code></dt>
-				<dd>
-					<dl><dt>Description</dt><dd>Include only files for rgb model</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/rgb.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
-				<dt><code>YCgCo.hpp</code></dt>
-				<dd>
-					<dl>
-					<dt>Description</dt><dd>Include only files for YCgCo model</dd>
-					<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/YCgCo.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
-				<dt><code>YDbDr.hpp</code></dt>
-				<dd>
-					<dl>
-						<dt>Description</dt><dd>Include only files for YDbDr model</dd>
-						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/YDbDr.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
-				<dt><code>yiq.hpp</code></dt>
-				<dd>
-					<dl>
-						<dt>Description</dt><dd>Include only files for yiq model</dd>
-						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/yiq.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
-				<dt><code>YPbPr.hpp</code></dt>
-				<dd>
-					<dl>
-						<dt>Description</dt><dd>Include only files for YPbPr model</dd>
-						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/YPbPr.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
-				<dt><code>yuv.hpp</code></dt>
-				<dd>
-					<dl>
-						<dt>Description</dt><dd>Include only files for yuv model</dd>
-						<dt>Note</dt><dd>If you include any other model "color/rgb.hpp" will be silently included.</dd>
-						<dt>Example</dt>
-						<dd>
-							<code>#include "color/yuv.hpp"
-							</code>
-						</dd>
-					</dl>
-				</dd>
+
+
 			</dl>
 
 		</dd>
