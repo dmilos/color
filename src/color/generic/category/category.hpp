@@ -13,8 +13,4 @@ namespace color
    }
  }
 
-#include "./scramble.hpp"
-
 #endif
-
-

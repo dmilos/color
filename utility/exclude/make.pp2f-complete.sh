@@ -33,7 +33,7 @@ if [ -f ./${output_dir}/${pp2f4} ]; then
 fi
 
 
-g++ ../../src/color/color.body.hpp  -o ./${output_dir}/${pp2f0} -E  -D COLOR_EXCLUDE_MODEL_HSV
+g++ ../../src/color/color.body.hpp  -o ./${output_dir}/${pp2f0} -E
 
 sed '/^#/ d'                    < ./${output_dir}/${pp2f0} > ./${output_dir}/${pp2f1}
 astyle --options=./astyle.conf  < ./${output_dir}/${pp2f1} > ./${output_dir}/${pp2f2}

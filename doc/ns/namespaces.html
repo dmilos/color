@@ -59,8 +59,20 @@
 
 			<dt><a name="color::check" /><h3><code>color::check</code></h3></dt>
 			<dd>
-				Test/check color components for some inconsistency.<br>
-				For more details see <a href="./check.html" >check</a>.
+				<dl>
+					<dt>Main Page</dt>
+					<dd><a href="./check.html" >Check main Page</a></dd>
+					<dt>Description</dt>
+					<dd>Test/check color components for some inconsistency.</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>
+							::color::rgb&lt; double &gt; a; <br>
+							r[0]=2; r[1]=0.5; r[2]=-1;  <br>
+							std::cout &lt;&lt; ::color::check::overburn( a );<br>
+						</code>
+					</dd>
+				</dl>
 			</dd>
 
 			<dt><a name="color::compare" /><h3><code>color::compare</code></h3></dt>
@@ -79,8 +91,6 @@
 						</code>
 					</dd>
 				</dl>
-
-
 			</dd>
 
 			<dt><a name="color::constant" /><h3><code>color::constant</code></h3></dt>
@@ -102,8 +112,21 @@
 
 			<dt><a name="color::fix" /><h3><code>color::fix</code></h3></dt>
 			<dd>
-				Fix color by specified algorithm </code>
-				<br>For more details see <a href="./fix.html" >fix</a>.
+				<dl>
+					<dt>Main Page</dt>
+					<dd><a href="./check.html" >Check main Page</a></dd>
+					<dt>Description</dt>
+					<dd>Fix color so instance can pass overburn and integrity checks.</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>
+							::color::rgb&lt; double &gt; a; <br>
+							r[0]=2; r[1]=0.5; r[2]=-1;  <br>
+							::color::fix::overburn( r );<br>
+							std::cout &lt;&lt; r[0] &lt;&lt; ", " &lt;&lt;  r[1] &lt;&lt; ", " r[2] &lt;&lt; std::endl; <br>
+						</code>
+					</dd>
+				</dl>
 			</dd>
 
 			<dt><a name="color::get" /><h3><code>color::get</code></h3></dt>
