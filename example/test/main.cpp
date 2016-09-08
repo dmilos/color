@@ -338,7 +338,6 @@ void test_pallete()
 
 int main(int argc, char const *argv[])
  {
-
   sandbox_test();
 
   void image_conversion();

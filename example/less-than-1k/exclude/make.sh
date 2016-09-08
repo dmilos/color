@@ -1,6 +1,5 @@
 g++ -fexceptions -std=c++11 -g -I../../../src no_no_gray.cpp  -o no_no_gray
 g++ -fexceptions -std=c++11 -g -I../../../src no_no_rgb.cpp   -o no_no_rgb
-
 g++ -fexceptions -std=c++11 -g -I../../../src no_cmy.cpp      -o  no_cmy
 g++ -fexceptions -std=c++11 -g -I../../../src no_cmyk.cpp     -o  no_cmyk
 g++ -fexceptions -std=c++11 -g -I../../../src no_hsi.cpp      -o  no_hsi

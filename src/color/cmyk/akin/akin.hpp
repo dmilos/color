@@ -38,14 +38,14 @@
 #endif
 
 #ifndef COLOR_EXCLUDE_MODEL_YCgCo
-// TODO #include "./YCgCo.hpp"
+#include "./YCgCo.hpp"
 #endif
 
 #ifndef COLOR_EXCLUDE_MODEL_YDbDr
-// TODO #include "./YDbDr.hpp"
+#include "./YDbDr.hpp"
 #endif
 
 #ifndef COLOR_EXCLUDE_MODEL_YPbPr
-// TODO #include "./YPbPr.hpp"
+#include "./YPbPr.hpp"
 #endif
 

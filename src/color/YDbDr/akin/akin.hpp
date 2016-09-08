@@ -34,11 +34,11 @@
 #endif
 
 #ifndef COLOR_EXCLUDE_MODEL_YUV
-// TODO #include "./yuv.hpp"
+#include "./yuv.hpp"
 #endif
 
 #ifndef COLOR_EXCLUDE_MODEL_YCgCo
-// TODO #include "./YCgCo.hpp"
+#include "./YCgCo.hpp"
 #endif
 
 #ifndef COLOR_EXCLUDE_MODEL_YDbDr
@@ -46,6 +46,6 @@
 #endif
 
 #ifndef COLOR_EXCLUDE_MODEL_YPbPr
-// TODO #include "./YPbPr.hpp"
+#include "./YPbPr.hpp"
 #endif
 
