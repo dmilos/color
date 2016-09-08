@@ -9,3 +9,6 @@ bash ./make.pp2f-no-YDbDr.sh
 bash ./make.pp2f-no-yiq.sh
 bash ./make.pp2f-no-YPbPr.sh
 bash ./make.pp2f-no-yuv.sh
+
+bash ./make.pp2f-no-hue.sh
+bash ./make.pp2f-no-lumma.sh
