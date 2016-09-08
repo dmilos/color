@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<h1 align="center">FAQ</h1>
+		<h3>TOC</h3>
 		<ul>
 			<li>There are too much files in project. How to reduce?</li>
 			<li>Get return only constant values. Where is get which return something modifiable like <code>operator[]</code> ?</li>
@@ -15,8 +16,9 @@
 			<li>How to reduce namespace path?</li>
 		</ul>
 
+		<h3>Answers</h3>
 		<dl>
-			<dt>There are too much files in project. How to reduce?</dt>
+			<dt><h4>There are too much files in project. How to reduce?</h4></dt>
 			<dd>
 				Easy<br>
 				Steps are:
@@ -44,7 +46,7 @@
 				See also: <a href="./Macros.html">macros</a>.
 				<br><br>
 			</dd>
-			<dt>Get return only constant values. Where is get which return something modifiable like <code>operator[]</code> ?</dt>
+			<dt><h4>Get return only constant values. Where is get which return something modifiable like <code>operator[]</code> ?</h4></dt>
 			<dd>
 				This is by design.<br> When you use get you will be always sure that object is intact even is it non constant.
 				Just separation of jurisdiction.
@@ -53,12 +55,12 @@
 				<code>operator[]</code> will do the both read/modify.
 				<br><br>
 			</dd>
-			<dt>Where are COLOR_EXCLUDE_MODEL_RGB and COLOR_EXCLUDE_MODEL_GRAY?</dt>
+			<dt><h4>Where are COLOR_EXCLUDE_MODEL_RGB and COLOR_EXCLUDE_MODEL_GRAY?</h4></dt>
 			<dd>
 				RGB model is fundamental. Gray similarly to RGB.
 			</dd>
 
-			<dt>How to reduce namespace path?</dt>
+			<dt><h4>How to reduce namespace path?</h4></dt>
 			<dd>
 				Try this:<br>
 				<code>
