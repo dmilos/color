@@ -11,7 +11,7 @@ int main( int argc, char *argv[] )
   ::color::rgb< double >    r { ::color::constant::lavender_type{} }; //!< Must exist!
 
   ::color::cmy< double >  c;
-  ::color::cmyk<double>  ck;
+//::color::cmyk<double>  ck;//!< This will produce Error
   ::color::gray<double>   g;
   ::color::hsi<double>   hi;
   ::color::hsl<double>   hl;
@@ -23,7 +23,7 @@ int main( int argc, char *argv[] )
   ::color::YPbPr<double> YP;
 
    c = r; r =  c;  PRINT(r);
-  ck = r; r = ck;  PRINT(r);
+//ck = r; r = ck;  PRINT(r);
   hi = r; r = hi;  PRINT(r);
   hl = r; r = hl;  PRINT(r);
   hv = r; r = hv;  PRINT(r);

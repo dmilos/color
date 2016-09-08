@@ -16,7 +16,7 @@ int main( int argc, char *argv[] )
   ::color::hsi<double>   hi;
   ::color::hsl<double>   hl;
   ::color::hsv<double>   hv;
-  ::color::yiq<double>   yi;
+//::color::yiq<double>   yi;//!< This will produce Error
   ::color::yuv<double>   yu;
   ::color::YCgCo<double> YC;
   ::color::YDbDr<double> YD;
@@ -27,7 +27,7 @@ int main( int argc, char *argv[] )
   hi = r; r = hi;  PRINT(r);
   hl = r; r = hl;  PRINT(r);
   hv = r; r = hv;  PRINT(r);
-  yi = r; r = yi;  PRINT(r);
+//yi = r; r = yi;  PRINT(r);
   yu = r; r = yu;  PRINT(r);
   YC = r; r =  YC; PRINT(r);
   YD = r; r =  YD; PRINT(r);

@@ -19,7 +19,7 @@ int main( int argc, char *argv[] )
   ::color::yiq<double>   yi;
   ::color::yuv<double>   yu;
   ::color::YCgCo<double> YC;
-  ::color::YDbDr<double> YD;
+//::color::YDbDr<double> YD;//!< This will produce Error
   ::color::YPbPr<double> YP;
 
    c = r; r =  c;  PRINT(r);
@@ -30,7 +30,7 @@ int main( int argc, char *argv[] )
   yi = r; r = yi;  PRINT(r);
   yu = r; r = yu;  PRINT(r);
   YC = r; r =  YC; PRINT(r);
-  YD = r; r =  YD; PRINT(r);
+//YD = r; r =  YD; PRINT(r);
   YP = r; r =  YP; PRINT(r);
 
   return EXIT_SUCCESS;

@@ -12,7 +12,7 @@ int main( int argc, char *argv[] )
 
   ::color::cmy< double >  c;
   ::color::cmyk<double>  ck;
-  ::color::gray<double>   g;
+  ::color::gray<double>   g;//!< This will NOT produce Error
   ::color::hsi<double>   hi;
   ::color::hsl<double>   hl;
   ::color::hsv<double>   hv;

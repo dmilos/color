@@ -7,3 +7,10 @@ g++ -fexceptions -std=c++11 -g -I../../../src no_hsl.cpp      -o  no_hsl
 g++ -fexceptions -std=c++11 -g -I../../../src no_hsv.cpp      -o  no_hsv
 g++ -fexceptions -std=c++11 -g -I../../../src no_yiq.cpp      -o  no_yiq
 g++ -fexceptions -std=c++11 -g -I../../../src no_yuv.cpp      -o  no_yuv
+
+g++ -fexceptions -std=c++11 -g -I../../../src no_YCgCo.cpp    -o  no_YCgCo
+g++ -fexceptions -std=c++11 -g -I../../../src no_YDbDr.cpp    -o  no_YDbDr
+g++ -fexceptions -std=c++11 -g -I../../../src no_YPbPr.cpp    -o  no_YPbPr
+
+g++ -fexceptions -std=c++11 -g -I../../../src no_hue.cpp      -o  no_hue
+g++ -fexceptions -std=c++11 -g -I../../../src no_luma.cpp     -o  no_luma
