@@ -11,4 +11,4 @@ bash ./make.pp2f-no-YPbPr.sh
 bash ./make.pp2f-no-yuv.sh
 
 bash ./make.pp2f-no-hue.sh
-bash ./make.pp2f-no-lumma.sh
+bash ./make.pp2f-no-luma.sh
