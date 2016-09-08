@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 
-#define COLOR_EXCLUDE_MODEL_YIQ
+#define COLOR_EXCLUDE_MODEL_YDbDr
 #include "color/color.hpp"
 
 #define PRINT(cc) std::cout << cc[0] << ", " << cc[1] << ", " << cc[2] << std::endl;

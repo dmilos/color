@@ -10,7 +10,7 @@ int main( int argc, char *argv[] )
  {
   ::color::rgb< double >    r { ::color::constant::lavender_type{} }; //!< Must exist!
 
-//::color::cmy< double >    c; //!< This will produce Error
+//::color::cmy< double >  c; //!< This will produce Error
   ::color::cmyk<double>  ck;
   ::color::gray<double>   g;
   ::color::hsi<double>   hi;
