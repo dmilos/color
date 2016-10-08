@@ -61,6 +61,80 @@
         return result;
        }
 
+      inline
+      ::color::model< ::color::category::gray_float > &
+      gamma
+       (
+                  ::color::model< ::color::category::gray_float >                                 & result
+        ,typename ::color::trait::scalar< ::color::category::gray_float >::instance_type      const& value
+       )
+       {
+        result.set<0>( std::pow( result.get<0>(), value ) );
+        return result;
+       }
+
+      inline
+      ::color::model< ::color::category::gray_float > &
+      gamma
+       (
+                  ::color::model< ::color::category::gray_float >                                  & result
+        ,         ::color::model< ::color::category::gray_float >                             const& right
+        ,typename ::color::trait::scalar< ::color::category::gray_float >::instance_type      const& value
+       )
+       {
+        result.set<0>( std::pow( right.get<0>(), value ) );
+        return result;
+       }
+
+      inline
+      ::color::model< ::color::category::gray_double > &
+      gamma
+       (
+                  ::color::model< ::color::category::gray_double >                                 & result
+        ,typename ::color::trait::scalar< ::color::category::gray_double >::instance_type      const& value
+       )
+       {
+        result.set<0>( std::pow( result.get<0>(), value ) );
+        return result;
+       }
+
+      inline
+      ::color::model< ::color::category::gray_double > &
+      gamma
+       (
+                  ::color::model< ::color::category::gray_double >                                  & result
+        ,         ::color::model< ::color::category::gray_double >                             const& right
+        ,typename ::color::trait::scalar< ::color::category::gray_double >::instance_type      const& value
+       )
+       {
+        result.set<0>( std::pow( right.get<0>(), value ) );
+        return result;
+       }
+
+      inline
+      ::color::model< ::color::category::gray_ldouble > &
+      gamma
+       (
+                  ::color::model< ::color::category::gray_ldouble >                                 & result
+        ,typename ::color::trait::scalar< ::color::category::gray_ldouble >::instance_type      const& value
+       )
+       {
+        result.set<0>( std::pow( result.get<0>(), value ) );
+        return result;
+       }
+
+      inline
+      ::color::model< ::color::category::gray_ldouble > &
+      gamma
+       (
+                  ::color::model< ::color::category::gray_ldouble >                                  & result
+        ,         ::color::model< ::color::category::gray_ldouble >                             const& right
+        ,typename ::color::trait::scalar< ::color::category::gray_ldouble >::instance_type      const& value
+       )
+       {
+        result.set<0>( std::pow( right.get<0>(), value ) );
+        return result;
+       }
     }
   }
 
