@@ -97,13 +97,13 @@ void invoke()
   test_invoke< color::category::rgb_double  >();
   test_invoke< color::category::rgb_ldouble >();
 
-  test_operation< color::category::rgb_uint8   >();
-  test_operation< color::category::rgb_uint16  >();
-  test_operation< color::category::rgb_uint32  >();
-  test_operation< color::category::rgb_uint64  >();
-  test_operation< color::category::rgb_float   >();
-  test_operation< color::category::rgb_double  >();
-  test_operation< color::category::rgb_ldouble >();
+  test_operation< color::category::gray_uint8   >();
+  test_operation< color::category::gray_uint16  >();
+  test_operation< color::category::gray_uint32  >();
+  test_operation< color::category::gray_uint64  >();
+  test_operation< color::category::gray_float   >();
+  test_operation< color::category::gray_double  >();
+  test_operation< color::category::gray_ldouble >();
 
   test_operation< color::category::cmyk_uint8   >();
   test_operation< color::category::cmyk_uint16  >();

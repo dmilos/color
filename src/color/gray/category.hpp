@@ -1,5 +1,7 @@
 #ifndef color_gray_category
 #define color_gray_category
+// ::color::category::gray< tag_name >
+
 
 namespace color
  {

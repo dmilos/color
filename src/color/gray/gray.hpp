@@ -32,5 +32,6 @@ namespace color
 #include "./convert/convert.hpp"
 #include "./make/make.hpp"
 
+#include "./operation/operation.hpp"
 
 #endif
