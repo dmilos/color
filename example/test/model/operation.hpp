@@ -56,8 +56,8 @@ template< typename category_name >
    color::check::integrity( u32b );
    color::check::unique( u32b );
 
-   color::operation::normalize( u32b, 1 );
-   color::operation::normalize<1>( u32b );
+   color::operation::normalize( u32b, 0 );
+   color::operation::normalize<0>( u32b );
 
    color::compare::equal( u32b, u32b );
    color::compare::different( u32b, u32b  );
