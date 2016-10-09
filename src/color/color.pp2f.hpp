@@ -32203,6 +32203,235 @@ void wheat(::color::model< ::color::category::gray< tag_name > > & color_paramet
 }
 
 namespace color {
+namespace operation {
+
+template
+<
+	typename category_name
+	>
+inline
+typename ::color::trait::component< category_name >::component_return_type
+diverse
+(
+	typename ::color::trait::scalar<category_name>::instance_type const& scalar
+	,typename ::color::trait::index<category_name>::index_input_const_type index
+) {
+	return ::color::_internal::diverse< category_name >::process(scalar, index);
+}
+
+template
+<
+	typename category_name
+	,typename ::color::trait::index< category_name >::index_instance_type index
+	>
+inline
+typename ::color::trait::component< category_name >::component_return_type
+diverse(typename ::color::trait::scalar<category_name>::instance_type const& scalar_type) {
+	return ::color::_internal::diverse< category_name >::template process< index > (scalar_type);
+}
+
+}
+}
+
+namespace color {
+namespace operation {
+
+template< typename category_name >
+inline
+typename ::color::trait::scalar< category_name >::instance_type
+normalize
+(
+	::color::model<category_name> const& m
+	,typename ::color::trait::index<category_name>::input_const_type index
+) {
+	return ::color::_internal::normalize<category_name>::process(m[index], index) ;
+}
+
+template
+<
+	unsigned index_size
+	,typename category_name
+	>
+inline
+typename ::color::trait::scalar< category_name >::instance_type
+normalize
+(
+	::color::model<category_name> const& m
+) {
+	return ::color::_internal::normalize<category_name>::template process<index_size>(m.template get<index_size>());
+}
+
+}
+}
+
+namespace color {
+namespace operation {
+namespace _internal {
+
+template< typename category_name>
+struct gamma {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::trait::container< category_name > container_trait_type;
+
+	typedef typename ::color::trait::index<category_type>::instance_type index_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+
+	typedef typename ::color::model<category_type> model_type;
+
+	typedef ::color::_internal::diverse< category_type > diverse_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+
+	static model_type & process(model_type &result, scalar_type const& g) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			scalar_type s = normalize_type::process(result[index], index);
+			result.set(index, diverse_type::process(std::pow(s, g), index));
+		}
+		return result;
+	}
+
+	static model_type & process(model_type & result, model_type const& right, scalar_type const& g) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			scalar_type s = normalize_type::process(right[index], index);
+			result.set(index, diverse_type::process(std::pow(s, g), index));
+		}
+		return result;
+	}
+
+};
+}
+
+template< typename category_name >
+void gamma
+(
+	::color::model<category_name> & result
+	,typename ::color::trait::scalar<category_name>::instance_type const& g
+) {
+	::color::operation::_internal::gamma<category_name>::process(result, g);
+}
+
+template< typename category_name >
+void gamma
+(
+	::color::model<category_name> & result
+	, ::color::model<category_name> const& right
+	,typename ::color::trait::scalar<category_name>::instance_type const& g
+) {
+	::color::operation::_internal::gamma<category_name>::process(result, right, g);
+}
+
+}
+}
+
+namespace color {
+namespace operation {
+
+template< typename tag_name >
+::color::model< ::color::category::gray< tag_name > > &
+gamma
+(
+	::color::model< ::color::category::gray< tag_name > > & result
+	,typename ::color::trait::scalar< ::color::category::gray< tag_name > >::instance_type const& value
+) {
+	typedef ::color::category::gray< tag_name > category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::diverse< category_type > diverse_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+	scalar_type s = normalize_type::template process<0>(result.template get<0>());
+	result.template set<0>(diverse_type::template process<0>(std::pow(s, value)));
+	return result;
+}
+
+template< typename tag_name >
+::color::model< ::color::category::gray< tag_name > > &
+gamma
+(
+	::color::model< ::color::category::gray< tag_name > > & result
+	, ::color::model< ::color::category::gray< tag_name > > const& right
+	,typename ::color::trait::scalar< ::color::category::gray< tag_name > >::instance_type const& value
+) {
+	typedef ::color::category::gray< tag_name > category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::diverse< category_type > diverse_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+	scalar_type s = normalize_type::template process<0>(right.template get<0>());
+	result.template set<0>(diverse_type::template process<0>(std::pow(s, value)));
+	return result;
+}
+
+inline
+::color::model< ::color::category::gray_float > &
+gamma
+(
+	::color::model< ::color::category::gray_float > & result
+	,typename ::color::trait::scalar< ::color::category::gray_float >::instance_type const& value
+) {
+	result.set<0>(std::pow(result.get<0>(), value));
+	return result;
+}
+
+inline
+::color::model< ::color::category::gray_float > &
+gamma
+(
+	::color::model< ::color::category::gray_float > & result
+	, ::color::model< ::color::category::gray_float > const& right
+	,typename ::color::trait::scalar< ::color::category::gray_float >::instance_type const& value
+) {
+	result.set<0>(std::pow(right.get<0>(), value));
+	return result;
+}
+
+inline
+::color::model< ::color::category::gray_double > &
+gamma
+(
+	::color::model< ::color::category::gray_double > & result
+	,typename ::color::trait::scalar< ::color::category::gray_double >::instance_type const& value
+) {
+	result.set<0>(std::pow(result.get<0>(), value));
+	return result;
+}
+
+inline
+::color::model< ::color::category::gray_double > &
+gamma
+(
+	::color::model< ::color::category::gray_double > & result
+	, ::color::model< ::color::category::gray_double > const& right
+	,typename ::color::trait::scalar< ::color::category::gray_double >::instance_type const& value
+) {
+	result.set<0>(std::pow(right.get<0>(), value));
+	return result;
+}
+
+inline
+::color::model< ::color::category::gray_ldouble > &
+gamma
+(
+	::color::model< ::color::category::gray_ldouble > & result
+	,typename ::color::trait::scalar< ::color::category::gray_ldouble >::instance_type const& value
+) {
+	result.set<0>(std::pow(result.get<0>(), value));
+	return result;
+}
+
+inline
+::color::model< ::color::category::gray_ldouble > &
+gamma
+(
+	::color::model< ::color::category::gray_ldouble > & result
+	, ::color::model< ::color::category::gray_ldouble > const& right
+	,typename ::color::trait::scalar< ::color::category::gray_ldouble >::instance_type const& value
+) {
+	result.set<0>(std::pow(right.get<0>(), value));
+	return result;
+}
+}
+}
+
+namespace color {
 namespace _internal {
 
 template< typename cmy_tag_name, typename gray_tag_name >
@@ -34126,68 +34355,6 @@ mix
 
 namespace color {
 	namespace operation {
-
-		template< typename category_name >
-		inline
-		typename ::color::trait::scalar< category_name >::instance_type
-		normalize
-		(
-			::color::model<category_name> const& m
-			,typename ::color::trait::index<category_name>::input_const_type index
-	) {
-		return ::color::_internal::normalize<category_name>::process(m[index], index) ;
-	}
-
-	template
-	<
-		unsigned index_size
-		,typename category_name
-		>
-	inline
-	typename ::color::trait::scalar< category_name >::instance_type
-	normalize
-	(
-		::color::model<category_name> const& m
-					  ) {
-		return ::color::_internal::normalize<category_name>::template process<index_size>(m.template get<index_size>());
-	}
-
-																					 }
-}
-
-namespace color {
-	namespace operation {
-
-		template
-		<
-			typename category_name
-			>
-		inline
-		typename ::color::trait::component< category_name >::component_return_type
-		diverse
-		(
-			typename ::color::trait::scalar<category_name>::instance_type const& scalar
-			,typename ::color::trait::index<category_name>::index_input_const_type index
-	) {
-		return ::color::_internal::diverse< category_name >::process(scalar, index);
-	}
-
-	template
-	<
-		typename category_name
-		,typename ::color::trait::index< category_name >::index_instance_type index
-		>
-	inline
-	typename ::color::trait::component< category_name >::component_return_type
-	diverse(typename ::color::trait::scalar<category_name>::instance_type const& scalar_type) {
-		return ::color::_internal::diverse< category_name >::template process< index > (scalar_type);
-	}
-
-																		 }
-}
-
-namespace color {
-	namespace operation {
 		namespace _internal {
 
 			template
@@ -34266,66 +34433,6 @@ namespace color {
 	}
 
 										  }
-}
-
-namespace color {
-	namespace operation {
-		namespace _internal {
-
-			template< typename category_name>
-			struct gamma {
-				public:
-				typedef category_name category_type;
-
-				typedef ::color::trait::container< category_name > container_trait_type;
-
-				typedef typename ::color::trait::index<category_type>::instance_type index_type;
-				typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-
-				typedef typename ::color::model<category_type> model_type;
-
-				typedef ::color::_internal::diverse< category_type > diverse_type;
-				typedef ::color::_internal::normalize< category_type > normalize_type;
-
-	static model_type & process(model_type &result, scalar_type const& g) {
-		for(index_type index = 0; index < container_trait_type::size(); index ++) {
-			scalar_type s = normalize_type::process(result[index], index);
-			result.set(index, diverse_type::process(std::pow(s, g), index));
-		}
-		return result;
-	}
-
-	static model_type & process(model_type & result, model_type const& right, scalar_type const& g) {
-		for(index_type index = 0; index < container_trait_type::size(); index ++) {
-			scalar_type s = normalize_type::process(right[index], index);
-			result.set(index, diverse_type::process(std::pow(s, g), index));
-		}
-		return result;
-	}
-
-	   };
-	   }
-
-	template< typename category_name >
-	void gamma
-	(
-		::color::model<category_name> & result
-		,typename ::color::trait::scalar<category_name>::instance_type const& g
-										) {
-		::color::operation::_internal::gamma<category_name>::process(result, g);
-	}
-
-	template< typename category_name >
-	void gamma
-	(
-		::color::model<category_name> & result
-		, ::color::model<category_name> const& right
-		,typename ::color::trait::scalar<category_name>::instance_type const& g
-										) {
-		::color::operation::_internal::gamma<category_name>::process(result, right, g);
-	}
-
-										}
 }
 
 namespace color {
