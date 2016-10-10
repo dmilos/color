@@ -56,13 +56,13 @@ namespace color
       using rgb_split655 = ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 0, 1, 2 >;
      }
 
-    using rgb_uint8   = ::color::category::rgb< ::color::category::_internal::rgb_uint8   >;
-    using rgb_uint16  = ::color::category::rgb< ::color::category::_internal::rgb_uint16  >;
-    using rgb_uint32  = ::color::category::rgb< ::color::category::_internal::rgb_uint32  >;
-    using rgb_uint64  = ::color::category::rgb< ::color::category::_internal::rgb_uint64  >;
-    using rgb_float   = ::color::category::rgb< ::color::category::_internal::rgb_float   >;
-    using rgb_double  = ::color::category::rgb< ::color::category::_internal::rgb_double  >;
-    using rgb_ldouble = ::color::category::rgb< ::color::category::_internal::rgb_ldouble >;
+    using rgb_uint8     = ::color::category::rgb< ::color::category::_internal::rgb_uint8   >;
+    using rgb_uint16    = ::color::category::rgb< ::color::category::_internal::rgb_uint16  >;
+    using rgb_uint32    = ::color::category::rgb< ::color::category::_internal::rgb_uint32  >;
+    using rgb_uint64    = ::color::category::rgb< ::color::category::_internal::rgb_uint64  >;
+    using rgb_float     = ::color::category::rgb< ::color::category::_internal::rgb_float   >;
+    using rgb_double    = ::color::category::rgb< ::color::category::_internal::rgb_double  >;
+    using rgb_ldouble   = ::color::category::rgb< ::color::category::_internal::rgb_ldouble >;
     using rgb_split233  = ::color::category::rgb< ::color::category::_internal::rgb_split233  >;
     using rgb_split323  = ::color::category::rgb< ::color::category::_internal::rgb_split323  >;
     using rgb_split332  = ::color::category::rgb< ::color::category::_internal::rgb_split332  >;

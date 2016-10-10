@@ -11,15 +11,5 @@
 #include "./scramble3.hpp"
 #include "./scramble4.hpp"
 
-#include "./split233.hpp"
-
-#include "./split422.hpp"
-
-#include "./split556.hpp"
-
-#include "./splitAAA2.hpp"
-
-#include "./split2222.hpp"
-#include "./split4444.hpp"
-#include "./split8888.hpp"
-#include "./splitGGGG.hpp"
+#include "./split3.hpp"
+#include "./split4.hpp"
