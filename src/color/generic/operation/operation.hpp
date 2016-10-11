@@ -13,3 +13,5 @@
 #include "./combine.hpp"
 #include "./gamma.hpp"
 
+#include "./bias.hpp"
+#include "./gain.hpp"

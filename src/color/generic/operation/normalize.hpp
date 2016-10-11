@@ -26,7 +26,7 @@ namespace color
        ,typename ::color::trait::index<category_name>::input_const_type index
       )
       {
-       return ::color::_internal::normalize<category_name>::process( m[index], index ) ;
+       return ::color::_internal::normalize<category_name>::process( m.get( index ), index ) ;
       }
       
     template

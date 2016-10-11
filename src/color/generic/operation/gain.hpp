@@ -42,7 +42,7 @@
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, diverse_type::process( this_type::process( normalize_type::process( result.get( index ), index ), scalar ), index );
+                result.set( index, diverse_type::process( this_type::process( normalize_type::process( result.get( index ), index ), scalar ), index ) );
                }
               return result;
              }
@@ -51,7 +51,7 @@
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, diverse_type::process( this_type::process( normalize_type::process( left.get( index ), index ), scalar ), index );
+                result.set( index, diverse_type::process( this_type::process( normalize_type::process( left.get( index ), index ), scalar ), index ) );
                }
               return result;
              }
@@ -59,11 +59,11 @@
             template< index_type index_number >
              static model_type & process(  model_input_type  result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right )
               {
-               result.template set<index_number>( diverse_type::template process<index_number>( this_type::process( normalize_type::template process<index>( left.template get<index_number>() ), scalar ) ) );
+               result.template set<index_number>( diverse_type::template process<index_number>( this_type::process( normalize_type::template process<index_number>( left.template get<index_number>() ), scalar ) ) );
                return result;
               }
 
-            static scalar_type process( scalar_const_input_type x, scalar_const_input_type b  )
+            static scalar_type process( scalar_const_input_type x, scalar_const_input_type g )
              {
               if( x < scalar_type( 0.5) )
                {
