@@ -75,7 +75,6 @@
         ::color::operation::_internal::convex<category_name>::process( result, left, scalar, right );
        }
 
-
     }
   }
 

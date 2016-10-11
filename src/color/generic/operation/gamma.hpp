@@ -36,7 +36,7 @@
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                scalar_type s = normalize_type::process( result[index], index );
+                scalar_type s = normalize_type::process( result.get( index ), index );
                 result.set( index, diverse_type::process( std::pow( s, g ), index ) );
                }
               return result;
@@ -46,7 +46,7 @@
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                scalar_type s = normalize_type::process( right[index], index );
+                scalar_type s = normalize_type::process( right.get( index ), index );
                 result.set( index, diverse_type::process( std::pow( s, g ), index ) );
                }
               return result;
