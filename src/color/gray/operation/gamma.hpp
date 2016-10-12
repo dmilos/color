@@ -36,7 +36,7 @@
         typedef ::color::_internal::normalize< category_type > normalize_type;
 
         scalar_type s = normalize_type::template process<0>( result.template get<0>() );
-        result.template set<0>( diverse_type::template process<0>( std::pow( s, value ) ) );
+        result.template set<0>( diverse_type::template process<0>( std::pow( s, scalar_type(1)/value ) ) );
         return result;
        }
 
@@ -57,7 +57,7 @@
         typedef ::color::_internal::normalize< category_type > normalize_type;
 
         scalar_type s = normalize_type::template process<0>( right.template get<0>() );
-        result.template set<0>( diverse_type::template process<0>( std::pow( s, value ) ) );
+        result.template set<0>( diverse_type::template process<0>( std::pow( s, scalar_type(1)/value ) ) );
         return result;
        }
 
@@ -69,7 +69,9 @@
         ,typename ::color::trait::scalar< ::color::category::gray_float >::instance_type      const& value
        )
        {
-        result.set<0>( std::pow( result.get<0>(), value ) );
+        typedef ::color::category::gray_float   category_type;
+        typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
+        result.set<0>( std::pow( result.get<0>(), scalar_type(1)/value ) );
         return result;
        }
 
@@ -82,7 +84,9 @@
         ,typename ::color::trait::scalar< ::color::category::gray_float >::instance_type      const& value
        )
        {
-        result.set<0>( std::pow( right.get<0>(), value ) );
+        typedef ::color::category::gray_float   category_type;
+        typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
+        result.set<0>( std::pow( right.get<0>(), scalar_type(1)/value ) );
         return result;
        }
 
@@ -94,7 +98,9 @@
         ,typename ::color::trait::scalar< ::color::category::gray_double >::instance_type      const& value
        )
        {
-        result.set<0>( std::pow( result.get<0>(), value ) );
+        typedef ::color::category::gray_double   category_type;
+        typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
+        result.set<0>( std::pow( result.get<0>(), scalar_type(1)/value ) );
         return result;
        }
 
@@ -107,7 +113,9 @@
         ,typename ::color::trait::scalar< ::color::category::gray_double >::instance_type      const& value
        )
        {
-        result.set<0>( std::pow( right.get<0>(), value ) );
+        typedef ::color::category::gray_double   category_type;
+        typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
+        result.set<0>( std::pow( right.get<0>(), scalar_type(1)/value ) );
         return result;
        }
 
@@ -119,7 +127,9 @@
         ,typename ::color::trait::scalar< ::color::category::gray_ldouble >::instance_type      const& value
        )
        {
-        result.set<0>( std::pow( result.get<0>(), value ) );
+        typedef ::color::category::gray_ldouble   category_type;
+        typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
+        result.set<0>( std::pow( result.get<0>(), scalar_type(1)/value ) );
         return result;
        }
 
@@ -132,7 +142,9 @@
         ,typename ::color::trait::scalar< ::color::category::gray_ldouble >::instance_type      const& value
        )
        {
-        result.set<0>( std::pow( right.get<0>(), value ) );
+        typedef ::color::category::gray_ldouble   category_type;
+        typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
+        result.set<0>( std::pow( right.get<0>(), scalar_type(1)/value ) );
         return result;
        }
     }

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Dejan D. M. Milosavljevic">
+		<link rel="icon" href="../favicon.ico" type="image/ico">
+		<style>
+			.table_table{
+				background-color: white;
+				padding: 0px;
+				border: 1px solid black;
+				margin: 0px 0px 0px 0px;
+				padding: 0px;
+				background: white
+				border-spacing: 0px;
+			}
+			td, th{
+				background-color: white;
+				padding: 2px;
+				border-bottom: 1px solid gray;
+				border-left:   1px solid silver;
+				border-right:  1px solid silver;
+				border-top:    1px solid white;
+				white-space: nowrap;
+			}
+			.table_divider{
+				background-color: lightblue;
+				border-style: solid;
+				border-width: 2px 2px 0px 0px;
+				border-color: silver silver silver silver;
+				padding: 0px;
+			}
+		</style>
+		<title>Bounds</title>
+	</head>
+	<body>
+		<h1 align="center">Bounds for RGB+format</h1>
+
+		<dl>
+			<dt><h3>Description</h3></dt>
+			<dd>Each format has its own limitations for each components.<br>
+				In here is a table that covers RGB model with different formats.</dd>
+
+			<dt><h3>Note</h3></dt>
+			<dd> This is RGB model only table. Clik <a href="bound.html">here</a> for others models/formats.
+			</dd>
+
+
+			<dt><h3>Table</h3></dt>
+			<dd>
+				<table class="table_table" cellspacing=0 >
+					<thead>
+						<tr>
+						<th>model</th>
+						<th> format</th> <th class="table_divider"></th>
+						<th> &nbsp; minimum &nbsp; </th><th>&nbsp; maximum &nbsp; </th><th>&nbsp; ranage &nbsp; </th> <th class="table_divider"></th>
+						<th> &nbsp; minimum &nbsp; </th><th>&nbsp; maximum &nbsp; </th><th>&nbsp; ranage &nbsp; </th> <th class="table_divider"></th>
+						<th> &nbsp; minimum &nbsp; </th><th>&nbsp; maximum &nbsp; </th><th>&nbsp; ranage &nbsp; </th> <th class="table_divider"></th>
+						<th> &nbsp; minimum &nbsp; </th><th>&nbsp; maximum &nbsp; </th><th>&nbsp; ranage &nbsp; </th>
+					<tr></thead>
+
+						<!-- begin generated code -->
+
+<tr>
+<td colspan="2">&nbsp;</td>
+<td class="table_divider"></td><td colspan="3">Red</td>
+<td class="table_divider"></td><td colspan="3">Green</td>
+<td class="table_divider"></td><td colspan="3">Blue</td>
+<td class="table_divider"></td><td colspan="3">(Alpha)?</td>
+</tr>
+<tr><td>color::rgb</td><td>rgb_uint8     </td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_uint16    </td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_uint32    </td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_uint64    </td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_float     </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_double    </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_ldouble   </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_split233  </td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_split323  </td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_split332  </td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_split422  </td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_split556  </td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>63</td><td>63</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_split565  </td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>63</td><td>63</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgb_split655  </td><td class="table_divider"></td><td>0</td><td>63</td><td>63</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>rgba_uint8    </td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><tr>
+<tr><td>color::rgb</td><td>rgba_uint16   </td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><tr>
+<tr><td>color::rgb</td><td>rgba_uint32   </td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><tr>
+<tr><td>color::rgb</td><td>rgba_uint64   </td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><tr>
+<tr><td>color::rgb</td><td>rgba_float    </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>rgba_double   </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>rgba_ldouble  </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>rgba_split2222</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><tr>
+<tr><td>color::rgb</td><td>rgba_split4444</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><tr>
+<tr><td>color::rgb</td><td>rgba_split8888</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><tr>
+<tr><td>color::rgb</td><td>rgba_split5551</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>rgba_splitAAA2</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><tr>
+<tr><td>color::rgb</td><td>rgba_splitGGGG</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><tr>
+<tr><td>color::rgb</td><td>argb_uint8    </td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><tr>
+<tr><td>color::rgb</td><td>argb_uint16   </td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><tr>
+<tr><td>color::rgb</td><td>argb_uint32   </td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><tr>
+<tr><td>color::rgb</td><td>argb_uint64   </td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><tr>
+<tr><td>color::rgb</td><td>argb_float    </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>argb_double   </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>argb_ldouble  </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>argb_split2222</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><tr>
+<tr><td>color::rgb</td><td>argb_split4444</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><tr>
+<tr><td>color::rgb</td><td>argb_split8888</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><tr>
+<tr><td>color::rgb</td><td>argb_split1555</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><tr>
+<tr><td>color::rgb</td><td>argb_split2AAA</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><tr>
+<tr><td>color::rgb</td><td>argb_splitGGGG</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><tr>
+<tr><td>color::rgb</td><td>bgr_uint8     </td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_uint16    </td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_uint32    </td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_uint64    </td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_float     </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_double    </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_ldouble   </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_split233  </td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_split323  </td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_split332  </td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>0</td><td>7</td><td>7</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_split422  </td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_split556  </td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>63</td><td>63</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_split565  </td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>63</td><td>63</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgr_split655  </td><td class="table_divider"></td><td>0</td><td>63</td><td>63</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>N/A</td><td>N/A</td><td>N/A</td><tr>
+<tr><td>color::rgb</td><td>bgra_uint8    </td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><tr>
+<tr><td>color::rgb</td><td>bgra_uint16   </td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><tr>
+<tr><td>color::rgb</td><td>bgra_uint32   </td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><tr>
+<tr><td>color::rgb</td><td>bgra_uint64   </td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><tr>
+<tr><td>color::rgb</td><td>bgra_float    </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>bgra_double   </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>bgra_ldouble  </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>bgra_split2222</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><tr>
+<tr><td>color::rgb</td><td>bgra_split4444</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><tr>
+<tr><td>color::rgb</td><td>bgra_split5551</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>bgra_split8888</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><tr>
+<tr><td>color::rgb</td><td>bgra_splitAAA2</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><tr>
+<tr><td>color::rgb</td><td>bgra_splitGGGG</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><tr>
+<tr><td>color::rgb</td><td>abgr_uint8    </td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><tr>
+<tr><td>color::rgb</td><td>abgr_uint16   </td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><tr>
+<tr><td>color::rgb</td><td>abgr_uint32   </td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><td class="table_divider"></td><td>0</td><td>4294967295</td><td>4294967295</td><tr>
+<tr><td>color::rgb</td><td>abgr_uint64   </td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><td class="table_divider"></td><td>0</td><td>1.844674407e+19</td><td>1.844674407e+19</td><tr>
+<tr><td>color::rgb</td><td>abgr_float    </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>abgr_double   </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>abgr_ldouble  </td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><tr>
+<tr><td>color::rgb</td><td>abgr_split2222</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><tr>
+<tr><td>color::rgb</td><td>abgr_split4444</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><td class="table_divider"></td><td>0</td><td>15</td><td>15</td><tr>
+<tr><td>color::rgb</td><td>abgr_split1555</td><td class="table_divider"></td><td>0</td><td>1</td><td>1</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><td class="table_divider"></td><td>0</td><td>31</td><td>31</td><tr>
+<tr><td>color::rgb</td><td>abgr_split8888</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><td class="table_divider"></td><td>0</td><td>255</td><td>255</td><tr>
+<tr><td>color::rgb</td><td>abgr_split2AAA</td><td class="table_divider"></td><td>0</td><td>3</td><td>3</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><td class="table_divider"></td><td>0</td><td>1023</td><td>1023</td><tr>
+<tr><td>color::rgb</td><td>abgr_splitGGGG</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><td class="table_divider"></td><td>0</td><td>65535</td><td>65535</td><tr>
+
+
+						<!-- end generated code -->
+
+				</table>
+			</dd>
+		</dl>
+		<hr />
+
+	</body>
+</html>
+
+

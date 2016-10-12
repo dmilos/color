@@ -97,5 +97,3 @@ void test_rgb_conversion_intrisic()
 
  }
 
-
-

@@ -39,10 +39,13 @@ template< typename color_model >
      ss <<  print_triplet( bound_type::minimum(0), bound_type::maximum(0), bound_type::range(0) );
      ss << "<td class=\"table_divider\"></td>";
      if( 1 < color_model::size() ) ss <<  print_triplet( bound_type::minimum(1), bound_type::maximum(1), bound_type::range(1) );
+     else ss << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>";
      ss << "<td class=\"table_divider\"></td>";
      if( 2 < color_model::size() ) ss <<  print_triplet( bound_type::minimum(2), bound_type::maximum(2), bound_type::range(2) );
+     else ss << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>";
      ss << "<td class=\"table_divider\"></td>";
      if( 3 < color_model::size() ) ss <<  print_triplet( bound_type::minimum(3), bound_type::maximum(3), bound_type::range(3) );
+     else ss << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>";
    ss << "<tr>";
 
    return ss.str();
@@ -62,8 +65,11 @@ template< typename color_model >
      ss <<  print_triplet( bound_type::minimum(0), bound_type::maximum(0), bound_type::range(0) );
      ss << "<td class=\"table_divider\"></td>";
      if( 1 < color_model::size() ) ss <<  print_triplet( bound_type::minimum(1), bound_type::maximum(1), bound_type::range(1) );
+     else ss << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>";
      ss << "<td class=\"table_divider\"></td>";
      if( 2 < color_model::size() ) ss <<  print_triplet( bound_type::minimum(2), bound_type::maximum(2), bound_type::range(2) );
+     else ss << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>";
+
    ss << "<tr>";
 
    return ss.str();

@@ -30,18 +30,22 @@
          {
           public:
             typedef category_name  category_type;
-            typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
-            typedef ::color::operation::_internal::blend<category_type> this_type;
+            typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
+            typedef typename ::color::trait::scalar<category_type>::input_const_type  scalar_const_input_type;
+
+            typedef ::color::trait::index<category_type>         index_trait_type;
+            typedef typename index_trait_type::instance_type     index_type;
 
             typedef ::color::trait::container< category_type >   container_trait_type;
-            typedef ::color::trait::index< category_type >       index_trait_type;
-            typedef ::color::model<category_type>         model_type;
 
-            typedef typename index_trait_type::instance_type        index_type;
+            typedef ::color::model<category_type>     model_type;
 
-            typedef ::color::_internal::normalize< category_type > normalize_type;
             typedef ::color::_internal::diverse< category_type >   diverse_type;
+            typedef ::color::_internal::normalize< category_type > normalize_type;
+
+
+            typedef ::color::operation::_internal::blend<category_type> this_type;
 
             static void accumulate( model_type &result, scalar_type const& alpha, model_type const& upper )
              {

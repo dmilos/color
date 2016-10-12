@@ -33,7 +33,7 @@ namespace color
      <
        unsigned index_size
       ,typename category_name 
-      >
+     >
      inline
      typename ::color::trait::scalar< category_name >::instance_type
      normalize
@@ -43,7 +43,6 @@ namespace color
      {
       return  ::color::_internal::normalize<category_name>::template process<index_size>( m.template get<index_size>() );
      }
-
 
    }
  }

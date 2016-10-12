@@ -72,6 +72,12 @@ template< typename category_name >
    color::operation::gamma( u32b, 0.5 );
    color::operation::gamma( u32a, u32b, 0.5 );
 
+   color::operation::bias( u32b, 0.5 );
+   color::operation::bias( u32a, u32b, 0.5 );
+
+   color::operation::gain( u32b, 0.5 );
+   color::operation::gain( u32a, u32b, 0.5 );
+
    u32a = u32b + u32c;
    u32a = u32b - u32c;
    u32a = 0.5 * u32c;
