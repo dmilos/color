@@ -59,7 +59,7 @@
 
             static scalar_type process( scalar_const_input_type x, scalar_const_input_type value  )
              {
-              return std::pow( x, value );
+              return std::pow( x, scalar_type(1)/value );
              }
 
 
