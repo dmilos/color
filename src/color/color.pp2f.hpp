@@ -155,7 +155,7 @@ namespace trait {
 
 template< typename category_name >
 struct index
-		: public ::color::_internal::utility::type::index< unsigned > {
+	: public ::color::_internal::utility::type::index< unsigned > {
 public:
 
 	typedef ::color::_internal::utility::type::index< unsigned > utility_type;
@@ -506,11 +506,11 @@ namespace color {
 namespace trait {
 template< typename category_name >
 struct bound
-		: public ::color::_internal::utility::bound::general
-		<
-		typename ::color::trait::component< category_name >::instance_type
-		,typename ::color::trait::index< category_name >::instance_type
-		> {
+	: public ::color::_internal::utility::bound::general
+	  <
+	  typename ::color::trait::component< category_name >::instance_type
+	,typename ::color::trait::index< category_name >::instance_type
+	  > {
 public:
 	typedef category_name category_type;
 
@@ -535,7 +535,7 @@ namespace trait {
 
 template< typename category_name >
 struct scalar
-		: public ::color::_internal::utility::type::traitC< double > {
+	: public ::color::_internal::utility::type::traitC< double > {
 public:
 	typedef double instance_type;
 
@@ -1065,7 +1065,7 @@ private:
 public:
 
 	proxy_type operator[](index_input_const_type index) {
-		return proxy { *this, index };
+		return proxy{ *this, index };
 	}
 
 	container_return_const_type container()const {
@@ -3131,7 +3131,7 @@ struct rgb {
 
 template< typename tag_name >
 struct rgba
-		: public ::color::category::rgb< tag_name > {
+	: public ::color::category::rgb< tag_name > {
 	typedef tag_name tag_type;
 };
 
@@ -3526,7 +3526,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_double >
-		: public ::color::_internal::utility::bound::general< double, unsigned > {
+	: public ::color::_internal::utility::bound::general< double, unsigned > {
 };
 
 }
@@ -3536,7 +3536,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_float >
-		: public ::color::_internal::utility::bound::general< float, unsigned > {
+	: public ::color::_internal::utility::bound::general< float, unsigned > {
 };
 
 }
@@ -3546,7 +3546,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_ldouble >
-		: public ::color::_internal::utility::bound::general< long double, unsigned > {
+	: public ::color::_internal::utility::bound::general< long double, unsigned > {
 };
 
 }
@@ -3556,7 +3556,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -3566,7 +3566,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -3576,7 +3576,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -3586,7 +3586,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmy_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -3628,7 +3628,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -3638,7 +3638,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
+	: public ::color::_internal::utility::component::array< float, unsigned> {
 };
 
 }
@@ -3648,7 +3648,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -3658,7 +3658,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -3668,7 +3668,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -3678,7 +3678,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -3688,7 +3688,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -3765,7 +3765,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -3775,7 +3775,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -3785,7 +3785,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -3795,7 +3795,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_uint16 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -3805,7 +3805,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_uint32 >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -3815,7 +3815,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_uint64 >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -3825,7 +3825,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmy_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -3909,7 +3909,7 @@ namespace trait {
 
 template< typename tag_name >
 struct index< ::color::category::rgb< tag_name> >
-		: public ::color::_internal::utility::type::index< unsigned > {
+	: public ::color::_internal::utility::type::index< unsigned > {
 };
 
 }
@@ -4121,7 +4121,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
+	: public ::color::_internal::utility::component::array< float, unsigned> {
 };
 
 }
@@ -4131,7 +4131,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -4141,7 +4141,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -4152,7 +4152,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -4162,7 +4162,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -4172,7 +4172,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -4182,7 +4182,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -4193,7 +4193,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::array< value_name, unsigned > {
+	: public ::color::_internal::utility::component::array< value_name, unsigned > {
 };
 
 }
@@ -4203,7 +4203,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position , unsigned forth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, first_position, second_position, third_position, forth_position > > >
-		: public ::color::_internal::utility::component::array< value_name, unsigned > {
+	: public ::color::_internal::utility::component::array< value_name, unsigned > {
 };
 
 }
@@ -4272,7 +4272,7 @@ namespace component {
 
 template< typename index_name >
 struct pack_8
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
 };
 
 template< typename index_name > using cnent2222 = ::color::_internal::utility::component::pack_8<index_name>;
@@ -4289,44 +4289,6 @@ template< typename index_name > using cnent422 = ::color::_internal::utility::co
 }
 }
 }
-
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split233_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent233< unsigned > {
-};
-
-template< unsigned first_position, unsigned second_position, unsigned third_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent332< unsigned > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent422< unsigned > {
-};
-
-template< unsigned first_position, unsigned second_position, unsigned third_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split242_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent242< unsigned > {
-};
-
-template< unsigned first_position, unsigned second_position, unsigned third_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split224_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent224< unsigned > {
-};
-
-}
-}
-
 namespace color {
 namespace _internal {
 namespace utility {
@@ -4334,7 +4296,7 @@ namespace component {
 
 template< typename index_name >
 struct pack_16
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
 };
 
 template< typename index_name > using cnent556 = ::color::_internal::utility::component::pack_16<index_name>;
@@ -4355,18 +4317,43 @@ namespace color {
 namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split233_t, first_position, second_position, third_position > > >
+	: public ::color::_internal::utility::component::cnent233< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t, first_position, second_position, third_position > > >
+	: public ::color::_internal::utility::component::cnent332< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t, first_position, second_position, third_position > > >
+	: public ::color::_internal::utility::component::cnent422< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split242_t, first_position, second_position, third_position > > >
+	: public ::color::_internal::utility::component::cnent242< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split224_t, first_position, second_position, third_position > > >
+	: public ::color::_internal::utility::component::cnent224< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent655< unsigned > {
+	: public ::color::_internal::utility::component::cnent655< unsigned > {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split565_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent565< unsigned > {
+	: public ::color::_internal::utility::component::cnent565< unsigned > {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::component::cnent556< unsigned > {
+	: public ::color::_internal::utility::component::cnent556< unsigned > {
 };
 
 }
@@ -4379,7 +4366,7 @@ namespace component {
 
 template< typename index_name >
 struct pack_32
-		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
 };
 
 template< typename index_name > using cnent8888 = ::color::_internal::utility::component::pack_32<index_name>;
@@ -4391,54 +4378,6 @@ template< typename index_name > using cnent2AAA = ::color::_internal::utility::c
 }
 }
 }
-
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnentAAA2< unsigned > {
-};
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnent2AAA< unsigned > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnent2222< unsigned > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnent4444< unsigned > {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnent8888< unsigned > {
-};
-
-}
-}
-
 namespace color {
 namespace _internal {
 namespace utility {
@@ -4446,7 +4385,7 @@ namespace component {
 
 template< typename index_name >
 struct pack_64
-		: public ::color::_internal::utility::component::Unsigned< std::uint32_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint32_t, index_name > {
 };
 
 template< typename index_name > using cnentGGGG = ::color::_internal::utility::component::pack_64<index_name>;
@@ -4459,8 +4398,43 @@ namespace color {
 namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::component::cnent2222< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::component::cnent4444< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split5551_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::component::cnent5551< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split1555_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::component::cnent1555< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::component::cnent8888< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::component::cnentAAA2< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::component::cnent2AAA< unsigned > {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::component::cnentGGGG< unsigned > {
+	: public ::color::_internal::utility::component::cnentGGGG< unsigned > {
 };
 
 }
@@ -4634,7 +4608,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -4644,7 +4618,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
+	: public ::color::_internal::utility::component::array< float, unsigned> {
 };
 
 }
@@ -4654,7 +4628,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -4664,7 +4638,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -4674,7 +4648,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -4684,7 +4658,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -4694,7 +4668,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -4821,8 +4795,8 @@ inphase(::color::model< ::color::category::cmy<tag_name> > const& color_paramete
 	typedef ::color::constant::yiq< akin_type > yiq_const_type;
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
 	};
 	scalar_type value =
 		+ yiq_const_type::b21() * (1 - normalize_type::template process< cyan_p>(color_parameter.template get< cyan_p>()))
@@ -4851,8 +4825,8 @@ quadrature(::color::model< ::color::category::cmy<tag_name> > const& color_param
 	typedef ::color::constant::yiq< akin_type > yiq_const_type;
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
 	};
 	scalar_type value =
 		+ yiq_const_type::b31() * (1 - normalize_type::template process< cyan_p>(color_parameter.template get< cyan_p>()))
@@ -4899,7 +4873,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_bool >
-		: public ::color::_internal::utility::component::array< bool, unsigned > {
+	: public ::color::_internal::utility::component::array< bool, unsigned > {
 };
 
 }
@@ -4909,7 +4883,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -4919,7 +4893,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_float >
-		: public ::color::_internal::utility::component::array< float, unsigned > {
+	: public ::color::_internal::utility::component::array< float, unsigned > {
 };
 
 }
@@ -4929,7 +4903,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned > {
+	: public ::color::_internal::utility::component::array< long double, unsigned > {
 };
 
 }
@@ -4940,7 +4914,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_uint16 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint16_t, unsigned > {
 };
 
 }
@@ -4950,7 +4924,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_uint32 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint32_t, unsigned > {
 };
 
 }
@@ -4960,7 +4934,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_uint64 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint64_t, unsigned> {
+	: public ::color::_internal::utility::component::Unsigned< std::uint64_t, unsigned> {
 };
 
 }
@@ -4970,7 +4944,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_uint8 >
-		: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint8_t, unsigned > {
 };
 
 }
@@ -5016,8 +4990,8 @@ gray(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) 
 	typedef ::color::constant::gray< akin_type > gray_const_type;
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
 	};
 	scalar_type value =
 		gray_const_type::Rc() * (1 - normalize_type::template process< cyan_p>(color_parameter.template get< cyan_p>()))
@@ -5205,8 +5179,8 @@ gray
 	typedef ::color::constant::gray< akin_type > gray_const_type;
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
 	};
 	scalar_type value =
 		gray_const_type::Rc() * (scalar_type(1) - normalize_cmy_type::template process< cyan_p>(color_parameter.template get< cyan_p>()))
@@ -5423,7 +5397,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::gray_double >
-		: public ::color::_internal::utility::bound::general< double, unsigned > {
+	: public ::color::_internal::utility::bound::general< double, unsigned > {
 };
 
 }
@@ -5433,7 +5407,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::gray_float >
-		: public ::color::_internal::utility::bound::general< float, unsigned > {
+	: public ::color::_internal::utility::bound::general< float, unsigned > {
 };
 
 }
@@ -5443,7 +5417,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::gray_ldouble >
-		: public ::color::_internal::utility::bound::general< long double, unsigned > {
+	: public ::color::_internal::utility::bound::general< long double, unsigned > {
 };
 
 }
@@ -5453,7 +5427,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::gray_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -5463,7 +5437,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::gray_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -5473,7 +5447,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::gray_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -5483,7 +5457,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::gray_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -5561,7 +5535,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::gray_bool >
-		: public ::color::_internal::utility::container::boolean< unsigned > {
+	: public ::color::_internal::utility::container::boolean< unsigned > {
 };
 
 }
@@ -5572,7 +5546,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::gray_double >
-		: public ::color::_internal::utility::container::array< double, 1 > {
+	: public ::color::_internal::utility::container::array< double, 1 > {
 };
 
 }
@@ -5582,7 +5556,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::gray_float >
-		: public ::color::_internal::utility::container::array< float, 1 > {
+	: public ::color::_internal::utility::container::array< float, 1 > {
 };
 
 }
@@ -5592,7 +5566,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::gray_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 1 > {
+	: public ::color::_internal::utility::container::array< long double, 1 > {
 };
 
 }
@@ -5678,7 +5652,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::gray_uint16 >
-		: public ::color::_internal::utility::container::Unsigned< std::uint16_t, std::uint16_t, unsigned, 1, 16 > {
+	: public ::color::_internal::utility::container::Unsigned< std::uint16_t, std::uint16_t, unsigned, 1, 16 > {
 };
 
 }
@@ -5688,7 +5662,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::gray_uint32 >
-		: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint32_t, unsigned, 1, 32 > {
+	: public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint32_t, unsigned, 1, 32 > {
 };
 
 }
@@ -5698,7 +5672,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::gray_uint64 >
-		: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint64_t, unsigned, 1, 64 > {
+	: public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint64_t, unsigned, 1, 64 > {
 };
 
 }
@@ -5708,7 +5682,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::gray_uint8 >
-		: public ::color::_internal::utility::container::Unsigned< std::uint8_t, std::uint8_t, unsigned, 1, 8 > {
+	: public ::color::_internal::utility::container::Unsigned< std::uint8_t, std::uint8_t, unsigned, 1, 8 > {
 };
 
 }
@@ -5929,10 +5903,10 @@ namespace _internal {
 
 template< typename tag_left_name, typename tag_right_name >
 struct convert
-		<
-		::color::category::gray< tag_left_name >
-		,::color::category::gray< tag_right_name>
-		> {
+	<
+	::color::category::gray< tag_left_name >
+	,::color::category::gray< tag_right_name>
+	> {
 public:
 	typedef ::color::category::gray< tag_left_name > category_left_type;
 	typedef ::color::category::gray< tag_right_name> category_right_type;
@@ -5953,7 +5927,7 @@ public:
 	) {
 		enum {
 			gl = ::color::place::_internal::gray<category_left_type>::position_enum
-				 ,gr = ::color::place::_internal::gray<category_right_type>::position_enum
+			,gr = ::color::place::_internal::gray<category_right_type>::position_enum
 		};
 		container_left_trait_type::template set<gl>(left, reformat_type::template process<gl,gr>(container_right_trait_type::template get<gr>(right)));
 	}
@@ -5967,10 +5941,10 @@ namespace _internal {
 
 template< typename gray_tag_name, typename cmy_tag_name >
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::cmy<cmy_tag_name>
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::cmy<cmy_tag_name>
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::cmy<cmy_tag_name> category_right_type;
@@ -5989,8 +5963,8 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -6264,7 +6238,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmyk_double >
-		: public ::color::_internal::utility::bound::general< double, unsigned > {
+	: public ::color::_internal::utility::bound::general< double, unsigned > {
 };
 
 }
@@ -6274,7 +6248,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmyk_float >
-		: public ::color::_internal::utility::bound::general< float, unsigned > {
+	: public ::color::_internal::utility::bound::general< float, unsigned > {
 };
 
 }
@@ -6284,7 +6258,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmyk_ldouble >
-		: public ::color::_internal::utility::bound::general< long double, unsigned > {
+	: public ::color::_internal::utility::bound::general< long double, unsigned > {
 };
 
 }
@@ -6294,7 +6268,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmyk_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -6304,7 +6278,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmyk_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -6314,7 +6288,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmyk_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -6324,7 +6298,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::cmyk_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -6335,7 +6309,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmyk_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -6345,7 +6319,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmyk_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
+	: public ::color::_internal::utility::component::array< float, unsigned> {
 };
 
 }
@@ -6355,7 +6329,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmyk_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -6365,7 +6339,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmyk_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -6375,7 +6349,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmyk_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -6385,7 +6359,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmyk_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -6395,7 +6369,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmyk_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -6406,7 +6380,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmyk_double >
-		: public ::color::_internal::utility::container::array< double, 4 > {
+	: public ::color::_internal::utility::container::array< double, 4 > {
 };
 
 }
@@ -6416,7 +6390,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmyk_float >
-		: public ::color::_internal::utility::container::array< float, 4 > {
+	: public ::color::_internal::utility::container::array< float, 4 > {
 };
 
 }
@@ -6426,7 +6400,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmyk_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 4 > {
+	: public ::color::_internal::utility::container::array< long double, 4 > {
 };
 
 }
@@ -6436,7 +6410,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmyk_uint16 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 4 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 4 > {
 };
 
 }
@@ -6446,7 +6420,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmyk_uint32 >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 4 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 4 > {
 };
 
 }
@@ -6456,7 +6430,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmyk_uint64 >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 4 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 4 > {
 };
 
 }
@@ -6466,7 +6440,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::cmyk_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 4 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 4 > {
 };
 
 }
@@ -6583,9 +6557,9 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
-										   , key_p = ::color::place::_internal::key<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_type>::position_enum
 	};
 
 	static bool process(model_type const& m) {
@@ -6623,9 +6597,9 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
-										   , key_p = ::color::place::_internal::key<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_type>::position_enum
 	};
 
 	static bool process(model_type const& m) {
@@ -6656,9 +6630,9 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
-										   , key_p = ::color::place::_internal::key<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_type>::position_enum
 	};
 
 	static bool process(model_type const& m) {
@@ -6689,9 +6663,9 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
-										   , key_p = ::color::place::_internal::key<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_type>::position_enum
 	};
 
 	static bool process(model_type const& m) {
@@ -6733,9 +6707,9 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
-										   , key_p = ::color::place::_internal::key<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_type>::position_enum
 	};
 
 	static void process(model_type &result) {
@@ -6809,9 +6783,9 @@ gray(::color::model< ::color::category::cmyk<tag_name> > const& color_parameter)
 	typedef ::color::constant::gray< akin_type > gray_const_type;
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
-										   , key_p = ::color::place::_internal::key<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_type>::position_enum
 	};
 	scalar_type c = normalize_type::template process< cyan_p>(color_parameter.template get< cyan_p>());
 	scalar_type m = normalize_type::template process<magenta_p>(color_parameter.template get<magenta_p>());
@@ -7200,7 +7174,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::rgb_float >
-		: public ::color::_internal::utility::bound::general< float, unsigned > {
+	: public ::color::_internal::utility::bound::general< float, unsigned > {
 };
 
 }
@@ -7210,7 +7184,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::rgb_double >
-		: public ::color::_internal::utility::bound::general< double, unsigned > {
+	: public ::color::_internal::utility::bound::general< double, unsigned > {
 };
 
 }
@@ -7220,7 +7194,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::rgb_ldouble >
-		: public ::color::_internal::utility::bound::general< long double, unsigned > {
+	: public ::color::_internal::utility::bound::general< long double, unsigned > {
 };
 
 }
@@ -7231,7 +7205,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::rgb_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -7241,7 +7215,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::rgb_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -7251,7 +7225,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::rgb_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -7261,7 +7235,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::rgb_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -7272,7 +7246,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::bound::general< value_name, unsigned > {
+	: public ::color::_internal::utility::bound::general< value_name, unsigned > {
 };
 
 }
@@ -7282,7 +7256,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, first_position, second_position, third_position,fourth_position > > >
-		: public ::color::_internal::utility::bound::general< value_name, unsigned > {
+	: public ::color::_internal::utility::bound::general< value_name, unsigned > {
 };
 
 }
@@ -7375,59 +7349,47 @@ namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split233_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::bound::split233 {
+	: public ::color::_internal::utility::bound::split233 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split323_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::bound::split323 {
+	: public ::color::_internal::utility::bound::split323 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::bound::split332 {
+	: public ::color::_internal::utility::bound::split332 {
 };
-
-}
-}
-
-namespace color {
-namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::bound::split422 {
+	: public ::color::_internal::utility::bound::split422 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split242_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::bound::split242 {
+	: public ::color::_internal::utility::bound::split242 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split224_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::bound::split224 {
+	: public ::color::_internal::utility::bound::split224 {
 };
-
-}
-}
-
-namespace color {
-namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::bound::split556 {
+	: public ::color::_internal::utility::bound::split556 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split565_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::bound::split565 {
+	: public ::color::_internal::utility::bound::split565 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::bound::split655 {
+	: public ::color::_internal::utility::bound::split655 {
 };
 
 }
@@ -7524,54 +7486,43 @@ namespace color {
 namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::bound::split2222 {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::bound::split4444 {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::bound::split8888 {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split1555_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::bound::split1555 {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split5551_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::bound::split5551 {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::bound::splitAAA2 {
+	: public ::color::_internal::utility::bound::splitAAA2 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::bound::split2AAA {
+	: public ::color::_internal::utility::bound::split2AAA {
 };
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::bound::split2222 {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::bound::split4444 {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::bound::split8888 {
-};
-
-}
-}
-namespace color {
-namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::bound::splitGGGG {
+	: public ::color::_internal::utility::bound::splitGGGG {
 };
 
 }
@@ -7582,7 +7533,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::rgb_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -7592,7 +7543,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::rgb_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -7602,7 +7553,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::rgb_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -7613,7 +7564,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::rgb_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -7623,7 +7574,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::rgb_uint16 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -7633,7 +7584,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::rgb_uint32 >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -7643,7 +7594,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::rgb_uint64 >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -7654,7 +7605,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::array< value_name, 3 > {
+	: public ::color::_internal::utility::container::array< value_name, 3 > {
 };
 
 }
@@ -7664,7 +7615,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, first_position, second_position, third_position,fourth_position > > >
-		: public ::color::_internal::utility::container::array< value_name, 4 > {
+	: public ::color::_internal::utility::container::array< value_name, 4 > {
 };
 
 }
@@ -7809,59 +7760,47 @@ namespace trait {
 
 template< unsigned first_index, unsigned second_index, unsigned third_index >
 struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split233_t, first_index, second_index, third_index > > >
-		: public ::color::_internal::utility::container::split233 {
+	: public ::color::_internal::utility::container::split233 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split323_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::split323 {
+	: public ::color::_internal::utility::container::split323 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split332_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::split332 {
+	: public ::color::_internal::utility::container::split332 {
 };
-
-}
-}
-
-namespace color {
-namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::split422 {
+	: public ::color::_internal::utility::container::split422 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split242_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::split242 {
+	: public ::color::_internal::utility::container::split242 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split224_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::split224 {
+	: public ::color::_internal::utility::container::split224 {
 };
-
-}
-}
-
-namespace color {
-namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split655_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::split655 {
+	: public ::color::_internal::utility::container::split655 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split565_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::split565 {
+	: public ::color::_internal::utility::container::split565 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split556_t, first_position, second_position, third_position > > >
-		: public ::color::_internal::utility::container::split556 {
+	: public ::color::_internal::utility::container::split556 {
 };
 
 }
@@ -8018,54 +7957,43 @@ namespace color {
 namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::container::split2222 {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::container::split4444 {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split5551_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::container::split5551 {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split1555_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::container::split1555 {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
+struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
+	: public ::color::_internal::utility::container::split8888 {
+};
+
+template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::container::splitAAA2 {
+	: public ::color::_internal::utility::container::splitAAA2 {
 };
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::container::split2AAA {
+	: public ::color::_internal::utility::container::split2AAA {
 };
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::container::split2222 {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::container::split4444 {
-};
-
-}
-}
-namespace color {
-namespace trait {
-
-template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
-struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::container::split8888 {
-};
-
-}
-}
-namespace color {
-namespace trait {
 
 template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position >
 struct container< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, first_position, second_position, third_position, fourth_position > > >
-		: public ::color::_internal::utility::container::splitGGGG {
+	: public ::color::_internal::utility::container::splitGGGG {
 };
 
 }
@@ -8553,8 +8481,8 @@ inphase(::color::model< ::color::category::rgb<tag_name> > const& color_paramete
 	};
 	enum {
 		red_p = ::color::place::_internal::red<category_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_type>::position_enum
 	};
 	scalar_type value =
 		+ yiq_const_type::b21() * normalize_type::template process<red_p >(color_parameter.template get<red_p >())
@@ -8583,8 +8511,8 @@ quadrature(::color::model< ::color::category::rgb<tag_name> > const& color_param
 	typedef ::color::constant::yiq< akin_type > yiq_const_type;
 	enum {
 		red_p = ::color::place::_internal::red<category_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_type>::position_enum
 	};
 	scalar_type value =
 		+ yiq_const_type::b31() * normalize_type::template process<red_p >(color_parameter.template get<red_p >())
@@ -8613,8 +8541,8 @@ gray(::color::model< ::color::category::rgb<tag_name> > const& color_parameter) 
 	typedef ::color::constant::gray< akin_type > gray_const_type;
 	enum {
 		red_p = ::color::place::_internal::red<category_type>::position_enum
-				, green_p = ::color::place::_internal::green<category_type>::position_enum
-							, blue_p = ::color::place::_internal::blue<category_type>::position_enum
+		, green_p = ::color::place::_internal::green<category_type>::position_enum
+		, blue_p = ::color::place::_internal::blue<category_type>::position_enum
 	};
 	scalar_type value =
 		gray_const_type::Rc() * normalize_type::template process<red_p >(color_parameter.template get<red_p >())
@@ -8700,8 +8628,8 @@ gray
 	typedef ::color::constant::gray< akin_type > gray_const_type;
 	enum {
 		red_p = ::color::place::_internal::red<category_type>::position_enum
-				, green_p = ::color::place::_internal::green<category_type>::position_enum
-							, blue_p = ::color::place::_internal::blue<category_type>::position_enum
+		, green_p = ::color::place::_internal::green<category_type>::position_enum
+		, blue_p = ::color::place::_internal::blue<category_type>::position_enum
 	};
 	scalar_type value =
 		gray_const_type::Rc() * normalize_rgb_type::template process<red_p >(color_parameter.template get<red_p >())
@@ -8738,10 +8666,10 @@ namespace _internal {
 
 template< typename rgb_tag_name, typename gray_tag_name >
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::gray<gray_tag_name>
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::gray<gray_tag_name>
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::gray<gray_tag_name> category_right_type;
@@ -8762,8 +8690,8 @@ public:
 	) {
 		enum {
 			red_p = ::color::place::_internal::red<category_left_type>::position_enum
-					,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-							   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+			,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+			,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 		};
 		enum {
 			gray_p = 0
@@ -8782,10 +8710,10 @@ namespace _internal {
 
 template< typename rgb_tag_name, typename cmy_tag_name >
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::cmy< cmy_tag_name >
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::cmy< cmy_tag_name >
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
@@ -8801,14 +8729,14 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_left_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 	};
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -8830,10 +8758,10 @@ namespace _internal {
 
 template< typename rgb_tag_name, typename cmyk_tag_name >
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::cmyk<cmyk_tag_name>
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::cmyk<cmyk_tag_name>
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::cmyk<cmyk_tag_name> category_right_type;
@@ -8855,14 +8783,14 @@ public:
 	) {
 		enum {
 			red_p = ::color::place::_internal::red<category_left_type>::position_enum
-					,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-							   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+			,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+			,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 		};
 		enum {
 			cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-					 ,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
-								 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-											  ,key_p = ::color::place::_internal::key<category_right_type>::position_enum
+			,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+			,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+			,key_p = ::color::place::_internal::key<category_right_type>::position_enum
 		};
 		scalar_type c = normalize_type::template process< cyan_p>(container_right_trait_type::template get< cyan_p>(right));
 		scalar_type m = normalize_type::template process< magenta_p>(container_right_trait_type::template get< magenta_p>(right));
@@ -9166,7 +9094,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsl_double >
-		: public ::color::_internal::utility::bound::hsl_scalar< unsigned, double > {
+	: public ::color::_internal::utility::bound::hsl_scalar< unsigned, double > {
 };
 
 }
@@ -9177,7 +9105,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsl_float >
-		: public ::color::_internal::utility::bound::hsl_scalar< unsigned, float > {
+	: public ::color::_internal::utility::bound::hsl_scalar< unsigned, float > {
 };
 
 }
@@ -9187,7 +9115,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsl_ldouble >
-		: public ::color::_internal::utility::bound::hsl_scalar< unsigned, long double > {
+	: public ::color::_internal::utility::bound::hsl_scalar< unsigned, long double > {
 };
 
 }
@@ -9197,7 +9125,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsl_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -9207,7 +9135,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsl_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -9217,7 +9145,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsl_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -9227,7 +9155,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsl_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -9238,7 +9166,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsl_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -9248,7 +9176,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsl_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
+	: public ::color::_internal::utility::component::array< float, unsigned> {
 };
 
 }
@@ -9258,7 +9186,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsl_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -9268,7 +9196,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsl_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -9278,7 +9206,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsl_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -9288,7 +9216,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsl_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -9298,7 +9226,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsl_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -9309,7 +9237,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsl_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -9319,7 +9247,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsl_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -9329,7 +9257,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsl_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -9339,7 +9267,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsl_uint16 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -9349,7 +9277,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsl_uint32 >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -9359,7 +9287,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsl_uint64 >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -9369,7 +9297,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsl_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -9566,8 +9494,8 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-								, lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+		, lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
 
 	static bool process(model_type const& m) {
@@ -9785,10 +9713,10 @@ namespace _internal {
 
 template< typename hsl_tag_name, typename gray_tag_name >
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::gray< gray_tag_name >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::gray< gray_tag_name >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
@@ -9805,8 +9733,8 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-								, lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		, lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
 	};
 
 	static void process
@@ -9828,10 +9756,10 @@ namespace _internal {
 
 template< typename hsl_tag_name, typename cmy_tag_name >
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::cmy< cmy_tag_name >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::cmy< cmy_tag_name >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
@@ -9850,14 +9778,14 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-								, lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		, lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
 	};
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-				 ,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
-							 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
 	};
 
 	static void process
@@ -9900,10 +9828,10 @@ namespace _internal {
 
 template< typename hsl_tag_name, typename cmyk_tag_name >
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::cmyk< cmyk_tag_name >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::cmyk< cmyk_tag_name >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_left_type;
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_right_type;
@@ -9938,10 +9866,10 @@ namespace _internal {
 
 template< typename tag_left_name, typename tag_right_name >
 struct convert
-		<
-		::color::category::hsl< tag_left_name >
-		,::color::category::hsl< tag_right_name>
-		> {
+	<
+	::color::category::hsl< tag_left_name >
+	,::color::category::hsl< tag_right_name>
+	> {
 public:
 	typedef ::color::category::hsl< tag_left_name > category_left_type;
 	typedef ::color::category::hsl< tag_right_name> category_right_type;
@@ -10283,7 +10211,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsv_double >
-		: public ::color::_internal::utility::bound::hsv_scalar< unsigned, double > {
+	: public ::color::_internal::utility::bound::hsv_scalar< unsigned, double > {
 };
 
 }
@@ -10294,7 +10222,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsv_float >
-		: public ::color::_internal::utility::bound::hsv_scalar< unsigned, float > {
+	: public ::color::_internal::utility::bound::hsv_scalar< unsigned, float > {
 };
 
 }
@@ -10304,7 +10232,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsv_ldouble >
-		: public ::color::_internal::utility::bound::hsv_scalar< unsigned, long double > {
+	: public ::color::_internal::utility::bound::hsv_scalar< unsigned, long double > {
 };
 
 }
@@ -10314,7 +10242,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsv_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -10324,7 +10252,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsv_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -10334,7 +10262,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsv_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -10344,7 +10272,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsv_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -10355,7 +10283,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsv_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -10365,7 +10293,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsv_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
+	: public ::color::_internal::utility::component::array< float, unsigned> {
 };
 
 }
@@ -10375,7 +10303,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsv_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -10385,7 +10313,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsv_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -10395,7 +10323,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsv_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -10405,7 +10333,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsv_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -10415,7 +10343,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsv_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -10426,7 +10354,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsv_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -10436,7 +10364,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsv_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -10446,7 +10374,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsv_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -10456,7 +10384,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsv_uint16 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -10466,7 +10394,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsv_uint32 >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -10476,7 +10404,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsv_uint64 >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -10486,7 +10414,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsv_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -10656,8 +10584,8 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-								,value_p = ::color::place::_internal::value<category_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+		,value_p = ::color::place::_internal::value<category_type>::position_enum
 	};
 
 	static bool process(model_type const& m) {
@@ -10689,8 +10617,8 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-								,value_p = ::color::place::_internal::value<category_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+		,value_p = ::color::place::_internal::value<category_type>::position_enum
 	};
 
 	static void process(model_type &result) {
@@ -10811,13 +10739,13 @@ red(::color::model< ::color::category::hsv<tag_name> > const& color_parameter) {
 	typedef ::color::_internal::normalize<category_type> normalize_type;
 	enum {
 		red_p = ::color::place::_internal::red<akin_type>::position_enum
-				,green_p = ::color::place::_internal::green<akin_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
+		,green_p = ::color::place::_internal::green<akin_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
 	};
 	enum {
 		hue_p = ::color::place::_internal::hue<category_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-								,value_p = ::color::place::_internal::value<category_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+		,value_p = ::color::place::_internal::value<category_type>::position_enum
 	};
 	scalar_type h = normalize_type::template process<hue_p >(color_parameter.template get<hue_p >());
 	scalar_type s = normalize_type::template process<saturation_p>(color_parameter.template get<saturation_p>());
@@ -10868,13 +10796,13 @@ green(::color::model< ::color::category::hsv<tag_name> > const& color_parameter)
 	typedef ::color::_internal::normalize<category_type> normalize_type;
 	enum {
 		red_p = ::color::place::_internal::red<akin_type>::position_enum
-				,green_p = ::color::place::_internal::green<akin_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
+		,green_p = ::color::place::_internal::green<akin_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
 	};
 	enum {
 		hue_p = ::color::place::_internal::hue<category_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-								,value_p = ::color::place::_internal::value<category_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+		,value_p = ::color::place::_internal::value<category_type>::position_enum
 	};
 	scalar_type h = normalize_type::template process<hue_p >(color_parameter.template get<hue_p >());
 	scalar_type s = normalize_type::template process<saturation_p>(color_parameter.template get<saturation_p>());
@@ -10925,13 +10853,13 @@ blue(::color::model< ::color::category::hsv<tag_name> > const& color_parameter) 
 	typedef ::color::_internal::normalize<category_type> normalize_type;
 	enum {
 		red_p = ::color::place::_internal::red<akin_type>::position_enum
-				,green_p = ::color::place::_internal::green<akin_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
+		,green_p = ::color::place::_internal::green<akin_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
 	};
 	enum {
 		hue_p = ::color::place::_internal::hue<category_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-								,value_p = ::color::place::_internal::value<category_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+		,value_p = ::color::place::_internal::value<category_type>::position_enum
 	};
 	scalar_type h = normalize_type::template process<hue_p >(color_parameter.template get<hue_p >());
 	scalar_type s = normalize_type::template process<saturation_p>(color_parameter.template get<saturation_p>());
@@ -11097,10 +11025,10 @@ namespace _internal {
 
 template< typename hsv_tag_name, typename gray_tag_name >
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::gray< gray_tag_name >
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::gray< gray_tag_name >
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
@@ -11117,8 +11045,8 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-								,value_p = ::color::place::_internal::value<category_left_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		,value_p = ::color::place::_internal::value<category_left_type>::position_enum
 	};
 
 	static void process
@@ -11140,10 +11068,10 @@ namespace _internal {
 
 template< typename hsv_tag_name, typename cmy_tag_name >
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::cmy< cmy_tag_name >
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::cmy< cmy_tag_name >
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
@@ -11162,14 +11090,14 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_left_type >::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-								,value_p = ::color::place::_internal::value<category_left_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		,value_p = ::color::place::_internal::value<category_left_type>::position_enum
 	};
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-							  ,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -11212,10 +11140,10 @@ namespace _internal {
 
 template< typename hsv_tag_name, typename cmyk_tag_name >
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::cmyk< cmyk_tag_name >
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::cmyk< cmyk_tag_name >
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_right_type;
@@ -11250,10 +11178,10 @@ namespace _internal {
 
 template< typename hsv_tag_name, typename hsl_tag_name >
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::hsl< hsl_tag_name >
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::hsl< hsl_tag_name >
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > category_left_type;
 	typedef ::color::category::hsl< hsl_tag_name > category_right_type;
@@ -11270,14 +11198,14 @@ public:
 
 	enum {
 		hl_p = ::color::place::_internal::hue<category_left_type>::position_enum
-			   ,sl_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-					   ,vl_p = ::color::place::_internal::value<category_left_type>::position_enum
+		,sl_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		,vl_p = ::color::place::_internal::value<category_left_type>::position_enum
 	};
 
 	enum {
 		hr_p = ::color::place::_internal::hue<category_right_type>::position_enum
-			   ,sr_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-					   ,lr_p = ::color::place::_internal::lightness<category_right_type>::position_enum
+		,sr_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,lr_p = ::color::place::_internal::lightness<category_right_type>::position_enum
 	};
 
 	static void process
@@ -11303,10 +11231,10 @@ namespace _internal {
 
 template< typename tag_left_name, typename tag_right_name >
 struct convert
-		<
-		::color::category::hsv< tag_left_name >
-		,::color::category::hsv< tag_right_name>
-		> {
+	<
+	::color::category::hsv< tag_left_name >
+	,::color::category::hsv< tag_right_name>
+	> {
 public:
 	typedef ::color::category::hsv< tag_left_name > category_left_type;
 	typedef ::color::category::hsv< tag_right_name> category_right_type;
@@ -11323,14 +11251,14 @@ public:
 
 	enum {
 		hl_p = ::color::place::_internal::hue<category_left_type>::position_enum
-			   ,sl_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-					   ,vl_p = ::color::place::_internal::value<category_left_type>::position_enum
+		,sl_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		,vl_p = ::color::place::_internal::value<category_left_type>::position_enum
 	};
 
 	enum {
 		hr_p = ::color::place::_internal::hue<category_right_type>::position_enum
-			   ,sr_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-					   ,vr_p = ::color::place::_internal::value<category_right_type>::position_enum
+		,sr_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,vr_p = ::color::place::_internal::value<category_right_type>::position_enum
 	};
 
 	static void process
@@ -11694,7 +11622,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsi_double >
-		: public ::color::_internal::utility::bound::hsi_scalar< unsigned, double > {
+	: public ::color::_internal::utility::bound::hsi_scalar< unsigned, double > {
 };
 
 }
@@ -11705,7 +11633,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsi_float >
-		: public ::color::_internal::utility::bound::hsi_scalar< unsigned, float > {
+	: public ::color::_internal::utility::bound::hsi_scalar< unsigned, float > {
 };
 
 }
@@ -11715,7 +11643,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsi_ldouble >
-		: public ::color::_internal::utility::bound::hsi_scalar< unsigned, long double > {
+	: public ::color::_internal::utility::bound::hsi_scalar< unsigned, long double > {
 };
 
 }
@@ -11725,7 +11653,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsi_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -11735,7 +11663,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsi_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -11745,7 +11673,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsi_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -11755,7 +11683,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsi_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -11766,7 +11694,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsi_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -11776,7 +11704,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsi_float >
-		: public ::color::_internal::utility::component::array< float, unsigned> {
+	: public ::color::_internal::utility::component::array< float, unsigned> {
 };
 
 }
@@ -11786,7 +11714,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsi_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -11796,7 +11724,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsi_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -11806,7 +11734,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsi_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -11816,7 +11744,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsi_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -11826,7 +11754,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsi_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -11837,7 +11765,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsi_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -11847,7 +11775,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsi_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -11857,7 +11785,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsi_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -11867,7 +11795,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsi_uint16 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -11877,7 +11805,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsi_uint32 >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -11887,7 +11815,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsi_uint64 >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -11897,7 +11825,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::hsi_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -12120,8 +12048,8 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-								,intensity_p = ::color::place::_internal::intensity<category_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+		,intensity_p = ::color::place::_internal::intensity<category_type>::position_enum
 	};
 
 	static bool process(model_type const& m) {
@@ -12276,13 +12204,13 @@ red(::color::model< ::color::category::hsi<tag_name> > const& color_parameter) {
 	typedef ::color::constant::hsi< category_type > hsi_constant_type;
 	enum {
 		red_p = ::color::place::_internal::red<akin_type>::position_enum
-				,green_p = ::color::place::_internal::green<akin_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
+		,green_p = ::color::place::_internal::green<akin_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
 	};
 	enum {
 		hue_p = ::color::place::_internal::hue<category_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-								,intensity_p = ::color::place::_internal::intensity<category_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+		,intensity_p = ::color::place::_internal::intensity<category_type>::position_enum
 	};
 	scalar_type h = normalize_type::template process<hue_p >(color_parameter.template get<hue_p >());
 	scalar_type s = normalize_type::template process<saturation_p>(color_parameter.template get<saturation_p>());
@@ -12329,13 +12257,13 @@ green(::color::model< ::color::category::hsi<tag_name> > const& color_parameter)
 	typedef ::color::constant::hsi< category_type > hsi_constant_type;
 	enum {
 		red_p = ::color::place::_internal::red<akin_type>::position_enum
-				,green_p = ::color::place::_internal::green<akin_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
+		,green_p = ::color::place::_internal::green<akin_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
 	};
 	enum {
 		hue_p = ::color::place::_internal::hue<category_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-								,intensity_p = ::color::place::_internal::intensity<category_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+		,intensity_p = ::color::place::_internal::intensity<category_type>::position_enum
 	};
 	scalar_type h = normalize_type::template process<hue_p >(color_parameter.template get<hue_p >());
 	scalar_type s = normalize_type::template process<saturation_p>(color_parameter.template get<saturation_p>());
@@ -12382,13 +12310,13 @@ blue(::color::model< ::color::category::hsi<tag_name> > const& color_parameter) 
 	typedef ::color::constant::hsi< category_type > hsi_constant_type;
 	enum {
 		red_p = ::color::place::_internal::red<akin_type>::position_enum
-				,green_p = ::color::place::_internal::green<akin_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
+		,green_p = ::color::place::_internal::green<akin_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<akin_type>::position_enum
 	};
 	enum {
 		hue_p = ::color::place::_internal::hue<category_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
-								,intensity_p = ::color::place::_internal::intensity<category_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_type>::position_enum
+		,intensity_p = ::color::place::_internal::intensity<category_type>::position_enum
 	};
 	scalar_type h = normalize_type::template process<hue_p >(color_parameter.template get<hue_p >());
 	scalar_type s = normalize_type::template process<saturation_p>(color_parameter.template get<saturation_p>());
@@ -12549,10 +12477,10 @@ namespace _internal {
 
 template< typename hsi_tag_name, typename gray_tag_name >
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::gray< gray_tag_name >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::gray< gray_tag_name >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
@@ -12573,8 +12501,8 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-								,intensity_p = ::color::place::_internal::intensity<category_left_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		,intensity_p = ::color::place::_internal::intensity<category_left_type>::position_enum
 	};
 
 	static void process
@@ -12596,10 +12524,10 @@ namespace _internal {
 
 template< typename hsi_tag_name, typename cmy_tag_name >
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::cmy< cmy_tag_name >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::cmy< cmy_tag_name >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > cmy_category_type, category_right_type;
@@ -12634,10 +12562,10 @@ namespace _internal {
 
 template< typename hsi_tag_name, typename cmyk_tag_name >
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::cmyk< cmyk_tag_name >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::cmyk< cmyk_tag_name >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_right_type;
@@ -12672,10 +12600,10 @@ namespace _internal {
 
 template< typename hsi_tag_name, typename hsl_tag_name >
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::hsl< hsl_tag_name >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::hsl< hsl_tag_name >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_right_type;
@@ -12710,10 +12638,10 @@ namespace _internal {
 
 template< typename hsi_tag_name, typename hsv_tag_name >
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::hsv< hsv_tag_name >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::hsv< hsv_tag_name >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_right_type;
@@ -12747,10 +12675,10 @@ namespace _internal {
 
 template< typename tag_left_name, typename tag_right_name >
 struct convert
-		<
-		::color::category::hsi< tag_left_name >
-		,::color::category::hsi< tag_right_name>
-		> {
+	<
+	::color::category::hsi< tag_left_name >
+	,::color::category::hsi< tag_right_name>
+	> {
 public:
 	typedef ::color::category::hsi< tag_left_name > category_left_type;
 	typedef ::color::category::hsi< tag_right_name> category_right_type;
@@ -12767,14 +12695,14 @@ public:
 
 	enum {
 		hr_p = ::color::place::_internal::hue<category_left_type>::position_enum
-			   ,sr_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-					   ,ir_p = ::color::place::_internal::intensity<category_left_type>::position_enum
+		,sr_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		,ir_p = ::color::place::_internal::intensity<category_left_type>::position_enum
 	};
 
 	enum {
 		hl_p = ::color::place::_internal::hue<category_right_type>::position_enum
-			   ,sl_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-					   ,il_p = ::color::place::_internal::intensity<category_right_type>::position_enum
+		,sl_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,il_p = ::color::place::_internal::intensity<category_right_type>::position_enum
 	};
 
 	static void process
@@ -12795,10 +12723,10 @@ namespace _internal {
 
 template< typename hsi_tag_name, typename rgb_tag_name >
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::rgb< rgb_tag_name >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::rgb< rgb_tag_name >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > category_left_type;
 	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
@@ -12819,14 +12747,14 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-								, intensity_p = ::color::place::_internal::intensity<category_left_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		, intensity_p = ::color::place::_internal::intensity<category_left_type>::position_enum
 	};
 
 	enum {
 		red_p = ::color::place::_internal::red<category_right_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-						   , blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		, blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
 
 	static void process
@@ -13116,7 +13044,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::yiq_double >
-		: public ::color::_internal::utility::bound::yiq_scalar< unsigned, double > {
+	: public ::color::_internal::utility::bound::yiq_scalar< unsigned, double > {
 };
 
 }
@@ -13127,7 +13055,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::yiq_float >
-		: public ::color::_internal::utility::bound::yiq_scalar< unsigned, float > {
+	: public ::color::_internal::utility::bound::yiq_scalar< unsigned, float > {
 };
 
 }
@@ -13137,7 +13065,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::yiq_ldouble >
-		: public ::color::_internal::utility::bound::yiq_scalar< unsigned, long double > {
+	: public ::color::_internal::utility::bound::yiq_scalar< unsigned, long double > {
 };
 
 }
@@ -13147,7 +13075,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::yiq_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -13157,7 +13085,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::yiq_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -13167,7 +13095,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::yiq_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -13177,7 +13105,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::yiq_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -13188,7 +13116,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::yiq_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -13198,7 +13126,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::yiq_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -13208,7 +13136,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::yiq_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -13218,7 +13146,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::yiq_uint16 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -13228,7 +13156,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::yiq_uint32 >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -13238,7 +13166,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::yiq_uint64 >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -13248,7 +13176,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::yiq_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -13306,8 +13234,8 @@ red(::color::model< ::color::category::yiq<tag_name> > const& color_parameter) {
 	typedef ::color::constant::yiq<category_type> yiq_const_type;
 	enum {
 		luma_p = ::color::place::_internal::luma<category_type>::position_enum
-				 , inphase_p = ::color::place::_internal::inphase<category_type>::position_enum
-							   ,quadrature_p = ::color::place::_internal::quadrature<category_type>::position_enum
+		, inphase_p = ::color::place::_internal::inphase<category_type>::position_enum
+		,quadrature_p = ::color::place::_internal::quadrature<category_type>::position_enum
 	};
 	enum {
 		red_p = ::color::place::_internal::red<akin_type>::position_enum
@@ -13340,8 +13268,8 @@ green(::color::model< ::color::category::yiq<tag_name> > const& color_parameter)
 	typedef ::color::constant::yiq<category_type> yiq_const_type;
 	enum {
 		luma_p = ::color::place::_internal::luma<category_type>::position_enum
-				 , inphase_p = ::color::place::_internal::inphase<category_type>::position_enum
-							   ,quadrature_p = ::color::place::_internal::quadrature<category_type>::position_enum
+		, inphase_p = ::color::place::_internal::inphase<category_type>::position_enum
+		,quadrature_p = ::color::place::_internal::quadrature<category_type>::position_enum
 	};
 	enum {
 		green_p = ::color::place::_internal::green<akin_type>::position_enum
@@ -13374,8 +13302,8 @@ blue(::color::model< ::color::category::yiq<tag_name> > const& color_parameter) 
 	typedef ::color::constant::yiq<category_type> yiq_const_type;
 	enum {
 		luma_p = ::color::place::_internal::luma<category_type>::position_enum
-				 , inphase_p = ::color::place::_internal::inphase<category_type>::position_enum
-							   ,quadrature_p = ::color::place::_internal::quadrature<category_type>::position_enum
+		, inphase_p = ::color::place::_internal::inphase<category_type>::position_enum
+		,quadrature_p = ::color::place::_internal::quadrature<category_type>::position_enum
 	};
 	enum {
 		blue_p = ::color::place::_internal::blue<akin_type>::position_enum
@@ -13505,10 +13433,10 @@ namespace _internal {
 
 template< typename yiq_tag_name, typename gray_tag_name >
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::gray< gray_tag_name >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::gray< gray_tag_name >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
@@ -13526,8 +13454,8 @@ public:
 
 	enum {
 		luma_p = ::color::place::_internal::luma<category_left_type>::position_enum
-				 , inphase_p = ::color::place::_internal::inphase<category_left_type>::position_enum
-							   ,quadrature_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
+		, inphase_p = ::color::place::_internal::inphase<category_left_type>::position_enum
+		,quadrature_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
 	};
 
 	static void process
@@ -13557,10 +13485,10 @@ namespace _internal {
 
 template< typename yiq_tag_name, typename cmy_tag_name >
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::cmy< cmy_tag_name >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::cmy< cmy_tag_name >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
@@ -13579,14 +13507,14 @@ public:
 
 	enum {
 		luma_p = ::color::place::_internal::luma<category_left_type>::position_enum
-				 , inphase_p = ::color::place::_internal::inphase<category_left_type>::position_enum
-							   ,quadrature_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
+		, inphase_p = ::color::place::_internal::inphase<category_left_type>::position_enum
+		,quadrature_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
 	};
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-							  ,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -13620,10 +13548,10 @@ namespace _internal {
 
 template< typename yiq_tag_name, typename cmyk_tag_name >
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::cmyk< cmyk_tag_name >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::cmyk< cmyk_tag_name >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_right_type;
@@ -13658,10 +13586,10 @@ namespace _internal {
 
 template< typename yiq_tag_name, typename hsl_tag_name >
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::hsl< hsl_tag_name >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::hsl< hsl_tag_name >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_right_type;
@@ -13696,10 +13624,10 @@ namespace _internal {
 
 template< typename yiq_tag_name, typename hsv_tag_name >
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::hsv< hsv_tag_name >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::hsv< hsv_tag_name >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_right_type;
@@ -13734,10 +13662,10 @@ namespace _internal {
 
 template< typename yiq_tag_name, typename hsi_tag_name >
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::hsi< hsi_tag_name >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::hsi< hsi_tag_name >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_right_type;
@@ -13772,10 +13700,10 @@ namespace _internal {
 
 template< typename yiq_tag_name, typename rgb_tag_name >
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::rgb< rgb_tag_name >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::rgb< rgb_tag_name >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > category_left_type;
 	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
@@ -13794,14 +13722,14 @@ public:
 
 	enum {
 		luma_p = ::color::place::_internal::luma<category_left_type>::position_enum
-				 , inphase_p = ::color::place::_internal::inphase<category_left_type>::position_enum
-							   ,quadrature_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
+		, inphase_p = ::color::place::_internal::inphase<category_left_type>::position_enum
+		,quadrature_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
 	};
 
 	enum {
 		red_p = ::color::place::_internal::red<category_right_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
 
 	static void process
@@ -13835,10 +13763,10 @@ namespace _internal {
 
 template< typename tag_left_name, typename tag_right_name >
 struct convert
-		<
-		::color::category::yiq< tag_left_name >
-		,::color::category::yiq< tag_right_name>
-		> {
+	<
+	::color::category::yiq< tag_left_name >
+	,::color::category::yiq< tag_right_name>
+	> {
 public:
 	typedef ::color::category::yiq< tag_left_name > category_left_type;
 	typedef ::color::category::yiq< tag_right_name> category_right_type;
@@ -13855,14 +13783,14 @@ public:
 
 	enum {
 		ll_p = ::color::place::_internal::luma<category_left_type>::position_enum
-			   ,il_p = ::color::place::_internal::inphase<category_left_type>::position_enum
-					   ,ql_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
+		,il_p = ::color::place::_internal::inphase<category_left_type>::position_enum
+		,ql_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
 	};
 
 	enum {
 		lr_p = ::color::place::_internal::luma<category_right_type>::position_enum
-			   ,ir_p = ::color::place::_internal::inphase<category_right_type>::position_enum
-					   ,qr_p = ::color::place::_internal::quadrature<category_right_type>::position_enum
+		,ir_p = ::color::place::_internal::inphase<category_right_type>::position_enum
+		,qr_p = ::color::place::_internal::quadrature<category_right_type>::position_enum
 	};
 
 	static void process
@@ -14192,7 +14120,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct bound< ::color::category::yuv_double< reference_number > >
-		: public ::color::_internal::utility::bound::yuv_scalar< unsigned, double > {
+	: public ::color::_internal::utility::bound::yuv_scalar< unsigned, double > {
 };
 
 }
@@ -14203,7 +14131,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct bound< ::color::category::yuv_float<reference_number> >
-		: public ::color::_internal::utility::bound::yuv_scalar< unsigned, float > {
+	: public ::color::_internal::utility::bound::yuv_scalar< unsigned, float > {
 };
 
 }
@@ -14213,7 +14141,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct bound< ::color::category::yuv_ldouble<reference_number> >
-		: public ::color::_internal::utility::bound::yuv_scalar< unsigned, long double > {
+	: public ::color::_internal::utility::bound::yuv_scalar< unsigned, long double > {
 };
 
 }
@@ -14223,7 +14151,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct bound< ::color::category::yuv_uint16<reference_number> >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -14233,7 +14161,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct bound< ::color::category::yuv_uint32<reference_number> >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -14243,7 +14171,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct bound< ::color::category::yuv_uint64< reference_number> >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -14253,7 +14181,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct bound< ::color::category::yuv_uint8<reference_number> >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -14264,7 +14192,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_double<reference_number> >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -14274,7 +14202,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_float<reference_number> >
-		: public ::color::_internal::utility::component::array< float, unsigned > {
+	: public ::color::_internal::utility::component::array< float, unsigned > {
 };
 
 }
@@ -14284,7 +14212,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_ldouble<reference_number> >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -14294,7 +14222,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_uint16<reference_number> >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -14304,7 +14232,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_uint32<reference_number> >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -14314,7 +14242,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_uint64<reference_number> >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -14324,7 +14252,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_uint8< reference_number > >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -14335,7 +14263,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct container< ::color::category::yuv_double<reference_number> >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -14345,7 +14273,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct container< ::color::category::yuv_float< reference_number > >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -14355,7 +14283,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct container< ::color::category::yuv_ldouble<reference_number> >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -14365,7 +14293,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct container< ::color::category::yuv_uint16<reference_number> >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -14375,7 +14303,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct container< ::color::category::yuv_uint32< reference_number> >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -14385,7 +14313,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct container< ::color::category::yuv_uint64< reference_number > >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -14395,7 +14323,7 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct container< ::color::category::yuv_uint8<reference_number> >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -14476,7 +14404,7 @@ struct base< scalar_name, ::color::constant::yuv::BT_709_entity > {
 
 template< typename tag_name, ::color::constant::yuv::reference_enum reference_number >
 struct parameter
-		: public ::color::constant::yuv::_internal::base< typename ::color::trait::scalar< ::color::category::yuv< tag_name, reference_number > >::instance_type, reference_number > {
+	: public ::color::constant::yuv::_internal::base< typename ::color::trait::scalar< ::color::category::yuv< tag_name, reference_number > >::instance_type, reference_number > {
 public:
 	typedef ::color::category::yuv< tag_name, reference_number > category_type;
 
@@ -14758,10 +14686,10 @@ template
 	,typename gray_tag_name
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::gray< gray_tag_name >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::gray< gray_tag_name >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
@@ -14804,10 +14732,10 @@ template
 	,typename cmy_tag_name
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::cmy< cmy_tag_name >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::cmy< cmy_tag_name >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
@@ -14826,8 +14754,8 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-							  ,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -14864,10 +14792,10 @@ template
 	,typename cmyk_tag_name
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::cmyk< cmyk_tag_name >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::cmyk< cmyk_tag_name >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_left_type;
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_right_type;
@@ -14906,10 +14834,10 @@ template
 	, typename hsl_tag_name
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::hsl< hsl_tag_name >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::hsl< hsl_tag_name >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_left_type;
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_right_type;
@@ -14948,10 +14876,10 @@ template
 	,typename hsv_tag_name
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::hsv< hsv_tag_name >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::hsv< hsv_tag_name >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_left_type;
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_right_type;
@@ -14990,10 +14918,10 @@ template
 	,typename hsi_tag_name
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::hsi< hsi_tag_name >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::hsi< hsi_tag_name >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_left_type;
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_right_type;
@@ -15031,10 +14959,10 @@ template
 	,typename rgb_tag_name
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::rgb< rgb_tag_name >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::rgb< rgb_tag_name >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > category_left_type;
 	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
@@ -15058,8 +14986,8 @@ public:
 	) {
 		enum {
 			red_p = ::color::place::_internal::red<category_right_type>::position_enum
-					,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-							   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+			,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+			,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 		};
 		static scalar_type const Wr = yuv_parameter_type::Wr();
 		static scalar_type const Wb = yuv_parameter_type::Wb();
@@ -15090,10 +15018,10 @@ template
 	,typename yiq_tag_name
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::yiq< yiq_tag_name >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::yiq< yiq_tag_name >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_left_type;
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
@@ -15132,10 +15060,10 @@ template
 	,typename tag_right_name, ::color::constant::yuv::reference_enum right_reference_number
 	>
 struct convert
-		<
-		::color::category::yuv< tag_left_name, left_reference_number >
-		,::color::category::yuv< tag_right_name, right_reference_number>
-		> {
+	<
+	::color::category::yuv< tag_left_name, left_reference_number >
+	,::color::category::yuv< tag_right_name, right_reference_number>
+	> {
 public:
 	typedef ::color::category::yuv< tag_left_name , left_reference_number > category_left_type;
 	typedef ::color::category::yuv< tag_right_name, right_reference_number > category_right_type;
@@ -15510,7 +15438,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YCgCo_double >
-		: public ::color::_internal::utility::bound::YCgCo_scalar< unsigned, double > {
+	: public ::color::_internal::utility::bound::YCgCo_scalar< unsigned, double > {
 };
 
 }
@@ -15521,7 +15449,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YCgCo_float >
-		: public ::color::_internal::utility::bound::YCgCo_scalar< unsigned, float > {
+	: public ::color::_internal::utility::bound::YCgCo_scalar< unsigned, float > {
 };
 
 }
@@ -15531,7 +15459,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YCgCo_ldouble >
-		: public ::color::_internal::utility::bound::YCgCo_scalar< unsigned, long double > {
+	: public ::color::_internal::utility::bound::YCgCo_scalar< unsigned, long double > {
 };
 
 }
@@ -15541,7 +15469,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YCgCo_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -15551,7 +15479,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YCgCo_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -15561,7 +15489,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YCgCo_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -15571,7 +15499,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YCgCo_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -15582,7 +15510,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YCgCo_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -15592,7 +15520,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YCgCo_float >
-		: public ::color::_internal::utility::component::array< float, unsigned > {
+	: public ::color::_internal::utility::component::array< float, unsigned > {
 };
 
 }
@@ -15602,7 +15530,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YCgCo_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -15612,7 +15540,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YCgCo_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -15622,7 +15550,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YCgCo_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -15632,7 +15560,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YCgCo_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -15642,7 +15570,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YCgCo_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -15653,7 +15581,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YCgCo_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -15663,7 +15591,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YCgCo_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -15673,7 +15601,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YCgCo_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -15683,7 +15611,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YCgCo_uint16 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -15693,7 +15621,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YCgCo_uint32 >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -15703,7 +15631,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YCgCo_uint64 >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -15713,7 +15641,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YCgCo_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -16052,10 +15980,10 @@ namespace _internal {
 
 template< typename YCgCo_tag_name, typename gray_tag_name >
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::gray< gray_tag_name >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::gray< gray_tag_name >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
@@ -16094,10 +16022,10 @@ namespace _internal {
 
 template< typename YCgCo_tag_name, typename cmy_tag_name >
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::cmy< cmy_tag_name >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::cmy< cmy_tag_name >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
@@ -16116,8 +16044,8 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-							  ,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -16147,10 +16075,10 @@ namespace _internal {
 
 template< typename YCgCo_tag_name, typename cmyk_tag_name >
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::cmyk< cmyk_tag_name >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::cmyk< cmyk_tag_name >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_left_type;
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_right_type;
@@ -16185,10 +16113,10 @@ namespace _internal {
 
 template< typename YCgCo_tag_name, typename hsl_tag_name >
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::hsl< hsl_tag_name >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::hsl< hsl_tag_name >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_left_type;
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_right_type;
@@ -16223,10 +16151,10 @@ namespace _internal {
 
 template< typename YCgCo_tag_name, typename hsv_tag_name >
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::hsv< hsv_tag_name >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::hsv< hsv_tag_name >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_left_type;
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_right_type;
@@ -16261,10 +16189,10 @@ namespace _internal {
 
 template< typename YCgCo_tag_name, typename hsi_tag_name >
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::hsi< hsi_tag_name >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::hsi< hsi_tag_name >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_left_type;
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_right_type;
@@ -16299,10 +16227,10 @@ namespace _internal {
 
 template< typename YCgCo_tag_name, typename rgb_tag_name >
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::rgb< rgb_tag_name >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::rgb< rgb_tag_name >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > category_left_type;
 	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
@@ -16321,8 +16249,8 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_right_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
 
 	static void process
@@ -16352,10 +16280,10 @@ namespace _internal {
 
 template< typename YCgCo_tag_name, typename yiq_tag_name >
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::yiq< yiq_tag_name >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::yiq< yiq_tag_name >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_left_type;
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
@@ -16394,10 +16322,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
 	>
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_left_type;
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_right_type;
@@ -16432,10 +16360,10 @@ namespace _internal {
 
 template< typename tag_left_name, typename tag_right_name >
 struct convert
-		<
-		::color::category::YCgCo< tag_left_name >
-		,::color::category::YCgCo< tag_right_name>
-		> {
+	<
+	::color::category::YCgCo< tag_left_name >
+	,::color::category::YCgCo< tag_right_name>
+	> {
 public:
 	typedef ::color::category::YCgCo< tag_left_name > category_left_type;
 	typedef ::color::category::YCgCo< tag_right_name> category_right_type;
@@ -16811,7 +16739,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YDbDr_double >
-		: public ::color::_internal::utility::bound::YDbDr_scalar< unsigned, double > {
+	: public ::color::_internal::utility::bound::YDbDr_scalar< unsigned, double > {
 };
 
 }
@@ -16822,7 +16750,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YDbDr_float >
-		: public ::color::_internal::utility::bound::YDbDr_scalar< unsigned, float > {
+	: public ::color::_internal::utility::bound::YDbDr_scalar< unsigned, float > {
 };
 
 }
@@ -16832,7 +16760,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YDbDr_ldouble >
-		: public ::color::_internal::utility::bound::YDbDr_scalar< unsigned, long double > {
+	: public ::color::_internal::utility::bound::YDbDr_scalar< unsigned, long double > {
 };
 
 }
@@ -16842,7 +16770,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YDbDr_uint16 >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -16852,7 +16780,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YDbDr_uint32 >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -16862,7 +16790,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YDbDr_uint64 >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -16872,7 +16800,7 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YDbDr_uint8 >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -16883,7 +16811,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YDbDr_double >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -16893,7 +16821,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YDbDr_float >
-		: public ::color::_internal::utility::component::array< float, unsigned > {
+	: public ::color::_internal::utility::component::array< float, unsigned > {
 };
 
 }
@@ -16903,7 +16831,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YDbDr_ldouble >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -16913,7 +16841,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YDbDr_uint16 >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -16923,7 +16851,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YDbDr_uint32 >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -16933,7 +16861,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YDbDr_uint64 >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -16943,7 +16871,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YDbDr_uint8 >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -16954,7 +16882,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YDbDr_double >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -16964,7 +16892,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YDbDr_float >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -16974,7 +16902,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YDbDr_ldouble >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -16984,7 +16912,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YDbDr_uint16 >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -16994,7 +16922,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YDbDr_uint32 >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -17004,7 +16932,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YDbDr_uint64 >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -17014,7 +16942,7 @@ namespace trait {
 
 template< >
 struct container< ::color::category::YDbDr_uint8 >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -17339,10 +17267,10 @@ namespace _internal {
 
 template< typename YDbDr_tag_name, typename gray_tag_name >
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::gray< gray_tag_name >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::gray< gray_tag_name >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
@@ -17381,10 +17309,10 @@ namespace _internal {
 
 template< typename YDbDr_tag_name, typename cmy_tag_name >
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::cmy< cmy_tag_name >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::cmy< cmy_tag_name >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
@@ -17403,8 +17331,8 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -17441,10 +17369,10 @@ namespace _internal {
 
 template< typename YDbDr_tag_name, typename cmyk_tag_name >
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::cmyk< cmyk_tag_name >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::cmyk< cmyk_tag_name >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_left_type;
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_right_type;
@@ -17479,10 +17407,10 @@ namespace _internal {
 
 template< typename YDbDr_tag_name, typename hsl_tag_name >
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::hsl< hsl_tag_name >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::hsl< hsl_tag_name >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_left_type;
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_right_type;
@@ -17517,10 +17445,10 @@ namespace _internal {
 
 template< typename YDbDr_tag_name, typename hsv_tag_name >
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::hsv< hsv_tag_name >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::hsv< hsv_tag_name >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_left_type;
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_right_type;
@@ -17555,10 +17483,10 @@ namespace _internal {
 
 template< typename YDbDr_tag_name, typename hsi_tag_name >
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::hsi< hsi_tag_name >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::hsi< hsi_tag_name >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_left_type;
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_right_type;
@@ -17593,10 +17521,10 @@ namespace _internal {
 
 template< typename YDbDr_tag_name, typename rgb_tag_name >
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::rgb< rgb_tag_name >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::rgb< rgb_tag_name >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > category_left_type;
 	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
@@ -17615,8 +17543,8 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_right_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
 
 	static void process
@@ -17653,10 +17581,10 @@ namespace _internal {
 
 template< typename YDbDr_tag_name, typename yiq_tag_name >
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::yiq< yiq_tag_name >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::yiq< yiq_tag_name >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_left_type;
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
@@ -17695,10 +17623,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
 	>
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_left_type;
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_right_type;
@@ -17733,10 +17661,10 @@ namespace _internal {
 
 template< typename YDbDr_tag_name, typename YCgCo_tag_name >
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::YCgCo< YCgCo_tag_name >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_left_type;
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_right_type;
@@ -17771,10 +17699,10 @@ namespace _internal {
 
 template< typename tag_left_name, typename tag_right_name >
 struct convert
-		<
-		::color::category::YDbDr< tag_left_name >
-		,::color::category::YDbDr< tag_right_name>
-		> {
+	<
+	::color::category::YDbDr< tag_left_name >
+	,::color::category::YDbDr< tag_right_name>
+	> {
 public:
 	typedef ::color::category::YDbDr< tag_left_name > category_left_type;
 	typedef ::color::category::YDbDr< tag_right_name> category_right_type;
@@ -18164,7 +18092,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct bound< ::color::category::YPbPr_double<reference_number> >
-		: public ::color::_internal::utility::bound::YPbPr_scalar< unsigned, double > {
+	: public ::color::_internal::utility::bound::YPbPr_scalar< unsigned, double > {
 };
 
 }
@@ -18175,7 +18103,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct bound< ::color::category::YPbPr_float< reference_number > >
-		: public ::color::_internal::utility::bound::YPbPr_scalar< unsigned, float > {
+	: public ::color::_internal::utility::bound::YPbPr_scalar< unsigned, float > {
 };
 
 }
@@ -18185,7 +18113,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct bound< ::color::category::YPbPr_ldouble<reference_number> >
-		: public ::color::_internal::utility::bound::YPbPr_scalar< unsigned, long double > {
+	: public ::color::_internal::utility::bound::YPbPr_scalar< unsigned, long double > {
 };
 
 }
@@ -18195,7 +18123,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct bound< ::color::category::YPbPr_uint16<reference_number> >
-		: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
 };
 
 }
@@ -18205,7 +18133,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct bound< ::color::category::YPbPr_uint32<reference_number> >
-		: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
 };
 
 }
@@ -18215,7 +18143,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct bound< ::color::category::YPbPr_uint64<reference_number> >
-		: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
 };
 
 }
@@ -18225,7 +18153,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct bound< ::color::category::YPbPr_uint8<reference_number> >
-		: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
 };
 
 }
@@ -18236,7 +18164,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_double<reference_number> >
-		: public ::color::_internal::utility::component::array< double, unsigned > {
+	: public ::color::_internal::utility::component::array< double, unsigned > {
 };
 
 }
@@ -18246,7 +18174,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_float<reference_number> >
-		: public ::color::_internal::utility::component::array< float, unsigned > {
+	: public ::color::_internal::utility::component::array< float, unsigned > {
 };
 
 }
@@ -18256,7 +18184,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_ldouble<reference_number> >
-		: public ::color::_internal::utility::component::array< long double, unsigned> {
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
 };
 
 }
@@ -18266,7 +18194,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_uint16<reference_number> >
-		: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
 };
 
 }
@@ -18276,7 +18204,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_uint32<reference_number> >
-		: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
 };
 
 }
@@ -18286,7 +18214,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_uint64<reference_number> >
-		: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
 };
 
 }
@@ -18296,7 +18224,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_uint8<reference_number> >
-		: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
 };
 
 }
@@ -18307,7 +18235,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct container< ::color::category::YPbPr_double<reference_number> >
-		: public ::color::_internal::utility::container::array< double, 3 > {
+	: public ::color::_internal::utility::container::array< double, 3 > {
 };
 
 }
@@ -18317,7 +18245,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct container< ::color::category::YPbPr_float<reference_number> >
-		: public ::color::_internal::utility::container::array< float, 3 > {
+	: public ::color::_internal::utility::container::array< float, 3 > {
 };
 
 }
@@ -18327,7 +18255,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct container< ::color::category::YPbPr_ldouble<reference_number> >
-		: public ::color::_internal::utility::container::array< long double, 3 > {
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -18337,7 +18265,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct container< ::color::category::YPbPr_uint16<reference_number> >
-		: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
 };
 
 }
@@ -18347,7 +18275,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct container< ::color::category::YPbPr_uint32<reference_number> >
-		: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
 };
 
 }
@@ -18357,7 +18285,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct container< ::color::category::YPbPr_uint64<reference_number> >
-		: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
 };
 
 }
@@ -18367,7 +18295,7 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct container< ::color::category::YPbPr_uint8<reference_number> >
-		: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
 };
 
 }
@@ -18438,7 +18366,7 @@ struct base< scalar_name, ::color::constant::YPbPr::BT_2020_entity > {
 
 template< typename tag_name, ::color::constant::YPbPr::reference_enum reference_number >
 struct parameter
-		: public ::color::constant::YPbPr::_internal::base< typename ::color::trait::scalar< ::color::category::YPbPr<tag_name,reference_number> >::instance_type, reference_number > {
+	: public ::color::constant::YPbPr::_internal::base< typename ::color::trait::scalar< ::color::category::YPbPr<tag_name,reference_number> >::instance_type, reference_number > {
 public:
 	typedef ::color::category::YPbPr<tag_name,reference_number > category_type;
 
@@ -18788,10 +18716,10 @@ template
 	,typename gray_tag_name
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::gray< gray_tag_name >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::gray< gray_tag_name >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
@@ -18834,10 +18762,10 @@ template
 	,typename cmy_tag_name
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::cmy< cmy_tag_name >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::cmy< cmy_tag_name >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
@@ -18856,8 +18784,8 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-							  ,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -18891,10 +18819,10 @@ template
 	,typename cmyk_tag_name
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::cmyk< cmyk_tag_name >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::cmyk< cmyk_tag_name >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_left_type;
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_right_type;
@@ -18933,10 +18861,10 @@ template
 	,typename hsl_tag_name
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::hsl< hsl_tag_name >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::hsl< hsl_tag_name >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_left_type;
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_right_type;
@@ -18975,10 +18903,10 @@ template
 	,typename hsv_tag_name
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::hsv< hsv_tag_name >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::hsv< hsv_tag_name >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name,YPbPr_reference_number > YPbPr_category_type, category_left_type;
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_right_type;
@@ -19017,10 +18945,10 @@ template
 	,typename hsi_tag_name
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::hsi< hsi_tag_name >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::hsi< hsi_tag_name >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name,YPbPr_reference_number > YPbPr_category_type, category_left_type;
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_right_type;
@@ -19059,10 +18987,10 @@ template
 	,typename rgb_tag_name
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::rgb< rgb_tag_name >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::rgb< rgb_tag_name >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > category_left_type;
 	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
@@ -19081,8 +19009,8 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_right_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
 
 	static void process
@@ -19116,10 +19044,10 @@ template
 	,typename yiq_tag_name
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::yiq< yiq_tag_name >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::yiq< yiq_tag_name >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_left_type;
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
@@ -19158,10 +19086,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_left_type;
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_right_type;
@@ -19200,10 +19128,10 @@ template
 	,typename YCgCo_tag_name
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::YCgCo< YCgCo_tag_name >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_left_type;
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_right_type;
@@ -19242,10 +19170,10 @@ template
 	,typename YDbDr_tag_name
 	>
 struct convert
-		<
-		::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		,::color::category::YDbDr< YDbDr_tag_name >
-		> {
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
 public:
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_left_type;
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_right_type;
@@ -19284,10 +19212,10 @@ template
 	,typename tag_right_name, ::color::constant::YPbPr::reference_enum reference_right_number
 	>
 struct convert
-		<
-		::color::category::YPbPr< tag_left_name, reference_left_number >
-		,::color::category::YPbPr< tag_right_name, reference_right_number >
-		> {
+	<
+	::color::category::YPbPr< tag_left_name, reference_left_number >
+	,::color::category::YPbPr< tag_right_name, reference_right_number >
+	> {
 public:
 	typedef ::color::category::YPbPr< tag_left_name , reference_left_number > category_left_type;
 	typedef ::color::category::YPbPr< tag_right_name, reference_right_number > category_right_type;
@@ -21091,10 +21019,10 @@ template
 	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::YDbDr< YDbDr_tag_name >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		> {
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
 public:
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_left_type;
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_right_type;
@@ -21910,10 +21838,10 @@ namespace _internal {
 
 template< typename YCgCo_tag_name, typename YDbDr_tag_name >
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::YDbDr< YDbDr_tag_name >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_left_type;
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_right_type;
@@ -21952,10 +21880,10 @@ template
 	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::YCgCo< YCgCo_tag_name >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		> {
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
 public:
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_left_type;
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_right_type;
@@ -22775,10 +22703,10 @@ template
 	,typename YCgCo_tag_name
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::YCgCo< YCgCo_tag_name >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_left_type;
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_right_type;
@@ -22817,10 +22745,10 @@ template
 	,typename YDbDr_tag_name
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::YDbDr< YDbDr_tag_name >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_left_type;
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_right_type;
@@ -22859,10 +22787,10 @@ template
 	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::yuv< yuv_tag_name, yuv_reference_number >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		> {
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
 public:
 	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_left_type;
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_right_type;
@@ -24175,10 +24103,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum reference_number
 	>
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::yuv< yuv_tag_name, reference_number >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::yuv< yuv_tag_name, reference_number >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
 	typedef ::color::category::yuv< yuv_tag_name, reference_number > yuv_category_type, category_right_type;
@@ -24213,10 +24141,10 @@ namespace _internal {
 
 template< typename yiq_tag_name, typename YCgCo_tag_name >
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::YCgCo< YCgCo_tag_name >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_right_type;
@@ -24251,10 +24179,10 @@ namespace _internal {
 
 template< typename yiq_tag_name, typename YDbDr_tag_name >
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::YDbDr< YDbDr_tag_name >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_right_type;
@@ -24294,10 +24222,10 @@ template
 	,::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::yiq< yiq_tag_name >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		> {
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
 public:
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_right_type;
@@ -25113,10 +25041,10 @@ namespace _internal {
 
 template< typename hsi_tag_name, typename yiq_tag_name >
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::yiq< yiq_tag_name >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::yiq< yiq_tag_name >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
@@ -25155,10 +25083,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum reference_number
 	>
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::yuv< yuv_tag_name, reference_number >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::yuv< yuv_tag_name, reference_number >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
 	typedef ::color::category::yuv< yuv_tag_name, reference_number > yuv_category_type, category_right_type;
@@ -25193,10 +25121,10 @@ namespace _internal {
 
 template< typename hsi_tag_name, typename YCgCo_tag_name >
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::YCgCo< YCgCo_tag_name >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_right_type;
@@ -25231,10 +25159,10 @@ namespace _internal {
 
 template< typename hsi_tag_name, typename YDbDr_tag_name >
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::YDbDr< YDbDr_tag_name >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_right_type;
@@ -25273,10 +25201,10 @@ template
 	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::hsi< hsi_tag_name >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		> {
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
 public:
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_right_type;
@@ -26096,10 +26024,10 @@ template
 	,typename hsi_right_name
 	>
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::hsi< hsi_right_name>
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::hsi< hsi_right_name>
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
 	typedef ::color::category::hsi< hsi_right_name> hsi_category_type, category_right_type;
@@ -26134,10 +26062,10 @@ namespace _internal {
 
 template< typename hsv_tag_name, typename rgb_tag_name >
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::rgb< rgb_tag_name >
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::rgb< rgb_tag_name >
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > category_left_type;
 	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
@@ -26156,14 +26084,14 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-								, value_p = ::color::place::_internal::value<category_left_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		, value_p = ::color::place::_internal::value<category_left_type>::position_enum
 	};
 
 	enum {
 		red_p = ::color::place::_internal::red<category_right_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-						   , blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		, blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
 
 	static void process
@@ -26206,10 +26134,10 @@ namespace _internal {
 
 template< typename hsv_tag_name, typename yiq_tag_name >
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::yiq< yiq_tag_name >
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::yiq< yiq_tag_name >
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
@@ -26248,10 +26176,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum reference_number
 	>
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::yuv< yuv_tag_name, reference_number >
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::yuv< yuv_tag_name, reference_number >
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
 	typedef ::color::category::yuv< yuv_tag_name, reference_number > yuv_category_type, category_right_type;
@@ -26286,10 +26214,10 @@ namespace _internal {
 
 template< typename hsv_tag_name, typename YCgCo_tag_name >
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::YCgCo< YCgCo_tag_name >
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_right_type;
@@ -26324,10 +26252,10 @@ namespace _internal {
 
 template< typename hsv_tag_name, typename YDbDr_tag_name >
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::YDbDr< YDbDr_tag_name >
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_right_type;
@@ -26366,10 +26294,10 @@ template
 	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::hsv< hsv_tag_name >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		> {
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
 public:
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_right_type;
@@ -27185,10 +27113,10 @@ namespace _internal {
 
 template< typename hsl_tag_name, typename hsv_tag_name >
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::hsv< hsv_tag_name >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::hsv< hsv_tag_name >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > category_left_type;
 	typedef ::color::category::hsv< hsv_tag_name > category_right_type;
@@ -27234,10 +27162,10 @@ template
 	,typename hsi_tag_name
 	>
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::hsi< hsi_tag_name >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::hsi< hsi_tag_name >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_left_type;
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_right_type;
@@ -27272,10 +27200,10 @@ namespace _internal {
 
 template< typename hsl_tag_name, typename rgb_tag_name >
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::rgb< rgb_tag_name >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::rgb< rgb_tag_name >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > category_left_type;
 	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
@@ -27294,14 +27222,14 @@ public:
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
-								, lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
+		, lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
 	};
 
 	enum {
 		red_p = ::color::place::_internal::red<category_right_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
 
 	static void process
@@ -27344,10 +27272,10 @@ namespace _internal {
 
 template< typename hsl_tag_name, typename yiq_tag_name >
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::yiq< yiq_tag_name >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::yiq< yiq_tag_name >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_left_type;
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
@@ -27386,10 +27314,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum reference_number
 	>
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::yuv< yuv_tag_name, reference_number >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::yuv< yuv_tag_name, reference_number >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_left_type;
 	typedef ::color::category::yuv< yuv_tag_name, reference_number > yuv_category_type, category_right_type;
@@ -27424,10 +27352,10 @@ namespace _internal {
 
 template< typename hsl_tag_name, typename YCgCo_tag_name >
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::YCgCo< YCgCo_tag_name >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_left_type;
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_right_type;
@@ -27462,10 +27390,10 @@ namespace _internal {
 
 template< typename hsl_tag_name, typename YDbDr_tag_name >
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::YDbDr< YDbDr_tag_name >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_left_type;
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_right_type;
@@ -27504,10 +27432,10 @@ template
 	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::hsl< hsl_tag_name >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		> {
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
 public:
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_left_type;
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_right_type;
@@ -28323,10 +28251,10 @@ namespace _internal {
 
 template< typename rgb_tag_name, typename hsl_tag_name >
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::hsl<hsl_tag_name>
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::hsl<hsl_tag_name>
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::hsl<hsl_tag_name> category_right_type;
@@ -28345,14 +28273,14 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_left_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 	};
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_right_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-								,lightness_p = ::color::place::_internal::lightness<category_right_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,lightness_p = ::color::place::_internal::lightness<category_right_type>::position_enum
 	};
 
 	static void process
@@ -28405,10 +28333,10 @@ namespace _internal {
 
 template< typename rgb_tag_name, typename hsv_tag_name >
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::hsv< hsv_tag_name >
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::hsv< hsv_tag_name >
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::hsv< hsv_tag_name > category_right_type;
@@ -28425,14 +28353,14 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_left_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 	};
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_right_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-								,value_p = ::color::place::_internal::value<category_right_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,value_p = ::color::place::_internal::value<category_right_type>::position_enum
 	};
 
 	static void process
@@ -28485,10 +28413,10 @@ namespace _internal {
 
 template< typename rgb_tag_name, typename hsi_tag_name >
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::hsi< hsi_tag_name >
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::hsi< hsi_tag_name >
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::hsi< hsi_tag_name > category_right_type;
@@ -28507,14 +28435,14 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_left_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 	};
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_right_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-								,intensity_p = ::color::place::_internal::intensity<category_right_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,intensity_p = ::color::place::_internal::intensity<category_right_type>::position_enum
 	};
 
 	static void process
@@ -28564,10 +28492,10 @@ namespace _internal {
 
 template< typename tag_left_name, typename tag_right_name >
 struct convert
-		<
-		::color::category::rgb< tag_left_name >
-		,::color::category::rgb< tag_right_name>
-		> {
+	<
+	::color::category::rgb< tag_left_name >
+	,::color::category::rgb< tag_right_name>
+	> {
 public:
 	typedef ::color::category::rgb< tag_left_name > category_left_type;
 	typedef ::color::category::rgb< tag_right_name> category_right_type;
@@ -28589,11 +28517,11 @@ public:
 	) {
 		enum {
 			rl = ::color::place::_internal::red<category_left_type>::position_enum
-				 ,gl = ::color::place::_internal::green<category_left_type>::position_enum
-					   ,bl = ::color::place::_internal::blue<category_left_type>::position_enum
-							 ,rr = ::color::place::_internal::red<category_right_type>::position_enum
-								   ,gr = ::color::place::_internal::green<category_right_type>::position_enum
-										 ,br = ::color::place::_internal::blue<category_right_type>::position_enum
+			,gl = ::color::place::_internal::green<category_left_type>::position_enum
+			,bl = ::color::place::_internal::blue<category_left_type>::position_enum
+			,rr = ::color::place::_internal::red<category_right_type>::position_enum
+			,gr = ::color::place::_internal::green<category_right_type>::position_enum
+			,br = ::color::place::_internal::blue<category_right_type>::position_enum
 		};
 		container_left_trait_type::template set<rl>(left, reformat_type::template process<rl,rr>(container_right_trait_type::template get<rr>(right)));
 		container_left_trait_type::template set<gl>(left, reformat_type::template process<gl,gr>(container_right_trait_type::template get<gr>(right)));
@@ -28608,10 +28536,10 @@ namespace _internal {
 
 template< typename rgb_tag_name, typename yiq_tag_name >
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::yiq<yiq_tag_name>
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::yiq<yiq_tag_name>
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::yiq<yiq_tag_name> category_right_type;
@@ -28630,14 +28558,14 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_left_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 	};
 
 	enum {
 		luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
-				 , inphase_p = ::color::place::_internal::inphase<category_right_type>::position_enum
-							   ,quadrature_p = ::color::place::_internal::quadrature<category_right_type>::position_enum
+		, inphase_p = ::color::place::_internal::inphase<category_right_type>::position_enum
+		,quadrature_p = ::color::place::_internal::quadrature<category_right_type>::position_enum
 	};
 
 	static void process
@@ -28674,10 +28602,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
 	>
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::yuv< yuv_tag_name, yuv_reference_number>
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::yuv< yuv_tag_name, yuv_reference_number>
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::yuv<yuv_tag_name, yuv_reference_number> category_right_type;
@@ -28696,8 +28624,8 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_left_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 	};
 
 	static void process
@@ -28735,10 +28663,10 @@ namespace _internal {
 
 template< typename rgb_tag_name, typename YCgCo_tag_name >
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::YCgCo< YCgCo_tag_name>
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name>
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::YCgCo<YCgCo_tag_name> category_right_type;
@@ -28757,8 +28685,8 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_left_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 	};
 
 	static void process
@@ -28788,10 +28716,10 @@ namespace _internal {
 
 template< typename rgb_tag_name, typename YDbDr_tag_name >
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::YDbDr< YDbDr_tag_name>
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name>
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::YDbDr<YDbDr_tag_name> category_right_type;
@@ -28810,8 +28738,8 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_left_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 	};
 
 	static void process
@@ -28853,10 +28781,10 @@ template
 	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::rgb< rgb_tag_name >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number>
-		> {
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number>
+	> {
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::YPbPr<YPbPr_tag_name, YPbPr_reference_number> category_right_type;
@@ -28875,8 +28803,8 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_left_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_left_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
 	};
 
 	static void process
@@ -29694,10 +29622,10 @@ namespace _internal {
 
 template< typename cmyk_tag_name, typename gray_tag_name >
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::gray< gray_tag_name >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::gray< gray_tag_name >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
@@ -29715,9 +29643,9 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
-										   , key_p = ::color::place::_internal::key<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_left_type>::position_enum
 	};
 
 	static void process
@@ -29740,10 +29668,10 @@ namespace _internal {
 
 template< typename cmyk_tag_name, typename cmy_tag_name >
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::cmy< cmy_tag_name >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::cmy< cmy_tag_name >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
@@ -29762,15 +29690,15 @@ public:
 
 	enum {
 		cl_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-			   ,ml_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-					   ,yl_p = ::color::place::_internal::yellow<category_left_type>::position_enum
-							   ,kl_p = ::color::place::_internal::key<category_left_type>::position_enum
+		,ml_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		,yl_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,kl_p = ::color::place::_internal::key<category_left_type>::position_enum
 	};
 
 	enum {
 		cr_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-			   ,mr_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-					   ,yr_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,mr_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yr_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -29805,10 +29733,10 @@ namespace _internal {
 
 template< typename tag_left_name, typename tag_right_name >
 struct convert
-		<
-		::color::category::cmyk< tag_left_name >
-		,::color::category::cmyk< tag_right_name>
-		> {
+	<
+	::color::category::cmyk< tag_left_name >
+	,::color::category::cmyk< tag_right_name>
+	> {
 public:
 	typedef ::color::category::cmyk< tag_left_name > category_left_type;
 	typedef ::color::category::cmyk< tag_right_name> category_right_type;
@@ -29825,16 +29753,16 @@ public:
 
 	enum {
 		cl_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-			   ,ml_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-					   ,yl_p = ::color::place::_internal::yellow<category_left_type>::position_enum
-							   ,kl_p = ::color::place::_internal::key<category_left_type>::position_enum
+		,ml_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		,yl_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,kl_p = ::color::place::_internal::key<category_left_type>::position_enum
 	};
 
 	enum {
 		cr_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-			   ,mr_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-					   ,yr_p = ::color::place::_internal::yellow<category_right_type>::position_enum
-							   ,kr_p = ::color::place::_internal::key<category_right_type>::position_enum
+		,mr_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yr_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,kr_p = ::color::place::_internal::key<category_right_type>::position_enum
 	};
 
 	static void process
@@ -29857,10 +29785,10 @@ namespace _internal {
 
 template< typename cmyk_tag_name, typename hsl_tag_name >
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::hsl< hsl_tag_name >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::hsl< hsl_tag_name >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_left_type;
 	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_right_type;
@@ -29895,10 +29823,10 @@ namespace _internal {
 
 template< typename cmyk_tag_name, typename hsv_tag_name >
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::hsv< hsv_tag_name >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::hsv< hsv_tag_name >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_left_type;
 	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_right_type;
@@ -29933,10 +29861,10 @@ namespace _internal {
 
 template< typename cmyk_tag_name, typename hsi_tag_name >
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::hsi< hsi_tag_name >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::hsi< hsi_tag_name >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_left_type;
 	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_right_type;
@@ -29971,10 +29899,10 @@ namespace _internal {
 
 template< typename cmyk_tag_name, typename rgb_tag_name >
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::rgb< rgb_tag_name >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::rgb< rgb_tag_name >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > category_left_type;
 	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
@@ -29993,15 +29921,15 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_right_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
-										   , key_p = ::color::place::_internal::key<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_left_type>::position_enum
 	};
 
 	static void process
@@ -30036,10 +29964,10 @@ namespace _internal {
 
 template< typename cmyk_tag_name, typename yiq_tag_name >
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::yiq< yiq_tag_name >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::yiq< yiq_tag_name >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_left_type;
 	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
@@ -30078,10 +30006,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum reference_number
 	>
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::yuv< yuv_tag_name, reference_number >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::yuv< yuv_tag_name, reference_number >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_left_type;
 	typedef ::color::category::yuv< yuv_tag_name, reference_number > yuv_category_type, category_right_type;
@@ -30116,10 +30044,10 @@ namespace _internal {
 
 template< typename cmyk_tag_name, typename YCgCo_tag_name >
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::YCgCo< YCgCo_tag_name >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_left_type;
 	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_right_type;
@@ -30154,10 +30082,10 @@ namespace _internal {
 
 template< typename cmyk_tag_name, typename YDbDr_tag_name >
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::YDbDr< YDbDr_tag_name >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_left_type;
 	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_right_type;
@@ -30196,10 +30124,10 @@ template
 	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::cmyk< cmyk_tag_name >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		> {
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_left_type;
 	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_right_type;
@@ -31015,10 +30943,10 @@ namespace _internal {
 
 template< typename gray_tag_name, typename cmyk_tag_name >
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::cmyk<cmyk_tag_name>
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::cmyk<cmyk_tag_name>
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::cmyk<cmyk_tag_name> category_right_type;
@@ -31037,9 +30965,9 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
-										   , key_p = ::color::place::_internal::key<category_right_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		, key_p = ::color::place::_internal::key<category_right_type>::position_enum
 	};
 
 	static void process
@@ -31067,10 +30995,10 @@ namespace _internal {
 
 template< typename gray_tag_name, typename hsl_tag_name >
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::hsl<hsl_tag_name>
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::hsl<hsl_tag_name>
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::hsl<hsl_tag_name> category_right_type;
@@ -31105,10 +31033,10 @@ namespace _internal {
 
 template< typename gray_tag_name, typename hsv_tag_name >
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::hsv<hsv_tag_name>
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::hsv<hsv_tag_name>
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::hsv<hsv_tag_name> category_right_type;
@@ -31143,10 +31071,10 @@ namespace _internal {
 
 template< typename gray_tag_name, typename hsi_tag_name >
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::hsi<hsi_tag_name>
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::hsi<hsi_tag_name>
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::hsi<hsi_tag_name> category_right_type;
@@ -31181,10 +31109,10 @@ namespace _internal {
 
 template< typename gray_tag_name, typename rgb_tag_name >
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::rgb< rgb_tag_name >
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::rgb< rgb_tag_name >
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
@@ -31203,8 +31131,8 @@ public:
 
 	enum {
 		red_p = ::color::place::_internal::red<category_right_type>::position_enum
-				, green_p = ::color::place::_internal::green<category_right_type>::position_enum
-							, blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		, green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		, blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
 
 	static void process
@@ -31228,10 +31156,10 @@ namespace _internal {
 
 template< typename gray_tag_name, typename yiq_tag_name >
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::yiq< yiq_tag_name >
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::yiq< yiq_tag_name >
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::yiq<yiq_tag_name> category_right_type;
@@ -31270,10 +31198,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum reference_number
 	>
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::yuv< yuv_tag_name, reference_number >
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::yuv< yuv_tag_name, reference_number >
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::yuv<yuv_tag_name, reference_number> category_right_type;
@@ -31308,10 +31236,10 @@ namespace _internal {
 
 template< typename gray_tag_name, typename YCgCo_tag_name >
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::YCgCo< YCgCo_tag_name >
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::YCgCo<YCgCo_tag_name> category_right_type;
@@ -31346,10 +31274,10 @@ namespace _internal {
 
 template< typename gray_tag_name, typename YDbDr_tag_name >
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::YDbDr< YDbDr_tag_name >
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::YDbDr<YDbDr_tag_name> category_right_type;
@@ -31388,10 +31316,10 @@ template
 	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::gray< gray_tag_name >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-		> {
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::YPbPr<YPbPr_tag_name, YPbPr_reference_number> category_right_type;
@@ -32244,7 +32172,7 @@ normalize
 	::color::model<category_name> const& m
 	,typename ::color::trait::index<category_name>::input_const_type index
 ) {
-	return ::color::_internal::normalize<category_name>::process(m[index], index) ;
+	return ::color::_internal::normalize<category_name>::process(m.get(index), index) ;
 }
 
 template
@@ -32273,30 +32201,38 @@ struct gamma {
 public:
 	typedef category_name category_type;
 
-	typedef ::color::trait::container< category_name > container_trait_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef typename ::color::trait::scalar<category_type>::input_const_type scalar_const_input_type;
 
 	typedef typename ::color::trait::index<category_type>::instance_type index_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 
-	typedef typename ::color::model<category_type> model_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef model_type & model_input_type;
+	typedef model_type const& model_const_input_type;
 
 	typedef ::color::_internal::diverse< category_type > diverse_type;
 	typedef ::color::_internal::normalize< category_type > normalize_type;
 
-	static model_type & process(model_type &result, scalar_type const& g) {
+	typedef ::color::operation::_internal::gamma< category_name > this_type;
+
+	static model_type & process(model_input_type result, scalar_const_input_type scalar) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
-			scalar_type s = normalize_type::process(result[index], index);
-			result.set(index, diverse_type::process(std::pow(s, g), index));
+			result.set(index, diverse_type::process(this_type::process(normalize_type::process(result.get(index), index), scalar), index));
 		}
 		return result;
 	}
 
-	static model_type & process(model_type & result, model_type const& right, scalar_type const& g) {
+	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type value) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
-			scalar_type s = normalize_type::process(right[index], index);
-			result.set(index, diverse_type::process(std::pow(s, g), index));
+			result.set(index, diverse_type::process(this_type::process(normalize_type::process(left.get(index), index), value), index));
 		}
 		return result;
+	}
+
+	static scalar_type process(scalar_const_input_type x, scalar_const_input_type value) {
+		return std::pow(x, scalar_type(1)/value);
 	}
 
 };
@@ -32306,9 +32242,9 @@ template< typename category_name >
 void gamma
 (
 	::color::model<category_name> & result
-	,typename ::color::trait::scalar<category_name>::instance_type const& g
+	,typename ::color::trait::scalar<category_name>::instance_type const& value
 ) {
-	::color::operation::_internal::gamma<category_name>::process(result, g);
+	::color::operation::_internal::gamma<category_name>::process(result, value);
 }
 
 template< typename category_name >
@@ -32316,9 +32252,9 @@ void gamma
 (
 	::color::model<category_name> & result
 	, ::color::model<category_name> const& right
-	,typename ::color::trait::scalar<category_name>::instance_type const& g
+	,typename ::color::trait::scalar<category_name>::instance_type const& value
 ) {
-	::color::operation::_internal::gamma<category_name>::process(result, right, g);
+	::color::operation::_internal::gamma<category_name>::process(result, right, value);
 }
 
 }
@@ -32339,7 +32275,7 @@ gamma
 	typedef ::color::_internal::diverse< category_type > diverse_type;
 	typedef ::color::_internal::normalize< category_type > normalize_type;
 	scalar_type s = normalize_type::template process<0>(result.template get<0>());
-	result.template set<0>(diverse_type::template process<0>(std::pow(s, value)));
+	result.template set<0>(diverse_type::template process<0>(std::pow(s, scalar_type(1)/value)));
 	return result;
 }
 
@@ -32356,7 +32292,7 @@ gamma
 	typedef ::color::_internal::diverse< category_type > diverse_type;
 	typedef ::color::_internal::normalize< category_type > normalize_type;
 	scalar_type s = normalize_type::template process<0>(right.template get<0>());
-	result.template set<0>(diverse_type::template process<0>(std::pow(s, value)));
+	result.template set<0>(diverse_type::template process<0>(std::pow(s, scalar_type(1)/value)));
 	return result;
 }
 
@@ -32367,7 +32303,9 @@ gamma
 	::color::model< ::color::category::gray_float > & result
 	,typename ::color::trait::scalar< ::color::category::gray_float >::instance_type const& value
 ) {
-	result.set<0>(std::pow(result.get<0>(), value));
+	typedef ::color::category::gray_float category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	result.set<0>(std::pow(result.get<0>(), scalar_type(1)/value));
 	return result;
 }
 
@@ -32379,7 +32317,9 @@ gamma
 	, ::color::model< ::color::category::gray_float > const& right
 	,typename ::color::trait::scalar< ::color::category::gray_float >::instance_type const& value
 ) {
-	result.set<0>(std::pow(right.get<0>(), value));
+	typedef ::color::category::gray_float category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	result.set<0>(std::pow(right.get<0>(), scalar_type(1)/value));
 	return result;
 }
 
@@ -32390,7 +32330,9 @@ gamma
 	::color::model< ::color::category::gray_double > & result
 	,typename ::color::trait::scalar< ::color::category::gray_double >::instance_type const& value
 ) {
-	result.set<0>(std::pow(result.get<0>(), value));
+	typedef ::color::category::gray_double category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	result.set<0>(std::pow(result.get<0>(), scalar_type(1)/value));
 	return result;
 }
 
@@ -32402,7 +32344,9 @@ gamma
 	, ::color::model< ::color::category::gray_double > const& right
 	,typename ::color::trait::scalar< ::color::category::gray_double >::instance_type const& value
 ) {
-	result.set<0>(std::pow(right.get<0>(), value));
+	typedef ::color::category::gray_double category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	result.set<0>(std::pow(right.get<0>(), scalar_type(1)/value));
 	return result;
 }
 
@@ -32413,7 +32357,9 @@ gamma
 	::color::model< ::color::category::gray_ldouble > & result
 	,typename ::color::trait::scalar< ::color::category::gray_ldouble >::instance_type const& value
 ) {
-	result.set<0>(std::pow(result.get<0>(), value));
+	typedef ::color::category::gray_ldouble category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	result.set<0>(std::pow(result.get<0>(), scalar_type(1)/value));
 	return result;
 }
 
@@ -32425,7 +32371,9 @@ gamma
 	, ::color::model< ::color::category::gray_ldouble > const& right
 	,typename ::color::trait::scalar< ::color::category::gray_ldouble >::instance_type const& value
 ) {
-	result.set<0>(std::pow(right.get<0>(), value));
+	typedef ::color::category::gray_ldouble category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	result.set<0>(std::pow(right.get<0>(), scalar_type(1)/value));
 	return result;
 }
 }
@@ -32436,10 +32384,10 @@ namespace _internal {
 
 template< typename cmy_tag_name, typename gray_tag_name >
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::gray<gray_tag_name>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::gray<gray_tag_name>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::gray<gray_tag_name> category_right_type;
@@ -32456,8 +32404,8 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	static void process
@@ -32479,10 +32427,10 @@ namespace _internal {
 
 template< typename tag_left_name, typename tag_right_name >
 struct convert
-		<
-		::color::category::cmy< tag_left_name >
-		,::color::category::cmy< tag_right_name>
-		> {
+	<
+	::color::category::cmy< tag_left_name >
+	,::color::category::cmy< tag_right_name>
+	> {
 public:
 	typedef ::color::category::cmy< tag_left_name > category_left_type;
 	typedef ::color::category::cmy< tag_right_name> category_right_type;
@@ -32499,14 +32447,14 @@ public:
 
 	enum {
 		cl_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-			   ,ml_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-					   ,yl_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,ml_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		,yl_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	enum {
 		cr_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-			   ,mr_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-					   ,yr_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,mr_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yr_p = ::color::place::_internal::yellow<category_right_type>::position_enum
 	};
 
 	static void process
@@ -32527,10 +32475,10 @@ namespace _internal {
 
 template< typename cmy_tag_name, typename cmyk_tag_name >
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::cmyk<cmyk_tag_name>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::cmyk<cmyk_tag_name>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::cmyk<cmyk_tag_name> category_right_type;
@@ -32547,15 +32495,15 @@ public:
 
 	enum {
 		cl_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-			   ,ml_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-					   ,yl_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,ml_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		,yl_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	enum {
 		cr_p = ::color::place::_internal::cyan<category_right_type>::position_enum
-			   ,mr_p = ::color::place::_internal::magenta<category_right_type>::position_enum
-					   ,yr_p = ::color::place::_internal::yellow<category_right_type>::position_enum
-							   ,kr_p = ::color::place::_internal::key<category_right_type>::position_enum
+		,mr_p = ::color::place::_internal::magenta<category_right_type>::position_enum
+		,yr_p = ::color::place::_internal::yellow<category_right_type>::position_enum
+		,kr_p = ::color::place::_internal::key<category_right_type>::position_enum
 	};
 
 	static void process
@@ -32584,10 +32532,10 @@ namespace _internal {
 
 template< typename cmy_tag_name, typename hsl_tag_name >
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::hsl<hsl_tag_name>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::hsl<hsl_tag_name>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::hsl<hsl_tag_name> category_right_type;
@@ -32606,14 +32554,14 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_right_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-								, lightness_p = ::color::place::_internal::lightness<category_right_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		, lightness_p = ::color::place::_internal::lightness<category_right_type>::position_enum
 	};
 
 	static void process
@@ -32666,10 +32614,10 @@ namespace _internal {
 
 template< typename cmy_tag_name, typename hsv_tag_name >
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::hsv<hsv_tag_name>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::hsv<hsv_tag_name>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::hsv<hsv_tag_name> category_right_type;
@@ -32686,14 +32634,14 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  ,yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_right_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-								,value_p = ::color::place::_internal::value<category_right_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,value_p = ::color::place::_internal::value<category_right_type>::position_enum
 	};
 
 	static void process
@@ -32746,10 +32694,10 @@ namespace _internal {
 
 template< typename cmy_tag_name, typename hsi_tag_name >
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::hsi<hsi_tag_name>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::hsi<hsi_tag_name>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::hsi<hsi_tag_name> category_right_type;
@@ -32768,14 +32716,14 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  ,yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_right_type>::position_enum
-				,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
-								,intensity_p = ::color::place::_internal::intensity<category_right_type>::position_enum
+		,saturation_p = ::color::place::_internal::saturation<category_right_type>::position_enum
+		,intensity_p = ::color::place::_internal::intensity<category_right_type>::position_enum
 	};
 
 	static void process
@@ -32825,10 +32773,10 @@ namespace _internal {
 
 template< typename cmy_tag_name, typename rgb_tag_name >
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::rgb<rgb_tag_name>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::rgb<rgb_tag_name>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::rgb<rgb_tag_name> category_right_type;
@@ -32845,14 +32793,14 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	enum {
 		red_p = ::color::place::_internal::red<category_right_type>::position_enum
-				,green_p = ::color::place::_internal::green<category_right_type>::position_enum
-						   ,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
 	};
 
 	static void process
@@ -32874,10 +32822,10 @@ namespace _internal {
 
 template< typename cmy_tag_name, typename yiq_tag_name >
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::yiq<yiq_tag_name>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::yiq<yiq_tag_name>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::yiq<yiq_tag_name> category_right_type;
@@ -32896,14 +32844,14 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	enum {
 		luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
-				 , inphase_p = ::color::place::_internal::inphase<category_right_type>::position_enum
-							   ,quadrature_p = ::color::place::_internal::quadrature<category_right_type>::position_enum
+		, inphase_p = ::color::place::_internal::inphase<category_right_type>::position_enum
+		,quadrature_p = ::color::place::_internal::quadrature<category_right_type>::position_enum
 	};
 
 	static void process
@@ -32940,10 +32888,10 @@ template
 	,typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
 	>
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::yuv<yuv_tag_name, yuv_reference_number>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::yuv<yuv_tag_name, yuv_reference_number>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::yuv<yuv_tag_name, yuv_reference_number> category_right_type;
@@ -32962,8 +32910,8 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	static void process
@@ -33001,10 +32949,10 @@ namespace _internal {
 
 template< typename cmy_tag_name, typename YCgCo_tag_name >
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::YCgCo< YCgCo_tag_name>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::YCgCo<YCgCo_tag_name> category_right_type;
@@ -33023,8 +32971,8 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal:: cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  , yellow_p = ::color::place::_internal:: yellow<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		, yellow_p = ::color::place::_internal:: yellow<category_left_type>::position_enum
 	};
 
 	static void process
@@ -33054,10 +33002,10 @@ namespace _internal {
 
 template< typename cmy_tag_name, typename YDbDr_tag_name >
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::YDbDr< YDbDr_tag_name>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::YDbDr<YDbDr_tag_name> category_right_type;
@@ -33076,8 +33024,8 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	static void process
@@ -33119,10 +33067,10 @@ template
 	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
 	>
 struct convert
-		<
-		::color::category::cmy< cmy_tag_name >
-		,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number>
-		> {
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number>
+	> {
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::YPbPr<YPbPr_tag_name, YPbPr_reference_number> category_right_type;
@@ -33141,8 +33089,8 @@ public:
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
-				 ,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
-							  , yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_left_type>::position_enum
+		, yellow_p = ::color::place::_internal::yellow<category_left_type>::position_enum
 	};
 
 	static void process
@@ -34226,18 +34174,21 @@ template
 struct blend {
 public:
 	typedef category_name category_type;
-	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
-	typedef ::color::operation::_internal::blend<category_type> this_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef typename ::color::trait::scalar<category_type>::input_const_type scalar_const_input_type;
 
-	typedef ::color::trait::container< category_type > container_trait_type;
-	typedef ::color::trait::index< category_type > index_trait_type;
-	typedef ::color::model<category_type> model_type;
-
+	typedef ::color::trait::index<category_type> index_trait_type;
 	typedef typename index_trait_type::instance_type index_type;
 
-	typedef ::color::_internal::normalize< category_type > normalize_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+
+	typedef ::color::model<category_type> model_type;
+
 	typedef ::color::_internal::diverse< category_type > diverse_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+
+	typedef ::color::operation::_internal::blend<category_type> this_type;
 
 	static void accumulate(model_type &result, scalar_type const& alpha, model_type const& upper) {
 		this_type::template accumulate(result, result, alpha, upper);
@@ -34365,10 +34316,11 @@ namespace color {
 				public:
 				typedef category_name category_type;
 
-				typedef ::color::trait::container< category_type > container_trait_type;
-				typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
-				typedef typename ::color::trait::component< category_name >::instance_type component_type;
+				typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 				typedef typename ::color::trait::index<category_type>::instance_type index_type;
+
+				typedef ::color::trait::container< category_type > container_trait_type;
+				typedef typename ::color::trait::component< category_name >::instance_type component_type;
 
 				typedef ::color::model<category_type> model_type;
 
@@ -34433,6 +34385,161 @@ namespace color {
 	}
 
 										  }
+}
+
+namespace color {
+	namespace operation {
+		namespace _internal {
+
+			template< typename category_name >
+			struct bias {
+				public:
+				typedef category_name category_type;
+
+				typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+				typedef typename ::color::trait::scalar<category_type>::input_const_type scalar_const_input_type;
+
+				typedef ::color::trait::index<category_type> index_trait_type;
+				typedef typename index_trait_type::instance_type index_type;
+
+				typedef ::color::trait::container< category_type > container_trait_type;
+
+				typedef ::color::model<category_type> model_type;
+				typedef model_type & model_input_type;
+				typedef model_type const& model_const_input_type;
+
+				typedef ::color::_internal::diverse< category_type > diverse_type;
+				typedef ::color::_internal::normalize< category_type > normalize_type;
+
+				typedef ::color::operation::_internal::bias< category_name > this_type;
+
+	static model_type & process(model_input_type result, scalar_const_input_type scalar) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, diverse_type::process(this_type::process(normalize_type::process(result.get(index), index), scalar), index));
+		}
+		return result;
+	}
+
+	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type value) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, diverse_type::process(this_type::process(normalize_type::process(left.get(index), index), value), index));
+		}
+		return result;
+	}
+
+	template< index_type index_number >
+	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type scalar) {
+		result.template set<index_number>(diverse_type::template process<index_number>(this_type::process(normalize_type::template process<index_number>(left.template get<index_number>()), scalar)));
+		return result;
+	}
+
+	static scalar_type process(scalar_const_input_type x, scalar_const_input_type b) {
+		return pow(x, log(b) / log(scalar_type(0.5)));
+	}
+
+																				  };
+																	}
+
+	template< typename category_name, typename scalar_name >
+	void bias
+	(
+		::color::model<category_name> & result
+		,scalar_name const& scalar
+					  ) {
+		::color::operation::_internal::bias<category_name>::process(result, scalar);
+	}
+
+	template< typename category_name, typename scalar_name >
+	void bias
+	(
+		::color::model<category_name> & result
+		,color::model<category_name> const& left
+		,scalar_name const& scalar
+					 ) {
+		::color::operation::_internal::bias<category_name>::process(result, left, scalar);
+	}
+
+									   }
+}
+
+namespace color {
+	namespace operation {
+		namespace _internal {
+
+			template< typename category_name >
+			struct gain {
+				public:
+				typedef category_name category_type;
+
+				typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+				typedef typename ::color::trait::scalar<category_type>::input_const_type scalar_const_input_type;
+
+				typedef ::color::trait::index<category_type> index_trait_type;
+				typedef typename index_trait_type::instance_type index_type;
+
+				typedef ::color::trait::container< category_type > container_trait_type;
+
+				typedef ::color::model<category_type> model_type;
+				typedef model_type & model_input_type;
+				typedef model_type const& model_const_input_type;
+
+				typedef ::color::_internal::diverse< category_type > diverse_type;
+				typedef ::color::_internal::normalize< category_type > normalize_type;
+
+				typedef ::color::operation::_internal::bias< category_name > bias_type;
+
+				typedef ::color::operation::_internal::gain< category_name > this_type;
+
+	static model_type & process(model_input_type result, scalar_const_input_type scalar) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, diverse_type::process(this_type::process(normalize_type::process(result.get(index), index), scalar), index));
+		}
+		return result;
+	}
+
+	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type value) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, diverse_type::process(this_type::process(normalize_type::process(left.get(index), index), value), index));
+		}
+		return result;
+	}
+
+	template< index_type index_number >
+	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type scalar) {
+		result.template set<index_number>(diverse_type::template process<index_number>(this_type::process(normalize_type::template process<index_number>(left.template get<index_number>()), scalar)));
+		return result;
+	}
+
+	static scalar_type process(scalar_const_input_type x, scalar_const_input_type g) {
+		if(x < scalar_type(0.5)) {
+			return bias_type::process(scalar_type(1)-g, scalar_type(2)*x)/scalar_type(2);
+		} else {
+			return scalar_type(1) - bias_type::process(scalar_type(1)-g,scalar_type(2) - scalar_type(2)*x)/scalar_type(2);
+		}
+	}
+
+	  };
+																				  }
+
+	template< typename category_name >
+	void gain
+	(
+		::color::model<category_name> & result
+		, typename ::color::trait::scalar<category_name>::input_const_type const& scalar
+										 ) {
+		::color::operation::_internal::gain<category_name>::process(result, scalar);
+	}
+
+	template< typename category_name >
+	void gain
+	(
+		::color::model<category_name> & result
+		,::color::model<category_name> const& left
+		, typename ::color::trait::scalar<category_name>::input_const_type const& scalar
+										 ) {
+		::color::operation::_internal::gain<category_name>::process(result, left, scalar);
+	}
+									   }
 }
 
 namespace color {
@@ -36618,4 +36725,3 @@ namespace color {
 
 using namespace ::color::operation::arithmetic;
 using namespace ::color::compare::operators;
-
