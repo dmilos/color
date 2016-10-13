@@ -9,12 +9,11 @@
 
 #include "./targa.hpp"
 
+#include "./image.hpp"
+
 using namespace std;
 
-typedef std::vector< ::color::bgr< std::uint8_t  > > image_type;
-typedef std::vector< ::color::gray< std::uint8_t  > > gray_image_type;
-
-void load_image( image_type & image, std::string const& name )
+void load_image( bgr_image_type & image, std::string const& name )
  {
   std::ifstream ifs( name.c_str(), std::ios_base::binary );
 
@@ -35,25 +34,11 @@ void load_image( image_type & image, std::string const& name )
   ifs.read( reinterpret_cast<char *>( image.data() ), width * height * (depth/8) );
  }
 
-void save_image( std::string const& name, image_type const& image, std::size_t const& width, std::size_t const& height )
- {
-  targa_header_struct header;
-
-  targa_make_header24( width, height, header );
-
-   {
-    std::ofstream of( name.c_str(), std::ios_base::binary);
-    of.write((const char *)header, 18);
-    of.write((const char *)image.data(), image.size() * image_type::value_type::size() );
-   }
-
- }
-
 template< typename color_model >
  void
- decompose( image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
+ decompose( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
   {
-   image_type  component;
+   bgr_image_type  component;
 
    for( int channel=0; channel< color_model::size(); ++channel )
     {
@@ -72,11 +57,11 @@ template< typename color_model >
           }
         }
 
-       image_type::value_type back( other );
+       bgr_image_type::value_type back( other );
        ::color::fix::overburn( back );
        component.push_back( back );
       }
-      save_image( name+ "-" + std::to_string( channel ) + ".tga", component, width, height );
+      save_image24( name+ "-" + std::to_string( channel ) + ".tga", component, width, height );
     }
 
    return ;
@@ -84,7 +69,7 @@ template< typename color_model >
 
 int decompose_test( int argc, char const *argv[] )
  {
-  image_type image;
+  bgr_image_type image;
   load_image( image, "../data/Barns_grand_tetons.tga" );
 
   int width=1600;

@@ -340,9 +340,11 @@ int main(int argc, char const *argv[])
  {
   sandbox_test();
 
+  void test_operation();
+  test_operation();
+
   void image_conversion();
   image_conversion();
-
 
   test_pallete();
 

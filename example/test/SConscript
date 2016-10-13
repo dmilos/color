@@ -35,20 +35,27 @@ envObject = nucleotide.Environment( settings ).native()
 
 source = []
 source +=   [
-     envObject.StaticObject( target =  os.path.join( directory_obj, 'main'        ) + envObject[ 'OBJSUFFIX' ],  source = './main.cpp'       )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'conversion'  ) + envObject[ 'OBJSUFFIX' ],  source = './conversion.cpp' )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'       ) + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp'      )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'make'        ) + envObject[ 'OBJSUFFIX' ],  source = './make.cpp'       )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'bound'       ) + envObject[ 'OBJSUFFIX' ],  source = './bound.cpp'      )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'sizeof'      ) + envObject[ 'OBJSUFFIX' ],  source = './sizeof.cpp'     )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'selfie'      ) + envObject[ 'OBJSUFFIX' ],  source = './selfie.cpp'     )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'set_invoke'  ) + envObject[ 'OBJSUFFIX' ],  source = './set_invoke.cpp' )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'get_invoke'  ) + envObject[ 'OBJSUFFIX' ],  source = './get_invoke.cpp' )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'get_test'    ) + envObject[ 'OBJSUFFIX' ],  source = './get_test.cpp'   )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'gray_test'   ) + envObject[ 'OBJSUFFIX' ],  source = './gray_test.cpp'  )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'decompose'   ) + envObject[ 'OBJSUFFIX' ],  source = './decompose.cpp'  )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'place'       ) + envObject[ 'OBJSUFFIX' ],  source = './place.cpp'      )
-   , envObject.StaticObject( target =  os.path.join( directory_obj, 'convsemi'    ) + envObject[ 'OBJSUFFIX' ],  source = './convsemi.cpp'   )
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'main'             ) + envObject[ 'OBJSUFFIX' ],  source = './main.cpp'       )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'conversion'       ) + envObject[ 'OBJSUFFIX' ],  source = './conversion.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'            ) + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp'      )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'make'             ) + envObject[ 'OBJSUFFIX' ],  source = './make.cpp'       )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'bound'            ) + envObject[ 'OBJSUFFIX' ],  source = './bound.cpp'      )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'sizeof'           ) + envObject[ 'OBJSUFFIX' ],  source = './sizeof.cpp'     )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'selfie'           ) + envObject[ 'OBJSUFFIX' ],  source = './selfie.cpp'     )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'set_invoke'       ) + envObject[ 'OBJSUFFIX' ],  source = './set_invoke.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'get_invoke'       ) + envObject[ 'OBJSUFFIX' ],  source = './get_invoke.cpp' )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'get_test'         ) + envObject[ 'OBJSUFFIX' ],  source = './get_test.cpp'   )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'gray_test'        ) + envObject[ 'OBJSUFFIX' ],  source = './gray_test.cpp'  )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'decompose'        ) + envObject[ 'OBJSUFFIX' ],  source = './decompose.cpp'  )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'place'            ) + envObject[ 'OBJSUFFIX' ],  source = './place.cpp'      )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'convsemi'         ) + envObject[ 'OBJSUFFIX' ],  source = './convsemi.cpp'   )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'image'            ) + envObject[ 'OBJSUFFIX' ],  source = './image.cpp'      )
+
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/gamma'      ) + envObject[ 'OBJSUFFIX' ],  source = './operation/gamma.cpp'      )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/bias'       ) + envObject[ 'OBJSUFFIX' ],  source = './operation/bias.cpp'       )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/gain'       ) + envObject[ 'OBJSUFFIX' ],  source = './operation/gain.cpp'       )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/operation'  ) + envObject[ 'OBJSUFFIX' ],  source = './operation/operation.cpp'  )
+
    ]
 
 # Make native environment
