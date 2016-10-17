@@ -51,9 +51,9 @@ cd ..
 #./make.sh
 #cd ..
 
-#cd ./set
-#./make.sh
-#cd ..
+cd ./set
+./make.sh
+cd ..
 
 cd ./tip
 ./make.sh

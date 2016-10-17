@@ -1,0 +1,9 @@
+g++ -fexceptions -std=c++11 -g -I../../../src blue_cmy.cpp    -o  blue_cmy
+g++ -fexceptions -std=c++11 -g -I../../../src blue_cmyk.cpp   -o  blue_cmyk
+g++ -fexceptions -std=c++11 -g -I../../../src blue_gray.cpp   -o  blue_gray
+g++ -fexceptions -std=c++11 -g -I../../../src blue_hsi.cpp    -o  blue_hsi
+g++ -fexceptions -std=c++11 -g -I../../../src blue_hsl.cpp    -o  blue_hsl
+g++ -fexceptions -std=c++11 -g -I../../../src blue_hsv.cpp    -o  blue_hsv
+g++ -fexceptions -std=c++11 -g -I../../../src blue_rgb.cpp    -o  blue_rgb
+g++ -fexceptions -std=c++11 -g -I../../../src blue_yiq.cpp    -o  blue_yiq
+g++ -fexceptions -std=c++11 -g -I../../../src blue_yuv.cpp    -o  blue_yuv

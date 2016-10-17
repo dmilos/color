@@ -35,6 +35,7 @@ namespace color
        typedef ::color::trait::component< category_name >  component_trait_type;
        typedef ::color::trait::container< category_name >  container_trait_type;
        typedef ::color::trait::bound< category_name >      bound_trait_type, bound_type;
+       typedef ::color::trait::scalar< category_name >     scalar_trait_type;
 
        typedef ::color::model<category_type>  this_type, model_type;
 
@@ -58,6 +59,8 @@ namespace color
        typedef typename container_trait_type::input_type             container_input_type;
 
        typedef typename container_trait_type::set_return_type        set_return_type;
+
+       typedef typename scalar_trait_type::input_const_type          scalar_input_const_type;
 
                model( )
                {
@@ -147,11 +150,37 @@ namespace color
             : m_model( model ), m_index( index )
            {
            }
-           proxy & operator=( component_type const& component )
+
+           proxy & operator=( component_input_const_type component )
             {
              m_model.set( m_index, component );
              return *this;
             }
+
+           proxy & operator+=( component_input_const_type component )
+            {
+             m_model.set( m_index, m_model.get( m_index ) + component );
+             return *this;
+            }
+
+           proxy & operator-=( component_input_const_type component )
+            {
+             m_model.set( m_index, m_model.get( m_index ) - component );
+             return *this;
+            }
+
+           proxy & operator*=( scalar_input_const_type scalar )
+            {
+             m_model.set( m_index, m_model.get( m_index ) * scalar );
+             return *this;
+            }
+
+           proxy & operator/=( scalar_input_const_type scalar )
+            {
+             m_model.set( m_index, m_model.get( m_index ) / scalar );
+             return *this;
+            }
+
            operator component_type()const
             {
              return m_model.get( m_index );
@@ -160,7 +189,9 @@ namespace color
            model_type      & m_model;
            index_type const& m_index;
         };
-        typedef typename ::color::model< category_name >::proxy proxy_type;
+
+       typedef typename ::color::model< category_name >::proxy proxy_type;
+
      public:
 
       proxy_type       operator[]( index_input_const_type index )

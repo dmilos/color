@@ -126,8 +126,6 @@ void set_red_in_hsv()
   std::cout << color::get::red( c ) << std::endl;
  }
 
- 
-
 void set_red_in_rgb()
  {
   // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double

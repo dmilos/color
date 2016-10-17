@@ -6,12 +6,12 @@
 
 int main( int argc, char *argv[] )
  {
-  ::color::rgb<::color::type::split422_t>   c1( { 7, 6 , 3} );
-  ::color::rgb<::color::type::split655_t >  c2( { 6, 12 , 19} );
-  ::color::rgb<std::uint8_t>                c3( { 64, 127 , 192 } );
-  ::color::rgb<std::uint64_t>               c4( { 64000, 1270 , 1920 } );
-  ::color::rgb<float>                       c5( { 0.5, 0.6, 0.7} );
-  ::color::rgb<double>                      c6( { 0.5, 0.6, 0.7} );
+  ::color::hsl<std::uint8_t>     c1( { 7, 6 , 3} );
+  ::color::hsl<std::uint16_t>    c2( { 6, 12 , 19} );
+  ::color::hsl<std::uint32_t>    c3( { 64, 127 , 192} );
+  ::color::hsl<std::uint64_t>    c4( { 640, 1270 , 1920} );
+  ::color::hsl<float>            c5( {  90, 25, 30 } );
+  ::color::hsl<double>           c6( { 180, 50, 90 } );
 
   std::cout << c1[0] << ", " << c1[1] << ", " << c1[2] << std::endl;
   std::cout << c2[0] << ", " << c2[1] << ", " << c2[2] << std::endl;

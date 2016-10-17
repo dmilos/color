@@ -138,12 +138,30 @@
 					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get hue component or calculate if model does not support natively.</dd>
+					<dt>Note</dt>
+					<dd>If model is RGB you can pick different formula for calculation.</dd>
+					<dt>Note</dt>
+					<dd>For RGB model:<br>
+						 - Return type is <code>::color::trait::component&lt; ::color::rgb&lt; <i>_type_</i> &gt; ::category_type >::component_type</code>. <br>
+						 - Range of return value mach to <code>::color::trait::bound&lt; ::color::rgb&lt; <i>_type_</i> &gt; ::category_type ></code>.
+					</dd>
+
 					<dt>Example</dt>
 					<dd>
-						<code>::color::yiq &lt; double &gt; h;<br>
-							::color::aqua( h );<br>
-							std::cout &lt;&lt; ::coor::get::hue( h ) &lt;&lt; std::cout;<br></code>
+						<code>::color::yiq &lt; double &gt; y{ ::color::contant::aqua_type{} };<br>
+							std::cout &lt;&lt; ::coor::get::hue( y ) &lt;&lt; std::cout;<br></code>
 					</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>::color::rgb&lt; double &gt; r{ ::color::contant::aqua_type{} };<br>
+							::color::get::hue( r ); // Use default formula. Defualt is hexagon_entity<br>
+							::color::get::hue&lt; ::color::constant::hue::polar_entity       &gt;( r ); // Use default polar formula . Equal to polar_atan2_entity<br>
+							::color::get::hue&lt; ::color::constant::hue::polar_atan2_entity &gt;( r ); // Use Evans, Hanson, and Brewer.<br>
+							::color::get::hue&lt; ::color::constant::hue::polar_acos_entity  &gt;( r ); // Use Evans, Hanson, and Brewer.<br>
+							::color::get::hue&lt; ::color::constant::hue::hexagon_entity     &gt;( r ); // Use Preucil formula.<br>
+						</code>
+					</dd>
+					<dt>See</dt><dd> <a href="./constant.html#hue">hue in constants</a></dd>
 				</dl><hr width="%20">
 
 				<dl>

@@ -34,14 +34,15 @@
 							</li>
 					</li>
 				</ol>
+				See also: <a href="./Macros.html">macros</a>.
 				<br><br>
 			</dd>
 			<dt> Get return only constant values. Where is get which return something modifiable like <code>operator[]</code> ?</dt>
 			<dd>
 				This is by design.<br> When you use get you will be always sure that object is intact even is it non constant.
 				Just separation of jurisdiction.
-				<code>get</code>s only read,
-				<code>set</code>s only modify,
+				<code><a href="./model.html#function_set">get</a></code>s only read,
+				<code><a href="./model.html#function_set">set</a></code>s only modify,
 				<code>operator[]</code> will do the both read/modify.
 				<br><br>
 			</dd>

@@ -24,13 +24,13 @@
           public:
             typedef category_name  category_type;
 
-            typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type    scalar_type;
             typedef typename ::color::trait::index<category_type>::instance_type       index_type;
 
             typedef ::color::trait::container< category_type >   container_trait_type;
             typedef typename ::color::trait::component< category_name >::instance_type component_type;
 
-            typedef ::color::model<category_type>     model_type;
+            typedef ::color::model<category_type>         model_type;
 
             static model_type & process
              (

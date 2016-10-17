@@ -11,7 +11,12 @@
 		<dl>
 			<dt><h3>TOC</h3></dt>
 			<dd>
-				<a href="#generic"><code>generic</code><a>,     <a href="#gray"><code>gray</code><a>,             <a href="#yiq"><code>yiq</code><a>,             <a href="#yuv"><code>yuv</code><a>,<br>
+				<a href="#generic"><code>generic</code><a>,
+				<a href="#gray"><code>gray</code><a>,
+				<a href="#yiq"><code>yiq</code><a>,
+				<a href="#yuv"><code>yuv</code><a>,
+				<a href="#hue"><code>hue</code><a>,<br>
+				<br>
 				<a href="#aqua"   ><code>aqua</code><a>,        <a href="#aquamarine"><code>aquamarine</code><a>, <a href="#azure"><code>azure</code><a>,         <a href="#beige"><code>beige</code><a>
 				<a href="#bisque"><code>bisque</code><a>,       <a href="#black"><code>black</code><a>,           <a href="#blue"><code>blue</code><a>,           <a href="#brown"><code>brown</code><a>
 				<a href="#chocolate"><code>chocolate</code><a>, <a href="#coral"><code>coral</code><a>,           <a href="#crimson"><code>crimson</code><a>,     <a href="#cyan"><code>cyan</code><a>
@@ -38,9 +43,14 @@
 					<dd>
 						<dl>
 							<dt>Description</dt> <dd> General constants.</dd>
+							<dt>Type</dt><dd>template structure.</dd>
 							<dt>Example</dt>
 							<dd>
-								<code>TODO</code>
+								<code>
+								typedef ::color::constant::generic&lt; ::color::rgb&lt;double&gt;::cartegory_type &gt;&gt;  generic_t; <br>
+								std::cout &lt;&lt; generic_t::zero() &lt;&lt; std::endl //!&lt; will print number zero<br>
+								std::cout &lt;&lt; generic_t::pi() &lt;&lt; std::endl //!&lt; will print number pi <br>
+								</code>
 							</dd>
 							<dt>Note</dt><dd>Simple constants zero, one and two. All types of corresponding scalar.</dd>
 						</dl>
@@ -58,6 +68,7 @@
 						<dl>
 							<dt>Description</dt> <dd>Constants used by YIQ model.</dd>
 							<dt>Example</dt><dd><code>TODO</code></dd>
+							<dt>Type</dt><dd>namespace</dd>
 							<dt>Note</dt><dd>Convert from to RGB. Bounds for inphase and quadrature.</dd>
 						</dl>
 					</dd>
@@ -65,8 +76,38 @@
 					<dd>
 						<dl>
 							<dt>Description</dt> <dd> Constants used by YUV model.</dd>
+							<dt>Type</dt><dd>namespace</dd>
 							<dt>Example</dt><dd><code>TODO</code></dd>
 							<dt>Note</dt><dd>Convert from to RGB.</dd>
+						</dl>
+					</dd>
+
+					<dt><a name="hue"></a><code>hue</code></dt>
+					<dd>
+						<dl>
+							<dt>Description</dt> <dd> Enumerator and enumerants to chose formula to calculate <i>hue</i> from <i>rgb</i> model.</dd>
+							<dt>Type</dt><dd>namespace</dd>
+							<dt>List</dt>
+							<dd>
+								<dl>
+									<dt><code>error_entity</code></dt><dd>Error entity.</dd>
+									<dt><code>hexagon_entity</code></dt><dd>Use Preucil formula to calculate hue from given <i>rgb</i>.</dd>
+									<dt><code>polar_atan2_entity</code></dt><dd>Use Evans, Hanson, and Brewer formula, variant that use atan2.</dd>
+									<dt><code>polar_acos_entity</code></dt><dd>Use Evans, Hanson, and Brewer formula, variant that use acos.</dd>
+									<dt><code>polar_entity</code></dt><dd>Use Evans, Hanson, and Brewer formula, currently equal to polar_atan2_entity.</dd>
+								<dl>
+							</dd>
+							<dt>Example</dt><dd>
+								<code>::color::rgb&lt; double &gt; r{ ::color::contant::aqua_type{} };<br>
+									::color::get::hue( r ); // Use default formula. Defualt is hexagon_entity<br>
+									::color::get::hue&lt;::color::constant::hue::polar_entity       &gt;( r ); // Use default polar formula . Equal to polar_atan2_entity<br>
+									::color::get::hue&lt;::color::constant::hue::polar_atan2_entity &gt;( r ); // Use Evans, Hanson, and Brewer.<br>
+									::color::get::hue&lt;::color::constant::hue::polar_acos_entity  &gt;( r ); // Use Evans, Hanson, and Brewer.<br>
+									::color::get::hue&lt;::color::constant::hue::hexagon_entity     &gt;( r ); // Use Preucil formula.<br>
+								</code>
+							</dd>
+							<dt>Note</dt><dd>This operation works only on RGB models.</dd>
+							<dt>See</dt><dd> <a href="./get.html#hue">hue in get</a></dd>
 						</dl>
 					</dd>
 
