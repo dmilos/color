@@ -957,6 +957,7 @@ public:
 	typedef ::color::trait::component< category_name > component_trait_type;
 	typedef ::color::trait::container< category_name > container_trait_type;
 	typedef ::color::trait::bound< category_name > bound_trait_type, bound_type;
+	typedef ::color::trait::scalar< category_name > scalar_trait_type;
 
 	typedef ::color::model<category_type> this_type, model_type;
 
@@ -980,6 +981,8 @@ public:
 	typedef typename container_trait_type::input_type container_input_type;
 
 	typedef typename container_trait_type::set_return_type set_return_type;
+
+	typedef typename scalar_trait_type::input_const_type scalar_input_const_type;
 
 	model() {
 	}
@@ -1050,10 +1053,32 @@ private:
 		proxy(model_type & model, index_type const& index)
 			: m_model(model), m_index(index) {
 		}
-		proxy & operator=(component_type const& component) {
+
+		proxy & operator=(component_input_const_type component) {
 			m_model.set(m_index, component);
 			return *this;
 		}
+
+		proxy & operator+=(component_input_const_type component) {
+			m_model.set(m_index, m_model.get(m_index) + component);
+			return *this;
+		}
+
+		proxy & operator-=(component_input_const_type component) {
+			m_model.set(m_index, m_model.get(m_index) - component);
+			return *this;
+		}
+
+		proxy & operator*=(scalar_input_const_type scalar) {
+			m_model.set(m_index, m_model.get(m_index) * scalar);
+			return *this;
+		}
+
+		proxy & operator/=(scalar_input_const_type scalar) {
+			m_model.set(m_index, m_model.get(m_index) / scalar);
+			return *this;
+		}
+
 		operator component_type()const {
 			return m_model.get(m_index);
 		}
@@ -1061,7 +1086,9 @@ private:
 		model_type & m_model;
 		index_type const& m_index;
 	};
+
 	typedef typename ::color::model< category_name >::proxy proxy_type;
+
 public:
 
 	proxy_type operator[](index_input_const_type index) {
@@ -2829,7 +2856,7 @@ using generic_ldouble = ::color::category::generic< ::color::category::_internal
 namespace color {
 namespace constant {
 
-template< typename category_name>
+template< typename category_name >
 struct generic {
 public:
 	typedef category_name category_type;
@@ -2848,14 +2875,37 @@ public:
 	static scalar_type const two() {
 		return scalar_type(2);
 	}
+	static scalar_type const sqrt_3() {
+		return sqrt(scalar_type(3));
+	}
 	static scalar_type const pi() {
 		return scalar_type(3.141592653589793238462643383279502884197169399375105820974944592307816406286);
+	}
+	static scalar_type const pi_half() {
+		return scalar_type(3.141592653589793238462643383279502884197169399375105820974944592307816406286/2);
 	}
 	static scalar_type const two_pi() {
 		return scalar_type(2 * 3.141592653589793238462643383279502884197169399375105820974944592307816406286);
 	}
-
 };
+
+namespace hue {
+
+enum formula_enum {
+	error_entity
+	,hexagon_entity
+	,polar_atan2_entity
+	,polar_acos_entity
+	,polar_entity = polar_atan2_entity
+};
+
+namespace _internal {
+
+template < enum ::color::constant::hue::formula_enum hue_number > struct algorithm {};
+
+}
+
+}
 
 }
 }
@@ -8338,9 +8388,9 @@ namespace get {
 
 template< typename tag_name >
 inline
-typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
-blue(::color::model< ::color::category::rgb< tag_name> > const& color_parameter) {
-	typedef ::color::category::rgb< tag_name> category_type;
+typename ::color::model< ::color::category::rgb< tag_name > >::component_const_type
+blue(::color::model< ::color::category::rgb< tag_name > > const& color_parameter) {
+	typedef ::color::category::rgb< tag_name > category_type;
 	enum { blue_p = ::color::place::_internal::blue<category_type>::position_enum };
 	return color_parameter.template get<blue_p>();
 }
@@ -8550,6 +8600,137 @@ gray(::color::model< ::color::category::rgb<tag_name> > const& color_parameter) 
 	+ gray_const_type::Bc() * normalize_type::template process<blue_p >(color_parameter.template get<blue_p >())
 	;
 	return diverse_type::template process<0>(value);
+}
+
+}
+}
+
+namespace color {
+namespace get {
+
+namespace _internal {
+
+template< typename tag_name >
+inline
+typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
+hue
+(
+	::color::model< ::color::category::rgb< tag_name> > const& color_parameter
+	,::color::constant::hue::_internal::algorithm< ::color::constant::hue::hexagon_entity > const& algorithm_param
+) {
+	typedef ::color::category::rgb< tag_name > category_type;
+	typedef typename ::color::trait::scalar<category_type> scalar_trait_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+	typedef ::color::_internal::diverse< category_type > diverse_type;
+	typedef ::color::trait::container<category_type> container_trait_type;
+	enum {
+		red_p = ::color::place::_internal::red<category_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_type>::position_enum
+	};
+	scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p>());
+	scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
+	scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p>());
+	const scalar_type hi = std::max<scalar_type>({ r, g, b });
+	const scalar_type lo = std::min<scalar_type>({ r, g, b });
+	scalar_type delta = hi - lo;
+	scalar_type h = 0;
+	if(false == scalar_trait_type::is_small(delta)) {
+		if(hi == r) {
+			h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
+		}
+		if(hi == g) {
+			h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
+		}
+		if(hi == b) {
+			h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
+		}
+	}
+	return diverse_type::template process< red_p >(h);
+}
+
+template< typename tag_name >
+inline
+typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
+hue
+(
+	::color::model< ::color::category::rgb< tag_name> > const& color_parameter
+	,::color::constant::hue::_internal::algorithm< ::color::constant::hue::polar_atan2_entity > const& algorithm_param
+) {
+	typedef ::color::category::rgb< tag_name > category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+	typedef ::color::_internal::diverse< category_type > diverse_type;
+	typedef ::color::constant::generic< category_type > generic_constant_type;
+	enum {
+		red_p = ::color::place::_internal::red<category_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_type>::position_enum
+	};
+	scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p>());
+	scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
+	scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p>());
+	scalar_type h = 0;
+	scalar_type c1 = r - g* scalar_type(0.5) - b * scalar_type(0.5);
+	scalar_type c2 = (g - b) * generic_constant_type::sqrt_3() * scalar_type(0.5);
+	scalar_type thetaX = atan2(c2, c1);
+	if(thetaX < 0) {
+		thetaX += generic_constant_type::two_pi();
+	}
+	h = thetaX;
+	h /= generic_constant_type::two_pi();
+	return diverse_type::template process< red_p >(h);
+}
+
+template< typename tag_name >
+inline
+typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
+hue
+(
+	::color::model< ::color::category::rgb< tag_name> > const& color_parameter
+	,::color::constant::hue::_internal::algorithm< ::color::constant::hue::polar_acos_entity > const& algorithm_param
+) {
+	typedef ::color::category::rgb< tag_name > category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+	typedef ::color::_internal::diverse< category_type > diverse_type;
+	typedef ::color::constant::generic< category_type > generic_constant_type;
+	enum {
+		red_p = ::color::place::_internal::red<category_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_type>::position_enum
+	};
+	scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p>());
+	scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
+	scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p>());
+	scalar_type h = 0;
+	scalar_type alpha = ((r-g) + (r- b)) * scalar_type(0.5);
+	scalar_type beta = (r-g)*(r-g) + (r-b)*(g-b) ;
+	beta = sqrt(beta);
+	scalar_type thetaA = acos(alpha / beta);
+	if(b > g) {
+		thetaA = generic_constant_type::two_pi() - thetaA;
+	}
+	h = thetaA;
+	h /= generic_constant_type::two_pi();
+	return diverse_type::template process< red_p >(h);
+}
+
+}
+
+template
+<
+	enum ::color::constant::hue::formula_enum hue_number = ::color::constant::hue::hexagon_entity
+,typename tag_name
+>
+inline
+typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
+hue
+(
+	::color::model< ::color::category::rgb< tag_name> > const& color_parameter
+) {
+	return ::color::get::_internal::hue< tag_name >(color_parameter, ::color::constant::hue::_internal::algorithm< hue_number >{});
 }
 
 }
@@ -34178,7 +34359,7 @@ public:
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::trait::scalar<category_type>::input_const_type scalar_const_input_type;
 
-	typedef ::color::trait::index<category_type> index_trait_type;
+	typedef ::color::trait::index< category_type > index_trait_type;
 	typedef typename index_trait_type::instance_type index_type;
 
 	typedef ::color::trait::container< category_type > container_trait_type;
@@ -34316,7 +34497,7 @@ namespace color {
 				public:
 				typedef category_name category_type;
 
-				typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+				typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 				typedef typename ::color::trait::index<category_type>::instance_type index_type;
 
 				typedef ::color::trait::container< category_type > container_trait_type;
