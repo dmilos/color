@@ -20,7 +20,7 @@
 - One file to include to start the fun
 - Out of the box ready
  - No need to recompile or start some install process.
-- Color models: CMY, CMYK, GRAY, HSI, HSL, HSV, RGB, YIQ, YUV(BT.601, BT.709), YCgCo, YPbPr(BT.601, BT.709, BT.2020)
+- Color models: CMY, CMYK, GRAY, HSI, HSL, HSV, RGB, YIQ, YUV(BT.601, BT.709), YCgCo, YPbPr(BT.601, BT.709, BT.2020), XYZ( 2°, D65 )
 
 ###Code sample:
 ```c++
