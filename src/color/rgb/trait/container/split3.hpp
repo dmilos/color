@@ -10,6 +10,7 @@
 
 #include "../../category.hpp"
 
+
 namespace color
  {
   namespace trait

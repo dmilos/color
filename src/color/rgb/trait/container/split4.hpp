@@ -1,7 +1,6 @@
 #ifndef color_rgb_trait_container_split4
 #define color_rgb_trait_container_split4
 
-#include "../../category.hpp"
 
 #include "../../../generic/type/split4.hpp"
 
@@ -9,6 +8,7 @@
 
 #include "../../../generic/trait/container.hpp"
 
+#include "../../category.hpp"
 
 
 namespace color
