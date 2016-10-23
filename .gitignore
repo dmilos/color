@@ -160,8 +160,6 @@ example/assign_const
 example/check_unique
 example/fix_integrity
 example/test/bound.html
-example/test/color.cbp
-example/test/color.layout
 example/test/gray_test.html
 example/test/make_check.html
 example/test/mc.html
