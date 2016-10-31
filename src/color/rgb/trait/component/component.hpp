@@ -3,10 +3,7 @@
 #include "./double.hpp"
 #include "./ldouble.hpp"
 
-#include "./uint8.hpp"
-#include "./uint16.hpp"
-#include "./uint32.hpp"
-#include "./uint64.hpp"
+#include "./uint.hpp"
 
 #include "./scramble3.hpp"
 #include "./scramble4.hpp"
