@@ -20,7 +20,7 @@ namespace color
       {
       };
 
-  }
+   }
  }
 
 #endif
