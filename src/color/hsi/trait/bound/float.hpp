@@ -3,7 +3,7 @@
 
 #include "../../category.hpp"
 
-#include "../../../_internal/utility/bound/general.hpp"
+#include "../../../_internal/utility/bound/hsi.hpp"
 
 #include "../../../generic/trait/bound.hpp"
 
@@ -19,6 +19,20 @@ namespace color
       : public ::color::_internal::utility::bound::hsi_scalar< unsigned, float >
       {
       };
+
+    template< >
+     struct bound< ::color::category::hsi_double >
+      : public ::color::_internal::utility::bound::hsi_scalar< unsigned, double >
+      {
+      };
+
+    template< >
+     struct bound< ::color::category::hsi_ldouble >
+      : public ::color::_internal::utility::bound::hsi_scalar< unsigned, long double >
+      {
+      };
+
+
 
    }
  }

@@ -1,4 +1,7 @@
-#include "./double.hpp"
+
+
+//#include "./boolean.hpp"
+
 #include "./float.hpp"
-#include "./ldouble.hpp"
+
 #include "./uint.hpp"
