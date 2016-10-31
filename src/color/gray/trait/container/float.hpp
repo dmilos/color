@@ -20,6 +20,18 @@ namespace color
       {
       };
 
+    template< >
+     struct container< ::color::category::gray_ldouble >
+      : public ::color::_internal::utility::container::array< long double, 1 >
+      {
+      };
+
+    template< >
+     struct container< ::color::category::gray_double >
+      : public ::color::_internal::utility::container::array< double, 1 >
+      {
+      };
+
    }
  }
 

@@ -1,6 +1,6 @@
 
 
-//#include "./boolean.hpp"
+#include "./boolean.hpp"
 
 #include "./float.hpp"
 

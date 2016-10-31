@@ -20,6 +20,18 @@ namespace color
       {
       };
 
+    template< ::color::constant::yuv::reference_enum reference_number >
+     struct component< ::color::category::yuv_double<reference_number> >
+      : public ::color::_internal::utility::component::array< double, unsigned >
+      {
+      };
+
+    template< ::color::constant::yuv::reference_enum reference_number >
+     struct component< ::color::category::yuv_ldouble<reference_number> >
+      : public ::color::_internal::utility::component::array< long double, unsigned >
+      {
+      };
+
    }
  }
 

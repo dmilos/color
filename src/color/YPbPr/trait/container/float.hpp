@@ -20,6 +20,18 @@ namespace color
       {
       };
 
+    template< ::color::constant::YPbPr::reference_enum reference_number >
+     struct container< ::color::category::YPbPr_double<reference_number> >
+      : public ::color::_internal::utility::container::array< double, 3 >
+      {
+      };
+
+    template< ::color::constant::YPbPr::reference_enum reference_number >
+     struct container< ::color::category::YPbPr_ldouble<reference_number> >
+      : public ::color::_internal::utility::container::array< long double, 3 >
+      {
+      };
+
    }
  }
 
