@@ -7,7 +7,7 @@
 
 int main( int argc, char *argv[] )
  {
-  color::rgb<std::uint8_t>   c; //!< Instead of std::uint8_t you may put, std::uint16_t, std::uint32_t, std::uint64_t, double, long double, etc.
+  color::hsl<std::uint8_t>   c; //!< Instead of std::uint8_t you may put, std::uint16_t, std::uint32_t, std::uint64_t, double, long double, etc.
 
   // make it red
   color::make::red( c );
