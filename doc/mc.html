@@ -16,7 +16,7 @@
 			<dt><h3>Note</h3></dt>
 			<dd><b>Not all combination of model-format are implemented.<br>
 				Memory consumption depends of OS and/or compiler setting.<br> 
-				This table does not guarantee the values.</b>
+				This table does not guarantee those values.</b>
 			</dd>
 
 			<dt><h3>Table</h3></dt>
@@ -24,17 +24,45 @@
 				<!-- begin generated code -->
 
 <table border="1" cellspacing="0" cellpadding="2" >
-<tr><td>model</td><td><code>bool</code>                 </td><td><code>uint8_t</code>         </td><td><code>uint16_t</code>        </td><td><code>uint24_t</code></td><td><code>uint32_t</code>        </td><td><code>uint48_t</td><td><code>uint64_t</code>        </td><td><code>float      </code></td><td><code>double     </code></td><td><code>long double</code></td><td><code>split233</code></td><td><code>split332</code></td><td><code>split422</code></td><td><code>split556</code></td><td><code>split565</code></td><td><code>split655</code></td><td><code>split2222</code></td><td><code>split4444</code></td><td><code>split8888</code></td><td><code>splitAAA2</code></td></tr>
-<tr><td><code>rgb </code></td><td>3</td><td>3</td><td>6</td><td>3</td><td>12</td><td>3</td><td>24</td><td>12</td><td>24</td><td>36</td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td>2</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
-<tr><td><code>rgba </code></td><td>4</td><td>4</td><td>8</td><td>4</td><td>16</td><td>4</td><td>32</td><td>16</td><td>32</td><td>48</td><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td><td>1</td><td>2</td><td>4</td><td>4</td></tr>
-<tr><td><code>cmy </code></td><td>12</td><td>3</td><td>6</td><td>12</td><td>12</td><td>12</td><td>24</td><td>12</td><td>24</td><td>36</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td></tr>
-<tr><td><code>cmyk</code></td><td>16</td><td>4</td><td>8</td><td>16</td><td>16</td><td>16</td><td>32</td><td>16</td><td>32</td><td>48</td><td>16</td><td>16</td><td>16</td><td>16</td><td>16</td><td>16</td><td>16</td><td>16</td><td>16</td><td>16</td></tr>
-<tr><td><code>gray</code></td><td>1</td><td>1</td><td>2</td><td>1</td><td>4</td><td>1</td><td>8</td><td>4</td><td>8</td><td>12</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
-<tr><td><code>hsl </code></td><td>12</td><td>3</td><td>6</td><td>12</td><td>12</td><td>12</td><td>24</td><td>12</td><td>24</td><td>36</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td></tr>
-<tr><td><code>hsv </code></td><td>12</td><td>3</td><td>6</td><td>12</td><td>12</td><td>12</td><td>24</td><td>12</td><td>24</td><td>36</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td></tr>
-<tr><td><code>yiq </code></td><td>12</td><td>3</td><td>6</td><td>12</td><td>12</td><td>12</td><td>24</td><td>12</td><td>24</td><td>36</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td></tr>
-<tr><td><code>yuv </code></td><td>12</td><td>3</td><td>6</td><td>12</td><td>12</td><td>12</td><td>24</td><td>12</td><td>24</td><td>36</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td><td>12</td></tr>
+<tr><td>model</td><td><code>bool</code>            (1 )</td><td><code>uint8_t</code>         (1 )</td><td><code>uint16_t</code>        (2 )</td><td><code>uint24_t</code>        (3 )</td><td><code>uint32_t</code>        (4 )</td><td><code>uint48_t               (6 )</td><td><code>uint64_t</code>        (8 )</td><td><code>float      </code>     (4 )</td><td><code>double     </code>     (8 )</td><td><code>long double</code>     (8 )</td><td><code>split233</code>        </td><td><code>split332</code>        </td><td><code>split422</code>        </td><td><code>split556</code>        </td><td><code>split565</code>        </td><td><code>split655</code>        </td><td><code>split2222</code>       </td><td><code>split4444</code>       </td><td><code>split8888</code>       </td><td><code>splitAAA2</code>       </td></tr>
+<tr><td><code>rgb</code></td><td><s>"3"</s></td><td>3</td><td>6</td><td><s>"3"</s></td><td>12</td><td><s>"3"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td>2</td><td><s>"3"</s></td><td><s>"3"</s></td><td><s>"3"</s></td><td><s>"3"</s></td></tr>
+<tr><td><code>bgr</code></td><td><s>"3"</s></td><td>3</td><td>6</td><td><s>"3"</s></td><td>12</td><td><s>"3"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td>2</td><td><s>"3"</s></td><td><s>"3"</s></td><td><s>"3"</s></td><td><s>"3"</s></td></tr>
+<tr><td><code>rgba</code></td><td><s>"4"</s></td><td>4</td><td>8</td><td><s>"4"</s></td><td>16</td><td><s>"4"</s></td><td>32</td><td>16</td><td>32</td><td>32</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td>1</td><td>2</td><td>4</td><td>4</td></tr>
+<tr><td><code>argb</code></td><td><s>"4"</s></td><td>4</td><td>8</td><td><s>"4"</s></td><td>16</td><td><s>"4"</s></td><td>32</td><td>16</td><td>32</td><td>32</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td>1</td><td>2</td><td>4</td><td><s>"4"</s></td></tr>
+<tr><td><code>bgra</code></td><td><s>"4"</s></td><td>4</td><td>8</td><td><s>"4"</s></td><td>16</td><td><s>"4"</s></td><td>32</td><td>16</td><td>32</td><td>32</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td>1</td><td>2</td><td>4</td><td>4</td></tr>
+<tr><td><code>abgr</code></td><td><s>"4"</s></td><td>4</td><td>8</td><td><s>"4"</s></td><td>16</td><td><s>"4"</s></td><td>32</td><td>16</td><td>32</td><td>32</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td>1</td><td>2</td><td>4</td><td><s>"4"</s></td></tr>
+<tr><td><code>cmy </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>cmyk</code></td><td><s>"4"</s></td><td>4</td><td>8</td><td><s>"4"</s></td><td>16</td><td><s>"4"</s></td><td>32</td><td>16</td><td>32</td><td>32</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>gray</code></td><td>1</td><td>1</td><td>2</td><td><s>"4"</s></td><td>4</td><td><s>"4"</s></td><td>8</td><td>4</td><td>8</td><td>8</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>hsl </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>hsv </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>hsi </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>yiq </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>yuv601 </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>yuv709 </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>YPbPr601  </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>YPbPr709  </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>YPbPr2020 </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>YCgCo </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+<tr><td><code>YDbDr </code></td><td><s>"4"</s></td><td>3</td><td>6</td><td><s>"4"</s></td><td>12</td><td><s>"4"</s></td><td>24</td><td>12</td><td>24</td><td>24</td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td><td><s>"4"</s></td></tr>
+</table><br /><table border="1" cellspacing="0" cellpadding="2" >
+<tr><td> Type </td> <td> Size</td> </tr> <tr><td> char          </td> <td> 1</td> </tr> 
+<tr><td> wchar_t       </td> <td> 2</td> </tr> 
+<tr><td> std::uint8_t  </td> <td> 1</td> </tr> 
+<tr><td> std::uint16_t </td> <td> 2</td> </tr> 
+<tr><td> std::uint32_t </td> <td> 4</td> </tr> 
+<tr><td> std::uint64_t </td> <td> 8</td> </tr> 
+<tr><td> void*         </td> <td> 4</td> </tr> 
+<tr><td> unsigned      </td> <td> 4</td> </tr> 
+<tr><td> short         </td> <td> 2</td> </tr> 
+<tr><td> int           </td> <td> 4</td> </tr> 
+<tr><td> long          </td> <td> 4</td> </tr> 
+<tr><td> long long     </td> <td> 8</td> </tr> 
+<tr><td> float         </td> <td> 4</td> </tr> 
+<tr><td> double        </td> <td> 8</td> </tr> 
+<tr><td> long double   </td> <td> 8</td> </tr> 
 </table>
+
 				<!-- end generated code -->
 			</dd>
 		</dl>

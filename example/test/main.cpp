@@ -340,6 +340,10 @@ int main(int argc, char const *argv[])
  {
   sandbox_test();
 
+  extern void check_sizeof();
+  check_sizeof();
+  return 0;
+
   void test_operation();
   test_operation();
 
@@ -370,10 +374,6 @@ int main(int argc, char const *argv[])
 
   extern void print_bound();
   print_bound();
-
-  extern void check_sizeof();
-  check_sizeof();
-
 
 
   make_blue();

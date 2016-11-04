@@ -20,7 +20,7 @@ namespace color
     template< typename type_name >
      struct pick_rgb
       {
-       typedef ::color::category::rgb_uint8 category_type;
+       typedef ::color::category::rgb_error category_type;
       };
 
     template<> struct pick_rgb< std::uint8_t   >{ typedef ::color::category::rgb_uint8   category_type; };
@@ -43,7 +43,7 @@ namespace color
     template< typename type_name >
      struct pick_rgba
       {
-       typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t, 0, 1, 2, 3 > > category_type;
+       typedef ::color::category::rgba_error category_type;
       };
 
     template<> struct pick_rgba< std::uint8_t               > { typedef ::color::category::rgba_uint8     category_type; };
@@ -64,7 +64,7 @@ namespace color
     template< typename type_name >
      struct pick_argb
       {
-       typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t, 3, 0, 1, 2 > > category_type;
+       typedef ::color::category::argb_error category_type;
       };
 
     template<> struct pick_argb< std::uint8_t               > { typedef ::color::category::argb_uint8     category_type; };
@@ -85,7 +85,7 @@ namespace color
     template< typename type_name >
      struct pick_bgr
       {
-       typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< std::uint8_t, 2, 1, 0 > > category_type;
+       typedef ::color::category::bgr_error category_type;
       };
 
     template<> struct pick_bgr< std::uint8_t   >{ typedef ::color::category::bgr_uint8   category_type; };
@@ -108,7 +108,7 @@ namespace color
     template< typename type_name >
      struct pick_bgra
       {
-       typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t, 2, 1, 0, 3 > > category_type;
+       typedef ::color::category::bgra_error category_type;
       };
 
     template<> struct pick_bgra< std::uint8_t               > { typedef ::color::category::bgra_uint8     category_type; };
@@ -128,7 +128,7 @@ namespace color
     template< typename type_name >
      struct pick_abgr
       {
-       typedef ::color::category::rgb< ::color::category::_internal::rgba_scramble< std::uint8_t, 3, 2, 1, 0 > > category_type;
+       typedef ::color::category::abgr_error category_type;
       };
 
     template<> struct pick_abgr< std::uint8_t               > { typedef ::color::category::abgr_uint8     category_type; };

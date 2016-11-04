@@ -43,7 +43,7 @@
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, component_type( a0 * c0[index] + a1 * c1[index] ) );
+                result.set( index, component_type( a0 * c0.get(index) + a1 * c1.get(index ) ) );
                }
               return result;
              }
@@ -61,7 +61,7 @@
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, component_type( a0 * c0[ index ] + a1 * c1[ index ]  + a2 * c2[ index ] ) );
+                result.set( index, component_type( a0 * c0.get(index) + a1 * c1.get(index)  + a2 * c2.get(index) ) );
                }
               return result;
              }

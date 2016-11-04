@@ -13,7 +13,7 @@ namespace color
    }
  }
 
-#include "./scramble.hpp"
+#include "./error.hpp"
 
 #endif
 
