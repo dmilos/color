@@ -342,7 +342,6 @@ int main(int argc, char const *argv[])
 
   extern void check_sizeof();
   check_sizeof();
-  return 0;
 
   void test_operation();
   test_operation();
