@@ -20,6 +20,19 @@ namespace color
       {
       };
 
+    template< >
+     struct container< ::color::category::yiq_double >
+      : public  ::color::_internal::utility::container::array< double, 3 >
+      {
+      };
+
+    template< >
+     struct container< ::color::category::yiq_ldouble >
+      : public  ::color::_internal::utility::container::array< long double, 3 >
+      {
+      };
+
+
    }
  }
 

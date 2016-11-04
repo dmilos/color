@@ -20,6 +20,18 @@ namespace color
       {
       };
 
+    template< >
+     struct container< ::color::category::YDbDr_double >
+      : public  ::color::_internal::utility::container::array< double, 3 >
+      {
+      };
+
+    template< >
+     struct container< ::color::category::YDbDr_ldouble >
+      : public  ::color::_internal::utility::container::array< long double, 3 >
+      {
+      };
+
    }
  }
 

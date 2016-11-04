@@ -20,6 +20,18 @@ namespace color
       {
       };
 
+    template< ::color::constant::yuv::reference_enum reference_number >
+     struct container< ::color::category::yuv_double<reference_number> >
+      : public  ::color::_internal::utility::container::array< double, 3 >
+      {
+      };
+
+    template< ::color::constant::yuv::reference_enum reference_number >
+     struct container< ::color::category::yuv_ldouble<reference_number> >
+      : public  ::color::_internal::utility::container::array< long double, 3 >
+      {
+      };
+
    }
  }
 
