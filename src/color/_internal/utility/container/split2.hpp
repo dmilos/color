@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_container_split2
-#define color__internal_utility_container_split2
+#ifndef color__internal_utility_container_pack2
+#define color__internal_utility_container_pack2
 
-// ::color::_internal::utility::container::split2< index_name >
+// ::color::_internal::utility::container::pack2< index_name >
 
 #include "../type/index.hpp"
 #include "../type/traitp.hpp"
@@ -23,7 +23,7 @@ namespace color
            typename index_name
           ,unsigned first_size, unsigned second_size
          >
-         struct split2
+         struct pack2
           {
            public:
              typedef container_name  instance_type;
@@ -111,6 +111,9 @@ namespace color
                return local_length;
               }
           };
+
+        template< typename container_name, typename component_name, unsigned first_size, unsigned second_size >
+         using pack2_N_N_t = ::color::_internal::utility::container::pack4< container_name, component_name, unsigned, first_size, second_size >;
 
        }
      }

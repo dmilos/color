@@ -11,6 +11,7 @@ namespace color
    {
 
     struct error{};
+
     typedef error error_t, error_type;
 
    }

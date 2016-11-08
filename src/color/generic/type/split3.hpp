@@ -25,6 +25,10 @@ namespace color
     typedef  ::color::type::split3_t<  5,  6,  5 > split565_t, split565_type;
     typedef  ::color::type::split3_t<  5,  5,  6 > split556_t, split556_type;
 
+    typedef  ::color::type::split3_t<  7,  7,  2 > split772_t, split772_type;
+    typedef  ::color::type::split3_t<  7,  2,  7 > split727_t, split727_type;
+    typedef  ::color::type::split3_t<  2,  7,  7 > split277_t, split277_type;
+
     typedef  ::color::type::split3_t<  8,  8,  8 > split888_t, split888_type;
 
     typedef  ::color::type::split3_t< 12, 10, 10 > splitCAA_t, splitCAA_type;

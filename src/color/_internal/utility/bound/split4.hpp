@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_bound_split4
-#define color__internal_utility_bound_split4
+#ifndef color__internal_utility_bound_pack4
+#define color__internal_utility_bound_pack4
 
-// ::color::_internal::utility::bound::split4< ... >
+// ::color::_internal::utility::bound::pack4< ... >
 
 
 #include "../type/traitp.hpp"
@@ -24,7 +24,7 @@ namespace color
           ,typename index_name
           ,unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size
          >
-         struct split4
+         struct pack4
           {
            public:
              typedef unsigned_name       unsigned_type;
@@ -39,7 +39,7 @@ namespace color
              typedef typename index_trait_type::instance_type    index_instance_type;
              typedef typename index_trait_type::input_const_type index_input_const_type;
 
-             enum 
+             enum
               {
                 first_max  = (1 <<  first_size) - 1,
                second_max  = (1 << second_size) - 1,
@@ -87,21 +87,38 @@ namespace color
               }
           };
 
-         using split2222 = ::color::_internal::utility::bound::split4< std::uint8_t,   unsigned,  2,  2,  2,  2 >;
-         using split4444 = ::color::_internal::utility::bound::split4< std::uint16_t,  unsigned,  4,  4,  4,  4 >;
-         using split6666 = ::color::_internal::utility::bound::split4< std::uint16_t,  unsigned,  6,  6,  6,  6 >;
+        template< typename unsigned_name, unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_N_t = ::color::_internal::utility::bound::pack4< unsigned_name, unsigned, first_size, second_size, third_size, fourth_size >;
 
-         using split1555 = ::color::_internal::utility::bound::split4< std::uint16_t,  unsigned,  1,  5,  5,  5 >;
-         using split5551 = ::color::_internal::utility::bound::split4< std::uint16_t,  unsigned,  5,  5,  5,  1 >;
+        template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_8_t = ::color::_internal::utility::bound::pack4_N_t< std::uint8_t, first_size, second_size, third_size, fourth_size >;
 
-         using split6666 = ::color::_internal::utility::bound::split4< std::uint16_t,  unsigned,  6,  6,  6,  6 >;
+        template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_16_t = ::color::_internal::utility::bound::pack4_N_t< std::uint16_t, first_size, second_size, third_size, fourth_size >;
 
-         using split8888 = ::color::_internal::utility::bound::split4< std::uint32_t,  unsigned,  8,  8,  8,  8 >;
+        template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_32_t = ::color::_internal::utility::bound::pack4_N_t< std::uint32_t, first_size, second_size, third_size, fourth_size >;
 
-         using splitAAA2 = ::color::_internal::utility::bound::split4< std::uint32_t,  unsigned, 10, 10, 10,  2 >;
-         using split2AAA = ::color::_internal::utility::bound::split4< std::uint32_t,  unsigned,  2, 10, 10, 10 >;
+        template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_64_t = ::color::_internal::utility::bound::pack4_N_t< std::uint64_t, first_size, second_size, third_size, fourth_size >;
 
-         using splitGGGG = ::color::_internal::utility::bound::split4< std::uint32_t,  unsigned, 16, 16, 16, 16 >;
+
+        using split2222_t = ::color::_internal::utility::bound::pack4_8_t<   2,  2,  2,  2 >;
+
+        using split4444_t = ::color::_internal::utility::bound::pack4_16_t<  4,  4,  4,  4 >;
+        using split6666_t = ::color::_internal::utility::bound::pack4_16_t<  6,  6,  6,  6 >;
+
+        using split1555_t = ::color::_internal::utility::bound::pack4_16_t<  1,  5,  5,  5 >;
+        using split5551_t = ::color::_internal::utility::bound::pack4_16_t<  5,  5,  5,  1 >;
+
+        using split6666_t = ::color::_internal::utility::bound::pack4_16_t<  6,  6,  6,  6 >;
+
+        using split8888_t = ::color::_internal::utility::bound::pack4_32_t<  8,  8,  8,  8 >;
+
+        using splitAAA2_t = ::color::_internal::utility::bound::pack4_32_t<  0, 10, 10,  2 >;
+        using split2AAA_t = ::color::_internal::utility::bound::pack4_32_t<  2, 10, 10, 10 >;
+
+        using splitGGGG_t = ::color::_internal::utility::bound::pack4_32_t<  6, 16, 16, 16 >;
 
        }
      }

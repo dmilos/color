@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_container_split4
-#define color__internal_utility_container_split4
+#ifndef color__internal_utility_container_pack4
+#define color__internal_utility_container_pack4
 
-// ::color::_internal::utility::container::split4< index_name >
+// ::color::_internal::utility::container::pack4< index_name >
 
 #include "../type/index.hpp"
 #include "../type/traitp.hpp"
@@ -23,7 +23,7 @@ namespace color
            typename index_name
           ,unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size
          >
-         struct split4
+         struct pack4
           {
            public:
              typedef container_name  instance_type;
@@ -87,7 +87,7 @@ namespace color
              template< index_instance_type index >
               static component_return_const_type get( input_const_type container )
                {
-                //TODO C++14 static_assert( index < size_enum, "Index is out of range." );   
+                //TODO C++14 static_assert( index < size_enum, "Index is out of range." );
                 switch( index )
                  {
                   case( 0 ): return ( ( container >> (  first_position ) ) &  first_mask );
@@ -113,7 +113,7 @@ namespace color
              template< index_instance_type index >
               static set_return_type set( input_type container, component_input_const_type value )
                {
-                //TODO C++14 static_assert( index < size_enum, "Index is out of range." );   
+                //TODO C++14 static_assert( index < size_enum, "Index is out of range." );
                 switch( index )
                  {
                   case( 0 ) : container = ( container & ~(   first_mask << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
@@ -130,18 +130,39 @@ namespace color
               }
           };
 
-           using split2222 = ::color::_internal::utility::container::split4< std::uint8_t,  std::uint8_t,  unsigned, 2,   2,  2,  2 >;
-           using split4444 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t,  unsigned, 4,   4,  4,  4 >;
+        template< typename container_name, typename component_name, unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_N_N_t = ::color::_internal::utility::container::pack4< container_name, component_name, unsigned, first_size, second_size, third_size, fourth_size >;
 
-           using split1555 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t,  unsigned, 1,   5,  5,  5 >;
-           using split5551 = ::color::_internal::utility::container::split4< std::uint16_t, std::uint8_t,  unsigned, 5,   5,  5,  1 >;
+        template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_8_8_t = ::color::_internal::utility::container::pack4_N_N_t< std::uint8_t,  std::uint8_t, first_size, second_size, third_size, fourth_size >;
 
-           using split8888 = ::color::_internal::utility::container::split4< std::uint32_t, std::uint8_t,  unsigned, 8,   8,  8,  8 >;
+        template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_16_8_t = ::color::_internal::utility::container::pack4_N_N_t< std::uint16_t,  std::uint8_t, first_size, second_size, third_size, fourth_size >;
 
-           using split2AAA = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned,  2, 10, 10, 10 >;
-           using splitAAA2 = ::color::_internal::utility::container::split4< std::uint32_t, std::uint16_t, unsigned, 10, 10, 10,  2 >;
+        template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_32_8_t = ::color::_internal::utility::container::pack4_N_N_t< std::uint32_t,  std::uint8_t, first_size, second_size, third_size, fourth_size >;
 
-           using splitGGGG = ::color::_internal::utility::container::split4< std::uint64_t, std::uint16_t, unsigned, 16, 16, 16,  16 >;
+        template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_32_16_t = ::color::_internal::utility::container::pack4_N_N_t< std::uint32_t,  std::uint16_t, first_size, second_size, third_size, fourth_size >;
+
+        template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_64_16_t = ::color::_internal::utility::container::pack4_N_N_t< std::uint64_t,  std::uint16_t, first_size, second_size, third_size, fourth_size >;
+
+        template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
+         using pack4_64_32_t = ::color::_internal::utility::container::pack4_N_N_t< std::uint64_t,  std::uint32_t, first_size, second_size, third_size, fourth_size >;
+         
+        using split2222_t = ::color::_internal::utility::container::pack4_8_8_t<   2,   2,  2,  2 >;
+        using split4444_t = ::color::_internal::utility::container::pack4_16_8_t<  4,   4,  4,  4 >;
+
+        using split1555_t = ::color::_internal::utility::container::pack4_16_8_t< 1,   5,  5,  5 >;
+        using split5551_t = ::color::_internal::utility::container::pack4_16_8_t< 5,   5,  5,  1 >;
+
+        using split8888_t = ::color::_internal::utility::container::pack4_32_8_t<  8,   8,  8,  8 >;
+
+        using split2AAA_t = ::color::_internal::utility::container::pack4_32_16_t<  2, 10, 10, 10 >;
+        using splitAAA2_t = ::color::_internal::utility::container::pack4_32_16_t< 10, 10, 10,  2 >;
+
+        using splitGGGG_t = ::color::_internal::utility::container::pack4_64_16_t< 16, 16, 16,  16 >;
 
        }
      }

@@ -16,12 +16,12 @@ namespace color
        {
 
         template< typename index_name >
-         struct pack_64
+         struct pack64
           : public ::color::_internal::utility::component::Unsigned< std::uint32_t, index_name >
           {
           };
 
-        template< typename index_name > using cnentGGGG = ::color::_internal::utility::component::pack_64<index_name>;
+        template< typename index_name > using splitGGGG_t = ::color::_internal::utility::component::pack64<index_name>;
        }
      }
    }

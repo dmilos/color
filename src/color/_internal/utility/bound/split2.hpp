@@ -1,7 +1,7 @@
-#ifndef color__internal_utility_bound_split2
-#define color__internal_utility_bound_split2
+#ifndef color__internal_utility_bound_pack2
+#define color__internal_utility_bound_pack2
 
-// ::color::_internal::utility::bound::split2< index_type, 1, 2 >
+// ::color::_internal::utility::bound::pack2< index_type, 1, 2 >
 
 
 #include "../type/traitp.hpp"
@@ -24,7 +24,7 @@ namespace color
           ,typename index_name
           ,unsigned first_size, unsigned second_size
          >
-         struct split2
+         struct pack2
           {
            public:
              typedef unsigned_name       unsigned_type;
@@ -84,6 +84,9 @@ namespace color
                 return max_list[index];
               }
           };
+
+        template< typename unsigned_name, unsigned first_size, unsigned second_size >
+         using pack2_N_t = ::color::_internal::utility::bound::pack3< unsigned_name, unsigned, first_size, second_size >;
 
        }
      }
