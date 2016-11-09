@@ -9,7 +9,7 @@ namespace color
    {
 
     template< unsigned first_size, unsigned second_size >
-     struct split2_t {};
+     struct split2{};
 
    }
  }

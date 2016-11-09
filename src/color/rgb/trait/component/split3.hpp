@@ -29,19 +29,25 @@ namespace color
       {
       };
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position > 
+     template< unsigned first_position, unsigned second_position, unsigned third_position >
+     struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split323_t, first_position, second_position, third_position > > >
+      : public ::color::_internal::utility::component::split323_t< unsigned >
+      {
+      };
+
+     template< unsigned first_position, unsigned second_position, unsigned third_position >
      struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split422_t, first_position, second_position, third_position > > >
       : public ::color::_internal::utility::component::split422_t< unsigned >
       {
       };
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position > 
+     template< unsigned first_position, unsigned second_position, unsigned third_position >
      struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split242_t, first_position, second_position, third_position > > >
       : public ::color::_internal::utility::component::split242_t< unsigned >
       {
       };
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position > 
+     template< unsigned first_position, unsigned second_position, unsigned third_position >
      struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::split224_t, first_position, second_position, third_position > > >
       : public ::color::_internal::utility::component::split224_t< unsigned >
       {

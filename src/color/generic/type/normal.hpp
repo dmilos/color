@@ -8,8 +8,10 @@ namespace color
   namespace type
    {
 
-    struct normal_t {};
-    //typedef normal_t normal_type;
+    //
+    struct normal{};
+
+    typedef normal normal_t, normal_type;
 
    }
  }

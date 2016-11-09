@@ -15,6 +15,42 @@
 
 #include "./targa.hpp"
 
+template < typename category_name >
+void print()
+ {
+  typedef category_name category_t;
+
+  std::cout << "**************************************************************************************************************"  << std::endl;
+  typedef ::color::model<category_t> model_t;                                                     std::cout << "model_t                        " << typeid( model_t ).name() << std::endl;
+
+  typedef ::color::trait::index< category_name >                index_trait_type;                 std::cout << "index_trait_type               " << typeid( index_trait_type ).name() << std::endl;
+  typedef ::color::trait::component< category_name >            component_trait_type;             std::cout << "component_trait_type           " << typeid( component_trait_type ).name() << std::endl;
+  typedef ::color::trait::container< category_name >            container_trait_type;             std::cout << "container_trait_type           " << typeid( container_trait_type ).name() << std::endl;
+  typedef ::color::trait::bound< category_name >                bound_trait_type, bound_type;     std::cout << "bound_trait_type, bound_type   " << typeid( bound_trait_type ).name() << std::endl;
+  typedef ::color::trait::scalar< category_name >               scalar_trait_type;                std::cout << "scalar_trait_type              " << typeid( scalar_trait_type ).name() << std::endl;
+
+  typedef typename index_trait_type::instance_type              index_type;                       std::cout << "index_type                     " << typeid( index_type ).name() << std::endl;
+  typedef typename index_trait_type::const_type                 index_const_type;                 std::cout << "index_const_type               " << typeid( index_const_type ).name() << std::endl;
+  typedef typename index_trait_type::input_const_type           index_input_const_type;           std::cout << "index_input_const_type         " << typeid( index_input_const_type ).name() << std::endl;
+  typedef typename index_trait_type::return_image_type          index_return_image_type;          std::cout << "index_return_image_type        " << typeid( index_return_image_type ).name() << std::endl;
+
+  typedef typename component_trait_type::instance_type          component_type;                   std::cout << "component_type                 " << typeid( component_type ).name() << std::endl;
+  typedef typename component_trait_type::const_type             component_const_type;             std::cout << "component_const_type           " << typeid( component_const_type ).name() << std::endl;
+  typedef typename component_trait_type::return_image_type      component_return_const_type;      std::cout << "component_return_const_type    " << typeid( component_return_const_type ).name() << std::endl;
+  typedef typename component_trait_type::return_type            component_return_type;            std::cout << "component_return_type          " << typeid( component_return_type ).name() << std::endl;
+  typedef typename component_trait_type::input_const_type       component_input_const_type;       std::cout << "component_input_const_type     " << typeid( component_input_const_type ).name() << std::endl;
+  typedef typename component_trait_type::input_type             component_input_type;             std::cout << "component_input_type           " << typeid( component_input_type ).name() << std::endl;
+
+  typedef typename container_trait_type::instance_type          container_type;                   std::cout << "container_type                 " << typeid( container_type ).name() << std::endl;
+  typedef typename container_trait_type::const_type             container_const_type;             std::cout << "container_const_type           " << typeid( container_const_type ).name() << std::endl;
+  typedef typename container_trait_type::return_image_type      container_return_const_type;      std::cout << "container_return_const_type    " << typeid( container_return_const_type ).name() << std::endl;
+  typedef typename container_trait_type::return_original_type   container_return_original_type;   std::cout << "container_return_original_type " << typeid( container_return_original_type ).name() << std::endl;
+  typedef typename container_trait_type::input_const_type       container_input_const_type;       std::cout << "container_input_const_type     " << typeid( container_input_const_type ).name() << std::endl;
+  typedef typename container_trait_type::input_type             container_input_type;             std::cout << "container_input_type           " << typeid( container_input_type ).name() << std::endl;
+  std::cout << "**************************************************************************************************************"  << std::endl;
+ }
+
+
 void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
  {
   ::color::hsi<double>  h;
@@ -338,6 +374,8 @@ void test_pallete()
 
 int main(int argc, char const *argv[])
  {
+  print< ::color::rgb< ::color::type::split323_t >::category_type  >();
+  print< ::color::rgb< ::color::type::split332_t >::category_type  >();
   sandbox_test();
 
   extern void check_sizeof();

@@ -9,7 +9,7 @@ namespace color
  {
   namespace type
    {
-
+    //
     struct error{};
 
     typedef error error_t, error_type;
