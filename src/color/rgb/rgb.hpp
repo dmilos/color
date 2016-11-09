@@ -35,6 +35,8 @@ namespace color
     template<> struct pick_rgb< ::color::type::split323_t  > { typedef ::color::category::rgb_split323 category_type; };
     template<> struct pick_rgb< ::color::type::split332_t  > { typedef ::color::category::rgb_split332 category_type; };
     template<> struct pick_rgb< ::color::type::split422_t  > { typedef ::color::category::rgb_split422 category_type; };
+    template<> struct pick_rgb< ::color::type::split242_t  > { typedef ::color::category::rgb_split242 category_type; };
+    template<> struct pick_rgb< ::color::type::split224_t  > { typedef ::color::category::rgb_split224 category_type; };
     template<> struct pick_rgb< ::color::type::split556_t  > { typedef ::color::category::rgb_split556 category_type; };
     template<> struct pick_rgb< ::color::type::split565_t  > { typedef ::color::category::rgb_split565 category_type; };
     template<> struct pick_rgb< ::color::type::split655_t  > { typedef ::color::category::rgb_split655 category_type; };
@@ -100,6 +102,8 @@ namespace color
     template<> struct pick_bgr< ::color::type::split323_t  > { typedef ::color::category::bgr_split323 category_type; };
     template<> struct pick_bgr< ::color::type::split332_t  > { typedef ::color::category::bgr_split332 category_type; };
     template<> struct pick_bgr< ::color::type::split422_t  > { typedef ::color::category::bgr_split422 category_type; };
+    template<> struct pick_bgr< ::color::type::split242_t  > { typedef ::color::category::bgr_split242 category_type; };
+    template<> struct pick_bgr< ::color::type::split224_t  > { typedef ::color::category::bgr_split224 category_type; };
     template<> struct pick_bgr< ::color::type::split556_t  > { typedef ::color::category::bgr_split556 category_type; };
     template<> struct pick_bgr< ::color::type::split565_t  > { typedef ::color::category::bgr_split565 category_type; };
     template<> struct pick_bgr< ::color::type::split655_t  > { typedef ::color::category::bgr_split655 category_type; };

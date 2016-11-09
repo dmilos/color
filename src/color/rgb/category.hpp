@@ -54,6 +54,8 @@ namespace color
       using rgb_split323 = ::color::category::_internal::rgb_scramble< ::color::type::split323_t , 0, 1, 2 >;
       using rgb_split332 = ::color::category::_internal::rgb_scramble< ::color::type::split332_t , 0, 1, 2 >;
       using rgb_split422 = ::color::category::_internal::rgb_scramble< ::color::type::split422_t , 0, 1, 2 >;
+      using rgb_split242 = ::color::category::_internal::rgb_scramble< ::color::type::split242_t , 0, 1, 2 >;
+      using rgb_split224 = ::color::category::_internal::rgb_scramble< ::color::type::split224_t , 0, 1, 2 >;
       using rgb_split556 = ::color::category::_internal::rgb_scramble< ::color::type::split556_t , 0, 1, 2 >;
       using rgb_split565 = ::color::category::_internal::rgb_scramble< ::color::type::split565_t , 0, 1, 2 >;
       using rgb_split655 = ::color::category::_internal::rgb_scramble< ::color::type::split655_t , 0, 1, 2 >;
@@ -71,6 +73,8 @@ namespace color
     using rgb_split323  = ::color::category::rgb< ::color::category::_internal::rgb_split323  >;
     using rgb_split332  = ::color::category::rgb< ::color::category::_internal::rgb_split332  >;
     using rgb_split422  = ::color::category::rgb< ::color::category::_internal::rgb_split422  >;
+    using rgb_split242  = ::color::category::rgb< ::color::category::_internal::rgb_split242  >;
+    using rgb_split224  = ::color::category::rgb< ::color::category::_internal::rgb_split224  >;
     using rgb_split556  = ::color::category::rgb< ::color::category::_internal::rgb_split556  >;
     using rgb_split565  = ::color::category::rgb< ::color::category::_internal::rgb_split565  >;
     using rgb_split655  = ::color::category::rgb< ::color::category::_internal::rgb_split655  >;
@@ -162,6 +166,8 @@ namespace color
       using bgr_split323 = ::color::category::_internal::rgb_scramble< ::color::type::split323_t,  2, 1, 0 >;
       using bgr_split332 = ::color::category::_internal::rgb_scramble< ::color::type::split332_t,  2, 1, 0 >;
       using bgr_split422 = ::color::category::_internal::rgb_scramble< ::color::type::split422_t,  2, 1, 0 >;
+      using bgr_split242 = ::color::category::_internal::rgb_scramble< ::color::type::split242_t,  2, 1, 0 >;
+      using bgr_split224 = ::color::category::_internal::rgb_scramble< ::color::type::split224_t,  2, 1, 0 >;
       using bgr_split556 = ::color::category::_internal::rgb_scramble< ::color::type::split556_t,  2, 1, 0 >;
       using bgr_split565 = ::color::category::_internal::rgb_scramble< ::color::type::split565_t,  2, 1, 0 >;
       using bgr_split655 = ::color::category::_internal::rgb_scramble< ::color::type::split655_t,  2, 1, 0 >;
@@ -179,6 +185,8 @@ namespace color
     using bgr_split323  = ::color::category::rgb< ::color::category::_internal::bgr_split323  >;
     using bgr_split332  = ::color::category::rgb< ::color::category::_internal::bgr_split332  >;
     using bgr_split422  = ::color::category::rgb< ::color::category::_internal::bgr_split422  >;
+    using bgr_split242  = ::color::category::rgb< ::color::category::_internal::bgr_split242  >;
+    using bgr_split224  = ::color::category::rgb< ::color::category::_internal::bgr_split224  >;
     using bgr_split556  = ::color::category::rgb< ::color::category::_internal::bgr_split556  >;
     using bgr_split565  = ::color::category::rgb< ::color::category::_internal::bgr_split565  >;
     using bgr_split655  = ::color::category::rgb< ::color::category::_internal::bgr_split655  >;

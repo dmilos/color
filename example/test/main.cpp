@@ -374,8 +374,14 @@ void test_pallete()
 
 int main(int argc, char const *argv[])
  {
-  print< ::color::rgb< ::color::type::split323_t >::category_type  >();
-  print< ::color::rgb< ::color::type::split332_t >::category_type  >();
+  print< ::color::rgb< ::color::type::split422_t >::category_type  >();
+  print< ::color::rgb< ::color::type::split242_t >::category_type  >();
+  print< ::color::rgb< ::color::type::split224_t >::category_type  >();
+
+  print< ::color::bgr< ::color::type::split422_t >::category_type  >();
+  print< ::color::bgr< ::color::type::split242_t >::category_type  >();
+  print< ::color::bgr< ::color::type::split224_t >::category_type  >();
+
   sandbox_test();
 
   extern void check_sizeof();

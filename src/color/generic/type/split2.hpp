@@ -1,7 +1,7 @@
 #ifndef color_type_split2
 #define color_type_split2
 
-// ::color::type::split3_t
+// ::color::type::split3
 
 namespace color
  {

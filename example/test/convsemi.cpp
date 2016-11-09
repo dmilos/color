@@ -73,6 +73,11 @@ void image_bgr_conversion()
   typedef ::color::bgr< ::color::type::split323_t >::category_type bgr_split323_t;
   typedef ::color::bgr< ::color::type::split332_t >::category_type bgr_split332_t;
   typedef ::color::bgr< ::color::type::split422_t >::category_type bgr_split422_t;
+
+  typedef ::color::bgr< ::color::type::split422_t >::category_type bgr_split422_t;
+  typedef ::color::bgr< ::color::type::split242_t >::category_type bgr_split242_t;
+  typedef ::color::bgr< ::color::type::split224_t >::category_type bgr_split224_t;
+
   typedef ::color::bgr< ::color::type::split556_t >::category_type bgr_split556_t;
   typedef ::color::bgr< ::color::type::split565_t >::category_type bgr_split565_t;
   typedef ::color::bgr< ::color::type::split655_t >::category_type bgr_split655_t;
@@ -88,7 +93,11 @@ void image_bgr_conversion()
   make_image_conversion< rgb_t, bgr_split233_t >( "./conv-rgb/rgb2bgr_split233.tga",  0.5 );
   make_image_conversion< rgb_t, bgr_split323_t >( "./conv-rgb/rgb2bgr_split323.tga",  0.5 );
   make_image_conversion< rgb_t, bgr_split332_t >( "./conv-rgb/rgb2bgr_split332.tga",  0.5 );
+
   make_image_conversion< rgb_t, bgr_split422_t >( "./conv-rgb/rgb2bgr_split422.tga",  0.5 );
+  make_image_conversion< rgb_t, bgr_split242_t >( "./conv-rgb/rgb2bgr_split242.tga",  0.5 );
+  make_image_conversion< rgb_t, bgr_split224_t >( "./conv-rgb/rgb2bgr_split224.tga",  0.5 );
+
   make_image_conversion< rgb_t, bgr_split556_t >( "./conv-rgb/rgb2bgr_split556.tga",  0.5 );
   make_image_conversion< rgb_t, bgr_split565_t >( "./conv-rgb/rgb2bgr_split565.tga",  0.5 );
   make_image_conversion< rgb_t, bgr_split655_t >( "./conv-rgb/rgb2bgr_split655.tga",  0.5 );
@@ -110,7 +119,11 @@ void image_rgb_conversion()
   typedef ::color::rgb< ::color::type::split233_t >::category_type rgb_split233_t;
   typedef ::color::rgb< ::color::type::split323_t >::category_type rgb_split323_t;
   typedef ::color::rgb< ::color::type::split332_t >::category_type rgb_split332_t;
+
   typedef ::color::rgb< ::color::type::split422_t >::category_type rgb_split422_t;
+  typedef ::color::rgb< ::color::type::split242_t >::category_type rgb_split242_t;
+  typedef ::color::rgb< ::color::type::split224_t >::category_type rgb_split224_t;
+
   typedef ::color::rgb< ::color::type::split556_t >::category_type rgb_split556_t;
   typedef ::color::rgb< ::color::type::split565_t >::category_type rgb_split565_t;
   typedef ::color::rgb< ::color::type::split655_t >::category_type rgb_split655_t;
@@ -126,7 +139,11 @@ void image_rgb_conversion()
   make_image_conversion< rgb_t, rgb_split233_t >( "./conv-rgb/rgb2rgb_split233.tga",      0.5 );
   make_image_conversion< rgb_t, rgb_split323_t >( "./conv-rgb/rgb2rgb_split323.tga",      0.5 );
   make_image_conversion< rgb_t, rgb_split332_t >( "./conv-rgb/rgb2rgb_split332.tga",      0.5 );
+
   make_image_conversion< rgb_t, rgb_split422_t >( "./conv-rgb/rgb2rgb_split422.tga",      0.5 );
+  make_image_conversion< rgb_t, rgb_split242_t >( "./conv-rgb/rgb2rgb_split242.tga",      0.5 );
+  make_image_conversion< rgb_t, rgb_split224_t >( "./conv-rgb/rgb2rgb_split224.tga",      0.5 );
+
   make_image_conversion< rgb_t, rgb_split556_t >( "./conv-rgb/rgb2rgb_split556.tga",      0.5 );
   make_image_conversion< rgb_t, rgb_split565_t >( "./conv-rgb/rgb2rgb_split565.tga",      0.5 );
   make_image_conversion< rgb_t, rgb_split655_t >( "./conv-rgb/rgb2rgb_split655.tga",      0.5 );
