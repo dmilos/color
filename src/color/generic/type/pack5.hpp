@@ -1,7 +1,7 @@
-#ifndef color_type_split5
-#define color_type_split5
+#ifndef color_type_pack5
+#define color_type_pack5
 
-// ::color::type::split5
+// ::color::type::pack5
 
 namespace color
  {
@@ -9,7 +9,7 @@ namespace color
    {
 
     template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size, unsigned fifth_size >
-     struct split5{};
+     struct pack5{};
 
    }
  }

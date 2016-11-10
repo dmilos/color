@@ -4,8 +4,8 @@
 // ::color::category::rgb_ABC;
 // ::color::category::rgb< tag >;
 #include "../generic/type/scramble.hpp"
-#include "../generic/type/split3.hpp"
-#include "../generic/type/split4.hpp"
+#include "../generic/type/pack3.hpp"
+#include "../generic/type/pack4.hpp"
 #include "../generic/category/category.hpp"
 
 

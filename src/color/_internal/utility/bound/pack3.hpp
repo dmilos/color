@@ -90,14 +90,16 @@ namespace color
          using pack3_N_t = ::color::_internal::utility::bound::pack3< unsigned_name, unsigned, first_size, second_size, third_size >;
 
         template<  unsigned first_size, unsigned second_size, unsigned third_size >
-         using pack3_8_t = ::color::_internal::utility::bound::pack3_N_t< std::uint8_t, first_size, second_size, third_size >;
+         using pack3_8_t  = ::color::_internal::utility::bound::pack3_N_t< std::uint8_t,   first_size, second_size, third_size >;
 
         template<  unsigned first_size, unsigned second_size, unsigned third_size >
          using pack3_16_t = ::color::_internal::utility::bound::pack3_N_t< std::uint16_t, first_size, second_size, third_size >;
 
         template<  unsigned first_size, unsigned second_size, unsigned third_size >
-         using pack3_32_t = ::color::_internal::utility::bound::pack3_N_t< std::uint32_t,first_size, second_size, third_size >;
+         using pack3_32_t = ::color::_internal::utility::bound::pack3_N_t< std::uint32_t, first_size, second_size, third_size >;
 
+        template<  unsigned first_size, unsigned second_size, unsigned third_size >
+         using pack3_64_t = ::color::_internal::utility::bound::pack3_N_t< std::uint64_t, first_size, second_size, third_size >;
 
         using split233_t = ::color::_internal::utility::bound::pack3_8_t< 2, 3, 3 >;
         using split323_t = ::color::_internal::utility::bound::pack3_8_t< 3, 2, 3 >;

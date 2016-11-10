@@ -18,6 +18,7 @@ namespace color
 
       namespace _internal
        {
+
         template< typename scalar_name, ::color::constant::yuv::reference_enum reference_number = ::color::constant::yuv::error_entity  >
          struct base
           {
@@ -57,7 +58,7 @@ namespace color
        }
 
     template< typename tag_name, ::color::constant::yuv::reference_enum reference_number >
-     struct parameter 
+     struct parameter
      : public ::color::constant::yuv::_internal::base< typename ::color::trait::scalar< ::color::category::yuv< tag_name, reference_number > >::instance_type, reference_number >
       {
        public:
