@@ -117,34 +117,34 @@ void print_bound_rgb()
 
   ss << print_semi_title4( "Red","Green","Blue", "(Alpha)?" );
 
-  ss << print_bound4< ::color::model< ::color::category::rgb_uint8      > >( "color::rgb", "rgb_uint8     " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_uint16     > >( "color::rgb", "rgb_uint16    " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_uint32     > >( "color::rgb", "rgb_uint32    " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_uint64     > >( "color::rgb", "rgb_uint64    " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_float      > >( "color::rgb", "rgb_float     " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_double     > >( "color::rgb", "rgb_double    " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_ldouble    > >( "color::rgb", "rgb_ldouble   " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_split233   > >( "color::rgb", "rgb_split233  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_split323   > >( "color::rgb", "rgb_split323  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_split332   > >( "color::rgb", "rgb_split332  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_split422   > >( "color::rgb", "rgb_split422  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_split556   > >( "color::rgb", "rgb_split556  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_split565   > >( "color::rgb", "rgb_split565  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgb_split655   > >( "color::rgb", "rgb_split655  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_uint8        > >( "color::rgb", "rgb_uint8     " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_uint16       > >( "color::rgb", "rgb_uint16    " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_uint32       > >( "color::rgb", "rgb_uint32    " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_uint64       > >( "color::rgb", "rgb_uint64    " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_float        > >( "color::rgb", "rgb_float     " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_double       > >( "color::rgb", "rgb_double    " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_ldouble      > >( "color::rgb", "rgb_ldouble   " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_pack<2,3,3> > >( "color::rgb", "rgb_split233  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_pack<3,2,3> > >( "color::rgb", "rgb_split323  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_pack<3,3,2> > >( "color::rgb", "rgb_split332  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_pack<4,2,2> > >( "color::rgb", "rgb_split422  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_pack<5,5,6> > >( "color::rgb", "rgb_split556  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_pack<5,6,5> > >( "color::rgb", "rgb_split565  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgb_pack<6,5,5> > >( "color::rgb", "rgb_split655  " ) << std::endl;
 
-  ss << print_bound4< ::color::model< ::color::category::rgba_uint8     > >( "color::rgb", "rgba_uint8    " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_uint16    > >( "color::rgb", "rgba_uint16   " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_uint32    > >( "color::rgb", "rgba_uint32   " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_uint64    > >( "color::rgb", "rgba_uint64   " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_float     > >( "color::rgb", "rgba_float    " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_double    > >( "color::rgb", "rgba_double   " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_ldouble   > >( "color::rgb", "rgba_ldouble  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_split2222 > >( "color::rgb", "rgba_split2222" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_split4444 > >( "color::rgb", "rgba_split4444" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_split8888 > >( "color::rgb", "rgba_split8888" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_split5551 > >( "color::rgb", "rgba_split5551" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_splitAAA2 > >( "color::rgb", "rgba_splitAAA2" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::rgba_splitGGGG > >( "color::rgb", "rgba_splitGGGG" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_uint8        > >( "color::rgb", "rgba_uint8    " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_uint16       > >( "color::rgb", "rgba_uint16   " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_uint32       > >( "color::rgb", "rgba_uint32   " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_uint64       > >( "color::rgb", "rgba_uint64   " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_float        > >( "color::rgb", "rgba_float    " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_double       > >( "color::rgb", "rgba_double   " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_ldouble      > >( "color::rgb", "rgba_ldouble  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_pack<  2,  2,  2,  2 > > >( "color::rgb", "rgba_split2222" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_pack<  4,  4,  4,  4 > > >( "color::rgb", "rgba_split4444" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_pack<  8,  8,  8,  8 > > >( "color::rgb", "rgba_split8888" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_pack<  5,  5,  5,  1 > > >( "color::rgb", "rgba_split5551" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_pack< 10, 10, 10,  2 > > >( "color::rgb", "rgba_splitAAA2" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::rgba_pack< 16, 16, 16, 16 > > >( "color::rgb", "rgba_splitGGGG" ) << std::endl;
 
   ss << print_bound4< ::color::model< ::color::category::argb_uint8     > >( "color::rgb", "argb_uint8    " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::argb_uint16    > >( "color::rgb", "argb_uint16   " ) << std::endl;
@@ -153,12 +153,12 @@ void print_bound_rgb()
   ss << print_bound4< ::color::model< ::color::category::argb_float     > >( "color::rgb", "argb_float    " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::argb_double    > >( "color::rgb", "argb_double   " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::argb_ldouble   > >( "color::rgb", "argb_ldouble  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::argb_split2222 > >( "color::rgb", "argb_split2222" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::argb_split4444 > >( "color::rgb", "argb_split4444" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::argb_split8888 > >( "color::rgb", "argb_split8888" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::argb_split1555 > >( "color::rgb", "argb_split1555" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::argb_split2AAA > >( "color::rgb", "argb_split2AAA" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::argb_splitGGGG > >( "color::rgb", "argb_splitGGGG" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::argb_pack<2,2,2,2> > >( "color::rgb", "argb_split2222" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::argb_pack<4,4,4,4> > >( "color::rgb", "argb_split4444" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::argb_pack<8,8,8,8> > >( "color::rgb", "argb_split8888" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::argb_pack<1,5,5,5> > >( "color::rgb", "argb_split1555" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::argb_pack<2,10,10,10> > >( "color::rgb", "argb_split2AAA" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::argb_pack<16,16,16,16> > >( "color::rgb", "argb_splitGGGG" ) << std::endl;
 
   ss << print_bound4< ::color::model< ::color::category::bgr_uint8      > >( "color::rgb", "bgr_uint8     " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::bgr_uint16     > >( "color::rgb", "bgr_uint16    " ) << std::endl;
@@ -167,13 +167,13 @@ void print_bound_rgb()
   ss << print_bound4< ::color::model< ::color::category::bgr_float      > >( "color::rgb", "bgr_float     " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::bgr_double     > >( "color::rgb", "bgr_double    " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::bgr_ldouble    > >( "color::rgb", "bgr_ldouble   " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgr_split233   > >( "color::rgb", "bgr_split233  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgr_split323   > >( "color::rgb", "bgr_split323  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgr_split332   > >( "color::rgb", "bgr_split332  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgr_split422   > >( "color::rgb", "bgr_split422  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgr_split556   > >( "color::rgb", "bgr_split556  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgr_split565   > >( "color::rgb", "bgr_split565  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgr_split655   > >( "color::rgb", "bgr_split655  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgr_pack<2,3,3>   > >( "color::rgb", "bgr_split233  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgr_pack<3,2,3>   > >( "color::rgb", "bgr_split323  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgr_pack<3,3,2>   > >( "color::rgb", "bgr_split332  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgr_pack<4,2,2>   > >( "color::rgb", "bgr_split422  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgr_pack<5,5,6>   > >( "color::rgb", "bgr_split556  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgr_pack<5,6,5>   > >( "color::rgb", "bgr_split565  " ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgr_pack<6,5,5>   > >( "color::rgb", "bgr_split655  " ) << std::endl;
 
   ss << print_bound4< ::color::model< ::color::category::bgra_uint8     > >( "color::rgb", "bgra_uint8    " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::bgra_uint16    > >( "color::rgb", "bgra_uint16   " ) << std::endl;
@@ -182,12 +182,12 @@ void print_bound_rgb()
   ss << print_bound4< ::color::model< ::color::category::bgra_float     > >( "color::rgb", "bgra_float    " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::bgra_double    > >( "color::rgb", "bgra_double   " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::bgra_ldouble   > >( "color::rgb", "bgra_ldouble  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgra_split2222 > >( "color::rgb", "bgra_split2222" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgra_split4444 > >( "color::rgb", "bgra_split4444" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgra_split5551 > >( "color::rgb", "bgra_split5551" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgra_split8888 > >( "color::rgb", "bgra_split8888" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgra_splitAAA2 > >( "color::rgb", "bgra_splitAAA2" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::bgra_splitGGGG > >( "color::rgb", "bgra_splitGGGG" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgra_pack<2,2,2,2> > >( "color::rgb", "bgra_split2222" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgra_pack<4,4,4,4> > >( "color::rgb", "bgra_split4444" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgra_pack<5,5,5,1> > >( "color::rgb", "bgra_split5551" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgra_pack<8,8,8,8> > >( "color::rgb", "bgra_split8888" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgra_pack<10,10,10,2> > >( "color::rgb", "bgra_splitAAA2" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::bgra_pack<16,16,16,16> > >( "color::rgb", "bgra_splitGGGG" ) << std::endl;
 
   ss << print_bound4< ::color::model< ::color::category::abgr_uint8     > >( "color::rgb", "abgr_uint8    " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::abgr_uint16    > >( "color::rgb", "abgr_uint16   " ) << std::endl;
@@ -196,12 +196,12 @@ void print_bound_rgb()
   ss << print_bound4< ::color::model< ::color::category::abgr_float     > >( "color::rgb", "abgr_float    " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::abgr_double    > >( "color::rgb", "abgr_double   " ) << std::endl;
   ss << print_bound4< ::color::model< ::color::category::abgr_ldouble   > >( "color::rgb", "abgr_ldouble  " ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::abgr_split2222 > >( "color::rgb", "abgr_split2222" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::abgr_split4444 > >( "color::rgb", "abgr_split4444" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::abgr_split1555 > >( "color::rgb", "abgr_split1555" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::abgr_split8888 > >( "color::rgb", "abgr_split8888" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::abgr_split2AAA > >( "color::rgb", "abgr_split2AAA" ) << std::endl;
-  ss << print_bound4< ::color::model< ::color::category::abgr_splitGGGG > >( "color::rgb", "abgr_splitGGGG" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::abgr_pack<2,2,2,2> > >( "color::rgb", "abgr_split2222" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::abgr_pack<4,4,4,4> > >( "color::rgb", "abgr_split4444" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::abgr_pack<1,5,5,5> > >( "color::rgb", "abgr_split1555" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::abgr_pack<8,8,8,8> > >( "color::rgb", "abgr_split8888" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::abgr_pack<2,10,10,10> > >( "color::rgb", "abgr_split2AAA" ) << std::endl;
+  ss << print_bound4< ::color::model< ::color::category::abgr_pack<16,16,16,16> > >( "color::rgb", "abgr_splitGGGG" ) << std::endl;
 
   //ss << "</table> ";
 

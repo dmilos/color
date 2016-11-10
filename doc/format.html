@@ -222,6 +222,26 @@
 						</dl>
 					</dd>
 
+					<dt><a name="long"></a><h4> <code> ::color::type::pack3&lt first_size, second_size, third_size &gt;  </code>                 </h4></dt>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is:<br> <code> template&lt unsigned first_size, unsigned second_size, unsigned third_size &gt; <br > &nbsp; &nbsp; struct ::color::type::pack3&lt first_size, second_size, third_size &gt;</code></dd>
+							<dt>Container</dt>
+							<dd> std::uint8_t  if  8 == ( first_size + second_size + third_size) </dd>
+							<dd> std::uint16_t if 16 == ( first_size + second_size + third_size) </dd>
+							<dd> std::uint32_t if 32 == ( first_size + second_size + third_size) </dd>
+							<dd> std::uint64_t if 64 == ( first_size + second_size + third_size) </dd>
+							<dt>Memory Order</dt>
+							<dd>First <i>first_size</i> insignificant bits is used for first component, next <i>second_size</i> bits for second component and last significant <i>second_size</i> for third component.</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgb&lt; <u> ::color::type::pack3&lt 4, 4, 2 &gt; </u> &gt; r;</code><br>
+								 4 bits for red, 4 bits for green and 2 bits for blue
+							</dd>
+						</dl>
+					</dd>
+
+
 					<dt><a name="split233_t"></a><h4><code>color::type::split233_t</code></h4>
 					<dd>
 						<dl>
