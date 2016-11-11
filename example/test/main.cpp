@@ -382,6 +382,12 @@ int main(int argc, char const *argv[])
   print< ::color::bgr< ::color::type::split242_t >::category_type  >();
   print< ::color::bgr< ::color::type::split224_t >::category_type  >();
 
+  print< ::color::abgr< ::color::type::split2AAA_t >::category_type  >();
+  print< ::color::bgra< ::color::type::splitAAA2_t >::category_type  >();
+
+  print< ::color::rgba< ::color::type::splitAAA2_t >::category_type  >();
+  print< ::color::argb< ::color::type::split2AAA_t >::category_type  >();
+
   sandbox_test();
 
   extern void check_sizeof();

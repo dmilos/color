@@ -4,22 +4,6 @@
 
 #include "color/color.hpp"
 
-void make_gray_red();
-void make_rgb_red();
-
-
-void make_rgb_red();
-
-int main( int argc, char *argv[] )
- {
-  std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
-
-  make_rgb_red();
-
-  std::cout<< "---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----" << std::endl;
-  return EXIT_SUCCESS;
- }
-
 template< typename category_name >
  inline void print( color::model< category_name > const& c )
   {
@@ -34,7 +18,7 @@ template< typename category_name >
   }
 
 
-void make_rgb_red()
+int main( int argc, char *argv[] )
  {
   // Make instance of RGB in different formats
 //color::rgb<bool>           c0( { true, false, false } ); //!< Not yet supported
@@ -55,5 +39,3 @@ void make_rgb_red()
   color::make::red( c6 ); std::cout << "color::rgb<double>        = "; print( c6 ); std::cout << std::endl;
   color::make::red( c7 ); std::cout << "color::rgb<long double>   = "; print( c7 ); std::cout << std::endl;
  }
-
-

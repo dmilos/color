@@ -17,13 +17,10 @@
 					<li><a href="#List">List of formats</a>
 						<ul>
 							<li><a href="#bool">bool</a></li>
-							<li><a href="#uint8_t">std::uint8_t</a></li>
-							<li><a href="#uint16_t">std::uint16_t</a></li>
-							<li><a href="#uint32_t">std::uint32_t</a></li>
-							<li><a href="#uint64_t">std::uint64_t</a></li>
-							<li><a href="#float">float</a></li>
-							<li><a href="#double">double</a></li>
-							<li><a href="#long">long double</a></li>
+							<li><a href="#uint8_t">std::uint8_t</a>, <a href="#uint16_t">std::uint16_t</a>, <a href="#uint32_t">std::uint32_t</a>, <a href="#uint64_t">std::uint64_t</a></li>
+							<li><a href="#float">float</a>, <a href="#double">double</a>, <a href="#long">long double</a></li>
+							<li><a href="#pack3">::color::type::pack3&lt first_size, second_size, third_size &gt; </a></li>
+							<li><a href="#pack4">::color::type::pack4&lt first_size, second_size, third_size, fourth_size &gt; </a></li>
 							<li><a href="#split233_t">color::type::split233_t</a>,  <a href="#split332_t">color::type::split332_t</a></li>
 							<li><a href="#split422_t">color::type::split422_t</a></li>
 							<li><a href="#split556_t">color::type::split556_t</a>, <a href="#split565_t">color::type::split565_t</a>, <a href="#split655_t">color::type::split655_t</a></li>
@@ -57,18 +54,12 @@
 							<dd>Type is: <code>bool</code></dd>
 							<dt>Container</dt>
 							<dd>Type is: <code>std::array&lt; bool, <i>_size_</i> &gt;</code>. Where <i>_size_</i> depends of <a href="./color.html">color model</a>.</dd>
-							<dt>Memory</dt>
-							<dd>
-								<dl>
-									<dt>Consumption</dt>
-									<dd>Size of instance is equal to: <code>sizeof( std::array&lt; bool, <i>_size_</i> &gt; )</code></dd>
-								</dl>
-							</dd>
 							<dt>Note</dt>
 							<dd>
 								<ul>
 									<li>First component is denoted by first letter of its abbreviation.</li>
 									<li>First component occupy position with index 0, etc. .</li>
+									<li>Size of instance is equal to: <code>sizeof( std::array&lt; bool, <i>_size_</i> &gt; )</code></li>
 								</ul>
 							</dd>
 							<dt>Note</dt>
@@ -222,29 +213,55 @@
 						</dl>
 					</dd>
 
-					<dt><a name="long"></a><h4> <code> ::color::type::pack3&lt first_size, second_size, third_size &gt;  </code>                 </h4></dt>
+					<dt><a name="pack3"></a><h4> <code> ::color::type::pack3&lt first_size, second_size, third_size &gt;  </code>                 </h4></dt>
 					<dd>
 						<dl>
 							<dt>Component</dt>
 							<dd>Type is:<br> <code> template&lt unsigned first_size, unsigned second_size, unsigned third_size &gt; <br > &nbsp; &nbsp; struct ::color::type::pack3&lt first_size, second_size, third_size &gt;</code></dd>
 							<dt>Container</dt>
-							<dd> std::uint8_t  if  8 == ( first_size + second_size + third_size) </dd>
-							<dd> std::uint16_t if 16 == ( first_size + second_size + third_size) </dd>
-							<dd> std::uint32_t if 32 == ( first_size + second_size + third_size) </dd>
-							<dd> std::uint64_t if 64 == ( first_size + second_size + third_size) </dd>
+							<dd> <code>std::uint8_t </code> if  8 == ( first_size + second_size + third_size) </dd>
+							<dd> <code>std::uint16_t</code> if 16 == ( first_size + second_size + third_size) </dd>
+							<dd> <code>std::uint32_t</code> if 32 == ( first_size + second_size + third_size) </dd>
+							<dd> <code>std::uint64_t</code> if 64 == ( first_size + second_size + third_size) </dd>
 							<dt>Memory Order</dt>
-							<dd>First <i>first_size</i> insignificant bits is used for first component, next <i>second_size</i> bits for second component and last significant <i>second_size</i> for third component.</dd>
+							<dd>First <i>first_size</i> insignificant bits is used for first component, next <i>second_size</i> bits for second component and last significant <i>third_size</i> for third component.</dd>
 							<dt>Example</dt>
 							<dd><code>color::rgb&lt; <u> ::color::type::pack3&lt 4, 4, 2 &gt; </u> &gt; r;</code><br>
 								 4 bits for red, 4 bits for green and 2 bits for blue
 							</dd>
+							<dt>Note</dt>
+							<dd>Only <i>rgb</i> and  <i>bgr</i> can handle this type.</dd>
+							<dd><font color="red"><b> WARNING  Memory representation for this type heavily depends of endianness!!!</b></font></dd>
 						</dl>
 					</dd>
 
+					<dt><a name="pack4"></a><h4> <code> ::color::type::pack4&lt first_size, second_size, third_size, fourth_size &gt;  </code> </h4></dt>
+					<dd>
+						<dl>
+							<dt>Component</dt>
+							<dd>Type is:<br> <code> template&lt unsigned first_size, unsigned second_size, unsigned third_size , unsigned fourth_size &gt; <br > &nbsp; &nbsp; struct ::color::type::pack3&lt first_size, second_size, third_size, fourth_size &gt;</code></dd>
+							<dt>Container</dt>
+							<dd> <code>std::uint8_t </code> if  8 == ( first_size + second_size + third_size + fourth_size ) </dd>
+							<dd> <code>std::uint16_t</code> if 16 == ( first_size + second_size + third_size + fourth_size ) </dd>
+							<dd> <code>std::uint32_t</code> if 32 == ( first_size + second_size + third_size + fourth_size ) </dd>
+							<dd> <code>std::uint64_t</code> if 64 == ( first_size + second_size + third_size + fourth_size ) </dd>
+							<dt>Memory Order</dt>
+							<dd>First <i>first_size</i> insignificant bits is used for first component, next <i>second_size</i> bits for second component, next significant <i>third_size</i> for third  and last <i>fourth_size</i> for fourth component.</dd>
+							<dt>Example</dt>
+							<dd><code>color::rgba&lt; <u> ::color::type::pack4&lt 4, 4, 4, 4 &gt; </u> &gt; r;
+								 //4 bits for red, 4 bits for green, 4 bits for blue and 4 bits for alpha</code>
+							</dd>
+							<dt>Note</dt>
+							<dd>Only <i>rgba</i>, <i>argb</i>, <i>abgr</i> and <i>bgra</i>, can handle this type.</dd>
+							<dd><font color="red"><b> WARNING  Memory representation for this type heavily depends of endianness!!!</b></font></dd>
+						</dl>
+					</dd>
 
 					<dt><a name="split233_t"></a><h4><code>color::type::split233_t</code></h4>
 					<dd>
 						<dl>
+							<dt>Definition</dt>
+							<dd><code>typedef ::color::type::pack3&lt 2, 3, 3 &gt;  split233_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -263,6 +280,8 @@
 					<dt><a name="split332_t"></a><h4><code>color::type::split332_t</code></h4>
 					<dd>
 						<dl>
+							<dt>Definition</dt>
+							<dd><code>typedef ::color::type::pack3&lt 3, 3, 2 &gt;  split332_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -279,6 +298,8 @@
 					<dt><a name="split422_t"></a><h4><code>color::type::split422_t</code></h4>
 					<dd>
 						<dl>
+							<dt>Definition</dt>
+							<dd><code>typedef ::color::type::pack3&lt 4, 4, 2 &gt;  split422_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -295,6 +316,8 @@
 					<dt><a name="split556_t"></a><h4><code>color::type::split556_t</code></h4>
 					<dd>
 						<dl>
+							<dt>Definition</dt>
+							<dd><code>typedef ::color::type::pack3&lt 5, 5, 6 &gt;  split556_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -311,6 +334,8 @@
 					<dt><a name="split565_t"></a><h4><code>color::type::split565_t</code></h4>
 					<dd>
 						<dl>
+							<dt>Definition</dt>
+							<dd><code>typedef ::color::type::pack3&lt 5, 6, 5 &gt;  split565_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -327,6 +352,8 @@
 					<dt><a name="split655_t"></a><h4><code>color::type::split655_t</code></h4>
 					<dd>
 						<dl>
+							<dt>Definition</dt>
+							<dd><code>typedef ::color::type::pack3&lt 6, 5, 5 &gt;  split655_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -343,6 +370,8 @@
 					<dt><a name="split5551_t"></a><h4><code>color::type::split5551_t</code></h4>
 					<dd>
 						<dl>
+							<dt>Definition</dt>
+							<dd><code>typedef ::color::type::pack4&lt 5, 5, 5, 1 &gt;  split5551_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -359,12 +388,14 @@
 					<dt><a name="splitAAA2_t"></a><h4><code>color::type::splitAAA2_t</code></h4>
 					<dd>
 						<dl>
+							<dt>Definition</dt>
+							<dd><code>typedef ::color::type::pack4&lt 10, 10, 10, 2 &gt;  splitAAA2_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint16_t</code></dd>
 							<dt>Container</dt>
 							<dd>Type is: <code>std::uint32_t</code>.</dd>
 							<dt>Memory Order</dt>
-							<dd>First 10 insignificant bits is used for first component, next 10 for second, next 10 for third component and 2 for fourth .</dd>
+							<dd>First 10 insignificant bits is used for first component, next 10 for second, next 10 for third component and last 2 for fourth .</dd>
 							<dt>Example</dt>
 							<dd><code>color::rgba&lt; <u> color::type::splitAAA2_t</u> &gt; r;</code></dd>
 							<dt>Note</dt>
@@ -374,12 +405,14 @@
 					<dt><a name="splitGGGG_t"></a><h4><code>color::type::splitGGGG_t</code></h4>
 					<dd>
 						<dl>
+							<dt>Definition</dt>
+							<dd><code>typedef ::color::type::pack4&lt 16, 16, 16, 16 &gt;  splitGGGG_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint16_t</code></dd>
 							<dt>Container</dt>
 							<dd>Type is: <code>std::uint64_t</code>.</dd>
 							<dt>Memory Order</dt>
-							<dd>First 16 insignificant bits is used for first component, next 16 for second, next 16 for third component and 16 for fourth .</dd>
+							<dd>First 16 insignificant bits is used for first component, next 16 for second, next 16 for third component and last 16 for fourth .</dd>
 							<dt>Example</dt>
 							<dd><code>color::rgba&lt; <u> color::type::spliGGGG_t</u> &gt; r;</code></dd>
 							<dt>Note</dt>
