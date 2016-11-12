@@ -11,7 +11,7 @@
      template< typename tag_name >
       inline
       void fuchsia( ::color::model< ::color::category::rgb< tag_name > > & color_parameter )
-       {
+       { // Same as Magenta
         typedef ::color::category::rgb< tag_name     > category_left_type;
         typedef ::color::model< category_left_type  > left_type;
 
