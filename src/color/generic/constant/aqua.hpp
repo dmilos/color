@@ -11,11 +11,27 @@ namespace color
    {
     namespace _internal
      {
-      struct aqua_type{};
+      struct aqua_w3_type{};
      }
 
-    using  aqua_type = ::color::constant::base< ::color::constant::_internal::aqua_type >;
-    using  aqua_t    = ::color::constant::aqua_type;
+    namespace w3
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::aqua_w3_type > aqua_type;
+      typedef  ::color::constant::w3::aqua_type                                      aqua_t;
+     }
+
+    namespace _internal
+     {
+      struct aqua_x11_type{};
+     }
+
+    namespace x11
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::aqua_x11_type >  aqua_type;
+      typedef  ::color::constant::x11::aqua_type                                       aqua_t;
+     }
+
+    typedef ::color::constant::w3::aqua_type aqua_t, aqua_type;
 
    }
  }
