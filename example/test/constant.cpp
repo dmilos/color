@@ -102,6 +102,55 @@ void test_constant()
   ss << print( ::color::constant::white_t{},        "white"      );
   ss << print( ::color::constant::yellow_t{},       "yellow"     );
 
+  ss << print( ::color::constant::vga::black_t{},       "black"     );
+  ss << print( ::color::constant::vga::silver_t{},      "silver"   );
+  ss << print( ::color::constant::vga::gray_t{},        "gray"     );
+  ss << print( ::color::constant::vga::white_t{},       "white"    );
+  ss << print( ::color::constant::vga::maroon_t{},     "maroon "  );
+  ss << print( ::color::constant::vga::red_t{},         "red"      );
+  ss << print( ::color::constant::vga::purple_t{},      "purple"   );
+  ss << print( ::color::constant::vga::fuchsia_t{},    "fuchsia" );
+
+  ss << print( ::color::constant::vga::green_t{},    "green"    );
+  ss << print( ::color::constant::vga::lime_t{},     "lime"     );
+  ss << print( ::color::constant::vga::olive_t{},    "olive"    );
+  ss << print( ::color::constant::vga::yellow_t{},   "yellow"   );
+  ss << print( ::color::constant::vga::navy_t{},     "navy"     );
+  ss << print( ::color::constant::vga::blue_t{},     "blue"     );
+  ss << print( ::color::constant::vga::teal_t{},     "teal"     );
+  ss << print( ::color::constant::vga::aqua_t{},     "aqua"     );
+
+  ss << print( ::color::constant::x11::aqua_t{},     "aqua"     );
+  ss << print( ::color::constant::x11::black_t{},    "black"    );
+  ss << print( ::color::constant::x11::blue_t{},     "blue"     );
+  ss << print( ::color::constant::x11::fuchsia_t{},  "fuchsia"  );
+  // TODO ss << print( ::color::constant::x11::gray_t{},     "gray"     );
+  // TODO ss << print( ::color::constant::x11::green_t{},    "green"    );
+  ss << print( ::color::constant::x11::lime_t{},     "lime"     );
+  // TODO ss << print( ::color::constant::x11::maroon_t{},   "maroon"   );
+  ss << print( ::color::constant::x11::navy_t{},     "navy"     );
+  ss << print( ::color::constant::x11::olive_t{},    "olive"    );
+  // TODO ss << print( ::color::constant::x11::purple_t{},   "purple"   );
+  ss << print( ::color::constant::x11::red_t{},      "red"      );
+  ss << print( ::color::constant::x11::silver_t{},   "silver"   );
+  ss << print( ::color::constant::x11::teal_t{},     "teal"     );
+  ss << print( ::color::constant::x11::white_t{},    "white"    );
+  ss << print( ::color::constant::x11::yellow_t{},   "yellow"   );
+
+  ss << print( ::color::constant::gray_type<1,1>{},   "gray"   );
+  ss << print( ::color::constant::gray_type<1,2>{},   "gray"   );
+  
+  ss << print( ::color::constant::gray_type<1,3>{},   "gray"   );
+  ss << print( ::color::constant::gray_type<2,3>{},   "gray"   );
+  
+  ss << print( ::color::constant::gray_type<1,4>{},   "gray"   );
+  ss << print( ::color::constant::gray_type<2,4>{},   "gray"   );
+  ss << print( ::color::constant::gray_type<3,4>{},   "gray"   );
+
+  ss << print( ::color::constant::gray_type<1,5>{},   "gray"   );
+  ss << print( ::color::constant::gray_type<2,5>{},   "gray"   );
+  ss << print( ::color::constant::gray_type<3,5>{},   "gray"   );
+  ss << print( ::color::constant::gray_type<4,5>{},   "gray"   );
 
   ss << "</table>";
 

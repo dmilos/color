@@ -102,7 +102,22 @@
           {
            m = ::color::make::gray50<category_type>( ).container();
           }
+        };
 
+      template< typename category_name, std::uintmax_t numerator_number, std::uintmax_t denominator_number >
+       struct make< ::color::constant::gray_type<numerator_number,denominator_number>, category_name >
+        {
+         typedef category_name                                      category_type;
+         typedef typename ::color::trait::scalar< category_name >::instance_type    scalar_type;
+
+         typedef ::color::constant::gray_type<numerator_number,denominator_number>       constant_type;
+
+         typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
+
+         inline static void process( container_output_type & container )
+          {
+           container = ::color::make::gray<category_type>( scalar_type(100)*scalar_type(numerator_number)/scalar_type(denominator_number) ).container();
+          }
         };
 
      }

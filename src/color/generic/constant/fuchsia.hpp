@@ -33,7 +33,6 @@ namespace color
       typedef  ::color::constant::w3c::fuchsia_type  fuchsia_t;
      }
 
-
     typedef ::color::constant::w3c::fuchsia_type fuchsia_t, fuchsia_type;
 
    }

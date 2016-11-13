@@ -4169,5 +4169,8 @@
     <ClCompile Include="image.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
+    <ClCompile Include="constant.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
