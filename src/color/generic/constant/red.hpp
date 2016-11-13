@@ -9,15 +9,38 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct red_type{};
+      struct red_w3c_type{};
      }
 
-    using  red_type = ::color::constant::base< ::color::constant::_internal::red_type >;
-    using  red_t    = ::color::constant::red_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::red_w3c_type > red_type;
+      typedef  ::color::constant::w3c::red_type                                      red_t;
+     }
+
+    namespace _internal
+     {
+      struct red_x11_type{};
+     }
+
+    namespace x11
+     {// Same as w3c
+      typedef  ::color::constant::w3c::red_type  red_type;
+      typedef  ::color::constant::w3c::red_type  red_t;
+     }
+
+    namespace vga
+     {// Same as w3c
+      typedef  ::color::constant::w3c::red_type  red_type;
+      typedef  ::color::constant::w3c::red_type  red_t;
+     }
+
+    typedef ::color::constant::w3c::red_type red_t, red_type;
 
    }
  }
 
-#endif
+#endif 

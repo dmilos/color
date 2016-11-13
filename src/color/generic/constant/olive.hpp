@@ -9,15 +9,38 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct olive_type{};
+      struct olive_w3c_type{};
      }
 
-    using  olive_type = ::color::constant::base< ::color::constant::_internal::olive_type >;
-    using  olive_t    = ::color::constant::olive_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::olive_w3c_type > olive_type;
+      typedef  ::color::constant::w3c::olive_type                                      olive_t;
+     }
+
+    namespace _internal
+     {
+      struct olive_x11_type{};
+     }
+
+    namespace x11
+     {// Same as w3c
+      typedef  ::color::constant::w3c::olive_type  olive_type;
+      typedef  ::color::constant::w3c::olive_type  olive_t;
+     }
+
+    namespace vga
+     {// Same as w3c
+      typedef  ::color::constant::w3c::olive_type  olive_type;
+      typedef  ::color::constant::w3c::olive_type  olive_t;
+     }
+
+    typedef ::color::constant::w3c::olive_type olive_t, olive_type;
 
    }
  }
 
-#endif
+#endif 

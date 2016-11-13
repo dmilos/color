@@ -9,15 +9,38 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct silver_type{};
+      struct silver_w3c_type{};
      }
 
-    using  silver_type = ::color::constant::base< ::color::constant::_internal::silver_type >;
-    using  silver_t    = ::color::constant::silver_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::silver_w3c_type > silver_type;
+      typedef  ::color::constant::w3c::silver_type                                      silver_t;
+     }
+
+    namespace _internal
+     {
+      struct silver_x11_type{};
+     }
+
+    namespace x11
+     {// Same as w3c
+      typedef  ::color::constant::w3c::silver_type  silver_type;
+      typedef  ::color::constant::w3c::silver_type  silver_t;
+     }
+
+    namespace vga
+     {// Same as w3c
+      typedef  ::color::constant::w3c::silver_type  silver_type;
+      typedef  ::color::constant::w3c::silver_type  silver_t;
+     }
+
+    typedef ::color::constant::w3c::silver_type silver_t, silver_type;
 
    }
  }
 
-#endif
+#endif 
