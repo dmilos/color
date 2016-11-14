@@ -9,40 +9,40 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      template< std::uintmax_t numerator_number, std::uintmax_t denominator_number = 1 >
+
+      template< std::uintmax_t black_number, std::uintmax_t white_number = 1 >
        struct gray{};
 
-      typedef ::color::constant::_internal::gray< 5,100> gray05_type, gray05_t;
-      typedef ::color::constant::_internal::gray<10,100> gray10_type, gray10_t;
-      typedef ::color::constant::_internal::gray<20,100> gray20_type, gray20_t;
-      typedef ::color::constant::_internal::gray<20,100> gray25_type, gray25_t;
-      typedef ::color::constant::_internal::gray<30,100> gray30_type, gray30_t;
-      typedef ::color::constant::_internal::gray<1,3>    gray33_type, gray33_t;
-      typedef ::color::constant::_internal::gray<40,100> gray40_type, gray40_t;
-      typedef ::color::constant::_internal::gray<50,100> gray50_type, gray50_t;
-      typedef ::color::constant::_internal::gray<60,1>   gray60_type, gray60_t;
-      typedef ::color::constant::_internal::gray<2,3>    gray66_type, gray66_t;
-      typedef ::color::constant::_internal::gray<70,100> gray70_type, gray70_t;
-      typedef ::color::constant::_internal::gray<70,100> gray75_type, gray75_t;
-      typedef ::color::constant::_internal::gray<80,100> gray80_type, gray80_t;
-      typedef ::color::constant::_internal::gray<90,100> gray90_type, gray90_t;
-      typedef ::color::constant::_internal::gray<99,100> gray99_type, gray99_t;
      }
 
-    typedef ::color::constant::base< ::color::constant::_internal::gray50_type > gray50_type, gray50_t ;
-    
-    template< std::uintmax_t numerator_number, std::uintmax_t denominator_number >
-     using  gray_type = ::color::constant::base< ::color::constant::_internal::gray< numerator_number, denominator_number > > ;
 
-    template< std::uintmax_t numerator_number, std::uintmax_t denominator_number >
-     using  gray_t = ::color::constant::gray_type< numerator_number, denominator_number >;
+    template< std::uintmax_t black_number, std::uintmax_t white_number >
+     using  gray_type = ::color::constant::base< ::color::constant::_internal::gray< black_number, white_number > > ;
+
+    typedef ::color::constant::gray_type< 99,  1  > gray01_type;
+    typedef ::color::constant::gray_type< 95,  5  > gray05_type;
+    typedef ::color::constant::gray_type< 90, 10  > gray10_type;
+    typedef ::color::constant::gray_type< 80, 20  > gray20_type;
+    typedef ::color::constant::gray_type< 75, 25  > gray25_type;
+    typedef ::color::constant::gray_type< 70, 30  > gray30_type;
+    typedef ::color::constant::gray_type<  2,  1  > gray33_type;
+    typedef ::color::constant::gray_type< 60, 40  > gray40_type;
+    typedef ::color::constant::gray_type< 50, 50  > gray50_type;
+    typedef ::color::constant::gray_type< 40, 60  > gray60_type;
+    typedef ::color::constant::gray_type<  1,  2  > gray66_type;
+    typedef ::color::constant::gray_type< 30, 70  > gray70_type;
+    typedef ::color::constant::gray_type< 25, 75  > gray75_type;
+    typedef ::color::constant::gray_type< 20, 80  > gray80_type;
+    typedef ::color::constant::gray_type< 10, 90  > gray90_type;
+    typedef ::color::constant::gray_type<  5, 95  > gray95_type;
+    typedef ::color::constant::gray_type<  1, 99  > gray99_type;
 
     namespace w3c
      {
       typedef  ::color::constant::gray50_type    gray_type;
-      typedef  ::color::constant::w3c::gray_type gray_t;
      }
 
     namespace _internal
@@ -52,14 +52,12 @@ namespace color
 
     namespace x11
      {// Distinctively different
-      typedef  ::color::constant::gray_type< 3, 4 >  gray_type;
-      typedef  ::color::constant::x11::gray_type     gray_t;
+      typedef  ::color::constant::gray75_type        gray_type;
      }
 
     namespace vga
      {
       typedef  ::color::constant::gray50_type      gray_type;
-      typedef  ::color::constant::vga::gray_type   gray_t;
      }
 
    }

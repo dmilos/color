@@ -15,6 +15,11 @@ cd ./compare
 ./make.sh
 cd ..
 
+cd ./constant
+./make.sh
+cd ..
+
+
 cd ./convert
 ./make.sh
 cd ..

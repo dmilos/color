@@ -18,7 +18,6 @@ namespace color
     namespace w3c
      {
       typedef  ::color::constant::base< ::color::constant::_internal::olive_w3c_type > olive_type;
-      typedef  ::color::constant::w3c::olive_type                                      olive_t;
      }
 
     namespace _internal
@@ -29,13 +28,11 @@ namespace color
     namespace x11
      {// Same as w3c
       typedef  ::color::constant::w3c::olive_type  olive_type;
-      typedef  ::color::constant::w3c::olive_type  olive_t;
      }
 
     namespace vga
      {// Same as w3c
       typedef  ::color::constant::w3c::olive_type  olive_type;
-      typedef  ::color::constant::w3c::olive_type  olive_t;
      }
 
     typedef ::color::constant::w3c::olive_type olive_t, olive_type;

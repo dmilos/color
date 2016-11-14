@@ -18,7 +18,6 @@ namespace color
     namespace w3c
      {
       typedef  ::color::constant::base< ::color::constant::_internal::black_w3c_type > black_type;
-      typedef  ::color::constant::w3c::black_type                                      black_t;
      }
 
     namespace _internal
@@ -29,13 +28,11 @@ namespace color
     namespace x11
      {// Same as w3c
       typedef  ::color::constant::w3c::black_type  black_type;
-      typedef  ::color::constant::w3c::black_type  black_t;
      }
 
     namespace vga
      {// Same as w3c
       typedef  ::color::constant::w3c::black_type  black_type;
-      typedef  ::color::constant::w3c::black_type  black_t;
      }
 
     typedef ::color::constant::w3c::black_type black_t, black_type;
