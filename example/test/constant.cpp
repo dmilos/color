@@ -124,7 +124,7 @@ void test_constant()
   ss << print( ::color::constant::x11::black_type{},    "black"    );
   ss << print( ::color::constant::x11::blue_type{},     "blue"     );
   ss << print( ::color::constant::x11::fuchsia_type{},  "fuchsia"  );
-  // TODO ss << print( ::color::constant::x11::gray_type{},     "gray"     );
+  ss << print( ::color::constant::x11::gray_type{},     "#BEBEBE"     );
   // TODO ss << print( ::color::constant::x11::green_type{},    "green"    );
   ss << print( ::color::constant::x11::lime_type{},     "lime"     );
   // TODO ss << print( ::color::constant::x11::maroon_type{},   "maroon"   );
@@ -162,7 +162,6 @@ void test_constant()
     std::ofstream ofs( "./constant.html" );
     ofs <<  ss.str();
    }
-
 
  }
 
