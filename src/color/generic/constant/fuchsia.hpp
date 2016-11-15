@@ -20,11 +20,6 @@ namespace color
       typedef  ::color::constant::base< ::color::constant::_internal::fuchsia_w3c_type > fuchsia_type;
      }
 
-    namespace x11
-     {// Same as w3c
-      typedef  ::color::constant::w3c::fuchsia_type  fuchsia_type;
-     }
-
     namespace vga
      {// Same as w3c
       typedef  ::color::constant::w3c::fuchsia_type  fuchsia_type;

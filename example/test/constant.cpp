@@ -120,22 +120,10 @@ void test_constant()
   ss << print( ::color::constant::vga::teal_type{},     "teal"     );
   ss << print( ::color::constant::vga::aqua_type{},     "aqua"     );
 
-  ss << print( ::color::constant::x11::aqua_type{},     "aqua"     );
-  ss << print( ::color::constant::x11::black_type{},    "black"    );
-  ss << print( ::color::constant::x11::blue_type{},     "blue"     );
-  ss << print( ::color::constant::x11::fuchsia_type{},  "fuchsia"  );
-  ss << print( ::color::constant::x11::gray_type{},     "#BEBEBE"     );
-  // TODO ss << print( ::color::constant::x11::green_type{},    "green"    );
-  ss << print( ::color::constant::x11::lime_type{},     "lime"     );
-  // TODO ss << print( ::color::constant::x11::maroon_type{},   "maroon"   );
-  ss << print( ::color::constant::x11::navy_type{},     "navy"     );
-  ss << print( ::color::constant::x11::olive_type{},    "olive"    );
-  // TODO ss << print( ::color::constant::x11::purple_type{},   "purple"   );
-  ss << print( ::color::constant::x11::red_type{},      "red"      );
-  ss << print( ::color::constant::x11::silver_type{},   "silver"   );
-  ss << print( ::color::constant::x11::teal_type{},     "teal"     );
-  ss << print( ::color::constant::x11::white_type{},    "white"    );
-  ss << print( ::color::constant::x11::yellow_type{},   "yellow"   );
+  ss << print( ::color::constant::x11::gray_type{},     "#BEBEBE"  );
+  ss << print( ::color::constant::x11::green_type{},    "#00FF00"  );
+  ss << print( ::color::constant::x11::maroon_type{},   "#B03060"  );
+  ss << print( ::color::constant::x11::purple_type{},   "#A020F0"  );
 
   ss << print( ::color::constant::gray_type<0,1>{},   "gray"   ); ss << print( ::color::constant::gray_type<1,0>{},   "gray"   );
 
@@ -155,6 +143,8 @@ void test_constant()
   ss << print( ::color::constant::gray_type<2,5>{},   "gray"   ); ss << print( ::color::constant::gray_type<5,2>{},   "gray"   );
   ss << print( ::color::constant::gray_type<3,5>{},   "gray"   ); ss << print( ::color::constant::gray_type<5,3>{},   "gray"   );
   ss << print( ::color::constant::gray_type<4,5>{},   "gray"   ); ss << print( ::color::constant::gray_type<5,4>{},   "gray"   );
+
+
 
   ss << "</table>";
 

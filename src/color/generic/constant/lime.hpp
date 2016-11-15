@@ -25,11 +25,6 @@ namespace color
       struct lime_x11_type{};
      }
 
-    namespace x11
-     {// Same as w3c
-      typedef  ::color::constant::w3c::lime_type  lime_type;
-     }
-
     namespace vga
      {// Same as w3c
       typedef  ::color::constant::w3c::lime_type  lime_type;

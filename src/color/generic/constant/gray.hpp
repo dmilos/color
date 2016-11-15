@@ -45,18 +45,13 @@ namespace color
       typedef  ::color::constant::gray50_type    gray_type;
      }
 
-    namespace _internal
-     {
-      struct gray_x11_type{};
-     }
-
     namespace x11
      {// Distinctively different
       typedef  ::color::constant::gray75_type        gray_type;
      }
 
     namespace vga
-     {
+     {// Same as w3c
       typedef  ::color::constant::gray50_type      gray_type;
      }
 

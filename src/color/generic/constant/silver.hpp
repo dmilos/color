@@ -20,16 +20,6 @@ namespace color
       typedef  ::color::constant::base< ::color::constant::_internal::silver_w3c_type > silver_type;
      }
 
-    namespace _internal
-     {
-      struct silver_x11_type{};
-     }
-
-    namespace x11
-     {// Same as w3c
-      typedef  ::color::constant::w3c::silver_type  silver_type;
-     }
-
     namespace vga
      {// Same as w3c
       typedef  ::color::constant::w3c::silver_type  silver_type;

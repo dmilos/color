@@ -4,6 +4,7 @@
 // ::color::constant::green( c )
 
 #include "./base.hpp"
+#include "./lime.hpp"
 
 namespace color
  {
@@ -27,7 +28,7 @@ namespace color
 
     namespace x11
      {// Distinctively different
-      typedef  ::color::constant::base< ::color::constant::_internal::green_x11_type >  green_type;
+      typedef  ::color::constant::w3c::lime_type  green_type;
      }
 
     namespace vga
