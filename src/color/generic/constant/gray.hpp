@@ -50,10 +50,10 @@ namespace color
       typedef  ::color::constant::gray75_type        gray_type;
      }
 
-    namespace vga
-     {// Same as w3c
-      typedef  ::color::constant::gray50_type      gray_type;
-     }
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::gray50_type      gray_type;
+    // }
 
    }
  }

@@ -31,12 +31,11 @@ namespace color
       typedef  ::color::constant::w3c::lime_type  green_type;
      }
 
-    namespace vga
-     {// Same as w3c
-      typedef  ::color::constant::w3c::green_type  green_type;
-     }
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::w3c::green_type  green_type;
+    // }
  
-
     typedef ::color::constant::w3c::green_type green_t, green_type;
    }
  }

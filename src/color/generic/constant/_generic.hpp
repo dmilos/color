@@ -27,26 +27,26 @@ namespace color
 
     namespace x11
      {
-       // Same as w3c
+      // Same as w3c
       //typedef  ::color::constant::w3c::$[![name]!]_type  $[![name]!]_type;
 
      // Distinctively different
       typedef  ::color::constant::base< ::color::constant::_internal::$[![name]!]_x11_type >  $[![name]!]_type;
      }
 
-    namespace _internal
-     {
-      struct $[![name]!]_x11_type{};
-     }
-
-    namespace vga
-     {
-       // Same as w3c
-      //typedef  ::color::constant::w3c::$[![name]!]_type  $[![name]!]_type;
-
-     // Distinctively different
-      typedef  ::color::constant::base< ::color::constant::_internal::$[![name]!]_x11_type >  $[![name]!]_type;
-     }
+    //namespace _internal
+    // {
+    //  struct $[![name]!]_vga_type{};
+    // }
+    //
+    //namespace vga
+    // {
+    //  // Same as w3c
+    //  //typedef  ::color::constant::w3c::$[![name]!]_type  $[![name]!]_type;
+    //
+    // // Distinctively different
+    //  typedef  ::color::constant::base< ::color::constant::_internal::$[![name]!]_x11_type >  $[![name]!]_type;
+    // }
 
     typedef ::color::constant::w3c::$[![name]!]_type $[![name]!]_t, $[![name]!]_type;
 

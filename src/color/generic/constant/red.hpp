@@ -20,10 +20,10 @@ namespace color
       typedef  ::color::constant::base< ::color::constant::_internal::red_w3c_type > red_type;
      }
 
-    namespace vga
-     {// Same as w3c
-      typedef  ::color::constant::w3c::red_type  red_type;
-     }
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::w3c::red_type  red_type;
+    // }
 
     typedef ::color::constant::w3c::red_type red_t, red_type;
 

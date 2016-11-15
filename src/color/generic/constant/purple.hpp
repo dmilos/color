@@ -30,10 +30,10 @@ namespace color
       typedef  ::color::constant::base< ::color::constant::_internal::purple_x11_type >  purple_type;
      }
 
-    namespace vga
-     {// Same as w3c
-      typedef  ::color::constant::w3c::purple_type  purple_type;
-     }
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::w3c::purple_type  purple_type;
+    // }
 
     typedef ::color::constant::w3c::purple_type purple_t, purple_type;
 

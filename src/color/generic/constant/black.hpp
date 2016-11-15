@@ -25,10 +25,10 @@ namespace color
       struct black_x11_type{};
      }
 
-    namespace vga
-     {// Same as w3c
-      typedef  ::color::constant::w3c::black_type  black_type;
-     }
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::w3c::black_type  black_type;
+    // }
 
     typedef ::color::constant::w3c::black_type black_t, black_type;
 
