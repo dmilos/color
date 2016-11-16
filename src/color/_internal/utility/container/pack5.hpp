@@ -137,7 +137,7 @@ namespace color
           };
 
         template< typename container_name, typename component_name, unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size, unsigned fifth_size >
-         using pack5_N_N_t = ::color::_internal::utility::container::pack4< container_name, component_name, unsigned, first_size, second_size, third_size, fourth_size, fifth_size >;
+         using pack5_N_N_type = ::color::_internal::utility::container::pack4< container_name, component_name, unsigned, first_size, second_size, third_size, fourth_size, fifth_size >;
 
        }
      }

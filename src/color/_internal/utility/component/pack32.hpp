@@ -22,10 +22,10 @@ namespace color
           };
 
 
-        template< typename index_name > using split8888_t = ::color::_internal::utility::component::pack32<index_name>;
+        template< typename index_name > using split8888_type = ::color::_internal::utility::component::pack32<index_name>;
 
-        template< typename index_name > using splitAAA2_t = ::color::_internal::utility::component::pack32<index_name>;
-        template< typename index_name > using split2AAA_t = ::color::_internal::utility::component::pack32<index_name>;
+        template< typename index_name > using splitAAA2_type = ::color::_internal::utility::component::pack32<index_name>;
+        template< typename index_name > using split2AAA_type = ::color::_internal::utility::component::pack32<index_name>;
 
        }
      }

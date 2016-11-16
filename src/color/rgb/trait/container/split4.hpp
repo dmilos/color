@@ -31,28 +31,28 @@ namespace color
          struct pick_container4<8>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-            using container_type = ::color::_internal::utility::container::pack4_8_8_t<  first_size, second_size, third_size, fourth_size >;
+            using container_type = ::color::_internal::utility::container::pack4_8_8_type<  first_size, second_size, third_size, fourth_size >;
           };
 
         template<>
          struct pick_container4<16>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-            using container_type = ::color::_internal::utility::container::pack4_16_8_t< first_size, second_size, third_size, fourth_size >;
+            using container_type = ::color::_internal::utility::container::pack4_16_8_type< first_size, second_size, third_size, fourth_size >;
           };
 
         template<>
          struct pick_container4<32>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-            using container_type = ::color::_internal::utility::container::pack4_32_16_t< first_size, second_size, third_size, fourth_size >;
+            using container_type = ::color::_internal::utility::container::pack4_32_16_type< first_size, second_size, third_size, fourth_size >;
           };
 
         template<>
          struct pick_container4<64>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-            using container_type = ::color::_internal::utility::container::pack4_64_32_t< first_size, second_size, third_size, fourth_size >;
+            using container_type = ::color::_internal::utility::container::pack4_64_32_type< first_size, second_size, third_size, fourth_size >;
           };
 
        }

@@ -30,28 +30,28 @@ namespace color
          struct pick_container3<8>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size >
-            using container_type = ::color::_internal::utility::container::pack3_8_8_t<  first_size, second_size, third_size >;
+            using container_type = ::color::_internal::utility::container::pack3_8_8_type<  first_size, second_size, third_size >;
           };
 
         template<>
          struct pick_container3<16>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size >
-            using container_type = ::color::_internal::utility::container::pack3_16_8_t< first_size, second_size, third_size >;
+            using container_type = ::color::_internal::utility::container::pack3_16_8_type< first_size, second_size, third_size >;
           };
 
         template<>
          struct pick_container3<32>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size >
-            using container_type = ::color::_internal::utility::container::pack3_32_16_t< first_size, second_size, third_size >;
+            using container_type = ::color::_internal::utility::container::pack3_32_16_type< first_size, second_size, third_size >;
           };
 
         template<>
          struct pick_container3<64>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size >
-            using container_type = ::color::_internal::utility::container::pack3_64_32_t< first_size, second_size, third_size >;
+            using container_type = ::color::_internal::utility::container::pack3_64_32_type< first_size, second_size, third_size >;
           };
 
        }

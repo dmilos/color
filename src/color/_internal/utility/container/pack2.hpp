@@ -113,7 +113,7 @@ namespace color
           };
 
         template< typename container_name, typename component_name, unsigned first_size, unsigned second_size >
-         using pack2_N_N_t = ::color::_internal::utility::container::pack4< container_name, component_name, unsigned, first_size, second_size >;
+         using pack2_N_N_type = ::color::_internal::utility::container::pack4< container_name, component_name, unsigned, first_size, second_size >;
 
        }
      }

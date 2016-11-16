@@ -21,7 +21,7 @@ namespace color
           {
           };
 
-        template< typename index_name > using splitGGGG_t = ::color::_internal::utility::component::pack64<index_name>;
+        template< typename index_name > using splitGGGG_type = ::color::_internal::utility::component::pack64<index_name>;
        }
      }
    }

@@ -21,15 +21,15 @@ namespace color
           {
           };
 
-        template< typename index_name > using split2222_t = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split2222_type = ::color::_internal::utility::component::pack8<index_name>;
 
-        template< typename index_name > using split233_t  = ::color::_internal::utility::component::pack8<index_name>;
-        template< typename index_name > using split323_t  = ::color::_internal::utility::component::pack8<index_name>;
-        template< typename index_name > using split332_t  = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split233_type  = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split323_type  = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split332_type  = ::color::_internal::utility::component::pack8<index_name>;
 
-        template< typename index_name > using split224_t  = ::color::_internal::utility::component::pack8<index_name>;
-        template< typename index_name > using split242_t  = ::color::_internal::utility::component::pack8<index_name>;
-        template< typename index_name > using split422_t  = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split224_type  = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split242_type  = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split422_type  = ::color::_internal::utility::component::pack8<index_name>;
 
        }
      }

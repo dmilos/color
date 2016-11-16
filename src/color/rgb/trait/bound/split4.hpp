@@ -30,28 +30,28 @@ namespace color
          struct pick_bound4<8>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-            using bound_type = ::color::_internal::utility::bound::pack4_8_t<  first_size, second_size, third_size, fourth_size >;
+            using bound_type = ::color::_internal::utility::bound::pack4_8_type<  first_size, second_size, third_size, fourth_size >;
           };
 
         template<>
          struct pick_bound4<16>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-            using bound_type = ::color::_internal::utility::bound::pack4_16_t< first_size, second_size, third_size, fourth_size >;
+            using bound_type = ::color::_internal::utility::bound::pack4_16_type< first_size, second_size, third_size, fourth_size >;
           };
 
         template<>
          struct pick_bound4<32>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-            using bound_type = ::color::_internal::utility::bound::pack4_32_t< first_size, second_size, third_size, fourth_size >;
+            using bound_type = ::color::_internal::utility::bound::pack4_32_type< first_size, second_size, third_size, fourth_size >;
           };
 
         template<>
          struct pick_bound4<64>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-            using bound_type = ::color::_internal::utility::bound::pack4_64_t< first_size, second_size, third_size, fourth_size >;
+            using bound_type = ::color::_internal::utility::bound::pack4_64_type< first_size, second_size, third_size, fourth_size >;
           };
 
        }

@@ -86,7 +86,7 @@ namespace color
           };
 
         template< typename unsigned_name, unsigned first_size, unsigned second_size >
-         using pack2_N_t = ::color::_internal::utility::bound::pack3< unsigned_name, unsigned, first_size, second_size >;
+         using pack2_N_type = ::color::_internal::utility::bound::pack3< unsigned_name, unsigned, first_size, second_size >;
 
        }
      }

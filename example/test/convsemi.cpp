@@ -69,18 +69,18 @@ void image_bgr_conversion()
   typedef ::color::bgr< double         >::category_type  bgr_double_t;
   typedef ::color::bgr< long    double >::category_type  bgr_ldouble_t;
 
-  typedef ::color::bgr< ::color::type::split233_t >::category_type bgr_split233_t;
-  typedef ::color::bgr< ::color::type::split323_t >::category_type bgr_split323_t;
-  typedef ::color::bgr< ::color::type::split332_t >::category_type bgr_split332_t;
-  typedef ::color::bgr< ::color::type::split422_t >::category_type bgr_split422_t;
+  typedef ::color::bgr< ::color::type::split233_type >::category_type bgr_split233_t;
+  typedef ::color::bgr< ::color::type::split323_type >::category_type bgr_split323_t;
+  typedef ::color::bgr< ::color::type::split332_type >::category_type bgr_split332_t;
+  typedef ::color::bgr< ::color::type::split422_type >::category_type bgr_split422_t;
 
-  typedef ::color::bgr< ::color::type::split422_t >::category_type bgr_split422_t;
-  typedef ::color::bgr< ::color::type::split242_t >::category_type bgr_split242_t;
-  typedef ::color::bgr< ::color::type::split224_t >::category_type bgr_split224_t;
+  typedef ::color::bgr< ::color::type::split422_type >::category_type bgr_split422_t;
+  typedef ::color::bgr< ::color::type::split242_type >::category_type bgr_split242_t;
+  typedef ::color::bgr< ::color::type::split224_type >::category_type bgr_split224_t;
 
-  typedef ::color::bgr< ::color::type::split556_t >::category_type bgr_split556_t;
-  typedef ::color::bgr< ::color::type::split565_t >::category_type bgr_split565_t;
-  typedef ::color::bgr< ::color::type::split655_t >::category_type bgr_split655_t;
+  typedef ::color::bgr< ::color::type::split556_type >::category_type bgr_split556_t;
+  typedef ::color::bgr< ::color::type::split565_type >::category_type bgr_split565_t;
+  typedef ::color::bgr< ::color::type::split655_type >::category_type bgr_split655_t;
 
 
   make_image_conversion< rgb_t, bgr_uint8_t    >( "./conv-rgb/rgb2bgr_uint8.tga",     0.5 );
@@ -116,17 +116,17 @@ void image_rgb_conversion()
   typedef ::color::rgb< double         >::category_type  rgb_double_t;
   typedef ::color::rgb< long    double >::category_type  rgb_ldouble_t;
 
-  typedef ::color::rgb< ::color::type::split233_t >::category_type rgb_split233_t;
-  typedef ::color::rgb< ::color::type::split323_t >::category_type rgb_split323_t;
-  typedef ::color::rgb< ::color::type::split332_t >::category_type rgb_split332_t;
+  typedef ::color::rgb< ::color::type::split233_type >::category_type rgb_split233_t;
+  typedef ::color::rgb< ::color::type::split323_type >::category_type rgb_split323_t;
+  typedef ::color::rgb< ::color::type::split332_type >::category_type rgb_split332_t;
 
-  typedef ::color::rgb< ::color::type::split422_t >::category_type rgb_split422_t;
-  typedef ::color::rgb< ::color::type::split242_t >::category_type rgb_split242_t;
-  typedef ::color::rgb< ::color::type::split224_t >::category_type rgb_split224_t;
+  typedef ::color::rgb< ::color::type::split422_type >::category_type rgb_split422_t;
+  typedef ::color::rgb< ::color::type::split242_type >::category_type rgb_split242_t;
+  typedef ::color::rgb< ::color::type::split224_type >::category_type rgb_split224_t;
 
-  typedef ::color::rgb< ::color::type::split556_t >::category_type rgb_split556_t;
-  typedef ::color::rgb< ::color::type::split565_t >::category_type rgb_split565_t;
-  typedef ::color::rgb< ::color::type::split655_t >::category_type rgb_split655_t;
+  typedef ::color::rgb< ::color::type::split556_type >::category_type rgb_split556_t;
+  typedef ::color::rgb< ::color::type::split565_type >::category_type rgb_split565_t;
+  typedef ::color::rgb< ::color::type::split655_type >::category_type rgb_split655_t;
 
 
   make_image_conversion< rgb_t, rgb_uint8_t    >( "./conv-rgb/rgb2rgb_uint8.tga",      0.5 );
