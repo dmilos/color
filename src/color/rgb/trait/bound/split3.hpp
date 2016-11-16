@@ -30,28 +30,28 @@ namespace color
          struct pick_bound3<8>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size >
-            using bound_type = ::color::_internal::utility::bound::pack3_8_type<  first_size, second_size, third_size >;
+            using bound_type = ::color::_internal::utility::bound::pack3_8_t<  first_size, second_size, third_size >;
           };
 
         template<>
          struct pick_bound3<16>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size >
-            using bound_type = ::color::_internal::utility::bound::pack3_16_type< first_size, second_size, third_size >;
+            using bound_type = ::color::_internal::utility::bound::pack3_16_t< first_size, second_size, third_size >;
           };
 
         template<>
          struct pick_bound3<32>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size >
-            using bound_type = ::color::_internal::utility::bound::pack3_32_type< first_size, second_size, third_size >;
+            using bound_type = ::color::_internal::utility::bound::pack3_32_t< first_size, second_size, third_size >;
           };
 
         template<>
          struct pick_bound3<64>
           {
            template< unsigned first_size, unsigned second_size, unsigned third_size >
-            using bound_type = ::color::_internal::utility::bound::pack3_64_type< first_size, second_size, third_size >;
+            using bound_type = ::color::_internal::utility::bound::pack3_64_t< first_size, second_size, third_size >;
           };
 
        }

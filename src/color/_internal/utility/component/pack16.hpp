@@ -21,18 +21,18 @@ namespace color
           {
           };
 
-        template< typename index_name > using split556_type  = ::color::_internal::utility::component::pack16<index_name>;
-        template< typename index_name > using split565_type  = ::color::_internal::utility::component::pack16<index_name>;
-        template< typename index_name > using split655_type  = ::color::_internal::utility::component::pack16<index_name>;
+        template< typename index_name > using split556_t = ::color::_internal::utility::component::pack16<index_name>;
+        template< typename index_name > using split565_t = ::color::_internal::utility::component::pack16<index_name>;
+        template< typename index_name > using split655_t = ::color::_internal::utility::component::pack16<index_name>;
 
-        template< typename index_name > using split772_type = ::color::_internal::utility::component::pack16<index_name>;
-        template< typename index_name > using split727_type = ::color::_internal::utility::component::pack16<index_name>;
-        template< typename index_name > using split277_type = ::color::_internal::utility::component::pack16<index_name>;
+        template< typename index_name > using split772_t = ::color::_internal::utility::component::pack16<index_name>;
+        template< typename index_name > using split727_t = ::color::_internal::utility::component::pack16<index_name>;
+        template< typename index_name > using split277_t = ::color::_internal::utility::component::pack16<index_name>;
 
-        template< typename index_name > using split4444_type = ::color::_internal::utility::component::pack16<index_name>;
+        template< typename index_name > using split4444_t = ::color::_internal::utility::component::pack16<index_name>;
 
-        template< typename index_name > using split5551_type = ::color::_internal::utility::component::pack16<index_name>;
-        template< typename index_name > using split1555_type = ::color::_internal::utility::component::pack16<index_name>;
+        template< typename index_name > using split5551_t = ::color::_internal::utility::component::pack16<index_name>;
+        template< typename index_name > using split1555_t = ::color::_internal::utility::component::pack16<index_name>;
 
        }
      }

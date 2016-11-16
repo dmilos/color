@@ -8,7 +8,7 @@ namespace color
   namespace type
    {
 
-    typedef std::array< std::uint8_t, 3 > uint24_t, uint24_type;
+    typedef std::array< std::uint8_t, 3 > uint24_t;
 
    }
  }

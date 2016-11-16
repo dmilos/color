@@ -3,7 +3,6 @@
 
 // ::color::type::nothing
 // ::color::type::nothing_t
-// ::color::type::nothing_type
 
 namespace color
  {
@@ -12,7 +11,7 @@ namespace color
 
     struct nothing{};
 
-    typedef nothing nothing_t, nothing_type;
+    typedef nothing nothing_t;
 
    }
  }

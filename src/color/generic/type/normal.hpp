@@ -3,7 +3,6 @@
 
 // ::color::type::normal
 // ::color::type::normal_t
-// ::color::type::normal_type
 
 namespace color
  {
@@ -13,7 +12,7 @@ namespace color
     //
     struct normal{};
 
-    typedef normal normal_t, normal_type;
+    typedef normal normal_t;
 
    }
  }

@@ -12,7 +12,7 @@ namespace color
     typedef std::array< std::uint8_t,  6 > uint48_t, uint48c_t;
 
     //! Based on short
-    typedef std::array< std::uint16_t, 3 > uint48s_t, uint48s_type;
+    typedef std::array< std::uint16_t, 3 > uint48s_t;
 
    }
  }

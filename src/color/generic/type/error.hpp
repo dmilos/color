@@ -3,7 +3,6 @@
 
 // ::color::type::error
 // ::color::type::error_t
-// ::color::type::error_type
 
 namespace color
  {
@@ -12,7 +11,7 @@ namespace color
     //
     struct error{};
 
-    typedef error error_t, error_type;
+    typedef error error_t;
 
    }
  }

@@ -88,37 +88,37 @@ namespace color
           };
 
         template< typename unsigned_name, unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-         using pack4_N_type = ::color::_internal::utility::bound::pack4< unsigned_name, unsigned, first_size, second_size, third_size, fourth_size >;
+         using pack4_N_t = ::color::_internal::utility::bound::pack4< unsigned_name, unsigned, first_size, second_size, third_size, fourth_size >;
 
         template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-         using pack4_8_type = ::color::_internal::utility::bound::pack4_N_type< std::uint8_t, first_size, second_size, third_size, fourth_size >;
+         using pack4_8_t = ::color::_internal::utility::bound::pack4_N_t< std::uint8_t, first_size, second_size, third_size, fourth_size >;
 
         template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-         using pack4_16_type = ::color::_internal::utility::bound::pack4_N_type< std::uint16_t, first_size, second_size, third_size, fourth_size >;
+         using pack4_16_t = ::color::_internal::utility::bound::pack4_N_t< std::uint16_t, first_size, second_size, third_size, fourth_size >;
 
         template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-         using pack4_32_type = ::color::_internal::utility::bound::pack4_N_type< std::uint32_t, first_size, second_size, third_size, fourth_size >;
+         using pack4_32_t = ::color::_internal::utility::bound::pack4_N_t< std::uint32_t, first_size, second_size, third_size, fourth_size >;
 
         template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
-         using pack4_64_type = ::color::_internal::utility::bound::pack4_N_type< std::uint64_t, first_size, second_size, third_size, fourth_size >;
+         using pack4_64_t = ::color::_internal::utility::bound::pack4_N_t< std::uint64_t, first_size, second_size, third_size, fourth_size >;
 
 
-        typedef  ::color::_internal::utility::bound::pack4_8_type<   2,  2,  2,  2 >   split2222_type;
+        typedef  ::color::_internal::utility::bound::pack4_8_t<   2,  2,  2,  2 >   split2222_t;
 
-        typedef  ::color::_internal::utility::bound::pack4_16_type<  4,  4,  4,  4 >  split4444_type;
-        typedef  ::color::_internal::utility::bound::pack4_16_type<  6,  6,  6,  6 >  split6666_type;
+        typedef  ::color::_internal::utility::bound::pack4_16_t<  4,  4,  4,  4 >  split4444_t;
+        typedef  ::color::_internal::utility::bound::pack4_16_t<  6,  6,  6,  6 >  split6666_t;
 
-        typedef  ::color::_internal::utility::bound::pack4_16_type<  1,  5,  5,  5 >  split1555_type;
-        typedef  ::color::_internal::utility::bound::pack4_16_type<  5,  5,  5,  1 >  split5551_type;
+        typedef  ::color::_internal::utility::bound::pack4_16_t<  1,  5,  5,  5 >  split1555_t;
+        typedef  ::color::_internal::utility::bound::pack4_16_t<  5,  5,  5,  1 >  split5551_t;
 
-        typedef  ::color::_internal::utility::bound::pack4_16_type<  6,  6,  6,  6 >  split6666_type;
+        typedef  ::color::_internal::utility::bound::pack4_16_t<  6,  6,  6,  6 >  split6666_t;
 
-        typedef  ::color::_internal::utility::bound::pack4_32_type<  8,  8,  8,  8 >  split8888_type;
+        typedef  ::color::_internal::utility::bound::pack4_32_t<  8,  8,  8,  8 >  split8888_t;
 
-        typedef  ::color::_internal::utility::bound::pack4_32_type<  0, 10, 10,  2 >  splitAAA2_type;
-        typedef  ::color::_internal::utility::bound::pack4_32_type<  2, 10, 10, 10 >  split2AAA_type;
+        typedef  ::color::_internal::utility::bound::pack4_32_t<  0, 10, 10,  2 >  splitAAA2_t;
+        typedef  ::color::_internal::utility::bound::pack4_32_t<  2, 10, 10, 10 >  split2AAA_t;
 
-        typedef  ::color::_internal::utility::bound::pack4_32_type<  6, 16, 16, 16 >  splitGGGG_type;
+        typedef  ::color::_internal::utility::bound::pack4_32_t<  6, 16, 16, 16 >  splitGGGG_t;
 
        }
      }

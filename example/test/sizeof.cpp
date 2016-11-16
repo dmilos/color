@@ -53,44 +53,44 @@ std::string print_sizeof( std::string const& name )
   typedef color_name< double                > d_type;
   typedef color_name< long double           > dl_type;
 
-  typedef color_name< color::type::split233_type >  split233_type;
-  typedef color_name< color::type::split332_type >  split332_type;
+  typedef color_name< color::type::split233_t >  split233_type;
+  typedef color_name< color::type::split332_t>  split332_type;
 
-  typedef color_name< color::type::split233_type > split233_type;
-  typedef color_name< color::type::split323_type > split323_type;
-  typedef color_name< color::type::split332_type > split332_type;
+  typedef color_name< color::type::split233_t> split233_type;
+  typedef color_name< color::type::split323_t> split323_type;
+  typedef color_name< color::type::split332_t> split332_type;
 
-  typedef color_name< color::type::split422_type > split422_type;
-  typedef color_name< color::type::split242_type > split242_type;
-  typedef color_name< color::type::split224_type > split224_type;
+  typedef color_name< color::type::split422_t> split422_type;
+  typedef color_name< color::type::split242_t> split242_type;
+  typedef color_name< color::type::split224_t> split224_type;
 
-  typedef color_name< color::type::split555_type > split555_type;
+  typedef color_name< color::type::split555_t> split555_type;
 
-  typedef color_name< color::type::split655_type > split655_type;
-  typedef color_name< color::type::split565_type > split565_type;
-  typedef color_name< color::type::split556_type > split556_type;
+  typedef color_name< color::type::split655_t> split655_type;
+  typedef color_name< color::type::split565_t> split565_type;
+  typedef color_name< color::type::split556_t> split556_type;
 
-  typedef color_name< color::type::split888_type > split888_type;
+  typedef color_name< color::type::split888_t> split888_type;
 
-  typedef color_name< color::type::splitCAA_type > splitCAA_type;
-  typedef color_name< color::type::splitACA_type > splitACA_type;
-  typedef color_name< color::type::splitAAC_type > splitAAC_type;
+  typedef color_name< color::type::splitCAA_t> splitCAA_type;
+  typedef color_name< color::type::splitACA_t> splitACA_type;
+  typedef color_name< color::type::splitAAC_t> splitAAC_type;
 
-  typedef color_name< color::type::split2222_type >  split2222_type;
+  typedef color_name< color::type::split2222_t>  split2222_type;
 
-  typedef color_name< color::type::split4444_type >  split4444_type;
+  typedef color_name< color::type::split4444_t>  split4444_type;
 
-  typedef color_name< color::type::split5551_type >  split5551_type;
-  typedef color_name< color::type::split1555_type >  split1555_type;
+  typedef color_name< color::type::split5551_t>  split5551_type;
+  typedef color_name< color::type::split1555_t>  split1555_type;
 
-  typedef color_name< color::type::split6666_type >  split6666_type;
+  typedef color_name< color::type::split6666_t>  split6666_type;
 
-  typedef color_name< color::type::split8888_type >  split8888_type;
+  typedef color_name< color::type::split8888_t>  split8888_type;
 
-  typedef color_name< color::type::split2AAA_type >  split2AAA_type;
-  typedef color_name< color::type::splitAAA2_type >  splitAAA2_type;
+  typedef color_name< color::type::split2AAA_t>  split2AAA_type;
+  typedef color_name< color::type::splitAAA2_t>  splitAAA2_type;
 
-  typedef color_name< color::type::splitGGGG_type >  splitGGGG_type;
+  typedef color_name< color::type::splitGGGG_t>  splitGGGG_type;
 
   std::stringstream ss;
 
