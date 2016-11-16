@@ -28,7 +28,7 @@ namespace color
 
     namespace x11
      {// Distinctively different
-      typedef  ::color::constant::w3c::lime_type  green_type;
+      typedef  ::color::constant::lime_type  green_type;
      }
 
     //namespace vga

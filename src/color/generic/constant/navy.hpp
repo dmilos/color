@@ -12,20 +12,15 @@ namespace color
 
     namespace _internal
      {
-      struct navy_w3c_type{};
+      struct navy_type{};
      }
 
-    namespace w3c
-     {
-      typedef  ::color::constant::base< ::color::constant::_internal::navy_w3c_type > navy_type;
-     }
+    typedef ::color::constant::base< ::color::constant::_internal::navy_type > navy_t, navy_type;
 
     //namespace vga
     // {// Same as w3c
     //  typedef  ::color::constant::w3c::navy_type  navy_type;
     // }
-
-    typedef ::color::constant::w3c::navy_type navy_t, navy_type;
 
    }
  }

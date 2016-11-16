@@ -12,20 +12,16 @@ namespace color
 
     namespace _internal
      {
-      struct aqua_w3c_type{};
+      struct aqua_type{};
      }
 
-    namespace w3c
-     {
-      typedef  ::color::constant::base< ::color::constant::_internal::aqua_w3c_type > aqua_type;
-     }
+    typedef ::color::constant::base< ::color::constant::_internal::aqua_type > aqua_t, aqua_type;
+
 
     //namespace vga
     // {// Same as w3c
-    //  typedef  ::color::constant::w3c::aqua_type  aqua_type;
+    //  typedef  ::color::constant::aqua_type  aqua_type;
     // }
-
-    typedef ::color::constant::w3c::aqua_type aqua_t, aqua_type;
 
    }
  }

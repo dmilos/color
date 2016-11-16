@@ -125,7 +125,7 @@ void test_constant()
   ss << print( ::color::constant::x11::maroon_type{},   "#B03060"  );
   ss << print( ::color::constant::x11::purple_type{},   "#A020F0"  );
 
-  ss << print( ::color::constant::gray_type<0,1>{},   "gray"   ); ss << print( ::color::constant::gray_type<1,0>{},   "gray"   );
+  ss << print( ::color::constant::gray_type<0,1>{},   "#ffffff"   ); ss << print( ::color::constant::gray_type<1,0>{},   "#000000"   );
 
   ss << print( ::color::constant::gray_type<1,1>{},   "gray"   );
 

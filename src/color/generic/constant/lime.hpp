@@ -12,27 +12,17 @@ namespace color
 
     namespace _internal
      {
-      struct lime_w3c_type{};
+      struct lime_type{};
      }
 
-    namespace w3c
-     {
-      typedef  ::color::constant::base< ::color::constant::_internal::lime_w3c_type > lime_type;
-     }
-
-    namespace _internal
-     {
-      struct lime_x11_type{};
-     }
+    typedef ::color::constant::base< ::color::constant::_internal::lime_type > lime_t, lime_type;
 
     //namespace vga
     // {// Same as w3c
     //  typedef  ::color::constant::w3c::lime_type  lime_type;
     // }
 
-    typedef ::color::constant::w3c::lime_type lime_t, lime_type;
-
    }
  }
 
-#endif 
+#endif
