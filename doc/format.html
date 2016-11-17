@@ -21,12 +21,12 @@
 							<li><a href="#float">float</a>, <a href="#double">double</a>, <a href="#long">long double</a></li>
 							<li><a href="#pack3">::color::type::pack3&lt first_size, second_size, third_size &gt; </a></li>
 							<li><a href="#pack4">::color::type::pack4&lt first_size, second_size, third_size, fourth_size &gt; </a></li>
-							<li><a href="#split233_t">color::type::split233_type</a>,  <a href="#split332_t">color::type::split332_type</a></li>
-							<li><a href="#split422_t">color::type::split422_type</a></li>
-							<li><a href="#split556_t">color::type::split556_type</a>, <a href="#split565_t">color::type::split565_type</a>, <a href="#split655_t">color::type::split655_type</a></li>
-							<li><a href="#split5551_t">color::type::split5551_type</a></li>
-							<li><a href="#splitAAA2_t">color::type::splitAAA2_type</a></li>
-							<li><a href="#splitGGGG_t">color::type::splitGGGG_type</a></li>
+							<li><a href="#split233_t">color::type::split233_t</a>,  <a href="#split332_t">color::type::split332_t</a></li>
+							<li><a href="#split422_t">color::type::split422_t</a></li>
+							<li><a href="#split556_t">color::type::split556_t</a>, <a href="#split565_t">color::type::split565_t</a>, <a href="#split655_t">color::type::split655_t</a></li>
+							<li><a href="#split5551_t">color::type::split5551_t</a></li>
+							<li><a href="#splitAAA2_t">color::type::splitAAA2_t</a></li>
+							<li><a href="#splitGGGG_t">color::type::splitGGGG_t</a></li>
 						</ul>
 					</li>
 
@@ -257,11 +257,11 @@
 						</dl>
 					</dd>
 
-					<dt><a name="split233_t"></a><h4><code>::color::type::split233_type</code></h4>
+					<dt><a name="split233_t"></a><h4><code>::color::type::split233_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Definition</dt>
-							<dd><code>typedef ::color::type::pack3&lt 2, 3, 3 &gt;  split233_type;</code></dd>
+							<dd><code>typedef ::color::type::pack3&lt 2, 3, 3 &gt;  split233_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -269,7 +269,7 @@
 							<dt>Memory Order</dt>
 							<dd>First  2 insignificant bits is used for first component, next  3 for second and last 3 for third component.</dd>
 							<dt>Example</dt>
-							<dd><code>::color::rgb&lt; <u> color::type::split233_type</u> &gt; r;</code><br>
+							<dd><code>::color::rgb&lt; <u> color::type::split233_t</u> &gt; r;</code><br>
 								<i>red</i> take first 2 insignificant bits, <i>green</i> next 3, and last significant 3 bits belong to <i>blue</i>.
 							</dd>
 							<dt>Note</dt>
@@ -277,11 +277,11 @@
 						</dl>
 					</dd>
 
-					<dt><a name="split332_t"></a><h4><code>::color::type::split332_type</code></h4>
+					<dt><a name="split332_t"></a><h4><code>::color::type::split332_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Definition</dt>
-							<dd><code>typedef ::color::type::pack3&lt 3, 3, 2 &gt;  split332_type;</code></dd>
+							<dd><code>typedef ::color::type::pack3&lt 3, 3, 2 &gt;  split332_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -289,17 +289,17 @@
 							<dt>Memory Order</dt>
 							<dd>First  3 insignificant bits is used for first component, next  3 for second and last 2 for third component.</dd>
 							<dt>Example</dt>
-							<dd><code>::color::rgb&lt; <u>color::type::split332_type</u> &gt; r;</code></dd>
+							<dd><code>::color::rgb&lt; <u>color::type::split332_t</u> &gt; r;</code></dd>
 							<dt>Note</dt>
 							<dd>Size of container is fixed and equal to 1 byte.</dd>
 						</dl>
 					</dd>
 
-					<dt><a name="split422_t"></a><h4><code>::color::type::split422_type</code></h4>
+					<dt><a name="split422_t"></a><h4><code>::color::type::split422_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Definition</dt>
-							<dd><code>typedef ::color::type::pack3&lt 4, 4, 2 &gt;  split422_type;</code></dd>
+							<dd><code>typedef ::color::type::pack3&lt 4, 4, 2 &gt;  split422_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -307,17 +307,17 @@
 							<dt>Memory Order</dt>
 							<dd>First  4 insignificant bits is used for first component, next 2 for second and last 2 for third component.</dd>
 							<dt>Example</dt>
-							<dd><code>::color::rgb&lt; <u>color::type::split422_type</u> &gt; r;</code></dd>
+							<dd><code>::color::rgb&lt; <u>color::type::split422_t</u> &gt; r;</code></dd>
 							<dt>Note</dt>
 							<dd>Size of container is fixed and equal to 1 byte.</dd>
 						</dl>
 					</dd>
 
-					<dt><a name="split556_t"></a><h4><code>color::type::split556_type</code></h4>
+					<dt><a name="split556_t"></a><h4><code>color::type::split556_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Definition</dt>
-							<dd><code>typedef ::color::type::pack3&lt 5, 5, 6 &gt;  split556_type;</code></dd>
+							<dd><code>typedef ::color::type::pack3&lt 5, 5, 6 &gt;  split556_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -325,17 +325,17 @@
 							<dt>Memory Order</dt>
 							<dd>First  5 insignificant bits is used for first component, next  5 for second and last 6 for third component.</dd>
 							<dt>Example</dt>
-							<dd><code>::color::rgb&lt; <u>color::type::split556_type</u> &gt; r;</code></dd>
+							<dd><code>::color::rgb&lt; <u>color::type::split556_t</u> &gt; r;</code></dd>
 							<dt>Note</dt>
 							<dd>Size of container is fixed and equal to 2 byte.</dd>
 						</dl>
 					</dd>
 
-					<dt><a name="split565_t"></a><h4><code>color::type::split565_type</code></h4>
+					<dt><a name="split565_t"></a><h4><code>color::type::split565_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Definition</dt>
-							<dd><code>typedef ::color::type::pack3&lt 5, 6, 5 &gt;  split565_type;</code></dd>
+							<dd><code>typedef ::color::type::pack3&lt 5, 6, 5 &gt;  split565_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -343,17 +343,17 @@
 							<dt>Memory Order</dt>
 							<dd>First  5 insignificant bits is used for first component, next  6 for second and last 5 for third component.</dd>
 							<dt>Example</dt>
-							<dd><code>::color::rgb&lt; <u>color::type::split565_type</u> &gt; r;</code></dd>
+							<dd><code>::color::rgb&lt; <u>color::type::split565_t</u> &gt; r;</code></dd>
 							<dt>Note</dt>
 							<dd>Size of container is fixed and equal to 2 bytes.</dd>
 						</dl>
 					</dd>
 
-					<dt><a name="split655_t"></a><h4><code>color::type::split655_type</code></h4>
+					<dt><a name="split655_t"></a><h4><code>color::type::split655_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Definition</dt>
-							<dd><code>typedef ::color::type::pack3&lt 6, 5, 5 &gt;  split655_type;</code></dd>
+							<dd><code>typedef ::color::type::pack3&lt 6, 5, 5 &gt;  split655_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -361,17 +361,17 @@
 							<dt>Memory Order</dt>
 							<dd>First  6 insignificant bits is used for first component, next  5 for second and last 5 for third component.</dd>
 							<dt>Example</dt>
-							<dd><code>::color::rgb&lt; <u> color::type::split655_type</u> &gt; r;</code></dd>
+							<dd><code>::color::rgb&lt; <u> color::type::split655_t</u> &gt; r;</code></dd>
 							<dt>Note</dt>
 							<dd>Size of container is fixed and equal to 2 bytes.</dd>
 						</dl>
 					</dd>
 
-					<dt><a name="split5551_t"></a><h4><code>color::type::split5551_type</code></h4>
+					<dt><a name="split5551_t"></a><h4><code>color::type::split5551_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Definition</dt>
-							<dd><code>typedef ::color::type::pack4&lt 5, 5, 5, 1 &gt;  split5551_type;</code></dd>
+							<dd><code>typedef ::color::type::pack4&lt 5, 5, 5, 1 &gt;  split5551_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint8_t</code></dd>
 							<dt>Container</dt>
@@ -379,13 +379,13 @@
 							<dt>Memory Order</dt>
 							<dd>First 5 insignificant bits is used for first component, next 5 for second, 5 for third component and 1 for fourth..</dd>
 							<dt>Example</dt>
-							<dd><code>::color::rgba&lt; <u> color::type::split5551_type</u> &gt; r;</code></dd>
+							<dd><code>::color::rgba&lt; <u> color::type::split5551_t</u> &gt; r;</code></dd>
 							<dt>Note</dt>
 							<dd>Size of container is fixed and equal to 2 bytes.</dd>
 						</dl>
 					</dd>
 
-					<dt><a name="splitAAA2_t"></a><h4><code>::color::type::splitAAA2_type</code></h4>
+					<dt><a name="splitAAA2_t"></a><h4><code>::color::type::splitAAA2_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Definition</dt>
@@ -397,16 +397,16 @@
 							<dt>Memory Order</dt>
 							<dd>First 10 insignificant bits is used for first component, next 10 for second, next 10 for third component and last 2 for fourth .</dd>
 							<dt>Example</dt>
-							<dd><code>::color::rgba&lt; <u> color::type::splitAAA2_type</u> &gt; r;</code></dd>
+							<dd><code>::color::rgba&lt; <u> color::type::splitAAA2_t</u> &gt; r;</code></dd>
 							<dt>Note</dt>
 							<dd>Size of container is fixed and equal to 4 bytes.</dd>
 						</dl>
 
-					<dt><a name="splitGGGG_t"></a><h4><code>color::type::splitGGGG_type</code></h4>
+					<dt><a name="splitGGGG_t"></a><h4><code>color::type::splitGGGG_t</code></h4>
 					<dd>
 						<dl>
 							<dt>Definition</dt>
-							<dd><code>typedef ::color::type::pack4&lt 16, 16, 16, 16 &gt;  splitGGGG_type;</code></dd>
+							<dd><code>typedef ::color::type::pack4&lt 16, 16, 16, 16 &gt;  splitGGGG_t;</code></dd>
 							<dt>Component</dt>
 							<dd>Type is: <code>std::uint16_t</code></dd>
 							<dt>Container</dt>
@@ -414,7 +414,7 @@
 							<dt>Memory Order</dt>
 							<dd>First 16 insignificant bits is used for first component, next 16 for second, next 16 for third component and last 16 for fourth .</dd>
 							<dt>Example</dt>
-							<dd><code>::color::rgba&lt; <u> color::type::spliGGGG_type</u> &gt; r;</code></dd>
+							<dd><code>::color::rgba&lt; <u> color::type::spliGGGG_t</u> &gt; r;</code></dd>
 							<dt>Note</dt>
 							<dd>Size of container is fixed and equal to 8 bytes.</dd>
 						</dl>
