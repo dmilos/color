@@ -1766,7 +1766,8 @@ using yellow_t = ::color::constant::yellow_type;
 namespace color {
 namespace type {
 
-struct divert_t {};
+struct divert {};
+typedef divert divert_t;
 
 }
 }
@@ -1776,7 +1777,7 @@ namespace type {
 
 struct normal {};
 
-typedef normal normal_t, normal_type;
+typedef normal normal_t;
 
 }
 }
@@ -1796,29 +1797,29 @@ namespace type {
 template< unsigned first_size, unsigned second_size, unsigned third_size >
 struct pack3 {};
 
-typedef ::color::type::pack3< 2, 3, 3 > split233_t, split233_type;
-typedef ::color::type::pack3< 3, 2, 3 > split323_t, split323_type;
-typedef ::color::type::pack3< 3, 3, 2 > split332_t, split332_type;
+typedef ::color::type::pack3< 2, 3, 3 > split233_t;
+typedef ::color::type::pack3< 3, 2, 3 > split323_t;
+typedef ::color::type::pack3< 3, 3, 2 > split332_t;
 
-typedef ::color::type::pack3< 4, 2, 2 > split422_t, split422_type;
-typedef ::color::type::pack3< 2, 4, 2 > split242_t, split242_type;
-typedef ::color::type::pack3< 2, 2, 4 > split224_t, split224_type;
+typedef ::color::type::pack3< 4, 2, 2 > split422_t;
+typedef ::color::type::pack3< 2, 4, 2 > split242_t;
+typedef ::color::type::pack3< 2, 2, 4 > split224_t;
 
-typedef ::color::type::pack3< 5, 5, 5 > split555_t, split555_type;
+typedef ::color::type::pack3< 5, 5, 5 > split555_t;
 
-typedef ::color::type::pack3< 6, 5, 5 > split655_t, split655_type;
-typedef ::color::type::pack3< 5, 6, 5 > split565_t, split565_type;
-typedef ::color::type::pack3< 5, 5, 6 > split556_t, split556_type;
+typedef ::color::type::pack3< 6, 5, 5 > split655_t;
+typedef ::color::type::pack3< 5, 6, 5 > split565_t;
+typedef ::color::type::pack3< 5, 5, 6 > split556_t;
 
-typedef ::color::type::pack3< 7, 7, 2 > split772_t, split772_type;
-typedef ::color::type::pack3< 7, 2, 7 > split727_t, split727_type;
-typedef ::color::type::pack3< 2, 7, 7 > split277_t, split277_type;
+typedef ::color::type::pack3< 7, 7, 2 > split772_t;
+typedef ::color::type::pack3< 7, 2, 7 > split727_t;
+typedef ::color::type::pack3< 2, 7, 7 > split277_t;
 
-typedef ::color::type::pack3< 8, 8, 8 > split888_t, split888_type;
+typedef ::color::type::pack3< 8, 8, 8 > split888_t;
 
-typedef ::color::type::pack3< 12, 10, 10 > splitCAA_t, splitCAA_type;
-typedef ::color::type::pack3< 10, 12, 10 > splitACA_t, splitACA_type;
-typedef ::color::type::pack3< 10, 10, 12 > splitAAC_t, splitAAC_type;
+typedef ::color::type::pack3< 12, 10, 10 > splitCAA_t;
+typedef ::color::type::pack3< 10, 12, 10 > splitACA_t;
+typedef ::color::type::pack3< 10, 10, 12 > splitAAC_t;
 
 }
 }
@@ -1829,21 +1830,21 @@ namespace type {
 template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
 struct pack4 {};
 
-typedef ::color::type::pack4< 2, 2, 2, 2 > split2222_t, split2222_type;
+typedef ::color::type::pack4< 2, 2, 2, 2 > split2222_t;
 
-typedef ::color::type::pack4< 4, 4, 4, 4 > split4444_t, split4444_type;
+typedef ::color::type::pack4< 4, 4, 4, 4 > split4444_t;
 
-typedef ::color::type::pack4< 5, 5, 5, 1 > split5551_t, split5551_type;
-typedef ::color::type::pack4< 1, 5, 5, 5 > split1555_t, split1555_type;
+typedef ::color::type::pack4< 5, 5, 5, 1 > split5551_t;
+typedef ::color::type::pack4< 1, 5, 5, 5 > split1555_t;
 
-typedef ::color::type::pack4< 6, 6, 6, 6 > split6666_t, split6666_type;
+typedef ::color::type::pack4< 6, 6, 6, 6 > split6666_t;
 
-typedef ::color::type::pack4< 8, 8, 8, 8 > split8888_t, split8888_type;
+typedef ::color::type::pack4< 8, 8, 8, 8 > split8888_t;
 
-typedef ::color::type::pack4< 2, 10, 10, 10 > split2AAA_t, split2AAA_type;
-typedef ::color::type::pack4< 10, 10, 10, 2 > splitAAA2_t, splitAAA2_type;
+typedef ::color::type::pack4< 2, 10, 10, 10 > split2AAA_t;
+typedef ::color::type::pack4< 10, 10, 10, 2 > splitAAA2_t;
 
-typedef ::color::type::pack4< 16, 16, 16, 16 > splitGGGG_t, splitGGGG_type;
+typedef ::color::type::pack4< 16, 16, 16, 16 > splitGGGG_t;
 
 }
 }
@@ -1860,7 +1861,7 @@ struct pack5 {};
 namespace color {
 namespace type {
 
-typedef std::array< std::uint8_t, 3 > uint24_t, uint24_type;
+typedef std::array< std::uint8_t, 3 > uint24_t;
 
 }
 }
@@ -1870,7 +1871,7 @@ namespace type {
 
 typedef std::array< std::uint8_t, 6 > uint48_t, uint48c_t;
 
-typedef std::array< std::uint16_t, 3 > uint48s_t, uint48s_type;
+typedef std::array< std::uint16_t, 3 > uint48s_t;
 
 }
 }
@@ -1904,7 +1905,7 @@ namespace type {
 
 struct error {};
 
-typedef error error_t, error_type;
+typedef error error_t;
 
 }
 }
@@ -7491,22 +7492,22 @@ using pack4_32_t = ::color::_internal::utility::bound::pack4_N_t< std::uint32_t,
 template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
 using pack4_64_t = ::color::_internal::utility::bound::pack4_N_t< std::uint64_t, first_size, second_size, third_size, fourth_size >;
 
-using split2222_t = ::color::_internal::utility::bound::pack4_8_t< 2, 2, 2, 2 >;
+typedef ::color::_internal::utility::bound::pack4_8_t< 2, 2, 2, 2 > split2222_t;
 
-using split4444_t = ::color::_internal::utility::bound::pack4_16_t< 4, 4, 4, 4 >;
-using split6666_t = ::color::_internal::utility::bound::pack4_16_t< 6, 6, 6, 6 >;
+typedef ::color::_internal::utility::bound::pack4_16_t< 4, 4, 4, 4 > split4444_t;
+typedef ::color::_internal::utility::bound::pack4_16_t< 6, 6, 6, 6 > split6666_t;
 
-using split1555_t = ::color::_internal::utility::bound::pack4_16_t< 1, 5, 5, 5 >;
-using split5551_t = ::color::_internal::utility::bound::pack4_16_t< 5, 5, 5, 1 >;
+typedef ::color::_internal::utility::bound::pack4_16_t< 1, 5, 5, 5 > split1555_t;
+typedef ::color::_internal::utility::bound::pack4_16_t< 5, 5, 5, 1 > split5551_t;
 
-using split6666_t = ::color::_internal::utility::bound::pack4_16_t< 6, 6, 6, 6 >;
+typedef ::color::_internal::utility::bound::pack4_16_t< 6, 6, 6, 6 > split6666_t;
 
-using split8888_t = ::color::_internal::utility::bound::pack4_32_t< 8, 8, 8, 8 >;
+typedef ::color::_internal::utility::bound::pack4_32_t< 8, 8, 8, 8 > split8888_t;
 
-using splitAAA2_t = ::color::_internal::utility::bound::pack4_32_t< 0, 10, 10, 2 >;
-using split2AAA_t = ::color::_internal::utility::bound::pack4_32_t< 2, 10, 10, 10 >;
+typedef ::color::_internal::utility::bound::pack4_32_t< 0, 10, 10, 2 > splitAAA2_t;
+typedef ::color::_internal::utility::bound::pack4_32_t< 2, 10, 10, 10 > split2AAA_t;
 
-using splitGGGG_t = ::color::_internal::utility::bound::pack4_32_t< 6, 16, 16, 16 >;
+typedef ::color::_internal::utility::bound::pack4_32_t< 6, 16, 16, 16 > splitGGGG_t;
 
 }
 }
