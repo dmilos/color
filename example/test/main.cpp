@@ -390,6 +390,9 @@ int main(int argc, char const *argv[])
 
   sandbox_test();
 
+  extern void test_constant();
+  test_constant();
+
   extern void check_sizeof();
   check_sizeof();
 

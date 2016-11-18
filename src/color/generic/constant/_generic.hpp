@@ -9,13 +9,46 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct $[![name]!]_type{};
+      struct $[![name]!]_w3c_type{};
      }
 
-    using  $[![name]!]_type = ::color::constant::base< ::color::constant::_internal::$[![name]!]_type >;
-    using  $[![name]!]_t    = ::color::constant::$[![name]!]_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::$[![name]!]_w3c_type > $[![name]!]_type;
+     }
+
+    namespace _internal
+     {
+      struct $[![name]!]_x11_type{};
+     }
+
+    namespace x11
+     {
+      // Same as w3c
+      //typedef  ::color::constant::w3c::$[![name]!]_type  $[![name]!]_type;
+
+     // Distinctively different
+      typedef  ::color::constant::base< ::color::constant::_internal::$[![name]!]_x11_type >  $[![name]!]_type;
+     }
+
+    //namespace _internal
+    // {
+    //  struct $[![name]!]_vga_type{};
+    // }
+    //
+    //namespace vga
+    // {
+    //  // Same as w3c
+    //  //typedef  ::color::constant::w3c::$[![name]!]_type  $[![name]!]_type;
+    //
+    // // Distinctively different
+    //  typedef  ::color::constant::base< ::color::constant::_internal::$[![name]!]_x11_type >  $[![name]!]_type;
+    // }
+
+    typedef ::color::constant::w3c::$[![name]!]_type $[![name]!]_t, $[![name]!]_type;
 
    }
  }

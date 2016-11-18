@@ -1251,6 +1251,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bound.cpp" />
+    <ClCompile Include="constant.cpp" />
     <ClCompile Include="conversion.cpp" />
     <ClCompile Include="convsemi.cpp" />
     <ClCompile Include="decompose.cpp" />

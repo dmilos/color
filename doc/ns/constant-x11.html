@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Dejan D. M. Milosavljevic">
+		<link rel="icon" href="../../favicon.ico" type="image/ico">
+		<title>Namespace constant</title>
+	</head>
+	<body>
+		<h1 align="center">Namespace <code>color::constant::x11</code></h1>
+		<dl>
+			<dt><h3>TOC</h3></dt>
+			<dd>
+
+<a href="#gray_col"><code>gray</code><a>,
+<a href="#green"><code>green</code><a>,
+<a href="#maroon"><code>maroon</code><a>,
+<a href="#purple"><code>purple</code><a>,
+
+
+			</dd>
+
+			<dt><h3>Description</h3></dt>
+			<dd>Contain constants and types to makes instancing easy.
+			</dd>
+
+			<dt><a name="#Note" /><h3>Note</h3></dt>
+			<dd>All names will produce values as noted at : 
+				<ul>
+					<li><a href="http://en.wikipedia.org/wiki/X11_color_names"> http://en.wikipedia.org/wiki/X11_color_names</a></li>
+					<li><a href="https://cgit.freedesktop.org/xorg/xserver/tree/os/oscolor.c">https://cgit.freedesktop.org/xorg/xserver/tree/os/oscolor.c</a></li>
+				</ul>
+			<dd>Only distinctively different colors than in w3c are in this namespace.
+			<dt><h3>List</h3></dt>
+			<dd>
+				<dl>
+					<dt><a name="gray"></a><span style="background-color:gray">&nbsp;&nbsp;&nbsp;&nbsp;</span><code>gray_type</code></dt>
+					<dd>
+						<dl>
+							<dt>Description</dt> <dd> Types to construct gray. This is 75% gray.</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::rgb&lt;std::uint8_t&gt; r{ ::color::contant::x11::gray_type{} };<br>
+									::color::hsl&lt;float&gt; h;<br>
+									h = ::color::contant::x11::gray_type{};
+								</code>
+							</dd>
+							<dt>Note</dt><dd><i>This is just type. No additional memory are consumed or additional calculation involved.</i></dd>
+						</dl>
+					</dd>
+
+					<dt><a name="green"></a><span style="background-color:green">&nbsp;&nbsp;&nbsp;&nbsp;</span><code>green_type</code></dt>
+					<dd>
+						<dl>
+							<dt>Description</dt> <dd> Types to construct green color.</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::rgb&lt;std::uint8_t&gt; r{ ::color::contant::x11::green_type{} };<br>
+									::color::hsl&lt;float&gt; h;<br>
+									h = ::color::contant::x11::green_type{};
+								</code>
+							</dd>
+							<dt>Note</dt><dd><i>This is just type. No additional memory are consumed or additional calculation involved.</i></dd>
+							<dt>Note</dt><dd><i>Equivalent to w3c::lime</i></dd>
+						</dl>
+					</dd>
+					<dt><a name="maroon"></a><span style="background-color:maroon">&nbsp;&nbsp;&nbsp;&nbsp;</span><code>maroon_type</code></dt>
+					<dd>
+						<dl>
+							<dt>Description</dt> <dd> Types to construct maroon color.</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::rgb&lt;std::uint8_t&gt; r{ ::color::contant::x11::maroon_type{} };<br>
+									::color::hsl&lt;float&gt; h;<br>
+									h = ::color::contant::x11::maroon_type{};
+								</code>
+							</dd>
+							<dt>Note</dt><dd><i>This is just type. No additional memory are consumed or additional calculation involved.</i></dd>
+						</dl>
+					</dd>
+
+					<dt><a name="purple"></a><span style="background-color:purple">&nbsp;&nbsp;&nbsp;&nbsp;</span><code>purple_type</code></dt>
+					<dd>
+						<dl>
+							<dt>Description</dt> <dd> Types to construct purple color.</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::rgb&lt;std::uint8_t&gt; r{ ::color::contant::x11::purple_type{} };<br>
+									::color::hsl&lt;float&gt; h;<br>
+									h = ::color::contant::x11::purple_type{};
+								</code>
+							</dd>
+							<dt>Note</dt><dd><i>This is just type. No additional memory are consumed or additional calculation involved.</i></dd>
+						</dl>
+					</dd>
+				</dl>
+			</dd>
+		</dl>
+		<hr>
+	</body>
+</html>
+
+

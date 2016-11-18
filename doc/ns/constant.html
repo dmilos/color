@@ -11,6 +11,9 @@
 		<dl>
 			<dt><h3>TOC</h3></dt>
 			<dd>
+				<a href="#x11"><code>x11</code><a>,<br>
+				<a href="#vga"><code>vga</code><a>,<br>
+
 				<a href="#generic"><code>generic</code><a>,
 				<a href="#gray_ns"><code>gray</code><a>,
 				<a href="#yiq"><code>yiq</code><a>,
@@ -37,9 +40,43 @@
 			<dd>Contain constants and types to makes instancing easy.
 			</dd>
 
+			<dt><a name="#Note" /><h3>Note</h3></dt>
+			<dd>All names will produce values noted at : <a href="http://www.w3.org/TR/css3-color">http://www.w3.org/TR/css3-color</a>
+
 			<dt><h3>List</h3></dt>
 			<dd>
 				<dl>
+
+					<dt><a name="generic"></a><code>vga</code></dt>
+					<dd>
+						<dl>
+							<dt>Description</dt> <dd> Constant specific fot VGA.</dd>
+							<dt>Type</dt><dd>namespace.</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+								::color::rgb&lt;double&gt; r{ ::color::contant::vga::aqua_type{} };
+								</code>
+							</dd>
+							<dt>Link</dt><dd><a href="./constant-vga.html">vga</a></dd>
+						</dl>
+					</dd>
+
+					<dt><a name="generic"></a><code>x11</code></dt>
+					<dd>
+						<dl>
+							<dt>Description</dt> <dd> Constant specific fot X11.</dd>
+							<dt>Type</dt><dd>namespace.</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>
+								::color::rgb&lt;double&gt; r{ ::color::contant::x11::gray_type{} };
+								</code>
+							</dd>
+							<dt>Link</dt><dd><a href="./constant-x11.html">x11</a></dd>
+						</dl>
+					</dd>
+
 					<dt><a name="generic"></a><code>generic</code></dt>
 					<dd>
 						<dl>
@@ -233,11 +270,15 @@
 							<dt>Note</dt><dd><i>This is just type. No additional memory are consumed or additional calculation involved.</i></dd>
 						</dl>
 					</dd>
-					<dt><a name="gray_col"></a><span style="background-color:gray">&nbsp;&nbsp;&nbsp;&nbsp;</span><code>gray_t,gray_type</code></dt>
+					<dt><a name="gray_col"></a><span style="background-color:gray">&nbsp;&nbsp;&nbsp;&nbsp;</span><code>template &lt; uint black, uint white, &gt; gray_type</code></dt>
 					<dd>
 						<dl>
-							<dt>Description</dt> <dd> Types to construct gray color.</dd>
-							<dt>Example</dt><dd><code>::color::rgb&lt;double&gt; r{ ::color::contant::gray_t{} };</code></dd>
+							<dt>Description</dt> <dd> Types to construct gray from given ration betwen black and white color.</dd>
+							<dt>Example</dt><dd>
+								 1 for black, 2 for white total weight i 1+2=3. 1/3 is black part. 2/3 is white part. As result we have 66.666...% of gray.<br>
+								<blockquote><code>::color::rgb&lt;double&gt; r{ ::color::contant::gray_type&lt;1,2&gt;{} }; </blockquote>
+								</code>
+								</dd>
 							<dt>Note</dt><dd><i>This is just type. No additional memory are consumed or additional calculation involved.</i></dd>
 						</dl>
 					</dd>
