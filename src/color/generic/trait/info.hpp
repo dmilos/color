@@ -14,8 +14,8 @@ namespace color
       {
        public:
 
-        enum { implemented_enum = false };
-        enum {  meaningful_enum = false };
+        enum { implemented_entity = false };
+        enum {  meaningful_entity = false };
 
       };
 

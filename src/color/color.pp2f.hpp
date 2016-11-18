@@ -3517,8 +3517,8 @@ template< typename category_name >
 struct info {
 public:
 
-	enum { implemented_enum = false };
-	enum { meaningful_enum = false };
+	enum { implemented_entity = false };
+	enum { meaningful_entity = false };
 
 };
 
@@ -3530,38 +3530,38 @@ namespace trait {
 
 template <> struct info< ::color::category::cmy_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmy_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmy_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmy_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmy_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmy_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmy_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -5270,43 +5270,43 @@ namespace trait {
 
 template <> struct info< ::color::category::gray_bool > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::gray_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::gray_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::gray_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::gray_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::gray_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::gray_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::gray_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -6078,38 +6078,38 @@ namespace trait {
 
 template <> struct info< ::color::category::cmyk_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmyk_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmyk_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmyk_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmyk_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmyk_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::cmyk_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -6906,290 +6906,290 @@ namespace trait {
 
 template <> struct info< ::color::category::rgb_error > {
 public:
-	enum { implemented_enum = false };
-	enum { meaningful_enum = false };
+	enum { implemented_entity = false };
+	enum { meaningful_entity = false };
 };
 template <> struct info< ::color::category::rgb_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgb_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgb_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgb_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgb_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgb_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgb_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template< unsigned first_size, unsigned second_size, unsigned third_size >
 struct info< ::color::category::rgb_pack< first_size, second_size, third_size > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template <> struct info< ::color::category::rgba_error > {
 public:
-	enum { implemented_enum = false };
-	enum { meaningful_enum = false };
+	enum { implemented_entity = false };
+	enum { meaningful_entity = false };
 };
 template <> struct info< ::color::category::rgba_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgba_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgba_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgba_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgba_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgba_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::rgba_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
 struct info< ::color::category::rgba_pack< first_size, second_size, third_size, fourth_size > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template <> struct info< ::color::category::argb_error > {
 public:
-	enum { implemented_enum = false };
-	enum { meaningful_enum = false };
+	enum { implemented_entity = false };
+	enum { meaningful_entity = false };
 };
 template <> struct info< ::color::category::argb_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::argb_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::argb_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::argb_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::argb_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::argb_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::argb_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
 struct info< ::color::category::argb_pack< first_size, second_size, third_size, fourth_size > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template <> struct info< ::color::category::bgr_error > {
 public:
-	enum { implemented_enum = false };
-	enum { meaningful_enum = false };
+	enum { implemented_entity = false };
+	enum { meaningful_entity = false };
 };
 template <> struct info< ::color::category::bgr_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgr_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgr_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgr_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgr_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgr_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgr_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template< unsigned first_size, unsigned second_size, unsigned third_size >
 struct info< ::color::category::bgr_pack< first_size, second_size, third_size > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template <> struct info< ::color::category::bgra_error > {
 public:
-	enum { implemented_enum = false };
-	enum { meaningful_enum = false };
+	enum { implemented_entity = false };
+	enum { meaningful_entity = false };
 };
 template <> struct info< ::color::category::bgra_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgra_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgra_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgra_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgra_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgra_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::bgra_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
 struct info< ::color::category::bgra_pack< first_size, second_size, third_size, fourth_size > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template <> struct info< ::color::category::abgr_error > {
 public:
-	enum { implemented_enum = false };
-	enum { meaningful_enum = false };
+	enum { implemented_entity = false };
+	enum { meaningful_entity = false };
 };
 template <> struct info< ::color::category::abgr_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::abgr_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::abgr_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::abgr_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::abgr_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::abgr_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::abgr_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 template< unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
 struct info< ::color::category::abgr_pack< first_size, second_size, third_size, fourth_size > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -9095,38 +9095,38 @@ namespace trait {
 
 template <> struct info< ::color::category::hsl_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsl_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsl_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsl_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsl_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsl_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsl_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -10139,38 +10139,38 @@ namespace trait {
 
 template <> struct info< ::color::category::hsv_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsv_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsv_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsv_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsv_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsv_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsv_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -11477,38 +11477,38 @@ namespace trait {
 
 template <> struct info< ::color::category::hsi_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsi_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsi_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsi_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsi_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsi_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::hsi_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -12826,38 +12826,38 @@ namespace trait {
 
 template <> struct info< ::color::category::yiq_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::yiq_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::yiq_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::yiq_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::yiq_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::yiq_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::yiq_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -13853,38 +13853,38 @@ namespace trait {
 
 template < ::color::constant::yuv::reference_enum reference_number > struct info< ::color::category::yuv_uint8 < reference_number > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::yuv::reference_enum reference_number > struct info< ::color::category::yuv_uint16 < reference_number > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::yuv::reference_enum reference_number > struct info< ::color::category::yuv_uint32 < reference_number > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::yuv::reference_enum reference_number > struct info< ::color::category::yuv_uint64 < reference_number > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::yuv::reference_enum reference_number > struct info< ::color::category::yuv_float < reference_number > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::yuv::reference_enum reference_number > struct info< ::color::category::yuv_double < reference_number > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::yuv::reference_enum reference_number > struct info< ::color::category::yuv_ldouble< reference_number > > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -15099,38 +15099,38 @@ namespace trait {
 
 template <> struct info< ::color::category::YCgCo_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YCgCo_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YCgCo_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YCgCo_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YCgCo_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YCgCo_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YCgCo_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -16327,38 +16327,38 @@ namespace trait {
 
 template <> struct info< ::color::category::YDbDr_uint8 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YDbDr_uint16 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YDbDr_uint32 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YDbDr_uint64 > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YDbDr_float > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YDbDr_double > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template <> struct info< ::color::category::YDbDr_ldouble > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }
@@ -17607,38 +17607,38 @@ namespace trait {
 
 template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint8 <reference_number> > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint16 <reference_number> > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint32 <reference_number> > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint64 <reference_number> > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_float <reference_number> > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_double <reference_number> > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_ldouble<reference_number> > {
 public:
-	enum { implemented_enum = true };
-	enum { meaningful_enum = true };
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
 
 }

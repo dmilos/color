@@ -25,12 +25,12 @@
 ###Code sample:
 ```c++
 color::rgb<::color::type::split655_t>   r;                //!< One std::uint16_t in memory. 6 bits for red, 5 bits for green and 5 bits for blue.
-color::bgr<std::uint8_t>  b( ::color::constant::aqua_type{} ); //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
+color::bgr<std::uint8_t>  b( ::color::constant::aqua_t{} ); //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
 color::yiq<std::uint8_t>  y( { 192, 64, 92 } );           //!< Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
 color::hsv<double>        h( { 90.0, 50.0, 60.0 } );      //!< This will pack ONLY three consecutive doubles in memory
 
 color::make::orange( r );                 //!< Set 'r' to be orange. Function call style.
-y = ::color::constant::turquoise_type{};  //!< Set 'y' to be turquoise. Assign from constant style.
+y = ::color::constant::turquoise_t{};  //!< Set 'y' to be turquoise. Assign from constant style.
 
 b = r; //!< Reformat and convert.
 r = b; //!< Reformat and convert in opposite direction.
