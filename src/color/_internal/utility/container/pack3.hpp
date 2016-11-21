@@ -54,7 +54,7 @@ namespace color
 
              typedef void set_return_type;
 
-             enum { size_enum = 3 };
+             enum { size_entity = 3 };
              enum
               {
                 first_position = 0,
@@ -84,7 +84,7 @@ namespace color
              template< index_instance_type index >
               static component_return_const_type get( input_const_type container )
                {
-                //TODO C++14 static_assert( index <  size_enum, "Index is out of range." );
+                //TODO C++14 static_assert( index <  size_entity, "Index is out of range." );
                 switch( index )
                  {
                   case( 0 ): return ( ( container >> (  first_position ) ) &  first_mask );
@@ -108,7 +108,7 @@ namespace color
              template< index_instance_type index >
               static set_return_type set( input_type container, component_input_const_type value )
                {
-                //TODO C++14 static_assert( index <  size_enum, "Index is out of range." );
+                //TODO C++14 static_assert( index <  size_entity, "Index is out of range." );
                 switch( index )
                  {
                   case( 0 ) : container = ( container & ~(   first_mask << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
@@ -119,7 +119,7 @@ namespace color
 
              static /*constexpr*/ index_return_image_type size()
               {
-               static const index_instance_type local_length = size_enum;
+               static const index_instance_type local_length = size_entity;
                return local_length;
               }
           };
