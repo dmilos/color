@@ -30,7 +30,6 @@ namespace color
 #include "./set/set.hpp"
 
 #include "./convert/convert.hpp"
-#include "./make/make.hpp"
 
 
 #endif

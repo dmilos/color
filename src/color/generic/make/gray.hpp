@@ -18,16 +18,10 @@
         ,typename ::color::trait::scalar< category_name >::input_const_type    percent_param
        )
        {
-        typedef ::color::trait::bound< category_name > bound_type;
-        typedef ::color::trait::container< category_name > container_trait_type;
-
         typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
-        typedef typename ::color::trait::index< category_name >::instance_type index_type;
+        typedef ::color::gray<scalar_type>                     gray_type;  
 
-        for( index_type index=0; index < container_trait_type::size() ; ++index )
-         {
-          color_parameter.set( index, ( ( scalar_type(100) - percent_param ) * bound_type::minimum( index ) + percent_param * bound_type::maximum( index ) ) / scalar_type(100) );
-         }
+        color_parameter =   gray_type{ percent_param / scalar_type(100) };
        }
 
      template< typename category_name >
@@ -57,66 +51,28 @@
         return  color_return;
        }
 
-     template< typename category_name >
-      void gray50( ::color::model< category_name > & color_parameter )
-       {
-        typedef ::color::model< category_name > model_type;
-        typedef ::color::trait::bound< category_name > bound_type;
-
-        typedef typename model_type::index_type index_type;
-
-        for( index_type index=0; index < model_type::size() ; ++index )
-         {
-          color_parameter.set( index, bound_type::minimum( index ) + bound_type::range( index )/2 );
-         }
-       }
-
-     template< typename category_name >
-      inline
-      ::color::model< category_name >
-      gray50()
-       {
-        typedef ::color::model< category_name > model_type;
-        static model_type dummy;
-        // TODO Will call every time, That is no good.
-        ::color::make::gray50( dummy );
-
-        // Do nothing to force specialization
-        return dummy;
-       }
-
     }
 
     namespace constant
      {
 
-      template< typename category_name >
-       struct make<::color::constant::gray50_type, category_name >
-        {
-         typedef category_name                        category_type;
-         typedef ::color::constant::gray50_type       constant_type;
-
-         typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
-
-         inline static void process( container_output_type & m )
-          {
-           m = ::color::make::gray50<category_type>( ).container();
-          }
-        };
-
       template< typename category_name, std::uintmax_t black_number, std::uintmax_t white_number >
-       struct make< ::color::constant::gray_type<black_number,white_number>, category_name >
+       struct make< ::color::constant::gray_t<black_number,white_number>, category_name >
         {
-         typedef category_name                                      category_type;
+         typedef category_name                         category_type;
+         typedef ::color::model<category_type>            model_type;
+         typedef ::color::gray<double>                     gray_type;
+
          typedef typename ::color::trait::scalar< category_name >::instance_type    scalar_type;
 
-         typedef ::color::constant::gray_type<black_number,white_number>       constant_type;
+         typedef ::color::constant::gray_t<black_number,white_number>       constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 
          inline static void process( container_output_type & container )
           {
-           container = ::color::make::gray<category_type>( scalar_type(100)*scalar_type(white_number)/scalar_type(black_number+white_number) ).container();
+           static model_type  s_model{ gray_type{ scalar_type(white_number)/scalar_type(black_number+white_number) } };
+           container = s_model.container();
           }
         };
 

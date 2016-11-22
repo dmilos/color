@@ -20,39 +20,39 @@ namespace color
 
 
     template< std::uintmax_t black_number, std::uintmax_t white_number >
-     using  gray_type = ::color::constant::base< ::color::constant::_internal::gray< black_number, white_number > > ;
+     using  gray_t= ::color::constant::base< ::color::constant::_internal::gray< black_number, white_number > > ;
 
-    typedef ::color::constant::gray_type< 99,  1  > gray01_type;
-    typedef ::color::constant::gray_type< 95,  5  > gray05_type;
-    typedef ::color::constant::gray_type< 90, 10  > gray10_type;
-    typedef ::color::constant::gray_type< 80, 20  > gray20_type;
-    typedef ::color::constant::gray_type< 75, 25  > gray25_type;
-    typedef ::color::constant::gray_type< 70, 30  > gray30_type;
-    typedef ::color::constant::gray_type<  2,  1  > gray33_type;
-    typedef ::color::constant::gray_type< 60, 40  > gray40_type;
-    typedef ::color::constant::gray_type< 50, 50  > gray50_type;
-    typedef ::color::constant::gray_type< 40, 60  > gray60_type;
-    typedef ::color::constant::gray_type<  1,  2  > gray66_type;
-    typedef ::color::constant::gray_type< 30, 70  > gray70_type;
-    typedef ::color::constant::gray_type< 25, 75  > gray75_type;
-    typedef ::color::constant::gray_type< 20, 80  > gray80_type;
-    typedef ::color::constant::gray_type< 10, 90  > gray90_type;
-    typedef ::color::constant::gray_type<  5, 95  > gray95_type;
-    typedef ::color::constant::gray_type<  1, 99  > gray99_type;
+    typedef ::color::constant::gray_t< 99,  1  > gray01_t;
+    typedef ::color::constant::gray_t< 95,  5  > gray05_t;
+    typedef ::color::constant::gray_t< 90, 10  > gray10_t;
+    typedef ::color::constant::gray_t< 80, 20  > gray20_t;
+    typedef ::color::constant::gray_t< 75, 25  > gray25_t;
+    typedef ::color::constant::gray_t< 70, 30  > gray30_t;
+    typedef ::color::constant::gray_t<  2,  1  > gray33_t;
+    typedef ::color::constant::gray_t< 60, 40  > gray40_t;
+    typedef ::color::constant::gray_t< 50, 50  > gray50_t;
+    typedef ::color::constant::gray_t< 40, 60  > gray60_t;
+    typedef ::color::constant::gray_t<  1,  2  > gray66_t;
+    typedef ::color::constant::gray_t< 30, 70  > gray70_t;
+    typedef ::color::constant::gray_t< 25, 75  > gray75_t;
+    typedef ::color::constant::gray_t< 20, 80  > gray80_t;
+    typedef ::color::constant::gray_t< 10, 90  > gray90_t;
+    typedef ::color::constant::gray_t<  5, 95  > gray95_t;
+    typedef ::color::constant::gray_t<  1, 99  > gray99_t;
 
     namespace w3c
      {
-      typedef  ::color::constant::gray50_type    gray_type;
+      typedef  ::color::constant::gray50_t    gray_t;
      }
 
     namespace x11
      {// Distinctively different
-      typedef  ::color::constant::gray75_type        gray_type;
+      typedef  ::color::constant::gray75_t        gray_t;
      }
 
     //namespace vga
     // {// Same as w3c
-    //  typedef  ::color::constant::gray50_type      gray_type;
+    //  typedef  ::color::constant::gray50_t      gray_t;
     // }
 
    }

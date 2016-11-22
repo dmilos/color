@@ -120,29 +120,29 @@ void test_constant()
 //  ss << print( ::color::constant::vga::teal_type{},     "teal"     );
 //  ss << print( ::color::constant::vga::aqua_type{},     "aqua"     );
 
-  ss << print( ::color::constant::x11::gray_type{},     "#BEBEBE"  );
-  ss << print( ::color::constant::x11::green_type{},    "#00FF00"  );
-  ss << print( ::color::constant::x11::maroon_type{},   "#B03060"  );
-  ss << print( ::color::constant::x11::purple_type{},   "#A020F0"  );
+  ss << print( ::color::constant::x11::gray_t{},        "#BEBEBE"  );
+  ss << print( ::color::constant::x11::green_t{},    "#00FF00"  );
+  ss << print( ::color::constant::x11::maroon_t{},   "#B03060"  );
+  ss << print( ::color::constant::x11::purple_t{},   "#A020F0"  );
 
-  ss << print( ::color::constant::gray_type<0,1>{},   "#ffffff"   ); ss << print( ::color::constant::gray_type<1,0>{},   "#000000"   );
+  ss << print( ::color::constant::gray_t<0,1>{},   "#ffffff"   ); ss << print( ::color::constant::gray_t<1,0>{},   "#000000"   );
 
-  ss << print( ::color::constant::gray_type<1,1>{},   "gray"   );
+  ss << print( ::color::constant::gray_t<1,1>{},   "gray"   );
 
-  ss << print( ::color::constant::gray_type<1,2>{},   "gray"   ); ss << print( ::color::constant::gray_type<2,1>{},   "gray"   );
+  ss << print( ::color::constant::gray_t<1,2>{},   "rgb(170,170,170)"   ); ss << print( ::color::constant::gray_t<2,1>{},   "rgb(85,85,85)"   );
   
-  ss << print( ::color::constant::gray_type<1,3>{},   "gray"   ); ss << print( ::color::constant::gray_type<3,1>{},   "gray"   );
-  ss << print( ::color::constant::gray_type<2,3>{},   "gray"   ); ss << print( ::color::constant::gray_type<3,2>{},   "gray"   );
+  ss << print( ::color::constant::gray_t<1,3>{},   "rgb(191,191,191)"   ); ss << print( ::color::constant::gray_t<3,1>{},   "rgb(63,63,63)"   );
+  ss << print( ::color::constant::gray_t<2,3>{},   "rgb(153,153,153)"   ); ss << print( ::color::constant::gray_t<3,2>{},   "rgb(102,102,102)"   );
   
-  ss << print( ::color::constant::gray_type<1,4>{},   "gray"   ); ss << print( ::color::constant::gray_type<4,1>{},   "gray"   );
+  ss << print( ::color::constant::gray_t<1,4>{},   "rgb(204,204,204)"   ); ss << print( ::color::constant::gray_t<4,1>{},   "rgb(51,51,51)"   );
 
-  ss << print( ::color::constant::gray_type<2,4>{},   "gray"   ); ss << print( ::color::constant::gray_type<4,2>{},   "gray"   );
-  ss << print( ::color::constant::gray_type<3,4>{},   "gray"   );ss << print( ::color::constant::gray_type<4,3>{},   "gray"   );
+  ss << print( ::color::constant::gray_t<2,4>{},   "rgb(170,170,170)"   ); ss << print( ::color::constant::gray_t<4,2>{},  "rgb(85,85,85)"   );
+  ss << print( ::color::constant::gray_t<3,4>{},   "rgb(145,145,145)"   );ss << print( ::color::constant::gray_t<4,3>{},   "rgb(109,109,109)"   );
 
-  ss << print( ::color::constant::gray_type<1,5>{},   "gray"   ); ss << print( ::color::constant::gray_type<5,1>{},   "gray"   );
-  ss << print( ::color::constant::gray_type<2,5>{},   "gray"   ); ss << print( ::color::constant::gray_type<5,2>{},   "gray"   );
-  ss << print( ::color::constant::gray_type<3,5>{},   "gray"   ); ss << print( ::color::constant::gray_type<5,3>{},   "gray"   );
-  ss << print( ::color::constant::gray_type<4,5>{},   "gray"   ); ss << print( ::color::constant::gray_type<5,4>{},   "gray"   );
+  ss << print( ::color::constant::gray_t<1,5>{},   "rgb(212,212,212)"   ); ss << print( ::color::constant::gray_t<5,1>{},   "rgb(42,42,42)"   );
+  ss << print( ::color::constant::gray_t<2,5>{},   "rgb(182,182,182)"   ); ss << print( ::color::constant::gray_t<5,2>{},   "rgb(72,72,72)"   );
+  ss << print( ::color::constant::gray_t<3,5>{},   "rgb(159,159,159)"   ); ss << print( ::color::constant::gray_t<5,3>{},   "rgb(95,95,95)"   );
+  ss << print( ::color::constant::gray_t<4,5>{},   "rgb(141,141,141)"   ); ss << print( ::color::constant::gray_t<5,4>{},   "rgb(113,113,113)"   );
 
 
 

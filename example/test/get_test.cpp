@@ -23,7 +23,7 @@ template< typename category_name >
              c += rgb_type::bound_type::range(0) / 200
       )
     {
-     color::make::orange( m );
+     m = color::constant::orange_t{};
               color::set::red( m, c );
      auto g = color::get::red( m );
 
@@ -60,7 +60,7 @@ template< typename category_name >
              c += rgb_type::bound_type::range(0) / 200
       )
     {
-     color::make::orange( m );
+     m = color::constant::orange_t{};
               color::set::green( m, c );
      auto g = color::get::green( m );
 
@@ -97,7 +97,7 @@ template< typename category_name >
              c += rgb_type::bound_type::range(0) / 200
       )
     {
-     color::make::orange( m );
+     m = color::constant::orange_t{};
               color::set::blue( m, c );
      auto g = color::get::blue( m );
 

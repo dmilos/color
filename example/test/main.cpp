@@ -7,7 +7,6 @@
 
 #include "./model/invoke.hpp"
 #include "./model/operation.hpp"
-#include "./model/make.hpp"
 #include "./model/reformat.hpp"
 #include "./model/set.hpp"
 #include "./model/get.hpp"
@@ -120,11 +119,6 @@ void ctor_test()
 
 void invoke()
  {
-  //::color::make::aqua< color::category::rgb_uint8 >();
-  //::color::make::aqua< color::category::rgb_uint8 >();
-  //::color::make::aqua< color::category::rgb_uint8 >();
-  //::color::make::aqua< color::category::rgb_uint8 >();
-
   test_invoke< color::category::rgb_uint8   >();
   test_invoke< color::category::rgb_uint16  >();
   test_invoke< color::category::rgb_uint32  >();
@@ -412,17 +406,11 @@ int main(int argc, char const *argv[])
   void check_get();
   check_get();
 
-  extern void make_test_make();
-  make_test_make();
-
   extern int gray_test( int argc, char const *argv[] );
   gray_test( argc, argv );
 
   extern int decompose_test( int argc, char const *argv[] );
   decompose_test( argc, argv );
-
-  extern void make_make_header();
-  make_make_header();
 
   extern void print_bound();
   print_bound();
@@ -435,8 +423,8 @@ int main(int argc, char const *argv[])
   extern void check_conversion();
   check_conversion();
 
-  //void test_selfie();
-  //test_selfie();
+  void make_test_gray_scale();
+  make_test_gray_scale();
 
   void test_set_invoke();
   test_set_invoke();
