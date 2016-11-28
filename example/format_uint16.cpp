@@ -34,7 +34,7 @@ void format_uint16_rgb()
  {
   ::color::rgb< std::uint16_t > r;
 
-  ::color::make::orange( r ); //!< Fill with some useful information
+  ::color::constant::orange_t{ r ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::rgb<std::uint16_t> = { ";
   std::cout<< std::setw(12) << std::right << r[0] << ","
@@ -48,7 +48,7 @@ void format_uint16_cmy()
  {
   ::color::cmy< std::uint16_t > c;
 
-  ::color::make::orange( c ); //!< Fill with some useful information
+  ::color::constant::orange_t{ c ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
   std::cout<< std::setw(12) << std::right << c[0] << ","
@@ -62,7 +62,7 @@ void format_uint16_cmyk()
  {
   ::color::cmyk< std::uint16_t > ck;
 
-  ::color::make::orange( ck ); //!< Fill with some useful information
+  ::color::constant::orange_t{ ck ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
   std::cout<< std::setw(12) << std::right << ck[0] << ","
@@ -77,7 +77,7 @@ void format_uint16_gray()
  {
   ::color::gray< std::uint16_t > g;
 
-  ::color::make::orange( g ); //!< Fill with some useful information
+  ::color::constant::orange_t{ g ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
   std::cout<< std::setw(12) << std::right << g[0];
@@ -90,7 +90,7 @@ void format_uint16_hsl()
  {
   ::color::hsl< std::uint16_t > hl;
 
-  ::color::make::orange( hl ); //!< Fill with some useful information
+  ::color::constant::orange_t{ hl ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
   std::cout<< std::setw(12) << std::right << hl[0] << ","
@@ -104,7 +104,7 @@ void format_uint16_hsv()
  {
   ::color::hsv< std::uint16_t > hv;
 
-  ::color::make::orange( hv ); //!< Fill with some useful information
+  ::color::constant::orange_t{ hv ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
   std::cout<< std::setw(12) << std::right << hv[0] << ","
@@ -118,7 +118,7 @@ void format_uint16_yiq()
  {
   ::color::yiq< std::uint16_t > yq;
 
-  ::color::make::orange( yq ); //!< Fill with some useful information
+  ::color::constant::orange_t{ yq ); //!< Fill with some useful information
 
 
   std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
@@ -133,7 +133,7 @@ void format_uint16_yuv()
  {
   ::color::yuv< std::uint16_t > yv;
 
-  ::color::make::orange( yv ); //!< Fill with some useful information
+  ::color::constant::orange_t{ yv ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<std::uint16_t> = { ";
   std::cout<< std::setw(12) << std::right << yv[0] << ","

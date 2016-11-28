@@ -33,7 +33,7 @@ int main( int argc, char *argv[] )
 void format_split556_rgb()
  {
   ::color::rgb< ::color::type::split556_t > r;
-  ::color::make::orange( r ); //!< Fill with some useful information
+  ::color::constant::orange_t{ r ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::rgb<::color::type::split556_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)r[0] << ","
@@ -46,7 +46,7 @@ void format_split556_rgb()
 void format_split556_cmy()
  {
   ::color::cmy< ::color::type::split556_t > c;
-  ::color::make::orange( c ); //!< Fill with some useful information
+  ::color::constant::orange_t{ c ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<::color::type::split556_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)c[0] << ","
@@ -60,7 +60,7 @@ void format_split556_cmyk()
  {
   ::color::cmyk< ::color::type::split556_t > ck;
 
-  ::color::make::orange( ck ); //!< Fill with some useful information
+  ::color::constant::orange_t{ ck ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<::color::type::split556_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)ck[0] << ","
@@ -75,7 +75,7 @@ void format_split556_gray()
  {
   ::color::gray< ::color::type::split556_t > g;
 
-  ::color::make::orange( g ); //!< Fill with some useful information
+  ::color::constant::orange_t{ g ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<::color::type::split556_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)g[0];
@@ -87,7 +87,7 @@ void format_split556_hsl()
  {
   ::color::hsl< ::color::type::split556_t > hl;
 
-  ::color::make::orange( hl ); //!< Fill with some useful information
+  ::color::constant::orange_t{ hl ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<::color::type::split556_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)hl[0] << ","
@@ -100,7 +100,7 @@ void format_split556_hsl()
 void format_split556_hsv()
  {
   ::color::hsv< ::color::type::split556_t > hv;
-  ::color::make::orange( hv ); //!< Fill with some useful information
+  ::color::constant::orange_t{ hv ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<::color::type::split556_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)hv[0] << ","
@@ -113,7 +113,7 @@ void format_split556_hsv()
 void format_split556_yiq()
  {
   ::color::yiq< ::color::type::split556_t > yq;
-  ::color::make::orange( yq ); //!< Fill with some useful information
+  ::color::constant::orange_t{ yq ); //!< Fill with some useful information
 
 
   std::cout<< "Orange in color::cmy<::color::type::split556_t> = { ";
@@ -128,7 +128,7 @@ void format_split556_yuv()
  {
   ::color::yuv< ::color::type::split556_t > yv;
 
-  ::color::make::orange( yv ); //!< Fill with some useful information
+  ::color::constant::orange_t{ yv ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<::color::type::split556_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)yv[0] << ","

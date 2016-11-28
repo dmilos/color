@@ -40,10 +40,6 @@ cd ./get
 ./make.sh
 cd ..
 
-cd ./make
-./make.sh
-cd ..
-
 cd ./operation
 ./make.sh
 cd ..

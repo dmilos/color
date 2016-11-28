@@ -7,7 +7,7 @@ int main( int argc, char *argv[] )
  {
   ::color::hsv< std::uint8_t > hv;
 
-  ::color::make::orange( hv ); //!< Fill with some useful ininvertion
+  hv = ::color::constant::orange_t{}; //!< Fill with some useful ininvertion
 
   std::cout<< "Orange in color::rgb<std::uint8_t> = ";
   std::cout << hv[0] << ", " << hv[1] << ", " << hv[2] << std::endl;

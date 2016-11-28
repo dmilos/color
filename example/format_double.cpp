@@ -32,7 +32,7 @@ void format_double_cmy()
  {
   ::color::cmy< double > c; //!< Make an instance
 
-  ::color::make::orange( c ); //!< Fill with some useful information
+  ::color::constant::orange_t{ c ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<double> = { ";
   std::cout<< std::setw(12) << std::right << c[0] << ","
@@ -46,7 +46,7 @@ void format_double_cmyk()
  {
   ::color::cmyk< double > ck; //!< Make an instance
 
-  ::color::make::orange( ck ); //!< Fill with some useful information
+  ::color::constant::orange_t{ ck ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<double> = { ";
   std::cout<< std::setw(12) << std::right << ck[0] << ","
@@ -61,7 +61,7 @@ void format_double_gray()
  {
   ::color::gray< double > g; //!< Make an instance
 
-  ::color::make::orange( g ); //!< Fill with some useful information
+  ::color::constant::orange_t{ g ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<double> = { ";
   std::cout<< std::setw(12) << std::right << g[0];
@@ -73,7 +73,7 @@ void format_double_hsl()
  {
   ::color::hsl< double > hl; //!< Make an instance
 
-  ::color::make::orange( hl ); //!< Fill with some useful information
+  ::color::constant::orange_t{ hl ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<double> = { ";
   std::cout<< std::setw(12) << std::right << hl[0] << ","
@@ -87,7 +87,7 @@ void format_double_hsv()
  {
   ::color::hsv< double > hv; //!< Make an instance
 
-  ::color::make::orange( hv ); //!< Fill with some useful information
+  ::color::constant::orange_t{ hv ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<double> = { ";
   std::cout<< std::setw(12) << std::right << hv[0] << ","
@@ -101,7 +101,7 @@ void format_double_yiq()
  {
   ::color::yiq< double > yq; //!< Make an instance
 
-  ::color::make::orange( yq ); //!< Fill with some useful information
+  ::color::constant::orange_t{ yq ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<double> = { ";
   std::cout<< std::setw(12) << std::right << yq[0] << ","
@@ -115,7 +115,7 @@ void format_double_yuv()
  {
   ::color::yuv< double > yv; //!< Make an instance
 
-  ::color::make::orange( yv ); //!< Fill with some useful information
+  ::color::constant::orange_t{ yv ); //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<double> = { ";
   std::cout<< std::setw(12) << std::right << yv[0] << ","

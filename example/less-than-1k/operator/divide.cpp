@@ -9,7 +9,7 @@ int main( int argc, char *argv[] )
 
   color_t a;
 
-  ::color::make::orange( a );
+  a = ::color::constant::orange_t{};
 
 
   color_t result;

@@ -7,7 +7,7 @@ int main( int argc, char *argv[] )
  {
   ::color::cmyk< std::uint8_t > c;
 
-  ::color::make::orange( c ); //!< Fill with some useful ininvertion
+  c = ::color::constant::orange_t{}; //!< Fill with some useful ininvertion
 
   std::cout<< "Orange in color::cmyk<std::uint8_t> = ";
   std::cout << c[0] << ", " << c[1] << ", " << c[2] << std::endl;

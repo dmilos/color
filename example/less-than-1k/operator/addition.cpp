@@ -9,8 +9,8 @@ int main( int argc, char *argv[] )
 
   color_t a, b;
 
-  ::color::make::orange( a );
-  ::color::make::lime( b );
+  a = ::color::constant::orange_t{};
+  b = ::color::constant::lime_t{};
 
   color_t result;
 

@@ -8,7 +8,7 @@ int main( int argc, char *argv[] )
   color::hsv<double>  h;
 
   // Do some initialization
-  color::make::red( h );
+  h = color::constant::red_t{};
 
   // First check has to be OK
   std::cout << " false == color::check::unique( h ) == " << color::check::unique( h ) << std::endl;

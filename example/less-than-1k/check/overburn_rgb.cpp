@@ -17,7 +17,7 @@ void check_rgb()
   color::rgb<double>  r;
 
   // Do some initialization
-  color::make::red( r );
+  r = color::constant::red_t{};
 
   // First check has to be OK
   std::cout << "true == color::check::overburn( r ) == " << color::check::overburn( r ) << std::endl;

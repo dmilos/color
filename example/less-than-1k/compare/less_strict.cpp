@@ -8,8 +8,8 @@
   color::yiq< double > a;
   color::yiq< float > b;
 
-  color::make::red( a );
-  color::make::orange( a );
+  color::constant::red_t( a );
+  color::constant::orange_t{ a );
 
   // This will produce ERROR.
   std::cout << color::compare::less_strict( a, b ) << std::endl;
@@ -20,8 +20,8 @@ int main( int argc, char *argv[] )
   color::rgb< double > a;
   color::rgb< double > b;
 
-  color::make::red( a );
-  color::make::orange( b );
+  a = color::constant::red_t{};
+  b = color::constant::orange_t{};
 
   std::cout << "color::compare::less_strict( a, b )" << color::compare::less_strict( a, b ) << std::endl;
 

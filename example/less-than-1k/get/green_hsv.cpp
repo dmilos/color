@@ -11,7 +11,7 @@ int main( int argc, char *argv[] )
   color::hsv<float> c;
 
   // initialize c before get.
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Here is how to get gray component.
   auto gray = color::get::gray( c );

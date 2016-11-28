@@ -8,7 +8,7 @@ int main( int argc, char *argv[] )
   color::cmyk<double>  ck; 
 
   // Do some initialization
-  color::make::red( ck );
+  ck = color::constant::red_t{};
 
   // First check has to be OK
   std::cout << " true == color::check::integrity( ck ) == " << color::check::integrity( ck ) << std::endl;

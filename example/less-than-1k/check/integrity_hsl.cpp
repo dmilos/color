@@ -8,7 +8,7 @@ int main( int argc, char *argv[] )
   color::hsl<double>  hl;
 
   // Do some initialization
-  color::make::red( hl );
+  hl = color::constant::red_t{};
 
   // First check has to be OK
   std::cout << " true == color::check::integrity( hl ) == " << color::check::integrity( hl ) << std::endl;

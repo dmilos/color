@@ -37,7 +37,7 @@ void set_green_in_cmy()
   color::cmy<float> c;
 
   // initialize c before get
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Show the component before set
   std::cout << color::get::green( c ) << std::endl;
@@ -56,7 +56,7 @@ void set_green_in_cmyk()
   color::cmy<float> c;
 
   // initialize c before get
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Show the component before set
   std::cout << color::get::green( c ) << std::endl;
@@ -75,7 +75,7 @@ void set_green_in_gray()
   color::gray<float> c;
 
   // initialize c before get
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Show the component before set
   std::cout << color::get::green( c ) << std::endl;
@@ -94,7 +94,7 @@ void set_green_in_hsl()
   color::hsl<float> c;
 
   // initialize c before get
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Show the component before set
   std::cout << color::get::green( c ) << std::endl;
@@ -113,7 +113,7 @@ void set_green_in_hsv()
   color::hsv<float> c;
 
   // initialize c before get
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Show the component before set
   std::cout << color::get::green( c ) << std::endl;
@@ -132,7 +132,7 @@ void set_green_in_rgb()
   color::rgb<float> c;
 
   // initialize c before get
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Show the component before set
   std::cout << color::get::green( c ) << std::endl;
@@ -152,7 +152,7 @@ void set_green_in_yiq()
   color::yiq<float> c;
 
   // initialize c before get
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Show the component before set
   std::cout << color::get::green( c ) << std::endl;
@@ -171,7 +171,7 @@ void set_green_in_yuv()
   color::yuv<float> c;
 
   // initialize c before get
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Show the component before set
   std::cout << color::get::green( c ) << std::endl;

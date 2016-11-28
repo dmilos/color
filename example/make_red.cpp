@@ -31,11 +31,11 @@ int main( int argc, char *argv[] )
   color::rgb<long double>    c7;
 
   // make it red
-  color::make::red( c1 ); std::cout << "color::rgb<std::uint8_t>  = "; print( c1 ); std::cout << std::endl;
-  color::make::red( c2 ); std::cout << "color::rgb<std::uint16_t> = "; print( c2 ); std::cout << std::endl;
-  color::make::red( c3 ); std::cout << "color::rgb<std::uint32_t> = "; print( c3 ); std::cout << std::endl;
-  color::make::red( c4 ); std::cout << "color::rgb<std::uint64_t> = "; print( c4 ); std::cout << std::endl;
-  color::make::red( c5 ); std::cout << "color::rgb<float>         = "; print( c5 ); std::cout << std::endl;
-  color::make::red( c6 ); std::cout << "color::rgb<double>        = "; print( c6 ); std::cout << std::endl;
-  color::make::red( c7 ); std::cout << "color::rgb<long double>   = "; print( c7 ); std::cout << std::endl;
+  color::constant::red_t( c1 ); std::cout << "color::rgb<std::uint8_t>  = "; print( c1 ); std::cout << std::endl;
+  color::constant::red_t( c2 ); std::cout << "color::rgb<std::uint16_t> = "; print( c2 ); std::cout << std::endl;
+  color::constant::red_t( c3 ); std::cout << "color::rgb<std::uint32_t> = "; print( c3 ); std::cout << std::endl;
+  color::constant::red_t( c4 ); std::cout << "color::rgb<std::uint64_t> = "; print( c4 ); std::cout << std::endl;
+  color::constant::red_t( c5 ); std::cout << "color::rgb<float>         = "; print( c5 ); std::cout << std::endl;
+  color::constant::red_t( c6 ); std::cout << "color::rgb<double>        = "; print( c6 ); std::cout << std::endl;
+  color::constant::red_t( c7 ); std::cout << "color::rgb<long double>   = "; print( c7 ); std::cout << std::endl;
  }

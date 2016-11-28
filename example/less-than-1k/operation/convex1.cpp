@@ -7,8 +7,8 @@ int main( int argc, char *argv[] )
  {
   ::color::rgb<double> a, b;
 
-  ::color::make::orange( a );
-  ::color::make::lime( b );
+  a = ::color::constant::orange_t{};
+  b = ::color::constant::lime_t{};
 
   ::color::operation::convex( a, 0.1, b );
   std::cout<< " convex::accumulate( a, 0.1, lime ) = ";
