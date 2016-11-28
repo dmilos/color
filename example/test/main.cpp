@@ -415,7 +415,6 @@ int main(int argc, char const *argv[])
   extern void print_bound();
   print_bound();
 
-
   make_blue();
 
   invoke();
