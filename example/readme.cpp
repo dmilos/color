@@ -8,7 +8,6 @@ int main(int argc, char const *argv[])
   color::yiq<std::uint8_t>  y( { 192, 64, 92 } );           //!< Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
   color::hsv<double>        h( { 90.0, 50.0, 60.0 } );      //!< This will pack ONLY three consecutive doubles in memory
   
-  color::constant::orange_t{ r );                 //!< Set 'r' to be orange. Function call style.
   y = ::color::constant::turquoise_t{};  //!< Set 'y' to be turquoise. Assign from constant style.
   
   b = r; //!< Reformat and convert.

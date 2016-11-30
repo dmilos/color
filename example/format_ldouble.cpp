@@ -32,7 +32,7 @@ void format_ldouble_cmy()
  {
   ::color::cmy< long double > c;
 
-  ::color::constant::orange_t{ c ); //!< Fill with some useful information
+  c = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<long double> = { ";
   std::cout<< std::setw(12) << std::right << c[0] << ","
@@ -46,7 +46,7 @@ void format_ldouble_cmyk()
  {
   ::color::cmyk< long double > ck;
 
-  ::color::constant::orange_t{ ck ); //!< Fill with some useful information
+  ck = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<long double> = { ";
   std::cout<< std::setw(12) << std::right << ck[0] << ","
@@ -61,7 +61,7 @@ void format_ldouble_gray()
  {
   ::color::gray< long double > g;
 
-  ::color::constant::orange_t{ g ); //!< Fill with some useful information
+  g = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<long double> = { ";
   std::cout<< std::setw(12) << std::right << g[0];
@@ -73,7 +73,7 @@ void format_ldouble_hsl()
  {
   ::color::hsl< long double > hl;
 
-  ::color::constant::orange_t{ hl ); //!< Fill with some useful information
+  hl = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<long double> = { ";
   std::cout<< std::setw(12) << std::right << hl[0] << ","
@@ -87,7 +87,7 @@ void format_ldouble_hsv()
  {
   ::color::hsv< long double > hv;
 
-  ::color::constant::orange_t{ hv ); //!< Fill with some useful information
+  hv = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<long double> = { ";
   std::cout<< std::setw(12) << std::right << hv[0] << ","
@@ -101,7 +101,7 @@ void format_ldouble_yiq()
  {
   ::color::yiq< long double > yq;
 
-  ::color::constant::orange_t{ yq ); //!< Fill with some useful information
+  yq = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<long double> = { ";
   std::cout<< std::setw(12) << std::right << yq[0] << ","
@@ -115,7 +115,7 @@ void format_ldouble_yuv()
  {
   ::color::yuv< long double > yv;
 
-  ::color::constant::orange_t{ yv ); //!< Fill with some useful information
+  yu = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<long double> = { ";
   std::cout<< std::setw(12) << std::right << yv[0] << ","

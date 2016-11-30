@@ -83,7 +83,6 @@ void format_uint32_gray()
   std::cout<< std::setw(12) << std::right << g[0];
   std::cout<< " };";
   std::cout<< std::endl;
-
  }
 
 void format_uint32_hsl()
@@ -119,7 +118,6 @@ void format_uint32_yiq()
   ::color::yiq< std::uint32_t > yq;
 
   yq = ::color::constant::orange_t{}; //!< Fill with some useful information
-
 
   std::cout<< "Orange in color::cmy<std::uint32_t> = { ";
   std::cout<< std::setw(12) << std::right << yq[0] << ","
