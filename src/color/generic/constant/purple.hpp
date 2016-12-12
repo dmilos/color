@@ -35,7 +35,7 @@ namespace color
     //  typedef  ::color::constant::w3c::purple_t  purple_t;
     // }
 
-    typedef ::color::constant::w3c::purple_t purple_t, purple_t;
+    typedef ::color::constant::w3c::purple_t purple_t;
 
    }
  }
