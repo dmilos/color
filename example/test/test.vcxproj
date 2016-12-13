@@ -1260,10 +1260,8 @@
     <ClCompile Include="gray_test.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="make.cpp" />
     <ClCompile Include="operation\gamma.cpp" />
     <ClCompile Include="place.cpp" />
-    <ClCompile Include="selfie.cpp" />
     <ClCompile Include="set_invoke.cpp" />
     <ClCompile Include="sizeof.cpp" />
     <ClCompile Include="targa.cpp" />
