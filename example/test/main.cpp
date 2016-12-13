@@ -368,6 +368,12 @@ void test_pallete()
 
 int main(int argc, char const *argv[])
  {
+  ::color::xyz<double>  x;
+  ::color::rgb<double>  r;
+
+  x = r;
+
+
   print< ::color::rgb< ::color::type::split422_t >::category_type  >();
   print< ::color::rgb< ::color::type::split242_t >::category_type  >();
   print< ::color::rgb< ::color::type::split224_t >::category_type  >();

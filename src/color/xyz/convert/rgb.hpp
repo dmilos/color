@@ -60,27 +60,30 @@ namespace color
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
-          {
+          { // //Observer. = 2°, Illuminant = D65
 
-           static scalar_type b11 = xyz_const_type::b11(), b12 = xyz_const_type::b12(), b13 = xyz_const_type::b13();
-           static scalar_type b21 = xyz_const_type::b21(), b22 = xyz_const_type::b22(), b23 = xyz_const_type::b23();
-           static scalar_type b31 = xyz_const_type::b31(), b32 = xyz_const_type::b32(), b33 = xyz_const_type::b33();
-           static scalar_type const                              b32n = -b32;
+           static const scalar_type b11 = xyz_const_type::b11(), b12 = xyz_const_type::b12(), b13 = xyz_const_type::b13();
+           static const scalar_type b21 = xyz_const_type::b21(), b22 = xyz_const_type::b22(), b23 = xyz_const_type::b23();
+           static const scalar_type b31 = xyz_const_type::b31(), b32 = xyz_const_type::b32(), b33 = xyz_const_type::b33();
 
            scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           scalar_type y = b11 * r + b12 * g + b13 * b;
-           scalar_type i = b21 * r + b22 * g + b23 * b;
-           scalar_type q = b31 * r + b32 * g + b33 * b;
+           if ( r > 0.04045 ) r = pow( ( ( r + 0.055 ) / 1.055 ), 2.4 );
+           else                   r = r / 12.92;
+           if ( g > 0.04045 ) g = pow((  ( g + 0.055 ) / 1.055 ), 2.4 );
+           else                   g = g / 12.92;
+           if ( b > 0.04045 ) b = pow(( ( b + 0.055 ) / 1.055 ), 2.4 );
+           else                   b = b / 12.92;
 
-           i = ( i / b21  + scalar_type(1) ) / scalar_type(2);
-           q = ( q / b32n + scalar_type(1) ) / scalar_type(2);
+           scalar_type x = b11 * r + b12 * g + b13 * b;
+           scalar_type y = b21 * r + b22 * g + b23 * b;
+           scalar_type z = b31 * r + b32 * g + b33 * b;
 
-           container_left_trait_type::template set<      luma_p>( left, diverse_type::template process<      luma_p>( y ) );
-           container_left_trait_type::template set<   inphase_p>( left, diverse_type::template process<   inphase_p>( i ) );
-           container_left_trait_type::template set<quadrature_p>( left, diverse_type::template process<quadrature_p>( q ) );
+           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( x ) );
+           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( y ) );
+           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( z ) );
           }
       };
 
