@@ -15,7 +15,7 @@ namespace color
  {
 
   template< typename type_name >
-   using xyz = ::color::model< ::color::category::xyz< type_name > >;
+   using xyz = ::color::model< typename ::color::category::xyz< type_name > >;
 
  }
 
@@ -29,7 +29,6 @@ namespace color
 #include "./set/set.hpp"
 
 #include "./convert/convert.hpp"
-#include "./make/make.hpp"
 
 
 #endif

@@ -27,8 +27,8 @@ namespace color
 
          typedef typename ::color::akin::rgb< cmyk_category_type >::akin_type  rgb_category_type;
 
-         typedef ::color::model<   xyz_category_type >   xyz_model_type;
-         typedef ::color::model<  cmyk_category_type >  cmyk_model_type;
+         typedef ::color::model< xyz_category_type > xyz_model_type;
+         typedef ::color::model< cmyk_category_type >  cmyk_model_type;
 
          typedef ::color::model< rgb_category_type >  rgb_model_type;
 
@@ -46,7 +46,7 @@ namespace color
           {
            left = xyz_model_type( rgb_model_type( cmyk_model_type( right ) ) ).container();
           }
-      };
+        };
 
    }
  }

@@ -19,8 +19,10 @@
       typename ::color::model< ::color::category::xyz< tag_name> >::component_const_type
       inphase( ::color::model< ::color::category::xyz< tag_name> > const& color_parameter )
        {
-         // TODO
-        return 0;
+        typedef ::color::category::xyz< tag_name>  category_type;
+        enum{ inphase_p  = ::color::place::_internal::inphase<category_type>::position_enum };
+
+        return color_parameter.template get<inphase_p>();
        }
 
     }

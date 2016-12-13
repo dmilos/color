@@ -17,8 +17,8 @@ namespace color
     template< typename xyz_tag_name, typename hsi_tag_name >
      struct convert
       <
-        ::color::category::xyz<   xyz_tag_name >
-       ,::color::category::hsi<   hsi_tag_name >
+        ::color::category::xyz< xyz_tag_name >
+       ,::color::category::hsi<  hsi_tag_name >
       >
       {
        public:
@@ -46,7 +46,7 @@ namespace color
           {
            left = xyz_model_type( rgb_model_type( hsi_model_type( right ) ) ).container();
           }
-      };
+        };
 
    }
  }

@@ -20,6 +20,19 @@ namespace color
       {
       };
 
+    template< >
+     struct component< ::color::category::xyz_double >
+      : public ::color::_internal::utility::component::array< double, unsigned >
+      {
+      };
+
+    template< >
+     struct component< ::color::category::xyz_ldouble >
+      : public ::color::_internal::utility::component::array< long double, unsigned>
+      {
+      };
+
+
    }
  }
 

@@ -13,6 +13,8 @@
 #include "./yiq/yiq.hpp"
 #include "./yuv/yuv.hpp"
 
+#include "./xyz/xyz.hpp"
+
 #include "./YCgCo/YCgCo.hpp"
 #include "./YDbDr/YDbDr.hpp"
 #include "./YPbPr/YPbPr.hpp"

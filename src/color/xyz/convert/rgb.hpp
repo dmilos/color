@@ -43,6 +43,9 @@ namespace color
 
          enum
           {
+                  luma_p  = ::color::place::_internal::luma<category_left_type>::position_enum
+           ,   inphase_p  = ::color::place::_internal::inphase<category_left_type>::position_enum
+           ,quadrature_p  = ::color::place::_internal::quadrature<category_left_type>::position_enum
           };
 
          enum
@@ -58,7 +61,26 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           // TODO
+
+           static scalar_type b11 = xyz_const_type::b11(), b12 = xyz_const_type::b12(), b13 = xyz_const_type::b13();
+           static scalar_type b21 = xyz_const_type::b21(), b22 = xyz_const_type::b22(), b23 = xyz_const_type::b23();
+           static scalar_type b31 = xyz_const_type::b31(), b32 = xyz_const_type::b32(), b33 = xyz_const_type::b33();
+           static scalar_type const                              b32n = -b32;
+
+           scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
+           scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
+           scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
+
+           scalar_type y = b11 * r + b12 * g + b13 * b;
+           scalar_type i = b21 * r + b22 * g + b23 * b;
+           scalar_type q = b31 * r + b32 * g + b33 * b;
+
+           i = ( i / b21  + scalar_type(1) ) / scalar_type(2);
+           q = ( q / b32n + scalar_type(1) ) / scalar_type(2);
+
+           container_left_trait_type::template set<      luma_p>( left, diverse_type::template process<      luma_p>( y ) );
+           container_left_trait_type::template set<   inphase_p>( left, diverse_type::template process<   inphase_p>( i ) );
+           container_left_trait_type::template set<quadrature_p>( left, diverse_type::template process<quadrature_p>( q ) );
           }
       };
 

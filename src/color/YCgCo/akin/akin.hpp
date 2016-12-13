@@ -6,3 +6,4 @@
 #include "./rgb.hpp"
 #include "./yiq.hpp"
 #include "./YCgCo.hpp"
+#include "./xyz.hpp"

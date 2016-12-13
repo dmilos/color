@@ -37,7 +37,9 @@
 
         enum
          {
-           // TODO
+                 luma_p  = ::color::place::_internal::luma<category_type>::position_enum
+          ,   inphase_p  = ::color::place::_internal::inphase<category_type>::position_enum
+          ,quadrature_p  = ::color::place::_internal::quadrature<category_type>::position_enum
          };
 
         enum
@@ -45,8 +47,18 @@
             red_p  = ::color::place::_internal::red<akin_type>::position_enum
          };
 
-         // TODO
-        return 0;
+        static scalar_type a11 = xyz_const_type::a11(), a12 = xyz_const_type::a12(), a13 = xyz_const_type::a13();
+
+        scalar_type y = normalize_type::template process<      luma_p >( color_parameter.template get<     luma_p>() );
+        scalar_type i = normalize_type::template process<   inphase_p>( color_parameter.template get<   inphase_p>() );
+        scalar_type q = normalize_type::template process<quadrature_p>( color_parameter.template get<quadrature_p>() );
+
+        i = ( scalar_type(2) * i - scalar_type(1) ) * xyz_const_type::i_max();
+        q = ( scalar_type(2) * q - scalar_type(1) ) * xyz_const_type::q_max();
+
+        scalar_type r = a11 * y + a12 * i + a13 * q;
+
+        return diverse_type::template process<red_p>( r );
        }
 
     }
