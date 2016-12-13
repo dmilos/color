@@ -9,13 +9,18 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
       struct lime_type{};
      }
 
-    using  lime_type = ::color::constant::base< ::color::constant::_internal::lime_type >;
-    using  lime_t    = ::color::constant::lime_type;
+    typedef ::color::constant::base< ::color::constant::_internal::lime_type > lime_t, lime_type;
+
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::w3c::lime_type  lime_type;
+    // }
 
    }
  }

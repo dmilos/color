@@ -18,8 +18,8 @@ template< typename category_name >
    typedef typename model_type::component_type     component_type;
 
    model_type   c;
-   color::make::black(c);
-   color::make::gray50(c);
+   c  = color::constant::black_t{};
+   c =  color::constant::gray50_t{};
 
    color::get::alpha( c ) ;
    color::get::gray( c )  ;

@@ -9,13 +9,19 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
       struct aqua_type{};
      }
 
-    using  aqua_type = ::color::constant::base< ::color::constant::_internal::aqua_type >;
-    using  aqua_t    = ::color::constant::aqua_type;
+    typedef ::color::constant::base< ::color::constant::_internal::aqua_type > aqua_t, aqua_type;
+
+
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::aqua_type  aqua_type;
+    // }
 
    }
  }

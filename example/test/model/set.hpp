@@ -24,7 +24,7 @@ template< typename category_name >
    typedef ::color::_internal::diverse< gray_akin_type >   gray_diverse_type;
 
    model_type   c;
-   color::make::chocolate( c );
+   c = color::constant::chocolate_t{};
 
    { auto vx = value;                                         ; color::set::alpha(    c, vx ); }
    { auto vx = rgb_diverse_type::template process<0>( value ) ; color::set::red(      c, vx ); }

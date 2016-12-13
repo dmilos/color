@@ -10,7 +10,7 @@ int main( int argc, char *argv[] )
   color::bgr<std::uint8_t>  r2; //!< Instead of uint32_t you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
 
   // Do some initialization
-  color::make::red( r1 );
+  r1 = color::constant::red_t{};
 
   // Here is how to convert from one to another.
   r2 = r1;

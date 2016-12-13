@@ -8,7 +8,7 @@ int main( int argc, char *argv[] )
  {
   ::color::rgba< ::color::type::split8888_t > r;
 
-  ::color::make::orange( r ); //!< Fill with some useful information
+  r = ::color::constant::orange_t{}; //!< Fill with some useful information
   ::color::set::alpha( r, 255 );
 
   std::cout<< (unsigned)r[0] << "," << (unsigned)r[1] << "," << (unsigned)r[2] << "," << (unsigned)r[3];

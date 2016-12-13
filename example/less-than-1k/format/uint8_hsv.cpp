@@ -8,7 +8,7 @@ int main( int argc, char *argv[] )
  {
   ::color::hsv< std::uint8_t > hv;
 
-  ::color::make::orange( hv ); //!< Fill with some useful information
+  hv = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<std::uint8_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)hv[0] << ","

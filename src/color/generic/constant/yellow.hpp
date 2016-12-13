@@ -9,13 +9,18 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
       struct yellow_type{};
      }
 
-    using  yellow_type = ::color::constant::base< ::color::constant::_internal::yellow_type >;
-    using  yellow_t    = ::color::constant::yellow_type;
+    typedef ::color::constant::base< ::color::constant::_internal::yellow_type > yellow_t, yellow_type;
+
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::w3c::yellow_type  yellow_type;
+    // }
 
    }
  }

@@ -1,10 +1,15 @@
 #include "./divert.hpp"
 #include "./normal.hpp"
 
-#include "./split5.hpp"
-#include "./split4.hpp"
-#include "./split3.hpp"
-#include "./split2.hpp"
+#include "./pack2.hpp"
+#include "./pack3.hpp"
+#include "./pack4.hpp"
+#include "./pack5.hpp"
 
 #include "./uint24.hpp"
 #include "./uint48.hpp"
+
+#include "./scramble.hpp"
+
+#include "./error.hpp"
+

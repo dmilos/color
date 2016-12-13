@@ -11,14 +11,14 @@ namespace color
   namespace trait
    {
 
-  //template <> struct info< ::color::category::cmy_bool >     {  public: enum { implemented_enum = false}; enum {  meaningful_enum = true }; };
-    template <> struct info< ::color::category::cmy_uint8 >    {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template <> struct info< ::color::category::cmy_uint16 >   {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template <> struct info< ::color::category::cmy_uint32 >   {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template <> struct info< ::color::category::cmy_uint64 >   {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template <> struct info< ::color::category::cmy_float >    {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template <> struct info< ::color::category::cmy_double >   {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
-    template <> struct info< ::color::category::cmy_ldouble >  {  public: enum { implemented_enum = true }; enum {  meaningful_enum = true }; };
+  //template <> struct info< ::color::category::cmy_bool >     {  public: enum { implemented_entity = false}; enum {  meaningful_entity = true }; };
+    template <> struct info< ::color::category::cmy_uint8 >    {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template <> struct info< ::color::category::cmy_uint16 >   {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template <> struct info< ::color::category::cmy_uint32 >   {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template <> struct info< ::color::category::cmy_uint64 >   {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template <> struct info< ::color::category::cmy_float >    {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template <> struct info< ::color::category::cmy_double >   {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template <> struct info< ::color::category::cmy_ldouble >  {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
 
    }
  }

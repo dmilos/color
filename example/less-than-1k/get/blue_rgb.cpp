@@ -10,7 +10,7 @@ int main( int argc, char *argv[] )
   color::rgb<float> c;
 
   // initialize c before get.
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Here is how to get blue component.
   auto blue = color::get::blue( c );

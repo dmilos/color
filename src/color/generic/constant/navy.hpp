@@ -9,13 +9,18 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
       struct navy_type{};
      }
 
-    using  navy_type = ::color::constant::base< ::color::constant::_internal::navy_type >;
-    using  navy_t    = ::color::constant::navy_type;
+    typedef ::color::constant::base< ::color::constant::_internal::navy_type > navy_t, navy_type;
+
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::w3c::navy_type  navy_type;
+    // }
 
    }
  }

@@ -9,13 +9,18 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
       struct fuchsia_type{};
      }
 
-    using  fuchsia_type = ::color::constant::base< ::color::constant::_internal::fuchsia_type >;
-    using  fuchsia_t    = ::color::constant::fuchsia_type;
+    typedef ::color::constant::base< ::color::constant::_internal::fuchsia_type > fuchsia_t, fuchsia_type;
+
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::w3c::fuchsia_type  fuchsia_type;
+    // }
 
    }
  }

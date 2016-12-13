@@ -48,7 +48,7 @@ namespace color
 
              typedef void set_return_type;
 
-             enum { size_enum = length };
+             enum { size_entity = length };
 
 
              static component_return_const_type get( input_const_type container, index_input_const_type index )

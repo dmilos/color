@@ -29,7 +29,7 @@
 
               ::color::operation::subtract( difference, left, right );
 
-              return ::color::gray<scalar_type>( difference ).get( 0 );
+              return ::color::gray<scalar_type>( difference ).template get<0>();
              }
 
          };

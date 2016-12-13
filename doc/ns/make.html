@@ -13,79 +13,17 @@
 			<dd>
 				<ul>
 					<li><a href="#Description">Description</a></li>
-					<li><a href="#Note">Note</a></li>
 					<li><a href="#Sample">Code Sample</a></li>
 					<li><a href="#List">List</a></li>
 				</ul>
 			</dd>
 
 			<dt><a name="#Description" /><h3>Description</h3></dt>
-			<dd>Contain all function to make color according to their names.</dd>
-			<dt><a name="#Note" /><h3>Note</h3></dt>
-			<dd>All names match names and (RGB) values specified at: <a href="http://www.w3.org/TR/css3-color">http://www.w3.org/TR/css3-color</a>
-			</dd>
-			<dt><a name="#Sample" /><h3>Code sample</h3></dt>
-			<dd>
-				<blockquote> <code>
-					typedef ::color::hsv&lt; double &gt; hsv_type; <br>
-					hsv_type c; <br>
-					::color::make::pink( c );   // in c is now pink color <br>
-					c = ::color::make::yellow&lt; hsv_type::category &gt;();   // in c is now yellow color <br>
-				</code></blockquote>
-			</dd>
-
+			<dd>Contain all function to make color acording to some formula.</dd>
 			<dt><a name="#List" /><h3>List</h3></dt>
 			<dd>
 				<table border="1" cellspacing="0" cellpadding="2" >
 					<tr><th>Color</th> <th>Function</th><th>Description</th></tr>
-					<tr> <td bgcolor="aqua"      >Lorem Ipsum </td> <td><code>void ::color::make::aqua(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::aqua        &lt; category &gt;( void ); </code></td> <td>Make aqua</td> </tr>
-					<tr> <td bgcolor="aquamarine">Lorem Ipsum </td> <td><code>void ::color::make::aquamarine( <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::aquamarine  &lt; category &gt;( void ); </code></td> <td>Make aquamarine</td> </tr>
-					<tr> <td bgcolor="azure"     >Lorem Ipsum </td> <td><code>void ::color::make::azure(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::azure       &lt; category &gt;( void ); </code></td> <td>Make azure</td> </tr>
-					<tr> <td bgcolor="beige"     >Lorem Ipsum </td> <td><code>void ::color::make::beige(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::beige       &lt; category &gt;( void ); </code></td> <td>Make beige</td> </tr>
-					<tr> <td bgcolor="bisque"    >Lorem Ipsum </td> <td><code>void ::color::make::bisque(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::bisque      &lt; category &gt;( void ); </code></td> <td>Make bisque</td> </tr>
-					<tr> <td bgcolor="black"     >Lorem Ipsum </td> <td><code>void ::color::make::black(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::black       &lt; category &gt;( void ); </code></td> <td>Make black</td> </tr>
-					<tr> <td bgcolor="blue"      >Lorem Ipsum </td> <td><code>void ::color::make::blue(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::blue        &lt; category &gt;( void ); </code></td> <td>Make blue</td> </tr>
-					<tr> <td bgcolor="brown"     >Lorem Ipsum </td> <td><code>void ::color::make::brown(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::brown       &lt; category &gt;( void ); </code></td> <td>Make brown</td> </tr>
-					<tr> <td bgcolor="chocolate" >Lorem Ipsum </td> <td><code>void ::color::make::chocolate(  <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::chocolate   &lt; category &gt;( void ); </code></td> <td>Make chocolate</td> </tr>
-					<tr> <td bgcolor="coral"     >Lorem Ipsum </td> <td><code>void ::color::make::coral(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::coral       &lt; category &gt;( void ); </code></td> <td>Make coral</td> </tr>
-					<tr> <td bgcolor="crimson"   >Lorem Ipsum </td> <td><code>void ::color::make::crimson(    <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::crimson     &lt; category &gt;( void ); </code></td> <td>Make crimson</td> </tr>
-					<tr> <td bgcolor="cyan"      >Lorem Ipsum </td> <td><code>void ::color::make::cyan(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::cyan        &lt; category &gt;( void ); </code></td> <td>Make cyan</td> </tr>
-					<tr> <td bgcolor="fuchsia"   >Lorem Ipsum </td> <td><code>void ::color::make::fuchsia(    <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::fuchsia     &lt; category &gt;( void ); </code></td> <td>Make fuchsia</td> </tr>
-					<tr> <td bgcolor="gainsboro" >Lorem Ipsum </td> <td><code>void ::color::make::gainsboro(  <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::gainsboro   &lt; category &gt;( void ); </code></td> <td>Make gainsboro</td> </tr>
-					<tr> <td bgcolor="gold"      >Lorem Ipsum </td> <td><code>void ::color::make::gold(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::gold        &lt; category &gt;( void ); </code></td> <td>Make gold</td> </tr>
-					<tr> <td bgcolor="gray"      >Lorem Ipsum </td> <td><code>void ::color::make::gray50(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::gray50      &lt; category &gt;( void ); </code></td> <td>Make 50% gray</td> </tr>
-					<tr> <td bgcolor="green"     >Lorem Ipsum </td> <td><code>void ::color::make::green(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::green       &lt; category &gt;( void ); </code></td> <td>Make green</td> </tr>
-					<tr> <td bgcolor="indigo"    >Lorem Ipsum </td> <td><code>void ::color::make::indigo(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::indigo      &lt; category &gt;( void ); </code></td> <td>Make indigo</td> </tr>
-					<tr> <td bgcolor="ivory"     >Lorem Ipsum </td> <td><code>void ::color::make::ivory(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::ivory       &lt; category &gt;( void ); </code></td> <td>Make ivory</td> </tr>
-					<tr> <td bgcolor="khaki"     >Lorem Ipsum </td> <td><code>void ::color::make::khaki(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::khaki       &lt; category &gt;( void ); </code></td> <td>Make khaki</td> </tr>
-					<tr> <td bgcolor="lavender"  >Lorem Ipsum </td> <td><code>void ::color::make::lavender(   <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::lavender    &lt; category &gt;( void ); </code></td> <td>Make lavender</td> </tr>
-					<tr> <td bgcolor="lime"      >Lorem Ipsum </td> <td><code>void ::color::make::lime(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::lime        &lt; category &gt;( void ); </code></td> <td>Make lime</td> </tr>
-					<tr> <td bgcolor="linen"     >Lorem Ipsum </td> <td><code>void ::color::make::linen(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::linen       &lt; category &gt;( void ); </code></td> <td>Make linen</td> </tr>
-					<tr> <td bgcolor="magenta"   >Lorem Ipsum </td> <td><code>void ::color::make::magenta(    <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::magenta     &lt; category &gt;( void ); </code></td> <td>Make magenta</td> </tr>
-					<tr> <td bgcolor="maroon"    >Lorem Ipsum </td> <td><code>void ::color::make::maroon(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::maroon      &lt; category &gt;( void ); </code></td> <td>Make maroon</td> </tr>
-					<tr> <td bgcolor="moccasin"  >Lorem Ipsum </td> <td><code>void ::color::make::moccasin(   <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::moccasin    &lt; category &gt;( void ); </code></td> <td>Make moccasin</td> </tr>
-					<tr> <td bgcolor="navy"      >Lorem Ipsum </td> <td><code>void ::color::make::navy(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::navy        &lt; category &gt;( void ); </code></td> <td>Make navy</td> </tr>
-					<tr> <td bgcolor="olive"     >Lorem Ipsum </td> <td><code>void ::color::make::olive(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::olive       &lt; category &gt;( void ); </code></td> <td>Make olive</td> </tr>
-					<tr> <td bgcolor="orange"    >Lorem Ipsum </td> <td><code>void ::color::make::orange(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::orange      &lt; category &gt;( void ); </code></td> <td>Make orange</td> </tr>
-					<tr> <td bgcolor="orchid"    >Lorem Ipsum </td> <td><code>void ::color::make::orchid(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::orchid      &lt; category &gt;( void ); </code></td> <td>Make orchid</td> </tr>
-					<tr> <td bgcolor="peru"      >Lorem Ipsum </td> <td><code>void ::color::make::peru(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::peru        &lt; category &gt;( void ); </code></td> <td>Make peru</td> </tr>
-					<tr> <td bgcolor="pink"      >Lorem Ipsum </td> <td><code>void ::color::make::pink(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::pink        &lt; category &gt;( void ); </code></td> <td>Make pink</td> </tr>
-					<tr> <td bgcolor="plum"      >Lorem Ipsum </td> <td><code>void ::color::make::plum(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::plum        &lt; category &gt;( void ); </code></td> <td>Make plum</td> </tr>
-					<tr> <td bgcolor="purple"    >Lorem Ipsum </td> <td><code>void ::color::make::purple(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::purple      &lt; category &gt;( void ); </code></td> <td>Make purple</td> </tr>
-					<tr> <td bgcolor="red"       >Lorem Ipsum </td> <td><code>void ::color::make::red(        <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::red         &lt; category &gt;( void ); </code></td> <td>Make red</td> </tr>
-					<tr> <td bgcolor="salmon"    >Lorem Ipsum </td> <td><code>void ::color::make::salmon(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::salmon      &lt; category &gt;( void ); </code></td> <td>Make salmon</td> </tr>
-					<tr> <td bgcolor="sienna"    >Lorem Ipsum </td> <td><code>void ::color::make::sienna(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::sienna      &lt; category &gt;( void ); </code></td> <td>Make sienna</td> </tr>
-					<tr> <td bgcolor="silver"    >Lorem Ipsum </td> <td><code>void ::color::make::silver(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::silver      &lt; category &gt;( void ); </code></td> <td>Make silver</td> </tr>
-					<tr> <td bgcolor="snow"      >Lorem Ipsum </td> <td><code>void ::color::make::snow(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::snow        &lt; category &gt;( void ); </code></td> <td>Make snow</td> </tr>
-					<tr> <td bgcolor="tan"       >Lorem Ipsum </td> <td><code>void ::color::make::tan(        <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::tan         &lt; category &gt;( void ); </code></td> <td>Make tan</td> </tr>
-					<tr> <td bgcolor="teal"      >Lorem Ipsum </td> <td><code>void ::color::make::teal(       <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::teal        &lt; category &gt;( void ); </code></td> <td>Make teal</td> </tr>
-					<tr> <td bgcolor="thistle"   >Lorem Ipsum </td> <td><code>void ::color::make::thistle(    <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::thistle     &lt; category &gt;( void ); </code></td> <td>Make thistle</td> </tr>
-					<tr> <td bgcolor="tomato"    >Lorem Ipsum </td> <td><code>void ::color::make::tomato(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::tomato      &lt; category &gt;( void ); </code></td> <td>Make tomato</td> </tr>
-					<tr> <td bgcolor="turquoise" >Lorem Ipsum </td> <td><code>void ::color::make::turquoise(  <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::turquoise   &lt; category &gt;( void ); </code></td> <td>Make turquoise</td> </tr>
-					<tr> <td bgcolor="violet"    >Lorem Ipsum </td> <td><code>void ::color::make::violet(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::violet      &lt; category &gt;( void ); </code></td> <td>Make violet</td> </tr>
-					<tr> <td bgcolor="wheat"     >Lorem Ipsum </td> <td><code>void ::color::make::wheat(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::wheat       &lt; category &gt;( void ); </code></td> <td>Make wheat</td> </tr>
-					<tr> <td bgcolor="white"     >Lorem Ipsum </td> <td><code>void ::color::make::white(      <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::white       &lt; category &gt;( void ); </code></td> <td>Make white</td> </tr>
-					<tr> <td bgcolor="yellow"    >Lorem Ipsum </td> <td><code>void ::color::make::yellow(     <i>model </i> &amp;  );<br> ::color::model&lt; category &gt; ::color::make::yellow      &lt; category &gt;( void ); </code></td> <td>Make yellow</td> </tr>
 
 					<tr> <td bgcolor="gray">Lorem Ipsum </td>
 					<td>
@@ -121,11 +59,11 @@
 						<dt>Code sample:</dt>
 						<dd>
 							<code>
-							typedef ::color::rgb&lt; double &gt; rgb_type;<br>
-							rgb_type c; <br>
+							typedef ::color::rgb&lt; double &gt; rgb_t;<br>
+							rgb_t c; <br>
 							::color::make::gray( c, 26.9 );<br>
-							::color::make::gray&lt; rgb_type::category_type &gt;( 92.6 );<br>
-							::color::make::gray( 92.6, rgb_type::category_type{} );<br>
+							::color::make::gray&lt; rgb_t::category_type &gt;( 92.6 );<br>
+							::color::make::gray( 92.6, rgb_t::category_type{} );<br>
 							</code>
 						</dd>
 					</dl>

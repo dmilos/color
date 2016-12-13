@@ -16,14 +16,14 @@ template < template<typename> class color_name >
    //std::cout << "type - " << typeid( color_name<bool>  ).name() << std::endl;
    //std::cout << std::endl;
 
-   color_name<bool>            b;    color::make::gray50( b   );
-   color_name<std::uint8_t>    u8;   color::make::gray50( u8  );
-   color_name<std::uint16_t>   u16;  color::make::gray50( u16 );
-   color_name<std::uint32_t>   u32;  color::make::gray50( u32 );
-   color_name<std::uint64_t>   u64;  color::make::gray50( u64 );
-   color_name<float>           f;    color::make::gray50( f   );
-   color_name<double>          d;    color::make::gray50( d   );
-   color_name<long double>     ld;   color::make::gray50( ld  );
+   color_name<bool>            b  { color::constant::gray50_t{}} ;
+   color_name<std::uint8_t>    u8 { color::constant::gray50_t{}} ;
+   color_name<std::uint16_t>   u16{ color::constant::gray50_t{}} ;
+   color_name<std::uint32_t>   u32{ color::constant::gray50_t{}} ;
+   color_name<std::uint64_t>   u64{ color::constant::gray50_t{}} ;
+   color_name<float>           f  { color::constant::gray50_t{}} ;
+   color_name<double>          d  { color::constant::gray50_t{}} ;
+   color_name<long double>     ld { color::constant::gray50_t{}} ;
 
    b = b;    u8 = b;    u16 = b;    u32 = b;    u64 = b;    f = b;    d = b;   ld = b;
    b = u8;   u8 = u8;   u16 = u8;   u32 = u8;   u64 = u8;   f = u8;   d = u8;  ld = u8;

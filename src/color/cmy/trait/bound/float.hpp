@@ -20,6 +20,18 @@ namespace color
       {
       };
 
+    template< >
+     struct bound< ::color::category::cmy_double >
+      : public ::color::_internal::utility::bound::general< double, unsigned >
+      {
+      };
+
+    template< >
+     struct bound< ::color::category::cmy_ldouble >
+      : public ::color::_internal::utility::bound::general< long double, unsigned >
+      {
+      };
+
    }
  }
 

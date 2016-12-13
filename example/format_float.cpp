@@ -32,7 +32,7 @@ void format_float_cmy()
  {
   ::color::cmy< float > c; //!< Make an instance
 
-  ::color::make::orange( c ); //!< Fill with some useful information
+  c = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<float> = { ";
   std::cout<< std::setw(12) << std::right << c[0] << ","
@@ -46,7 +46,7 @@ void format_float_cmyk()
  {
   ::color::cmyk< float > ck; //!< Make an instance
 
-  ::color::make::orange( ck ); //!< Fill with some useful information
+  ck = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<float> = { ";
   std::cout<< std::setw(12) << std::right << ck[0] << ","
@@ -61,7 +61,7 @@ void format_float_gray()
  {
   ::color::gray< float > g; //!< Make an instance
 
-  ::color::make::orange( g ); //!< Fill with some useful information
+  g = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<float> = { ";
   std::cout<< std::setw(12) << std::right << g[0];
@@ -73,7 +73,7 @@ void format_float_hsl()
  {
   ::color::hsl< float > hl; //!< Make an instance
 
-  ::color::make::orange( hl ); //!< Fill with some useful information
+  hl = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<float> = { ";
   std::cout<< std::setw(12) << std::right << hl[0] << ","
@@ -87,7 +87,7 @@ void format_float_hsv()
  {
   ::color::hsv< float > hv; //!< Make an instance
 
-  ::color::make::orange( hv ); //!< Fill with some useful information
+  hv = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<float> = { ";
   std::cout<< std::setw(12) << std::right << hv[0] << ","
@@ -101,7 +101,7 @@ void format_float_yiq()
  {
   ::color::yiq< float > yq; //!< Make an instance
 
-  ::color::make::orange( yq ); //!< Fill with some useful information
+  yq = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<float> = { ";
   std::cout<< std::setw(12) << std::right << yq[0] << ","
@@ -115,7 +115,7 @@ void format_float_yuv()
  {
   ::color::yuv< float > yv; //!< Make an instance
 
-  ::color::make::orange( yv ); //!< Fill with some useful information
+  yu = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<float> = { ";
   std::cout<< std::setw(12) << std::right << yv[0] << ","

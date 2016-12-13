@@ -12,6 +12,7 @@
 
 #include "../image.hpp"
 
+
 template< typename category_name >
 void operation_gamma( std::string const& file_name )
  {
@@ -36,6 +37,6 @@ void operation_gamma( std::string const& file_name )
 
 void test_operation_gamma()
  {
-  operation_gamma< gray_color_type::category_type >( "../out/oparation/gamma-gray.tga" );
-  operation_gamma< bgr_color_type::category_type >( "../out/oparation/gamma-bgr.tga" );
+  operation_gamma< gray_color_type::category_type >( "../out/operation/gamma-gray.tga" );
+  operation_gamma< bgr_color_type::category_type >( "../out/operation/gamma-bgr.tga" );
  }

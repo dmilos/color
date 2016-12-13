@@ -37,7 +37,7 @@ void operation_bias( std::string const& file_name )
 
 void test_operation_bias()
  {
-  operation_bias< gray_color_type::category_type >( "../out/oparation/bias-gray.tga" );
-  operation_bias<  bgr_color_type::category_type >( "../out/oparation/bias-bgr.tga"  );
+  operation_bias< gray_color_type::category_type >( "../out/operation/bias-gray.tga" );
+  operation_bias<  bgr_color_type::category_type >( "../out/operation/bias-bgr.tga"  );
  }
 

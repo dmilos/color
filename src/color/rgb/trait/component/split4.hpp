@@ -2,7 +2,7 @@
 #define color_rgb_trait_component_split2222
 
 
-#include "../../../generic/type/split4.hpp"
+#include "../../../generic/type/pack4.hpp"
 
 #include "../../../_internal/utility/component/pack8.hpp"
 #include "../../../_internal/utility/component/pack16.hpp"
@@ -18,51 +18,61 @@ namespace color
   namespace trait
    {
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position  >
-     struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2222_t, first_position, second_position, third_position, fourth_position > > >
-      : public ::color::_internal::utility::component::cnent2222< unsigned >
-      {
-      };
+    namespace _internal
+     {
+      namespace rgb
+       {
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position  >
-     struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split4444_t, first_position, second_position, third_position, fourth_position > > >
-      : public ::color::_internal::utility::component::cnent4444< unsigned >
-      {
-      };
+        template< unsigned size_size >
+         struct pick_component4
+          {
+           typedef ::color::type::error_t component_type;
+          };
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position  >
-     struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split5551_t, first_position, second_position, third_position, fourth_position > > >
-      : public ::color::_internal::utility::component::cnent5551< unsigned >
-      {
-      };
+        template<>
+         struct pick_component4<8>
+          {
+           typedef typename ::color::_internal::utility::type::index< unsigned >::instance_type  index_type;
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position  >
-     struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split1555_t, first_position, second_position, third_position, fourth_position > > >
-      : public ::color::_internal::utility::component::cnent1555< unsigned >
-      {
-      };
+           typedef ::color::_internal::utility::component::pack8< index_type > component_type;
+          };
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position  >
-     struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split8888_t, first_position, second_position, third_position, fourth_position > > >
-      : public ::color::_internal::utility::component::cnent8888< unsigned >
-      {
-      };
+        template<>
+         struct pick_component4<16>
+          {
+           typedef typename ::color::_internal::utility::type::index< unsigned >::instance_type  index_type;
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position  >
-     struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitAAA2_t, first_position, second_position, third_position, fourth_position > > >
-      : public ::color::_internal::utility::component::cnentAAA2< unsigned >
-      {
-      };
+           typedef ::color::_internal::utility::component::pack16< index_type > component_type;
+          };
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position  >
-     struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::split2AAA_t, first_position, second_position, third_position, fourth_position > > >
-      : public ::color::_internal::utility::component::cnent2AAA< unsigned >
-      {
-      };
+        template<>
+         struct pick_component4<32>
+          {
+           typedef typename ::color::_internal::utility::type::index< unsigned >::instance_type  index_type;
 
-     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position  >
-     struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::splitGGGG_t, first_position, second_position, third_position, fourth_position > > >
-      : public ::color::_internal::utility::component::cnentGGGG< unsigned >
+           typedef ::color::_internal::utility::component::pack32< index_type > component_type;
+          };
+
+        template<>
+         struct pick_component4<64>
+          {
+           typedef typename ::color::_internal::utility::type::index< unsigned >::instance_type  index_type;
+
+           typedef ::color::_internal::utility::component::pack64< index_type > component_type;
+          };
+
+       }
+     }
+
+    template
+     <
+      unsigned first_index,   unsigned first_size,
+      unsigned second_index,  unsigned second_size,
+      unsigned third_index,   unsigned third_size,
+      unsigned fourth_index,  unsigned fourth_size
+     >
+     struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::pack4< first_size, second_size, third_size, fourth_size >, first_index, second_index, third_index, fourth_index > > >
+      : public ::color::trait::_internal::rgb::pick_component4< first_size + second_size + third_size + fourth_size >::component_type
       {
       };
 

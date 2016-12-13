@@ -9,7 +9,7 @@ int main( int argc, char *argv[] )
   color::cmy<std::uint32_t>  c2; //!< Instead of uint32_t you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
 
   // Do some initialization
-  color::make::red( c1 );
+  c1 = color::constant::red_t{};
 
   // Here is how to reformat/convert from one to another
   c2 = c1;

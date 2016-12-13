@@ -17,8 +17,7 @@ int main( int argc, char *argv[] )
  {
   ::color::yiq< std::uint8_t > yq;
 
-  ::color::make::orange( yq ); //!< Fill with some useful information
-
+  yq = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::cmy<std::uint8_t> = { ";
   std::cout<< std::setw(12) << std::right << (unsigned)yq[0] << ","

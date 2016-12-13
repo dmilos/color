@@ -11,7 +11,7 @@ int main( int argc, char *argv[] )
   color::gray<float> c;
 
   // initialize c before get. Actually this is gray version of turquoise
-  color::make::turquoise( c ); 
+  c = color::constant::turquoise_t{}; 
 
   // Here is how to get gray component or what is left. Cause thi is gray.
   auto gray = color::get::gray( c );

@@ -1,0 +1,1 @@
+g++ -fexceptions -std=c++11 -g -I../../../src gray_rgb.cpp     -o  gray_rgb

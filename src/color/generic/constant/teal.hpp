@@ -9,13 +9,19 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
       struct teal_type{};
      }
 
-    using  teal_type = ::color::constant::base< ::color::constant::_internal::teal_type >;
-    using  teal_t    = ::color::constant::teal_type;
+    typedef ::color::constant::base< ::color::constant::_internal::teal_type > teal_t, teal_type;
+
+    //namespace vga
+    // {// Same as w3c
+    //  typedef  ::color::constant::w3c::teal_type  teal_type;
+    // }
+
 
    }
  }

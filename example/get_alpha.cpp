@@ -36,7 +36,7 @@ int main( int argc, char *argv[] )
   color::rgba<float> c;
 
   // initialize c before getion
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Set alpha before get
   color::set::alpha( c, 0.5 );
@@ -55,7 +55,7 @@ void get_alpha_from_rgb()
   color::rgb<float> c;
 
   // initialize c before getion
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Here is how to get alpha component.
   auto alpha = color::get::alpha( c );
@@ -70,7 +70,7 @@ void get_alpha_from_cmy()
   color::cmy<float> c;
 
   // initialize c before getion
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
 
   // Here is how to get alpha component.
@@ -86,7 +86,7 @@ void get_alpha_from_cmyk()
   color::cmyk<float> c;
 
   // initialize c before getion
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Here is how to get alpha component.
   auto alpha = color::get::alpha( c );
@@ -101,7 +101,7 @@ void get_alpha_from_gray()
   color::gray<float> c;
 
   // initialize c before getion
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Here is how to get alpha component.
   auto alpha = color::get::alpha( c );
@@ -116,7 +116,7 @@ void get_alpha_from_hsl()
   color::hsl<float> c;
 
   // initialize c before getion
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Here is how to get alpha component.
   auto alpha = color::get::alpha( c );
@@ -131,7 +131,7 @@ void get_alpha_from_hsv()
   color::hsv<float> c;
 
   // initialize c before getion
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Here is how to get alpha component.
   auto alpha = color::get::alpha( c );
@@ -146,7 +146,7 @@ void get_alpha_from_yiq()
   color::yiq<float> c;
 
   // initialize c before getion
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Here is how to get alpha component.
   auto alpha = color::get::alpha( c );
@@ -161,7 +161,7 @@ void get_alpha_from_yuv()
   color::yiq<float> c;
 
   // initialize c before getion
-  color::make::turquoise( c );
+  c = color::constant::turquoise_t{};
 
   // Here is how to get alpha component.
   auto alpha = color::get::alpha( c );

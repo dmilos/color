@@ -20,6 +20,18 @@ namespace color
       {
       };
 
+    template< >
+     struct component< ::color::category::hsv_double >
+      : public ::color::_internal::utility::component::array< double, unsigned >
+      {
+      };
+
+    template< >
+     struct component< ::color::category::hsv_ldouble >
+      : public ::color::_internal::utility::component::array< long double, unsigned>
+      {
+      };
+
    }
  }
 

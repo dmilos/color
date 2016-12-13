@@ -7,7 +7,7 @@ int main( int argc, char *argv[] )
  {
   ::color::yuv< std::uint8_t > yv;
 
-  ::color::make::orange( yv ); //!< Fill with some useful information
+  yv = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::rgb<std::uint8_t> = ";
   std::cout << yv[0] << ", " << yv[1] << ", " << yv[2] << std::endl;

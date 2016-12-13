@@ -16,20 +16,20 @@ namespace color
        {
 
         template< typename index_name >
-         struct pack_8
+         struct pack8
           : public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name >
           {
           };
 
-        template< typename index_name > using cnent2222 = ::color::_internal::utility::component::pack_8<index_name>;
+        template< typename index_name > using split2222_t = ::color::_internal::utility::component::pack8<index_name>;
 
-        template< typename index_name > using cnent233  = ::color::_internal::utility::component::pack_8<index_name>;
-        template< typename index_name > using cnent323  = ::color::_internal::utility::component::pack_8<index_name>;
-        template< typename index_name > using cnent332  = ::color::_internal::utility::component::pack_8<index_name>;
+        template< typename index_name > using split233_t = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split323_t = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split332_t = ::color::_internal::utility::component::pack8<index_name>;
 
-        template< typename index_name > using cnent224  = ::color::_internal::utility::component::pack_8<index_name>;
-        template< typename index_name > using cnent242  = ::color::_internal::utility::component::pack_8<index_name>;
-        template< typename index_name > using cnent422  = ::color::_internal::utility::component::pack_8<index_name>;
+        template< typename index_name > using split224_t = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split242_t = ::color::_internal::utility::component::pack8<index_name>;
+        template< typename index_name > using split422_t = ::color::_internal::utility::component::pack8<index_name>;
 
        }
      }

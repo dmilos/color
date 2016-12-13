@@ -16,16 +16,16 @@ namespace color
        {
 
         template< typename index_name >
-         struct pack_32
+         struct pack32
           : public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name >
           {
           };
 
 
-        template< typename index_name > using cnent8888 = ::color::_internal::utility::component::pack_32<index_name>;
+        template< typename index_name > using split8888_t = ::color::_internal::utility::component::pack32<index_name>;
 
-        template< typename index_name > using cnentAAA2 = ::color::_internal::utility::component::pack_32<index_name>;
-        template< typename index_name > using cnent2AAA = ::color::_internal::utility::component::pack_32<index_name>;
+        template< typename index_name > using splitAAA2_t = ::color::_internal::utility::component::pack32<index_name>;
+        template< typename index_name > using split2AAA_t = ::color::_internal::utility::component::pack32<index_name>;
 
        }
      }

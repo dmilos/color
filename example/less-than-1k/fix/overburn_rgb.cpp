@@ -10,7 +10,7 @@ int main( int argc, char *argv[] )
   color::rgb<double>  r;
 
   // Do some initialization
-  color::make::red( r );
+  r = color::constant::red_t{};
 
   // First check has to be false i.e ther is no overburn
   std::cout << color::check::overburn( r ) << std::endl;

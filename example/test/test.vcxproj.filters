@@ -4139,13 +4139,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="make.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
     <ClCompile Include="place.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="selfie.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
     <ClCompile Include="set_invoke.cpp">
@@ -4167,6 +4161,9 @@
       <Filter>Source Files\main\operation</Filter>
     </ClCompile>
     <ClCompile Include="image.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="constant.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
   </ItemGroup>

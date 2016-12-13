@@ -9,33 +9,6 @@
  namespace color
   {
 
-   namespace make
-    {
-
-     template< typename category_name >
-      void beige( ::color::model< category_name > & color_parameter )
-       {
-        typedef ::color::model< category_name > model_type;
-        typedef typename model_type::index_type index_type;
-
-        // Do nothing to force specialization
-       }
-
-     template< typename category_name >
-      inline
-      ::color::model< category_name >
-      beige()
-       {
-        typedef ::color::model< category_name > model_type;
-        static model_type dummy;
-        // TODO Will call every time, That is no good.
-        ::color::make::beige( dummy );
-
-        // Do nothing to force specialization
-        return dummy;
-       }
-
-    }
 
     namespace constant
      {
@@ -43,15 +16,18 @@
       template< typename category_name >
        struct make<::color::constant::beige_type, category_name >
         {
-         typedef category_name                       category_type;
-         typedef ::color::constant::beige_type       constant_type;
+         typedef category_name                         category_type;
+         typedef ::color::model<category_type>            model_type;
+         typedef ::color::rgb<std::uint8_t>                       rgb_type;
+         typedef ::color::constant::beige_t            constant_type;
 
          typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 
-         inline static void process( container_output_type & m )
+         inline static void process( container_output_type & container )
           {
-           m = ::color::make::beige<category_type>( ).container();
-          }
+           static model_type  s_model{ rgb_type{ 0xF5, 0xF5, 0xDC } };
+           container = s_model.container();
+          } 
 
         };
 

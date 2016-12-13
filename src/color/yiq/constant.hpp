@@ -26,14 +26,14 @@ namespace color
 
          // to RGB
          static /* constexpr*/ scalar_type const a11(){ return  1.0000000000000000000; }
-         static /* constexpr*/ scalar_type const a12(){ return  0.9562948323208939905; }
-         static /* constexpr*/ scalar_type const a13(){ return  0.6210251254447287141; }
+         static /* constexpr*/ scalar_type const a12(){ return  0.9562948323208939905; } // TODO 0.956784811298294
+         static /* constexpr*/ scalar_type const a13(){ return  0.6210251254447287141; } // TODO 0.620406140248286
          static /* constexpr*/ scalar_type const a21(){ return  1.0000000000000000000; }
-         static /* constexpr*/ scalar_type const a22(){ return -0.2721214740839773195; }
-         static /* constexpr*/ scalar_type const a23(){ return -0.6473809535176157222; }
+         static /* constexpr*/ scalar_type const a22(){ return -0.2721214740839773195; } // TODO -0.271631495106577
+         static /* constexpr*/ scalar_type const a23(){ return -0.6473809535176157222; } // TODO -0.647999938714059
          static /* constexpr*/ scalar_type const a31(){ return  1.0000000000000000000; }
-         static /* constexpr*/ scalar_type const a32(){ return -1.1069899085671282160; }
-         static /* constexpr*/ scalar_type const a33(){ return  1.7046149754988293290; }
+         static /* constexpr*/ scalar_type const a32(){ return -1.1069899085671282160; } // TODO -1.106499929589730
+         static /* constexpr*/ scalar_type const a33(){ return  1.7046149754988293290; } // TODO  1.703995990302390
 
          // from RGB
          static /* constexpr*/ scalar_type const b11(){ return  0.2990000000000000000; } // TODO 0.298839

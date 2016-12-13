@@ -12,24 +12,24 @@ template < typename category_name >
   {
    std::stringstream ss;
 
-  if( false == ::color::trait::info< category_name >::meaningful_enum )
+  if( false == ::color::trait::info< category_name >::meaningful_entity )
    {
     ss << "<s>";
    }
 
-   if( false == ::color::trait::info< category_name >::implemented_enum )
+   if( false == ::color::trait::info< category_name >::implemented_entity )
     {
      ss << "\"";
     }
 
    ss << sizeof( ::color::model<category_name> );
 
-   if( false == ::color::trait::info< category_name >::implemented_enum )
+   if( false == ::color::trait::info< category_name >::implemented_entity )
     {
     ss << "\"";
     }
 
-  if( false == ::color::trait::info< category_name >::meaningful_enum )
+  if( false == ::color::trait::info< category_name >::meaningful_entity )
    {
     ss << "</s>";
    }
@@ -210,8 +210,15 @@ void check_sizeof()
   ss << "<td>"       << "<code>splitAAA2</code>       </td>" ;
   ss << "</tr>" << std::endl;
 
-  ss << print_sizeof<::color::rgb  > ( "<code>rgb </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::rgb  > ( "<code>rgb</code>" );  ss << std::endl;
+  ss << print_sizeof<::color::bgr  > ( "<code>bgr</code>" );  ss << std::endl;
+
   ss << print_sizeof<::color::rgba > ( "<code>rgba</code>" );  ss << std::endl;
+  ss << print_sizeof<::color::argb > ( "<code>argb</code>" );  ss << std::endl;
+
+  ss << print_sizeof<::color::bgra > ( "<code>bgra</code>" );  ss << std::endl;
+  ss << print_sizeof<::color::abgr > ( "<code>abgr</code>" );  ss << std::endl;
+
   ss << print_sizeof<::color::cmy  > ( "<code>cmy </code>" );  ss << std::endl;
   ss << print_sizeof<::color::cmyk > ( "<code>cmyk</code>" );  ss << std::endl;
   ss << print_sizeof<::color::gray > ( "<code>gray</code>" );  ss << std::endl;

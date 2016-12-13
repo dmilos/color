@@ -7,13 +7,48 @@
 
 #include "./model/invoke.hpp"
 #include "./model/operation.hpp"
-#include "./model/make.hpp"
 #include "./model/reformat.hpp"
 #include "./model/set.hpp"
 #include "./model/get.hpp"
 #include "./model/conversion.hpp"
 
 #include "./targa.hpp"
+
+template < typename category_name >
+void print()
+ {
+  typedef category_name category_t;
+
+  std::cout << "**************************************************************************************************************"  << std::endl;
+  typedef ::color::model<category_t> model_t;                                                     std::cout << "model_t                        " << typeid( model_t ).name() << std::endl;
+
+  typedef ::color::trait::index< category_name >                index_trait_type;                 std::cout << "index_trait_type               " << typeid( index_trait_type ).name() << std::endl;
+  typedef ::color::trait::component< category_name >            component_trait_type;             std::cout << "component_trait_type           " << typeid( component_trait_type ).name() << std::endl;
+  typedef ::color::trait::container< category_name >            container_trait_type;             std::cout << "container_trait_type           " << typeid( container_trait_type ).name() << std::endl;
+  typedef ::color::trait::bound< category_name >                bound_trait_type, bound_type;     std::cout << "bound_trait_type, bound_type   " << typeid( bound_trait_type ).name() << std::endl;
+  typedef ::color::trait::scalar< category_name >               scalar_trait_type;                std::cout << "scalar_trait_type              " << typeid( scalar_trait_type ).name() << std::endl;
+
+  typedef typename index_trait_type::instance_type              index_type;                       std::cout << "index_type                     " << typeid( index_type ).name() << std::endl;
+  typedef typename index_trait_type::const_type                 index_const_type;                 std::cout << "index_const_type               " << typeid( index_const_type ).name() << std::endl;
+  typedef typename index_trait_type::input_const_type           index_input_const_type;           std::cout << "index_input_const_type         " << typeid( index_input_const_type ).name() << std::endl;
+  typedef typename index_trait_type::return_image_type          index_return_image_type;          std::cout << "index_return_image_type        " << typeid( index_return_image_type ).name() << std::endl;
+
+  typedef typename component_trait_type::instance_type          component_type;                   std::cout << "component_type                 " << typeid( component_type ).name() << std::endl;
+  typedef typename component_trait_type::const_type             component_const_type;             std::cout << "component_const_type           " << typeid( component_const_type ).name() << std::endl;
+  typedef typename component_trait_type::return_image_type      component_return_const_type;      std::cout << "component_return_const_type    " << typeid( component_return_const_type ).name() << std::endl;
+  typedef typename component_trait_type::return_type            component_return_type;            std::cout << "component_return_type          " << typeid( component_return_type ).name() << std::endl;
+  typedef typename component_trait_type::input_const_type       component_input_const_type;       std::cout << "component_input_const_type     " << typeid( component_input_const_type ).name() << std::endl;
+  typedef typename component_trait_type::input_type             component_input_type;             std::cout << "component_input_type           " << typeid( component_input_type ).name() << std::endl;
+
+  typedef typename container_trait_type::instance_type          container_type;                   std::cout << "container_type                 " << typeid( container_type ).name() << std::endl;
+  typedef typename container_trait_type::const_type             container_const_type;             std::cout << "container_const_type           " << typeid( container_const_type ).name() << std::endl;
+  typedef typename container_trait_type::return_image_type      container_return_const_type;      std::cout << "container_return_const_type    " << typeid( container_return_const_type ).name() << std::endl;
+  typedef typename container_trait_type::return_original_type   container_return_original_type;   std::cout << "container_return_original_type " << typeid( container_return_original_type ).name() << std::endl;
+  typedef typename container_trait_type::input_const_type       container_input_const_type;       std::cout << "container_input_const_type     " << typeid( container_input_const_type ).name() << std::endl;
+  typedef typename container_trait_type::input_type             container_input_type;             std::cout << "container_input_type           " << typeid( container_input_type ).name() << std::endl;
+  std::cout << "**************************************************************************************************************"  << std::endl;
+ }
+
 
 void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
  {
@@ -84,11 +119,6 @@ void ctor_test()
 
 void invoke()
  {
-  //::color::make::aqua< color::category::rgb_uint8 >();
-  //::color::make::aqua< color::category::rgb_uint8 >();
-  //::color::make::aqua< color::category::rgb_uint8 >();
-  //::color::make::aqua< color::category::rgb_uint8 >();
-
   test_invoke< color::category::rgb_uint8   >();
   test_invoke< color::category::rgb_uint16  >();
   test_invoke< color::category::rgb_uint32  >();
@@ -338,7 +368,27 @@ void test_pallete()
 
 int main(int argc, char const *argv[])
  {
+  print< ::color::rgb< ::color::type::split422_t >::category_type  >();
+  print< ::color::rgb< ::color::type::split242_t >::category_type  >();
+  print< ::color::rgb< ::color::type::split224_t >::category_type  >();
+
+  print< ::color::bgr< ::color::type::split422_t >::category_type  >();
+  print< ::color::bgr< ::color::type::split242_t >::category_type  >();
+  print< ::color::bgr< ::color::type::split224_t >::category_type  >();
+
+  print< ::color::abgr< ::color::type::split2AAA_t >::category_type  >();
+  print< ::color::bgra< ::color::type::splitAAA2_t >::category_type  >();
+
+  print< ::color::rgba< ::color::type::splitAAA2_t >::category_type  >();
+  print< ::color::argb< ::color::type::split2AAA_t >::category_type  >();
+
   sandbox_test();
+
+  extern void test_constant();
+  test_constant();
+
+  extern void check_sizeof();
+  check_sizeof();
 
   void test_operation();
   test_operation();
@@ -356,25 +406,14 @@ int main(int argc, char const *argv[])
   void check_get();
   check_get();
 
-  extern void make_test_make();
-  make_test_make();
-
   extern int gray_test( int argc, char const *argv[] );
   gray_test( argc, argv );
 
   extern int decompose_test( int argc, char const *argv[] );
   decompose_test( argc, argv );
 
-  extern void make_make_header();
-  make_make_header();
-
   extern void print_bound();
   print_bound();
-
-  extern void check_sizeof();
-  check_sizeof();
-
-
 
   make_blue();
 
@@ -383,8 +422,8 @@ int main(int argc, char const *argv[])
   extern void check_conversion();
   check_conversion();
 
-  //void test_selfie();
-  //test_selfie();
+  void make_test_gray_scale();
+  make_test_gray_scale();
 
   void test_set_invoke();
   test_set_invoke();

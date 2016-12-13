@@ -1,15 +1,17 @@
 #ifndef color_type_nothing
 #define color_type_nothing
 
-// ::color::type::nothing_type
+// ::color::type::nothing
+// ::color::type::nothing_t
 
 namespace color
  {
   namespace type
    {
 
-    struct nothing_type {};
-    typedef nothing_type nothing_t;
+    struct nothing{};
+
+    typedef nothing nothing_t;
 
    }
  }
