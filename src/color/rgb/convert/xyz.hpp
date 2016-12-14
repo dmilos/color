@@ -51,19 +51,18 @@ namespace color
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
-          { // (Observer = 2°, Illuminant = D65)
-
-           static constant scalar_type a11 = xyz_const_type::a11(), a12 = xyz_const_type::a12(), a13 = xyz_const_type::a13();
-           static constant scalar_type a21 = xyz_const_type::a21(), a22 = xyz_const_type::a22(), a23 = xyz_const_type::a23();
-           static constant scalar_type a31 = xyz_const_type::a31(), a32 = xyz_const_type::a32(), a33 = xyz_const_type::a33();
+          {
+           static const scalar_type a11 = xyz_const_type::Mi11(), a12 = xyz_const_type::Mi12(), a13 = xyz_const_type::Mi13();
+           static const scalar_type a21 = xyz_const_type::Mi21(), a22 = xyz_const_type::Mi22(), a23 = xyz_const_type::Mi23();
+           static const scalar_type a31 = xyz_const_type::Mi31(), a32 = xyz_const_type::Mi32(), a33 = xyz_const_type::Mi33();
 
            scalar_type x = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
            scalar_type y = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
            scalar_type z = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type r = a11 * y + a12 * i + a13 * q;
-           scalar_type g = a21 * y + a22 * i + a23 * q;
-           scalar_type b = a31 * y + a32 * i + a33 * q;
+           scalar_type r = a11 * x + a12 * y + a13 * z;
+           scalar_type g = a21 * x + a22 * y + a23 * z;
+           scalar_type b = a31 * x + a32 * y + a33 * z;
 
            if ( r > 0.0031308 ) r = 1.055 * ( pow( r, ( 1 / 2.4 ) ) ) - 0.055;
            else                     r = 12.92 * r;

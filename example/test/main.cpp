@@ -372,6 +372,7 @@ int main(int argc, char const *argv[])
   ::color::rgb<double>  r;
 
   x = r;
+  r = x;
 
 
   print< ::color::rgb< ::color::type::split422_t >::category_type  >();

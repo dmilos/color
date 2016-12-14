@@ -22,9 +22,9 @@ namespace color
 
          typedef ::color::constant::gray<category_type> this_type;
 
-         static /* constexpr*/ scalar_type const Rc()  { return  0.2126729; }
-         static /* constexpr*/ scalar_type const Gc()  { return  0.7151522; }
-         static /* constexpr*/ scalar_type const Bc()  { return  0.0721750; }
+         static /* constexpr*/ scalar_type const Rc() { return  0.2126729; } // TODO 871024  / 4096299
+         static /* constexpr*/ scalar_type const Gc() { return  0.7151522; } // TODO 8788810 / 12288897
+         static /* constexpr*/ scalar_type const Bc() { return  0.0721750; } // TODO 887015  / 12288897
      };
 
    }

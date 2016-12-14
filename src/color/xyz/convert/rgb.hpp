@@ -60,11 +60,10 @@ namespace color
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
-          { // //Observer. = 2°, Illuminant = D65
-
-           static const scalar_type b11 = xyz_const_type::b11(), b12 = xyz_const_type::b12(), b13 = xyz_const_type::b13();
-           static const scalar_type b21 = xyz_const_type::b21(), b22 = xyz_const_type::b22(), b23 = xyz_const_type::b23();
-           static const scalar_type b31 = xyz_const_type::b31(), b32 = xyz_const_type::b32(), b33 = xyz_const_type::b33();
+          {
+           static const scalar_type b11 = xyz_const_type::M11(), b12 = xyz_const_type::M12(), b13 = xyz_const_type::M13();
+           static const scalar_type b21 = xyz_const_type::M21(), b22 = xyz_const_type::M22(), b23 = xyz_const_type::M23();
+           static const scalar_type b31 = xyz_const_type::M31(), b32 = xyz_const_type::M32(), b33 = xyz_const_type::M33();
 
            scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );

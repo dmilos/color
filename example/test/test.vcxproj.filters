@@ -666,54 +666,6 @@
     <ClInclude Include="..\..\src\color\hsv\hsv.hpp">
       <Filter>Source Files\src\hsv</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\category.hpp">
-      <Filter>Source Files\src\xyz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\double.hpp">
-      <Filter>Source Files\src\xyz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\float.hpp">
-      <Filter>Source Files\src\xyz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\ldouble.hpp">
-      <Filter>Source Files\src\xyz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\uint16.hpp">
-      <Filter>Source Files\src\xyz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\uint32.hpp">
-      <Filter>Source Files\src\xyz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\uint64.hpp">
-      <Filter>Source Files\src\xyz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\uint8.hpp">
-      <Filter>Source Files\src\xyz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\xyz.hpp">
-      <Filter>Source Files\src\xyz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\make\black.hpp">
-      <Filter>Source Files\src\xyz\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\make\blue.hpp">
-      <Filter>Source Files\src\xyz\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\make\gray.hpp">
-      <Filter>Source Files\src\xyz\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\make\green.hpp">
-      <Filter>Source Files\src\xyz\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\make\make.hpp">
-      <Filter>Source Files\src\xyz\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\make\red.hpp">
-      <Filter>Source Files\src\xyz\make</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\color\xyz\make\white.hpp">
-      <Filter>Source Files\src\xyz\make</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\color\xyz\convert\cmy.hpp">
       <Filter>Source Files\src\xyz\convert</Filter>
     </ClInclude>
