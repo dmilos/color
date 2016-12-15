@@ -17,7 +17,7 @@ namespace color
     template< typename xyz_tag_name, typename YDbDr_tag_name >
      struct convert
       <
-        ::color::category::xyz< xyz_tag_name >
+        ::color::category::xyz<      xyz_tag_name >
        ,::color::category::YDbDr<  YDbDr_tag_name >
       >
       {

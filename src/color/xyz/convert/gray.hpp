@@ -36,32 +36,17 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-         enum
-          {
-                  luma_p  = ::color::place::_internal::luma<category_left_type>::position_enum
-           ,   inphase_p  = ::color::place::_internal::inphase<category_left_type>::position_enum
-           ,quadrature_p  = ::color::place::_internal::quadrature<category_left_type>::position_enum
-          };
-
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
-          {
+          { // TODO
            scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
 
-                  auto       y = diverse_type::template process<0>( g );
-           static auto const i = diverse_type::template process<1>( 0.5 );
-           static auto const q = diverse_type::template process<2>( 0.5 );
-
-           container_left_trait_type::template set<0>( left, y );
-           container_left_trait_type::template set<1>( left, i );
-           container_left_trait_type::template set<2>( left, q );
-
-           container_left_trait_type::template set<      luma_p>( left, y );
-           container_left_trait_type::template set<   inphase_p>( left, i );
-           container_left_trait_type::template set<quadrature_p>( left, q );
+           container_left_trait_type::template set<0>( left, 0.5 );
+           container_left_trait_type::template set<1>( left, g );
+           container_left_trait_type::template set<2>( left, 0.5 );
           }
 
       };

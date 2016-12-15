@@ -28,7 +28,7 @@ namespace color
          typedef typename ::color::akin::rgb< hsv_category_type >::akin_type  rgb_category_type;
 
          typedef ::color::model< xyz_category_type > xyz_model_type;
-         typedef ::color::model< hsv_category_type >  hsv_model_type;
+         typedef ::color::model< hsv_category_type > hsv_model_type;
 
          typedef ::color::model< rgb_category_type >  rgb_model_type;
 

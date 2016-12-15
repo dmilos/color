@@ -369,7 +369,7 @@ void test_pallete()
 int main(int argc, char const *argv[])
  {
   ::color::xyz<double>  x;
-  ::color::rgb<double>  r;
+  ::color::rgb<double>  r { ::color::constant::white_t{} };
 
   x = r;
   r = x;

@@ -33,7 +33,7 @@ namespace color
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
-         typedef ::color::constant::xyz< category_left_type > xyz_const_type;
+         typedef ::color::constant::xyz::matrix< category_left_type > xyz_matrix_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
@@ -61,9 +61,9 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           static const scalar_type b11 = xyz_const_type::M11(), b12 = xyz_const_type::M12(), b13 = xyz_const_type::M13();
-           static const scalar_type b21 = xyz_const_type::M21(), b22 = xyz_const_type::M22(), b23 = xyz_const_type::M23();
-           static const scalar_type b31 = xyz_const_type::M31(), b32 = xyz_const_type::M32(), b33 = xyz_const_type::M33();
+           static const scalar_type b11 = xyz_matrix_type::M11(), b12 = xyz_matrix_type::M12(), b13 = xyz_matrix_type::M13();
+           static const scalar_type b21 = xyz_matrix_type::M21(), b22 = xyz_matrix_type::M22(), b23 = xyz_matrix_type::M23();
+           static const scalar_type b31 = xyz_matrix_type::M31(), b32 = xyz_matrix_type::M32(), b33 = xyz_matrix_type::M33();
 
            scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );

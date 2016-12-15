@@ -17,8 +17,7 @@ namespace color
     template
      <
        typename xyz_tag_name
-      ,typename YPbPr_tag_name
-      ,::color::constant::YPbPr::reference_enum YPbPr_reference_number 
+      ,typename YPbPr_tag_name      ,::color::constant::YPbPr::reference_enum YPbPr_reference_number 
      >
      struct convert
       <
