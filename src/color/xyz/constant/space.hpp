@@ -3,6 +3,7 @@
 
 // ::color::constant::xyz::space::primary< scalar_name, sRGB_entity >::x()
 
+#include "./white.hpp"
 
 namespace color
  {
@@ -15,7 +16,6 @@ namespace color
 
         enum name_enum
          {
-          invalid_entity,
           LabGamut_entity,
           Adobe_entity,
           Apple_entity,
@@ -49,7 +49,7 @@ namespace color
           };
 
 
-#define COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( DP_system, DP_red_x, DP_red_y, DP_green_x, DP_green_y, DP_blue_x, DP_blue_y  )  \
+#define COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( DP_system, DP_red_x, DP_red_y, DP_green_x, DP_green_y, DP_blue_x, DP_blue_y  )  \
         template< typename scalar_name >                                              \
          struct primary< scalar_name, DP_system >                                     \
           {                                                                           \
@@ -63,25 +63,26 @@ namespace color
              static coord_type blue() { return coord_type{DP_blue_x, DP_blue_y }; }   \
           }
 
-      //COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::LabGamut_entity,       )
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Adobe_entity,          0.6400, 0.3300,  0.2100, 0.7100,  0.1500, 0.0600 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Apple_entity,          0.6250, 0.3400,  0.2800, 0.5950,  0.1550, 0.0700 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Best_entity,           0.7347, 0.2653,  0.2150, 0.7750,  0.1300, 0.0350 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Beta_entity,           0.6888, 0.3112,  0.1986, 0.7551,  0.1265, 0.0352 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Bruce_entity,          0.6400, 0.3300,  0.2800, 0.6500,  0.1500, 0.0600 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::CIE_entity,            0.7350, 0.2650,  0.2740, 0.7170,  0.1670, 0.0090 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::ColorMatch_entity,     0.6300, 0.3400,  0.2950, 0.6050,  0.1500, 0.0750 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Don_entity,            0.6960, 0.3000,  0.2150, 0.7650,  0.1300, 0.0350 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::ECI_entity,            0.6700, 0.3300,  0.2100, 0.7100,  0.1400, 0.0800 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Ekta_Space_PS5_entity, 0.6950, 0.3050,  0.2600, 0.7000,  0.1100, 0.0050 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::NTSC_entity,           0.6700, 0.3300,  0.2100, 0.7100,  0.1400, 0.0800 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::PAL_SECAM_entity,      0.6400, 0.3300,  0.2900, 0.6000,  0.1500, 0.0600 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::ProPhoto_entity,       0.7347, 0.2653,  0.1596, 0.8404,  0.0366, 0.0001 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::SMPTE_C_entity,        0.6300, 0.3400,  0.3100, 0.5950,  0.1550, 0.0700 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity,           0.6400, 0.3300,  0.3000, 0.6000,  0.1500, 0.0600 );
-        COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::WideGamut_entity,      0.7350, 0.2650,  0.1150, 0.8260,  0.1570, 0.0180 );
+      //COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::LabGamut_entity,       )
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Adobe_entity,          0.6400, 0.3300,  0.2100, 0.7100,  0.1500, 0.0600 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Apple_entity,          0.6250, 0.3400,  0.2800, 0.5950,  0.1550, 0.0700 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Best_entity,           0.7347, 0.2653,  0.2150, 0.7750,  0.1300, 0.0350 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Beta_entity,           0.6888, 0.3112,  0.1986, 0.7551,  0.1265, 0.0352 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Bruce_entity,          0.6400, 0.3300,  0.2800, 0.6500,  0.1500, 0.0600 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::CIE_entity,            0.7350, 0.2650,  0.2740, 0.7170,  0.1670, 0.0090 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::ColorMatch_entity,     0.6300, 0.3400,  0.2950, 0.6050,  0.1500, 0.0750 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Don_entity,            0.6960, 0.3000,  0.2150, 0.7650,  0.1300, 0.0350 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::ECI_entity,            0.6700, 0.3300,  0.2100, 0.7100,  0.1400, 0.0800 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::Ekta_Space_PS5_entity, 0.6950, 0.3050,  0.2600, 0.7000,  0.1100, 0.0050 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::NTSC_entity,           0.6700, 0.3300,  0.2100, 0.7100,  0.1400, 0.0800 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::PAL_SECAM_entity,      0.6400, 0.3300,  0.2900, 0.6000,  0.1500, 0.0600 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::ProPhoto_entity,       0.7347, 0.2653,  0.1596, 0.8404,  0.0366, 0.0001 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::SMPTE_C_entity,        0.6300, 0.3400,  0.3100, 0.5950,  0.1550, 0.0700 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity,           0.6400, 0.3300,  0.3000, 0.6000,  0.1500, 0.0600 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::WideGamut_entity,      0.7350, 0.2650,  0.1150, 0.8260,  0.1570, 0.0180 );
+      //COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::KodakDC_entity,        0.6492, 0.3314,  0.3219, 0.5997,  0.1548, 0.0646 ); 
 
-#undef COLOR_CONTATNT_XYZ_PRIMARY_SPECIALIZE
+#undef COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE
 
 
         template< typename scalar_name, ::color::constant::xyz::space::name_enum name_number >
@@ -89,10 +90,61 @@ namespace color
           {
            typedef scalar_name scalar_type;
 
-           static scalar_type value()  { return scalar_type{}; }
+           static scalar_type  encode( scalar_type value )  // RGB <- XYZ 
+            {
+             if ( value > 0.0031308 ) return = 1.055 * pow( value, 1 / 2.4  ) - 0.055;
+             return = 12.92 * value;
+            }
+
+           static scalar_type  decode( scalar_type value )  // XYZ <- RGB
+            {
+             if ( value <= 0.04045 ) return value / 12.92;
+             return pow( (value + 0.055) / 1.055, 2.4); 
+            }
+
           };
 
+        template<  ::color::constant::xyz::space::name_enum name_number >
+         struct white
+          {
+           typedef ::color::constant::xyz::white::name_enum     name_type;
+           typedef ::color::constant::xyz::white::degree_enum degree_type;
 
+           static name_type     name() { return name_type::D65_entity; }
+           static degree_type degree() { return name_type::two_entity; }
+          };
+
+#define COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( DP_space, DP_name, DP_degree )   \
+        template<>                                                           \
+         struct white<DP_space>                                              \
+          {                                                                  \
+           typedef ::color::constant::xyz::white::name_enum     name_type;   \
+           typedef ::color::constant::xyz::white::degree_enum degree_type;   \
+                                                                             \
+           static name_type     name() { return DP_name; }                   \
+           static degree_type degree() { return DP_degree; }                 \
+          }
+
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( LabGamut_entity,        ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Adobe_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Apple_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Best_entity,            ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Beta_entity,            ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Bruce_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( CIE_entity,             ::color::constant::xyz::white::E_entity,   ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ColorMatch_entity,      ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Don_entity,             ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ECI_entity,             ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Ekta_Space_PS5_entity,  ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( NTSC_entity,            ::color::constant::xyz::white::C_entity,   ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( PAL_SECAM_entity,       ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ProPhoto_entity,        ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( SMPTE_C_entity,         ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( sRGB_entity,            ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( WideGamut_entity,       ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+
+
+#undef COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE
        }
      }
    }

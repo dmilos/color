@@ -32,9 +32,9 @@ namespace color
            typedef ::color::constant::xyz::space::primary< scalar_type, ::color::constant::xyz::space::sRGB_entity > system_type;
 
            // D65
-           static /* constexpr*/ scalar_type const XW(){ return wp_type::XW(); } // 0.95042854537718071849735578384293
-           static /* constexpr*/ scalar_type const YW(){ return wp_type::YW(); } // 1
-           static /* constexpr*/ scalar_type const ZW(){ return wp_type::ZW(); } // 1.088900370798127773387636009969
+           static /* constexpr*/ scalar_type const XW(){ return wp_type::X(); } // 0.95042854537718071849735578384293
+           static /* constexpr*/ scalar_type const YW(){ return wp_type::Y(); } // 1
+           static /* constexpr*/ scalar_type const ZW(){ return wp_type::Z(); } // 1.088900370798127773387636009969
 
            // sRGB
            static /* constexpr*/ scalar_type const xr(){ return system_type::red()[0];   } // 0.64
@@ -75,7 +75,7 @@ namespace color
            static /* constexpr*/ scalar_type const Sb(){ return A31() * XW()  +  A32() * YW()  + A33() * ZW(); }
 
            // from RGB
-           static /* constexpr*/ scalar_type const M11(){ return Sr()*Xr(); } // 0.4124564, 0.4123907992659593
+           static /* constexpr*/ scalar_type const M11(){ return Sr()*Xr(); } // 0.4124564, 0.4123907992659593, 0.41239558896741421610 
            static /* constexpr*/ scalar_type const M12(){ return Sg()*Xg(); } // 0.3575761
            static /* constexpr*/ scalar_type const M13(){ return Sb()*Xb(); } // 0.1804375
            static /* constexpr*/ scalar_type const M21(){ return Sr()*Yr(); } // 0.2126729, 0.21263900587151024

@@ -34,19 +34,13 @@ namespace color
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
          typedef ::color::constant::xyz::matrix< category_left_type > xyz_matrix_type;
+       //typedef ::color::constant::xyz::gamma< scalar_type> xyz_gamma_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
-
-         enum
-          {
-                  luma_p  = ::color::place::_internal::luma<category_left_type>::position_enum
-           ,   inphase_p  = ::color::place::_internal::inphase<category_left_type>::position_enum
-           ,quadrature_p  = ::color::place::_internal::quadrature<category_left_type>::position_enum
-          };
 
          enum
           {
@@ -69,12 +63,9 @@ namespace color
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           if ( r > 0.04045 ) r = pow( ( ( r + 0.055 ) / 1.055 ), 2.4 );
-           else                   r = r / 12.92;
-           if ( g > 0.04045 ) g = pow((  ( g + 0.055 ) / 1.055 ), 2.4 );
-           else                   g = g / 12.92;
-           if ( b > 0.04045 ) b = pow(( ( b + 0.055 ) / 1.055 ), 2.4 );
-           else                   b = b / 12.92;
+           // TODO r = xyz_gamma_type::decode( r );
+           // TODO g = xyz_gamma_type::decode( g );
+           // TODO b = xyz_gamma_type::decode( b );
 
            scalar_type x = b11 * r + b12 * g + b13 * b;
            scalar_type y = b21 * r + b22 * g + b23 * b;

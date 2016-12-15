@@ -64,12 +64,9 @@ namespace color
            scalar_type g = a21 * x + a22 * y + a23 * z;
            scalar_type b = a31 * x + a32 * y + a33 * z;
 
-           if ( r > 0.0031308 ) r = 1.055 * ( pow( r, ( 1 / 2.4 ) ) ) - 0.055;
-           else                     r = 12.92 * r;
-           if ( g > 0.0031308 ) g = 1.055 * ( pow( g , ( 1 / 2.4 ) ) ) - 0.055;
-           else                     g = 12.92 * g;
-           if ( b > 0.0031308 ) b = 1.055 * ( pow( b, ( 1 / 2.4 ) ) )  - 0.055;
-           else                     b = 12.92 * b;
+           // TODO r = xyz_gamma_type::encode( r );
+           // TODO g = xyz_gamma_type::encode( g );
+           // TODO b = xyz_gamma_type::encode( b );
 
            container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r ) );
            container_left_trait_type::template set<green_p>( left, diverse_type::template process<green_p>( g ) );
