@@ -34,7 +34,7 @@ namespace color
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
          typedef ::color::constant::xyz::matrix< category_left_type > xyz_matrix_type;
-       //typedef ::color::constant::xyz::gamma< scalar_type> xyz_gamma_type;
+         typedef ::color::constant::xyz::space::gamma< scalar_type > xyz_gamma_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
@@ -63,9 +63,9 @@ namespace color
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           // TODO r = xyz_gamma_type::decode( r );
-           // TODO g = xyz_gamma_type::decode( g );
-           // TODO b = xyz_gamma_type::decode( b );
+           r = xyz_gamma_type::decode( r );
+           g = xyz_gamma_type::decode( g );
+           b = xyz_gamma_type::decode( b );
 
            scalar_type x = b11 * r + b12 * g + b13 * b;
            scalar_type y = b21 * r + b22 * g + b23 * b;
