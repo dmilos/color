@@ -2,6 +2,7 @@
 #include <fstream>
 #include <typeinfo>
 #include <cstring>
+#include <iomanip>
 
 #include "color/color.hpp"
 
@@ -369,10 +370,24 @@ void test_pallete()
 int main(int argc, char const *argv[])
  {
   ::color::xyz<double>  x;
-  ::color::rgb<double>  r { ::color::constant::white_t{} };
+  ::color::rgb<double>  r { ::color::constant::gray_t<1,1>{} };
 
-  x = r;
-  r = x;
+  r[0] = r[1] = r[2] = 0.041;    x = r;  std::cout << "( 0.041, 0.041, 0.041 )      "; print( x ); std::cout << std::endl;
+
+  r = ::color::constant::gray_t<0,1>{};  x = r;  std::cout << "gray_t<0,1>  "; print( x ); std::cout << std::endl;
+  r = ::color::constant::gray_t<1,0>{};  x = r;  std::cout << "gray_t<1,0>  "; print( x ); std::cout << std::endl;
+  r = ::color::constant::gray_t<1,1>{};  x = r;  std::cout << "gray_t<1,1>  "; print( x ); std::cout << std::endl;
+
+  r = ::color::constant::black_t{};      x = r;  std::cout << "black        "; print( x ); std::cout << std::endl;
+  r = ::color::constant::white_t{};      x = r;  std::cout << "white        "; print( x ); std::cout << std::endl;
+
+  r = ::color::constant::red_t{};        x = r;  std::cout << "red          "; print( x ); std::cout << std::endl;
+  r = ::color::constant::green_t{};      x = r;  std::cout << "green;       "; print( x ); std::cout << std::endl;
+  r = ::color::constant::blue_t{};       x = r;  std::cout << "blue         "; print( x ); std::cout << std::endl;
+
+  r = ::color::constant::cyan_t{};       x = r;  std::cout << "cyan         "; print( x ); std::cout << std::endl;
+  r = ::color::constant::yellow_t{};     x = r;  std::cout << "yellow       "; print( x ); std::cout << std::endl;
+  r = ::color::constant::magenta_t{};    x = r;  std::cout << "magenta      "; print( x ); std::cout << std::endl;
 
 
   print< ::color::rgb< ::color::type::split422_t >::category_type  >();

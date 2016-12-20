@@ -148,8 +148,14 @@ namespace color
          public:
            proxy( model_type & model, index_type const& index )
             : m_model( model ), m_index( index )
-           {
-           }
+            {
+            }
+
+           proxy & operator=( proxy const& that )
+            {
+             m_model.set( m_index, that.m_model.get( that.m_index ) );
+             return *this;
+            }
 
            proxy & operator=( component_input_const_type component )
             {
@@ -185,6 +191,7 @@ namespace color
             {
              return m_model.get( m_index );
             }
+
          private:
            model_type      & m_model;
            index_type const& m_index;

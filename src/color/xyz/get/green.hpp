@@ -34,30 +34,15 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type> normalize_type;
 
-        typedef ::color::constant::xyz<category_type> xyz_const_type;
-
-        enum
-         {
-                 luma_p  = ::color::place::_internal::luma<category_type>::position_enum
-          ,   inphase_p  = ::color::place::_internal::inphase<category_type>::position_enum
-          ,quadrature_p  = ::color::place::_internal::quadrature<category_type>::position_enum
-         };
+        //typedef ::color::constant::xyz::matrix< category_right_type > xyz_matrix_type;
 
         enum
          {
             green_p  = ::color::place::_internal::green<akin_type>::position_enum
          };
 
-        static scalar_type a21 = xyz_const_type::a21(), a22 = xyz_const_type::a22(), a23 = xyz_const_type::a23();
-
-        scalar_type y = normalize_type::template process<      luma_p>( color_parameter.template get<      luma_p>() );
-        scalar_type i = normalize_type::template process<   inphase_p>( color_parameter.template get<   inphase_p>() );
-        scalar_type q = normalize_type::template process<quadrature_p>( color_parameter.template get<quadrature_p>() );
-
-        i = ( scalar_type(2) * i - scalar_type(1) ) * xyz_const_type::i_max();
-        q = ( scalar_type(2) * q - scalar_type(1) ) * xyz_const_type::q_max();
-
-        scalar_type g = a21 * y + a22 * i + a23 * q;
+        // TODO
+        scalar_type g = 0; // a21 * y + a22 * i + a23 * q;
 
         return diverse_type::template process<green_p>( g );
        }

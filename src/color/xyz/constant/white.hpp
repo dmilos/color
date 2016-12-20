@@ -120,6 +120,45 @@ namespace color
            static /* constexpr*/ scalar_type const Z(){ return (scalar_type(1)-base_type::x()-base_type::y())/base_type::y(); }
         };
 
+#define COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( DP_name, DP_degree, DP_X, DP_Z       )                          \
+      template< typename scalar_name >                                                                             \
+       struct point< scalar_name, DP_name, DP_degree >                                                             \
+        : private ::color::constant::xyz::white::_intrnal::base<scalar_name, DP_name, DP_degree >                  \
+        {                                                                                                          \
+         private:                                                                                                  \
+           typedef scalar_name scalar_type;                                                                        \
+           typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, DP_name, DP_degree > base_type;     \
+         public:                                                                                                   \
+           static /* constexpr*/ scalar_type const X(){ return scalar_type(DP_X); }                                \
+           static /* constexpr*/ scalar_type const Y(){ return scalar_type(1); }                                   \
+           static /* constexpr*/ scalar_type const Z(){ return scalar_type(DP_Z); }                                \
+        }
+
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::A_entity,   ::color::constant::xyz::white::two_entity,  1.09850,  0.35585  ); // (ASTM E308-01)
+     //COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::B_entity,   ::color::constant::xyz::white::two_entity,  0.99072,  0.85223  );
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::C_entity,   ::color::constant::xyz::white::two_entity,  0.98074,  1.18232  ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity,  0.96422,  0.82521  ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::two_entity,  0.95682,  0.92149  ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity,  0.95047,  1.08883  ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::two_entity,  0.94972,  1.22638  ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::E_entity,   ::color::constant::xyz::white::two_entity,  1.00000,  1.00000  ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::F2_entity,  ::color::constant::xyz::white::two_entity,  0.99186,  0.67393  ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::F7_entity,  ::color::constant::xyz::white::two_entity,  0.95041,  1.08747  ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::two_entity,  1.00962,  0.64350  ); // (ASTM E308-01)
+
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::A_entity,   ::color::constant::xyz::white::ten_entity,  1.11144,  0.35200 ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::C_entity,   ::color::constant::xyz::white::ten_entity,  0.97285,  1.16145 ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::ten_entity,  0.96720,  0.81427 ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::ten_entity,  0.95799,  0.90926 ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::ten_entity,  0.94811,  1.07304 ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::ten_entity,  0.94416,  1.20641 ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::F2_entity,  ::color::constant::xyz::white::ten_entity,  1.03279,  0.69027 ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::F7_entity,  ::color::constant::xyz::white::ten_entity,  0.95792,  1.07687 ); // (ASTM E308-01)
+       COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE( ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::ten_entity,  1.03863,  0.65607 ); // (ASTM E308-01)
+
+
+
+#undef COLOR_CONTATNT_XYZ_WHITE_POINT_SPECIALIZE
        }
      }
    }

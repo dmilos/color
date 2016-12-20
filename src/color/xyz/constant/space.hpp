@@ -40,6 +40,7 @@ namespace color
           {
            public:
              typedef scalar_name scalar_type;
+             enum { name_entity = name_number };
            private:
              typedef std::array<scalar_type,2> coord_type;
            public:
@@ -55,6 +56,7 @@ namespace color
           {                                                                           \
            public:                                                                    \
              typedef scalar_name scalar_type;                                         \
+             enum { name_entity = DP_system };                                        \
            private:                                                                   \
              typedef std::array<scalar_type,2> coord_type;                            \
            public:                                                                    \
@@ -91,39 +93,35 @@ namespace color
            struct base_gamma
             {
              typedef ::color::constant::xyz::space::_internal::base_gamma<scalar_name,name_number > this_type;
-             static scalar_name/* constexpr */ g(){ return scalar_name(1)/scalar_name(2.4);     }
-             static scalar_name/* constexpr */ s(){ return 12.9232102;     } // pow(1+f(), g()) * pow(g()-1,g()-1)/pow(g(),g())/ pow( f(), g()-1 )
+             static scalar_name/* constexpr */ g(){ return scalar_name(2.4);     }
              static scalar_name/* constexpr */ f(){ return 0.55;           }
-             static scalar_name/* constexpr */ t(){ return this_type::f()/(this_type::g()-1)/this_type::s(); }
             };
 
-#define COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE(DP_name,DP_g, DP_s,DP_f,DP_t)   \
-          template< typename scalar_name >                                             \
-           struct base_gamma< scalar_name, DP_name >                                   \
-            {                                                                          \
-             static scalar_name/* constexpr */ g(){ return scalar_name(DP_g); }        \
-             static scalar_name/* constexpr */ s(){ return scalar_name(DP_s); }        \
-             static scalar_name/* constexpr */ f(){ return scalar_name(DP_f); }        \
-             static scalar_name/* constexpr */ t(){ return scalar_name(DP_t); }        \
+#define COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE(DP_name,DP_g, DP_f)   \
+          template< typename scalar_name >                                        \
+           struct base_gamma< scalar_name, DP_name >                              \
+            {                                                                     \
+             static scalar_name/* constexpr */ g(){ return scalar_name(DP_g); }   \
+             static scalar_name/* constexpr */ f(){ return scalar_name(DP_f); }   \
             }
 
           //COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::LabGamut_entity, 
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Adobe_entity,            1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Apple_entity,            1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Best_entity,             1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Beta_entity,             1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Bruce_entity,            1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::CIE_entity,              1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::ColorMatch_entity,       1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Don_entity,              1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::ECI_entity,              1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Ekta_Space_PS5_entity,   1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::NTSC_entity,             1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::PAL_SECAM_entity,        1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::ProPhoto_entity,         1, 1, 0, 0 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::SMPTE_C_entity,          1, 1, 0, 0 );
-          //COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity, scalar_name(1)/scalar_name(2.4), 12.92, 0.55, 0.003130668442500634032841238415964307578107582565 );
-          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::WideGamut_entity,        1, 1, 0, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Adobe_entity,            1/2.19921875, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Apple_entity,            1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Best_entity,             1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Beta_entity,             1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Bruce_entity,            1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::CIE_entity,              1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::ColorMatch_entity,       1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Don_entity,              1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::ECI_entity,              1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::Ekta_Space_PS5_entity,   1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::NTSC_entity,             1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::PAL_SECAM_entity,        1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::ProPhoto_entity,         1, 0 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::SMPTE_C_entity,          1/.45,  4.5 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity,             2.4, 0.055 );
+          COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE( ::color::constant::xyz::space::WideGamut_entity,        1, 0 );
 
 
 #undef COLOR_CONTATNT_XYZ_SPACE_GAMMA_BASE_SPECIALIZE
@@ -139,13 +137,11 @@ namespace color
 
            static scalar_type  encode( scalar_type value )
             {
-             if( base_type::f() < value ) return ( scalar_type(1) + base_type::f() ) * pow( value, base_type::g() ) - base_type::f();
-             return base_type::s() * value;
+             return ( scalar_type(1) + base_type::f() ) * pow( value, scalar_type(1) / base_type::g() ) - base_type::f();
             }
 
            static scalar_type  decode( scalar_type value )  // XYZ <- RGB
             {
-             if ( value < ( base_type::t() * base_type::s() ) ) return value / base_type::s();
              return pow( ( value + base_type::f() ) / ( scalar_type(1) + base_type::f() ), base_type::g() ); 
             }
 
@@ -157,8 +153,8 @@ namespace color
            typedef ::color::constant::xyz::white::name_enum     name_type;
            typedef ::color::constant::xyz::white::degree_enum degree_type;
 
-           static name_type     name() { return name_type::D65_entity; }
-           static degree_type degree() { return name_type::two_entity; }
+           static name_type     name() { return ::color::constant::xyz::white::D65_entity; }
+           static degree_type degree() { return ::color::constant::xyz::white::two_entity ; }
           };
 
 #define COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( DP_space, DP_name, DP_degree )   \
@@ -167,6 +163,9 @@ namespace color
           {                                                                  \
            typedef ::color::constant::xyz::white::name_enum     name_type;   \
            typedef ::color::constant::xyz::white::degree_enum degree_type;   \
+                                                                             \
+           enum { name_entity   = DP_name };                                 \
+           enum { degree_entity = DP_degree };                               \
                                                                              \
            static name_type     name() { return DP_name; }                   \
            static degree_type degree() { return DP_degree; }                 \
@@ -190,8 +189,8 @@ namespace color
         COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( sRGB_entity,            ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
         COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( WideGamut_entity,       ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
 
-
 #undef COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE
+
        }
      }
    }
