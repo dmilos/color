@@ -124,6 +124,18 @@ struct yuv {
 }
 
 namespace color {
+namespace akin {
+
+template< typename category_name >
+struct xyz {
+	typedef category_name category_type;
+	typedef void akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace _internal {
 namespace utility {
 namespace type {
@@ -806,7 +818,7 @@ public:
 
 	typedef void set_return_type;
 
-	enum { size_enum = 4 };
+	enum { size_entity = 4 };
 
 	static component_return_const_type get(input_const_type container, index_input_const_type index) {
 		return (component_type)((container >> (index << 3)) & 0xFF);
@@ -1054,6 +1066,11 @@ private:
 			: m_model(model), m_index(index) {
 		}
 
+		proxy & operator=(proxy const& that) {
+			m_model.set(m_index, that.m_model.get(that.m_index));
+			return *this;
+		}
+
 		proxy & operator=(component_input_const_type component) {
 			m_model.set(m_index, component);
 			return *this;
@@ -1082,6 +1099,7 @@ private:
 		operator component_type()const {
 			return m_model.get(m_index);
 		}
+
 	private:
 		model_type & m_model;
 		index_type const& m_index;
@@ -1189,12 +1207,12 @@ overburn(::color::model<category_name> const& m) {
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct aqua_type {};
 }
 
-using aqua_type = ::color::constant::base< ::color::constant::_internal::aqua_type >;
-using aqua_t = ::color::constant::aqua_type;
+typedef ::color::constant::base< ::color::constant::_internal::aqua_type > aqua_t, aqua_type;
 
 }
 }
@@ -1249,24 +1267,24 @@ using bisque_t = ::color::constant::bisque_type;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct black_type {};
 }
 
-using black_type = ::color::constant::base< ::color::constant::_internal::black_type >;
-using black_t = ::color::constant::black_type;
+typedef ::color::constant::base< ::color::constant::_internal::black_type > black_t, black_type;
 
 }
 }
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct blue_type {};
 }
 
-using blue_type = ::color::constant::base< ::color::constant::_internal::blue_type >;
-using blue_t = ::color::constant::blue_type;
+typedef ::color::constant::base< ::color::constant::_internal::blue_type > blue_t, blue_type;
 
 }
 }
@@ -1333,12 +1351,12 @@ using cyan_t = ::color::constant::cyan_type;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct fuchsia_type {};
 }
 
-using fuchsia_type = ::color::constant::base< ::color::constant::_internal::fuchsia_type >;
-using fuchsia_t = ::color::constant::fuchsia_type;
+typedef ::color::constant::base< ::color::constant::_internal::fuchsia_type > fuchsia_t, fuchsia_type;
 
 }
 }
@@ -1369,25 +1387,66 @@ using gold_t = ::color::constant::gold_type;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
-struct gray50_type {};
+
+template< std::uintmax_t black_number, std::uintmax_t white_number = 1 >
+struct gray {};
+
 }
 
-using gray50_type = ::color::constant::base< ::color::constant::_internal::gray50_type >;
-using gray50_t = ::color::constant::gray50_type;
+template< std::uintmax_t black_number, std::uintmax_t white_number >
+using gray_t= ::color::constant::base< ::color::constant::_internal::gray< black_number, white_number > > ;
+
+typedef ::color::constant::gray_t< 99, 1 > gray01_t;
+typedef ::color::constant::gray_t< 95, 5 > gray05_t;
+typedef ::color::constant::gray_t< 90, 10 > gray10_t;
+typedef ::color::constant::gray_t< 80, 20 > gray20_t;
+typedef ::color::constant::gray_t< 75, 25 > gray25_t;
+typedef ::color::constant::gray_t< 70, 30 > gray30_t;
+typedef ::color::constant::gray_t< 2, 1 > gray33_t;
+typedef ::color::constant::gray_t< 60, 40 > gray40_t;
+typedef ::color::constant::gray_t< 50, 50 > gray50_t;
+typedef ::color::constant::gray_t< 40, 60 > gray60_t;
+typedef ::color::constant::gray_t< 1, 2 > gray66_t;
+typedef ::color::constant::gray_t< 30, 70 > gray70_t;
+typedef ::color::constant::gray_t< 25, 75 > gray75_t;
+typedef ::color::constant::gray_t< 20, 80 > gray80_t;
+typedef ::color::constant::gray_t< 10, 90 > gray90_t;
+typedef ::color::constant::gray_t< 5, 95 > gray95_t;
+typedef ::color::constant::gray_t< 1, 99 > gray99_t;
+
+namespace w3c {
+typedef ::color::constant::gray50_t gray_t;
+}
+
+namespace x11 {
+typedef ::color::constant::gray75_t gray_t;
+}
 
 }
 }
 
 namespace color {
 namespace constant {
+
 namespace _internal {
-struct green_type {};
+struct green_w3c_t {};
 }
 
-using green_type = ::color::constant::base< ::color::constant::_internal::green_type >;
-using green_t = ::color::constant::green_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::green_w3c_t > green_t;
+}
 
+namespace _internal {
+struct green_x11_t {};
+}
+
+namespace x11 {
+typedef ::color::constant::base< ::color::constant::_internal::green_x11_t > green_t;
+}
+
+typedef ::color::constant::w3c::green_t green_t;
 }
 }
 
@@ -1441,12 +1500,12 @@ using lavender_t = ::color::constant::lavender_type;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct lime_type {};
 }
 
-using lime_type = ::color::constant::base< ::color::constant::_internal::lime_type >;
-using lime_t = ::color::constant::lime_type;
+typedef ::color::constant::base< ::color::constant::_internal::lime_type > lime_t, lime_type;
 
 }
 }
@@ -1477,12 +1536,24 @@ using magenta_t = ::color::constant::magenta_type;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
-struct maroon_type {};
+struct maroon_w3c_t {};
 }
 
-using maroon_type = ::color::constant::base< ::color::constant::_internal::maroon_type >;
-using maroon_t = ::color::constant::maroon_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::maroon_w3c_t > maroon_t;
+}
+
+namespace _internal {
+struct maroon_x11_t {};
+}
+
+namespace x11 {
+typedef ::color::constant::base< ::color::constant::_internal::maroon_x11_t > maroon_t;
+}
+
+typedef ::color::constant::w3c::maroon_t maroon_t;
 
 }
 }
@@ -1501,24 +1572,24 @@ using moccasin_t = ::color::constant::moccasin_type;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct navy_type {};
 }
 
-using navy_type = ::color::constant::base< ::color::constant::_internal::navy_type >;
-using navy_t = ::color::constant::navy_type;
+typedef ::color::constant::base< ::color::constant::_internal::navy_type > navy_t, navy_type;
 
 }
 }
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct olive_type {};
 }
 
-using olive_type = ::color::constant::base< ::color::constant::_internal::olive_type >;
-using olive_t = ::color::constant::olive_type;
+typedef ::color::constant::base< ::color::constant::_internal::olive_type > olive_t, olive_type;
 
 }
 }
@@ -1585,24 +1656,36 @@ using plum_t = ::color::constant::plum_type;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
-struct purple_type {};
+struct purple_w3c_t {};
 }
 
-using purple_type = ::color::constant::base< ::color::constant::_internal::purple_type >;
-using purple_t = ::color::constant::purple_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::purple_w3c_t > purple_t;
+}
+
+namespace _internal {
+struct purple_x11_t {};
+}
+
+namespace x11 {
+typedef ::color::constant::base< ::color::constant::_internal::purple_x11_t > purple_t;
+}
+
+typedef ::color::constant::w3c::purple_t purple_t;
 
 }
 }
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct red_type {};
 }
 
-using red_type = ::color::constant::base< ::color::constant::_internal::red_type >;
-using red_t = ::color::constant::red_type;
+typedef ::color::constant::base< ::color::constant::_internal::red_type > red_t, red_type;
 
 }
 }
@@ -1633,12 +1716,12 @@ using sienna_t = ::color::constant::sienna_type;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct silver_type {};
 }
 
-using silver_type = ::color::constant::base< ::color::constant::_internal::silver_type >;
-using silver_t = ::color::constant::silver_type;
+typedef ::color::constant::base< ::color::constant::_internal::silver_type > silver_t, silver_type;
 
 }
 }
@@ -1669,12 +1752,12 @@ using tan_t = ::color::constant::tan_type;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct teal_type {};
 }
 
-using teal_type = ::color::constant::base< ::color::constant::_internal::teal_type >;
-using teal_t = ::color::constant::teal_type;
+typedef ::color::constant::base< ::color::constant::_internal::teal_type > teal_t, teal_type;
 
 }
 }
@@ -1741,24 +1824,24 @@ using wheat_t = ::color::constant::wheat_type;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct white_type {};
 }
 
-using white_type = ::color::constant::base< ::color::constant::_internal::white_type >;
-using white_t = ::color::constant::white_type;
+typedef ::color::constant::base< ::color::constant::_internal::white_type > white_t, white_type;
 
 }
 }
 
 namespace color {
 namespace constant {
+
 namespace _internal {
 struct yellow_type {};
 }
 
-using yellow_type = ::color::constant::base< ::color::constant::_internal::yellow_type >;
-using yellow_t = ::color::constant::yellow_type;
+typedef ::color::constant::base< ::color::constant::_internal::yellow_type > yellow_t, yellow_type;
 
 }
 }
@@ -3511,6 +3594,56 @@ template< ::color::constant::yuv::reference_enum reference_number >struct cmy< :
 }
 
 namespace color {
+namespace category {
+
+template< typename tag_name >
+struct xyz {
+	typedef void category_name;
+};
+
+using xyz_bool = ::color::category::xyz< bool >;
+using xyz_uint8 = ::color::category::xyz< std::uint8_t >;
+using xyz_uint16 = ::color::category::xyz< std::uint16_t >;
+
+using xyz_uint32 = ::color::category::xyz< std::uint32_t >;
+
+using xyz_uint64 = ::color::category::xyz< std::uint64_t >;
+using xyz_float = ::color::category::xyz< float >;
+using xyz_double = ::color::category::xyz< double >;
+using xyz_ldouble = ::color::category::xyz< long double >;
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct cmy< ::color::category::xyz_uint8 > {
+	typedef ::color::category::cmy_uint8 akin_type;
+};
+template< >struct cmy< ::color::category::xyz_uint16 > {
+	typedef ::color::category::cmy_uint16 akin_type;
+};
+template< >struct cmy< ::color::category::xyz_uint32 > {
+	typedef ::color::category::cmy_uint32 akin_type;
+};
+template< >struct cmy< ::color::category::xyz_uint64 > {
+	typedef ::color::category::cmy_uint64 akin_type;
+};
+template< >struct cmy< ::color::category::xyz_float > {
+	typedef ::color::category::cmy_float akin_type;
+};
+template< >struct cmy< ::color::category::xyz_double > {
+	typedef ::color::category::cmy_double akin_type;
+};
+template< >struct cmy< ::color::category::xyz_ldouble > {
+	typedef ::color::category::cmy_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template< typename category_name >
@@ -3728,7 +3861,7 @@ public:
 
 	typedef void set_return_type;
 
-	enum { size_enum = length };
+	enum { size_entity = length };
 
 	static component_return_const_type get(input_const_type container, index_input_const_type index) {
 		return container[index];
@@ -4873,7 +5006,7 @@ struct component< ::color::category::gray_uint64 >
 namespace color {
 namespace constant {
 
-template< typename category_name>
+template< typename category_name >
 struct gray {
 public:
 	typedef category_name category_type;
@@ -5266,6 +5399,34 @@ template< ::color::constant::yuv::reference_enum reference_number >struct gray< 
 }
 
 namespace color {
+namespace akin {
+
+template< >struct gray< ::color::category::xyz_uint8 > {
+	typedef ::color::category::gray_uint8 akin_type;
+};
+template< >struct gray< ::color::category::xyz_uint16 > {
+	typedef ::color::category::gray_uint16 akin_type;
+};
+template< >struct gray< ::color::category::xyz_uint32 > {
+	typedef ::color::category::gray_uint32 akin_type;
+};
+template< >struct gray< ::color::category::xyz_uint64 > {
+	typedef ::color::category::gray_uint64 akin_type;
+};
+template< >struct gray< ::color::category::xyz_float > {
+	typedef ::color::category::gray_float akin_type;
+};
+template< >struct gray< ::color::category::xyz_double > {
+	typedef ::color::category::gray_double akin_type;
+};
+template< >struct gray< ::color::category::xyz_ldouble > {
+	typedef ::color::category::gray_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template <> struct info< ::color::category::gray_bool > {
@@ -5407,7 +5568,7 @@ public:
 
 	typedef void set_return_type;
 
-	enum { size_enum = 1 };
+	enum { size_entity = 1 };
 
 	static component_return_const_type get(input_const_type container, index_input_const_type index) {
 		return container;
@@ -5508,7 +5669,7 @@ public:
 
 	typedef void set_return_type;
 
-	enum { size_enum = length };
+	enum { size_entity = length };
 
 	static component_return_const_type get(input_const_type container, index_input_const_type index) {
 		return (component_type)((container >> (index * width)) & mask());
@@ -6067,6 +6228,34 @@ template< ::color::constant::yuv::reference_enum reference_number >struct cmyk< 
 	typedef ::color::category::cmyk_double akin_type;
 };
 template< ::color::constant::yuv::reference_enum reference_number >struct cmyk< ::color::category::yuv_ldouble< reference_number > > {
+	typedef ::color::category::cmyk_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct cmyk< ::color::category::xyz_uint8 > {
+	typedef ::color::category::cmyk_uint8 akin_type;
+};
+template< >struct cmyk< ::color::category::xyz_uint16 > {
+	typedef ::color::category::cmyk_uint16 akin_type;
+};
+template< >struct cmyk< ::color::category::xyz_uint32 > {
+	typedef ::color::category::cmyk_uint32 akin_type;
+};
+template< >struct cmyk< ::color::category::xyz_uint64 > {
+	typedef ::color::category::cmyk_uint64 akin_type;
+};
+template< >struct cmyk< ::color::category::xyz_float > {
+	typedef ::color::category::cmyk_float akin_type;
+};
+template< >struct cmyk< ::color::category::xyz_double > {
+	typedef ::color::category::cmyk_double akin_type;
+};
+template< >struct cmyk< ::color::category::xyz_ldouble > {
 	typedef ::color::category::cmyk_ldouble akin_type;
 };
 
@@ -6902,6 +7091,34 @@ template< ::color::constant::yuv::reference_enum reference_number >struct rgb< :
 }
 
 namespace color {
+namespace akin {
+
+template< >struct rgb< ::color::category::xyz_uint8 > {
+	typedef ::color::category::rgb_uint8 akin_type;
+};
+template< >struct rgb< ::color::category::xyz_uint16 > {
+	typedef ::color::category::rgb_uint16 akin_type;
+};
+template< >struct rgb< ::color::category::xyz_uint32 > {
+	typedef ::color::category::rgb_uint32 akin_type;
+};
+template< >struct rgb< ::color::category::xyz_uint64 > {
+	typedef ::color::category::rgb_uint64 akin_type;
+};
+template< >struct rgb< ::color::category::xyz_float > {
+	typedef ::color::category::rgb_float akin_type;
+};
+template< >struct rgb< ::color::category::xyz_double > {
+	typedef ::color::category::rgb_double akin_type;
+};
+template< >struct rgb< ::color::category::xyz_ldouble > {
+	typedef ::color::category::rgb_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template <> struct info< ::color::category::rgb_error > {
@@ -7676,7 +7893,7 @@ public:
 
 	typedef void set_return_type;
 
-	enum { size_enum = 3 };
+	enum { size_entity = 3 };
 	enum {
 		first_position = 0,
 		second_position = first_size,
@@ -7746,7 +7963,7 @@ public:
 	}
 
 	static index_return_image_type size() {
-		static const index_instance_type local_length = size_enum;
+		static const index_instance_type local_length = size_entity;
 		return local_length;
 	}
 };
@@ -7878,7 +8095,7 @@ public:
 
 	typedef void set_return_type;
 
-	enum { size_enum = 4 };
+	enum { size_entity = 4 };
 	enum {
 		first_position = 0,
 		second_position = first_size,
@@ -7960,7 +8177,7 @@ public:
 	}
 
 	static index_return_image_type size() {
-		static const index_instance_type local_length = size_enum;
+		static const index_instance_type local_length = size_entity;
 		return local_length;
 	}
 };
@@ -8798,9 +9015,10 @@ public:
 		enum {
 			gray_p = 0
 		};
-		container_left_trait_type::template set<red_p >(left, reformat_type::template process<red_p ,gray_p>(container_right_trait_type::template get<gray_p>(right)));
-		container_left_trait_type::template set<green_p>(left, reformat_type::template process<green_p,gray_p>(container_right_trait_type::template get<gray_p>(right)));
-		container_left_trait_type::template set<blue_p >(left, reformat_type::template process<blue_p ,gray_p>(container_right_trait_type::template get<gray_p>(right)));
+		auto const value = container_right_trait_type::template get<gray_p>(right);
+		container_left_trait_type::template set<red_p >(left, reformat_type::template process<red_p ,gray_p>(value));
+		container_left_trait_type::template set<green_p>(left, reformat_type::template process<green_p,gray_p>(value));
+		container_left_trait_type::template set<blue_p >(left, reformat_type::template process<blue_p ,gray_p>(value));
 	}
 };
 
@@ -9084,6 +9302,34 @@ template< >struct hsl< ::color::category::yiq_double > {
 	typedef ::color::category::hsl_double akin_type;
 };
 template< >struct hsl< ::color::category::yiq_ldouble > {
+	typedef ::color::category::hsl_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct hsl< ::color::category::xyz_uint8 > {
+	typedef ::color::category::hsl_uint8 akin_type;
+};
+template< >struct hsl< ::color::category::xyz_uint16 > {
+	typedef ::color::category::hsl_uint16 akin_type;
+};
+template< >struct hsl< ::color::category::xyz_uint32 > {
+	typedef ::color::category::hsl_uint32 akin_type;
+};
+template< >struct hsl< ::color::category::xyz_uint64 > {
+	typedef ::color::category::hsl_uint64 akin_type;
+};
+template< >struct hsl< ::color::category::xyz_float > {
+	typedef ::color::category::hsl_float akin_type;
+};
+template< >struct hsl< ::color::category::xyz_double > {
+	typedef ::color::category::hsl_double akin_type;
+};
+template< >struct hsl< ::color::category::xyz_ldouble > {
 	typedef ::color::category::hsl_ldouble akin_type;
 };
 
@@ -10128,6 +10374,34 @@ template< ::color::constant::yuv::reference_enum reference_number >struct hsv< :
 	typedef ::color::category::hsv_double akin_type;
 };
 template< ::color::constant::yuv::reference_enum reference_number >struct hsv< ::color::category::yuv_ldouble<reference_number> > {
+	typedef ::color::category::hsv_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct hsv< ::color::category::xyz_uint8 > {
+	typedef ::color::category::hsv_uint8 akin_type;
+};
+template< >struct hsv< ::color::category::xyz_uint16 > {
+	typedef ::color::category::hsv_uint16 akin_type;
+};
+template< >struct hsv< ::color::category::xyz_uint32 > {
+	typedef ::color::category::hsv_uint32 akin_type;
+};
+template< >struct hsv< ::color::category::xyz_uint64 > {
+	typedef ::color::category::hsv_uint64 akin_type;
+};
+template< >struct hsv< ::color::category::xyz_float > {
+	typedef ::color::category::hsv_float akin_type;
+};
+template< >struct hsv< ::color::category::xyz_double > {
+	typedef ::color::category::hsv_double akin_type;
+};
+template< >struct hsv< ::color::category::xyz_ldouble > {
 	typedef ::color::category::hsv_ldouble akin_type;
 };
 
@@ -11466,6 +11740,34 @@ template< ::color::constant::yuv::reference_enum reference_number >struct hsi< :
 	typedef ::color::category::hsi_double akin_type;
 };
 template< ::color::constant::yuv::reference_enum reference_number >struct hsi< ::color::category::yuv_ldouble<reference_number> > {
+	typedef ::color::category::hsi_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct hsi< ::color::category::xyz_uint8 > {
+	typedef ::color::category::hsi_uint8 akin_type;
+};
+template< >struct hsi< ::color::category::xyz_uint16 > {
+	typedef ::color::category::hsi_uint16 akin_type;
+};
+template< >struct hsi< ::color::category::xyz_uint32 > {
+	typedef ::color::category::hsi_uint32 akin_type;
+};
+template< >struct hsi< ::color::category::xyz_uint64 > {
+	typedef ::color::category::hsi_uint64 akin_type;
+};
+template< >struct hsi< ::color::category::xyz_float > {
+	typedef ::color::category::hsi_float akin_type;
+};
+template< >struct hsi< ::color::category::xyz_double > {
+	typedef ::color::category::hsi_double akin_type;
+};
+template< >struct hsi< ::color::category::xyz_ldouble > {
 	typedef ::color::category::hsi_ldouble akin_type;
 };
 
@@ -12822,6 +13124,18 @@ template< ::color::constant::yuv::reference_enum reference_number >struct yiq< :
 }
 
 namespace color {
+namespace akin {
+
+template< typename tag_name >
+struct xyz< ::color::category::xyz< tag_name > > {
+public:
+	typedef ::color::category::xyz< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template <> struct info< ::color::category::yiq_uint8 > {
@@ -13843,6 +14157,34 @@ template< typename tag_name, ::color::constant::yuv::reference_enum reference_nu
 struct yuv< ::color::category::yuv< tag_name, reference_number >, reference_number > {
 public:
 	typedef ::color::category::yuv< tag_name, reference_number > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::xyz_uint8 , reference_number > {
+	typedef ::color::category::yuv_uint8 <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::xyz_uint16 , reference_number > {
+	typedef ::color::category::yuv_uint16 <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::xyz_uint32 , reference_number > {
+	typedef ::color::category::yuv_uint32 <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::xyz_uint64 , reference_number > {
+	typedef ::color::category::yuv_uint64 <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::xyz_float , reference_number > {
+	typedef ::color::category::yuv_float <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::xyz_double , reference_number > {
+	typedef ::color::category::yuv_double <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::xyz_ldouble, reference_number > {
+	typedef ::color::category::yuv_ldouble<reference_number> akin_type;
 };
 
 }
@@ -15095,6 +15437,34 @@ public:
 }
 
 namespace color {
+namespace akin {
+
+template< >struct YCgCo< ::color::category::xyz_uint8 > {
+	typedef ::color::category::YCgCo_uint8 akin_type;
+};
+template< >struct YCgCo< ::color::category::xyz_uint16 > {
+	typedef ::color::category::YCgCo_uint16 akin_type;
+};
+template< >struct YCgCo< ::color::category::xyz_uint32 > {
+	typedef ::color::category::YCgCo_uint32 akin_type;
+};
+template< >struct YCgCo< ::color::category::xyz_uint64 > {
+	typedef ::color::category::YCgCo_uint64 akin_type;
+};
+template< >struct YCgCo< ::color::category::xyz_float > {
+	typedef ::color::category::YCgCo_float akin_type;
+};
+template< >struct YCgCo< ::color::category::xyz_double > {
+	typedef ::color::category::YCgCo_double akin_type;
+};
+template< >struct YCgCo< ::color::category::xyz_ldouble > {
+	typedef ::color::category::YCgCo_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template <> struct info< ::color::category::YCgCo_uint8 > {
@@ -16317,6 +16687,34 @@ template< typename tag_name >
 struct YDbDr< ::color::category::YDbDr< tag_name > > {
 public:
 	typedef ::color::category::YDbDr< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct YDbDr< ::color::category::xyz_uint8 > {
+	typedef ::color::category::YDbDr_uint8 akin_type;
+};
+template< >struct YDbDr< ::color::category::xyz_uint16 > {
+	typedef ::color::category::YDbDr_uint16 akin_type;
+};
+template< >struct YDbDr< ::color::category::xyz_uint32 > {
+	typedef ::color::category::YDbDr_uint32 akin_type;
+};
+template< >struct YDbDr< ::color::category::xyz_uint64 > {
+	typedef ::color::category::YDbDr_uint64 akin_type;
+};
+template< >struct YDbDr< ::color::category::xyz_float > {
+	typedef ::color::category::YDbDr_float akin_type;
+};
+template< >struct YDbDr< ::color::category::xyz_double > {
+	typedef ::color::category::YDbDr_double akin_type;
+};
+template< >struct YDbDr< ::color::category::xyz_ldouble > {
+	typedef ::color::category::YDbDr_ldouble akin_type;
 };
 
 }
@@ -17603,6 +18001,34 @@ public:
 }
 
 namespace color {
+namespace akin {
+
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::xyz_uint8 , reference_number > {
+	typedef ::color::category::YPbPr_uint8 <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::xyz_uint16 , reference_number > {
+	typedef ::color::category::YPbPr_uint16 <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::xyz_uint32 , reference_number > {
+	typedef ::color::category::YPbPr_uint32 <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::xyz_uint64 , reference_number > {
+	typedef ::color::category::YPbPr_uint64 <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::xyz_float , reference_number > {
+	typedef ::color::category::YPbPr_float <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::xyz_double , reference_number > {
+	typedef ::color::category::YPbPr_double <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::xyz_ldouble, reference_number > {
+	typedef ::color::category::YPbPr_ldouble<reference_number> akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template < ::color::constant::YPbPr::reference_enum reference_number > struct info< ::color::category::YPbPr_uint8 <reference_number> > {
@@ -18787,1768 +19213,2687 @@ public:
 }
 
 namespace color {
-namespace make {
+namespace akin {
 
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
+template< >struct xyz< ::color::category::cmy_uint8 > {
+	typedef ::color::category::xyz_uint8 akin_type;
+};
+template< >struct xyz< ::color::category::cmy_uint16 > {
+	typedef ::color::category::xyz_uint16 akin_type;
+};
+template< >struct xyz< ::color::category::cmy_uint32 > {
+	typedef ::color::category::xyz_uint32 akin_type;
+};
+template< >struct xyz< ::color::category::cmy_uint64 > {
+	typedef ::color::category::xyz_uint64 akin_type;
+};
+template< >struct xyz< ::color::category::cmy_float > {
+	typedef ::color::category::xyz_float akin_type;
+};
+template< >struct xyz< ::color::category::cmy_double > {
+	typedef ::color::category::xyz_double akin_type;
+};
+template< >struct xyz< ::color::category::cmy_ldouble > {
+	typedef ::color::category::xyz_ldouble akin_type;
+};
+
+}
 }
 
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity> > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
+namespace color {
+namespace akin {
+
+template< >struct xyz< ::color::category::cmyk_uint8 > {
+	typedef ::color::category::xyz_uint8 akin_type;
+};
+template< >struct xyz< ::color::category::cmyk_uint16 > {
+	typedef ::color::category::xyz_uint16 akin_type;
+};
+template< >struct xyz< ::color::category::cmyk_uint32 > {
+	typedef ::color::category::xyz_uint32 akin_type;
+};
+template< >struct xyz< ::color::category::cmyk_uint64 > {
+	typedef ::color::category::xyz_uint64 akin_type;
+};
+template< >struct xyz< ::color::category::cmyk_float > {
+	typedef ::color::category::xyz_float akin_type;
+};
+template< >struct xyz< ::color::category::cmyk_double > {
+	typedef ::color::category::xyz_double akin_type;
+};
+template< >struct xyz< ::color::category::cmyk_ldouble > {
+	typedef ::color::category::xyz_ldouble akin_type;
+};
+
 }
+}
+
+namespace color {
+namespace akin {
+
+template< >struct xyz< ::color::category::gray_uint8 > {
+	typedef ::color::category::xyz_uint8 akin_type;
+};
+template< >struct xyz< ::color::category::gray_uint16 > {
+	typedef ::color::category::xyz_uint16 akin_type;
+};
+template< >struct xyz< ::color::category::gray_uint32 > {
+	typedef ::color::category::xyz_uint32 akin_type;
+};
+template< >struct xyz< ::color::category::gray_uint64 > {
+	typedef ::color::category::xyz_uint64 akin_type;
+};
+template< >struct xyz< ::color::category::gray_float > {
+	typedef ::color::category::xyz_float akin_type;
+};
+template< >struct xyz< ::color::category::gray_double > {
+	typedef ::color::category::xyz_double akin_type;
+};
+template< >struct xyz< ::color::category::gray_ldouble > {
+	typedef ::color::category::xyz_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct xyz< ::color::category::hsl_uint8 > {
+	typedef ::color::category::xyz_uint8 akin_type;
+};
+template< >struct xyz< ::color::category::hsl_uint16 > {
+	typedef ::color::category::xyz_uint16 akin_type;
+};
+template< >struct xyz< ::color::category::hsl_uint32 > {
+	typedef ::color::category::xyz_uint32 akin_type;
+};
+template< >struct xyz< ::color::category::hsl_uint64 > {
+	typedef ::color::category::xyz_uint64 akin_type;
+};
+template< >struct xyz< ::color::category::hsl_float > {
+	typedef ::color::category::xyz_float akin_type;
+};
+template< >struct xyz< ::color::category::hsl_double > {
+	typedef ::color::category::xyz_double akin_type;
+};
+template< >struct xyz< ::color::category::hsl_ldouble > {
+	typedef ::color::category::xyz_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct xyz< ::color::category::hsv_uint8 > {
+	typedef ::color::category::xyz_uint8 akin_type;
+};
+template< >struct xyz< ::color::category::hsv_uint16 > {
+	typedef ::color::category::xyz_uint16 akin_type;
+};
+template< >struct xyz< ::color::category::hsv_uint32 > {
+	typedef ::color::category::xyz_uint32 akin_type;
+};
+template< >struct xyz< ::color::category::hsv_uint64 > {
+	typedef ::color::category::xyz_uint64 akin_type;
+};
+template< >struct xyz< ::color::category::hsv_float > {
+	typedef ::color::category::xyz_float akin_type;
+};
+template< >struct xyz< ::color::category::hsv_double > {
+	typedef ::color::category::xyz_double akin_type;
+};
+template< >struct xyz< ::color::category::hsv_ldouble > {
+	typedef ::color::category::xyz_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct xyz< ::color::category::rgb_uint8 > {
+	typedef ::color::category::xyz_uint8 akin_type;
+};
+template< >struct xyz< ::color::category::rgb_uint16 > {
+	typedef ::color::category::xyz_uint16 akin_type;
+};
+template< >struct xyz< ::color::category::rgb_uint32 > {
+	typedef ::color::category::xyz_uint32 akin_type;
+};
+template< >struct xyz< ::color::category::rgb_uint64 > {
+	typedef ::color::category::xyz_uint64 akin_type;
+};
+template< >struct xyz< ::color::category::rgb_float > {
+	typedef ::color::category::xyz_float akin_type;
+};
+template< >struct xyz< ::color::category::rgb_double > {
+	typedef ::color::category::xyz_double akin_type;
+};
+template< >struct xyz< ::color::category::rgb_ldouble > {
+	typedef ::color::category::xyz_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< ::color::constant::yuv::reference_enum reference_number >struct xyz< ::color::category::yuv_uint8 <reference_number> > {
+	typedef ::color::category::xyz_uint8 akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct xyz< ::color::category::yuv_uint16 <reference_number> > {
+	typedef ::color::category::xyz_uint16 akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct xyz< ::color::category::yuv_uint32 <reference_number> > {
+	typedef ::color::category::xyz_uint32 akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct xyz< ::color::category::yuv_uint64 <reference_number> > {
+	typedef ::color::category::xyz_uint64 akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct xyz< ::color::category::yuv_float <reference_number> > {
+	typedef ::color::category::xyz_float akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct xyz< ::color::category::yuv_double <reference_number> > {
+	typedef ::color::category::xyz_double akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct xyz< ::color::category::yuv_ldouble<reference_number> > {
+	typedef ::color::category::xyz_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template <> struct info< ::color::category::xyz_uint8 > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::xyz_uint16 > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::xyz_uint32 > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::xyz_uint64 > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::xyz_float > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::xyz_double > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::xyz_ldouble > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace utility {
+namespace bound {
+
+template< typename index_name, typename scalar_name >
+struct xyz_scalar {
+public:
+	typedef scalar_name scalar_type;
+	typedef index_name index_type;
+
+	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
+
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 100, 100, 100 };
+		return max_list[index];
+	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 100, 100, 100 };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { 0, 0, 0 };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { 0, 0, 0 };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { 100, 100, 100 };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { 100, 100, 100 };
+		return range_list[index];
+	}
+};
+
+}
+}
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct bound< ::color::category::xyz_float >
+	: public ::color::_internal::utility::bound::xyz_scalar< unsigned, float > {
+};
+
+template< >
+struct bound< ::color::category::xyz_double >
+	: public ::color::_internal::utility::bound::xyz_scalar< unsigned, double > {
+};
+
+template< >
+struct bound< ::color::category::xyz_ldouble >
+	: public ::color::_internal::utility::bound::xyz_scalar< unsigned, long double > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct bound< ::color::category::xyz_uint8 >
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+};
+
+template< >
+struct bound< ::color::category::xyz_uint16 >
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+};
+
+template< >
+struct bound< ::color::category::xyz_uint32 >
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+};
+
+template< >
+struct bound< ::color::category::xyz_uint64 >
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::xyz_float >
+	: public ::color::_internal::utility::component::array< float, unsigned> {
+};
+
+template< >
+struct component< ::color::category::xyz_double >
+	: public ::color::_internal::utility::component::array< double, unsigned > {
+};
+
+template< >
+struct component< ::color::category::xyz_ldouble >
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::xyz_uint8 >
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+};
+
+template< >
+struct component< ::color::category::xyz_uint16 >
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+};
+
+template< >
+struct component< ::color::category::xyz_uint32 >
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+};
+
+template< >
+struct component< ::color::category::xyz_uint64 >
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::xyz_float >
+	: public ::color::_internal::utility::container::array< float, 3 > {
+};
+
+template< >
+struct container< ::color::category::xyz_double >
+	: public ::color::_internal::utility::container::array< double, 3 > {
+};
+
+template< >
+struct container< ::color::category::xyz_ldouble >
+	: public ::color::_internal::utility::container::array< long double, 3 > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::xyz_uint8 >
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+};
+
+template< >
+struct container< ::color::category::xyz_uint16 >
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+};
+
+template< >
+struct container< ::color::category::xyz_uint32 >
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+};
+
+template< >
+struct container< ::color::category::xyz_uint64 >
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+};
+
+}
+}
+
+namespace color {
+
+template< typename type_name >
+using xyz = ::color::model< typename ::color::category::xyz< type_name > >;
+
+}
+
+namespace color {
+namespace get {
 
 template< typename tag_name >
 inline
-void black(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
+typename ::color::model< ::color::category::xyz< tag_name> >::component_const_type
+inphase(::color::model< ::color::category::xyz< tag_name> > const& color_parameter) {
+	typedef ::color::category::xyz< tag_name> category_type;
+	enum { inphase_p = ::color::place::_internal::inphase<category_type>::position_enum };
+	return color_parameter.template get<inphase_p>();
 }
 
 }
 }
 
 namespace color {
-namespace make {
+namespace get {
 
 template< typename tag_name >
 inline
-void gray
+typename ::color::model< ::color::category::xyz< tag_name> >::component_const_type
+quadrature(::color::model< ::color::category::xyz< tag_name> > const& color_parameter) {
+	typedef ::color::category::xyz< tag_name> category_type;
+	enum { quadrature_p = ::color::place::_internal::quadrature<category_type>::position_enum };
+	return color_parameter.template get<quadrature_p>();
+}
+
+}
+}
+
+namespace color {
+namespace constant {
+namespace xyz {
+namespace white {
+
+enum degree_enum { two_entity, ten_entity };
+enum name_enum {
+	A_entity,
+	B_entity,
+	C_entity,
+	D50_entity,
+	D55_entity,
+	D65_entity,
+	D75_entity,
+	E_entity,
+	F1_entity,
+	F2_entity,
+	F3_entity,
+	F4_entity,
+	F5_entity,
+	F6_entity,
+	F7_entity,
+	F8_entity,
+	F9_entity,
+	F10_entity,
+	F11_entity,
+	F12_entity
+};
+
+namespace _intrnal {
+
+template
+<
+	typename scalar_name
+	,::color::constant::xyz::white::name_enum name_number
+	,::color::constant::xyz::white::degree_enum degree_number
+	>
+struct base {
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.44757);
+	} static scalar_type y() {
+		return scalar_type(0.40745);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::B_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.34842);
+	} static scalar_type y() {
+		return scalar_type(0.35161);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.31006);
+	} static scalar_type y() {
+		return scalar_type(0.31616);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.34567);
+	} static scalar_type y() {
+		return scalar_type(0.35850);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.33242);
+	} static scalar_type y() {
+		return scalar_type(0.34743);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.31271);
+	} static scalar_type y() {
+		return scalar_type(0.32902);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.29902);
+	} static scalar_type y() {
+		return scalar_type(0.31485);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::E_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.33333);
+	} static scalar_type y() {
+		return scalar_type(0.33333);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F1_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.31310);
+	} static scalar_type y() {
+		return scalar_type(0.33727);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.37208);
+	} static scalar_type y() {
+		return scalar_type(0.37529);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F3_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.40910);
+	} static scalar_type y() {
+		return scalar_type(0.39430);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F4_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.44018);
+	} static scalar_type y() {
+		return scalar_type(0.40329);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F5_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.31379);
+	} static scalar_type y() {
+		return scalar_type(0.34531);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F6_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.37790);
+	} static scalar_type y() {
+		return scalar_type(0.38835);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.31292);
+	} static scalar_type y() {
+		return scalar_type(0.32933);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F8_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.34588);
+	} static scalar_type y() {
+		return scalar_type(0.35875);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F9_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.37417);
+	} static scalar_type y() {
+		return scalar_type(0.37281);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F10_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.34609);
+	} static scalar_type y() {
+		return scalar_type(0.35986);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.38052);
+	} static scalar_type y() {
+		return scalar_type(0.37713);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F12_entity, ::color::constant::xyz::white::two_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.43695);
+	} static scalar_type y() {
+		return scalar_type(0.40441);
+	}
+};
+
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.45117);
+	} static scalar_type y() {
+		return scalar_type(0.40594);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::B_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.34980);
+	} static scalar_type y() {
+		return scalar_type(0.35270);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.31039);
+	} static scalar_type y() {
+		return scalar_type(0.31905);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.34773);
+	} static scalar_type y() {
+		return scalar_type(0.35952);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.33411);
+	} static scalar_type y() {
+		return scalar_type(0.34877);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.31382);
+	} static scalar_type y() {
+		return scalar_type(0.33100);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.29968);
+	} static scalar_type y() {
+		return scalar_type(0.31740);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::E_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.33333);
+	} static scalar_type y() {
+		return scalar_type(0.33333);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F1_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.31811);
+	} static scalar_type y() {
+		return scalar_type(0.33559);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.37925);
+	} static scalar_type y() {
+		return scalar_type(0.36733);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F3_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.41761);
+	} static scalar_type y() {
+		return scalar_type(0.38324);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F4_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.44920);
+	} static scalar_type y() {
+		return scalar_type(0.39074);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F5_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.31975);
+	} static scalar_type y() {
+		return scalar_type(0.34246);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F6_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.38660);
+	} static scalar_type y() {
+		return scalar_type(0.37847);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.31569);
+	} static scalar_type y() {
+		return scalar_type(0.32960);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F8_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.34902);
+	} static scalar_type y() {
+		return scalar_type(0.35939);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F9_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.37829);
+	} static scalar_type y() {
+		return scalar_type(0.37045);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F10_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.35090);
+	} static scalar_type y() {
+		return scalar_type(0.35444);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.38541);
+	} static scalar_type y() {
+		return scalar_type(0.37123);
+	}
+};
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F12_entity, ::color::constant::xyz::white::ten_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type x() {
+		return scalar_type(0.44256);
+	} static scalar_type y() {
+		return scalar_type(0.39717);
+	}
+};
+
+}
+
+template< typename scalar_name,::color::constant::xyz::white::name_enum name_number, ::color::constant::xyz::white::degree_enum degree_number >
+struct point
+	: private ::color::constant::xyz::white::_intrnal::base<scalar_name, name_number, degree_number > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, name_number, degree_number > base_type;
+
+public:
+	static scalar_type const X() {
+		return base_type::x()/base_type::y();
+	}
+	static scalar_type const Y() {
+		return scalar_type(1);
+	}
+	static scalar_type const Z() {
+		return (scalar_type(1)-base_type::x()-base_type::y())/base_type::y();
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::two_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::two_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(1.09850);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(0.35585);
+	}
+};
+
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::two_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::two_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.98074);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(1.18232);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.96422);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(0.82521);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::two_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::two_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.95682);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(0.92149);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.95047);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(1.08883);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::two_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::two_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.94972);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(1.22638);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::E_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::E_entity, ::color::constant::xyz::white::two_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::E_entity, ::color::constant::xyz::white::two_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(1.00000);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(1.00000);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::two_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::two_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.99186);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(0.67393);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::two_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::two_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.95041);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(1.08747);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::two_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::two_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(1.00962);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(0.64350);
+	}
+};
+
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::ten_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::ten_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(1.11144);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(0.35200);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::ten_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::ten_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.97285);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(1.16145);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::ten_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::ten_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.96720);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(0.81427);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::ten_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::ten_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.95799);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(0.90926);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::ten_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::ten_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.94811);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(1.07304);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::ten_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::ten_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.94416);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(1.20641);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::ten_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::ten_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(1.03279);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(0.69027);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::ten_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::ten_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(0.95792);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(1.07687);
+	}
+};
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::ten_entity > {
+private:
+	typedef scalar_name scalar_type;
+	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::ten_entity > base_type;
+public:
+	static scalar_type const X() {
+		return scalar_type(1.03863);
+	} static scalar_type const Y() {
+		return scalar_type(1);
+	} static scalar_type const Z() {
+		return scalar_type(0.65607);
+	}
+};
+
+}
+}
+}
+}
+
+namespace color {
+namespace constant {
+namespace xyz {
+namespace space {
+
+enum name_enum {
+	none_entity,
+	LabGamut_entity,
+	Adobe_entity,
+	Apple_entity,
+	Best_entity,
+	Beta_entity,
+	Bruce_entity,
+	CIE_entity,
+	ColorMatch_entity,
+	Don_entity,
+	ECI_entity,
+	Ekta_Space_PS5_entity,
+	NTSC_entity,
+	PAL_SECAM_entity,
+	ProPhoto_entity,
+	SMPTE_C_entity,
+	sRGB_entity,
+	WideGamut_entity,
+};
+
+template< typename scalar_name, ::color::constant::xyz::space::name_enum name_number >
+struct primary {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = name_number };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{};
+	}
+	static coord_type green() {
+		return coord_type{};
+	}
+	static coord_type blue() {
+		return coord_type{};
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Adobe_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::Adobe_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6400,0.3300};
+	} static coord_type green() {
+		return coord_type{0.2100, 0.7100};
+	} static coord_type blue() {
+		return coord_type{0.1500, 0.0600 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Apple_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::Apple_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6250,0.3400};
+	} static coord_type green() {
+		return coord_type{0.2800, 0.5950};
+	} static coord_type blue() {
+		return coord_type{0.1550, 0.0700 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Best_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::Best_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.7347,0.2653};
+	} static coord_type green() {
+		return coord_type{0.2150, 0.7750};
+	} static coord_type blue() {
+		return coord_type{0.1300, 0.0350 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Beta_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::Beta_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6888,0.3112};
+	} static coord_type green() {
+		return coord_type{0.1986, 0.7551};
+	} static coord_type blue() {
+		return coord_type{0.1265, 0.0352 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Bruce_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::Bruce_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6400,0.3300};
+	} static coord_type green() {
+		return coord_type{0.2800, 0.6500};
+	} static coord_type blue() {
+		return coord_type{0.1500, 0.0600 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::CIE_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::CIE_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.7350,0.2650};
+	} static coord_type green() {
+		return coord_type{0.2740, 0.7170};
+	} static coord_type blue() {
+		return coord_type{0.1670, 0.0090 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::ColorMatch_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::ColorMatch_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6300,0.3400};
+	} static coord_type green() {
+		return coord_type{0.2950, 0.6050};
+	} static coord_type blue() {
+		return coord_type{0.1500, 0.0750 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Don_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::Don_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6960,0.3000};
+	} static coord_type green() {
+		return coord_type{0.2150, 0.7650};
+	} static coord_type blue() {
+		return coord_type{0.1300, 0.0350 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::ECI_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::ECI_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6700,0.3300};
+	} static coord_type green() {
+		return coord_type{0.2100, 0.7100};
+	} static coord_type blue() {
+		return coord_type{0.1400, 0.0800 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Ekta_Space_PS5_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::Ekta_Space_PS5_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6950,0.3050};
+	} static coord_type green() {
+		return coord_type{0.2600, 0.7000};
+	} static coord_type blue() {
+		return coord_type{0.1100, 0.0050 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::NTSC_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::NTSC_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6700,0.3300};
+	} static coord_type green() {
+		return coord_type{0.2100, 0.7100};
+	} static coord_type blue() {
+		return coord_type{0.1400, 0.0800 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::PAL_SECAM_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::PAL_SECAM_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6400,0.3300};
+	} static coord_type green() {
+		return coord_type{0.2900, 0.6000};
+	} static coord_type blue() {
+		return coord_type{0.1500, 0.0600 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::ProPhoto_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::ProPhoto_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.7347,0.2653};
+	} static coord_type green() {
+		return coord_type{0.1596, 0.8404};
+	} static coord_type blue() {
+		return coord_type{0.0366, 0.0001 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::SMPTE_C_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::SMPTE_C_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6300,0.3400};
+	} static coord_type green() {
+		return coord_type{0.3100, 0.5950};
+	} static coord_type blue() {
+		return coord_type{0.1550, 0.0700 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::sRGB_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::sRGB_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.6400,0.3300};
+	} static coord_type green() {
+		return coord_type{0.3000, 0.6000};
+	} static coord_type blue() {
+		return coord_type{0.1500, 0.0600 };
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::WideGamut_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::WideGamut_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type red() {
+		return coord_type{0.7350,0.2650};
+	} static coord_type green() {
+		return coord_type{0.1150, 0.8260};
+	} static coord_type blue() {
+		return coord_type{0.1570, 0.0180 };
+	}
+};
+
+template< typename scalar_name, ::color::constant::xyz::space::name_enum name_number = ::color::constant::xyz::space::none_entity >
+struct gamma {
+	typedef scalar_name scalar_type;
+
+	static scalar_type encode(scalar_type const& value) {
+		return value ;
+	}
+
+	static scalar_type decode(scalar_type const& value) {
+		return value;
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::ECI_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type s() {
+		return pow((1+0.16)/ 3, 3) * pow((3 -1) / 0.16, 3 -1);
+	} static scalar_type t() {
+		return 0.16/(3 -1);
+	} static scalar_type encode(scalar_type const& value) {
+		if(value < t()/s()) {
+			return s() * value;
+		}
+		return (1 + 0.16) * pow(value, scalar_type(1) / 3) - 3;
+	} static scalar_type decode(scalar_type const& value) {
+		if(value < t()) {
+			return value / s();
+		}
+		return pow((value + 0.16) / (1 + 0.16), 3);
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::sRGB_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type s() {
+		return pow((1+0.055)/ 2.4, 2.4) * pow((2.4 -1) / 0.055, 2.4 -1);
+	} static scalar_type t() {
+		return 0.055/(2.4 -1);
+	} static scalar_type encode(scalar_type const& value) {
+		if(value < t()/s()) {
+			return s() * value;
+		}
+		return (1 + 0.055) * pow(value, scalar_type(1) / 2.4) - 2.4;
+	} static scalar_type decode(scalar_type const& value) {
+		if(value < t()) {
+			return value / s();
+		}
+		return pow((value + 0.055) / (1 + 0.055), 2.4);
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::Adobe_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.19921875));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.19921875));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::Apple_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(1.8));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(1.8));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::Best_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.2));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.2));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::Beta_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.2));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.2));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::Bruce_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.2));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.2));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::CIE_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.2));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.2));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::ColorMatch_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(1.8));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(1.8));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::Don_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.2));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.2));
+	}
+};
+
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::Ekta_Space_PS5_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.2));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.2));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::NTSC_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.2));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.2));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::PAL_SECAM_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.2));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.2));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::ProPhoto_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(1.8));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(1.8));
+	}
+};
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::SMPTE_C_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.2));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.2));
+	}
+};
+
+template< typename scalar_name > struct gamma< scalar_name, ::color::constant::xyz::space::WideGamut_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type encode(scalar_type const& value) {
+		return pow(value, scalar_type(1) / scalar_type(2.2));
+	} static scalar_type decode(scalar_type const& value) {
+		return pow(value, scalar_type(2.2));
+	}
+};
+
+template< ::color::constant::xyz::space::name_enum name_number >
+struct white {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+
+	static name_type name() {
+		return ::color::constant::xyz::white::D65_entity;
+	}
+	static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity ;
+	}
+};
+template<> struct white<LabGamut_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D65_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D65_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<Adobe_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D65_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D65_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<Apple_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D65_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D65_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<Best_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D50_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D50_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<Beta_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D50_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D50_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<Bruce_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D65_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D65_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<CIE_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::E_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::E_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<ColorMatch_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D50_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D50_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<Don_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D50_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D50_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<ECI_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D50_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D50_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<Ekta_Space_PS5_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D50_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D50_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<NTSC_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::C_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::C_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<PAL_SECAM_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D65_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D65_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<ProPhoto_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D50_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D50_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<SMPTE_C_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D65_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D65_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<sRGB_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D65_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D65_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+template<> struct white<WideGamut_entity> {
+	typedef ::color::constant::xyz::white::name_enum name_type;
+	typedef ::color::constant::xyz::white::degree_enum degree_type;
+	enum { name_entity = ::color::constant::xyz::white::D50_entity };
+	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::white::D50_entity;
+	} static degree_type degree() {
+		return ::color::constant::xyz::white::two_entity;
+	}
+};
+
+}
+}
+}
+}
+
+namespace color {
+namespace constant {
+namespace xyz {
+namespace adopt {
+
+template< typename scalar_name, ::color::constant::xyz::white::name_enum left_number, ::color::constant::xyz::white::name_enum right_number >
+struct matrix {
+
+	static void process(scalar_name &X, scalar_name &Y, scalar_name &Z) {
+	}
+
+};
+}
+}
+}
+}
+
+namespace color {
+namespace constant {
+namespace xyz {
+
+template
+<
+	typename category_name
+	, ::color::constant::xyz::space::name_enum space_number = ::color::constant::xyz::space::sRGB_entity
+	, ::color::constant::xyz::white::name_enum white_number = static_cast< color::constant::xyz::white::name_enum >(::color::constant::xyz::space::white< space_number >::name_entity)
+	, ::color::constant::xyz::white::degree_enum degree_number = static_cast< color::constant::xyz::white::degree_enum >(::color::constant::xyz::space::white< space_number >::degree_entity)
+	>
+struct matrix {
+public:
+	typedef category_name category_type;
+
+	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+
+	typedef ::color::constant::xyz::matrix<category_type> this_type;
+
+	typedef ::color::constant::xyz::space::primary< scalar_type, space_number > system_type;
+
+	typedef ::color::constant::xyz::white::point< scalar_type, white_number, degree_number > wp_type;
+
+	typedef ::color::constant::xyz::adopt::matrix< scalar_type, static_cast< color::constant::xyz::white::name_enum >(::color::constant::xyz::space::white< space_number >::name_entity), white_number > adopt_type;
+
+	static scalar_type const XW() {
+		return wp_type::X();
+	}
+	static scalar_type const YW() {
+		return wp_type::Y();
+	}
+	static scalar_type const ZW() {
+		return wp_type::Z();
+	}
+
+	static scalar_type const xr() {
+		return system_type::red()[0];
+	}
+	static scalar_type const yr() {
+		return system_type::red()[1];
+	}
+	static scalar_type const xg() {
+		return system_type::green()[0];
+	}
+	static scalar_type const yg() {
+		return system_type::green()[1];
+	}
+	static scalar_type const xb() {
+		return system_type::blue()[0];
+	}
+	static scalar_type const yb() {
+		return system_type::blue()[1];
+	}
+
+	static scalar_type const Xr() {
+		return xr()/yr() ;
+	}
+	static scalar_type const Yr() {
+		return scalar_type(1);
+	}
+	static scalar_type const Zr() {
+		return (scalar_type(1)-xr()-yr())/yr();
+	}
+
+	static scalar_type const Xg() {
+		return xg()/yg();
+	}
+	static scalar_type const Yg() {
+		return scalar_type(1);
+	}
+	static scalar_type const Zg() {
+		return (scalar_type(1)-xg()-yg())/yg();
+	}
+
+	static scalar_type const Xb() {
+		return xb()/yb();
+	}
+	static scalar_type const Yb() {
+		return scalar_type(1);
+	}
+	static scalar_type const Zb() {
+		return (scalar_type(1)-xb()-yb())/yb();
+	}
+
+	static scalar_type const detA() {
+		return -yr()*yg()*yb()/((xg()-xb())*yr() + (xb()-xr())*yg() + (xr()-xg())*yb()) ;
+	}
+
+	static scalar_type const A11() {
+		return -detA() * ((xb()-1)*yg() + (1-xg())*yb())/(yb()* yg());
+	}
+	static scalar_type const A21() {
+		return detA() * ((xb()-1)*yr() + (1-xr())*yb())/(yb()* yr());
+	}
+	static scalar_type const A31() {
+		return -detA() * ((xg()-1)*yr() + (1-xr())*yg())/(yg()* yr());
+	}
+
+	static scalar_type const A12() {
+		return -detA() * ((yg()-1)*xb() + (1-yb())*xg())/(yb()* yg());
+	}
+	static scalar_type const A22() {
+		return detA() * ((yr()-1)*xb() + (1-yb())*xr())/(yb()* yr());
+	}
+	static scalar_type const A32() {
+		return -detA() * ((yr()-1)*xg() + (1-yg())*xr())/(yg()* yr());
+	}
+
+	static scalar_type const A13() {
+		return -detA() * (xb()*yg() - xg()*yb()) / (yb()*yg());
+	}
+	static scalar_type const A23() {
+		return detA() * (xb()*yr() - xr()*yb()) / (yb()*yr());
+	}
+	static scalar_type const A33() {
+		return -detA() * (xg()*yr() - xr()*yg()) / (yg()*yr());
+	}
+
+	static scalar_type const Sr() {
+		return A11() * XW() + A12() * YW() + A13() * ZW();
+	}
+	static scalar_type const Sg() {
+		return A21() * XW() + A22() * YW() + A23() * ZW();
+	}
+	static scalar_type const Sb() {
+		return A31() * XW() + A32() * YW() + A33() * ZW();
+	}
+
+	static scalar_type const M11() {
+		return Sr()*Xr();
+	}
+	static scalar_type const M12() {
+		return Sg()*Xg();
+	}
+	static scalar_type const M13() {
+		return Sb()*Xb();
+	}
+	static scalar_type const M21() {
+		return Sr()*Yr();
+	}
+	static scalar_type const M22() {
+		return Sg()*Yg();
+	}
+	static scalar_type const M23() {
+		return Sb()*Yb();
+	}
+	static scalar_type const M31() {
+		return Sr()*Zr();
+	}
+	static scalar_type const M32() {
+		return Sg()*Zg();
+	}
+	static scalar_type const M33() {
+		return Sb()*Zb();
+	}
+
+	static scalar_type const detM() {
+		return M11()*(M22()*M33()-M23()*M32())-M12()*(M21()*M33()-M23()*M31())+M13()*(M21()*M32()-M22()*M31());
+	}
+
+	static scalar_type const Mi11() {
+		return (M22()*M33()-M23()*M32()) / detM();
+	}
+	static scalar_type const Mi12() {
+		return (M13()*M32()-M12()*M33()) / detM();
+	}
+	static scalar_type const Mi13() {
+		return (M12()*M23()-M13()*M22()) / detM();
+	}
+	static scalar_type const Mi21() {
+		return (M23()*M31()-M21()*M33()) / detM();
+	}
+	static scalar_type const Mi22() {
+		return (M11()*M33()-M13()*M31()) / detM();
+	}
+	static scalar_type const Mi23() {
+		return (M13()*M21()-M11()*M23()) / detM();
+	}
+	static scalar_type const Mi31() {
+		return (M21()*M32()-M22()*M31()) / detM();
+	}
+	static scalar_type const Mi32() {
+		return (M12()*M31()-M11()*M32()) / detM();
+	}
+	static scalar_type const Mi33() {
+		return (M11()*M22()-M12()*M21()) / detM();
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace get {
+
+template< typename tag_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<::color::category::xyz<tag_name> >::akin_type >::return_type
+red(::color::model< ::color::category::xyz<tag_name> > const& color_parameter) {
+	typedef ::color::category::xyz<tag_name> category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef ::color::_internal::diverse< akin_type > diverse_type;
+	typedef ::color::_internal::normalize<category_type> normalize_type;
+	enum {
+		red_p = ::color::place::_internal::red<akin_type>::position_enum
+	};
+	scalar_type r = 0;
+	return diverse_type::template process<red_p>(r);
+}
+
+}
+}
+
+namespace color {
+namespace get {
+
+template< typename tag_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<::color::category::xyz<tag_name> >::akin_type >::return_type
+green(::color::model< ::color::category::xyz<tag_name> > const& color_parameter) {
+	typedef ::color::category::xyz<tag_name> category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef ::color::_internal::diverse< akin_type > diverse_type;
+	typedef ::color::_internal::normalize<category_type> normalize_type;
+	enum {
+		green_p = ::color::place::_internal::green<akin_type>::position_enum
+	};
+	scalar_type g = 0;
+	return diverse_type::template process<green_p>(g);
+}
+
+}
+}
+
+namespace color {
+namespace get {
+
+template< typename tag_name >
+inline
+typename ::color::trait::component< typename ::color::akin::rgb<::color::category::xyz<tag_name> >::akin_type >::return_type
+blue(::color::model< ::color::category::xyz<tag_name> > const& color_parameter) {
+	typedef ::color::category::xyz<tag_name> category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
+	typedef ::color::_internal::diverse<akin_type> diverse_type;
+	typedef ::color::_internal::normalize<category_type> normalize_type;
+	enum {
+		blue_p = ::color::place::_internal::blue<akin_type>::position_enum
+	};
+	scalar_type b = 0;
+	return diverse_type::template process<blue_p>(b);
+}
+
+}
+}
+
+namespace color {
+namespace get {
+
+template< typename tag_name >
+inline
+typename ::color::trait::component< typename ::color::akin::gray< ::color::category::xyz<tag_name> >::akin_type >::return_type
+gray(::color::model< ::color::category::xyz<tag_name> > const& color_parameter) {
+	typedef ::color::category::xyz< tag_name > category_type;
+	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
+	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
+	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	return reformat_type::template process<0,0>(color_parameter.template get<0>());
+}
+
+}
+}
+
+namespace color {
+namespace set {
+
+template< typename tag_name >
+inline
+void
+red
 (
-	::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > >::input_const_type percent
+	::color::model< ::color::category::xyz< tag_name > > & color_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyz< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	color_parameter = right_type({ percent/100, 0, 0 });
+	typedef ::color::category::xyz< tag_name > category_type;
+	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
+	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
+	::color::model< akin_type > rgb(color_parameter);
+	rgb.template set< red_p > (component_parameter);
+	color_parameter = rgb;
 }
+
+}
+}
+
+namespace color {
+namespace set {
 
 template< typename tag_name >
 inline
-void gray50(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.5, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void gray
+void
+green
 (
-	::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > >::input_const_type percent
+	::color::model< ::color::category::xyz< tag_name > > & color_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyz< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	color_parameter = right_type({ percent/100, 0, 0 });
+	typedef ::color::category::xyz< tag_name > category_type;
+	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
+	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
+	::color::model< akin_type > rgb(color_parameter);
+	rgb.template set< green_p > (component_parameter);
+	color_parameter = rgb;
 }
+
+}
+}
+
+namespace color {
+namespace set {
 
 template< typename tag_name >
 inline
-void gray50(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.5, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void gray
+void
+blue
 (
-	::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > >::input_const_type percent
+	::color::model< ::color::category::xyz< tag_name > > & color_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyz< tag_name > >::akin_type >::input_const_type component_parameter
 ) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	color_parameter = right_type({ percent/100, 0, 0 });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.5, 0, 0 }));
-	color_parameter = local;
+	typedef ::color::category::xyz< tag_name > category_type;
+	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
+	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
+	::color::model< akin_type > rgb(color_parameter);
+	rgb.template set<blue_p > (component_parameter);
+	color_parameter = rgb;
 }
 
 }
 }
 
 namespace color {
-namespace make {
+namespace set {
 
 template< typename tag_name >
 inline
-void white(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
+void
+gray
+(
+	::color::model< ::color::category::xyz< tag_name > > & color_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::xyz< tag_name > >::akin_type >::input_const_type component_parameter
+) {
+	typedef ::color::category::xyz< tag_name > category_type;
+	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
+	typedef double scalar_type;
+	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	enum {
+		luma_p = ::color::place::_internal::luma<category_type>::position_enum
+	};
+	color_parameter.template set<luma_p>(reformat_type::template process<luma_p,0>(component_parameter));
 }
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.298839, -0.168711680686501, 0.5 }));
-	color_parameter = local;
-}
+template< typename xyz_tag_name, typename gray_tag_name >
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::gray< gray_tag_name >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > category_left_type;
+	typedef ::color::category::gray< gray_tag_name > category_right_type;
+	typedef double scalar_type;
 
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.2126729, -0.114608304367742, 0.5 }));
-	color_parameter = local;
-}
+	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.2627, -0.139630062719251602, 0.5 }));
-	color_parameter = local;
-}
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-}
-}
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-namespace color {
-namespace make {
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		container_left_trait_type::template set<0>(left, 0.5);
+		container_left_trait_type::template set<1>(left, g);
+		container_left_trait_type::template set<2>(left, 0.5);
+	}
 
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.2934055, -0.165644159656749, -0.20922833700106 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.35757605, -0.192695847816129, -0.227082269872331 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.339, -0.180184968640374, -0.229892852298929 }));
-	color_parameter = local;
-}
+};
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.11435, 0.5, -0.0815433259978807 }));
-	color_parameter = local;
-}
+template< typename xyz_tag_name, typename cmy_tag_name >
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::cmy< cmy_tag_name >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::cmy< cmy_tag_name > cmy_category_type, category_right_type;
 
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.072175, 0.5, -0.0458354602553374 }));
-	color_parameter = local;
-}
+	typedef typename ::color::akin::rgb< cmy_category_type >::akin_type rgb_category_type;
 
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.0593, 0.5, -0.0402142954021429 }));
-	color_parameter = local;
-}
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< cmy_category_type > cmy_model_type;
 
-}
-}
+	typedef ::color::model< rgb_category_type > rgb_model_type;
 
-namespace color {
-namespace make {
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.701161, 0.168711680686501, -0.5 }));
-	color_parameter = local;
-}
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.7873271, 0.114608304367742, -0.5 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.7373, 0.139630062719252, -0.5 }));
-	color_parameter = local;
-}
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = xyz_model_type(rgb_model_type(cmy_model_type(right))).container();
+	}
+};
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.413189, 0.331288319313499, 0.418456674002119 }));
-	color_parameter = local;
-}
+template< typename xyz_tag_name, typename cmyk_tag_name >
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::cmyk< cmyk_tag_name >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_right_type;
 
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.2848479, 0.385391695632258, 0.454164539744663 }));
-	color_parameter = local;
-}
+	typedef typename ::color::akin::rgb< cmyk_category_type >::akin_type rgb_category_type;
 
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.322, 0.360369937280748398, 0.459785704597857059 }));
-	color_parameter = local;
-}
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< cmyk_category_type > cmyk_model_type;
 
-}
-}
+	typedef ::color::model< rgb_category_type > rgb_model_type;
 
-namespace color {
-namespace make {
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.88565, -0.5, 0.0815433259978806 }));
-	color_parameter = local;
-}
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.927825, -0.5, 0.0458354602553372 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.9407, -0.5, 0.0402142954021429411 }));
-	color_parameter = local;
-}
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = xyz_model_type(rgb_model_type(cmyk_model_type(right))).container();
+	}
+};
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.701161, 0.168711680686501, -0.5 }));
-	color_parameter = local;
-}
+template< typename xyz_tag_name, typename hsl_tag_name >
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::hsl< hsl_tag_name >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_right_type;
 
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.7873271, 0.114608304367742, -0.5 }));
-	color_parameter = local;
-}
+	typedef typename ::color::akin::rgb< hsl_category_type >::akin_type rgb_category_type;
 
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.7373, 0.139630062719251602, -0.5 }));
-	color_parameter = local;
-}
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< hsl_category_type > hsl_model_type;
 
-}
-}
+	typedef ::color::model< rgb_category_type > rgb_model_type;
 
-namespace color {
-namespace make {
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.413189, 0.331288319313499, 0.418456674002119 }));
-	color_parameter = local;
-}
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.2848479, 0.385391695632258, 0.454164539744663 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.322, 0.360369937280748, 0.459785704597857 }));
-	color_parameter = local;
-}
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = xyz_model_type(rgb_model_type(hsl_model_type(right))).container();
+	}
+};
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.586811, -0.331288319313499, -0.418456674002119 }));
-	color_parameter = local;
-}
+template< typename xyz_tag_name, typename hsv_tag_name >
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::hsv< hsv_tag_name >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_right_type;
 
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.7151521, -0.385391695632258, -0.454164539744663 }));
-	color_parameter = local;
-}
+	typedef typename ::color::akin::rgb< hsv_category_type >::akin_type rgb_category_type;
 
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.678, -0.360369937280748, -0.459785704597857 }));
-	color_parameter = local;
-}
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< hsv_category_type > hsv_model_type;
 
-}
-}
+	typedef ::color::model< rgb_category_type > rgb_model_type;
 
-namespace color {
-namespace make {
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.1494195, -0.0843558403432507, 0.25 }));
-	color_parameter = local;
-}
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.10633645, -0.0573041521838709, 0.25 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.13135, -0.069815031359625801, 0.25 }));
-	color_parameter = local;
-}
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = xyz_model_type(rgb_model_type(hsv_model_type(right))).container();
+	}
+};
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.057175, 0.25, -0.0407716629989403 }));
-	color_parameter = local;
-}
+template< typename xyz_tag_name, typename hsi_tag_name >
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::hsi< hsi_tag_name >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_right_type;
 
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.0360875, 0.25, -0.0229177301276687 }));
-	color_parameter = local;
-}
+	typedef typename ::color::akin::rgb< hsi_category_type >::akin_type rgb_category_type;
 
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.02965, 0.25, -0.0201071477010714705 }));
-	color_parameter = local;
-}
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< hsi_category_type > hsi_model_type;
 
-}
-}
+	typedef ::color::model< rgb_category_type > rgb_model_type;
 
-namespace color {
-namespace make {
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.442825, -0.25, 0.0407716629989403 }));
-	color_parameter = local;
-}
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.4639125, -0.25, 0.0229177301276686 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.47035, -0.25, 0.0201071477010714705 }));
-	color_parameter = local;
-}
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = xyz_model_type(rgb_model_type(hsi_model_type(right))).container();
+	}
+};
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.68026615, -0.384049088240276, 0.228003161898622 }));
-	color_parameter = local;
-}
+template
+<
+	typename xyz_tag_name
+	,typename rgb_tag_name
+	>
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::rgb< rgb_tag_name >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > category_left_type;
+	typedef ::color::category::rgb< rgb_tag_name > category_right_type;
+	typedef double scalar_type;
 
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.677521765, -0.36511290652871, 0.204793049165969 }));
-	color_parameter = local;
-}
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.7034, -0.373870521951738088, 0.201139292011392912 }));
-	color_parameter = local;
-}
+	typedef ::color::constant::xyz::matrix< category_left_type > xyz_matrix_type;
+	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 
-}
-}
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-namespace color {
-namespace make {
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.2065945, 0.165644159656749, 0.20922833700106 }));
-	color_parameter = local;
-}
+	enum {
+		red_p = ::color::place::_internal::red<category_right_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_right_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_right_type>::position_enum
+	};
 
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.14242395, 0.192695847816129, 0.227082269872331 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.161, 0.180184968640374255, 0.229892852298928529 }));
-	color_parameter = local;
-}
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static const scalar_type b11 = xyz_matrix_type::M11(), b12 = xyz_matrix_type::M12(), b13 = xyz_matrix_type::M13();
+		static const scalar_type b21 = xyz_matrix_type::M21(), b22 = xyz_matrix_type::M22(), b23 = xyz_matrix_type::M23();
+		static const scalar_type b31 = xyz_matrix_type::M31(), b32 = xyz_matrix_type::M32(), b33 = xyz_matrix_type::M33();
+		scalar_type r = normalize_type::template process<red_p >(container_right_trait_type::template get<red_p >(right));
+		scalar_type g = normalize_type::template process<green_p>(container_right_trait_type::template get<green_p>(right));
+		scalar_type b = normalize_type::template process<blue_p >(container_right_trait_type::template get<blue_p >(right));
+		scalar_type x = b11 * r + b12 * g + b13 * b;
+		scalar_type y = b21 * r + b22 * g + b23 * b;
+		scalar_type z = b31 * r + b32 * g + b33 * b;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(x));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(y));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(z));
+	}
+};
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.75, 0, 0 }));
-	color_parameter = local;
+template< typename tag_left_name, typename tag_right_name >
+struct convert
+	<
+	::color::category::xyz< tag_left_name >
+	,::color::category::xyz< tag_right_name>
+	> {
+public:
+	typedef ::color::category::xyz< tag_left_name > category_left_type;
+	typedef ::color::category::xyz< tag_right_name> category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	enum {
+		ll_p = ::color::place::_internal::luma<category_left_type>::position_enum
+		,il_p = ::color::place::_internal::inphase<category_left_type>::position_enum
+		,ql_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
+	};
+
+	enum {
+		lr_p = ::color::place::_internal::luma<category_right_type>::position_enum
+		,ir_p = ::color::place::_internal::inphase<category_right_type>::position_enum
+		,qr_p = ::color::place::_internal::quadrature<category_right_type>::position_enum
+	};
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<ll_p>(left, reformat_type::template process<ll_p,lr_p>(container_right_trait_type::template get<lr_p>(right)));
+		container_left_trait_type::template set<il_p>(left, reformat_type::template process<il_p,ir_p>(container_right_trait_type::template get<ir_p>(right)));
+		container_left_trait_type::template set<ql_p>(left, reformat_type::template process<ql_p,qr_p>(container_right_trait_type::template get<qr_p>(right)));
+	}
+};
+}
 }
 
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.75, 0, 0 }));
-	color_parameter = local;
-}
+namespace color {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.75, 0, 0 }));
-	color_parameter = local;
-}
+template
+<
+	typename xyz_tag_name
+	,typename yuv_tag_name, ::color::constant::yuv::reference_enum reference_number
+	>
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::yuv< yuv_tag_name, reference_number >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::yuv< yuv_tag_name, reference_number > yuv_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< yuv_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< yuv_category_type > yuv_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = xyz_model_type(rgb_model_type(yuv_model_type(right))).container();
+	}
+};
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.3505805, 0.0843558403432507, -0.25 }));
-	color_parameter = local;
-}
+template< typename xyz_tag_name, typename YCgCo_tag_name >
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_right_type;
 
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.39366355, 0.0573041521838709, -0.25 }));
-	color_parameter = local;
-}
+	typedef typename ::color::akin::rgb< YCgCo_category_type >::akin_type rgb_category_type;
 
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.36865, 0.0698150313596257455, -0.25 }));
-	color_parameter = local;
-}
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< YCgCo_category_type > YCgCo_model_type;
 
-}
-}
+	typedef ::color::model< rgb_category_type > rgb_model_type;
 
-namespace color {
-namespace make {
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.684801615686274, 0.140310347003364, 0.177228708989133 }));
-	color_parameter = local;
-}
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.630445385098039, 0.163224718150133, 0.192352040362445 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.646180392156862737, 0.152627267554199308, 0.194732769006151218 }));
-	color_parameter = local;
-}
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = xyz_model_type(rgb_model_type(YCgCo_model_type(right))).container();
+	}
+};
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.831297950980392, 4.211485305472E-05, -0.236249556792514 }));
-	color_parameter = local;
-}
+template< typename xyz_tag_name, typename YDbDr_tag_name >
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_right_type;
 
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.88149286372549, -0.0270095733063251, -0.242270883172629 }));
-	color_parameter = local;
-}
+	typedef typename ::color::akin::rgb< YDbDr_category_type >::akin_type rgb_category_type;
 
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.858650392156863, -0.0144986941305703, -0.243218765873364 }));
-	color_parameter = local;
-}
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< YDbDr_category_type > YDbDr_model_type;
 
-}
-}
+	typedef ::color::model< rgb_category_type > rgb_model_type;
 
-namespace color {
-namespace make {
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.9813225625, 0.0105444800429064, -0.03125 }));
-	color_parameter = local;
-}
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.98670794375, 0.00716301902298389, -0.0312500000000001 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.98358125, 0.00872687891995316, -0.03125 }));
-	color_parameter = local;
-}
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = xyz_model_type(rgb_model_type(YDbDr_model_type(right))).container();
+	}
+};
 
 }
 }
 
 namespace color {
-namespace make {
+namespace _internal {
 
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.949573529411765, -0.0490196078431372, 0.00799444372528235 }));
-	color_parameter = local;
-}
+template
+<
+	typename xyz_tag_name
+	,typename YPbPr_tag_name ,::color::constant::YPbPr::reference_enum YPbPr_reference_number
+	>
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_right_type;
 
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.953708333333333, -0.0490196078431372, 0.00449367257405264 }));
-	color_parameter = local;
-}
+	typedef typename ::color::akin::rgb< YPbPr_category_type >::akin_type rgb_category_type;
 
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.954970588235294, -0.0490196078431372, 0.00394257798060227 }));
-	color_parameter = local;
-}
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< YPbPr_category_type > YPbPr_model_type;
 
-}
-}
+	typedef ::color::model< rgb_category_type > rgb_model_type;
 
-namespace color {
-namespace make {
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.898061125, -0.0835889600858126, 0.072692915749735 }));
-	color_parameter = local;
-}
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.8925622375, -0.0768260380459677, 0.0682294325319172 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.900425, -0.0799537578399064, 0.0675267869252678 }));
-	color_parameter = local;
-}
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = xyz_model_type(rgb_model_type(YPbPr_model_type(right))).container();
+	}
+};
 
 }
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.308851752941177, -0.0813785753899595, 0.241176470588235 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.267289281176471, -0.0552816526950284, 0.241176470588235 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.29142, -0.0673509714292861, 0.241176470588235 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.501183705882353, -0.216528339106206, 0.229865684117024 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.478107958823529, -0.19425047826907, 0.219363370663334 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.502494117647059, -0.204553555237339, 0.217710086882983 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.627693, -0.179355840343251, 0.265493231939597 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.5926232, -0.152304152183871, 0.258708737448514 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.620083, -0.164815031359626, 0.257640716126407 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.330752156862745, -0.0538915142639227, 0.379365752784646 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.256555215686275, -0.0114574936217582, 0.384966986626614 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.293772549019608, -0.0310824021327464, 0.385848737976135 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.858823529411765, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.858823529411765, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.858823529411765, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.793601215686275, -0.448033204813569, 0.147183588586448 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.815644278431372, -0.439546400685136, 0.117076956685873 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.83434705882353, -0.443471382387334, 0.112337543182199 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.146189901960784, 0.20528087822946, 0.105487716157943 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.0993459509803922, 0.221193635970272, 0.123691726144338 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.107496078431372544, 0.213834295278651498, 0.12655741803028 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.992853125, -0.03125, 0.00509645787486745 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.9954890625, -0.03125, 0.00286471626595852 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.99629375, -0.03125, 0.00251339346263390606 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.8711839625, -0.181326688025744, 0.0472901640992582 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.88271398375, -0.17929781141379, 0.034792411089368 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.88909625, -0.18023612735197192, 0.03282500339075 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.910929411764706, 0.0392156862745099, -0.00639555498022598 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.907621568627451, 0.0392156862745098, -0.00359493805924221 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.90661176470588245, 0.0392156862745096646, -0.00315406238448184828 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.946029724264706, -0.0259864078725827, 0.0245039531562929 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.943915436887255, -0.0236657973687144, 0.0231649081909476 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.946544019607843, -0.0247390345529091, 0.0229541145089529 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.904683149019608, -0.110020452464845, 0.0679707306741191 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.903333110980392, -0.104291859678153, 0.0613892809098072 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.911003137254902007, -0.106941222327136487, 0.0603532230741203879 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.609178956862745, 0.129868869989141, 0.17522580685575 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.556490891764706, 0.152358900929488, 0.189508953152767 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.572136470588235357, 0.141957699418663985, 0.191757419094044756 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.57280042, -0.18223927059222, 0.162016698019428 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.560061162, -0.167090325222968, 0.152375574268941 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.577545, -0.174096417561390493, 0.150857859758578572 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.831704733333333, -0.0201130818950964, 0.120011856525582 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.808597324313726, -0.00674636539281465, 0.121552195832123 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.820401568627451061, -0.0129282115737759384, 0.121794677453240907 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.726292270588235, 0.0792493626593076, 0.100101400447566 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.69559106627451, 0.0921917389551676, 0.108643282056566 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.704478431372549063, 0.0862061418593162987, 0.109987952864585403 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.637506088235294, -0.107518356408221, 0.244513078043025 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.59834536372549, -0.0815275187648955, 0.242622661621361 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.623059607843137186, -0.093547775227875829, 0.242325070540897691 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.396386243137255, -0.124154945464891, 0.164772953184006 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.376149063529412, -0.107605677414446, 0.159591811880186 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.393319607843137242, -0.115259391733731897, 0.158776191881879525 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.986251745098039, -0.00330807217032353, 0.00980392156862742 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.98456221372549, -0.00224722165426944, 0.00980392156862742 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.985543137254901946, -0.00273784436704421763, 0.00980392156862741615 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.72310262745098, -0.0982798055709609, 0.0716146393722166 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.719581125490196, -0.0919147024746362, 0.0660134055302489 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.727486274509803965, -0.094858438751284524, 0.0651316541807283045 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.789528333333333, 0.0324792469915195, 0.0410251641178547 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.77694587254902, 0.0377834995717901, 0.0445259352690845 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.780588235294117694, 0.0353303860079164922, 0.0450770298625349231 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.558498368627451, -0.158113812498409, 0.314836129913493 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.510415970196078, -0.12501527639752, 0.310915266224115 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.542434509803921605, -0.140322705036091178, 0.31029804027945096 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.68107875, 0.0741948004290635, -0.307403542125132 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.7375685, 0.0403801902298386, -0.309635283734041 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.70710625, 0.0560187891995322929, -0.309986606537366094 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.878259792156863, -0.0995308574736845, 0.058848482423172 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.877599810588235, -0.0946509450998355, 0.0528271560430569 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > > & color_parameter) {
-	typedef ::color::category::YPbPr< tag_name, ::color::constant::YPbPr::BT_2020_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity > right_type;
-	static left_type local(right_type({ 0.884283137254902041, -0.0969078095785992355, 0.0518792733423221186 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template
+<
+	typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
+	,typename xyz_tag_name
+	>
+struct convert
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< xyz_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< YPbPr_category_type > YPbPr_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = YPbPr_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
 
 }
 }
@@ -20596,782 +21941,39 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::YDbDr< tag_name > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::YDbDr< tag_name > >::input_const_type percent
-) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	color_parameter = right_type({ percent/100, 0, 0 });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.5, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.298839, 0.634344563039438, -1.88026376146789 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.2934055, 0.62281089044893, 0.786808919870568 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.11435, -1.8799663439373, 0.306645921726755 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.701161, -0.634344563039438, 1.88026376146789 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.413189, -1.24562178089786, -1.57361783974114 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.88565, 1.8799663439373, -0.306645921726755 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.701161, -0.634344563039438, 1.88026376146789 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.413189, -1.24562178089786, -1.57361783974114 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.586811, 1.24562178089786, 1.57361783974114 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.1494195, 0.317172281519719, -0.940131880733945 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.057175, -0.939983171968649, 0.153322960863377 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.442825, 0.939983171968649, -0.153322960863377 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.68026615, 1.44399872062305, -0.857412165636152 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.2065945, -0.62281089044893, -0.786808919870568 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.75, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.3505805, -0.317172281519719, 0.940131880733945 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.684801615686274, -0.527557460144976, -0.666473438008011 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.831297950980392, -0.000158349012645331, 0.88842296059963 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.9813225625, -0.0396465351899651, 0.117516485091743 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.949573529411765, 0.184310425876206, -0.0300633256594856 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.898061125, 0.314288863372092, -0.273363710399331 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.308851752941177, 0.305977965701376, -0.906950755531571 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.501183705882353, 0.814131980056621, -0.86441623170053 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.627693, 0.674365886867806, -0.998394605862028 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.330752156862745, 0.202628466079983, -1.42661535460591 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.858823529411765, -2.22044604925031E-16, -2.22044604925031E-16 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.793601215686275, 1.68457469203175, -0.553487935803796 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.146189901960784, -0.771842284250553, -0.396689459943583 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.992853125, 0.117497896496081, -0.0191653701079222 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.8711839625, 0.681776141492034, -0.17783596365941 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.910929411764706, -0.147448340700965, 0.0240506605275885 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.946029724264706, 0.0977071444005653, -0.0921477902649694 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.904683149019608, 0.413669495557325, -0.25560580345408 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.609178956862745, -0.488298209409506, -0.658941469409676 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.57280042, 0.685207390514113, -0.609268252077233 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.831704733333333, 0.0756238340712723, -0.45130788954307 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.726292270588235, -0.297972269155959, -0.376434071467487 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.637506088235294, 0.404261782805822, -0.91949815969854 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.396386243137255, 0.46681423781473, -0.619633225483864 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.986251745098039, 0.0124381286870472, -0.0368679168915278 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.72310262745098, 0.369525453524216, -0.269308822404341 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.789528333333333, -0.122119782440967, -0.15427625879815 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.558498368627451, 0.594497292017242, -1.18394993175427 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.68107875, -0.278967455403568, 1.15599948080951 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::YDbDr< tag_name > > & color_parameter) {
-	typedef ::color::category::YDbDr< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YDbDr< double > right_type;
-	static left_type local(right_type({ 0.878259792156863, 0.374229324467494, -0.221301337835341 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template< typename YDbDr_tag_name, typename xyz_tag_name >
+struct convert
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< xyz_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< YDbDr_category_type > YDbDr_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = YDbDr_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
 
 }
 }
@@ -21457,782 +22059,39 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::YCgCo< tag_name > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::YCgCo< tag_name > >::input_const_type percent
-) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	color_parameter = right_type({ percent/100, 0, 0 });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.5, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.25, -0.25, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.25, 0.25, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.25, -0.25, -0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.75, 0.25, -0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.5, -0.5, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.75, 0.25, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.75, 0.25, -0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.5, -0.5, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.5, 0.5, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.125, -0.125, 0.25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.125, -0.125, -0.25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.375, 0.125, 0.25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.575, 0.075, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.25, -0.25, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.75, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.375, 0.125, -0.25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.721568627, -0.211764706, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.832843137, 0.167156863, -0.165686275 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.984375, 0.015625, -0.03125 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.93627451, 0.0245098039, 0.0490196078 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.875, 0, 0.125 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.285294118, -0.120588235, 0.241176471 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.441176471, -0.0294117647, 0.352941176 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.5775, -0.0775, 0.345 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.31372549, -0.235294118, 0.31372549 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.858823529, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.671568627, 0.171568627, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.200980392, -0.200980392, -0.107843137 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.984375, 0.015625, 0.03125 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.821875, 0.078125, 0.19375 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.921568627, -0.0196078431, -0.0392156863 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.938848039, -0.00134803922, 0.0401960784 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.874509804, 0.0196078431, 0.145098039 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.643137255, -0.203921569, 0.00784313725 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.5225, -0.0025, 0.275 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.825490196, -0.0725490196, 0.101960784 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.747058824, -0.119607843, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.606862745, -0.106862745, 0.266666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.361764706, -0.0401960784, 0.225490196 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.985294118, -0.00490196078, 0.00980392157 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.696078431, 0.00980392157, 0.137254902 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.798039216, -0.0490196078, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.51372549, -0.125490196, 0.360784314 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.703125, 0.171875, -0.28125 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::YCgCo< tag_name > > & color_parameter) {
-	typedef ::color::category::YCgCo< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::YCgCo< double > right_type;
-	static left_type local(right_type({ 0.850980392, 0.0196078431, 0.129411765 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template< typename YCgCo_tag_name, typename xyz_tag_name >
+struct convert
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< xyz_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< YCgCo_category_type > YCgCo_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = YCgCo_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
 
 }
 }
@@ -22364,1275 +22223,43 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > >::input_const_type percent
-) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	color_parameter = right_type({ percent/100, 0, 0 });
-}
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > >::input_const_type percent
-) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	color_parameter = right_type({ percent/100, 0, 0 });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.5, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.5, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.298839, -0.14711658555862928, 0.615 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.2126729, -0.099938441408670808, 0.615 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.2934055, -0.144441707, -0.257350855 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.35757605, -0.168030779, -0.279311192 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.11435, 0.436, -0.100298291 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.072175, 0.436, -0.0563776161 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.701161, 0.147116586, -0.615 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.7873271, 0.0999384414, -0.615 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.413189, 0.288883414, 0.514701709 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.2848479, 0.336061559, 0.558622384 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.88565, -0.436, 0.100298291 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.927825, -0.436, 0.0563776161 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.701161, 0.147116586, -0.615 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.7873271, 0.0999384414, -0.615 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.413189, 0.288883414, 0.514701709 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.2848479, 0.336061559, 0.558622384 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.586811, -0.288883414, -0.514701709 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.7151521, -0.336061559, -0.558622384 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.1494195, -0.0735582928, 0.3075 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.10633645, -0.0499692207, 0.3075 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.057175, 0.218, -0.0501491455 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.0360875, 0.218, -0.0281888081 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.442825, -0.218, 0.0501491455 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.4639125, -0.218, 0.0281888081 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.68026615, -0.334890805, 0.280443889 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.677521765, -0.318378454, 0.25189545 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.2065945, 0.144441707, 0.257350855 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.14242395, 0.168030779, 0.279311192 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.75, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.75, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.3505805, 0.0735582928, -0.3075 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.39366355, 0.0499692207, -0.3075 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.684801616, 0.122350623, 0.217991312 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.630445385, 0.142331954, 0.23659301 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.831297951, 3.67241519E-05, -0.290586955 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.881492864, -0.0235523479, -0.297993186 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.981322562, 0.0091947866, -0.0384375 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.986707944, 0.00624615259, -0.0384375 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.949573529, -0.042745098, 0.00983316578 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.953708333, -0.042745098, 0.00552721727 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.898061125, -0.0728895732, 0.0894122864 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.892562237, -0.0669923052, 0.083922202 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.308851753, -0.0709621177, 0.296647059 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.267289281, -0.0482056012, 0.296647059 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.501183706, -0.188812712, 0.282734791 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.478107959, -0.169386417, 0.269816946 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.627693, -0.156398293, 0.326556675 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.5926232, -0.132809221, 0.318211747 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.330752157, -0.0469934004, 0.466619876 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.256555216, -0.00999093444, 0.473509394 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.858823529, 0, 0 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.858823529, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.793601216, -0.390684955, 0.181035814 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.815644278, -0.383284461, 0.144004657 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.146189902, 0.179004926, 0.129749891 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.099345951, 0.192880851, 0.152140823 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.992853125, -0.02725, 0.00626864319 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.995489062, -0.02725, 0.00352360101 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.871183963, -0.158116872, 0.0581669018 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.882713984, -0.156347692, 0.0427946656 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.910929412, 0.0341960784, -0.00786653263 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.907621569, 0.0341960784, -0.00442177381 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.946029724, -0.0226601477, 0.0301398624 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.943915437, -0.0206365753, 0.0284928371 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.904683149, -0.0959378345, 0.0836039987 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.903333111, -0.0909425016, 0.0755088155 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.609178957, 0.113245655, 0.215527742 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.556490892, 0.132856962, 0.233096012 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.57280042, -0.158912644, 0.199280539 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.560061162, -0.145702764, 0.187421956 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.831704733, -0.0175386074, 0.147614584 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.808597324, -0.00588283062, 0.149509201 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.726292271, 0.0691054442, 0.123124723 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.695591066, 0.0803911964, 0.133631237 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.637506088, -0.0937560068, 0.300751086 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.598345364, -0.0710919964, 0.298425874 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.396386243, -0.108263112, 0.202670732 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.376149064, -0.0938321507, 0.196297929 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.986251745, -0.00288463893, 0.0120588235 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.984562214, -0.00195957728, 0.0120588235 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.723102627, -0.0856999905, 0.0880860064 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.719581125, -0.0801496206, 0.0811964888 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.789528333, 0.0283219034, 0.0504609519 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.776945873, 0.0329472116, 0.0547669004 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.558498369, -0.137875244, 0.38724844 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.51041597, -0.109013321, 0.382425777 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.68107875, 0.064697866, -0.378106357 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.7375685, 0.0352115259, -0.380851399 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_601_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_601_entity > right_type;
-	static left_type local(right_type({ 0.878259792, -0.0867909077, 0.0723836334 }));
-	color_parameter = local;
-}
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > > & color_parameter) {
-	typedef ::color::category::yuv< tag_name, ::color::constant::yuv::BT_709_entity > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yuv< double, ::color::constant::yuv::BT_709_entity > right_type;
-	static left_type local(right_type({ 0.877599811, -0.0825356241, 0.0649774019 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template
+<
+	typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
+	,typename xyz_tag_name
+	>
+struct convert
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< xyz_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< yuv_category_type > yuv_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = yuv_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
 
 }
 }
@@ -23799,782 +22426,39 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::yiq< tag_name > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::yiq< tag_name > >::input_const_type percent
-) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	color_parameter = right_type({ percent/100, 0, 0 });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.5, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.299, 0.595716135, 0.211456402 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.2935, -0.137226419, -0.261295523 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.114, -0.321263297, 0.311134643 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.701, -0.595716135, -0.211456402 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.413, 0.274452838, 0.522591045 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.886, 0.321263297, -0.311134643 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.701, -0.595716135, -0.211456402 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.413, 0.274452838, 0.522591045 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.587, -0.274452838, -0.522591045 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.1495, 0.297858067, 0.105728201 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.057, -0.160631649, 0.155567322 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.443, 0.160631649, -0.155567322 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.68055, 0.41732179, -0.128227777 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.2065, 0.137226419, 0.261295523 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.75, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.3505, -0.297858067, -0.105728201 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.684721569, 0.116238849, 0.221332678 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.831276471, -0.243684257, -0.158194043 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.9813125, -0.0372322584, -0.0132160251 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.949607843, 0.0314964017, -0.0305033964 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.898125, 0.114622429, -0.0124597801 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.308929412, 0.28734543, 0.101996617 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.501352941, 0.339784084, -0.00443990594 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.62784, 0.358898094, 0.0466126189 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.330823529, 0.416834098, 0.214653593 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.858823529, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.793921569, 0.364314723, -0.229159577 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.146058824, 0.0114293392, 0.220810721 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.992875, 0.0200789561, -0.0194459152 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.8713125, 0.134781509, -0.10096751 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.910901961, -0.0251971213, 0.0244027171 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.946049755, 0.0375989235, -0.00259772795 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.904764706, 0.122289061, -0.0349568838 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.609105882, 0.119125702, 0.212353381 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.57294, 0.253541608, -0.0247985611 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.831729412, 0.133318511, 0.0656636643 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.726247059, 0.065653424, 0.125011976 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.637601961, 0.303185416, 0.085110163 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.396486275, 0.228833728, 0.0195357552 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.986254902, 0.0116807085, 0.00414620396 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.723176471, 0.120478494, -0.0239282104 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.789509804, 0.026907141, 0.0512344162 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.558635294, 0.399714076, 0.0951977597 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.681, -0.352243628, -0.151606167 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::yiq< tag_name > > & color_parameter) {
-	typedef ::color::category::yiq< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::yiq< double > right_type;
-	static left_type local(right_type({ 0.878333333, 0.10790507, -0.0333933036 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template< typename yiq_tag_name, typename xyz_tag_name >
+struct convert
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< xyz_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< yiq_category_type > yiq_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = yiq_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
 
 }
 }
@@ -24778,782 +22662,39 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::hsi< tag_name > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::hsi< tag_name > >::input_const_type percent
-) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	color_parameter = right_type({ 0, 0, percent });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 0, 0, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 0, 0, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 0, 100, 33.3333333333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 120, 100, 16.6666666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 240, 100, 33.3333333333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 180, 100, 66.6666666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 300, 100, 66.6666666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 60, 100, 66.6666666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 180, 100, 66.6666666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 300, 100, 66.6666666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 120, 100, 33.3333333333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 0, 100, 16.6666666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 240, 100, 16.6666666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 60, 100, 33.3333333333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 39.8264298158323, 100, 55 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 300, 100, 33.3333333333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 0, 0, 75 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 180, 100, 33.3333333333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 300, 35.6435643564356, 79.2156862745098 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 160.643002968537, 35.6602186711522, 77.7124183006536 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 180, 4.25531914893616, 97.9166666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 60, 7.04225352112675, 92.8104575163399 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 30, 14.2857142857143, 87.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 0, 49.3975903614458, 32.5490196078431 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 24.5036334553454, 73.9130434782609, 45.0980392156863 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 15.4585662302195, 48.6187845303867, 60.3333333333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 349.106605350869, 80, 39.2156862745098 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 0, 0, 85.8823529411765 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 51.6144995377367, 100, 61.437908496732 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 275.075869004687, 100, 26.797385620915 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 60, 4.25531914893616, 97.9166666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 54.9669249507772, 30.8900523560209, 79.5833333333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 240, 2.81690140845069, 92.8104575163399 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 27.7823454632368, 4.18370009567713, 93.9297385620915 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 38.8689477166939, 18.2228915662651, 86.797385620915 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 301.907740859608, 38.2352941176471, 71.1111111111111 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 29.3985723862595, 52.2292993630573, 52.3333333333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 350.593001411798, 11.3846153846154, 84.9673202614379 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 300, 20.265780730897, 78.6928104575163 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 5.16863865657542, 30.4170905391658, 64.2483660130719 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 18.3688082063497, 52.9616724738676, 37.516339869281 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 0, 0.662251655629142, 98.6928104575163 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 34.7150039539482, 20.754716981132, 69.281045751634 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 300, 8.02568218298556, 81.437908496732 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 8.11788014496578, 49.8823529411765, 55.5555555555556 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 174.791280897145, 61.2903225806452, 64.5833333333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::hsi< tag_name > > & color_parameter) {
-	typedef ::color::category::hsi< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsi< double > right_type;
-	static left_type local(right_type({ 39.9237230568033, 16.8730650154799, 84.4444444444444 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template< typename hsi_tag_name, typename xyz_tag_name >
+struct convert
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< xyz_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< hsi_category_type > hsi_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = hsi_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
 
 }
 }
@@ -25871,782 +23012,39 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::hsv< tag_name > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::hsv< tag_name > >::input_const_type percent
-) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	color_parameter = right_type({ 0, 0, percent });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 0, 0, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 0, 0, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 0, 100, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 120, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 240, 100, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 180, 100, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 300, 100, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 60, 100, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 180, 100, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 300, 100, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 120, 100, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 0, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 240, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 60, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 39, 100, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 300, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 0, 0, 75 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 180, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 300, 45.3781513, 93.3333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 159.764706, 50, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 180, 6.25, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 60, 10.2040816, 96.0784314 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 30, 25, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 0, 74.5454545, 64.7058824 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 25, 85.7142857, 82.3529412 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 16.5217391, 69, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 348, 90.9090909, 86.2745098 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 0, 0, 85.8823529 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 50.5882353, 100, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 274.615385, 100, 50.9803922 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 60, 6.25, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 54.1935484, 41.3333333, 93.75 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 240, 8, 98.0392157 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 27.9878049, 8.2, 98.0392157 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 38.1081081, 29.0196078, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 302.264151, 48.6238532, 85.4901961 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 29.4545455, 68.75, 80 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 349.52381, 24.7058824, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 300, 27.60181, 86.6666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 5.95588235, 54.4, 98.0392157 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 19.3043478, 71.875, 62.745098 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 0, 1.96078431, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 34.2857143, 33.3333333, 82.3529412 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 300, 11.5740741, 84.7058824 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 9.13043478, 72.1568627, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 174, 71.4285714, 87.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::hsv< tag_name > > & color_parameter) {
-	typedef ::color::category::hsv< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsv< double > right_type;
-	static left_type local(right_type({ 39.0909091, 26.9387755, 96.0784314 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template< typename hsv_tag_name, typename xyz_tag_name >
+struct convert
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< xyz_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< hsv_category_type > hsv_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = hsv_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
 
 }
 }
@@ -27009,782 +23407,39 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::hsl< tag_name > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::hsl< tag_name > >::input_const_type percent
-) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	color_parameter = right_type({ 0, 0, percent });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 0, 0, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 0, 0, 100 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 0, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 120, 100, 25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 240, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 180, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 300, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 60, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 180, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 300, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 120, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 0, 100, 25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 240, 100, 25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 60, 100, 25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 39, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 300, 100, 25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 0, 0, 75 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 180, 100, 25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 300, 76.056338, 72.1568627 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 159.764706, 100, 75 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 180, 100, 96.875 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 60, 55.5555556, 91.1764706 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 30, 100, 87.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 0, 59.4202899, 40.5882353 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 25, 75, 47.0588235 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 16.5217391, 100, 65.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 348, 83.3333333, 47.0588235 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 0, 0, 85.8823529 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 50.5882353, 100, 50 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 274.615385, 100, 25.4901961 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 60, 100, 96.875 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 54.1935484, 75.6097561, 74.375 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 240, 66.6666667, 94.1176471 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 27.9878049, 67.2131148, 94.0196078 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 38.1081081, 100, 85.4901961 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 302.264151, 58.8888889, 64.7058824 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 29.4545455, 57.8947368, 52.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 349.52381, 100, 87.6470588 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 300, 47.2868217, 74.7058824 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 5.95588235, 93.1506849, 71.372549 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 19.3043478, 56.097561, 40.1960784 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 0, 100, 99.0196078 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 34.2857143, 43.75, 68.627451 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 300, 24.2718447, 79.8039216 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 9.13043478, 100, 63.9215686 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 174, 71.4285714, 56.25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::hsl< tag_name > > & color_parameter) {
-	typedef ::color::category::hsl< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::hsl< double > right_type;
-	static left_type local(right_type({ 39.0909091, 76.744186, 83.1372549 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template< typename hsl_tag_name, typename xyz_tag_name >
+struct convert
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< xyz_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< hsl_category_type > hsl_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = hsl_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
 
 }
 }
@@ -28373,769 +24028,56 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0x00, 0x00, 0x00 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0.5, 0.5, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 1, 1, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0, 0.5, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0, 0, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0, 1, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 1, 0, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 1, 1, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0x00, 0xFF, 0xFF }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 1, 0, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0, 1, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0.5, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0, 0, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0.5, 0.5, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 1, 0.65, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0.5, 0, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0.75, 0.75, 0.75 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0, 0.5, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xEE, 0x82, 0xEE }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0.5, 1, 212.0/255.0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0.9375, 1, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xF5, 0xF5, 0xDC }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 1, 0.875, 0.75 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xA5, 0x2A, 0x2A }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xD2, 0x69, 0x1E }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 1, 0.5, 0.31 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xDC, 0x14, 0x3C }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xDB, 0xDB, 0xDB }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xFF, 0xD7, 0x00 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0x4B, 0x00, 0x82 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 1, 1, 0.9375 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0.9375, 0.9, 0.55 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xE6, 0xE6, 0xFA }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 250.0/255.0, 0.9375, 0.9 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xFF, 0xE4, 0xB5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xDA, 0x70, 0xD6 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0.8, 0.52, 0.25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xFF, 0xC0, 0xCB }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xDD, 0xA0, 0xDD }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 250/255.0, 0.5, 114/255.0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xA0, 0x52, 0x2D }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xFF, 0xFA, 0xFA }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xD2, 0xB4, 0x8C }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xD8, 0xBF, 0xD8 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xFF, 0x63, 0x47 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< double > right_type;
-	static left_type local(right_type({ 0.25, 0.875, 0.8125 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::rgb< tag_name > > & color_parameter) {
-	typedef ::color::category::rgb< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::rgb< std::uint8_t > right_type;
-	static left_type local(right_type({ 0xF5, 0xDE, 0xB3 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template< typename rgb_tag_name, typename xyz_tag_name >
+struct convert
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::xyz<xyz_tag_name>
+	> {
+public:
+	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
+	typedef ::color::category::xyz<xyz_tag_name> category_right_type;
+	typedef double scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::constant::xyz::matrix< category_right_type > xyz_matrix_type;
+	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	enum {
+		red_p = ::color::place::_internal::red<category_left_type>::position_enum
+		,green_p = ::color::place::_internal::green<category_left_type>::position_enum
+		,blue_p = ::color::place::_internal::blue<category_left_type>::position_enum
+	};
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static const scalar_type a11 = xyz_matrix_type::Mi11(), a12 = xyz_matrix_type::Mi12(), a13 = xyz_matrix_type::Mi13();
+		static const scalar_type a21 = xyz_matrix_type::Mi21(), a22 = xyz_matrix_type::Mi22(), a23 = xyz_matrix_type::Mi23();
+		static const scalar_type a31 = xyz_matrix_type::Mi31(), a32 = xyz_matrix_type::Mi32(), a33 = xyz_matrix_type::Mi33();
+		scalar_type x = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
+		scalar_type y = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		scalar_type z = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
+		scalar_type r = a11 * x + a12 * y + a13 * z;
+		scalar_type g = a21 * x + a22 * y + a23 * z;
+		scalar_type b = a31 * x + a32 * y + a33 * z;
+		container_left_trait_type::template set<red_p >(left, diverse_type::template process<red_p >(r));
+		container_left_trait_type::template set<green_p>(left, diverse_type::template process<green_p>(g));
+		container_left_trait_type::template set<blue_p >(left, diverse_type::template process<blue_p >(b));
+	}
+};
 
 }
 }
@@ -29701,782 +24643,39 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0, 0, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::cmyk< tag_name > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::cmyk< tag_name > >::input_const_type percent
-) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	color_parameter = right_type({ 0, 0, 0, 1 - percent/100 });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0, 0, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 1, 1, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 1, 0, 1, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 1, 1, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 1, 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 1, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0, 1, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 1, 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 1, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 1, 0, 1, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 1, 1, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 1, 1, 0, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0, 1, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.35, 1, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 1, 0, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0, 0, 0.25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 1, 0, 0, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.453781513, 0, 0.0666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0.5, 0, 0.168627451, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0.0625, 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0, 0.102040816, 0.0392156863 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.125, 0.25, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.745454545, 0.745454545, 0.352941176 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.5, 0.857142857, 0.176470588 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.5, 0.69, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.909090909, 0.727272727, 0.137254902 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0, 0, 0.141176471 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.156862745, 1, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0.423076923, 1, 0, 0.490196078 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0, 0.0625, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.04, 0.413333333, 0.0625 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0.08, 0.08, 0, 0.0196078431 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.04375, 0.082, 0.0196078431 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.105882353, 0.290196078, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.486238532, 0.0183486239, 0.145098039 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.35, 0.6875, 0.2 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.247058824, 0.203921569, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.2760181, 0, 0.133333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.49, 0.544, 0.0196078431 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.4875, 0.71875, 0.37254902 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.0196078431, 0.0196078431, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.142857143, 0.333333333, 0.176470588 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.115740741, 0, 0.152941176 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.611764706, 0.721568627, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0.714285714, 0, 0.0714285714, 0.125 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::cmyk< tag_name > > & color_parameter) {
-	typedef ::color::category::cmyk< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmyk< double > right_type;
-	static left_type local(right_type({ 0, 0.093877551, 0.269387755, 0.0392156863 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template< typename cmyk_tag_name, typename xyz_tag_name >
+struct convert
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< xyz_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< cmyk_category_type > cmyk_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = cmyk_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
 
 }
 }
@@ -30893,782 +25092,39 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::gray< tag_name > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::gray< tag_name > >::input_const_type percent
-) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	color_parameter = right_type({ percent / 100 });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.2126729 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.3575761 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.072175 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.7873272 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.2848479 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.9278251 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.7873272 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.2848479 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.7151522 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.10633645 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.0360875 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.46391255 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.67752183 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.14242395 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.750000075 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.3936636 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.630445436 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.881492964 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.986708044 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.953708429 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.892562325 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.267289298 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.478108 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.59262325 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.256555224 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.858823615 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.815644363 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.099345951 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.995489162 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.882714074 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.907621659 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.943915531 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.9033332 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.556490936 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.560061214 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.8085974 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.695591129 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.598345414 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.376149096 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.984562312 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.719581196 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.776945947 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.510416009 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.737568587 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::gray< tag_name > > & color_parameter) {
-	typedef ::color::category::gray< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::gray< double > right_type;
-	static left_type local(right_type({ 0.877599898 }));
-	color_parameter = local;
-}
+namespace _internal {
+
+template< typename gray_tag_name, typename xyz_tag_name >
+struct convert
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::gray< gray_tag_name > category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > category_right_type;
+	typedef double scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::diverse< category_left_type > diverse_type;
+	typedef ::color::_internal::normalize< category_right_type > normalize_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::constant::gray< category_left_type > gray_const_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type value = container_right_trait_type::template get< 1 >(right);
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+	}
+};
 
 }
 }
@@ -32659,787 +26115,6 @@ public:
 }
 
 namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void black(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 1, 1, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gray
-(
-	::color::model< ::color::category::cmy< tag_name > > & color_parameter
-	,typename ::color::trait::scalar< ::color::category::cmy< tag_name > >::input_const_type percent
-) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	color_parameter = right_type({ 1-percent/100, 1-percent/100, 1-percent/100 });
-}
-
-template< typename tag_name >
-inline
-void gray50(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.5, 0.5, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void white(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void red(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 1, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void green(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 1, 0.5, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void blue(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 1, 1, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void cyan(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void magenta(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 1, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void yellow(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aqua(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 1, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void fuchsia(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 1, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lime(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 1, 0, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void maroon(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.5, 1, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void navy(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 1, 1, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void olive(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.5, 0.5, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orange(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0.35, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void purple(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.5, 1, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void silver(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.25, 0.25, 0.25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void teal(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 1, 0.5, 0.5 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void violet(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.0666666667, 0.490196078, 0.0666666667 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void aquamarine(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.5, 0, 0.168627451 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void azure(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.0625, 0, 0 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void beige(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.0392156863, 0.0392156863, 0.137254902 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void bisque(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0.125, 0.25 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void brown(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.352941176, 0.835294118, 0.835294118 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void chocolate(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.176470588, 0.588235294, 0.882352941 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void coral(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0.5, 0.69 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void crimson(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.137254902, 0.921568627, 0.764705882 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gainsboro(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.141176471, 0.141176471, 0.141176471 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void gold(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0.156862745, 1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void indigo(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.705882353, 1, 0.490196078 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void ivory(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0, 0.0625 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void khaki(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.0625, 0.1, 0.45 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void lavender(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.0980392157, 0.0980392157, 0.0196078431 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void linen(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.0196078431, 0.0625, 0.1 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void moccasin(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0.105882353, 0.290196078 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void orchid(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.145098039, 0.560784314, 0.160784314 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void peru(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.2, 0.48, 0.75 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void pink(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0.247058824, 0.203921569 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void plum(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.133333333, 0.37254902, 0.133333333 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void salmon(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.0196078431, 0.5, 0.552941176 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void sienna(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.37254902, 0.678431373, 0.823529412 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void snow(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0.0196078431, 0.0196078431 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tan(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.176470588, 0.294117647, 0.450980392 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void thistle(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.152941176, 0.250980392, 0.152941176 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void tomato(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0, 0.611764706, 0.721568627 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void turquoise(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.75, 0.125, 0.1875 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
-namespace make {
-
-template< typename tag_name >
-inline
-void wheat(::color::model< ::color::category::cmy< tag_name > > & color_parameter) {
-	typedef ::color::category::cmy< tag_name > category_left_type;
-	typedef ::color::model< category_left_type > left_type;
-	typedef ::color::cmy< double > right_type;
-	static left_type local(right_type({ 0.0392156863, 0.129411765, 0.298039216 }));
-	color_parameter = local;
-}
-
-}
-}
-
-namespace color {
 namespace operation {
 namespace _internal {
 
@@ -34259,42 +26934,25 @@ namespace color {
 
 namespace color {
 
-	namespace make {
-
-		template< typename category_name >
-	void black(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	black() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::black(dummy);
-		return dummy;
-	}
-
-						  }
-
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::black_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::black_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::black_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::black<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0x00, 0x00, 0x00 } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 
 }
 
@@ -34307,13 +26965,9 @@ namespace color {
 			::color::model< category_name > & color_parameter
 			,typename ::color::trait::scalar< category_name >::input_const_type percent_param
 	) {
-		typedef ::color::trait::bound< category_name > bound_type;
-		typedef ::color::trait::container< category_name > container_trait_type;
 		typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
-		typedef typename ::color::trait::index< category_name >::instance_type index_type;
-		for(index_type index=0; index < container_trait_type::size() ; ++index) {
-			color_parameter.set(index, ((scalar_type(100) - percent_param) * bound_type::minimum(index) + percent_param * bound_type::maximum(index)) / scalar_type(100));
-		}
+		typedef ::color::gray<scalar_type> gray_type;
+		color_parameter = gray_type{ percent_param / scalar_type(100) };
 	}
 
 	template< typename category_name >
@@ -34341,1928 +26995,1170 @@ namespace color {
 		return color_return;
 	}
 
-	template< typename category_name >
-	void gray50(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef ::color::trait::bound< category_name > bound_type;
-		typedef typename model_type::index_type index_type;
-		for(index_type index=0; index < model_type::size() ; ++index) {
-			color_parameter.set(index, bound_type::minimum(index) + bound_type::range(index)/2);
-		}
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	gray50() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::gray50(dummy);
-		return dummy;
-	}
-
 						  }
 
 	namespace constant {
 
-		template< typename category_name >
-		struct make<::color::constant::gray50_type, category_name > {
+		template< typename category_name, std::uintmax_t black_number, std::uintmax_t white_number >
+		struct make< ::color::constant::gray_t<black_number,white_number>, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::gray50_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::gray<double> gray_type;
+
+			typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+
+			typedef ::color::constant::gray_t<black_number,white_number> constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::gray50<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ gray_type{ scalar_type(white_number)/scalar_type(black_number+white_number) } };
+		container = s_model.container();
 	}
+													  };
 
-							 };
-
-													  }
+											 }
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void white(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	white() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::white(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::white_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::white_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::white_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::white<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 1, 1, 1 } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void red(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	red() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::red(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::red_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::red_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::red_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::red<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 1, 0, 0 } };
+		container = s_model.container();
 	}
 
-						  };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void green(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	green() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::green(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
-		struct make<::color::constant::green_type, category_name > {
+		struct make<::color::constant::green_t, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::green_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::green_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::green<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0, 0.5, 0 } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+	template< typename category_name >
+	struct make<::color::constant::x11::green_t, category_name > {
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef ::color::rgb<double> rgb_type;
+		typedef ::color::constant::x11::green_t constant_type;
+
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0, 1, 0 } };
+		container = s_model.container();
+	}
+												  };
+
+							}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void blue(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	blue() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::blue(dummy);
-		return dummy;
-	}
-
-						  }
-
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::blue_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::blue_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::blue_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::blue<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0, 0, 1 } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
-
+								}
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void cyan(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	cyan() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::cyan(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::cyan_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::cyan_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::cyan_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::cyan<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0x00, 0xFF, 0xFF } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void magenta(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	magenta() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::magenta(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::magenta_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::magenta_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::magenta_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::magenta<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 1, 0, 1 } };
+		container = s_model.container();
 	}
 
-							  };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void yellow(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	yellow() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::yellow(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::yellow_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::yellow_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::yellow_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::yellow<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 1, 1, 0 } };
+		container = s_model.container();
 	}
 
-							 };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void aqua(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	aqua() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::aqua(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
-		struct make< ::color::constant::aqua_type, category_name > {
+		struct make< ::color::constant::aqua_t, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::aqua_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::aqua_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::aqua<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0x00, 0xFF, 0xFF } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
+								}
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void fuchsia(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	fuchsia() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::fuchsia(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::fuchsia_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::fuchsia_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::fuchsia_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::fuchsia<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 1, 0, 1 } };
+		container = s_model.container();
 	}
 
-							  };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void lime(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	lime() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::lime(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::lime_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::lime_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::lime_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::lime<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0, 1, 0 } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void maroon(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	maroon() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::maroon(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
-		struct make<::color::constant::maroon_type, category_name > {
+		struct make< ::color::constant::maroon_t, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::maroon_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::maroon_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::maroon<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.5, 0, 0 } };
+		container = s_model.container();
 	}
+													  };
 
-							 };
+	template< typename category_name >
+	struct make< ::color::constant::x11::maroon_t, category_name > {
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef ::color::rgb<double> rgb_type;
+		typedef ::color::constant::x11::maroon_t constant_type;
 
-													  }
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.69, 0.19, 0.38 } };
+		container = s_model.container();
+	}
+												  };
+
+							}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void navy(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	navy() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::navy(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::navy_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::navy_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::navy_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::navy<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0, 0, 0.5 } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void olive(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	olive() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::olive(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::olive_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::olive_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::olive_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::olive<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.5, 0.5, 0 } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void orange(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	orange() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::orange(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::orange_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::orange_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::orange_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::orange<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 1, 0.65, 0 } };
+		container = s_model.container();
 	}
 
-							 };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void purple(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	purple() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::purple(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
-		struct make<::color::constant::purple_type, category_name > {
+		struct make<::color::constant::purple_t, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::purple_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::purple_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::purple<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.5, 0, 0.5 } };
+		container = s_model.container();
 	}
+													  };
 
-							 };
+	template< typename category_name >
+	struct make<::color::constant::x11::purple_t, category_name > {
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef ::color::rgb<double> rgb_type;
+		typedef ::color::constant::x11::purple_t constant_type;
 
-													  }
+		typedef typename ::color::trait::container<category_type>::output_type container_output_type;
+
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.63, 0.13, 0.94 } };
+		container = s_model.container();
+	}
+												  };
+
+							}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void silver(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	silver() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::silver(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::silver_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::silver_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::silver_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::silver<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.75, 0.75, 0.75 } };
+		container = s_model.container();
 	}
 
-							 };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void teal(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	teal() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::teal(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::teal_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::teal_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::teal_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::teal<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0, 0.5, 0.5 } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void violet(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	violet() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::violet(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::violet_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::violet_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb< std::uint8_t > rgb_type;
+			typedef ::color::constant::violet_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::violet<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xEE, 0x82, 0xEE } };
+		container = s_model.container();
 	}
 
-							 };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void aquamarine(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	aquamarine() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::aquamarine(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
-		struct make<::color::constant::aquamarine_type, category_name > {
+		struct make<::color::constant::aquamarine_t, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::aquamarine_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::aquamarine_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::aquamarine<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.5, 1, 212.0/255.0 } };
+		container = s_model.container();
 	}
 
-								 };
+													  };
 
-													  }
+								}
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void azure(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	azure() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::azure(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::azure_type, category_name > {
 			typedef category_name category_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
 			typedef ::color::constant::azure_type constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::azure<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.9375, 1, 1 } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void beige(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	beige() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::beige(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::beige_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::beige_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::beige_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::beige<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xF5, 0xF5, 0xDC } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void bisque(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	bisque() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::bisque(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::bisque_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::bisque_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::bisque_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::bisque<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 1, 0.875, 0.75 } };
+		container = s_model.container();
 	}
 
-							 };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void brown(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	brown() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::brown(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::brown_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::brown_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::brown_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::brown<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xA5, 0x2A, 0x2A } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void chocolate(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	chocolate() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::chocolate(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::chocolate_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::chocolate_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::chocolate_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::chocolate<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xD2, 0x69, 0x1E } };
+		container = s_model.container();
 	}
 
-								};
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void coral(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	coral() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::coral(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::coral_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::coral_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::coral_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::coral<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 1, 0.5, 0.31 } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void crimson(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	crimson() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::crimson(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::crimson_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::crimson_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::crimson_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::crimson<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xDC, 0x14, 0x3C } };
+		container = s_model.container();
 	}
 
-							  };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void gainsboro(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	gainsboro() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::gainsboro(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::gainsboro_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::gainsboro_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::gainsboro_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::gainsboro<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xDB, 0xDB, 0xDB } };
+		container = s_model.container();
 	}
 
-								};
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void gold(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	gold() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::gold(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::gold_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::gold_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::gold_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::gold<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xFF, 0xD7, 0x00 } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void indigo(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	indigo() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::indigo(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::indigo_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::indigo_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::indigo_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::indigo<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0x4B, 0x00, 0x82 } };
+		container = s_model.container();
 	}
 
-							 };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void ivory(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	ivory() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::ivory(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::ivory_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::ivory_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::ivory_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::ivory<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 1, 1, 0.9375 } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void khaki(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	khaki() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::khaki(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::khaki_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::khaki_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::khaki_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::khaki<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.9375, 0.9, 0.55 } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void lavender(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	lavender() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::lavender(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::lavender_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::lavender_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::lavender_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::lavender<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xE6, 0xE6, 0xFA } };
+		container = s_model.container();
 	}
 
-							   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void linen(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	linen() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::linen(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::linen_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::linen_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::linen_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::linen<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 250.0/255.0, 0.9375, 0.9 } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void moccasin(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	moccasin() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::moccasin(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::moccasin_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::moccasin_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::moccasin_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::moccasin<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xFF, 0xE4, 0xB5 } };
+		container = s_model.container();
 	}
 
-							   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void orchid(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	orchid() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::orchid(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::orchid_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::orchid_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::orchid_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::orchid<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xDA, 0x70, 0xD6 } };
+		container = s_model.container();
 	}
 
-							 };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void peru(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	peru() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::peru(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::peru_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::peru_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::peru_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::peru<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.8, 0.52, 0.25 } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void pink(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	pink() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::pink(dummy);
-		return dummy;
-	}
-
-						  }
-
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::pink_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::pink_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::pink_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::pink<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xFF, 0xC0, 0xCB } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void plum(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	plum() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::plum(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::plum_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::plum_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::plum_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::plum<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xDD, 0xA0, 0xDD } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void salmon(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	salmon() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::salmon(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::salmon_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::salmon_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::salmon_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::salmon<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 250/255.0, 0.5, 114/255.0 } };
+		container = s_model.container();
 	}
 
-							 };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void sienna(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	sienna() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::sienna(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::sienna_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::sienna_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::sienna_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::sienna<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xA0, 0x52, 0x2D } };
+		container = s_model.container();
 	}
 
-							 };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void snow(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	snow() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::snow(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::snow_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::snow_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::snow_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::snow<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xFF, 0xFA, 0xFA } };
+		container = s_model.container();
 	}
 
-						   };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void tan(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	tan() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::tan(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::tan_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::tan_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::tan_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::tan<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xD2, 0xB4, 0x8C } };
+		container = s_model.container();
 	}
 
-						  };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void thistle(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	thistle() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::thistle(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::thistle_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::thistle_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::thistle_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::thistle<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xD8, 0xBF, 0xD8 } };
+		container = s_model.container();
 	}
 
-							  };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void tomato(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	tomato() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::tomato(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::tomato_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::tomato_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::tomato_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::tomato<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xFF, 0x63, 0x47 } };
+		container = s_model.container();
 	}
 
-							 };
+													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void turquoise(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	turquoise() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::turquoise(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::turquoise_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::turquoise_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<double> rgb_type;
+			typedef ::color::constant::turquoise_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		auto static s_container = ::color::make::turquoise<category_type>().container();
-		m = s_container;
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0.25, 0.875, 0.8125 } };
+		container = s_model.container();
 	}
 
 													  };
 
-													  }
+								}
 
 }
 
 namespace color {
-
-	namespace make {
-
-		template< typename category_name >
-	void wheat(::color::model< category_name > & color_parameter) {
-		typedef ::color::model< category_name > model_type;
-		typedef typename model_type::index_type index_type;
-	}
-
-	template< typename category_name >
-	inline
-	::color::model< category_name >
-	wheat() {
-		typedef ::color::model< category_name > model_type;
-		static model_type dummy;
-		::color::make::wheat(dummy);
-		return dummy;
-	}
-
-						  }
 
 	namespace constant {
 
 		template< typename category_name >
 		struct make<::color::constant::wheat_type, category_name > {
 			typedef category_name category_type;
-			typedef ::color::constant::wheat_type constant_type;
+			typedef ::color::model<category_type> model_type;
+			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::constant::wheat_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
-	inline static void process(container_output_type & m) {
-		m = ::color::make::wheat<category_type>().container();
+	inline static void process(container_output_type & container) {
+		static model_type s_model{ rgb_type{ 0xF5, 0xDE, 0xB3 } };
+		container = s_model.container();
 	}
 
-							};
+													  };
 
-													  }
+								}
 
 }
 

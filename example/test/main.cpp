@@ -390,7 +390,6 @@ int main(int argc, char const *argv[])
   r = ::color::constant::yellow_t{};     x = r;  std::cout << "yellow       "; print( x ); std::cout << std::endl;
   r = ::color::constant::magenta_t{};    x = r;  std::cout << "magenta      "; print( x ); std::cout << std::endl;
 
-
   print< ::color::rgb< ::color::type::split422_t >::category_type  >();
   print< ::color::rgb< ::color::type::split242_t >::category_type  >();
   print< ::color::rgb< ::color::type::split224_t >::category_type  >();

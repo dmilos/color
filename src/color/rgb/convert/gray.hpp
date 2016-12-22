@@ -49,15 +49,17 @@ namespace color
              ,green_p = ::color::place::_internal::green<category_left_type>::position_enum
              ,blue_p  = ::color::place::_internal::blue<category_left_type>::position_enum
             };
-            
+
            enum
             {
               gray_p   = 0
             };
 
-           container_left_trait_type::template set<red_p  >( left, reformat_type::template process<red_p  ,gray_p>( container_right_trait_type::template get<gray_p>( right ) ) );
-           container_left_trait_type::template set<green_p>( left, reformat_type::template process<green_p,gray_p>( container_right_trait_type::template get<gray_p>( right ) ) );
-           container_left_trait_type::template set<blue_p >( left, reformat_type::template process<blue_p ,gray_p>( container_right_trait_type::template get<gray_p>( right ) ) );
+           auto const value = container_right_trait_type::template get<gray_p>( right );
+
+           container_left_trait_type::template set<red_p  >( left, reformat_type::template process<red_p  ,gray_p>( value ) );
+           container_left_trait_type::template set<green_p>( left, reformat_type::template process<green_p,gray_p>( value ) );
+           container_left_trait_type::template set<blue_p >( left, reformat_type::template process<blue_p ,gray_p>( value ) );
           }
       };
 

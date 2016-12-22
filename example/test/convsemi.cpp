@@ -171,6 +171,8 @@ void image_conversion()
   typedef ::color::YPbPr<double>::category_type    YPbPr709_t;
   typedef ::color::yuv<double>::category_type        yuv709_t;
 
+  typedef ::color::xyz<double>::category_type        xyz_t;
+
 
   make_image_conversion< rgb_t,      cmy_t >( "./conv/rgb2cmy.tga",      0.5 );
   make_image_conversion< rgb_t,     cmyk_t >( "./conv/rgb2cmyk.tga",     0.5 );
@@ -327,4 +329,9 @@ void image_conversion()
   make_image_conversion< yuv709_t,      yiq_t >( "./conv/yuv709_2yiq.tga",      0.5 );
   make_image_conversion< yuv709_t, YPbPr709_t >( "./conv/yuv709_2YPbPr709.tga", 0.5 );
   make_image_conversion< yuv709_t,   yuv709_t >( "./conv/yuv709_2yuv709.tga",   0.5 );
+
+  make_image_conversion< xyz_t,   rgb_t >( "./conv/xyz2rgb.tga",   0.5 );
+  make_image_conversion< xyz_t,   gray_t >( "./conv/xyz2gray.tga",   0.5 );
+  make_image_conversion< rgb_t,   xyz_t >( "./conv/rgb2xyz.tga",   0.5 );
+  make_image_conversion< gray_t,  xyz_t >( "./conv/gray2xyz.tga",   0.5 );
  }

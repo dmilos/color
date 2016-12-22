@@ -45,7 +45,7 @@ namespace color
            scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
 
            container_left_trait_type::template set<0>( left, 0.5 );
-           container_left_trait_type::template set<1>( left, g );
+           container_left_trait_type::template set<1>( left, g   );
            container_left_trait_type::template set<2>( left, 0.5 );
           }
 

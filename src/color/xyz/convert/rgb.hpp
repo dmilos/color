@@ -18,7 +18,11 @@ namespace color
   namespace _internal
    {
 
-    template< typename xyz_tag_name, typename rgb_tag_name >
+    template
+     <
+       typename xyz_tag_name
+      ,typename rgb_tag_name 
+     >
      struct convert
       <
         ::color::category::xyz<  xyz_tag_name >
