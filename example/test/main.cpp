@@ -371,6 +371,7 @@ int main(int argc, char const *argv[])
  {
   ::color::xyz<double>  x;
   ::color::rgb<double>  r { ::color::constant::gray_t<1,1>{} };
+  r = x;
 
   r[0] = r[1] = r[2] = 0.041;    x = r;  std::cout << "( 0.041, 0.041, 0.041 )      "; print( x ); std::cout << std::endl;
 
