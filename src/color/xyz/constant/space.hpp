@@ -103,7 +103,7 @@ namespace color
             }
           };
 
-#define COLOR_CONTATNT_XYZ_SPACE_GAMMA_TRANSFER_SPECIALIZE(DP_name,DP_g, DP_f)                   \
+#define COLOR_CONTATNT_XYZ_SPACE_GAMMA_TRANSFER_SPECIALIZE(DP_name,DP_g, DP_a)                   \
         template< typename scalar_name >                                                         \
          struct gamma< scalar_name, DP_name >                                                    \
           {                                                                                      \
@@ -111,24 +111,24 @@ namespace color
                                                                                                  \
            static scalar_type  s()                                                               \
             {                                                                                    \
-             return pow( (1+DP_f)/ DP_g, DP_g ) * pow( ( DP_g-1) / DP_f, DP_g-1);                \
+             return pow( (1+DP_a)/ DP_g, DP_g ) * pow( ( DP_g-1) / DP_a, DP_g-1);                \
             }                                                                                    \
                                                                                                  \
            static scalar_type  t( )                                                              \
             {                                                                                    \
-             return DP_f/(DP_g-1);                                                               \
+             return DP_a/(DP_g-1);                                                               \
             }                                                                                    \
                                                                                                  \
            static scalar_type  encode( scalar_type const& value )                                \
             {                                                                                    \
              if( value < t()/s() ) return s() * value;                                           \
-             return ( 1 + DP_f ) * pow( value, scalar_type(1) / DP_g ) - DP_g;                   \
+             return ( 1 + DP_a ) * pow( value, scalar_type(1) / scalar_type(DP_g) ) - DP_a;      \
             }                                                                                    \
                                                                                                  \
            static scalar_type  decode( scalar_type const&  value )                               \
             {                                                                                    \
              if( value < t() ) return value / s();                                               \
-             return pow( ( value + DP_f ) / ( 1 + DP_f ), DP_g );                                \
+             return pow( ( value + DP_a ) / ( 1 + DP_a ), DP_g );                                \
             }                                                                                    \
           }
 

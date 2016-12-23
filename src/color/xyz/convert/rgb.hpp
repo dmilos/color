@@ -67,7 +67,7 @@ namespace color
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           r = xyz_gamma_type::decode( r );
+           r = xyz_gamma_type::decode( r ); 
            g = xyz_gamma_type::decode( g );
            b = xyz_gamma_type::decode( b );
 

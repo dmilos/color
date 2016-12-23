@@ -20630,7 +20630,7 @@ template< typename scalar_name > struct gamma< scalar_name, ::color::constant::x
 		if(value < t()/s()) {
 			return s() * value;
 		}
-		return (1 + 0.16) * pow(value, scalar_type(1) / 3) - 3;
+		return (1 + 0.16) * pow(value, scalar_type(1) / scalar_type(3)) - 0.16;
 	} static scalar_type decode(scalar_type const& value) {
 		if(value < t()) {
 			return value / s();
@@ -20648,7 +20648,7 @@ template< typename scalar_name > struct gamma< scalar_name, ::color::constant::x
 		if(value < t()/s()) {
 			return s() * value;
 		}
-		return (1 + 0.055) * pow(value, scalar_type(1) / 2.4) - 2.4;
+		return (1 + 0.055) * pow(value, scalar_type(1) / scalar_type(2.4)) - 0.055;
 	} static scalar_type decode(scalar_type const& value) {
 		if(value < t()) {
 			return value / s();
@@ -21636,6 +21636,8 @@ public:
 		scalar_type r = normalize_type::template process<red_p >(container_right_trait_type::template get<red_p >(right));
 		scalar_type g = normalize_type::template process<green_p>(container_right_trait_type::template get<green_p>(right));
 		scalar_type b = normalize_type::template process<blue_p >(container_right_trait_type::template get<blue_p >(right));
+		r = xyz_gamma_type::decode(r);
+		r = xyz_gamma_type::encode(r);
 		scalar_type x = b11 * r + b12 * g + b13 * b;
 		scalar_type y = b21 * r + b22 * g + b23 * b;
 		scalar_type z = b31 * r + b32 * g + b33 * b;
