@@ -260,8 +260,9 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
                            diverse_type::template process<1>( y / double(height) ),
                            diverse_type::template process<2>( x / double(width) )
                                                 , 0 } );
-          ::color::fix::overburn( m );
-          image[y * width + x] = m;
+           check = m;
+           ::color::fix::overburn( check );
+           image[y * width + x] = check;
          }break;
         case( 1 ):
           {
@@ -279,8 +280,9 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
                           diverse_type::template process<1>( x / double(width) ),
                           diverse_type::template process<2>( plane )
                                                , 0 } );
-          ::color::fix::overburn( m );
-          image[y * width + x] = m;
+           check = m;
+           ::color::fix::overburn( check );
+           image[y * width + x] = check;
          }break;
        }
      }
@@ -365,19 +367,41 @@ void test_pallete()
   make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-09.tga", 0.9, 0 );
   make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-10.tga", 1.0, 0 );
 
+  make_image<color::xyz<double> >( "./palette/xyz-0-000.tga" , 0.0, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-0-010.tga" , 0.1, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-0-020.tga" , 0.2, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-0-030.tga" , 0.3, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-0-040.tga" , 0.4, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-0-050.tga" , 0.5, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-0-060.tga" , 0.6, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-0-070.tga" , 0.7, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-0-080.tga" , 0.8, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-0-090.tga" , 0.9, 0 );
+  make_image<color::xyz<double> >( "./palette/xyz-0-100.tga" , 1.0, 0 );
 
-   make_image<color::xyz<double> >( "./palette/xyz-1-000.tga" , 0.0, 1 );
-   make_image<color::xyz<double> >( "./palette/xyz-1-010.tga" , 0.1, 1 );
-   make_image<color::xyz<double> >( "./palette/xyz-1-020.tga" , 0.2, 1 );
-   make_image<color::xyz<double> >( "./palette/xyz-1-030.tga" , 0.3, 1 );
-   make_image<color::xyz<double> >( "./palette/xyz-1-040.tga" , 0.4, 1 );
-   make_image<color::xyz<double> >( "./palette/xyz-1-050.tga" , 0.5, 1 );
-   make_image<color::xyz<double> >( "./palette/xyz-1-060.tga" , 0.6, 1 );
-   make_image<color::xyz<double> >( "./palette/xyz-1-070.tga" , 0.7, 1 );
-   make_image<color::xyz<double> >( "./palette/xyz-1-080.tga" , 0.8, 1 );
-   make_image<color::xyz<double> >( "./palette/xyz-1-090.tga" , 0.9, 1 );
-   make_image<color::xyz<double> >( "./palette/xyz-1-100.tga" , 1.0, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-000.tga" , 0.0, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-010.tga" , 0.1, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-020.tga" , 0.2, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-030.tga" , 0.3, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-040.tga" , 0.4, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-050.tga" , 0.5, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-060.tga" , 0.6, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-070.tga" , 0.7, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-080.tga" , 0.8, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-090.tga" , 0.9, 1 );
+  make_image<color::xyz<double> >( "./palette/xyz-1-100.tga" , 1.0, 1 );
 
+  make_image<color::xyz<double> >( "./palette/xyz-2-000.tga" , 0.0, 2 );
+  make_image<color::xyz<double> >( "./palette/xyz-2-010.tga" , 0.1, 2 );
+  make_image<color::xyz<double> >( "./palette/xyz-2-020.tga" , 0.2, 2 );
+  make_image<color::xyz<double> >( "./palette/xyz-2-030.tga" , 0.3, 2 );
+  make_image<color::xyz<double> >( "./palette/xyz-2-040.tga" , 0.4, 2 );
+  make_image<color::xyz<double> >( "./palette/xyz-2-050.tga" , 0.5, 2 );
+  make_image<color::xyz<double> >( "./palette/xyz-2-060.tga" , 0.6, 2 );
+  make_image<color::xyz<double> >( "./palette/xyz-2-070.tga" , 0.7, 2 );
+  make_image<color::xyz<double> >( "./palette/xyz-2-080.tga" , 0.8, 2 );
+  make_image<color::xyz<double> >( "./palette/xyz-2-090.tga" , 0.9, 2 );
+  make_image<color::xyz<double> >( "./palette/xyz-2-100.tga" , 1.0, 2 );
  }
 
 
@@ -386,7 +410,7 @@ void test_xyz_quick()
   ::color::xyz<double>  x;
   ::color::rgb<double>  r;// { ::color::constant::gray_t<1,1>{} };
 
-  //r.set<0>( 0.2 ); r.set<1>( 0.2 ); r.set<2>( 0.2 ); 
+  //r.set<0>( 0.2 ); r.set<1>( 0.2 ); r.set<2>( 0.2 );
   //x = r;  std::cout << "x=rgb( 0.2, 0.2, 0.2 )           "; print( x ); std::cout << std::endl;
   //r = x;  std::cout << "r=xyz(rgb( 0.2, 0.2, 0.2 ))      "; print( r ); std::cout << std::endl;
 

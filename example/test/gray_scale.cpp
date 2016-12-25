@@ -76,6 +76,12 @@ std::string make_test_gray_single( std::string const& name )
    ::color::make::gray( r,  90.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
    ::color::make::gray( r, 100.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
 
+  
+  ss << "</tr>" << std::endl;
+  ss << "<tr>" << std::endl;
+
+   ss << "<td>" << "&nbsp;" << "</td>";
+
    r = ::color::make::gray< typename model_type::category_type>(   0.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
    r = ::color::make::gray< typename model_type::category_type>(  10.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
    r = ::color::make::gray< typename model_type::category_type>(  16.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
@@ -121,6 +127,8 @@ void make_test_gray_scale()
   ss <<  make_test_gray_single< ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity> >(  "YPbPr601"  );
   ss <<  make_test_gray_single< ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity> >(  "YPbPr709"  );
   ss <<  make_test_gray_single< ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity> >( "YPbPr2020" );
+
+  ss <<  make_test_gray_single< ::color::xyz< double> >( "xyz" );
 
   ss << "</table>" << std::endl;
 

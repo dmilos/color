@@ -97,6 +97,8 @@ int decompose_test( int argc, char const *argv[] )
   decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_709_entity > >( image, "../out/dec/YPbPr709", width, height );
   decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_2020_entity > >( image, "../out/dec/YPbPr2020", width, height );
 
+  decompose< ::color::xyz<double> >( image, "../out/dec/xyz", width, height );
+
   return EXIT_SUCCESS;
  }
 

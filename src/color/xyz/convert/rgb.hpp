@@ -25,13 +25,13 @@ namespace color
      >
      struct convert
       <
-        ::color::category::xyz<  xyz_tag_name >
-       ,::color::category::rgb<  rgb_tag_name >
+        ::color::category::xyz<   xyz_tag_name >
+       ,::color::category::rgb<   rgb_tag_name >
       >
       {
        public:
-         typedef ::color::category::xyz<  xyz_tag_name > category_left_type;
-         typedef ::color::category::rgb<  rgb_tag_name > category_right_type;
+         typedef ::color::category::xyz<   xyz_tag_name > category_left_type;
+         typedef ::color::category::rgb<   rgb_tag_name > category_right_type;
          typedef double  scalar_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;

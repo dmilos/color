@@ -4,31 +4,41 @@
 #include "../../_internal/convert.hpp"
 #include "../../gray/gray.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+
 
 #include "../place/place.hpp"
+#include "../category.hpp"
+#include "../constant.hpp"
+
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
 
 namespace color
  {
   namespace _internal
    {
 
-     template< typename xyz_tag_name, typename gray_tag_name >
-      struct convert
-       <
-         ::color::category::xyz<   xyz_tag_name >
-        ,::color::category::gray< gray_tag_name >
-       >
+    template
+     <
+       typename xyz_tag_name
+      ,typename gray_tag_name
+     >
+     struct convert
+      <
+        ::color::category::xyz<   xyz_tag_name >
+       ,::color::category::gray< gray_tag_name >
+      >
       {
        public:
          typedef ::color::category::xyz<   xyz_tag_name > category_left_type;
          typedef ::color::category::gray< gray_tag_name > category_right_type;
          typedef double  scalar_type;
 
-         typedef ::color::trait::bound<category_left_type>         bound_left_trait_type;
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
+
+         typedef ::color::constant::xyz::matrix< category_left_type > xyz_matrix_type;
+         typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
@@ -41,14 +51,23 @@ namespace color
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
-          { // TODO
+          {
+           static const scalar_type b1 = xyz_matrix_type::M11() + xyz_matrix_type::M12() + xyz_matrix_type::M13();
+           static const scalar_type b2 = xyz_matrix_type::M21() + xyz_matrix_type::M22() + xyz_matrix_type::M23();
+           static const scalar_type b3 = xyz_matrix_type::M31() + xyz_matrix_type::M32() + xyz_matrix_type::M33();
+
            scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
 
-           container_left_trait_type::template set<0>( left, 0.5 );
-           container_left_trait_type::template set<1>( left, g   );
-           container_left_trait_type::template set<2>( left, 0.5 );
-          }
+           //g = xyz_gamma_type::decode( g );
 
+           scalar_type x = g * b1;
+           scalar_type y = g * b2;
+           scalar_type z = g * b3;
+
+           container_left_trait_type::template set<0>( left, diverse_type::template process<0>( x ) );
+           container_left_trait_type::template set<1>( left, diverse_type::template process<1>( y ) );
+           container_left_trait_type::template set<2>( left, diverse_type::template process<2>( z ) );
+          }
       };
 
    }

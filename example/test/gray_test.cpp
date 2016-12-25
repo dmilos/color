@@ -134,6 +134,18 @@ void make_gray_satur_YCgCo( gray_image_type & gray, bgr_image_type const& image 
    }
  }
 
+void make_gray_xyz( gray_image_type & gray, bgr_image_type const& image )
+ {
+  auto gc = gray.begin();
+  for( auto & c : image )
+   {
+    gc->set<0>( ::color::xyz< std::uint8_t >( c )[1] );
+    ++gc;
+   }
+ }
+
+
+
 int gray_test( int argc, char const *argv[] )
  {
   std::cout << sizeof( gray_color_type )  << " == sizeof (" <<typeid( gray_color_type ).name() << ")" << std::endl;
@@ -158,7 +170,7 @@ int gray_test( int argc, char const *argv[] )
   make_gray_satur_hsl(  gray, image ); save_image_gray( "./gray/satur-hsl.tga", gray, 1600, 1195  );
   make_gray_intens_hsi( gray, image ); save_image_gray( "./gray/satur-hsi.tga", gray, 1600, 1195 );
 
-  make_gray_satur_YCgCo( gray, image ); save_image_gray( "./gray/YCgCo-Y.tga", gray, 1600, 1195 );
+  make_gray_xyz( gray, image ); save_image_gray( "./gray/xyz-Y.tga", gray, 1600, 1195 );
 
   return EXIT_SUCCESS;
  }
