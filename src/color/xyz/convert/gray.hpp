@@ -52,16 +52,14 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           static const scalar_type b1 = xyz_matrix_type::M11() + xyz_matrix_type::M12() + xyz_matrix_type::M13();
            static const scalar_type b2 = xyz_matrix_type::M21() + xyz_matrix_type::M22() + xyz_matrix_type::M23();
-           static const scalar_type b3 = xyz_matrix_type::M31() + xyz_matrix_type::M32() + xyz_matrix_type::M33();
+           static const scalar_type b1 = ( xyz_matrix_type::M11() + xyz_matrix_type::M12() + xyz_matrix_type::M13() ) / b2;
+           static const scalar_type b3 = ( xyz_matrix_type::M31() + xyz_matrix_type::M32() + xyz_matrix_type::M33() ) / b2 ;
 
            scalar_type g = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
 
-           //g = xyz_gamma_type::decode( g );
-
            scalar_type x = g * b1;
-           scalar_type y = g * b2;
+           scalar_type y = g ;
            scalar_type z = g * b3;
 
            container_left_trait_type::template set<0>( left, diverse_type::template process<0>( x ) );

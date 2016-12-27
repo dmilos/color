@@ -68,80 +68,80 @@ namespace color
                 // Allow using of memset instead this default initialization
                }
 
-      explicit model( container_input_const_type container )
-       :m_container( container )
-       {
-        // Do NOTHING is must!!!
-       }
-
-      template< typename tag_name >
-       explicit model( ::color::constant::base< tag_name > const& constant )  //!< TODO Remove explicit?
+       explicit model( container_input_const_type container )
+        :m_container( container )
         {
-         *this = constant;
+         // Do NOTHING is must!!!
         }
 
-      explicit model( std::initializer_list<component_type> const& ilist )
-       {
-        //TODO C++14 static_assert( container_trait_type::size_entity != ilist.size(), "Initializer list size do not match model/format length." );
-        ::color::_internal::init<category_name>( this->m_container, ilist );
-       }
+       template< typename tag_name >
+        explicit model( ::color::constant::base< tag_name > const& constant )  //!< TODO Remove explicit?
+         {
+          *this = constant;
+         }
+
+       explicit model( std::initializer_list<component_type> const& ilist )
+        {
+         //TODO C++14 static_assert( container_trait_type::size_entity != ilist.size(), "Initializer list size do not match model/format length." );
+         ::color::_internal::init<category_name>( this->m_container, ilist );
+        }
 
        model( ::color::model<category_type> const& that )
         {
          this->m_container = that.container();
         }
 
-      template< typename other_category_name >
-       explicit model( ::color::model<other_category_name> const& that )
-        {
-         *this = that;
-        }
+       template< typename other_category_name >
+        explicit model( ::color::model<other_category_name> const& that )
+         {
+          *this = that;
+         }
 
-      template< typename tag_name >
-       model &  operator=( ::color::constant::base< tag_name > const& constant )
-        {
-         ::color::constant::make<::color::constant::base< tag_name >,category_name>::process( this->m_container );
-         return *this;
-        }
+       template< typename tag_name >
+        model &  operator=( ::color::constant::base< tag_name > const& constant )
+         {
+          ::color::constant::make<::color::constant::base< tag_name >,category_name>::process( this->m_container );
+          return *this;
+         }
 
-      template< typename other_category_name >
-       model & operator=( ::color::model<other_category_name> const& that )
-        {
-        ::color::_internal::convert< category_name, other_category_name>::process( this->m_container, that.container() );
-         return *this;
-        }
+       template< typename other_category_name >
+        model & operator=( ::color::model<other_category_name> const& that )
+         {
+         ::color::_internal::convert< category_name, other_category_name>::process( this->m_container, that.container() );
+          return *this;
+         }
 
-      component_return_const_type
-      get( index_input_const_type index )const
-       {
-        return container_trait_type::get( this->m_container, index );
-       }
-
-      template< index_type index >
        component_return_const_type
-       get()const
+       get( index_input_const_type index )const
         {
-         return container_trait_type::template get<index>( this->m_container );
+         return container_trait_type::get( this->m_container, index );
         }
-
-      set_return_type
-      set( index_input_const_type index, component_input_const_type component )
-       {
-        return container_trait_type::set( this->m_container, index, component );
-       }
-
-      template< index_type index >
-      set_return_type
-      set( component_input_const_type component )
-       {
-        /*return*/ container_trait_type::template set<index>( this->m_container, component );
-       }
-
-      component_return_const_type operator[]( index_input_const_type index )const
-       {
-        return this->get( index );
-       }
-
+       
+       template< index_type index >
+        component_return_const_type
+        get()const
+         {
+          return container_trait_type::template get<index>( this->m_container );
+         }
+       
+       set_return_type
+       set( index_input_const_type index, component_input_const_type component )
+        {
+         return container_trait_type::set( this->m_container, index, component );
+        }
+       
+       template< index_type index >
+       set_return_type
+       set( component_input_const_type component )
+        {
+         /*return*/ container_trait_type::template set<index>( this->m_container, component );
+        }
+       
+       component_return_const_type operator[]( index_input_const_type index )const
+        {
+         return this->get( index );
+        }
+       
      private: // Very ugly but effective
        class proxy
         {
@@ -200,34 +200,33 @@ namespace color
        typedef typename ::color::model< category_name >::proxy proxy_type;
 
      public:
+       proxy_type       operator[]( index_input_const_type index )
+        {
+         return proxy{ *this, index };
+        }
 
-      proxy_type       operator[]( index_input_const_type index )
-       {
-        return proxy{ *this, index };
-       }
+       container_return_const_type container()const
+        {
+         return this->m_container;
+        }
 
-      container_return_const_type container()const
-       {
-        return this->m_container;
-       }
+       container_return_original_type       container()
+        {
+         return this->m_container;
+        }
 
-      container_return_original_type       container()
-       {
-        return this->m_container;
-       }
+       void container( container_input_const_type container )
+        {
+         this->m_container = container;
+        }
 
-      void container( container_input_const_type container )
-       {
-        this->m_container = container;
-       }
+       static /*constexpr*/ unsigned       size()
+        {
+         return container_trait_type::size();
+        }
 
-      static /*constexpr*/ unsigned       size()
-       {
-        return container_trait_type::size();
-       }
-
-      private:
-        container_type m_container;
+     private:
+       container_type m_container;
     };
 
  }
