@@ -236,6 +236,7 @@ void check_sizeof()
 
   ss << print_sizeof<::color::YCgCo  > ( "<code>YCgCo </code>" );  ss << std::endl;
   ss << print_sizeof<::color::YDbDr  > ( "<code>YDbDr </code>" );  ss << std::endl;
+  ss << print_sizeof<::color::xyz    > ( "<code>xyz </code>"   );  ss << std::endl;
 
 
   ss << "</table>";

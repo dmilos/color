@@ -19,11 +19,11 @@ void place_YDbDr();
 void place_yiq();
 void place_YPbPr();
 void place_yuv();
+void place_xyz();
 
 
 void main_place()
  {
-
   place_RGB();
   place_CMY();
   place_CMYK();
@@ -36,7 +36,7 @@ void main_place()
   place_yiq();
   place_YPbPr();
   place_yuv();
-
+  place_xyz();
  }
 
 #define MAKE_CKECK_PLACE(DP_name)                                                 \
@@ -253,4 +253,13 @@ void place_yuv()
   check_place_luma< ::color::yuv<float>        ::category_type >();
   check_place_luma< ::color::yuv<double>       ::category_type >();
   check_place_luma< ::color::yuv<long double>  ::category_type >();
+ }
+
+void place_xyz()
+ {
+  check_place_luma< ::color::xyz<std::uint8_t> ::category_type >();
+  check_place_luma< ::color::xyz<std::uint16_t>::category_type >();
+  check_place_luma< ::color::xyz<float>        ::category_type >();
+  check_place_luma< ::color::xyz<double>       ::category_type >();
+  check_place_luma< ::color::xyz<long double>  ::category_type >();
  }

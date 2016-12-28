@@ -352,6 +352,17 @@ void print_bound()
   ss << print_bound< color::YPbPr<double       , ::color::constant::YPbPr::BT_2020_entity > >( "color::YPbPr2020", "double        " ) << std::endl;
   ss << print_bound< color::YPbPr<long double  , ::color::constant::YPbPr::BT_2020_entity > >( "color::YPbPr2020", "long double   " ) << std::endl;
 
+
+  ss << print_semi_title( "x","y","z" );
+  ss << print_bound< color::xyz<std::uint8_t  > >( "color::xyz", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::xyz<std::uint16_t > >( "color::xyz", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::xyz<std::uint32_t > >( "color::xyz", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::xyz<std::uint64_t > >( "color::xyz", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::xyz<float         > >( "color::xyz", "float         " ) << std::endl;
+  ss << print_bound< color::xyz<double        > >( "color::xyz", "double        " ) << std::endl;
+  ss << print_bound< color::xyz<long double   > >( "color::xyz", "long double   " ) << std::endl;
+
+
   //ss << "</table> ";
 
    {

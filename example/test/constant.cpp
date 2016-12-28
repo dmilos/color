@@ -43,7 +43,7 @@ template< typename tag_name >
      ss << "<td>" << print_color( "YCgCo -" + name, ::color::rgb<std::uint8_t>( ::color::YCgCo< double >( constant )  ) ) << "</td>";
      ss << "<td>" << print_color( "YDbDr -" + name, ::color::rgb<std::uint8_t>( ::color::YDbDr< double >( constant )  ) ) << "</td>";
      ss << "<td>" << print_color( "YPbPr -" + name, ::color::rgb<std::uint8_t>( ::color::YPbPr< double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "xyz -" + name, ::color::rgb<std::uint8_t>( ::color::xyz<   double >( constant )  ) ) << "</td>";
+     ss << "<td>" << print_color( "xyz -"   + name, ::color::rgb<std::uint8_t>( ::color::xyz<   double >( constant )  ) ) << "</td>";
     ss << "</tr>" << std::endl;
 
   return ss.str();

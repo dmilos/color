@@ -10,9 +10,11 @@
 
 #include "./rgb.hpp"
 
-#include "./xyz.hpp"
+#include "./yiq.hpp"
 #include "./yuv.hpp"
 
 #include "./YCgCo.hpp"
 #include "./YDbDr.hpp"
 #include "./YPbPr.hpp"
+
+#include "./xyz.hpp"
