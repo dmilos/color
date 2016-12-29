@@ -25,6 +25,7 @@
 							<li><a href="#hsl">hsl  </a></li>
 							<li><a href="#hsv">hsv  </a></li>
 							<li><a href="#rgb">rgb  </a></li>
+							<li><a href="#xyz">xyz  </a></li>
 							<li><a href="#yiq">yiq  </a></li>
 							<li><a href="#yuv">yuv  </a></li>
 							<li><a href="#YCgCo">YCgCo</a></li>
@@ -119,6 +120,15 @@
 							<dt>Decription</dt><dd>Implements RGB color model.</dd>
 							<dt>Example:</dt><dd><code>::color::rgb&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/RGB_color_model">Wikipedia RGB</a></dd>
+						</dl><hr width="%20">
+
+						<dl>
+							<dt>Name</dt><dd><a name="xyz" />xyz</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using xyz = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements XYZ color model.</dd>
+							<dt>Example:</dt><dd><code>::color::xyz&lt; double &gt; c;</code></dd>
+							<dt>Note</dt><dd>It is used: space sRGB, white point D65, observer 2&deg;. </dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/CIE_1931_color_space">Wikipedia XYZ</a></dd>
 						</dl><hr width="%20">
 
 						<dl>

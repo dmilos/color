@@ -190,23 +190,23 @@ namespace color
            static degree_type degree() { return DP_degree; }                 \
           }
 
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( LabGamut_entity,        ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Adobe_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Apple_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Best_entity,            ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Beta_entity,            ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Bruce_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( CIE_entity,             ::color::constant::xyz::white::E_entity,   ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ColorMatch_entity,      ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Don_entity,             ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ECI_entity,             ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( Ekta_Space_PS5_entity,  ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( NTSC_entity,            ::color::constant::xyz::white::C_entity,   ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( PAL_SECAM_entity,       ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ProPhoto_entity,        ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( SMPTE_C_entity,         ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( sRGB_entity,            ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( WideGamut_entity,       ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::LabGamut_entity,        ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Adobe_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Apple_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Best_entity,            ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Beta_entity,            ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Bruce_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::CIE_entity,             ::color::constant::xyz::white::E_entity,   ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::ColorMatch_entity,      ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Don_entity,             ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::ECI_entity,             ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Ekta_Space_PS5_entity,  ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::NTSC_entity,            ::color::constant::xyz::white::C_entity,   ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::PAL_SECAM_entity,       ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::ProPhoto_entity,        ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::SMPTE_C_entity,         ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity,            ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::WideGamut_entity,       ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
 
 #undef COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE
 
