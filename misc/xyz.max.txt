@@ -1,0 +1,64 @@
+fpprec:42;
+x:31271/100000;
+y:32902/100000;
+
+
+X_W:x/y;
+Y_W:1;
+Z_W:(1-x-y)/y;
+
+
+x_r:64/100;
+y_r:33/100;
+x_g:3/10; 
+y_g:6/10; 
+x_b:15/100; 
+y_b:06/100; 
+
+X_r:x_r/y_r;
+Y_r:1;
+Z_r:(1-x_r-y_r)/y_r;
+
+
+X_g:x_g/y_g;
+Y_g:1;
+Z_g:(1-x_g-y_g)/y_g;
+
+X_b:x_b/y_b;
+Y_b:1;
+Z_b:(1-x_b-y_b)/y_b;
+
+A:matrix([ X_r,X_g,X_b ],[ Y_r, Y_g, Y_b ],[ Z_r, Z_g, Z_b] );
+Ai:invert( A );
+/*Ai:ratsimp (Ai);*/
+
+determinant(Ai);
+/*ratsimp(%);*/
+
+As: Ai / determinant(Ai);
+As: fullratsimp(As);
+
+/*rat(As, x_r, x_g, x_b );*/
+/*rat(As, y_r, y_g, y_b );*/
+
+W_p:matrix([X_W],[Y_W],[Z_W]);
+
+gray: Ai . W_p;
+S_r:gray . matrix( [1], [0], [0] );
+S_g:gray . matrix( [0], [1], [0] );
+S_b:gray . matrix( [0], [0], [1] );
+
+
+M:matrix( [S_r * X_r, S_g * X_g, S_b*X_b ], [S_r*Y_r, S_g*Y_g, S_b*Y_b ], [S_r*Z_r, S_g*Z_g, S_b*Z_b ] );
+M:ratsimp(M);
+Mi:invert(M);
+Mi:ratsimp(Mi);
+
+d=determinant(Mi);
+/*ratsimp(%);*/
+
+Ms: Mi / determinant(Mi);
+/*ratsimp(%);*/
+
+
+matrix([2647777/12450000],[26710933/37350000],[336967/4668750])

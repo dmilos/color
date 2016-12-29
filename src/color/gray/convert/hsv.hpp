@@ -43,7 +43,7 @@ namespace color
           )
           {
            container_left_trait_type::template set<0>( left, reformat_type::template process<0,value_p>( container_right_trait_type::template get<value_p>( right ) ) );
-         }
+          }
       };
 
    }

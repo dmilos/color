@@ -1241,6 +1241,7 @@
     <ClCompile Include="decompose.cpp" />
     <ClCompile Include="get_invoke.cpp" />
     <ClCompile Include="get_test.cpp" />
+    <ClCompile Include="gray_scale.cpp" />
     <ClCompile Include="gray_test.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="main.cpp" />

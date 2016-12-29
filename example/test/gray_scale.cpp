@@ -52,53 +52,74 @@ std::string make_test_gray_single( std::string const& name )
  {
   std::stringstream ss;
 
-  model_type r;
+  model_type m;
 
   ss << "<tr>" << std::endl;
-
    ss << "<td>" << name << "</td>";
 
-   ::color::make::gray( r,   0.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  10.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  16.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  20.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  25.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  30.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  33.3 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  40.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  50.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  60.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  66.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  70.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  75.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  80.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  83.3 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r,  90.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   ::color::make::gray( r, 100.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   ::color::make::gray( m,   0.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  10.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  16.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  20.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  25.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  30.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  33.3 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  40.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  50.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  60.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  66.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  70.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  75.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  80.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  83.3 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m,  90.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   ::color::make::gray( m, 100.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
 
-  
   ss << "</tr>" << std::endl;
-  ss << "<tr>" << std::endl;
 
+  ss << "<tr>" << std::endl;
    ss << "<td>" << "&nbsp;" << "</td>";
 
-   r = ::color::make::gray< typename model_type::category_type>(   0.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  10.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  16.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  20.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  25.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  30.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  33.3 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  40.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  50.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  60.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  66.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  70.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  75.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  80.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  83.3 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>(  90.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
-   r = ::color::make::gray< typename model_type::category_type>( 100.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( r ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(   0.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  10.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  16.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  20.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  25.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  30.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  33.3 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  40.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  50.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  60.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  66.6 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  70.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  75.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  80.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  83.3 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>(  90.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::make::gray< typename model_type::category_type>( 100.0 );   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+
+  ss << "</tr>" << std::endl;
+
+  ss << "<tr>" << std::endl;
+   ss << "<td>" << "&nbsp;" << "</td>";
+   m = ::color::constant::gray_t<  100,   0 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   90,  10 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<    5,   1 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   80,  20 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   75,  25 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   70,  30 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<    2,   1 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   60,  40 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   50,  50 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   40,  60 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<    1,   2 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   30,  70 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   25,  75 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   20,  80 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<    1,   5 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<   10,  90 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+   m = ::color::constant::gray_t<    0, 100 >{};   ss << "<td>" << print_color( "", ::color::rgb<std::uint8_t>( m ) ) << "</td>";
+
 
   ss << "</tr>" << std::endl;
 

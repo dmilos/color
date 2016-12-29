@@ -144,8 +144,6 @@ void make_gray_xyz( gray_image_type & gray, bgr_image_type const& image )
    }
  }
 
-
-
 int gray_test( int argc, char const *argv[] )
  {
   std::cout << sizeof( gray_color_type )  << " == sizeof (" <<typeid( gray_color_type ).name() << ")" << std::endl;
@@ -157,21 +155,20 @@ int gray_test( int argc, char const *argv[] )
   gray_image_type gray;
   gray.resize( 1600 * 1195 );
 
-  make_gray_gray(      gray, image ); save_image_gray( "./gray/gray.tga",      gray, 1600, 1195 );
+  make_gray_gray(      gray,  image ); save_image_gray( "./gray/gray.tga",         gray, 1600, 1195 );
+                              
+  make_gray_yuv601(    gray,  image ); save_image_gray( "./gray/yuv601-y.tga",     gray, 1600, 1195 );
+  make_gray_yuv709(    gray,  image ); save_image_gray( "./gray/yuv709-y.tga",     gray, 1600, 1195 );
+                              
+  make_gray_yiq(       gray,  image ); save_image_gray( "./gray/yiq-y.tga",        gray, 1600, 1195 );
+  make_gray_hsl(       gray,  image ); save_image_gray( "./gray/hsl-l.tga",        gray, 1600, 1195 );
+  make_gray_hsv(       gray,  image ); save_image_gray( "./gray/hsv-v.tga",        gray, 1600, 1195 );
+                                                                                   
+  make_gray_satur_hsv(  gray, image ); save_image_gray( "./gray/satur-hsv.tga",    gray, 1600, 1195 );
+  make_gray_satur_hsl(  gray, image ); save_image_gray( "./gray/satur-hsl.tga",    gray, 1600, 1195 );
+  make_gray_intens_hsi( gray, image ); save_image_gray( "./gray/satur-hsi.tga",    gray, 1600, 1195 );
 
-  make_gray_yuv601(    gray, image ); save_image_gray( "./gray/yuv601-y.tga",     gray, 1600, 1195  );
-  make_gray_yuv709(    gray, image ); save_image_gray( "./gray/yuv709-y.tga",     gray, 1600, 1195  );
-
-  make_gray_yiq(       gray, image ); save_image_gray( "./gray/yiq-y.tga",     gray, 1600, 1195  );
-  make_gray_hsl(       gray, image ); save_image_gray( "./gray/hsl-l.tga",     gray, 1600, 1195  );
-  make_gray_hsv(       gray, image ); save_image_gray( "./gray/hsv-v.tga",     gray, 1600, 1195  );
-
-  make_gray_satur_hsv(  gray, image ); save_image_gray( "./gray/satur-hsv.tga", gray, 1600, 1195  );
-  make_gray_satur_hsl(  gray, image ); save_image_gray( "./gray/satur-hsl.tga", gray, 1600, 1195  );
-  make_gray_intens_hsi( gray, image ); save_image_gray( "./gray/satur-hsi.tga", gray, 1600, 1195 );
-
-  make_gray_xyz( gray, image ); save_image_gray( "./gray/xyz-Y.tga", gray, 1600, 1195 );
+  make_gray_xyz( gray, image );        save_image_gray( "./gray/xyz-Y.tga",        gray, 1600, 1195 );
 
   return EXIT_SUCCESS;
  }
-

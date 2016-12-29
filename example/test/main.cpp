@@ -273,6 +273,7 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
            check = m;
            ::color::fix::overburn( check );
            image[y * width + x] = check;
+           image[y * width + x].set<3>( 255 );
           }break;
         case( 2 ):
          {
@@ -407,35 +408,50 @@ void test_pallete()
 
 void test_xyz_quick()
  {
-  ::color::xyz<double>  x;
-  ::color::rgb<double>  r;// { ::color::constant::gray_t<1,1>{} };
+  std::cout << "---------------------------------------------------------------------------------------------------" <<  std::endl;
+  ::color::rgb<double>   r{ ::color::constant::gray_t<1,1>{} };
+  ::color::gray<double>  g;
+  ::color::xyz<double>   x;
 
-  //r.set<0>( 0.2 ); r.set<1>( 0.2 ); r.set<2>( 0.2 );
-  //x = r;  std::cout << "x=rgb( 0.2, 0.2, 0.2 )           "; print( x ); std::cout << std::endl;
-  //r = x;  std::cout << "r=xyz(rgb( 0.2, 0.2, 0.2 ))      "; print( r ); std::cout << std::endl;
+  x = r;  std::cout << "x = r; " ; print( x ); std::cout <<  std::endl;
+  g = x;  std::cout << "g = x; " ; print( g ); std::cout <<  std::endl;
+  r = g;  std::cout << "r = g; " ; print( r ); std::cout <<  std::endl;
 
-  //r[0] = r[1] = r[2] = 0.041;    x = r;  std::cout << "( 0.041, 0.041, 0.041 )      "; print( x ); std::cout << std::endl;
+  std::cout << "-----------" <<  std::endl;
+  r = ::color::constant::gray_t<1,1>{};
+  g = r;  std::cout << "g = r; "; print( g ); std::cout << std::endl;
+  x = g;  std::cout << "x = g; "; print( x ); std::cout << std::endl;
+  r = x;  std::cout << "r = x; "; print( x ); std::cout << std::endl;
+  std::cout << "-----------" <<  std::endl;
 
-  //r = ::color::constant::gray_t<0,1>{};  x = r;  std::cout << "gray_t<0,1>  "; print( x ); std::cout << std::endl;
-  //r = ::color::constant::gray_t<1,0>{};  x = r;  std::cout << "gray_t<1,0>  "; print( x ); std::cout << std::endl;
-  //r = ::color::constant::gray_t<1,1>{};  x = r;  std::cout << "gray_t<1,1>  "; print( x ); std::cout << std::endl;
+  r.set<0>( 0.2 ); r.set<1>( 0.2 ); r.set<2>( 0.2 );
+  x = r;  std::cout << "x=rgb( 0.2, 0.2, 0.2 )           "; print( x ); std::cout << std::endl;
+  r = x;  std::cout << "r=xyz(rgb( 0.2, 0.2, 0.2 ))      "; print( r ); std::cout << std::endl;
 
-  //r = ::color::constant::black_t{};      x = r;  std::cout << "black        "; print( x ); std::cout << std::endl;
-  //r = ::color::constant::white_t{};      x = r;  std::cout << "white        "; print( x ); std::cout << std::endl;
-  //
-  //r = ::color::constant::red_t{};        x = r;  std::cout << "red          "; print( x ); std::cout << std::endl;
-  //r = ::color::constant::green_t{};      x = r;  std::cout << "green;       "; print( x ); std::cout << std::endl;
-  //r = ::color::constant::blue_t{};       x = r;  std::cout << "blue         "; print( x ); std::cout << std::endl;
-  //
-  //r = ::color::constant::cyan_t{};       x = r;  std::cout << "cyan         "; print( x ); std::cout << std::endl;
-  //r = ::color::constant::yellow_t{};     x = r;  std::cout << "yellow       "; print( x ); std::cout << std::endl;
-  //r = ::color::constant::magenta_t{};    x = r;  std::cout << "magenta      "; print( x ); std::cout << std::endl;
+  r[0] = r[1] = r[2] = 0.041;    x = r;  std::cout << "( 0.041, 0.041, 0.041 )      "; print( x ); std::cout << std::endl;
 
+  r = ::color::constant::gray_t<0,1>{};  x = r;  std::cout << "gray_t<0,1>  "; print( x ); std::cout << std::endl;
+  r = ::color::constant::gray_t<1,0>{};  x = r;  std::cout << "gray_t<1,0>  "; print( x ); std::cout << std::endl;
+  r = ::color::constant::gray_t<1,1>{};  x = r;  std::cout << "gray_t<1,1>  "; print( x ); std::cout << std::endl;
+
+  r = ::color::constant::black_t{};      x = r;  std::cout << "black        "; print( x ); std::cout << std::endl;
+  r = ::color::constant::white_t{};      x = r;  std::cout << "white        "; print( x ); std::cout << std::endl;
+  
+  r = ::color::constant::red_t{};        x = r;  std::cout << "red          "; print( x ); std::cout << std::endl;
+  r = ::color::constant::green_t{};      x = r;  std::cout << "green;       "; print( x ); std::cout << std::endl;
+  r = ::color::constant::blue_t{};       x = r;  std::cout << "blue         "; print( x ); std::cout << std::endl;
+  
+  r = ::color::constant::cyan_t{};       x = r;  std::cout << "cyan         "; print( x ); std::cout << std::endl;
+  r = ::color::constant::yellow_t{};     x = r;  std::cout << "yellow       "; print( x ); std::cout << std::endl;
+  r = ::color::constant::magenta_t{};    x = r;  std::cout << "magenta      "; print( x ); std::cout << std::endl;
+  std::cout << "---------------------------------------------------------------------------------------------------" <<  std::endl;
  }
 
 int main(int argc, char const *argv[])
  {
   test_xyz_quick();
+  void make_test_gray_scale();
+  make_test_gray_scale();
 
   print< ::color::rgb< ::color::type::split422_t >::category_type  >();
   print< ::color::rgb< ::color::type::split242_t >::category_type  >();
@@ -491,8 +507,6 @@ int main(int argc, char const *argv[])
   extern void check_conversion();
   check_conversion();
 
-  void make_test_gray_scale();
-  make_test_gray_scale();
 
   void test_set_invoke();
   test_set_invoke();

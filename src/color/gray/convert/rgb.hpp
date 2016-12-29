@@ -61,7 +61,7 @@ namespace color
                + gray_const_type::Bc() * normalize_type::template process<blue_p > ( container_right_trait_type::template get<blue_p >( right ) );
 
            container_left_trait_type::template set<0>( left,  diverse_type::template process<0>( value ) );
-         }
+          }
       };
 
    }

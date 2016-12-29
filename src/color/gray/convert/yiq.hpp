@@ -33,7 +33,7 @@ namespace color
 
          enum
           {
-             luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
+            luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
           };
 
          static void process
