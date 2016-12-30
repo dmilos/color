@@ -13,17 +13,17 @@ int main( int argc, char *argv[] )
 
   ::color::rgb<double> j;
 
-  color::operation::convex( j , a, 0.25, b );
+  ::color::operation::convex( j , a, 0.25, b );
   std::cout<< " convex::full( j , orange, 0.25, lime ) = ";
   std::cout << j[0] << ", " << j[1] << ", " << j[2] << std::endl;
   std::cout << std::endl;
 
-  color::operation::convex( j , a, 0.5, b );
+  ::color::operation::convex( j , a, 0.5, b );
   std::cout<< " convex::full( j , orange, 0.5, lime ) = ";
   std::cout << j[0] << ", " << j[1] << ", " << j[2] << std::endl;
   std::cout << std::endl;
 
-  color::operation::convex( j , a, 0.75, b );
+  ::color::operation::convex( j , a, 0.75, b );
   std::cout<< " convex::full( j , orange, 0.75, lime ) = ";
   std::cout << j[0] << ", " << j[1] << ", " << j[2] << std::endl;
   std::cout << std::endl;

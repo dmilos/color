@@ -45,9 +45,9 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-							::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };<br>
-							::color::rgb&lt; float &gt; c{ ::color::constant::red{} };<br>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+							::color::rgb&lt; float &gt; b{ ::color::constant::lime_t{} };<br>
+							::color::rgb&lt; float &gt; c{ ::color::constant::red_t{} };<br>
 							::color::rgb&lt; float &gt; r; // result<br>
 							::color::operation::combine( r, 0.1, a, 0.2, b );<br>
 							::color::operation::combine( r, 0.1, a, 0.2, b, 0.3, b );
@@ -67,8 +67,8 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-							::color::rgb&lt; float &gt; r; // result<br>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+							::color::rgb&lt; float &gt; r{ ::color::constant::lime_t{} }; // result<br>
 							::color::operation::bias( r, 0.5 );<br>
 							::color::operation::bias( r, a, 0.5 );
 						</code>
@@ -108,10 +108,10 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-						::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };<br>
-						::color::rgb&lt; float &gt; r; // result<br>
-						::color::operation::convex( a, 0.3, b );<br>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+						::color::rgb&lt; float &gt; b{ ::color::constant::lime_t{} };<br>
+						::color::rgb&lt; float &gt; r{ ::color::constant::blue_t{} }; // result<br>
+						::color::operation::convex( r, 0.3, b );<br>
 						::color::operation::convex( r, a, 0.25, b );
 						</code>
 					</dd>
@@ -130,8 +130,8 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-							::color::rgb&lt; float &gt; r; // result<br>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+							::color::rgb&lt; float &gt; r{ ::color::constant::lime_t{} }; // result<br>
 							::color::operation::gain( r, 0.5 );<br>
 							::color::operation::gain( r, a, 0.5 );
 						</code>
@@ -149,8 +149,8 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-							::color::rgb&lt; float &gt; r; // result<br>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+							::color::rgb&lt; float &gt; r{ ::color::constant::lime_t{} }; // result<br>
 							::color::operation::gamma( r, 0.5 );<br>
 							::color::operation::gamma( r, a, 0.5 );
 						</code>
@@ -173,8 +173,8 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-						::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };<br>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+						::color::rgb&lt; float &gt; b{ ::color::constant::lime_t{} };<br>
 						a = ::color::operation::invert( b ); <br>
 						::color::operation::invert( a, b );<br>
 						</code>
@@ -197,8 +197,8 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::rgb&lt float &gt a{ ::color::constant::orange{} };<br>
-						::color::rgb&lt float &gt a{ ::color::constant::lime{} };<br>
+						<code>::color::rgb&lt float &gt a{ ::color::constant::orange_t{} };<br>
+						::color::rgb&lt float &gt a{ ::color::constant::lime_t{} };<br>
 						::color::rgb&lt float &gt r;<br>
 						r = color::operation::mix( a, 0.2, b );
 						</code>
@@ -250,8 +250,8 @@
 					</dd>
 					<dt>Example:</dt>
 					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-						::color::rgb&lt; float &gt; a{ ::color::constant::lime{} };<br>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+						::color::rgb&lt; float &gt; b{ ::color::constant::lime_t{} };<br>
 						:color::operation::blend( a, 0.1, b );
 						</code>
 					</dd>
@@ -276,11 +276,11 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-						::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };<br>
-						::color::rgb&lt; float &gt; r{ ::color::constant::lime{} };<br>
-						r = color::operation::addition(a,b);<br>
-						color::operation::addition(r,a,b);<br>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+						::color::rgb&lt; float &gt; b{ ::color::constant::lime_t{} };<br>
+						::color::rgb&lt; float &gt; r{ ::color::constant::blue{} };<br>
+						r = color::operation::addition( a, b );<br>
+						color::operation::addition( r, a, b );<br>
 						</code>
 					</dd>
 				</dl><hr width="%20">
@@ -297,15 +297,15 @@
 						&nbsp;&nbsp;void scale( ::color::model<category_name> &amp; result, scalar_name const&amp; scalar &nbsp;&nbsp;&nbsp;);                                                     <br>
 						&nbsp;                                                                   <br>
 						&nbsp;template< typename category_name, typename scalar_name >           <br>
-						&nbsp;&nbsp;void scale( ::color::model<category_name>      &amp;result,scalar_name                   const&amp; scalar ,::color::model<category_name> const&amp; right );
+						&nbsp;&nbsp;void scale( ::color::model<category_name>      &amp;result, scalar_name                   const&amp; scalar, ::color::model<category_name> const&amp; right );
 					</code>
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-						::color::rgb&lt; float &gt; r{ ::color::constant::lime{} };</code>
-						r = color::operation::subtract(a, 0.6 );<br>
-						color::operation::subtract(r,0.6,b);<br>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+						::color::rgb&lt; float &gt; r{ ::color::constant::lime_t{} };<br>
+						r = color::operation::scale( r, 0.6 );<br>
+						color::operation::scale( r, 0.6, a );</code>
 					</dd>
 				</dl><hr width="%20">
 
@@ -325,10 +325,10 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
-						::color::rgb&lt; float &gt; a{ ::color::constant::lime{} };</code>
-						r = color::operation::subtract(a,b);<br>
-						color::operation::subtract(r,a,b);<br>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+						::color::rgb&lt; float &gt; a{ ::color::constant::lime_t{} };
+						r = color::operation::subtract( a, b );<br>
+						color::operation::subtract( r, a, b );</code>
 					</dd>
 				</dl><hr width="%20">
 

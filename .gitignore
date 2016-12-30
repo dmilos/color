@@ -152,7 +152,7 @@ example/tip_inplace_conversion
 example/tip_memfill
 example/tip_memset
 
-/example/test/Release/test.log
+/example/test/Release
 /example/test/blank12.VC.VC.opendb
 /example/test/blank12.VC.db
 

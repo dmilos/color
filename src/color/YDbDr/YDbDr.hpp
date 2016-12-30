@@ -13,7 +13,7 @@
 namespace color
  {
 
-  template< typename type_name>
+  template< typename type_name >
    using YDbDr = ::color::model< typename ::color::category::YDbDr< type_name > >;
 
  }

@@ -11,7 +11,7 @@ namespace color
    {
 
     template< typename tag_name, ::color::constant::YPbPr::reference_enum reference_number >
-     struct YPbPr< ::color::category::YPbPr< tag_name, reference_number >, reference_number  >
+     struct YPbPr< ::color::category::YPbPr< tag_name, reference_number >, reference_number >
       {
        public:
          typedef ::color::category::YPbPr< tag_name, reference_number > akin_type;

@@ -14,24 +14,9 @@ g++ -fexceptions -std=c++11 -g -I../../../src invert_yiq.cpp        -o  invert_y
 g++ -fexceptions -std=c++11 -g -I../../../src invert_yuv.cpp        -o  invert_yuv
 g++ -fexceptions -std=c++11 -g -I../../../src mix_alpha.cpp         -o  mix_alpha
 g++ -fexceptions -std=c++11 -g -I../../../src mix_noalpha.cpp       -o  mix_noalpha
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+g++ -fexceptions -std=c++11 -g -I../../../src bias.cpp              -o  bias
+g++ -fexceptions -std=c++11 -g -I../../../src gain.cpp              -o  gain
+g++ -fexceptions -std=c++11 -g -I../../../src gamma.cpp             -o  gamma
+g++ -fexceptions -std=c++11 -g -I../../../src addition.cpp          -o addition
+g++ -fexceptions -std=c++11 -g -I../../../src scale.cpp             -o scale
+g++ -fexceptions -std=c++11 -g -I../../../src subtract.cpp          -o subtract
