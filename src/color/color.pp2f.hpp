@@ -1108,7 +1108,6 @@ private:
 	typedef typename ::color::model< category_name >::proxy proxy_type;
 
 public:
-
 	proxy_type operator[](index_input_const_type index) {
 		return proxy{ *this, index };
 	}
@@ -5963,15 +5962,16 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
+	enum {
+		gl = ::color::place::_internal::gray<category_left_type>::position_enum
+		,gr = ::color::place::_internal::gray<category_right_type>::position_enum
+	};
+
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		enum {
-			gl = ::color::place::_internal::gray<category_left_type>::position_enum
-			,gr = ::color::place::_internal::gray<category_right_type>::position_enum
-		};
 		container_left_trait_type::template set<gl>(left, reformat_type::template process<gl,gr>(container_right_trait_type::template get<gr>(right)));
 	}
 };
@@ -20783,7 +20783,7 @@ struct white {
 		return ::color::constant::xyz::white::two_entity ;
 	}
 };
-template<> struct white<LabGamut_entity> {
+template<> struct white< ::color::constant::xyz::space::LabGamut_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D65_entity };
@@ -20794,7 +20794,7 @@ template<> struct white<LabGamut_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<Adobe_entity> {
+template<> struct white< ::color::constant::xyz::space::Adobe_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D65_entity };
@@ -20805,7 +20805,7 @@ template<> struct white<Adobe_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<Apple_entity> {
+template<> struct white< ::color::constant::xyz::space::Apple_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D65_entity };
@@ -20816,7 +20816,7 @@ template<> struct white<Apple_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<Best_entity> {
+template<> struct white< ::color::constant::xyz::space::Best_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D50_entity };
@@ -20827,7 +20827,7 @@ template<> struct white<Best_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<Beta_entity> {
+template<> struct white< ::color::constant::xyz::space::Beta_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D50_entity };
@@ -20838,7 +20838,7 @@ template<> struct white<Beta_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<Bruce_entity> {
+template<> struct white< ::color::constant::xyz::space::Bruce_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D65_entity };
@@ -20849,7 +20849,7 @@ template<> struct white<Bruce_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<CIE_entity> {
+template<> struct white< ::color::constant::xyz::space::CIE_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::E_entity };
@@ -20860,7 +20860,7 @@ template<> struct white<CIE_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<ColorMatch_entity> {
+template<> struct white< ::color::constant::xyz::space::ColorMatch_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D50_entity };
@@ -20871,7 +20871,7 @@ template<> struct white<ColorMatch_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<Don_entity> {
+template<> struct white< ::color::constant::xyz::space::Don_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D50_entity };
@@ -20882,7 +20882,7 @@ template<> struct white<Don_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<ECI_entity> {
+template<> struct white< ::color::constant::xyz::space::ECI_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D50_entity };
@@ -20893,7 +20893,7 @@ template<> struct white<ECI_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<Ekta_Space_PS5_entity> {
+template<> struct white< ::color::constant::xyz::space::Ekta_Space_PS5_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D50_entity };
@@ -20904,7 +20904,7 @@ template<> struct white<Ekta_Space_PS5_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<NTSC_entity> {
+template<> struct white< ::color::constant::xyz::space::NTSC_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::C_entity };
@@ -20915,7 +20915,7 @@ template<> struct white<NTSC_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<PAL_SECAM_entity> {
+template<> struct white< ::color::constant::xyz::space::PAL_SECAM_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D65_entity };
@@ -20926,7 +20926,7 @@ template<> struct white<PAL_SECAM_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<ProPhoto_entity> {
+template<> struct white< ::color::constant::xyz::space::ProPhoto_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D50_entity };
@@ -20937,7 +20937,7 @@ template<> struct white<ProPhoto_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<SMPTE_C_entity> {
+template<> struct white< ::color::constant::xyz::space::SMPTE_C_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D65_entity };
@@ -20948,7 +20948,7 @@ template<> struct white<SMPTE_C_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<sRGB_entity> {
+template<> struct white< ::color::constant::xyz::space::sRGB_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D65_entity };
@@ -20959,7 +20959,7 @@ template<> struct white<sRGB_entity> {
 		return ::color::constant::xyz::white::two_entity;
 	}
 };
-template<> struct white<WideGamut_entity> {
+template<> struct white< ::color::constant::xyz::space::WideGamut_entity> {
 	typedef ::color::constant::xyz::white::name_enum name_type;
 	typedef ::color::constant::xyz::white::degree_enum degree_type;
 	enum { name_entity = ::color::constant::xyz::white::D50_entity };
@@ -21362,7 +21362,11 @@ gray
 namespace color {
 namespace _internal {
 
-template< typename xyz_tag_name, typename gray_tag_name >
+template
+<
+	typename xyz_tag_name
+	,typename gray_tag_name
+	>
 struct convert
 	<
 	::color::category::xyz< xyz_tag_name >
@@ -21373,9 +21377,11 @@ public:
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
 	typedef double scalar_type;
 
-	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::constant::xyz::matrix< category_left_type > xyz_matrix_type;
+	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -21388,12 +21394,17 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
+		static const scalar_type b2 = xyz_matrix_type::M21() + xyz_matrix_type::M22() + xyz_matrix_type::M23();
+		static const scalar_type b1 = (xyz_matrix_type::M11() + xyz_matrix_type::M12() + xyz_matrix_type::M13()) / b2;
+		static const scalar_type b3 = (xyz_matrix_type::M31() + xyz_matrix_type::M32() + xyz_matrix_type::M33()) / b2;
 		scalar_type g = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
-		container_left_trait_type::template set<0>(left, 0.5);
-		container_left_trait_type::template set<1>(left, g);
-		container_left_trait_type::template set<2>(left, 0.5);
+		scalar_type x = b1 * g;
+		scalar_type y = g;
+		scalar_type z = b3 * g;
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(x));
+		container_left_trait_type::template set<1>(left, diverse_type::template process<1>(y));
+		container_left_trait_type::template set<2>(left, diverse_type::template process<2>(z));
 	}
-
 };
 
 }
@@ -21637,7 +21648,8 @@ public:
 		scalar_type g = normalize_type::template process<green_p>(container_right_trait_type::template get<green_p>(right));
 		scalar_type b = normalize_type::template process<blue_p >(container_right_trait_type::template get<blue_p >(right));
 		r = xyz_gamma_type::decode(r);
-		r = xyz_gamma_type::encode(r);
+		g = xyz_gamma_type::decode(g);
+		b = xyz_gamma_type::decode(b);
 		scalar_type x = b11 * r + b12 * g + b13 * b;
 		scalar_type y = b21 * r + b22 * g + b23 * b;
 		scalar_type z = b31 * r + b32 * g + b33 * b;
@@ -21653,48 +21665,42 @@ public:
 namespace color {
 namespace _internal {
 
-template< typename tag_left_name, typename tag_right_name >
+template
+<
+	typename xyz_tag_name
+	,typename yiq_tag_name
+	>
 struct convert
 	<
-	::color::category::xyz< tag_left_name >
-	,::color::category::xyz< tag_right_name>
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::yiq< yiq_tag_name >
 	> {
 public:
-	typedef ::color::category::xyz< tag_left_name > category_left_type;
-	typedef ::color::category::xyz< tag_right_name> category_right_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
 
-	typedef double scalar_type;
+	typedef typename ::color::akin::rgb< yiq_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< yiq_category_type > yiq_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
-
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
-
-	enum {
-		ll_p = ::color::place::_internal::luma<category_left_type>::position_enum
-		,il_p = ::color::place::_internal::inphase<category_left_type>::position_enum
-		,ql_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
-	};
-
-	enum {
-		lr_p = ::color::place::_internal::luma<category_right_type>::position_enum
-		,ir_p = ::color::place::_internal::inphase<category_right_type>::position_enum
-		,qr_p = ::color::place::_internal::quadrature<category_right_type>::position_enum
-	};
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		container_left_trait_type::template set<ll_p>(left, reformat_type::template process<ll_p,lr_p>(container_right_trait_type::template get<lr_p>(right)));
-		container_left_trait_type::template set<il_p>(left, reformat_type::template process<il_p,ir_p>(container_right_trait_type::template get<ir_p>(right)));
-		container_left_trait_type::template set<ql_p>(left, reformat_type::template process<ql_p,qr_p>(container_right_trait_type::template get<qr_p>(right)));
+		left = xyz_model_type(rgb_model_type(yiq_model_type(right))).container();
 	}
 };
+
 }
 }
 
@@ -21855,6 +21861,54 @@ public:
 	}
 };
 
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename tag_left_name, typename tag_right_name >
+struct convert
+	<
+	::color::category::xyz< tag_left_name >
+	,::color::category::xyz< tag_right_name>
+	> {
+public:
+	typedef ::color::category::xyz< tag_left_name > category_left_type;
+	typedef ::color::category::xyz< tag_right_name> category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	enum {
+		ll_p = ::color::place::_internal::luma<category_left_type>::position_enum
+		,il_p = ::color::place::_internal::inphase<category_left_type>::position_enum
+		,ql_p = ::color::place::_internal::quadrature<category_left_type>::position_enum
+	};
+
+	enum {
+		lr_p = ::color::place::_internal::luma<category_right_type>::position_enum
+		,ir_p = ::color::place::_internal::inphase<category_right_type>::position_enum
+		,qr_p = ::color::place::_internal::quadrature<category_right_type>::position_enum
+	};
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<ll_p>(left, reformat_type::template process<ll_p,lr_p>(container_right_trait_type::template get<lr_p>(right)));
+		container_left_trait_type::template set<il_p>(left, reformat_type::template process<il_p,ir_p>(container_right_trait_type::template get<ir_p>(right)));
+		container_left_trait_type::template set<ql_p>(left, reformat_type::template process<ql_p,qr_p>(container_right_trait_type::template get<qr_p>(right)));
+	}
+};
 }
 }
 
@@ -24075,6 +24129,9 @@ public:
 		scalar_type r = a11 * x + a12 * y + a13 * z;
 		scalar_type g = a21 * x + a22 * y + a23 * z;
 		scalar_type b = a31 * x + a32 * y + a33 * z;
+		r = xyz_gamma_type::encode(r);
+		g = xyz_gamma_type::encode(g);
+		b = xyz_gamma_type::encode(b);
 		container_left_trait_type::template set<red_p >(left, diverse_type::template process<red_p >(r));
 		container_left_trait_type::template set<green_p>(left, diverse_type::template process<green_p>(g));
 		container_left_trait_type::template set<blue_p >(left, diverse_type::template process<blue_p >(b));
@@ -25096,7 +25153,11 @@ public:
 namespace color {
 namespace _internal {
 
-template< typename gray_tag_name, typename xyz_tag_name >
+template
+<
+	typename gray_tag_name
+	,typename xyz_tag_name
+	>
 struct convert
 	<
 	::color::category::gray< gray_tag_name >
@@ -25123,8 +25184,8 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		scalar_type value = container_right_trait_type::template get< 1 >(right);
-		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
+		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
+		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
 	}
 };
 
@@ -26117,6 +26178,48 @@ public:
 }
 
 namespace color {
+namespace _internal {
+
+template
+<
+	typename cmy_tag_name
+	,typename xyz_tag_name
+	>
+struct convert
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::cmy< cmy_tag_name > cmy_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< xyz_category_type >::akin_type rgb_category_type;
+
+	typedef ::color::model< cmy_category_type > cmy_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = cmy_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
+
+}
+}
+
+namespace color {
 namespace operation {
 namespace _internal {
 
@@ -26660,22 +26763,22 @@ namespace color {
 																				  };
 																	}
 
-	template< typename category_name, typename scalar_name >
+	template< typename category_name >
 	void bias
 	(
 		::color::model<category_name> & result
-		,scalar_name const& scalar
-					  ) {
+		,typename ::color::trait::scalar<category_name>::input_const_type const& scalar
+										) {
 		::color::operation::_internal::bias<category_name>::process(result, scalar);
 	}
 
-	template< typename category_name, typename scalar_name >
+	template< typename category_name>
 	void bias
 	(
 		::color::model<category_name> & result
 		,color::model<category_name> const& left
-		,scalar_name const& scalar
-					 ) {
+		,typename ::color::trait::scalar<category_name>::input_const_type const& scalar
+										) {
 		::color::operation::_internal::bias<category_name>::process(result, left, scalar);
 	}
 
@@ -26745,8 +26848,8 @@ namespace color {
 	void gain
 	(
 		::color::model<category_name> & result
-		, typename ::color::trait::scalar<category_name>::input_const_type const& scalar
-										 ) {
+		,typename ::color::trait::scalar<category_name>::input_const_type const& scalar
+										) {
 		::color::operation::_internal::gain<category_name>::process(result, scalar);
 	}
 
@@ -26755,8 +26858,8 @@ namespace color {
 	(
 		::color::model<category_name> & result
 		,::color::model<category_name> const& left
-		, typename ::color::trait::scalar<category_name>::input_const_type const& scalar
-										 ) {
+		,typename ::color::trait::scalar<category_name>::input_const_type const& scalar
+										) {
 		::color::operation::_internal::gain<category_name>::process(result, left, scalar);
 	}
 									   }
