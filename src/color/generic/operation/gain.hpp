@@ -83,7 +83,7 @@
       void gain
        (
          ::color::model<category_name>        & result
-        , typename ::color::trait::scalar<category_name>::input_const_type                     const& scalar
+        ,typename ::color::trait::scalar<category_name>::input_const_type                     const& scalar
        )
        {
         /*return */ ::color::operation::_internal::gain<category_name>::process( result, scalar );
@@ -92,9 +92,9 @@
      template< typename category_name >
       void gain
        (
-         ::color::model<category_name>        & result
+         ::color::model<category_name>          & result
         ,::color::model<category_name>     const& left
-        , typename ::color::trait::scalar<category_name>::input_const_type                     const& scalar
+        ,typename ::color::trait::scalar<category_name>::input_const_type                     const& scalar
        )
        {
         /*return */ ::color::operation::_internal::gain<category_name>::process( result, left, scalar );
@@ -110,8 +110,8 @@
       gain
        (
           ::color::model<category_name>        & result
+         ,::color::model<category_name>     const& right
          ,typename ::color::trait::scalar<category_name>::input_const_type const& scalar
-         ,color::model<category_name>     const& right
        )
       {
        return ::color::operation::_internal::gain<category_name>::process( result, left, scalar, right );

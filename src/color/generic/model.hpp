@@ -64,7 +64,7 @@ namespace color
 
                model( )
                {
-                // do nothing.
+                // Do NOTHING is must!!!
                 // Allow using of memset instead this default initialization
                }
 

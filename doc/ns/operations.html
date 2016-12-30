@@ -38,14 +38,20 @@
 					<dt>Name</dt>
 					<dd><a name="#convex" /><i>combine</i></dd>
 					<dt>Description</dt>
-					<dd>Calculate convex combination of two or tree colors..</dd>
+					<dd>Calculate convex combination of two or tree colors.</dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>TODO</code>
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>TODO</code>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
+							::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };<br>
+							::color::rgb&lt; float &gt; c{ ::color::constant::red{} };<br>
+							::color::rgb&lt; float &gt; r; // result<br>
+							::color::operation::combine( r, 0.1, a, 0.2, b );<br>
+							::color::operation::combine( r, 0.1, a, 0.2, b, 0.3, b );
+						</code>
 					</dd>
 
 				</dl><hr width="%20">
@@ -61,7 +67,11 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>TODO</code>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
+							::color::rgb&lt; float &gt; r; // result<br>
+							::color::operation::bias( r, 0.5 );<br>
+							::color::operation::bias( r, a, 0.5 );
+						</code>
 					</dd>
 
 				</dl><hr width="%20">
@@ -100,16 +110,14 @@
 					<dd>
 						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
 						::color::rgb&lt; float &gt; b{ ::color::constant::lime{} };<br>
-						::color::rgb&lt; float &gt; r;<br>
+						::color::rgb&lt; float &gt; r; // result<br>
 						::color::operation::convex( a, 0.3, b );<br>
-						color::operation::convex( r, a, 0.25, b );
+						::color::operation::convex( r, a, 0.25, b );
 						</code>
 					</dd>
 					<dt>Link</dt>
 					<dd> <a href="https://en.wikipedia.org/wiki/Convex_combination"> Wikipedia Convex Combination </a> </dd>
-
 				</dl><hr width="%20">
-
 
 				<dl>
 					<dt>Name</dt>
@@ -122,26 +130,31 @@
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>TODO</code>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
+							::color::rgb&lt; float &gt; r; // result<br>
+							::color::operation::gain( r, 0.5 );<br>
+							::color::operation::gain( r, a, 0.5 );
+						</code>
 					</dd>
-
 				</dl><hr width="%20">
-
 
 				<dl>
 					<dt>Name</dt>
 					<dd><a name="#gamma" /><i>gamma</i></dd>
 					<dt>Description</dt>
-					<dd>Calculate ganmma corrected color.</dd>
+					<dd>Calculate gamma corrected color.</dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>TODO</code>
 					</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>TODO</code>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange{} };<br>
+							::color::rgb&lt; float &gt; r; // result<br>
+							::color::operation::gamma( r, 0.5 );<br>
+							::color::operation::gamma( r, a, 0.5 );
+						</code>
 					</dd>
-
 				</dl><hr width="%20">
 
 				<dl>
@@ -166,7 +179,6 @@
 						::color::operation::invert( a, b );<br>
 						</code>
 					</dd>
-
 				</dl><hr width="%20">
 
 				<dl>
@@ -191,7 +203,6 @@
 						r = color::operation::mix( a, 0.2, b );
 						</code>
 					</dd>
-
 					<dt>Link</dt>
 					<dd><a href="https://en.wikipedia.org/wiki/Alpha_compositing"> Wikipedia Alpha compositing </a> </dd>
 				</dl><hr width="%20">
@@ -272,7 +283,6 @@
 						color::operation::addition(r,a,b);<br>
 						</code>
 					</dd>
-
 				</dl><hr width="%20">
 
 				<dl>
@@ -289,7 +299,6 @@
 						&nbsp;template< typename category_name, typename scalar_name >           <br>
 						&nbsp;&nbsp;void scale( ::color::model<category_name>      &amp;result,scalar_name                   const&amp; scalar ,::color::model<category_name> const&amp; right );
 					</code>
-
 					</dd>
 					<dt>Example</dt>
 					<dd>
@@ -298,7 +307,6 @@
 						r = color::operation::subtract(a, 0.6 );<br>
 						color::operation::subtract(r,0.6,b);<br>
 					</dd>
-
 				</dl><hr width="%20">
 
 				<dl>
@@ -322,7 +330,6 @@
 						r = color::operation::subtract(a,b);<br>
 						color::operation::subtract(r,a,b);<br>
 					</dd>
-
 				</dl><hr width="%20">
 
 			</dd>

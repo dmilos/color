@@ -1,0 +1,78 @@
+digraph color_conversion {
+	node [ shape ="box" ];
+	//gray [ color=gray, penwidth = 5 ];
+	//rgb [ style=striped , fillcolor="red:green:blue" ];
+
+	cmy  -> gray [ label = "rgb", style=dashed, color=gray, penwidth = 2, dir=both ];
+	cmy  -> rgb  [ label = "", dir=both  ];
+
+	cmyk -> gray[ label = "rgb", style=dashed, color=gray, penwidth = 2, dir=both ];
+	cmyk -> rgb [ label = "", dir=both ];
+
+	gray -> hsi   [ label = "", dir=both ];
+	gray -> hsl   [ label = "", dir=both ];
+	gray -> hsv   [ label = "", dir=both  ];
+	gray -> rgb   [ label = "", dir=both ];
+	gray -> xyz   [ label = "", dir=both ];
+	gray -> YCgCo [ label = "", dir=both ];
+	gray -> YDbDr [ label = "", dir=both ];
+	gray -> yiq   [ label = "", dir=both ];
+	gray -> YPbPr [ label = "", dir=both ];
+	gray -> yuv   [ label = "", dir=both ];
+
+	//hbw  -> hsv[ label = "", dir=both ];
+
+	hsi  -> rgb [ label = "", dir=both ];
+
+	hsl  -> rgb [ label = "", dir=both ];
+
+	hsv  -> rgb [ label = "", dir=both ];
+
+	rgb -> xyz   [ label = "", dir=both ];
+	rgb -> YCgCo [ label = "", dir=both ];
+	rgb -> YDbDr [ label = "", dir=both ];
+	rgb -> yiq   [ label = "", dir=both ];
+	rgb -> YPbPr [ label = "", dir=both ];
+	rgb -> yuv   [ label = "", dir=both ];
+
+	//xyz -> Hunter  [ label = "", dir=both ];
+	//xyz -> xyY     [ label = "", dir=both ];
+	//xyz -> Lab     [ label = "", dir=both ];
+	//xyz -> Luv     [ label = "", dir=both ];
+	//xyz -> LMS     [ label = "", dir=both ];
+	//Lab -> LCHab   [ label = "", dir=both ];
+	//Luv -> LCHub   [ label = "", dir=both ];
+
+	subgraph cluster_hue
+	{
+		label = "Hue";
+		//node [ ] hbw;
+		node [ ] hsi;
+		node [ ] hsl;
+		node [ ] hsv;
+	}
+
+	subgraph cluster_Y
+	{
+		label = "Y";
+		node [ ] YCgCo;
+		node [ ] YDbDr;
+		node [ ] yiq  ;
+		node [ ] YPbPr;
+		node [ ] yuv  ;
+	}
+
+	subgraph cluster_CIE
+	{
+		label = "CIE";
+		node [ ] xyz;
+		//node [ ] Hunter
+		//node [ ] xyY
+		//node [ ] Lab
+		//node [ ] Luv
+		//node [ ] LMS
+		//node [ ] LCHab
+		//node [ ] LCHub
+	}
+
+}
