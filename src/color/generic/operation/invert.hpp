@@ -78,22 +78,24 @@
 
 
      template< typename category_name >
-      void invert
+      ::color::model<category_name>      & 
+      invert
        (
          ::color::model<category_name>      & result
        )
        {
-        /*return */::color::operation::_internal::invert<category_name>::process( result );
+        return ::color::operation::_internal::invert<category_name>::process( result );
        }
 
      template< typename category_name >
-      void invert
+      ::color::model<category_name>      & 
+      invert
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& right
        )
        {
-        /*return*/ ::color::operation::_internal::invert<category_name>::process( result, right );
+        return ::color::operation::_internal::invert<category_name>::process( result, right );
        }
 
 

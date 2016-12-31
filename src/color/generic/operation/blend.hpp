@@ -145,35 +145,35 @@
        }
 
 
-     template< typename category_name, typename scalar_name = double >
+     template< typename category_name >
       void blend
        (
          ::color::model<category_name>      & result
-        ,scalar_name                   const& alpha
+        ,typename ::color::trait::scalar<category_name>::input_const_type alpha
         ,::color::model<category_name> const& upper
        )
        {
         ::color::operation::_internal::blend<category_name>::accumulate( result, alpha, upper );
        }
 
-     template< typename category_name, typename scalar_name = double >
+     template< typename category_name >
       void blend
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& lower
-        ,scalar_name                   const& alpha
+        ,typename ::color::trait::scalar<category_name>::input_const_type alpha
         ,::color::model<category_name> const& upper
        )
        {
         ::color::operation::_internal::blend<category_name>::accumulate( result, lower, alpha, upper );
        }
 
-     template< typename category_name, typename scalar_name = double >
+     template< typename category_name >
       ::color::model<category_name>
       mix
        (
          ::color::model<category_name> const& lower
-        ,scalar_name                   const& alpha
+        ,typename ::color::trait::scalar<category_name>::input_const_type alpha
         ,::color::model<category_name> const& upper
        )
        {

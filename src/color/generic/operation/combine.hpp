@@ -75,9 +75,9 @@
       void combine
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::instance_type const& a0
+        ,typename ::color::trait::scalar<category_name>::input_const_type                   a0
         ,::color::model<category_name> const& c0
-        ,typename ::color::trait::scalar<category_name>::instance_type const& a1
+        ,typename ::color::trait::scalar<category_name>::input_const_type                   a1
         ,::color::model<category_name> const& c1
        )
        {
@@ -88,11 +88,11 @@
       void combine
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::instance_type const& a0
+        ,typename ::color::trait::scalar<category_name>::input_const_type a0
         ,::color::model<category_name> const& c0
-        ,typename ::color::trait::scalar<category_name>::instance_type const& a1
+        ,typename ::color::trait::scalar<category_name>::input_const_type a1
         ,::color::model<category_name> const& c1
-        ,typename ::color::trait::scalar<category_name>::instance_type const& a2
+        ,typename ::color::trait::scalar<category_name>::input_const_type a2
         ,::color::model<category_name> const& c2
        )
        {

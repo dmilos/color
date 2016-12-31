@@ -17,7 +17,6 @@
           public:
             typedef category_name  category_type;
 
-
             typedef ::color::trait::index<category_type>         index_trait_type;
             typedef ::color::trait::container< category_type >   container_trait_type;
 
@@ -47,24 +46,24 @@
       }
 
      template< typename category_name >
-      void subtract
+      ::color::model<category_name>      & subtract
        (
          ::color::model<category_name>      & result
         ,color::model<category_name> const& right
        )
        {
-        /*return*/ ::color::operation::_internal::subtract<category_name>::process( result, right );
+        return ::color::operation::_internal::subtract<category_name>::process( result, right );
        }
 
      template< typename category_name >
-      void subtract
+      ::color::model<category_name>      & subtract
        (
          ::color::model<category_name>      & result
         ,color::model<category_name> const& left
         ,color::model<category_name> const& right
        )
        {
-        /*return*/ ::color::operation::_internal::subtract<category_name>::process( result, left, right );
+        return ::color::operation::_internal::subtract<category_name>::process( result, left, right );
        }
 
     }

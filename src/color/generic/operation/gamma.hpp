@@ -68,24 +68,26 @@
 
 
      template< typename category_name >
-      void gamma
+      ::color::model<category_name>      &
+       gamma
        (
                   ::color::model<category_name>                                  & result
         ,typename ::color::trait::scalar<category_name>::instance_type      const& value
        )
        {
-        /*return */::color::operation::_internal::gamma<category_name>::process( result, value );
+        return ::color::operation::_internal::gamma<category_name>::process( result, value );
        }
 
      template< typename category_name >
-      void gamma
+      ::color::model<category_name>      &
+       gamma
        (
                   ::color::model<category_name>                                  & result
         ,         ::color::model<category_name>                             const& right
         ,typename ::color::trait::scalar<category_name>::instance_type      const& value
        )
        {
-        /*return */ ::color::operation::_internal::gamma<category_name>::process( result, right, value );
+        return ::color::operation::_internal::gamma<category_name>::process( result, right, value );
        }
 
     }

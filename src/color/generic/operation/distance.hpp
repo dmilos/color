@@ -21,15 +21,12 @@
 
             typedef ::color::model<category_type>  model_type;
 
-            typedef ::color::trait::scalar<category_type>  scalar_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
 
             static scalar_type process( model_type const& left, model_type const& right )
              {
               model_type difference;
-
-              ::color::operation::subtract( difference, left, right );
-
-              return ::color::gray<scalar_type>( difference ).template get<0>();
+              return ::color::gray<scalar_type>( ::color::operation::subtract( difference, left, right ) ).template get<0>();
              }
 
          };

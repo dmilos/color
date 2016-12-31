@@ -25,44 +25,48 @@
 
             typedef typename index_trait_type::instance_type        index_type;
 
-            static void process( model_type &result, model_type const& right )
+            static model_type & process( model_type &result, model_type const& right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, result.get( index ) +  right.get( index ) );
                }
+              return result;
              }
 
-            static void process(  model_type &result, model_type const& left, model_type const& right )
+            static model_type & process(  model_type &result, model_type const& left, model_type const& right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, left.get( index ) +  right.get( index ) );
                }
+              return result;
              }
          };
 
       }
 
      template< typename category_name >
-      void addition
+      ::color::model<category_name> &
+      addition
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& right
        )
        {
-        ::color::operation::_internal::addition<category_name>::process( result, right );
+        return ::color::operation::_internal::addition<category_name>::process( result, right );
        }
 
      template< typename category_name >
-      void addition
+      ::color::model<category_name> &
+      addition
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& left
         ,::color::model<category_name> const& right
        )
        {
-        ::color::operation::_internal::addition<category_name>::process( result, left, right );
+        return ::color::operation::_internal::addition<category_name>::process( result, left, right );
        }
 
     }

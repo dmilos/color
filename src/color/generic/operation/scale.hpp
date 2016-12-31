@@ -11,13 +11,12 @@
     {
      namespace _internal
       {
-       template< typename category_name, typename scalar_name >
+       template< typename category_name >
         struct scale
          {
           public:
             typedef category_name  category_type;
-            typedef scalar_name    scalar_type;
-            typedef scalar_type  const&  scalar_const_input_type;
+            typedef typename ::color::trait::scalar<category_name>::input_const_type  scalar_const_input_type;
 
             typedef ::color::trait::container< category_type >   container_trait_type;
 
@@ -51,26 +50,25 @@
          };
       }
 
-
-     template< typename category_name, typename scalar_name >
-      void scale
+     template< typename category_name >
+      ::color::model<category_name>      & scale
        (
          ::color::model<category_name>      & result
-        ,scalar_name                   const& scalar
+        ,typename ::color::trait::scalar<category_name>::input_const_type scalar
        )
        {
-        /*return*/ ::color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar );
+        return ::color::operation::_internal::scale<category_name>::process( result, scalar );
        }
 
-     template< typename category_name, typename scalar_name >
-      void scale
+     template< typename category_name >
+      ::color::model<category_name>      & scale
        (
          ::color::model<category_name>      & result
-        ,scalar_name                   const& scalar
+        ,typename ::color::trait::scalar<category_name>::input_const_type  scalar
         ,::color::model<category_name> const& right
        )
        {
-        /*return*/ ::color::operation::_internal::scale<category_name,scalar_name>::process( result, scalar, right );
+        return ::color::operation::_internal::scale<category_name>::process( result, scalar, right );
        }
 
     }
