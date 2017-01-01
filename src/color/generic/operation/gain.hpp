@@ -80,7 +80,7 @@
 
 
      template< typename category_name >
-      ::color::model<category_name>      & 
+      ::color::model<category_name>      &
       gain
        (
          ::color::model<category_name>        & result
@@ -92,7 +92,7 @@
 
      template< typename category_name >
       ::color::model<category_name>      &
-       gain
+      gain
        (
          ::color::model<category_name>          & result
         ,::color::model<category_name>     const& left
@@ -105,10 +105,10 @@
      /*template
       <
         unsigned index_size
-       ,typename category_name 
+       ,typename category_name
       >
       inline
-      void
+      ::color::model<category_name>  &
       gain
        (
           ::color::model<category_name>        & result

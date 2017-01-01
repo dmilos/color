@@ -47,27 +47,28 @@
 
             typedef ::color::operation::_internal::blend<category_type> this_type;
 
-            static void accumulate( model_type &result, scalar_type const& alpha, model_type const& upper )
+            static model_type & accumulate( model_type &result, scalar_type const& alpha, model_type const& upper )
              {
-              this_type::template accumulate( result, result, alpha, upper );
+              return this_type::template accumulate( result, result, alpha, upper );
              }
 
-            static void accumulate( model_type &result, model_type const& lower, scalar_type const& alpha, model_type const& upper )
+            static model_type & accumulate( model_type &result, model_type const& lower, scalar_type const& alpha, model_type const& upper )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
                 result.set( index, ( scalar_type(1) - alpha ) * lower.get( index ) + alpha * upper.get( index ) );
                }
+              return result;
              }
 
             template< index_type alpha_index >
-             static void accumulate( model_type &result, model_type const& upper )
+             static model_type & accumulate( model_type &result, model_type const& upper )
               {
-               this_type::template accumulate<alpha_index>( result, result, upper );
+               return this_type::template accumulate<alpha_index>( result, result, upper );
               }
 
             template< index_type alpha_index >
-             static void accumulate( model_type &result, model_type const& lower, model_type const& upper )
+             static model_type & accumulate( model_type &result, model_type const& lower, model_type const& upper )
               {
                scalar_type aU = normalize_type::template process<alpha_index>( ::color::get::alpha( upper ) );
                scalar_type aL = normalize_type::template process<alpha_index>( ::color::get::alpha( lower ) );
@@ -83,6 +84,7 @@
                 }
 
                ::color::set::alpha( result, diverse_type::template process<alpha_index>( divisor ) );
+               return result;
               }
 
             static model_type mix( model_type const& lower, scalar_type const& alpha, model_type const& upper )
@@ -104,7 +106,9 @@
       }
 
      template< typename category_name >
-      void blend
+      inline
+      ::color::model<category_name>      &
+      blend
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& upper
@@ -113,11 +117,13 @@
         enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
         static_assert( 0 <= alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
 
-        ::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >( result, upper );
+        return ::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >( result, upper );
        }
 
      template< typename category_name >
-      void blend
+      inline
+      ::color::model<category_name>      &
+      blend
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& lower
@@ -127,7 +133,7 @@
         enum { alpha_index = ::color::place::_internal::alpha<category_name>::position_enum };
         static_assert( 0 <= alpha_index, "Error: This combination of model/format has no alpha channel" ) ;
 
-        ::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >( result, lower, upper );
+        return ::color::operation::_internal::blend<category_name>::template accumulate< alpha_index >( result, lower, upper );
        }
 
      template< typename category_name >
@@ -146,18 +152,22 @@
 
 
      template< typename category_name >
-      void blend
+      inline
+      ::color::model<category_name>      &
+      blend
        (
          ::color::model<category_name>      & result
         ,typename ::color::trait::scalar<category_name>::input_const_type alpha
         ,::color::model<category_name> const& upper
        )
        {
-        ::color::operation::_internal::blend<category_name>::accumulate( result, alpha, upper );
+        return ::color::operation::_internal::blend<category_name>::accumulate( result, alpha, upper );
        }
 
      template< typename category_name >
-      void blend
+      inline
+      ::color::model<category_name>      &
+      blend
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& lower
@@ -165,7 +175,7 @@
         ,::color::model<category_name> const& upper
        )
        {
-        ::color::operation::_internal::blend<category_name>::accumulate( result, lower, alpha, upper );
+        return ::color::operation::_internal::blend<category_name>::accumulate( result, lower, alpha, upper );
        }
 
      template< typename category_name >

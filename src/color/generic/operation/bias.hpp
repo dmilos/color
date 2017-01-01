@@ -71,24 +71,26 @@
 
 
      template< typename category_name >
-      void bias
+      ::color::model<category_name> &
+      bias
        (
          ::color::model<category_name>        & result
         ,typename ::color::trait::scalar<category_name>::input_const_type                     const& scalar
        )
        {
-        ::color::operation::_internal::bias<category_name>::process( result, scalar );
+        return ::color::operation::_internal::bias<category_name>::process( result, scalar );
        }
 
      template< typename category_name>
-      void bias
+      ::color::model<category_name> &
+      bias
        (
          ::color::model<category_name>        & result
         ,color::model<category_name>     const& left
         ,typename ::color::trait::scalar<category_name>::input_const_type                     const& scalar
        )
        {
-        ::color::operation::_internal::bias<category_name>::process( result, left, scalar );
+        return ::color::operation::_internal::bias<category_name>::process( result, left, scalar );
        }
 
     }

@@ -72,7 +72,8 @@
 
 
      template< typename category_name >
-      void combine
+      ::color::model<category_name> &
+      combine
        (
          ::color::model<category_name>      & result
         ,typename ::color::trait::scalar<category_name>::input_const_type                   a0
@@ -81,11 +82,12 @@
         ,::color::model<category_name> const& c1
        )
        {
-        /*return*/ ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1 );
+        return ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1 );
        }
 
      template< typename category_name >
-      void combine
+      ::color::model<category_name> &
+      combine
        (
          ::color::model<category_name>      & result
         ,typename ::color::trait::scalar<category_name>::input_const_type a0
@@ -96,7 +98,7 @@
         ,::color::model<category_name> const& c2
        )
        {
-        /*return*/ ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1, a2, c2 );
+        return ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1, a2, c2 );
        }
 
     }

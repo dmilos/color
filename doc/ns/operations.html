@@ -30,7 +30,7 @@
 				</ul>
 			</dd>
 			<dt><a name="#Description" /><h3>Description</h3></dt>
-			<dd>Contain miscellaneous function for color processing an manipulation.</dd>
+			<dd>Contain miscellaneous function for color processing and manipulation.</dd>
 			<dt><a name="#List" /><h3>List</h3></dt>
 			<dd>
 
@@ -38,7 +38,7 @@
 					<dt>Name</dt>
 					<dd><a name="#convex" /><i>combine</i></dd>
 					<dt>Description</dt>
-					<dd>Calculate convex combination of two or tree colors.</dd>
+					<dd>Calculate linear combination of two or tree colors.</dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>TODO</code>
@@ -63,7 +63,13 @@
 					<dd>Calculate bias.</dd>
 					<dt>Declaration</dt>
 					<dd>
-						<code>TODO</code>
+						<code>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; bias( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar &nbsp; );                                                     <br>
+							&nbsp;                                                                   <br>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; bias( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar );
+						</code>
 					</dd>
 					<dt>Example</dt>
 					<dd>
@@ -73,10 +79,7 @@
 							::color::operation::bias( r, a, 0.5 );
 						</code>
 					</dd>
-
 				</dl><hr width="%20">
-
-
 
 				<dl>
 					<dt>Name</dt>
@@ -88,20 +91,20 @@
 					<dt>Declaration</dt>
 					<dd>
 						<code>
-						template&lt; typename category_name, typename scalar_name &gt;                       <br>
-						&nbsp;&nbsp;void convex                                                              <br>
+						template&lt; typename category_name &gt;                       <br>
+						&nbsp;::color::model&lt;category_name&gt; &amp; convex                         <br>
 						&nbsp;(                                                                              <br>
 						&nbsp;&nbsp; ::color::model&lt;category_name&gt;      &amp; result                   <br>
-						&nbsp;&nbsp;,scalar_name                            const&amp;scalar                 <br>
+						&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar                 <br>
 						&nbsp;&nbsp;,color::model&lt;category_name&gt; const&amp;right                       <br>
 						&nbsp;);                                                                             <br>
                                                                                                              <br>
-						template&lt; typename category_name, typename scalar_name &gt;                       <br>
-						&nbsp;void convex                                                                    <br>
+						template&lt; typename category_name &gt;                       <br>
+						&nbsp;::color::model&lt;category_name&gt; &amp; convex                               <br>
 						&nbsp;&nbsp;(                                                                        <br>
 						&nbsp;&nbsp;&nbsp; ::color::model&lt;category_name&gt;      &amp;result              <br>
 						&nbsp;&nbsp;&nbsp;,color::model&lt;category_name&gt; const&amp;left                  <br>
-						&nbsp;&nbsp;&nbsp;,scalar_name                            const&amp;scalar           <br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar           <br>
 						&nbsp;&nbsp;&nbsp;,color::model&lt;category_name&gt; const&amp;right                 <br>
 						&nbsp;&nbsp;);                                                                       <br>
 						</code>
@@ -126,7 +129,13 @@
 					<dd>Calculate gain.</dd>
 					<dt>Declaration</dt>
 					<dd>
-						<code>TODO</code>
+						<code>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gain( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar );                                                     <br>
+							&nbsp;                                                                   <br>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gain( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar );
+						</code>
 					</dd>
 					<dt>Example</dt>
 					<dd>
@@ -145,7 +154,13 @@
 					<dd>Calculate gamma corrected color.</dd>
 					<dt>Declaration</dt>
 					<dd>
-						<code>TODO</code>
+						<code>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gamma( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type &nbsp; );                                                     <br>
+							&nbsp;                                                                   <br>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gamma( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar );
+						</code>
 					</dd>
 					<dt>Example</dt>
 					<dd>
@@ -166,9 +181,9 @@
 					<dd>
 						<code>
 						template&lt; typename category_name &gt; <br>
-						&nbsp;&nbsp;void invert( ::color::model&lt;category_name&gt;&amp; result ); <br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; invert( ::color::model&lt;category_name&gt;&amp; result ); <br>
 						template&lt; typename category_name &gt;<br>
-						&nbsp;&nbsp;void invert( ::color::model&lt;category_name&gt;&amp; result, ::color::model&lt;category_name&gt; const&amp;right );<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; invert( ::color::model&lt;category_name&gt;&amp; result, ::color::model&lt;category_name&gt; const&amp;right );<br>
 						</code>
 					</dd>
 					<dt>Example</dt>
@@ -189,10 +204,10 @@
 					<dt>Declaration</dt>
 					<dd>
 						<code>
-							template&lt; unsigned alpha_index, typename category_name, typename scalar_name = double &gt; <br>
+							template&lt; unsigned alpha_index, typename category_name &gt; <br>
 							&nbsp;&nbsp;::color::model&lt;category_name&gt; mix( ::color::model&lt;category_name&gt; const&amp; lower, ::color::model&lt;category_name&gt; const&amp; upper ); <br>
-							template&lt; typename category_name, typename scalar_name = double &gt; <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; mix( ::color::model&lt;category_name&gt; const&amp; lower, scalar_name  const&amp; alpha, ::color::model&lt;category_name&gt; const&amp; upper ); <br>
+							template&lt; typename category_name &gt; <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; mix( ::color::model&lt;category_name&gt; const&amp; lower, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type alpha, ::color::model&lt;category_name&gt; const&amp; upper ); <br>
 						</code>
 					</dd>
 					<dt>Example</dt>
@@ -215,36 +230,36 @@
 					<dt>Declaration</dt>
 					<dd>
 <code>
-     template< typename category_name >                           <br>
-     &nbsp;void blend                                             <br>
+     template&lt; typename category_name &gt;                           <br>
+     &nbsp;::color::model&lt;category_name&gt; &amp; blend       <br>
      &nbsp;&nbsp;(                                                <br>
-     &nbsp;&nbsp;  ::color::model<category_name>      &amp; result    <br>
-     &nbsp;&nbsp; ,::color::model<category_name> const&amp; upper     <br>
+     &nbsp;&nbsp;  ::color::model&lt;category_name&gt;      &amp; result    <br>
+     &nbsp;&nbsp; ,::color::model&lt;category_name&gt; const&amp; upper     <br>
      &nbsp;&nbsp;);                                               <br>
                                                                   <br>
-     template< typename category_name >                           <br>
-     &nbsp;void blend                                             <br>
+     template&lt; typename category_name &gt;                           <br>
+     &nbsp;::color::model&lt;category_name&gt; &amp; blend        <br>
      &nbsp;&nbsp;(                                                <br>
-     &nbsp;&nbsp;  ::color::model<category_name>      &amp; result    <br>
-     &nbsp;&nbsp; ,::color::model<category_name> const&amp; lower     <br>
-     &nbsp;&nbsp; ,::color::model<category_name> const&amp; upper     <br>
+     &nbsp;&nbsp;  ::color::model&lt;category_name&gt;      &amp; result    <br>
+     &nbsp;&nbsp; ,::color::model&lt;category_name&gt; const&amp; lower     <br>
+     &nbsp;&nbsp; ,::color::model&lt;category_name&gt; const&amp; upper     <br>
      &nbsp;&nbsp;);                                               <br>
 
-     template< typename category_name, typename scalar_name = double >  <br>
-     &nbsp;void blend                                                        <br>
+     template&lt; typename category_name &gt;  <br>
+     &nbsp;::color::model&lt;category_name&gt; &amp; blend              <br>
      &nbsp;&nbsp;(                                                                <br>
-     &nbsp;&nbsp;  ::color::model<category_name>      &amp; result                    <br>
-     &nbsp;&nbsp; ,scalar_name                   const&amp; alpha                     <br>
-     &nbsp;&nbsp; ,::color::model<category_name> const&amp; upper                     <br>
+     &nbsp;&nbsp;  ::color::model&lt;category_name&gt;      &amp; result                    <br>
+     &nbsp;&nbsp; ,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type alpha                     <br>
+     &nbsp;&nbsp; ,::color::model&lt;category_name&gt; const&amp; upper                     <br>
      &nbsp;&nbsp;);                                                               <br>
 
-     template< typename category_name, typename scalar_name = double >  <br>
-     &nbsp;void blend                                                        <br>
+     template&lt; typename category_name &gt;  <br>
+     &nbsp;::color::model&lt;category_name&gt; &amp; blend              <br>
      &nbsp;&nbsp;(                                                                <br>
-     &nbsp;&nbsp;  ::color::model<category_name>      &amp; result                    <br>
-     &nbsp;&nbsp; ,::color::model<category_name> const&amp; lower                     <br>
-     &nbsp;&nbsp; ,scalar_name                   const&amp; alpha                     <br>
-     &nbsp;&nbsp; ,::color::model<category_name> const&amp; upper                     <br>
+     &nbsp;&nbsp;  ::color::model&lt;category_name&gt;      &amp; result                    <br>
+     &nbsp;&nbsp; ,::color::model&lt;category_name&gt; const&amp; lower                     <br>
+     &nbsp;&nbsp; ,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type alpha                     <br>
+     &nbsp;&nbsp; ,::color::model&lt;category_name&gt; const&amp; upper                     <br>
      &nbsp;&nbsp;);                                                               <br>
 </code>
 					</dd>
@@ -269,9 +284,9 @@
 					<dd>
 						<code>
 						template&lt; typename category_name &gt;<br>
-						&nbsp;&nbsp;void addition( color::model<category_name>     &amp;result, color::model<category_name> const&amp; right );<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; addition( color::model&lt;category_name&gt;     &amp;result, color::model&lt;category_name&gt; const&amp; right );<br>
 						template&lt; typename category_name &gt;<br>
-						&nbsp;&nbsp;void addition( color::model&lt;category_name&gt;     &amp;result, color::model&lt;category_name&gt; const&amp; left, color::model&lt;category_name&gt; const&amp; right );<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; addition( color::model&lt;category_name&gt;     &amp;result, color::model&lt;category_name&gt; const&amp; left, color::model&lt;category_name&gt; const&amp; right );<br>
 						</code>
 					</dd>
 					<dt>Example</dt>
@@ -292,13 +307,13 @@
 					<dd>Scale component by given factor if not stated differently.</dd>
 					<dt>Declaration</dt>
 					<dd>
-					<code>
-						&nbsp;template< typename category_name, typename scalar_name >           <br>
-						&nbsp;&nbsp;void scale( ::color::model<category_name> &amp; result, scalar_name const&amp; scalar &nbsp;&nbsp;&nbsp;);                                                     <br>
-						&nbsp;                                                                   <br>
-						&nbsp;template< typename category_name, typename scalar_name >           <br>
-						&nbsp;&nbsp;void scale( ::color::model<category_name>      &amp;result, scalar_name                   const&amp; scalar, ::color::model<category_name> const&amp; right );
-					</code>
+						<code>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; scale( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar &nbsp; );                                                     <br>
+							&nbsp;                                                                   <br>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; scale( ::color::model&lt;category_name&gt;      &amp;result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar, ::color::model&lt;category_name&gt; const&amp; right );
+						</code>
 					</dd>
 					<dt>Example</dt>
 					<dd>
@@ -318,9 +333,9 @@
 					<dd>
 						<code>
 						template&lt; typename category_name &gt;<br>
-						&nbsp;&nbsp;void subtract( color::model&lt;category_name&gt; &amp; result, color::model&lt;category_name&gt; const&amp; right );<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; subtract( color::model&lt;category_name&gt; &amp; result, color::model&lt;category_name&gt; const&amp; right );<br>
 						template&lt; typename category_name &gt;<br>
-						&nbsp;&nbsp;void subtract( color::model&lt;category_name&gt; &amp; result, color::model&lt;category_name&gt; const&amp; left, color::model&lt;category_name&gt; const&amp; right );<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; subtract( color::model&lt;category_name&gt; &amp; result, color::model&lt;category_name&gt; const&amp; left, color::model&lt;category_name&gt; const&amp; right );<br>
 						</code>
 					</dd>
 					<dt>Example</dt>
