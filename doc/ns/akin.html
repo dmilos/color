@@ -21,6 +21,7 @@
 							<li><a href="#hsl">hsl</a></li>
 							<li><a href="#hsv">hsv</a></li>
 							<li><a href="#rgb">rgb</a></li>
+							<li><a href="#xyz">xyz</a></li>
 							<li><a href="#yiq">yiq</a></li>
 							<li><a href="#yuv">yuv</a></li>
 						</ul>
@@ -141,6 +142,26 @@
 							</dd>
 						</dl>
 					</dd>
+
+					<dt><a name="#xyz" />xyz</dt>
+					<dd>
+						<dl>
+							<dt>Description</dt><dd>Hold XYZ category that is akin to provided category.</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code>
+								template &lt; typename <i>category_name</i> &gt; <br>
+								&nbsp; struct ::color::akin::xyz;</code><br>
+								Where <code>category_name</code> is non XYZ category.
+							</dd>
+							<dt>Example</dt>
+							<dd>
+								<code>::color::akin::xyz&lt; ::color::rgb&lt; float &gt;::category_type &gt;::akin_type;</code><br>
+							</dd>
+						</dl>
+					</dd>
+
+
 					<dt><a name="#yiq" />yiq</dt>
 					<dd>
 						<dl>

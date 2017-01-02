@@ -42,10 +42,11 @@ namespace color
          struct base< scalar_name, ::color::constant::YPbPr::BT_709_entity >
           {
            typedef scalar_name scalar_type;
-           static /* constexpr*/ scalar_type const CRed()   { return  0.2126729; }
+           static /* constexpr*/ scalar_type const CRed()   { return  0.2126729; } // TODO 871024  / 4096299
            static /* constexpr*/ scalar_type const CGreen() { return  1 - 0.2126729 - 0.0721750; }
-           static /* constexpr*/ scalar_type const CBlue()  { return  0.0721750; }
+           static /* constexpr*/ scalar_type const CBlue()  { return  0.0721750; } // TODO 887015  / 12288897
           };
+
         template< typename scalar_name >
          struct base< scalar_name, ::color::constant::YPbPr::BT_2020_entity >
           {

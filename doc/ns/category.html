@@ -21,6 +21,7 @@
 							<li><a href="#hsl">hsl</a></li>
 							<li><a href="#hsv">hsv</a></li>
 							<li><a href="#rgb">rgb</a></li>
+							<li><a href="#xyz">xyz</a></li>
 							<li><a href="#yiq">yiq</a></li>
 							<li><a href="#yuv">yuv</a></li>
 						</ul>
@@ -215,6 +216,38 @@
 						</dl>
 					</dd>
 
+					<dt><a name="XYZ" />XYZ</dt>
+					<dd>
+						<dl>
+							<dt><code>template&lt; typename tag_name &gt; struct xyz;</code></dt>
+							<dd>Generalized XYZ category. All XYZ categories are alias of instance of this class for some internal <code>tag_type</code>.</dd>
+							<dt>List</dt>
+							<dd>
+								<ul>
+									<!-- <li><code>using xyz_bool    = ::color::category::xyz&lt; <i>unspecified</i> &gt;;</code></li> -->
+									<li><code>using xyz_uint8   = ::color::category::xyz&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using xyz_uint16  = ::color::category::xyz&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using xyz_uint24  = ::color::category::xyz&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using xyz_uint32  = ::color::category::xyz&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using xyz_uint48  = ::color::category::xyz&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using xyz_uint64  = ::color::category::xyz&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using xyz_float   = ::color::category::xyz&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using xyz_double  = ::color::category::xyz&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using xyz_ldouble = ::color::category::xyz&lt; <i>unspecified</i> &gt;;</code></li>
+								</ul>
+							</dd>
+							<dt>Example(s)</dt>
+							<dd>
+								Next two types are the same:
+								<blockquote><code>
+								::color::model&lt; ::color::category::xyz_double &gt; c0; <br>
+								::color::xyz&lt; double &gt;  &nbsp;&nbsp;&nbsp;&nbsp;    c1; </code>
+								</blockquote>
+							</dd>
+						</dl>
+					</dd>
+
+
 					<dt><a name="YIQ" />YIQ</dt>
 					<dd>
 						<dl>
@@ -245,7 +278,6 @@
 							</dd>
 						</dl>
 					</dd>
-
 
 					<dt><a name="YUV" />YUV</dt>
 					<dd>

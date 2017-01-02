@@ -1,12 +1,9 @@
-fpprec:42;
 x:31271/100000;
 y:32902/100000;
-
 
 X_W:x/y;
 Y_W:1;
 Z_W:(1-x-y)/y;
-
 
 x_r:64/100;
 y_r:33/100;
@@ -51,14 +48,8 @@ S_b:gray . matrix( [0], [0], [1] );
 
 M:matrix( [S_r * X_r, S_g * X_g, S_b*X_b ], [S_r*Y_r, S_g*Y_g, S_b*Y_b ], [S_r*Z_r, S_g*Z_g, S_b*Z_b ] );
 M:ratsimp(M);
+ev( %, numer );
 Mi:invert(M);
 Mi:ratsimp(Mi);
+ev( %, numer );
 
-d=determinant(Mi);
-/*ratsimp(%);*/
-
-Ms: Mi / determinant(Mi);
-/*ratsimp(%);*/
-
-
-matrix([2647777/12450000],[26710933/37350000],[336967/4668750])
