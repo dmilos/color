@@ -34,15 +34,23 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type> normalize_type;
 
-        //typedef ::color::constant::xyz::matrix< category_right_type > xyz_matrix_type;
+        typedef ::color::constant::xyz::matrix< category_type > xyz_matrix_type;
+        typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 
         enum
          {
             green_p  = ::color::place::_internal::green<akin_type>::position_enum
          };
 
-        // TODO
-        scalar_type g = 0; // a21 * y + a22 * i + a23 * q;
+        static const scalar_type a21 = xyz_matrix_type::Mi21(), a22 = xyz_matrix_type::Mi22(), a23 = xyz_matrix_type::Mi23();
+
+        scalar_type x = normalize_type::template process<0>( color_parameter.template get<0>() );
+        scalar_type y = normalize_type::template process<1>( color_parameter.template get<1>() );
+        scalar_type z = normalize_type::template process<2>( color_parameter.template get<2>() );
+
+        scalar_type g = a21 * x + a22 * y + a23 * z;
+
+        g = xyz_gamma_type::encode( g );
 
         return diverse_type::template process<green_p>( g );
        }

@@ -31,18 +31,26 @@
 
         typedef typename ::color::akin::rgb<category_type>::akin_type          akin_type;
 
-        typedef ::color::_internal::diverse<akin_type>       diverse_type;
+        typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type> normalize_type;
 
-        //typedef ::color::constant::xyz::matrix< category_right_type > xyz_matrix_type;
+        typedef ::color::constant::xyz::matrix< category_type > xyz_matrix_type;
+        typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 
         enum
          {
             blue_p  = ::color::place::_internal::blue<akin_type>::position_enum
          };
 
-        //  TODO
-        scalar_type b = 0; // a31 * y + a32 * i + a33 * q;
+        static const scalar_type a31 = xyz_matrix_type::Mi31(), a32 = xyz_matrix_type::Mi32(), a33 = xyz_matrix_type::Mi33();
+
+        scalar_type x = normalize_type::template process<0>( color_parameter.template get<0>() );
+        scalar_type y = normalize_type::template process<1>( color_parameter.template get<1>() );
+        scalar_type z = normalize_type::template process<2>( color_parameter.template get<2>() );
+
+        scalar_type b = a31 * x + a32 * y + a33 * z;
+
+        b = xyz_gamma_type::encode( b );
 
         return diverse_type::template process<blue_p>( b );
        }
