@@ -6,7 +6,7 @@
 
 #include "./space.hpp"
 #include "./white.hpp"
-#include "./adopt.hpp"
+#include "./adaptation.hpp"
 
 #include "../category.hpp"
 #include "../../generic/trait/scalar.hpp"
@@ -40,30 +40,12 @@ namespace color
 
            typedef ::color::constant::xyz::white::point< scalar_type, white_number, degree_number > wp_type;
 
-           typedef ::color::constant::xyz::adopt::matrix< scalar_type, static_cast< color::constant::xyz::white::name_enum >( ::color::constant::xyz::space::white< space_number >::name_entity ), white_number > adopt_type;
-
-           static /* constexpr*/ scalar_type const XW(){ return wp_type::X(); } // 0.95042854537718071849735578384293, 0.94809667673716012084592145015106
-           static /* constexpr*/ scalar_type const YW(){ return wp_type::Y(); } // 1
-           static /* constexpr*/ scalar_type const ZW(){ return wp_type::Z(); } // 1.088900370798127773387636009969
-
            static /* constexpr*/ scalar_type const xr(){ return system_type::red()[0];   } // 0.64
            static /* constexpr*/ scalar_type const yr(){ return system_type::red()[1];   } // 0.33
            static /* constexpr*/ scalar_type const xg(){ return system_type::green()[0]; } // 0.30
            static /* constexpr*/ scalar_type const yg(){ return system_type::green()[1]; } // 0.60
            static /* constexpr*/ scalar_type const xb(){ return system_type::blue()[0];  } // 0.15
            static /* constexpr*/ scalar_type const yb(){ return system_type::blue()[1];  } // 0.06
-
-           static /* constexpr*/ scalar_type const Xr(){ return xr()/yr() ; }
-           static /* constexpr*/ scalar_type const Yr(){ return scalar_type(1); }
-           static /* constexpr*/ scalar_type const Zr(){ return (scalar_type(1)-xr()-yr())/yr(); }
-
-           static /* constexpr*/ scalar_type const Xg(){ return xg()/yg(); }
-           static /* constexpr*/ scalar_type const Yg(){ return scalar_type(1); }
-           static /* constexpr*/ scalar_type const Zg(){ return (scalar_type(1)-xg()-yg())/yg(); }
-
-           static /* constexpr*/ scalar_type const Xb(){ return xb()/yb(); }
-           static /* constexpr*/ scalar_type const Yb(){ return scalar_type(1); }
-           static /* constexpr*/ scalar_type const Zb(){ return (scalar_type(1)-xb()-yb())/yb(); }
 
            static /* constexpr*/ scalar_type const detA(){ return -yr()*yg()*yb()/(  (xg()-xb())*yr() +  (xb()-xr())*yg() +  (xr()-xg())*yb() ) ; }
 
@@ -79,20 +61,20 @@ namespace color
            static /* constexpr*/ scalar_type const A23(){ return  detA() * ( xb()*yr() - xr()*yb() ) / (  yb()*yr() ); }
            static /* constexpr*/ scalar_type const A33(){ return -detA() * ( xg()*yr() - xr()*yg() ) / (  yg()*yr() ); }
 
-           static /* constexpr*/ scalar_type const Sr(){ return A11() * XW()  +  A12() * YW()  + A13() * ZW(); }
-           static /* constexpr*/ scalar_type const Sg(){ return A21() * XW()  +  A22() * YW()  + A23() * ZW(); }
-           static /* constexpr*/ scalar_type const Sb(){ return A31() * XW()  +  A32() * YW()  + A33() * ZW(); }
+           static /* constexpr*/ scalar_type const Sr(){ return A11() * wp_type::X()  +  A12() * wp_type::Y()  + A13() * wp_type::Z(); }
+           static /* constexpr*/ scalar_type const Sg(){ return A21() * wp_type::X()  +  A22() * wp_type::Y()  + A23() * wp_type::Z(); }
+           static /* constexpr*/ scalar_type const Sb(){ return A31() * wp_type::X()  +  A32() * wp_type::Y()  + A33() * wp_type::Z(); }
 
            // from RGB
-           static /* constexpr*/ scalar_type const M11(){ return Sr()*Xr(); } // 0.4124564, 0.41245643908969243
-           static /* constexpr*/ scalar_type const M12(){ return Sg()*Xg(); } // 0.3575761  0.35757607764390886
-           static /* constexpr*/ scalar_type const M13(){ return Sb()*Xb(); } // 0.1804375  0.18043748326639894
-           static /* constexpr*/ scalar_type const M21(){ return Sr()*Yr(); } // 0.2126729, 0.21267285140562264
-           static /* constexpr*/ scalar_type const M22(){ return Sg()*Yg(); } // 0.7151522, 0.71515215528781773 
-           static /* constexpr*/ scalar_type const M23(){ return Sb()*Yb(); } // 0.0721750, 0.072174993306559576
-           static /* constexpr*/ scalar_type const M31(){ return Sr()*Zr(); } // 0.0193339, 0.019333895582329310
-           static /* constexpr*/ scalar_type const M32(){ return Sg()*Zg(); } // 0.1191920  0.11919202588130293
-           static /* constexpr*/ scalar_type const M33(){ return Sb()*Zb(); } // 0.9503041  0.95030407853636789
+           static /* constexpr*/ scalar_type const M11(){ return Sr()*( xr()/yr() ); } // 0.4124564, 0.41245643908969243
+           static /* constexpr*/ scalar_type const M12(){ return Sg()*( xg()/yg() ); } // 0.3575761  0.35757607764390886
+           static /* constexpr*/ scalar_type const M13(){ return Sb()*( xb()/yb() ); } // 0.1804375  0.18043748326639894
+           static /* constexpr*/ scalar_type const M21(){ return Sr()*( scalar_type(1) ); } // 0.2126729, 0.21267285140562264
+           static /* constexpr*/ scalar_type const M22(){ return Sg()*( scalar_type(1) ); } // 0.7151522, 0.71515215528781773 
+           static /* constexpr*/ scalar_type const M23(){ return Sb()*( scalar_type(1) ); } // 0.0721750, 0.072174993306559576
+           static /* constexpr*/ scalar_type const M31(){ return Sr()*( (scalar_type(1)-xr()-yr())/yr() ); } // 0.0193339, 0.019333895582329310
+           static /* constexpr*/ scalar_type const M32(){ return Sg()*( (scalar_type(1)-xg()-yg())/yg() ); } // 0.1191920  0.11919202588130293
+           static /* constexpr*/ scalar_type const M33(){ return Sb()*( (scalar_type(1)-xb()-yb())/yb() ); } // 0.9503041  0.95030407853636789
 
            // to RGB
            static /* constexpr*/ scalar_type const detM(){ return M11()*(M22()*M33()-M23()*M32())-M12()*(M21()*M33()-M23()*M31())+M13()*(M21()*M32()-M22()*M31()); }
@@ -104,8 +86,8 @@ namespace color
            static /* constexpr*/ scalar_type const Mi22(){ return  ( M11()*M33()-M13()*M31() ) / detM(); }  //  1.8757561;
            static /* constexpr*/ scalar_type const Mi23(){ return  ( M13()*M21()-M11()*M23() ) / detM(); }  //  0.0415175;
            static /* constexpr*/ scalar_type const Mi31(){ return  ( M21()*M32()-M22()*M31() ) / detM(); }  //  0.0557101;
-           static /* constexpr*/ scalar_type const Mi32(){ return  ( M12()*M31()-M11()*M32() ) / detM(); }  // -0.2040211;
-           static /* constexpr*/ scalar_type const Mi33(){ return  ( M11()*M22()-M12()*M21() ) / detM(); }  //  1.0569959;
+           static /* constexpr*/ scalar_type const Mi32(){ return  ( M12()*M31()-M11()*M32() ) / detM(); }  // -0.2040211; // -0.20402591351675381
+           static /* constexpr*/ scalar_type const Mi33(){ return  ( M11()*M22()-M12()*M21() ) / detM(); }  //  1.0569959; //  1.0572251882231791
         };
 
      }
