@@ -75,7 +75,7 @@ namespace color
         }
 
        template< typename tag_name >
-        explicit model( ::color::constant::base< tag_name > const& constant )  //!< TODO Remove explicit?
+        /*explicit*/ model( ::color::constant::base< tag_name > const& constant )  //!< TODO Remove explicit?
          {
           *this = constant;
          }

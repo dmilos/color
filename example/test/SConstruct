@@ -14,7 +14,6 @@ settings.set_custom( 'configuration',   ARGUMENTS.get( 'configuration', settings
 # Call
 product = SConscript('./SConscript', exports=[ 'settings' ] )
 
-#Make it defualt
+#Make it default
 Default( product )
-
 

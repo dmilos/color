@@ -27,3 +27,33 @@ void save_image_gray( std::string const& name, gray_image_type const& image, std
   of.write((const char *)header, 18);
   of.write((const char *)image.data(), image.size() * 1 );
  }
+
+bool targa_image_load( targa_header_struct &header, bgr_image_type & image, std::string const& name )
+ {
+  std::ifstream stream( name.c_str(), std::ios_base::binary );
+
+  if( true == stream.fail() )
+   {
+    return false;
+   }
+
+  return targa_image_load( header, image, stream );
+ }
+
+bool targa_image_load( targa_header_struct &header,  bgr_image_type & image, std::istream & stream )
+ {
+  if( false == targa_load( header, stream ) )
+   {
+    return false;
+   }
+
+  int depth  = targa_get_depth(  header );
+  int height = targa_get_width(  header );
+  int width  = targa_get_height( header );
+
+  image.resize( width * height );
+
+  stream.read( reinterpret_cast<char *>( image.data() ), width * height * (depth/8) );
+  return true;
+ }
+

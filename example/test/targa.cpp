@@ -1,3 +1,4 @@
+#include <istream>
 
 typedef unsigned char targa_header_struct[18];
 
@@ -21,13 +22,13 @@ void targa_make_gray_header( int width, int height, targa_header_struct header )
    header[ 0] = 0;
    header[ 1] = 0;
    header[ 2] = 3;
-   header[ 3] = 0; 
+   header[ 3] = 0;
    header[ 4] = 0;
-   header[ 5] = 0; 
+   header[ 5] = 0;
    header[ 6] = 0;
    header[ 7] = 0;
 
-   header[ 8] = 0; 
+   header[ 8] = 0;
    header[ 9] = 0;
    header[10] = 0;
    header[11] = 0;
@@ -40,20 +41,20 @@ void targa_make_gray_header( int width, int height, targa_header_struct header )
    header[16] = 8;
    header[17] = 32;
  }
- 
+
 
 void targa_make_header( int width, int height, targa_header_struct header )
  {
    header[ 0] = 0;
    header[ 1] = 0;
    header[ 2] = 2;
-   header[ 3] = 0; 
+   header[ 3] = 0;
    header[ 4] = 0;
-   header[ 5] = 0; 
+   header[ 5] = 0;
    header[ 6] = 0;
    header[ 7] = 0;
 
-   header[ 8] = 0; 
+   header[ 8] = 0;
    header[ 9] = 0;
    header[10] = 0;
    header[11] = 0;
@@ -72,13 +73,13 @@ void targa_make_header( int width, int height, targa_header_struct header )
    header[ 0] = 0;
    header[ 1] = 0;
    header[ 2] = 2;
-   header[ 3] = 0; 
+   header[ 3] = 0;
    header[ 4] = 0;
-   header[ 5] = 0; 
+   header[ 5] = 0;
    header[ 6] = 0;
    header[ 7] = 0;
 
-   header[ 8] = 0; 
+   header[ 8] = 0;
    header[ 9] = 0;
    header[10] = 0;
    header[11] = 0;
@@ -91,4 +92,16 @@ void targa_make_header( int width, int height, targa_header_struct header )
    header[16] = 24;
    header[17] = 32;
  }
- 
+
+
+bool targa_load( targa_header_struct & header, std::istream & stream )
+ {
+  stream.read( (char *)(header), 18 );
+
+  if (stream)
+   return true;
+  else
+   return false;
+ }
+
+
