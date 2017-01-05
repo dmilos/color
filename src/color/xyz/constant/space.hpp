@@ -3,7 +3,7 @@
 
 // ::color::constant::xyz::space::primary< scalar_name, sRGB_entity >::x()
 
-#include "./white.hpp"
+#include "./illuminant.hpp"
 
 namespace color
  {
@@ -45,9 +45,9 @@ namespace color
            private:
              typedef std::array<scalar_type,2> coord_type;
            public:
-             static /* constexpr*/ coord_type red()  { return coord_type{}; }
-             static /* constexpr*/ coord_type green(){ return coord_type{}; }
-             static /* constexpr*/ coord_type blue() { return coord_type{}; }
+             static /* constexpr*/ coord_type const& red()  { static coord_type value{}; return value; }
+             static /* constexpr*/ coord_type const& green(){ static coord_type value{}; return value; }
+             static /* constexpr*/ coord_type const& blue() { static coord_type value{}; return value; }
           };
 
 
@@ -61,9 +61,9 @@ namespace color
            private:                                                                   \
              typedef std::array<scalar_type,2> coord_type;                            \
            public:                                                                    \
-             static coord_type red()  { return coord_type{DP_red_x,DP_red_y}; }       \
-             static coord_type green(){ return coord_type{DP_green_x, DP_green_y}; }  \
-             static coord_type blue() { return coord_type{DP_blue_x, DP_blue_y }; }   \
+             static coord_type const& red()  { static coord_type value{ DP_red_x,   DP_red_y   }; return value; }  \
+             static coord_type const& green(){ static coord_type value{ DP_green_x, DP_green_y }; return value; }  \
+             static coord_type const& blue() { static coord_type value{ DP_blue_x,  DP_blue_y  }; return value; }  \
           }
 
       //COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::LabGamut_entity,       )
@@ -167,48 +167,48 @@ namespace color
 #undef COLOR_CONTATNT_XYZ_SPACE_GAMMA_PURE_SPECIALIZE
 
         template<  ::color::constant::xyz::space::name_enum name_number >
-         struct white
+         struct illuminant
           {
-           typedef ::color::constant::xyz::white::name_enum     name_type;
-           typedef ::color::constant::xyz::white::degree_enum degree_type;
+           typedef ::color::constant::xyz::illuminant::name_enum         name_type;
+           typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
 
-           static name_type     name() { return ::color::constant::xyz::white::D65_entity; }
-           static degree_type degree() { return ::color::constant::xyz::white::two_entity ; }
+           static name_type         name() { return ::color::constant::xyz::illuminant::D65_entity; }
+           static observer_type observer() { return ::color::constant::xyz::illuminant::two_entity ; }
           };
 
-#define COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( DP_space, DP_name, DP_degree )   \
-        template<>                                                           \
-         struct white<DP_space>                                              \
-          {                                                                  \
-           typedef ::color::constant::xyz::white::name_enum     name_type;   \
-           typedef ::color::constant::xyz::white::degree_enum degree_type;   \
-                                                                             \
-           enum { name_entity   = DP_name };                                 \
-           enum { degree_entity = DP_degree };                               \
-                                                                             \
-           static name_type     name() { return DP_name; }                   \
-           static degree_type degree() { return DP_degree; }                 \
+#define COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( DP_space, DP_name, DP_observer )   \
+        template<>                                                                         \
+         struct illuminant<DP_space>                                                       \
+          {                                                                                \
+           typedef ::color::constant::xyz::illuminant::name_enum         name_type;        \
+           typedef ::color::constant::xyz::illuminant::observer_enum observer_type;        \
+                                                                                           \
+           enum { name_entity   = DP_name };                                               \
+           enum { observer_entity = DP_observer };                                         \
+                                                                                           \
+           static name_type     name() { return DP_name; }                                 \
+           static observer_type observer() { return DP_observer; }                         \
           }
 
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::LabGamut_entity,        ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Adobe_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Apple_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Best_entity,            ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Beta_entity,            ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Bruce_entity,           ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::CIE_entity,             ::color::constant::xyz::white::E_entity,   ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::ColorMatch_entity,      ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Don_entity,             ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::ECI_entity,             ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::Ekta_Space_PS5_entity,  ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::NTSC_entity,            ::color::constant::xyz::white::C_entity,   ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::PAL_SECAM_entity,       ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::ProPhoto_entity,        ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::SMPTE_C_entity,         ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity,            ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity );
-        COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE( ::color::constant::xyz::space::WideGamut_entity,       ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::LabGamut_entity,        ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::Adobe_entity,           ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::Apple_entity,           ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::Best_entity,            ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::Beta_entity,            ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::Bruce_entity,           ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::CIE_entity,             ::color::constant::xyz::illuminant::E_entity,   ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::ColorMatch_entity,      ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::Don_entity,             ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::ECI_entity,             ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::Ekta_Space_PS5_entity,  ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::NTSC_entity,            ::color::constant::xyz::illuminant::C_entity,   ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::PAL_SECAM_entity,       ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::ProPhoto_entity,        ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::SMPTE_C_entity,         ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity,            ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::WideGamut_entity,       ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity );
 
-#undef COLOR_CONTATNT_XYZ_SPACE_WHITE_SPECIALIZE
+#undef COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE
 
        }
      }

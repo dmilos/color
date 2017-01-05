@@ -34,7 +34,7 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type> normalize_type;
 
-        typedef ::color::constant::xyz::matrix< category_type > xyz_matrix_type;
+        typedef ::color::constant::xyz::transformation::matrix< category_type > xyz_matrix_type;
         typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 
         enum
@@ -42,13 +42,13 @@
             red_p  = ::color::place::_internal::red<akin_type>::position_enum
          };
 
-        static const scalar_type a11 = xyz_matrix_type::Mi11(), a12 = xyz_matrix_type::Mi12(), a13 = xyz_matrix_type::Mi13();
+        static const scalar_type i11 = xyz_matrix_type::i11(), i12 = xyz_matrix_type::i12(), i13 = xyz_matrix_type::i13();
 
         scalar_type x = normalize_type::template process<0>( color_parameter.template get<0>() );
         scalar_type y = normalize_type::template process<1>( color_parameter.template get<1>() );
         scalar_type z = normalize_type::template process<2>( color_parameter.template get<2>() );
 
-        scalar_type r = a11 * x + a12 * y + a13 * z;
+        scalar_type r = i11 * x + i12 * y + i13 * z;
 
         r = xyz_gamma_type::encode( r );
 

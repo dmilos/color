@@ -438,13 +438,24 @@ void test_xyz_quick()
   r = ::color::constant::white_t{};      x = r;  std::cout << "white        "; print( x ); std::cout << std::endl;
   
   r = ::color::constant::red_t{};        x = r;  std::cout << "red          "; print( x ); std::cout << std::endl;
-  r = ::color::constant::green_t{};      x = r;  std::cout << "green;       "; print( x ); std::cout << std::endl;
+  r = ::color::constant::lime_t{};       x = r;  std::cout << "lime         "; print( x ); std::cout << std::endl;
   r = ::color::constant::blue_t{};       x = r;  std::cout << "blue         "; print( x ); std::cout << std::endl;
   
   r = ::color::constant::cyan_t{};       x = r;  std::cout << "cyan         "; print( x ); std::cout << std::endl;
   r = ::color::constant::yellow_t{};     x = r;  std::cout << "yellow       "; print( x ); std::cout << std::endl;
   r = ::color::constant::magenta_t{};    x = r;  std::cout << "magenta      "; print( x ); std::cout << std::endl;
   std::cout << "---------------------------------------------------------------------------------------------------" <<  std::endl;
+
+// black        < 0,  0,  0, >
+// white        <  95.0470000000000254660, 100.0000000000000000001,  108.8830000000000239900 >
+// red          <  41.2456439089692423750,  21.2672851405622651551,    1.9333895582329310159 >
+// lime         <  35.7576077643908831760,  71.515215528781766352,    11.919202588130293208, >
+// blue         <  18.0437483266398928090,   7.2174993306559578343,   95.0304078536367882180 >
+// cyan         <  53.8013560910307830910,  78.7327148594377348450,  106.9496104417670778700 >
+// yellow       <  77.0032516733601255510,  92.7825006693440315080,   13.8525921463632233350 >
+// magenta      <  59.2893922356091422900,  28.4847844712182229900,   96.9637974118697201220 >
+
+
  }
 
 int main(int argc, char const *argv[])

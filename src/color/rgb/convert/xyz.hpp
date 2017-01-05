@@ -34,8 +34,9 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef ::color::constant::xyz::matrix< category_right_type > xyz_matrix_type;
+         typedef ::color::constant::xyz::transformation::matrix< category_right_type > xyz_matrix_type;
          typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
+         typedef ::color::constant::xyz::adaptation::matrix< scalar_type > xyz_adaptation_type;
 
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -53,17 +54,19 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           static const scalar_type a11 = xyz_matrix_type::Mi11(), a12 = xyz_matrix_type::Mi12(), a13 = xyz_matrix_type::Mi13();
-           static const scalar_type a21 = xyz_matrix_type::Mi21(), a22 = xyz_matrix_type::Mi22(), a23 = xyz_matrix_type::Mi23();
-           static const scalar_type a31 = xyz_matrix_type::Mi31(), a32 = xyz_matrix_type::Mi32(), a33 = xyz_matrix_type::Mi33();
+           static const scalar_type i11 = xyz_matrix_type::i11(), i12 = xyz_matrix_type::i12(), i13 = xyz_matrix_type::i13();
+           static const scalar_type i21 = xyz_matrix_type::i21(), i22 = xyz_matrix_type::i22(), i23 = xyz_matrix_type::i23();
+           static const scalar_type i31 = xyz_matrix_type::i31(), i32 = xyz_matrix_type::i32(), i33 = xyz_matrix_type::i33();
 
            scalar_type x = normalize_type::template process<0>( container_right_trait_type::template get<0>( right ) );
            scalar_type y = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
            scalar_type z = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type r = a11 * x + a12 * y + a13 * z;
-           scalar_type g = a21 * x + a22 * y + a23 * z;
-           scalar_type b = a31 * x + a32 * y + a33 * z;
+           //  TODO xyz_adaptation_type::encode( r, g, b );
+
+           scalar_type r = i11 * x + i12 * y + i13 * z;
+           scalar_type g = i21 * x + i22 * y + i23 * z;
+           scalar_type b = i31 * x + i32 * y + i33 * z;
 
            r = xyz_gamma_type::encode( r );
            g = xyz_gamma_type::encode( g );

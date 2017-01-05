@@ -249,6 +249,9 @@ void check_get()
   test_get_red< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_601_entity > >();
   test_get_red< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_709_entity > >();
   test_get_red< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_2020_entity > >();
+  test_get_red< ::color::category::xyz_double >();
+
+
 
   test_get_green< ::color::category::gray_double>();
   test_get_green< ::color::category::cmy_double>();
@@ -266,6 +269,8 @@ void check_get()
   test_get_green< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_709_entity > >();
   test_get_green< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_2020_entity > >();
 
+  test_get_green< ::color::category::xyz_double >();
+
   test_get_blue< ::color::category::gray_double>();
   test_get_blue< ::color::category::cmy_double>();
   test_get_blue< ::color::category::cmyk_double>();
@@ -280,6 +285,8 @@ void check_get()
   test_get_blue< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_601_entity > >();
   test_get_blue< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_709_entity > >();
   test_get_blue< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_2020_entity > >();
+
+  test_get_blue< ::color::category::xyz_double >();
 
   test_get_hue<::color::category::gray_float>( 1200, 1200, 0.75 );
  }

@@ -1,3 +1,4 @@
-#include "./matrix.hpp"
+#include "./transformation.hpp"
 #include "./space.hpp"
-#include "./white.hpp"
+#include "./illuminant.hpp"
+#include "./adaptation.hpp"

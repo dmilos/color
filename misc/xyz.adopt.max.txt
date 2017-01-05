@@ -1,21 +1,30 @@
-
-/*
+// A
 X_WS: 109850/100000;
 Y_WS: 1;
 Z_WS: 35585/100000;
 
+// B
 X_WD: 99072/100000;
 Y_WD: 1;
 Z_WD: 85223/100000;
-*/
+
 
 M_A:matrix( [1,0,0],[0,1,0], [0,0,1] );
 
 M_XYZ :matrix( [1,0,0],[0,1,0], [0,0,1] );
 M_Bradford :matrix( [ 8951000/10000000,  2664000/10000000, -1614000/10000000 ], [ -7502000/10000000, 17135000/10000000, 367000/10000000 ], [ 389000/10000000,   -0685000/10000000,  10296000/10000000 ] );
 M_VonKries :matrix( [ 4002400/10000000,  7076000/10000000, -0808100/10000000 ], [ -2263000/10000000, 11653200/10000000, 457000/10000000 ], [      0/10000000,          0/10000000,   9182200/10000000 ] );
+M_any :matrix(  [ a_11,  a_12, a_13 ], [ a_21,  a_22, a_23 ], [ a_31,  a_32, a_33 ] );
+M_iAny :matrix( [ i_11,  i_12, i_13 ], [ i_21,  i_22, i_23 ], [ i_31,  i_32, i_33 ] );
 
-M_A:M_Bradford;
+
+M_A : M_Bradford;
+M_iA : invert(M_Bradford);
+
+/*
+M_A:M_any;
+M_iA:M_iAny;
+*/
 
 ev( %, numer );
 
@@ -27,5 +36,14 @@ rho_D:    ( M_A . matrix( [X_WD], [Y_WD], [Z_WD] ) ) . matrix( [1], [0], [0] );
 gamma_D:  ( M_A . matrix( [X_WD], [Y_WD], [Z_WD] ) ) . matrix( [0], [1], [0] );
 beta_D:   ( M_A . matrix( [X_WD], [Y_WD], [Z_WD] ) ) . matrix( [0], [0], [1] );
 
-M: invert( M_A  ) . matrix( [rho_D/rho_S,0,0], [0,gamma_D/gamma_S,0], [0,0,beta_D/beta_S]  ) . M_A;
+
+
+rho    : rho_D   / rho_S;
+gamma  : gamma_D / gamma_S;
+beta   : beta_D  / beta_S;
+
+
+M:  M_iA. matrix( [rho,0,0], [0,gamma,0], [0,0,beta]  ) . M_A;
+invert(%);
+ratsimp(%);
 ev( %, numer );
