@@ -2,6 +2,7 @@
 #define color_contant_xyz_adaptation
 
 // ::color::constant::xyz::adaptation::matrix< scalar_name,  >::process()
+// ::color::constant::xyz::adaptation::scaling_enum
 
 #include "./illuminant.hpp"
 

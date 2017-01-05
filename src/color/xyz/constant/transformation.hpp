@@ -82,7 +82,7 @@ namespace color
 
               // from RGB
 
-              static /* constexpr*/ scalar_type const M11(){ return Sr()*Xr(); } // 0.4124564, 0.41245643908969243
+              static /* constexpr*/ scalar_type const M11(){ return Sr()*Xr(); } // 0.4124564, 0.41245643908969243 
               static /* constexpr*/ scalar_type const M12(){ return Sg()*Xg(); } // 0.3575761  0.35757607764390886
               static /* constexpr*/ scalar_type const M13(){ return Sb()*Xb(); } // 0.1804375  0.18043748326639894
               static /* constexpr*/ scalar_type const M21(){ return Sr()*Yr(); } // 0.2126729, 0.21267285140562264
