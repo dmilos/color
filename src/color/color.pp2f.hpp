@@ -15410,13 +15410,8 @@ struct base {
 template< typename scalar_name >
 struct base< scalar_name, ::color::constant::yuv::BT_601_entity > {
 	typedef scalar_name scalar_type;
+	typedef ::color::constant::yuv::_internal::base< scalar_name, ::color::constant::yuv::BT_601_entity > this_type;
 
-	static scalar_type const half() {
-		return 0.5;
-	}
-	static scalar_type const one() {
-		return 1;
-	}
 	static scalar_type const Wr() {
 		return 0.2988390;
 	}
@@ -15424,7 +15419,7 @@ struct base< scalar_name, ::color::constant::yuv::BT_601_entity > {
 		return 0.1143500;
 	}
 	static scalar_type const Wg() {
-		return 1 - 0.2988390 - 0.1143500;
+		return 1 - this_type::Wr() - this_type::Wb();
 	}
 	static scalar_type const Umax() {
 		return 0.436;
@@ -15437,6 +15432,8 @@ struct base< scalar_name, ::color::constant::yuv::BT_601_entity > {
 template< typename scalar_name >
 struct base< scalar_name, ::color::constant::yuv::BT_709_entity > {
 	typedef scalar_name scalar_type;
+	typedef ::color::constant::yuv::_internal::base< scalar_name, ::color::constant::yuv::BT_709_entity > this_type;
+
 	static scalar_type const Wr() {
 		return 0.2126729;
 	}
@@ -15444,7 +15441,7 @@ struct base< scalar_name, ::color::constant::yuv::BT_709_entity > {
 		return 0.0721750;
 	}
 	static scalar_type const Wg() {
-		return 1 - 0.2126729 - 0.0721750;
+		return 1 - this_type::Wr() - this_type::Wb();
 	}
 	static scalar_type const Umax() {
 		return 0.436;
@@ -15464,13 +15461,6 @@ public:
 	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 
 	typedef ::color::constant::yuv::parameter<tag_name,reference_number> this_type;
-
-	static scalar_type const half() {
-		return 0.5;
-	}
-	static scalar_type const one() {
-		return 1;
-	}
 
 	static scalar_type const u_min() {
 		return -this_type::Umax();
@@ -20729,9 +20719,9 @@ quadrature(::color::model< ::color::category::xyz< tag_name> > const& color_para
 namespace color {
 namespace constant {
 namespace xyz {
-namespace white {
+namespace illuminant {
 
-enum degree_enum { two_entity, ten_entity };
+enum observer_enum { two_entity, ten_entity };
 enum name_enum {
 	A_entity,
 	B_entity,
@@ -20760,12 +20750,12 @@ namespace _intrnal {
 template
 <
 	typename scalar_name
-	,::color::constant::xyz::white::name_enum name_number
-	,::color::constant::xyz::white::degree_enum degree_number
+	,::color::constant::xyz::illuminant::name_enum name_number
+	,::color::constant::xyz::illuminant::observer_enum observer_number
 	>
 struct base {
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::A_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.44757);
@@ -20773,7 +20763,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.40745);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::B_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::B_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.34842);
@@ -20781,7 +20771,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.35161);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::C_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.31006);
@@ -20789,7 +20779,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.31616);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.34567);
@@ -20797,7 +20787,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.35850);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D55_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.33242);
@@ -20805,7 +20795,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.34743);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.31271);
@@ -20813,7 +20803,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.32902);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D75_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.29902);
@@ -20821,7 +20811,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.31485);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::E_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::E_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.33333);
@@ -20829,7 +20819,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.33333);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F1_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F1_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.31310);
@@ -20837,7 +20827,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.33727);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F2_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.37208);
@@ -20845,7 +20835,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.37529);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F3_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F3_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.40910);
@@ -20853,7 +20843,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.39430);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F4_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F4_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.44018);
@@ -20861,7 +20851,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.40329);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F5_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F5_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.31379);
@@ -20869,7 +20859,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.34531);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F6_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F6_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.37790);
@@ -20877,7 +20867,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.38835);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F7_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.31292);
@@ -20885,7 +20875,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.32933);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F8_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F8_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.34588);
@@ -20893,7 +20883,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.35875);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F9_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F9_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.37417);
@@ -20901,7 +20891,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.37281);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F10_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F10_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.34609);
@@ -20909,7 +20899,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.35986);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F11_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.38052);
@@ -20917,7 +20907,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.37713);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F12_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F12_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.43695);
@@ -20926,7 +20916,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 	}
 };
 
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::A_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.45117);
@@ -20934,7 +20924,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.40594);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::B_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::B_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.34980);
@@ -20942,7 +20932,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.35270);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::C_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.31039);
@@ -20950,7 +20940,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.31905);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.34773);
@@ -20958,7 +20948,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.35952);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D55_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.33411);
@@ -20966,7 +20956,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.34877);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.31382);
@@ -20974,7 +20964,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.33100);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D75_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.29968);
@@ -20982,7 +20972,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.31740);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::E_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::E_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.33333);
@@ -20990,7 +20980,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.33333);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F1_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F1_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.31811);
@@ -20998,7 +20988,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.33559);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F2_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.37925);
@@ -21006,7 +20996,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.36733);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F3_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F3_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.41761);
@@ -21014,7 +21004,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.38324);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F4_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F4_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.44920);
@@ -21022,7 +21012,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.39074);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F5_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F5_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.31975);
@@ -21030,7 +21020,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.34246);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F6_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F6_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.38660);
@@ -21038,7 +21028,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.37847);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F7_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.31569);
@@ -21046,7 +21036,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.32960);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F8_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F8_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.34902);
@@ -21054,7 +21044,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.35939);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F9_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F9_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.37829);
@@ -21062,7 +21052,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.37045);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F10_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F10_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.35090);
@@ -21070,7 +21060,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.35444);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F11_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.38541);
@@ -21078,7 +21068,7 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 		return scalar_type(0.37123);
 	}
 };
-template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::white::F12_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::F12_entity, ::color::constant::xyz::illuminant::ten_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
 		return scalar_type(0.44256);
@@ -21089,12 +21079,12 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 
 }
 
-template< typename scalar_name,::color::constant::xyz::white::name_enum name_number, ::color::constant::xyz::white::degree_enum degree_number >
+template< typename scalar_name,::color::constant::xyz::illuminant::name_enum name_number, ::color::constant::xyz::illuminant::observer_enum observer_number >
 struct point
-	: private ::color::constant::xyz::white::_intrnal::base<scalar_name, name_number, degree_number > {
+	: private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, name_number, observer_number > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, name_number, degree_number > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, name_number, observer_number > base_type;
 
 public:
 	static scalar_type const X() {
@@ -21107,10 +21097,10 @@ public:
 		return (scalar_type(1)-base_type::x()-base_type::y())/base_type::y();
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::A_entity, ::color::constant::xyz::illuminant::two_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::A_entity, ::color::constant::xyz::illuminant::two_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::two_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::A_entity, ::color::constant::xyz::illuminant::two_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(1.09850);
@@ -21121,10 +21111,10 @@ public:
 	}
 };
 
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::C_entity, ::color::constant::xyz::illuminant::two_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::C_entity, ::color::constant::xyz::illuminant::two_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::two_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::C_entity, ::color::constant::xyz::illuminant::two_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.98074);
@@ -21134,10 +21124,10 @@ public:
 		return scalar_type(1.18232);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::two_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.96422);
@@ -21147,10 +21137,10 @@ public:
 		return scalar_type(0.82521);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::D55_entity, ::color::constant::xyz::illuminant::two_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::D55_entity, ::color::constant::xyz::illuminant::two_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::two_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::D55_entity, ::color::constant::xyz::illuminant::two_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.95682);
@@ -21160,10 +21150,10 @@ public:
 		return scalar_type(0.92149);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::two_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.95047);
@@ -21173,10 +21163,10 @@ public:
 		return scalar_type(1.08883);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::D75_entity, ::color::constant::xyz::illuminant::two_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::D75_entity, ::color::constant::xyz::illuminant::two_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::two_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::D75_entity, ::color::constant::xyz::illuminant::two_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.94972);
@@ -21186,10 +21176,10 @@ public:
 		return scalar_type(1.22638);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::E_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::E_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::E_entity, ::color::constant::xyz::illuminant::two_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::E_entity, ::color::constant::xyz::illuminant::two_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::E_entity, ::color::constant::xyz::white::two_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::E_entity, ::color::constant::xyz::illuminant::two_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(1.00000);
@@ -21199,10 +21189,10 @@ public:
 		return scalar_type(1.00000);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::F2_entity, ::color::constant::xyz::illuminant::two_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::F2_entity, ::color::constant::xyz::illuminant::two_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::two_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::F2_entity, ::color::constant::xyz::illuminant::two_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.99186);
@@ -21212,10 +21202,10 @@ public:
 		return scalar_type(0.67393);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::F7_entity, ::color::constant::xyz::illuminant::two_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::F7_entity, ::color::constant::xyz::illuminant::two_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::two_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::F7_entity, ::color::constant::xyz::illuminant::two_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.95041);
@@ -21225,10 +21215,10 @@ public:
 		return scalar_type(1.08747);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::two_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::two_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::F11_entity, ::color::constant::xyz::illuminant::two_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::F11_entity, ::color::constant::xyz::illuminant::two_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::two_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::F11_entity, ::color::constant::xyz::illuminant::two_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(1.00962);
@@ -21239,10 +21229,10 @@ public:
 	}
 };
 
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::A_entity, ::color::constant::xyz::illuminant::ten_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::A_entity, ::color::constant::xyz::illuminant::ten_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::A_entity, ::color::constant::xyz::white::ten_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::A_entity, ::color::constant::xyz::illuminant::ten_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(1.11144);
@@ -21252,10 +21242,10 @@ public:
 		return scalar_type(0.35200);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::C_entity, ::color::constant::xyz::illuminant::ten_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::C_entity, ::color::constant::xyz::illuminant::ten_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::C_entity, ::color::constant::xyz::white::ten_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::C_entity, ::color::constant::xyz::illuminant::ten_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.97285);
@@ -21265,10 +21255,10 @@ public:
 		return scalar_type(1.16145);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::ten_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::ten_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D50_entity, ::color::constant::xyz::white::ten_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::ten_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.96720);
@@ -21278,10 +21268,10 @@ public:
 		return scalar_type(0.81427);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::D55_entity, ::color::constant::xyz::illuminant::ten_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::D55_entity, ::color::constant::xyz::illuminant::ten_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D55_entity, ::color::constant::xyz::white::ten_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::D55_entity, ::color::constant::xyz::illuminant::ten_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.95799);
@@ -21291,10 +21281,10 @@ public:
 		return scalar_type(0.90926);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::ten_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::ten_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D65_entity, ::color::constant::xyz::white::ten_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::ten_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.94811);
@@ -21304,10 +21294,10 @@ public:
 		return scalar_type(1.07304);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::D75_entity, ::color::constant::xyz::illuminant::ten_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::D75_entity, ::color::constant::xyz::illuminant::ten_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::D75_entity, ::color::constant::xyz::white::ten_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::D75_entity, ::color::constant::xyz::illuminant::ten_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.94416);
@@ -21317,10 +21307,10 @@ public:
 		return scalar_type(1.20641);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::F2_entity, ::color::constant::xyz::illuminant::ten_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::F2_entity, ::color::constant::xyz::illuminant::ten_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F2_entity, ::color::constant::xyz::white::ten_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::F2_entity, ::color::constant::xyz::illuminant::ten_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(1.03279);
@@ -21330,10 +21320,10 @@ public:
 		return scalar_type(0.69027);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::F7_entity, ::color::constant::xyz::illuminant::ten_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::F7_entity, ::color::constant::xyz::illuminant::ten_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F7_entity, ::color::constant::xyz::white::ten_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::F7_entity, ::color::constant::xyz::illuminant::ten_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(0.95792);
@@ -21343,10 +21333,10 @@ public:
 		return scalar_type(1.07687);
 	}
 };
-template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::ten_entity > : private ::color::constant::xyz::white::_intrnal::base<scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::ten_entity > {
+template< typename scalar_name > struct point< scalar_name, ::color::constant::xyz::illuminant::F11_entity, ::color::constant::xyz::illuminant::ten_entity > : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, ::color::constant::xyz::illuminant::F11_entity, ::color::constant::xyz::illuminant::ten_entity > {
 private:
 	typedef scalar_name scalar_type;
-	typedef ::color::constant::xyz::white::_intrnal::base< scalar_name, ::color::constant::xyz::white::F11_entity, ::color::constant::xyz::white::ten_entity > base_type;
+	typedef ::color::constant::xyz::illuminant::_intrnal::base< scalar_name, ::color::constant::xyz::illuminant::F11_entity, ::color::constant::xyz::illuminant::ten_entity > base_type;
 public:
 	static scalar_type const X() {
 		return scalar_type(1.03863);
@@ -21396,14 +21386,17 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{};
+	static coord_type const& red() {
+		static coord_type value{};
+		return value;
 	}
-	static coord_type green() {
-		return coord_type{};
+	static coord_type const& green() {
+		static coord_type value{};
+		return value;
 	}
-	static coord_type blue() {
-		return coord_type{};
+	static coord_type const& blue() {
+		static coord_type value{};
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Adobe_entity > {
@@ -21413,12 +21406,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6400,0.3300};
-	} static coord_type green() {
-		return coord_type{0.2100, 0.7100};
-	} static coord_type blue() {
-		return coord_type{0.1500, 0.0600 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6400, 0.3300 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2100, 0.7100 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1500, 0.0600 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Apple_entity > {
@@ -21428,12 +21424,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6250,0.3400};
-	} static coord_type green() {
-		return coord_type{0.2800, 0.5950};
-	} static coord_type blue() {
-		return coord_type{0.1550, 0.0700 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6250, 0.3400 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2800, 0.5950 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1550, 0.0700 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Best_entity > {
@@ -21443,12 +21442,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.7347,0.2653};
-	} static coord_type green() {
-		return coord_type{0.2150, 0.7750};
-	} static coord_type blue() {
-		return coord_type{0.1300, 0.0350 };
+	static coord_type const& red() {
+		static coord_type value{ 0.7347, 0.2653 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2150, 0.7750 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1300, 0.0350 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Beta_entity > {
@@ -21458,12 +21460,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6888,0.3112};
-	} static coord_type green() {
-		return coord_type{0.1986, 0.7551};
-	} static coord_type blue() {
-		return coord_type{0.1265, 0.0352 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6888, 0.3112 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.1986, 0.7551 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1265, 0.0352 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Bruce_entity > {
@@ -21473,12 +21478,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6400,0.3300};
-	} static coord_type green() {
-		return coord_type{0.2800, 0.6500};
-	} static coord_type blue() {
-		return coord_type{0.1500, 0.0600 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6400, 0.3300 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2800, 0.6500 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1500, 0.0600 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::CIE_entity > {
@@ -21488,12 +21496,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.7350,0.2650};
-	} static coord_type green() {
-		return coord_type{0.2740, 0.7170};
-	} static coord_type blue() {
-		return coord_type{0.1670, 0.0090 };
+	static coord_type const& red() {
+		static coord_type value{ 0.7350, 0.2650 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2740, 0.7170 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1670, 0.0090 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::ColorMatch_entity > {
@@ -21503,12 +21514,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6300,0.3400};
-	} static coord_type green() {
-		return coord_type{0.2950, 0.6050};
-	} static coord_type blue() {
-		return coord_type{0.1500, 0.0750 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6300, 0.3400 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2950, 0.6050 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1500, 0.0750 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Don_entity > {
@@ -21518,12 +21532,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6960,0.3000};
-	} static coord_type green() {
-		return coord_type{0.2150, 0.7650};
-	} static coord_type blue() {
-		return coord_type{0.1300, 0.0350 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6960, 0.3000 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2150, 0.7650 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1300, 0.0350 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::ECI_entity > {
@@ -21533,12 +21550,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6700,0.3300};
-	} static coord_type green() {
-		return coord_type{0.2100, 0.7100};
-	} static coord_type blue() {
-		return coord_type{0.1400, 0.0800 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6700, 0.3300 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2100, 0.7100 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1400, 0.0800 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::Ekta_Space_PS5_entity > {
@@ -21548,12 +21568,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6950,0.3050};
-	} static coord_type green() {
-		return coord_type{0.2600, 0.7000};
-	} static coord_type blue() {
-		return coord_type{0.1100, 0.0050 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6950, 0.3050 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2600, 0.7000 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1100, 0.0050 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::NTSC_entity > {
@@ -21563,12 +21586,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6700,0.3300};
-	} static coord_type green() {
-		return coord_type{0.2100, 0.7100};
-	} static coord_type blue() {
-		return coord_type{0.1400, 0.0800 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6700, 0.3300 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2100, 0.7100 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1400, 0.0800 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::PAL_SECAM_entity > {
@@ -21578,12 +21604,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6400,0.3300};
-	} static coord_type green() {
-		return coord_type{0.2900, 0.6000};
-	} static coord_type blue() {
-		return coord_type{0.1500, 0.0600 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6400, 0.3300 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.2900, 0.6000 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1500, 0.0600 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::ProPhoto_entity > {
@@ -21593,12 +21622,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.7347,0.2653};
-	} static coord_type green() {
-		return coord_type{0.1596, 0.8404};
-	} static coord_type blue() {
-		return coord_type{0.0366, 0.0001 };
+	static coord_type const& red() {
+		static coord_type value{ 0.7347, 0.2653 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.1596, 0.8404 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.0366, 0.0001 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::SMPTE_C_entity > {
@@ -21608,12 +21640,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6300,0.3400};
-	} static coord_type green() {
-		return coord_type{0.3100, 0.5950};
-	} static coord_type blue() {
-		return coord_type{0.1550, 0.0700 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6300, 0.3400 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.3100, 0.5950 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1550, 0.0700 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::sRGB_entity > {
@@ -21623,12 +21658,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.6400,0.3300};
-	} static coord_type green() {
-		return coord_type{0.3000, 0.6000};
-	} static coord_type blue() {
-		return coord_type{0.1500, 0.0600 };
+	static coord_type const& red() {
+		static coord_type value{ 0.6400, 0.3300 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.3000, 0.6000 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1500, 0.0600 };
+		return value;
 	}
 };
 template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::WideGamut_entity > {
@@ -21638,12 +21676,15 @@ public:
 private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
-	static coord_type red() {
-		return coord_type{0.7350,0.2650};
-	} static coord_type green() {
-		return coord_type{0.1150, 0.8260};
-	} static coord_type blue() {
-		return coord_type{0.1570, 0.0180 };
+	static coord_type const& red() {
+		static coord_type value{ 0.7350, 0.2650 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.1150, 0.8260 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1570, 0.0180 };
+		return value;
 	}
 };
 
@@ -21811,202 +21852,202 @@ template< typename scalar_name > struct gamma< scalar_name, ::color::constant::x
 };
 
 template< ::color::constant::xyz::space::name_enum name_number >
-struct white {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
+struct illuminant {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
 
 	static name_type name() {
-		return ::color::constant::xyz::white::D65_entity;
+		return ::color::constant::xyz::illuminant::D65_entity;
 	}
-	static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity ;
-	}
-};
-template<> struct white< ::color::constant::xyz::space::LabGamut_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D65_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
-	static name_type name() {
-		return ::color::constant::xyz::white::D65_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+	static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity ;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::Adobe_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D65_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::LabGamut_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D65_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D65_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D65_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::Apple_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D65_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::Adobe_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D65_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D65_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D65_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::Best_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D50_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::Apple_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D65_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D50_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D65_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::Beta_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D50_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::Best_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D50_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D50_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D50_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::Bruce_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D65_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::Beta_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D50_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D65_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D50_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::CIE_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::E_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::Bruce_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D65_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::E_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D65_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::ColorMatch_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D50_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::CIE_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::E_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D50_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::E_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::Don_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D50_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::ColorMatch_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D50_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D50_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D50_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::ECI_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D50_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::Don_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D50_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D50_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D50_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::Ekta_Space_PS5_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D50_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::ECI_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D50_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D50_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D50_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::NTSC_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::C_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::Ekta_Space_PS5_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D50_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::C_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D50_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::PAL_SECAM_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D65_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::NTSC_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::C_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D65_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::C_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::ProPhoto_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D50_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::PAL_SECAM_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D65_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D50_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D65_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::SMPTE_C_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D65_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::ProPhoto_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D50_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D65_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D50_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::sRGB_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D65_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::SMPTE_C_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D65_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D65_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D65_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
-template<> struct white< ::color::constant::xyz::space::WideGamut_entity> {
-	typedef ::color::constant::xyz::white::name_enum name_type;
-	typedef ::color::constant::xyz::white::degree_enum degree_type;
-	enum { name_entity = ::color::constant::xyz::white::D50_entity };
-	enum { degree_entity = ::color::constant::xyz::white::two_entity };
+template<> struct illuminant< ::color::constant::xyz::space::sRGB_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D65_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
-		return ::color::constant::xyz::white::D50_entity;
-	} static degree_type degree() {
-		return ::color::constant::xyz::white::two_entity;
+		return ::color::constant::xyz::illuminant::D65_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
+	}
+};
+template<> struct illuminant< ::color::constant::xyz::space::WideGamut_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D50_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::illuminant::D50_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
 	}
 };
 
@@ -22018,15 +22059,346 @@ template<> struct white< ::color::constant::xyz::space::WideGamut_entity> {
 namespace color {
 namespace constant {
 namespace xyz {
-namespace adopt {
+namespace adaptation {
 
-template< typename scalar_name, ::color::constant::xyz::white::name_enum left_number, ::color::constant::xyz::white::name_enum right_number >
+enum scaling_enum {
+	XYZ_entity
+	,Bradford_entity
+	,VonKries_entity
+};
+
+template
+<
+	typename scalar_name
+	,::color::constant::xyz::adaptation::scaling_enum scaling_number = ::color::constant::xyz::adaptation::XYZ_entity
+	>
+struct method {
+	typedef scalar_name scalar_type;
+
+	static scalar_type const a11() {
+		return 1;
+	}
+	static scalar_type const a12() {
+		return 0;
+	}
+	static scalar_type const a13() {
+		return 0;
+	}
+
+	static scalar_type const a21() {
+		return 0;
+	}
+	static scalar_type const a22() {
+		return 1;
+	}
+	static scalar_type const a23() {
+		return 0;
+	}
+
+	static scalar_type const a31() {
+		return 0;
+	}
+	static scalar_type const a32() {
+		return 0;
+	}
+	static scalar_type const a33() {
+		return 1;
+	}
+
+	static scalar_type const i11() {
+		return 1;
+	}
+	static scalar_type const i12() {
+		return 0;
+	}
+	static scalar_type const i13() {
+		return 0;
+	}
+
+	static scalar_type const i21() {
+		return 0;
+	}
+	static scalar_type const i22() {
+		return 1;
+	}
+	static scalar_type const i23() {
+		return 0;
+	}
+
+	static scalar_type const i31() {
+		return 0;
+	}
+	static scalar_type const i32() {
+		return 0;
+	}
+	static scalar_type const i33() {
+		return 1;
+	}
+};
+template < typename scalar_name > struct method< scalar_name, ::color::constant::xyz::adaptation::XYZ_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type const a11() {
+		return 1;
+	} static scalar_type const a12() {
+		return 0;
+	} static scalar_type const a13() {
+		return 0;
+	} static scalar_type const a21() {
+		return 0;
+	} static scalar_type const a22() {
+		return 1;
+	} static scalar_type const a23() {
+		return 0;
+	} static scalar_type const a31() {
+		return 0;
+	} static scalar_type const a32() {
+		return 0;
+	} static scalar_type const a33() {
+		return 1;
+	} static scalar_type const i11() {
+		return 1;
+	} static scalar_type const i12() {
+		return 0;
+	} static scalar_type const i13() {
+		return 0;
+	} static scalar_type const i21() {
+		return 0;
+	} static scalar_type const i22() {
+		return 1;
+	} static scalar_type const i23() {
+		return 0;
+	} static scalar_type const i31() {
+		return 0;
+	} static scalar_type const i32() {
+		return 0;
+	} static scalar_type const i33() {
+		return 1;
+	}
+}
+
+;
+
+template < typename scalar_name > struct method< scalar_name, ::color::constant::xyz::adaptation::Bradford_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type const a11() {
+		return 0.8951000;
+	} static scalar_type const a12() {
+		return 0.2664000;
+	} static scalar_type const a13() {
+		return -0.1614000;
+	} static scalar_type const a21() {
+		return -0.7502000;
+	} static scalar_type const a22() {
+		return 1.7135000;
+	} static scalar_type const a23() {
+		return 0.0367000;
+	} static scalar_type const a31() {
+		return 0.0389000;
+	} static scalar_type const a32() {
+		return -0.0685000;
+	} static scalar_type const a33() {
+		return 1.0296000;
+	} static scalar_type const i11() {
+		return 0.9869929;
+	} static scalar_type const i12() {
+		return -0.1470543;
+	} static scalar_type const i13() {
+		return 0.1599627;
+	} static scalar_type const i21() {
+		return 0.4323053;
+	} static scalar_type const i22() {
+		return 0.5183603;
+	} static scalar_type const i23() {
+		return 0.0492912;
+	} static scalar_type const i31() {
+		return -0.0085287;
+	} static scalar_type const i32() {
+		return 0.0400428;
+	} static scalar_type const i33() {
+		return 0.9684867;
+	}
+}
+
+;
+
+template < typename scalar_name > struct method< scalar_name, ::color::constant::xyz::adaptation::VonKries_entity > {
+	typedef scalar_name scalar_type;
+	static scalar_type const a11() {
+		return 0.4002400;
+	} static scalar_type const a12() {
+		return 0.7076000;
+	} static scalar_type const a13() {
+		return -0.0808100;
+	} static scalar_type const a21() {
+		return -0.2263000;
+	} static scalar_type const a22() {
+		return 1.1653200;
+	} static scalar_type const a23() {
+		return 0.0457000;
+	} static scalar_type const a31() {
+		return 0.0000000;
+	} static scalar_type const a32() {
+		return 0.0000000;
+	} static scalar_type const a33() {
+		return 0.9182200;
+	} static scalar_type const i11() {
+		return 1.8599364;
+	} static scalar_type const i12() {
+		return -1.1293816;
+	} static scalar_type const i13() {
+		return 0.2198974;
+	} static scalar_type const i21() {
+		return 0.3611914;
+	} static scalar_type const i22() {
+		return 0.6388125;
+	} static scalar_type const i23() {
+		return -0.0000064;
+	} static scalar_type const i31() {
+		return 0.0000000;
+	} static scalar_type const i32() {
+		return 0.0000000;
+	} static scalar_type const i33() {
+		return 1.0890636;
+	}
+}
+
+;
+
+template
+<
+	typename scalar_name
+	,::color::constant::xyz::illuminant::name_enum left_number = ::color::constant::xyz::illuminant::D50_entity
+	,::color::constant::xyz::illuminant::name_enum right_number = ::color::constant::xyz::illuminant::D65_entity
+	,::color::constant::xyz::adaptation::scaling_enum scaling_number = ::color::constant::xyz::adaptation::XYZ_entity
+	>
 struct matrix {
+	typedef scalar_name scalar_type;
+	typedef method<scalar_type,scaling_number > method_type;
 
-	static void process(scalar_name &X, scalar_name &Y, scalar_name &Z) {
+	typedef ::color::constant::xyz::illuminant::point< scalar_name, left_number, ::color::constant::xyz::illuminant::two_entity > source_type;
+	typedef ::color::constant::xyz::illuminant::point< scalar_name, right_number, ::color::constant::xyz::illuminant::two_entity > destination_type;
+
+	static scalar_type rho_S() {
+		return method_type::a11() * source_type::X() + method_type::a12() * source_type::Y() + method_type::a13() * source_type::Z();
+	}
+	static scalar_type gamma_S() {
+		return method_type::a21() * source_type::X() + method_type::a22() * source_type::Y() + method_type::a23() * source_type::Z();
+	}
+	static scalar_type beta_S() {
+		return method_type::a31() * source_type::X() + method_type::a32() * source_type::Y() + method_type::a33() * source_type::Z();
+	}
+
+	static scalar_type rho_D() {
+		return method_type::a11() * destination_type::X() + method_type::a12() * destination_type::Y() + method_type::a13() * destination_type::Z();
+	}
+	static scalar_type gamma_D() {
+		return method_type::a21() * destination_type::X() + method_type::a22() * destination_type::Y() + method_type::a23() * destination_type::Z();
+	}
+	static scalar_type beta_D() {
+		return method_type::a31() * destination_type::X() + method_type::a32() * destination_type::Y() + method_type::a33() * destination_type::Z();
+	}
+
+	static scalar_type rho_R() {
+		return rho_D() / rho_S();
+	}
+	static scalar_type gamma_R() {
+		return gamma_D() / gamma_S();
+	}
+	static scalar_type beta_R() {
+		return beta_D() / beta_S();
+	}
+
+	static scalar_type const a11() {
+		return method_type::a11()*method_type::i11()*rho_R() + method_type::a21()*method_type::i12()*gamma_R() + method_type::a31()*method_type::i13()*beta_R();
+	}
+	static scalar_type const a12() {
+		return method_type::a12()*method_type::i11()*rho_R() + method_type::a22()*method_type::i12()*gamma_R() + method_type::a32()*method_type::i13()*beta_R();
+	}
+	static scalar_type const a13() {
+		return method_type::a13()*method_type::i11()*rho_R() + method_type::a23()*method_type::i12()*gamma_R() + method_type::a33()*method_type::i13()*beta_R();
+	}
+	static scalar_type const a21() {
+		return method_type::a11()*method_type::i21()*rho_R() + method_type::a21()*method_type::i22()*gamma_R() + method_type::a31()*method_type::i23()*beta_R();
+	}
+	static scalar_type const a22() {
+		return method_type::a12()*method_type::i21()*rho_R() + method_type::a22()*method_type::i22()*gamma_R() + method_type::a32()*method_type::i23()*beta_R();
+	}
+	static scalar_type const a23() {
+		return method_type::a13()*method_type::i21()*rho_R() + method_type::a23()*method_type::i22()*gamma_R() + method_type::a33()*method_type::i23()*beta_R();
+	}
+	static scalar_type const a31() {
+		return method_type::a11()*method_type::i31()*rho_R() + method_type::a21()*method_type::i32()*gamma_R() + method_type::a31()*method_type::i33()*beta_R();
+	}
+	static scalar_type const a32() {
+		return method_type::a12()*method_type::i31()*rho_R() + method_type::a22()*method_type::i32()*gamma_R() + method_type::a32()*method_type::i33()*beta_R();
+	}
+	static scalar_type const a33() {
+		return method_type::a13()*method_type::i31()*rho_R() + method_type::a23()*method_type::i32()*gamma_R() + method_type::a33()*method_type::i33()*beta_R();
+	}
+
+	static scalar_type const i11() {
+		return method_type::a11()*method_type::i11()/rho_R() + method_type::a21()*method_type::i12()/gamma_R() + method_type::a31()*method_type::i13()/beta_R();
+	}
+	static scalar_type const i12() {
+		return method_type::a12()*method_type::i11()/rho_R() + method_type::a22()*method_type::i12()/gamma_R() + method_type::a32()*method_type::i13()/beta_R();
+	}
+	static scalar_type const i13() {
+		return method_type::a13()*method_type::i11()/rho_R() + method_type::a23()*method_type::i12()/gamma_R() + method_type::a33()*method_type::i13()/beta_R();
+	}
+	static scalar_type const i21() {
+		return method_type::a11()*method_type::i21()/rho_R() + method_type::a21()*method_type::i22()/gamma_R() + method_type::a31()*method_type::i23()/beta_R();
+	}
+	static scalar_type const i22() {
+		return method_type::a12()*method_type::i21()/rho_R() + method_type::a22()*method_type::i22()/gamma_R() + method_type::a32()*method_type::i23()/beta_R();
+	}
+	static scalar_type const i23() {
+		return method_type::a13()*method_type::i21()/rho_R() + method_type::a23()*method_type::i22()/gamma_R() + method_type::a33()*method_type::i23()/beta_R();
+	}
+	static scalar_type const i31() {
+		return method_type::a11()*method_type::i31()/rho_R() + method_type::a21()*method_type::i32()/gamma_R() + method_type::a31()*method_type::i33()/beta_R();
+	}
+	static scalar_type const i32() {
+		return method_type::a12()*method_type::i31()/rho_R() + method_type::a22()*method_type::i32()/gamma_R() + method_type::a32()*method_type::i33()/beta_R();
+	}
+	static scalar_type const i33() {
+		return method_type::a13()*method_type::i31()/rho_R() + method_type::a23()*method_type::i32()/gamma_R() + method_type::a33()*method_type::i33()/beta_R();
+	}
+
+	static void encode(scalar_name &X, scalar_name &Y, scalar_name &Z) {
+		scalar_type x = a11() * X + a12() * Y + a13() * Z;
+		scalar_type y = a21() * X + a22() * Y + a23() * Z;
+		scalar_type z = a31() * X + a32() * Y + a33() * Z;
+		X = x;
+		Y = y;
+		Z = z;
+	}
+
+	static void decode(scalar_name &X, scalar_name &Y, scalar_name &Z) {
+		scalar_type x = i11() * X + i12() * Y + i13() * Z;
+		scalar_type y = i21() * X + i22() * Y + i23() * Z;
+		scalar_type z = i31() * X + i32() * Y + i33() * Z;
+		X = x;
+		Y = y;
+		Z = z;
 	}
 
 };
+
+template
+<
+	typename scalar_name
+	,::color::constant::xyz::illuminant::name_enum both_number
+	,::color::constant::xyz::adaptation::scaling_enum scaling_number
+	>
+struct matrix< scalar_name, both_number, both_number, scaling_number > {
+	typedef scalar_name scalar_type;
+
+	static void encode(scalar_name &X, scalar_name &Y, scalar_name &Z) {
+	}
+	static void decode(scalar_name &X, scalar_name &Y, scalar_name &Z) {
+	}
+};
+
 }
 }
 }
@@ -22035,13 +22407,14 @@ struct matrix {
 namespace color {
 namespace constant {
 namespace xyz {
+namespace transformation {
 
 template
 <
 	typename category_name
 	, ::color::constant::xyz::space::name_enum space_number = ::color::constant::xyz::space::sRGB_entity
-	, ::color::constant::xyz::white::name_enum white_number = static_cast< color::constant::xyz::white::name_enum >(::color::constant::xyz::space::white< space_number >::name_entity)
-	, ::color::constant::xyz::white::degree_enum degree_number = static_cast< color::constant::xyz::white::degree_enum >(::color::constant::xyz::space::white< space_number >::degree_entity)
+	, ::color::constant::xyz::illuminant::name_enum illuminant_number = static_cast< color::constant::xyz::illuminant::name_enum >(::color::constant::xyz::space::illuminant< space_number >::name_entity)
+	, ::color::constant::xyz::illuminant::observer_enum observer_number = static_cast< color::constant::xyz::illuminant::observer_enum >(::color::constant::xyz::space::illuminant< space_number >::observer_entity)
 	>
 struct matrix {
 public:
@@ -22049,23 +22422,11 @@ public:
 
 	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
-	typedef ::color::constant::xyz::matrix<category_type> this_type;
+	typedef ::color::constant::xyz::transformation::matrix<category_type> this_type;
 
 	typedef ::color::constant::xyz::space::primary< scalar_type, space_number > system_type;
 
-	typedef ::color::constant::xyz::white::point< scalar_type, white_number, degree_number > wp_type;
-
-	typedef ::color::constant::xyz::adopt::matrix< scalar_type, static_cast< color::constant::xyz::white::name_enum >(::color::constant::xyz::space::white< space_number >::name_entity), white_number > adopt_type;
-
-	static scalar_type const XW() {
-		return wp_type::X();
-	}
-	static scalar_type const YW() {
-		return wp_type::Y();
-	}
-	static scalar_type const ZW() {
-		return wp_type::Z();
-	}
+	typedef ::color::constant::xyz::illuminant::point< scalar_type, illuminant_number, observer_number > wp_type;
 
 	static scalar_type const xr() {
 		return system_type::red()[0];
@@ -22084,6 +22445,51 @@ public:
 	}
 	static scalar_type const yb() {
 		return system_type::blue()[1];
+	}
+
+private:
+	static scalar_type const detQ() {
+		return -yr()*yg()*yb()/((xg()-xb())*yr() + (xb()-xr())*yg() + (xr()-xg())*yb()) ;
+	}
+	static scalar_type const Q11() {
+		return -detQ() * ((xb()-1)*yg() + (1-xg())*yb())/(yb()* yg());
+	}
+	static scalar_type const Q21() {
+		return detQ() * ((xb()-1)*yr() + (1-xr())*yb())/(yb()* yr());
+	}
+	static scalar_type const Q31() {
+		return -detQ() * ((xg()-1)*yr() + (1-xr())*yg())/(yg()* yr());
+	}
+
+	static scalar_type const Q12() {
+		return -detQ() * ((yg()-1)*xb() + (1-yb())*xg())/(yb()* yg());
+	}
+	static scalar_type const Q22() {
+		return detQ() * ((yr()-1)*xb() + (1-yb())*xr())/(yb()* yr());
+	}
+	static scalar_type const Q32() {
+		return -detQ() * ((yr()-1)*xg() + (1-yg())*xr())/(yg()* yr());
+	}
+
+	static scalar_type const Q13() {
+		return -detQ() * (xb()*yg() - xg()*yb()) / (yb()*yg());
+	}
+	static scalar_type const Q23() {
+		return detQ() * (xb()*yr() - xr()*yb()) / (yb()*yr());
+	}
+	static scalar_type const Q33() {
+		return -detQ() * (xg()*yr() - xr()*yg()) / (yg()*yr());
+	}
+
+public:
+	static scalar_type const Sr() {
+		return Q11() * wp_type::X() + Q12() * wp_type::Y() + Q13() * wp_type::Z();
+	}
+	static scalar_type const Sg() {
+		return Q21() * wp_type::X() + Q22() * wp_type::Y() + Q23() * wp_type::Z();
+	}
+	static scalar_type const Sb() {
+		return Q31() * wp_type::X() + Q32() * wp_type::Y() + Q33() * wp_type::Z();
 	}
 
 	static scalar_type const Xr() {
@@ -22114,50 +22520,6 @@ public:
 	}
 	static scalar_type const Zb() {
 		return (scalar_type(1)-xb()-yb())/yb();
-	}
-
-	static scalar_type const detA() {
-		return -yr()*yg()*yb()/((xg()-xb())*yr() + (xb()-xr())*yg() + (xr()-xg())*yb()) ;
-	}
-
-	static scalar_type const A11() {
-		return -detA() * ((xb()-1)*yg() + (1-xg())*yb())/(yb()* yg());
-	}
-	static scalar_type const A21() {
-		return detA() * ((xb()-1)*yr() + (1-xr())*yb())/(yb()* yr());
-	}
-	static scalar_type const A31() {
-		return -detA() * ((xg()-1)*yr() + (1-xr())*yg())/(yg()* yr());
-	}
-
-	static scalar_type const A12() {
-		return -detA() * ((yg()-1)*xb() + (1-yb())*xg())/(yb()* yg());
-	}
-	static scalar_type const A22() {
-		return detA() * ((yr()-1)*xb() + (1-yb())*xr())/(yb()* yr());
-	}
-	static scalar_type const A32() {
-		return -detA() * ((yr()-1)*xg() + (1-yg())*xr())/(yg()* yr());
-	}
-
-	static scalar_type const A13() {
-		return -detA() * (xb()*yg() - xg()*yb()) / (yb()*yg());
-	}
-	static scalar_type const A23() {
-		return detA() * (xb()*yr() - xr()*yb()) / (yb()*yr());
-	}
-	static scalar_type const A33() {
-		return -detA() * (xg()*yr() - xr()*yg()) / (yg()*yr());
-	}
-
-	static scalar_type const Sr() {
-		return A11() * XW() + A12() * YW() + A13() * ZW();
-	}
-	static scalar_type const Sg() {
-		return A21() * XW() + A22() * YW() + A23() * ZW();
-	}
-	static scalar_type const Sb() {
-		return A31() * XW() + A32() * YW() + A33() * ZW();
 	}
 
 	static scalar_type const M11() {
@@ -22192,35 +22554,35 @@ public:
 		return M11()*(M22()*M33()-M23()*M32())-M12()*(M21()*M33()-M23()*M31())+M13()*(M21()*M32()-M22()*M31());
 	}
 
-	static scalar_type const Mi11() {
+	static scalar_type const i11() {
 		return (M22()*M33()-M23()*M32()) / detM();
 	}
-	static scalar_type const Mi12() {
+	static scalar_type const i12() {
 		return (M13()*M32()-M12()*M33()) / detM();
 	}
-	static scalar_type const Mi13() {
+	static scalar_type const i13() {
 		return (M12()*M23()-M13()*M22()) / detM();
 	}
-	static scalar_type const Mi21() {
+	static scalar_type const i21() {
 		return (M23()*M31()-M21()*M33()) / detM();
 	}
-	static scalar_type const Mi22() {
+	static scalar_type const i22() {
 		return (M11()*M33()-M13()*M31()) / detM();
 	}
-	static scalar_type const Mi23() {
+	static scalar_type const i23() {
 		return (M13()*M21()-M11()*M23()) / detM();
 	}
-	static scalar_type const Mi31() {
+	static scalar_type const i31() {
 		return (M21()*M32()-M22()*M31()) / detM();
 	}
-	static scalar_type const Mi32() {
+	static scalar_type const i32() {
 		return (M12()*M31()-M11()*M32()) / detM();
 	}
-	static scalar_type const Mi33() {
+	static scalar_type const i33() {
 		return (M11()*M22()-M12()*M21()) / detM();
 	}
 };
-
+}
 }
 }
 }
@@ -22237,16 +22599,16 @@ red(::color::model< ::color::category::xyz<tag_name> > const& color_parameter) {
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize<category_type> normalize_type;
-	typedef ::color::constant::xyz::matrix< category_type > xyz_matrix_type;
+	typedef ::color::constant::xyz::transformation::matrix< category_type > xyz_matrix_type;
 	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 	enum {
 		red_p = ::color::place::_internal::red<akin_type>::position_enum
 	};
-	static const scalar_type a11 = xyz_matrix_type::Mi11(), a12 = xyz_matrix_type::Mi12(), a13 = xyz_matrix_type::Mi13();
+	static const scalar_type i11 = xyz_matrix_type::i11(), i12 = xyz_matrix_type::i12(), i13 = xyz_matrix_type::i13();
 	scalar_type x = normalize_type::template process<0>(color_parameter.template get<0>());
 	scalar_type y = normalize_type::template process<1>(color_parameter.template get<1>());
 	scalar_type z = normalize_type::template process<2>(color_parameter.template get<2>());
-	scalar_type r = a11 * x + a12 * y + a13 * z;
+	scalar_type r = i11 * x + i12 * y + i13 * z;
 	r = xyz_gamma_type::encode(r);
 	return diverse_type::template process<red_p>(r);
 }
@@ -22266,16 +22628,16 @@ green(::color::model< ::color::category::xyz<tag_name> > const& color_parameter)
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize<category_type> normalize_type;
-	typedef ::color::constant::xyz::matrix< category_type > xyz_matrix_type;
+	typedef ::color::constant::xyz::transformation::matrix< category_type > xyz_matrix_type;
 	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 	enum {
 		green_p = ::color::place::_internal::green<akin_type>::position_enum
 	};
-	static const scalar_type a21 = xyz_matrix_type::Mi21(), a22 = xyz_matrix_type::Mi22(), a23 = xyz_matrix_type::Mi23();
+	static const scalar_type i21 = xyz_matrix_type::i21(), i22 = xyz_matrix_type::i22(), i23 = xyz_matrix_type::i23();
 	scalar_type x = normalize_type::template process<0>(color_parameter.template get<0>());
 	scalar_type y = normalize_type::template process<1>(color_parameter.template get<1>());
 	scalar_type z = normalize_type::template process<2>(color_parameter.template get<2>());
-	scalar_type g = a21 * x + a22 * y + a23 * z;
+	scalar_type g = i21 * x + i22 * y + i23 * z;
 	g = xyz_gamma_type::encode(g);
 	return diverse_type::template process<green_p>(g);
 }
@@ -22295,16 +22657,16 @@ blue(::color::model< ::color::category::xyz<tag_name> > const& color_parameter) 
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	typedef ::color::_internal::diverse< akin_type > diverse_type;
 	typedef ::color::_internal::normalize<category_type> normalize_type;
-	typedef ::color::constant::xyz::matrix< category_type > xyz_matrix_type;
+	typedef ::color::constant::xyz::transformation::matrix< category_type > xyz_matrix_type;
 	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 	enum {
 		blue_p = ::color::place::_internal::blue<akin_type>::position_enum
 	};
-	static const scalar_type a31 = xyz_matrix_type::Mi31(), a32 = xyz_matrix_type::Mi32(), a33 = xyz_matrix_type::Mi33();
+	static const scalar_type i31 = xyz_matrix_type::i31(), i32 = xyz_matrix_type::i32(), i33 = xyz_matrix_type::i33();
 	scalar_type x = normalize_type::template process<0>(color_parameter.template get<0>());
 	scalar_type y = normalize_type::template process<1>(color_parameter.template get<1>());
 	scalar_type z = normalize_type::template process<2>(color_parameter.template get<2>());
-	scalar_type b = a31 * x + a32 * y + a33 * z;
+	scalar_type b = i31 * x + i32 * y + i33 * z;
 	b = xyz_gamma_type::encode(b);
 	return diverse_type::template process<blue_p>(b);
 }
@@ -22440,7 +22802,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::constant::xyz::matrix< category_left_type > xyz_matrix_type;
+	typedef ::color::constant::xyz::transformation::matrix< category_left_type > xyz_matrix_type;
 	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
@@ -22681,8 +23043,9 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::constant::xyz::matrix< category_left_type > xyz_matrix_type;
+	typedef ::color::constant::xyz::transformation::matrix< category_left_type > xyz_matrix_type;
 	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
+	typedef ::color::constant::xyz::adaptation::matrix< scalar_type > xyz_adaptation_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -24177,7 +24540,9 @@ struct convert
 public:
 	typedef ::color::category::hsl< hsl_tag_name > category_left_type;
 	typedef ::color::category::hsv< hsv_tag_name > category_right_type;
+
 	typedef double scalar_type;
+	typedef ::color::trait::scalar<category_left_type> scalar_left_trait_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -25163,8 +25528,9 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::constant::xyz::matrix< category_right_type > xyz_matrix_type;
+	typedef ::color::constant::xyz::transformation::matrix< category_right_type > xyz_matrix_type;
 	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
+	typedef ::color::constant::xyz::adaptation::matrix< scalar_type > xyz_adaptation_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -25180,15 +25546,15 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static const scalar_type a11 = xyz_matrix_type::Mi11(), a12 = xyz_matrix_type::Mi12(), a13 = xyz_matrix_type::Mi13();
-		static const scalar_type a21 = xyz_matrix_type::Mi21(), a22 = xyz_matrix_type::Mi22(), a23 = xyz_matrix_type::Mi23();
-		static const scalar_type a31 = xyz_matrix_type::Mi31(), a32 = xyz_matrix_type::Mi32(), a33 = xyz_matrix_type::Mi33();
+		static const scalar_type i11 = xyz_matrix_type::i11(), i12 = xyz_matrix_type::i12(), i13 = xyz_matrix_type::i13();
+		static const scalar_type i21 = xyz_matrix_type::i21(), i22 = xyz_matrix_type::i22(), i23 = xyz_matrix_type::i23();
+		static const scalar_type i31 = xyz_matrix_type::i31(), i32 = xyz_matrix_type::i32(), i33 = xyz_matrix_type::i33();
 		scalar_type x = normalize_type::template process<0>(container_right_trait_type::template get<0>(right));
 		scalar_type y = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
 		scalar_type z = normalize_type::template process<2>(container_right_trait_type::template get<2>(right));
-		scalar_type r = a11 * x + a12 * y + a13 * z;
-		scalar_type g = a21 * x + a22 * y + a23 * z;
-		scalar_type b = a31 * x + a32 * y + a33 * z;
+		scalar_type r = i11 * x + i12 * y + i13 * z;
+		scalar_type g = i21 * x + i22 * y + i23 * z;
+		scalar_type b = i31 * x + i32 * y + i33 * z;
 		r = xyz_gamma_type::encode(r);
 		g = xyz_gamma_type::encode(g);
 		b = xyz_gamma_type::encode(b);

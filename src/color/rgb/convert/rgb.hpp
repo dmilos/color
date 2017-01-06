@@ -60,9 +60,6 @@ namespace color
              container_left_trait_type::template set<rl>( left, reformat_type::template process<rl,rr>( container_right_trait_type::template get<rr>( right ) ) );
              container_left_trait_type::template set<gl>( left, reformat_type::template process<gl,gr>( container_right_trait_type::template get<gr>( right ) ) );
              container_left_trait_type::template set<bl>( left, reformat_type::template process<bl,br>( container_right_trait_type::template get<br>( right ) ) );
-
-             // TODO ALPHA!!!
-             //color::set::alpha( left, ::color::get::alpha( right ) );
             }
         };
    }

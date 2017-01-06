@@ -34,13 +34,11 @@ namespace color
          struct base< scalar_name, ::color::constant::yuv::BT_601_entity >
           {
            typedef scalar_name scalar_type;
+           typedef ::color::constant::yuv::_internal::base< scalar_name, ::color::constant::yuv::BT_601_entity > this_type;
 
-
-           static /* constexpr*/ scalar_type const half(){ return  0.5; }
-           static /* constexpr*/ scalar_type const one() { return  1; }
            static /* constexpr*/ scalar_type const Wr()  { return  0.2988390; }
            static /* constexpr*/ scalar_type const Wb()  { return  0.1143500; }
-           static /* constexpr*/ scalar_type const Wg()  { return  1 - 0.2988390 - 0.1143500; }  // TODO Wr() - Wb();
+           static /* constexpr*/ scalar_type const Wg()  { return  1 - this_type::Wr() - this_type::Wb(); }
            static /* constexpr*/ scalar_type const Umax(){ return  0.436; }
            static /* constexpr*/ scalar_type const Vmax(){ return  0.615; }
           };
@@ -49,9 +47,11 @@ namespace color
          struct base< scalar_name, ::color::constant::yuv::BT_709_entity >
           {
            typedef scalar_name scalar_type;
+           typedef ::color::constant::yuv::_internal::base< scalar_name, ::color::constant::yuv::BT_709_entity > this_type;
+           
            static /* constexpr*/ scalar_type const Wr()  { return  0.2126729; } // TODO 871024  / 4096299
            static /* constexpr*/ scalar_type const Wb()  { return  0.0721750; } // TODO 887015  / 12288897
-           static /* constexpr*/ scalar_type const Wg()  { return  1 - 0.2126729 - 0.0721750; }  // TODO Wr() - Wb();
+           static /* constexpr*/ scalar_type const Wg()  { return  1 - this_type::Wr() - this_type::Wb(); }
            static /* constexpr*/ scalar_type const Umax(){ return  0.436; }
            static /* constexpr*/ scalar_type const Vmax(){ return  0.615; }
           };
@@ -67,9 +67,6 @@ namespace color
          typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 
          typedef  ::color::constant::yuv::parameter<tag_name,reference_number> this_type;
-
-         static /* constexpr*/ scalar_type const half(){ return  0.5; }
-         static /* constexpr*/ scalar_type const one() { return  1; }
 
          static /* constexpr*/ scalar_type const u_min()  { return  -this_type::Umax(); }
          static /* constexpr*/ scalar_type const u_max()  { return   this_type::Umax(); }
