@@ -63,10 +63,10 @@ namespace color
 
         COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::A_entity,   ::color::constant::xyz::illuminant::two_entity, 0.44757, 0.40745 );
         COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::B_entity,   ::color::constant::xyz::illuminant::two_entity, 0.34842, 0.35161 );
-        COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::C_entity,   ::color::constant::xyz::illuminant::two_entity, 0.31006, 0.31616 );
+        COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::C_entity,   ::color::constant::xyz::illuminant::two_entity, 0.310063, 0.316158 );
         COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity, 0.34567, 0.35850 );
         COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::D55_entity, ::color::constant::xyz::illuminant::two_entity, 0.33242, 0.34743 );
-        COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity, 0.31271, 0.32902 );
+        COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity, 0.312713, 0.329016 );
         COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::D75_entity, ::color::constant::xyz::illuminant::two_entity, 0.29902, 0.31485 );
         COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::E_entity,   ::color::constant::xyz::illuminant::two_entity, 0.33333, 0.33333 );
         COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE( ::color::constant::xyz::illuminant::F1_entity,  ::color::constant::xyz::illuminant::two_entity, 0.31310, 0.33727 );

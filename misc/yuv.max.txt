@@ -1,16 +1,12 @@
-sind(d):=sin(d*%pi/180);
-cosd(d):=cos(d*%pi/180);
 
-/**/
 U_max : 436/1000;
 V_max : 615/1000;
 
-W_r : 299/1000;
-W_b : 114/1000;
+/*W_601:matrix( [ 337775559/1130000000, , 28299149/247187500  ])*/
+/*W_709:matrix( [ 337775559/1130000000, , 28299149/247187500  ])*/
 
 W_r : 337775559/1130000000;
 W_b : 28299149/247187500;
-
 W_g : 1 - W_r - W_b;
 
 rgb2yuv:matrix( [ W_r,       W_g,  W_b   ],
@@ -23,24 +19,4 @@ ev (%, numer);
 yuv2rgb:invert( rgb2yuv );
 ratsimp(%);
 ev (%, numer);
-
-
-yuv2yiq:matrix([ 1,       0,       0  ],
-               [ 0, -sind(33),  cosd(33) ],
-               [ 0,  cosd(33),  sind(33) ] );
-trigsimp(%);
-ev (%, numer);
-
-yiq2yuv:invert(yuv2yiq);
-trigsimp(%);
-ev (%, numer);
-
-rgb2yiq: yuv2yiq . rgb2yuv;
-ratsimp(%);
-ev (%, numer);
-
-yiq2rgb:invert(rgb2yiq);
-ratsimp(%);
-ev (%, numer);
-
 

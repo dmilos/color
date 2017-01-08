@@ -9,6 +9,7 @@ digraph color_conversion {
 	cmyk -> gray[ label = "rgb", style=dashed, color=gray, penwidth = 2, dir=both ];
 	cmyk -> rgb [ label = "", dir=both ];
 
+	//gray -> hbw   [ label = "", dir=both  ];
 	gray -> hsi   [ label = "", dir=both ];
 	gray -> hsl   [ label = "", dir=both ];
 	gray -> hsv   [ label = "", dir=both  ];

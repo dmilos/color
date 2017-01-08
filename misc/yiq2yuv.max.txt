@@ -1,0 +1,53 @@
+sind(d):=sin(d*%pi/180);
+cosd(d):=cos(d*%pi/180);
+
+U_max : 436/1000;
+V_max : 615/1000;
+
+W_r : 337775559/1130000000;
+W_b : 28299149/247187500;
+W_g : 1 - W_r - W_b;
+
+rgb2yuv:matrix( [ W_r,       W_G,  W_b   ],
+                [ U_max/(1-W_b)*( - W_r ), U_max/(1-W_b)*( - W_g ) , U_max/(1-W_b)*( 1 - W_b )  ],
+                [ V_max/(1-W_r)*( 1 - W_r ), V_max/(1-W_r)*( - W_g ) , V_max/(1-W_r)*(  - W_b ) ] );
+
+yuv2rgb::invert( rgb2yuv );
+
+
+yiq2rgb:matrix( [ 1, 0.9562948323208939905 , 0.6210251254447287141   ],
+                [ 1, -0.2721214740839773195, -0.6473809535176157222  ],
+                [ 1, -1.106989908567128216 , 1.704614975498829329    ] );
+
+rgb2yiq:invert(yiq2rgb);
+
+
+rgb2yuv . yiq2rgb;
+rgb2yiq . yuv2rgb;
+
+
+
+yuv2yiq:matrix([ 1,       0,       0  ],
+             [ 0, -sind(33),  cosd(33) ],
+             [ 0,  cosd(33),  sind(33) ] );
+ev (%, numer);
+
+yiq2yuv:invert(yuv2yiq);
+ev (%, numer);
+
+yiq2yuv:invert(yuv2yiq);
+
+ratsimp(%);
+
+rgb2yiq: yuv2yiq . rgb2yuv;
+
+ratsimp(%);
+
+yiq2rgb:invert(%);
+
+ev (%, numer);
+
+
+RGB2YIQ:matrix([ 0.299,       0.587,       0.114  ],
+               [ (0.877 * cos( 33 ))*(1 - 0.299) - (0.492 * sin( 33 ))*(-0.299), (0.877 * cos( 33 ))*(-0.587) - (0.492 * sin( 33 ))*(-0.587), (0.877 * cos( 33 ))*(-0.114) - (0.492 * sin( 33 ))*(1 - 0.114) ],
+               [ (0.877 * sin( 33 ))*(1 - 0.299) + (0.492 * cos( 33 ))*(-0.299), (0.877 * sin( 33 ))*(-0.587) + (0.492 * cos( 33 ))*(-0.587), (0.877 * sin( 33 ))*(-0.114) + (0.492 * cos( 33 ))*(1 - 0.114) ] );

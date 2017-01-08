@@ -34,6 +34,7 @@ namespace color
           SMPTE_C_entity,
           sRGB_entity,
           WideGamut_entity,
+          BT2020_entity,
          };
 
         template< typename scalar_name, ::color::constant::xyz::space::name_enum name_number >
@@ -83,6 +84,7 @@ namespace color
         COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::SMPTE_C_entity,        0.6300, 0.3400,  0.3100, 0.5950,  0.1550, 0.0700 );
         COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity,           0.6400, 0.3300,  0.3000, 0.6000,  0.1500, 0.0600 );
         COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::WideGamut_entity,      0.7350, 0.2650,  0.1150, 0.8260,  0.1570, 0.0180 );
+        COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::BT2020_entity,         0.7080, 0.2920,  0.1700, 0.7970,  0.1310, 0.0460 );
       //COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::space::KodakDC_entity,        0.6492, 0.3314,  0.3219, 0.5997,  0.1548, 0.0646 );
 
 #undef COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE
@@ -135,6 +137,9 @@ namespace color
           COLOR_CONTATNT_XYZ_SPACE_GAMMA_TRANSFER_SPECIALIZE( ::color::constant::xyz::space::ECI_entity,                3, 0.16  );
           COLOR_CONTATNT_XYZ_SPACE_GAMMA_TRANSFER_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity,             2.4, 0.055 );
 
+          // ??? COLOR_CONTATNT_XYZ_SPACE_GAMMA_TRANSFER_SPECIALIZE( ::color::constant::xyz::space::NTSC_entity,             0.45, 0.099 );
+          // ??? COLOR_CONTATNT_XYZ_SPACE_GAMMA_TRANSFER_SPECIALIZE( ::color::constant::xyz::space::PAL_SECAM_entity,        0.45, 0.099 );
+
 
 #undef COLOR_CONTATNT_XYZ_SPACE_GAMMA_TRANSFER_SPECIALIZE
 
@@ -163,6 +168,7 @@ namespace color
        COLOR_CONTATNT_XYZ_SPACE_GAMMA_PURE_SPECIALIZE( ::color::constant::xyz::space::SMPTE_C_entity,          2.2  );
      //COLOR_CONTATNT_XYZ_SPACE_GAMMA_PURE_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity,             sRGB  );
        COLOR_CONTATNT_XYZ_SPACE_GAMMA_PURE_SPECIALIZE( ::color::constant::xyz::space::WideGamut_entity,        2.2 );
+//TODO COLOR_CONTATNT_XYZ_SPACE_GAMMA_PURE_SPECIALIZE( ::color::constant::xyz::space::BT2020_entity,           BT2020 );
 
 #undef COLOR_CONTATNT_XYZ_SPACE_GAMMA_PURE_SPECIALIZE
 
@@ -207,6 +213,7 @@ namespace color
         COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::SMPTE_C_entity,         ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity );
         COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::sRGB_entity,            ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity );
         COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::WideGamut_entity,       ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity );
+        COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( ::color::constant::xyz::space::BT2020_entity,          ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity );
 
 #undef COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE
 
