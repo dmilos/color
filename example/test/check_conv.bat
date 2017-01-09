@@ -143,6 +143,7 @@ tc.exe  conv-rgb\bgr_double_2bgr.tga   conv\yuv709_2YCgCo.tga          check\yuv
 tc.exe  conv-rgb\bgr_double_2bgr.tga   conv\yuv709_2YDbDr.tga          check\yuv709_2YDbDr.tga
 tc.exe  conv-rgb\bgr_double_2bgr.tga   conv\yuv709_2yiq.tga            check\yuv709_2yiq.tga
 tc.exe  conv-rgb\bgr_double_2bgr.tga   conv\yuv709_2YPbPr709.tga       check\yuv709_2YPbPr709.tga
+tc.exe  conv-rgb\bgr_double_2bgr.tga   conv\yuv709_2yuv601.tga         check\yuv709_2yuv601.tga
 tc.exe  conv-rgb\bgr_double_2bgr.tga   conv\yuv709_2yuv709.tga         check\yuv709_2yuv709.tga
 
 cd ..

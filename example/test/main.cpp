@@ -529,13 +529,15 @@ int main(int argc, char const *argv[])
  }
 
 /*
-mkdir hue
+
+mkdir conv
+mkdir conv-rgb
 mkdir dec
+mkdir gray
+mkdir hue
 mkdir operation
 mkdir palette
-mkdir conv-rgb
-mkdir conv
-mkdir gray
+
 */
 
  
