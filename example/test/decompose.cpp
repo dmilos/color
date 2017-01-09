@@ -75,29 +75,29 @@ int decompose_test( int argc, char const *argv[] )
   int width=1600;
   int height=1195;
 
-  decompose< ::color::gray<double>  >( image, "../out/dec/gray", width, height );
+  decompose< ::color::gray<double>  >( image, "./dec/gray", width, height );
 
-  decompose< ::color::rgb<double>   >( image, "../out/dec/rgb", width, height );
-  decompose< ::color::cmy<double>   >( image, "../out/dec/cmy", width, height );
-  decompose< ::color::cmyk<double>  >( image, "../out/dec/cmyk", width, height );
+  decompose< ::color::rgb<double>   >( image, "./dec/rgb", width, height );
+  decompose< ::color::cmy<double>   >( image, "./dec/cmy", width, height );
+  decompose< ::color::cmyk<double>  >( image, "./dec/cmyk", width, height );
 
-  decompose< ::color::hsv<double>   >( image, "../out/dec/hsv", width, height );
-  decompose< ::color::hsl<double>   >( image, "../out/dec/hsl", width, height );
-  decompose< ::color::hsi<double>   >( image, "../out/dec/hsi", width, height );
+  decompose< ::color::hsv<double>   >( image, "./dec/hsv", width, height );
+  decompose< ::color::hsl<double>   >( image, "./dec/hsl", width, height );
+  decompose< ::color::hsi<double>   >( image, "./dec/hsi", width, height );
 
-  decompose< ::color::yiq<double>   >( image, "../out/dec/yiq", width, height );
+  decompose< ::color::yiq<double>   >( image, "./dec/yiq", width, height );
   
-  decompose< ::color::yuv<double, ::color::constant::yuv::BT_601_entity>   >( image, "../out/dec/yuv-601", width, height );
-  decompose< ::color::yuv<double, ::color::constant::yuv::BT_709_entity>   >( image, "../out/dec/yuv-709", width, height );
+  decompose< ::color::yuv<double, ::color::constant::yuv::BT_601_entity>   >( image, "./dec/yuv-601", width, height );
+  decompose< ::color::yuv<double, ::color::constant::yuv::BT_709_entity>   >( image, "./dec/yuv-709", width, height );
 
-  decompose< ::color::YCgCo<double> >( image, "../out/dec/YCgCo", width, height );
-  decompose< ::color::YDbDr<double> >( image, "../out/dec/YDbDr", width, height );
+  decompose< ::color::YCgCo<double> >( image, "./dec/YCgCo", width, height );
+  decompose< ::color::YDbDr<double> >( image, "./dec/YDbDr", width, height );
 
-  decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_601_entity > >( image, "../out/dec/YPbPr601", width, height );
-  decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_709_entity > >( image, "../out/dec/YPbPr709", width, height );
-  decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_2020_entity > >( image, "../out/dec/YPbPr2020", width, height );
+  decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_601_entity > >( image, "./dec/YPbPr601", width, height );
+  decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_709_entity > >( image, "./dec/YPbPr709", width, height );
+  decompose< ::color::YPbPr<double, ::color::constant::YPbPr::BT_2020_entity > >( image, "./dec/YPbPr2020", width, height );
 
-  decompose< ::color::xyz<double> >( image, "../out/dec/xyz", width, height );
+  decompose< ::color::xyz<double> >( image, "./dec/xyz", width, height );
 
   return EXIT_SUCCESS;
  }

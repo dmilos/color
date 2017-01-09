@@ -202,20 +202,20 @@ template< typename category_name >
      }
    }
 
-   save_targa24(    "../out/hue/referent.tga", width, height, image_bgr_referent );
-   save_targa_gray( "../out/hue/hsi.tga",               width, height, image_hsi                );
-   save_targa_gray( "../out/hue/hsv.tga",               width, height, image_hsv                );
-   save_targa_gray( "../out/hue/rgb-default.tga",       width, height, image_rgb_default        );
-   save_targa_gray( "../out/hue/rgb-polar-default.tga", width, height, image_rgb_polar_default  );
-   save_targa_gray( "../out/hue/rgb-polar-atan2.tga",   width, height, image_rgb_polar_atan2    );
-   save_targa_gray( "../out/hue/rgb-polar-acos.tga",    width, height, image_rgb_polar_acos     );
-   save_targa_gray( "../out/hue/rgb-hexagon.tga",       width, height, image_rgb_hexagon  );
+   save_targa24(    "./hue/referent.tga", width, height, image_bgr_referent );
+   save_targa_gray( "./hue/hsi.tga",               width, height, image_hsi                );
+   save_targa_gray( "./hue/hsv.tga",               width, height, image_hsv                );
+   save_targa_gray( "./hue/rgb-default.tga",       width, height, image_rgb_default        );
+   save_targa_gray( "./hue/rgb-polar-default.tga", width, height, image_rgb_polar_default  );
+   save_targa_gray( "./hue/rgb-polar-atan2.tga",   width, height, image_rgb_polar_atan2    );
+   save_targa_gray( "./hue/rgb-polar-acos.tga",    width, height, image_rgb_polar_acos     );
+   save_targa_gray( "./hue/rgb-hexagon.tga",       width, height, image_rgb_hexagon  );
 
   // 0.0031027397726933574[normalized], 1.116986318169608664[degree]
    std::cout << "max = " << std::setprecision(20) << max << std::endl;
   std::for_each(image_double.begin(), image_double.end(), [max](::color::gray< double > & g )->void { g[0] /= max; } );
   std::copy( image_double.begin(), image_double.end(), image_uint8.begin() );
-  save_targa_gray("../out/hue/difference.tga", width, height, image_uint8 );
+  save_targa_gray("./hue/difference.tga", width, height, image_uint8 );
  }
 
 template< typename type_type  >

@@ -37,6 +37,6 @@ void operation_gain( std::string const& file_name )
 
 void test_operation_gain()
  {
-  operation_gain< gray_color_type::category_type >( "../out/operation/gain-gray.tga" );
-  operation_gain<  bgr_color_type::category_type >( "../out/operation/gain-bgr.tga"  );
+  operation_gain< gray_color_type::category_type >( "./operation/gain-gray.tga" );
+  operation_gain<  bgr_color_type::category_type >( "./operation/gain-bgr.tga"  );
  }

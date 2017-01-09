@@ -6,9 +6,10 @@ digraph color_conversion {
 	cmy  -> gray [ label = "rgb", style=dashed, color=gray, penwidth = 2, dir=both ];
 	cmy  -> rgb  [ label = "", dir=both  ];
 
-	cmyk -> gray[ label = "rgb", style=dashed, color=gray, penwidth = 2, dir=both ];
+	cmyk -> gray[ label = "rgb", style=dashed, color=gray, penwidth = 2, dir=forward ];
 	cmyk -> rgb [ label = "", dir=both ];
 
+	gray -> cmyk [ label = "", dir=forward  ];
 	//gray -> hbw   [ label = "", dir=both  ];
 	gray -> hsi   [ label = "", dir=both ];
 	gray -> hsl   [ label = "", dir=both ];
@@ -67,13 +68,22 @@ digraph color_conversion {
 	{
 		label = "CIE";
 		node [ ] xyz;
-		//node [ ] Hunter
-		//node [ ] xyY
-		//node [ ] Lab
-		//node [ ] Luv
-		//node [ ] LMS
-		//node [ ] LCHab
-		//node [ ] LCHub
+		//node [ ] Hunter;
+		//node [ ] xyY;
+		//node [ ] Lab;
+		//node [ ] Luv;
+		//node [ ] LMS;
+		//node [ ] LCHab;
+		//node [ ] LCHub;
 	}
+
+	subgraph cluster_RGB
+	{
+		label = "RGB";
+		node [ ] cmy;
+		node [ ] rgb;
+		node [ ] cmyk;
+	}
+
 
 }

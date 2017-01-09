@@ -70,6 +70,8 @@ int main( int argc, char *argv[] )
      difference[ y*width+x][2] *= 255/max[2];
     }
 
+  std::cout << "R:" << (int)max[0] << "; G:" << (int)max[1] << "; B:" << (int)max[2] << std::endl;
+
   save_image24(  argv[3],   difference, width, height );
 
   return EXIT_SUCCESS;

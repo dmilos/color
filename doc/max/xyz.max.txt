@@ -59,10 +59,10 @@ S_g:gray . matrix( [0], [1], [0] );
 S_b:gray . matrix( [0], [0], [1] );
 
 
-M:matrix( [S_r * X_r, S_g * X_g, S_b*X_b ], [S_r*Y_r, S_g*Y_g, S_b*Y_b ], [S_r*Z_r, S_g*Z_g, S_b*Z_b ] );
-M:ratsimp(M);
+RGB2XYZ:matrix( [S_r * X_r, S_g * X_g, S_b*X_b ], [S_r*Y_r, S_g*Y_g, S_b*Y_b ], [S_r*Z_r, S_g*Z_g, S_b*Z_b ] );
+RGB2XYZ:ratsimp(RGB2XYZ);
 ev( %, numer );
-Mi:invert(M);
-Mi:ratsimp(Mi);
+XYZ2RGB:invert(RGB2XYZ);
+XYZ2RGB:ratsimp(XYZ2RGB);
 ev( %, numer );
 
