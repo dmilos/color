@@ -19237,12 +19237,13 @@ struct base {
 template< typename scalar_name >
 struct base< scalar_name, ::color::constant::YPbPr::BT_601_entity > {
 	typedef scalar_name scalar_type;
+	typedef ::color::constant::YPbPr::_internal::base< scalar_name, ::color::constant::YPbPr::BT_601_entity > this_type, base_type;
 
 	static scalar_type const CRed() {
 		return 0.298839 ;
 	}
 	static scalar_type const CGreen() {
-		return 1 - 0.298839 - 0.114350;
+		return 1 - base_type::CRed() - base_type::CBlue();
 	}
 	static scalar_type const CBlue() {
 		return 0.114350 ;
@@ -19252,11 +19253,13 @@ struct base< scalar_name, ::color::constant::YPbPr::BT_601_entity > {
 template< typename scalar_name >
 struct base< scalar_name, ::color::constant::YPbPr::BT_709_entity > {
 	typedef scalar_name scalar_type;
+	typedef ::color::constant::YPbPr::_internal::base< scalar_name, ::color::constant::YPbPr::BT_709_entity > this_type, base_type;
+
 	static scalar_type const CRed() {
 		return 0.2126729;
 	}
 	static scalar_type const CGreen() {
-		return 1 - 0.2126729 - 0.0721750;
+		return 1 - base_type::CRed() - base_type::CBlue();
 	}
 	static scalar_type const CBlue() {
 		return 0.0721750;
@@ -19266,11 +19269,13 @@ struct base< scalar_name, ::color::constant::YPbPr::BT_709_entity > {
 template< typename scalar_name >
 struct base< scalar_name, ::color::constant::YPbPr::BT_2020_entity > {
 	typedef scalar_name scalar_type;
+	typedef ::color::constant::YPbPr::_internal::base< scalar_name, ::color::constant::YPbPr::BT_2020_entity > this_type, base_type;
+
 	static scalar_type const CRed() {
 		return 0.2627;
 	}
 	static scalar_type const CGreen() {
-		return 1 - 0.2627 - 0.0593;
+		return 1 - base_type::CRed() - base_type::CBlue();
 	}
 	static scalar_type const CBlue() {
 		return 0.0593;
@@ -20774,9 +20779,9 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::C_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
-		return scalar_type(0.31006);
+		return scalar_type(0.310063);
 	} static scalar_type y() {
-		return scalar_type(0.31616);
+		return scalar_type(0.316158);
 	}
 };
 template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D50_entity, ::color::constant::xyz::illuminant::two_entity > {
@@ -20798,9 +20803,9 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > {
 	typedef scalar_name scalar_type;
 	static scalar_type x() {
-		return scalar_type(0.31271);
+		return scalar_type(0.312713);
 	} static scalar_type y() {
-		return scalar_type(0.32902);
+		return scalar_type(0.329016);
 	}
 };
 template< typename scalar_name > struct base< scalar_name, ::color::constant::xyz::illuminant::D75_entity, ::color::constant::xyz::illuminant::two_entity > {
@@ -21376,6 +21381,7 @@ enum name_enum {
 	SMPTE_C_entity,
 	sRGB_entity,
 	WideGamut_entity,
+	BT2020_entity,
 };
 
 template< typename scalar_name, ::color::constant::xyz::space::name_enum name_number >
@@ -21684,6 +21690,24 @@ public:
 		return value;
 	} static coord_type const& blue() {
 		static coord_type value{ 0.1570, 0.0180 };
+		return value;
+	}
+};
+template< typename scalar_name > struct primary< scalar_name, ::color::constant::xyz::space::BT2020_entity > {
+public:
+	typedef scalar_name scalar_type;
+	enum { name_entity = ::color::constant::xyz::space::BT2020_entity };
+private:
+	typedef std::array<scalar_type,2> coord_type;
+public:
+	static coord_type const& red() {
+		static coord_type value{ 0.7080, 0.2920 };
+		return value;
+	} static coord_type const& green() {
+		static coord_type value{ 0.1700, 0.7970 };
+		return value;
+	} static coord_type const& blue() {
+		static coord_type value{ 0.1310, 0.0460 };
 		return value;
 	}
 };
@@ -22046,6 +22070,17 @@ template<> struct illuminant< ::color::constant::xyz::space::WideGamut_entity> {
 	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
 	static name_type name() {
 		return ::color::constant::xyz::illuminant::D50_entity;
+	} static observer_type observer() {
+		return ::color::constant::xyz::illuminant::two_entity;
+	}
+};
+template<> struct illuminant< ::color::constant::xyz::space::BT2020_entity> {
+	typedef ::color::constant::xyz::illuminant::name_enum name_type;
+	typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+	enum { name_entity = ::color::constant::xyz::illuminant::D65_entity };
+	enum { observer_entity = ::color::constant::xyz::illuminant::two_entity };
+	static name_type name() {
+		return ::color::constant::xyz::illuminant::D65_entity;
 	} static observer_type observer() {
 		return ::color::constant::xyz::illuminant::two_entity;
 	}
@@ -22454,28 +22489,28 @@ private:
 	static scalar_type const Q11() {
 		return -detQ() * ((xb()-1)*yg() + (1-xg())*yb())/(yb()* yg());
 	}
-	static scalar_type const Q21() {
-		return detQ() * ((xb()-1)*yr() + (1-xr())*yb())/(yb()* yr());
-	}
-	static scalar_type const Q31() {
-		return -detQ() * ((xg()-1)*yr() + (1-xr())*yg())/(yg()* yr());
-	}
-
 	static scalar_type const Q12() {
 		return -detQ() * ((yg()-1)*xb() + (1-yb())*xg())/(yb()* yg());
+	}
+	static scalar_type const Q13() {
+		return -detQ() * (xb()*yg() - xg()*yb()) / (yb()*yg());
+	}
+
+	static scalar_type const Q21() {
+		return detQ() * ((xb()-1)*yr() + (1-xr())*yb())/(yb()* yr());
 	}
 	static scalar_type const Q22() {
 		return detQ() * ((yr()-1)*xb() + (1-yb())*xr())/(yb()* yr());
 	}
-	static scalar_type const Q32() {
-		return -detQ() * ((yr()-1)*xg() + (1-yg())*xr())/(yg()* yr());
-	}
-
-	static scalar_type const Q13() {
-		return -detQ() * (xb()*yg() - xg()*yb()) / (yb()*yg());
-	}
 	static scalar_type const Q23() {
 		return detQ() * (xb()*yr() - xr()*yb()) / (yb()*yr());
+	}
+
+	static scalar_type const Q31() {
+		return -detQ() * ((xg()-1)*yr() + (1-xr())*yg())/(yg()* yr());
+	}
+	static scalar_type const Q32() {
+		return -detQ() * ((yr()-1)*xg() + (1-yg())*xr())/(yg()* yr());
 	}
 	static scalar_type const Q33() {
 		return -detQ() * (xg()*yr() - xr()*yg()) / (yg()*yr());
