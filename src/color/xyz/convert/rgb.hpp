@@ -37,7 +37,7 @@ namespace color
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
-         typedef ::color::constant::xyz::transformation::matrix< category_left_type > xyz_matrix_type;
+         typedef ::color::constant::xyz::transformation::matrix< scalar_type > xyz_matrix_type;
          typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
          typedef ::color::constant::xyz::adaptation::matrix< scalar_type > xyz_adaptation_type;
 

@@ -34,7 +34,7 @@
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type> normalize_type;
 
-        typedef ::color::constant::xyz::transformation::matrix< category_type > xyz_matrix_type;
+        typedef ::color::constant::xyz::transformation::matrix< scalar_type > xyz_matrix_type;
         typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 
         enum

@@ -8,9 +8,6 @@
 #include "./illuminant.hpp"
 #include "./adaptation.hpp"
 
-#include "../category.hpp"
-#include "../../generic/trait/scalar.hpp"
-
 
 namespace color
  {
@@ -23,7 +20,7 @@ namespace color
 
         template
           <
-           typename category_name
+           typename scalar_name
            , ::color::constant::xyz::space::name_enum    space_number  = ::color::constant::xyz::space::sRGB_entity
            , ::color::constant::xyz::illuminant::name_enum      illuminant_number  = static_cast< color::constant::xyz::illuminant::name_enum   >( ::color::constant::xyz::space::illuminant< space_number >::name_entity   )
            , ::color::constant::xyz::illuminant::observer_enum    observer_number  = static_cast< color::constant::xyz::illuminant::observer_enum >( ::color::constant::xyz::space::illuminant< space_number >::observer_entity )
@@ -31,11 +28,9 @@ namespace color
           struct matrix
            {
             public:
-              typedef category_name  category_type;
+              typedef scalar_name scalar_type;
 
-              typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
-
-              typedef ::color::constant::xyz::transformation::matrix<category_type> this_type;
+              typedef ::color::constant::xyz::transformation::matrix<scalar_type> this_type;
 
               // D65, sRGB, 2deg
               typedef ::color::constant::xyz::space::primary< scalar_type, space_number > system_type;

@@ -1,15 +1,16 @@
 # Yet another c++ library that implements color.
-###Status:
+
+### Status:
 - Documentation
  - Examples coverage: ~90%
- - HTML coverage: ~80%
+ - HTML coverage: ~90%
 - All planed functionality implemented
 - Ready for test use
 
-###Description
+### Description
  - Yet another c++ library that implements color conversion and manipulation.
 
-###Key features:
+### Key features:
 - No _virtual_ functions
 - Minimal memory footprint
 - Ability to copy _array_/_vector_ of colors with _memcpy_, _memmove_ and initialize with _memset_.
@@ -22,7 +23,7 @@
  - No need to recompile or start some install process.
 - Color models: CMY, CMYK, GRAY, HSI, HSL, HSV, RGB, YIQ, YUV(BT.601, BT.709), YCgCo, YPbPr(BT.601, BT.709, BT.2020), XYZ( sRGB, D65, 2° )
 
-###Code sample:
+### Code sample:
 ```c++
 color::rgb<::color::type::split655_t>   r;                //!< One std::uint16_t in memory. 6 bits for red, 5 bits for green and 5 bits for blue.
 color::bgr<std::uint8_t>  b( ::color::constant::aqua_t{} ); //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
@@ -42,7 +43,7 @@ color::set::red( y, 127 ); //!< Set redness of YIQ
 b = color::operation::mix( y, 0.5, color::yiq<std::uint8_t>( h ) ); //!< Blend two colors for given alpha. return style.
 ```
 
-###Install:
+### Install:
 1. Clone this Repository:  
  Examples:
   - Windows : git clone https://github.com/dmilos/color.git c:\my-work-folder\my-git-folder\color

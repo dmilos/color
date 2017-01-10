@@ -129,7 +129,7 @@ COLOR_CONTATNT_XYZ_ADAPTATION_METHOD_PRIMARY_SPECIALIZE(  ::color::constant::xyz
            typename scalar_name
           ,::color::constant::xyz::illuminant::name_enum            left_number = ::color::constant::xyz::illuminant::D50_entity
           ,::color::constant::xyz::illuminant::name_enum           right_number = ::color::constant::xyz::illuminant::D65_entity
-          ,::color::constant::xyz::adaptation::scaling_enum scaling_number = ::color::constant::xyz::adaptation::XYZ_entity
+          ,::color::constant::xyz::adaptation::scaling_enum scaling_number      = ::color::constant::xyz::adaptation::XYZ_entity
          >
          struct matrix
           {

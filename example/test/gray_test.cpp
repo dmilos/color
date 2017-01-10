@@ -151,9 +151,9 @@ template< ::color::constant::YPbPr::reference_enum reference_number >
    for( auto & c : image )
     {
      auto h = ::color::YPbPr< std::uint8_t, reference_number >( c );
-     h.set<1>( 0 );
+     h.template set<1>( 0 );
  
-     gc->set<0>( ::color::rgb< std::uint8_t >( h )[0] );
+     gc->template set<0>( ::color::rgb< std::uint8_t >( h )[0] );
      ++gc;
     }
   }
