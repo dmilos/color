@@ -27,6 +27,7 @@ int main( int argc, char *argv[] )
   std::cout<< " convex::full( j , orange, 0.75, lime ) = ";
   std::cout << j[0] << ", " << j[1] << ", " << j[2] << std::endl;
   std::cout << std::endl;
+
   return EXIT_SUCCESS;
  }
 

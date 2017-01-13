@@ -8,8 +8,22 @@
 	</head>
 	<body>
 		<h1 align="center">FAQ</h1>
+
 		<dl>
-			<dt> There are too much files in project. How to reduce? </dt>
+			<dt>TOC</dt>
+			<dd>
+				<ul>
+					<li> There are too much files in project. How to reduce?</li>
+					<li> Get return only constant values. Where is get which return something modifiable like <code>operator[]</code> ?</li>
+					<li> How to reduce <code>namespace</code> path?</li>
+					<li> Inconsistent from/to gray conversion?</li>
+				<ul>
+			</dd>
+		</dl>
+
+
+		<dl>
+			<dt>&bull; There are too much files in project. How to reduce? </dt>
 			<dd>
 				Easy<br>
 				Steps are:
@@ -37,17 +51,17 @@
 				See also: <a href="./Macros.html">macros</a>.
 				<br><br>
 			</dd>
-			<dt> Get return only constant values. Where is get which return something modifiable like <code>operator[]</code> ?</dt>
+			<dt>&bull; Get return only constant values. Where is get which return something modifiable like <code>operator[]</code> ?</dt>
 			<dd>
-				This is by design.<br> When you use get you will be always sure that object is intact even is it non constant.
-				Just separation of jurisdiction.
-				<code><a href="./model.html#function_set">get</a></code>s only read,
-				<code><a href="./model.html#function_set">set</a></code>s only modify,
-				<code>operator[]</code> will do the both read/modify.
+				This is by design.<br> When you use get you will be always sure that object is intact even is it non constant.<br>
+				Just separation of jurisdiction.<br>
+				&nbsp; &nbsp; <code><a href="./model.html#function_set">get</a></code>s only read,<br>
+				&nbsp; &nbsp; <code><a href="./model.html#function_set">set</a></code>s only modify,<br>
+				&nbsp; &nbsp; <code>operator[]</code> will do the both read and modify.
 				<br><br>
 			</dd>
 
-			<dt> How to reduce namespace path?</dt>
+			<dt>&bull; How to reduce namespace path?</dt>
 			<dd>
 				Try this:<br>
 				<code>
@@ -60,14 +74,13 @@
 					&nbsp;	using namespace ::color::trait;<br>
 					&nbsp;	using namespace ::color::type;<br>
 					&nbsp;}<br>
-				<code>
+				</code>
 			</dd>
 
-			<dt>Inconsistent gray conversion?</dt>
+			<dt>&bull; Inconsistent from/to gray conversion?</dt>
 			<dd>
 				TODO
 			</dd>
-
 		</dl>
 		<hr>
 	</body>

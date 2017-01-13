@@ -21,5 +21,6 @@ int main( int argc, char *argv[] )
 
   // Print changes
   std::cout << color::get::blue( c ) << std::endl;
+
   return EXIT_SUCCESS;
  }

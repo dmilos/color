@@ -7,21 +7,18 @@
 /*
   color::yiq< double > a;
   color::yiq< float > b;
-  
+
   color::constant::red_t( a );
   color::constant::orange_t{ a );
-  
+
   // This will produce ERROR.
   std::cout << color::compare::great_strict( a, b ) << std::endl;
 */
 
 int main( int argc, char *argv[] )
  {
-  std::cout << "Hello World" << std::endl;
-  
-  color::rgb< double > a;
-  color::rgb< double > b;
-  
+  color::rgb< double > a, b;
+
   a = color::constant::red_t{};
   b = color::constant::orange_t{};
 

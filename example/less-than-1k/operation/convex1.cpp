@@ -25,5 +25,6 @@ int main( int argc, char *argv[] )
   std::cout<< " convex::accumulate( a, 0.3, lime ) = ";
   std::cout << a[0] << ", " << a[1] << ", " << a[2] << std::endl;
   std::cout << std::endl;
+
   return EXIT_SUCCESS;
  }

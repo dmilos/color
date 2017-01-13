@@ -17,8 +17,7 @@
 
 int main( int argc, char *argv[] )
  {
-  color::rgb< double > a;
-  color::rgb< double > b;
+  color::rgb< double > a, b;
 
   a = color::constant::red_t{};
   b = color::constant::orange_t{};
@@ -27,5 +26,6 @@ int main( int argc, char *argv[] )
   std::cout << b[0] << ", " << b[1] << ", " << b[2] << std::endl;
 
   std::cout << "color::compare::darker( a, b )" << color::compare::darker( a, b ) << std::endl;
+
   return EXIT_SUCCESS;
  }

@@ -17,8 +17,7 @@
 
 int main( int argc, char *argv[] )
  {
-  color::rgb< double > a;
-  color::rgb< double > b;
+  color::rgb< double > a, b;
 
   a = color::constant::red_t{};
   b = color::constant::orange_t{};

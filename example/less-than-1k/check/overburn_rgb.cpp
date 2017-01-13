@@ -3,16 +3,7 @@
 
 #include "color/color.hpp"
 
-void check_rgb();
-
 int main( int argc, char *argv[] )
- {
-  check_rgb();
-
-  return EXIT_SUCCESS;
- }
-
-void check_rgb()
  {
   color::rgb<double>  r;
 
@@ -26,4 +17,6 @@ void check_rgb()
 
   // This one has to fail
   std::cout << "false == color::check::overburn( r ) == " << color::check::overburn( r ) << std::endl;
+
+  return EXIT_SUCCESS;
  }

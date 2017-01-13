@@ -13,9 +13,11 @@ int main( int argc, char *argv[] )
   // First check has to be OK
   std::cout << " true == color::check::integrity( hl ) == " << color::check::integrity( hl ) << std::endl;
 
+  // No check. Instant set to given value.
   hl.set<0>( 5000 );
 
   // This one has to fail
   std::cout << "false == color::check::integrity( hl ) == " << color::check::integrity( hl ) << std::endl;
 
+  return EXIT_SUCCESS;
  }

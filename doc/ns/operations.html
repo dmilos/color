@@ -39,10 +39,37 @@
 					<dt>Name</dt>
 					<dd><a name="#combine" /><i>combine</i></dd>
 					<dt>Description</dt>
-					<dd>Calculate linear combination of two or tree colors.</dd>
+					<dd>Calculate linear combination of two or tree colors.<br>
+					For color a and b, and scalars 0.3 and 0.6, result of linear combination is equal to: 0.3*a + 0.6 * b;<br>
+                    For color a, b and c, and scalars 0.4, 0.5 and 0.2, result of linear combination is equal to: 0.4*a + 0.5 * b + 0.2 * b;<br>
+					</dd>
 					<dt>Declaration</dt>
 					<dd>
-						<code>TODO</code>
+						<code>
+						template&lt; typename category_name &gt;<br>
+						&nbsp;::color::model&lt;category_name&gt; &<br>
+						&nbsp;combine<br>
+						&nbsp;&nbsp;(<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;::color::model&lt;category_name&gt;      & result<br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type  a0<br>
+						&nbsp;&nbsp;&nbsp;,::color::model&lt;category_name&gt; const& c0<br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type  a1<br>
+						&nbsp;&nbsp;&nbsp;,::color::model&lt;category_name&gt; const& c1<br>
+						&nbsp;&nbsp;);<br><br>
+
+						template&lt; typename category_name &gt;<br>
+						&nbsp;::color::model&lt;category_name&gt; &<br>
+						&nbsp;combine<br>
+						&nbsp;&nbsp;(<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;::color::model&lt;category_name&gt;      & result<br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type a0<br>
+						&nbsp;&nbsp;&nbsp;,::color::model&lt;category_name&gt; const& c0<br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type a1<br>
+						&nbsp;&nbsp;&nbsp;,::color::model&lt;category_name&gt; const& c1<br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type a2<br>
+						&nbsp;&nbsp;&nbsp;,::color::model&lt;category_name&gt; const& c2<br>
+						&nbsp;&nbsp;);<br>
+						</code>
 					</dd>
 					<dt>Example</dt>
 					<dd>
