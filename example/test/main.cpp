@@ -232,180 +232,6 @@ void make_blue()
  }
 
 
-template < typename model_name >
-void make_image(std::string const& name, float plane = 0.5, int side = 1 )
- {
-  int height = 1000;
-  int width  = 1000;
-
-  typedef ::color::_internal::diverse< typename model_name::category_type > diverse_type;
-
-  targa_header_struct header;
-
-  targa_make_header( width, height, header);
-
-  std::vector< color::bgra<std::uint8_t> >   image(height * width);
-  color::rgb<double >  check;
-
-  for (int y = 0; y < height; y++)
-   {
-    for (int x = 0; x < width; x++)
-     {
-      image[y * width + x].set<3>(255);
-      switch( side )
-       {
-        case( 0 ):
-         {
-           model_name m( { diverse_type::template process<0>( plane  ),
-                           diverse_type::template process<1>( y / double(height) ),
-                           diverse_type::template process<2>( x / double(width) )
-                                                , 0 } );
-           check = m;
-           ::color::fix::overburn( check );
-           image[y * width + x] = check;
-         }break;
-        case( 1 ):
-          {
-           model_name m( { diverse_type::template process<0>( y / double(height) ),
-                           diverse_type::template process<1>( plane ),
-                           diverse_type::template process<2>( x / double(width) )
-                                               , 0 } );
-           check = m;
-           ::color::fix::overburn( check );
-           image[y * width + x] = check;
-           image[y * width + x].set<3>( 255 );
-          }break;
-        case( 2 ):
-         {
-          model_name m( { diverse_type::template process<0>( y / double(height) ),
-                          diverse_type::template process<1>( x / double(width) ),
-                          diverse_type::template process<2>( plane )
-                                               , 0 } );
-           check = m;
-           ::color::fix::overburn( check );
-           image[y * width + x] = check;
-         }break;
-       }
-     }
-   }
-
-   {
-    std::ofstream of(name, std::ios_base::binary);
-    of.write((const char *)header, 18);
-    of.write((const char *)image.data(), image.size() * 4);
-   }
- }
-
-void test_pallete()
- {
-  make_image<color::hsi<double> >( "./palette/hsi-1-000.tga" , 0.00, 1 );
-  make_image<color::hsi<double> >( "./palette/hsi-1-025.tga" , 0.25, 1 );
-  make_image<color::hsi<double> >( "./palette/hsi-1-050.tga" , 0.50, 1 );
-  make_image<color::hsi<double> >( "./palette/hsi-1-075.tga" , 0.75, 1 );
-  make_image<color::hsi<double> >( "./palette/hsi-1-100.tga" , 1.00, 1 );
-
-  make_image<color::hsl<double> >( "./palette/hsl-1-000.tga" , 0.00, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-025.tga" , 0.25, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-005.tga" , 0.50, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-075.tga" , 0.75, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-100.tga" , 1.00, 1 );
-
-  make_image<color::hsv<double> >( "./palette/hsv-1-000.tga", 0.00, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-050.tga", 0.50, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-060.tga", 0.60, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-075.tga", 0.70, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-080.tga", 0.80, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-090.tga", 0.90, 1 );
-
-  make_image<color::hsv<double> >( "./palette/hsv-1-090.tga", 0.90, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-091.tga", 0.91, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-092.tga", 0.92, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-093.tga", 0.93, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-094.tga", 0.94, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-095.tga", 0.95, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-096.tga", 0.96, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-097.tga", 0.97, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-098.tga", 0.98, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-099.tga", 0.99, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-100.tga", 1.0, 1 );
-
-  make_image<color::rgb<double> >( "./palette/rgb-0-00.tga" , 0.00,  0 );
-  make_image<color::rgb<double> >( "./palette/rgb-0-05.tga" , 0.25,  0 );
-  make_image<color::rgb<double> >( "./palette/rgb-0-05.tga" , 0.50,  0 );
-  make_image<color::rgb<double> >( "./palette/rgb-0-05.tga" , 0.75,  0 );
-  make_image<color::rgb<double> >( "./palette/rgb-0-10.tga" , 1.00,  0 );
-
-  make_image<color::cmy<double> >( "./palette/cmy.tga" , 0.5 );
-  make_image<color::cmyk<double> >("./palette/cmyk.tga", 0.5 );
-
-  make_image<color::yiq<double> >( "./palette/yiq-0-000.tga" , 0  , 0 );
-  make_image<color::yiq<double> >( "./palette/yiq-0-010.tga" , 0.1, 0 );
-  make_image<color::yiq<double> >( "./palette/yiq-0-050.tga" , 0.5, 0 );
-  make_image<color::yiq<double> >( "./palette/yiq-0-090.tga" , 0.9, 0 );
-  make_image<color::yiq<double> >( "./palette/yiq-0-100.tga" , 1  , 0 );
-
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-00.tga", 0.0, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-01.tga", 0.1, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-02.tga", 0.2, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-03.tga", 0.3, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-04.tga", 0.4, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-05.tga", 0.5, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-06.tga", 0.6, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-07.tga", 0.7, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-08.tga", 0.8, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-09.tga", 0.9, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-10.tga", 1.0, 0 );
-
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-00.tga", 0.0, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-01.tga", 0.1, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-02.tga", 0.2, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-03.tga", 0.3, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-04.tga", 0.4, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-05.tga", 0.5, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-06.tga", 0.6, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-07.tga", 0.7, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-08.tga", 0.8, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-09.tga", 0.9, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-10.tga", 1.0, 0 );
-
-  make_image<color::xyz<double> >( "./palette/xyz-0-000.tga" , 0.0, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-010.tga" , 0.1, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-020.tga" , 0.2, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-030.tga" , 0.3, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-040.tga" , 0.4, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-050.tga" , 0.5, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-060.tga" , 0.6, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-070.tga" , 0.7, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-080.tga" , 0.8, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-090.tga" , 0.9, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-100.tga" , 1.0, 0 );
-
-  make_image<color::xyz<double> >( "./palette/xyz-1-000.tga" , 0.0, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-010.tga" , 0.1, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-020.tga" , 0.2, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-030.tga" , 0.3, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-040.tga" , 0.4, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-050.tga" , 0.5, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-060.tga" , 0.6, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-070.tga" , 0.7, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-080.tga" , 0.8, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-090.tga" , 0.9, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-100.tga" , 1.0, 1 );
-
-  make_image<color::xyz<double> >( "./palette/xyz-2-000.tga" , 0.0, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-010.tga" , 0.1, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-020.tga" , 0.2, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-030.tga" , 0.3, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-040.tga" , 0.4, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-050.tga" , 0.5, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-060.tga" , 0.6, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-070.tga" , 0.7, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-080.tga" , 0.8, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-090.tga" , 0.9, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-100.tga" , 1.0, 2 );
- }
-
-
 void test_xyz_quick()
  {
   std::cout << "---------------------------------------------------------------------------------------------------" <<  std::endl;
@@ -454,12 +280,72 @@ void test_xyz_quick()
 // cyan         <  53.8013560910307830910,  78.7327148594377348450,  106.9496104417670778700 >
 // yellow       <  77.0032516733601255510,  92.7825006693440315080,   13.8525921463632233350 >
 // magenta      <  59.2893922356091422900,  28.4847844712182229900,   96.9637974118697201220 >
+ }
 
+void test_yiq2yuv601_quick()
+ {
+  color::yuv<double, ::color::constant::yuv::BT_601_entity > yuv;
+  color::yiq<double> yiq;
+
+  yiq = ::color::constant::gray_t<0,1>{};  std::cout << "gray_t<0,1>  "; print( yiq ); std::cout << std::endl;  // gray_t<0,1>  < 1,  0,  0, >
+  yiq = ::color::constant::gray_t<1,0>{};  std::cout << "gray_t<1,0>  "; print( yiq ); std::cout << std::endl;  // gray_t<1,0>  < 0,  0,  0, >
+  yiq = ::color::constant::gray_t<1,1>{};  std::cout << "gray_t<1,1>  "; print( yiq ); std::cout << std::endl;  // gray_t<1,1>  < 0.5,  0,  0, >
+
+  yiq = ::color::constant::black_t{};      std::cout << "black        "; print( yiq ); std::cout << std::endl;  //black        < 0,  0,  0, >
+  yiq = ::color::constant::white_t{};      std::cout << "white        "; print( yiq ); std::cout << std::endl;  //white        < 0.99999999999999988898,  0,  0, >
+
+  yiq = ::color::constant::red_t{};        std::cout << "red          "; print( yiq ); std::cout << std::endl;  //red          < 0.29899999999999998801,  0.5957161349127745309,  0.21145640212011784786, >
+  yiq = ::color::constant::lime_t{};       std::cout << "lime         "; print( yiq ); std::cout << std::endl;  //lime         < 0.58699999999999996625,  -0.27445283783925644716,  -0.52259104529161115593, >
+  yiq = ::color::constant::blue_t{};       std::cout << "blue         "; print( yiq ); std::cout << std::endl;  //blue         < 0.11400000000000000411,  -0.32126329707351808374,  0.31113464317149330807, >
+
+  yiq = ::color::constant::cyan_t{};       std::cout << "cyan         "; print( yiq ); std::cout << std::endl;  //cyan         < 0.70099999999999995648,  -0.5957161349127745309,  -0.21145640212011784786, >
+  yiq = ::color::constant::yellow_t{};     std::cout << "yellow       "; print( yiq ); std::cout << std::endl;  //yellow       < 0.88599999999999989875,  0.32126329707351808374,  -0.31113464317149330807, >
+  yiq = ::color::constant::magenta_t{};    std::cout << "magenta      "; print( yiq ); std::cout << std::endl;  //magenta      < 0.41299999999999997824,  0.27445283783925644716,  0.52259104529161115593, >
+
+
+  yuv = ::color::constant::gray_t<0,1>{};  std::cout << "gray_t<0,1>  "; print( yuv ); std::cout << std::endl;// yuv = gray_t<0,1>  < 1,  0,  0, >
+  yuv = ::color::constant::gray_t<1,0>{};  std::cout << "gray_t<1,0>  "; print( yuv ); std::cout << std::endl;// yuv = gray_t<1,0>  < 0,  0,  0, >
+  yuv = ::color::constant::gray_t<1,1>{};  std::cout << "gray_t<1,1>  "; print( yuv ); std::cout << std::endl;// yuv = gray_t<1,1>  < 0.5,  0,  0, >
+
+  yuv = ::color::constant::black_t{};      std::cout << "black        "; print( yuv ); std::cout << std::endl; // yuv = black        < 0,  0,  0, >
+  yuv = ::color::constant::white_t{};      std::cout << "white        "; print( yuv ); std::cout << std::endl; // yuv = white        < 1,  0,  0, >
+
+  yuv = ::color::constant::red_t{};        std::cout << "red          "; print( yuv ); std::cout << std::endl; // yuv = red          < 0.29883900000000002128,  -0.14711658555862927589,  0.61499999999999999112, >
+  yuv = ::color::constant::lime_t{};       std::cout << "lime         "; print( yuv ); std::cout << std::endl; // yuv = lime         < 0.58681099999999997152,  -0.28888341444137066727,  -0.51470170902260681256, >
+  yuv = ::color::constant::blue_t{};       std::cout << "blue         "; print( yuv ); std::cout << std::endl; // yuv = blue         < 0.11434999999999999332,  0.43599999999999999867,  -0.10029829097739317856, >
+
+  yuv = ::color::constant::cyan_t{};       std::cout << "cyan         "; print( yuv ); std::cout << std::endl; // yuv = cyan         < 0.7011609999999999232,  0.14711658555862922038,  -0.61499999999999999112, >
+  yuv = ::color::constant::yellow_t{};     std::cout << "yellow       "; print( yuv ); std::cout << std::endl; // yuv = yellow       < 0.88565000000000004832,  -0.43599999999999999867,  0.10029829097739317856, >
+  yuv = ::color::constant::magenta_t{};    std::cout << "magenta      "; print( yuv ); std::cout << std::endl; // yuv = magenta      < 0.41318900000000002848,  0.28888341444137072278,  0.51470170902260692358, >
+
+
+  yiq = ::color::constant::black_t{};    yuv = yiq; std::cout << "black    "; print( yuv ); std::cout << std::endl;
+  yiq = ::color::constant::white_t{};    yuv = yiq; std::cout << "white    "; print( yuv ); std::cout << std::endl;
+
+  yiq = ::color::constant::red_t{};      yuv = yiq; std::cout << "red      "; print( yuv ); std::cout << std::endl;
+  yiq = ::color::constant::lime_t{};     yuv = yiq; std::cout << "lime     "; print( yuv ); std::cout << std::endl;
+  yiq = ::color::constant::blue_t{};     yuv = yiq; std::cout << "blue     "; print( yuv ); std::cout << std::endl;
+
+  yiq = ::color::constant::cyan_t{};     yuv = yiq; std::cout << "cyan     "; print( yuv ); std::cout << std::endl;
+  yiq = ::color::constant::yellow_t{};   yuv = yiq; std::cout << "yellow   "; print( yuv ); std::cout << std::endl;
+  yiq = ::color::constant::magenta_t{};  yuv = yiq; std::cout << "magenta  "; print( yuv ); std::cout << std::endl;
+
+  yuv = ::color::constant::black_t{};    yiq = yuv; std::cout << "black    "; print( yiq ); std::cout << std::endl;
+  yuv = ::color::constant::white_t{};    yiq = yuv; std::cout << "white    "; print( yiq ); std::cout << std::endl;
+
+  yuv = ::color::constant::red_t{};      yiq = yuv; std::cout << "red      "; print( yiq ); std::cout << std::endl;
+  yuv = ::color::constant::lime_t{};     yiq = yuv; std::cout << "lime     "; print( yiq ); std::cout << std::endl;
+  yuv = ::color::constant::blue_t{};     yiq = yuv; std::cout << "blue     "; print( yiq ); std::cout << std::endl;
+
+  yuv = ::color::constant::cyan_t{};     yiq = yuv; std::cout << "cyan     "; print( yiq ); std::cout << std::endl;
+  yuv = ::color::constant::yellow_t{};   yiq = yuv; std::cout << "yellow   "; print( yiq ); std::cout << std::endl;
+  yuv = ::color::constant::magenta_t{};  yiq = yuv; std::cout << "magenta  "; print( yiq ); std::cout << std::endl;
 
  }
 
 int main(int argc, char const *argv[])
  {
+  test_yiq2yuv601_quick();
   test_xyz_quick();
   void make_test_gray_scale();
   make_test_gray_scale();
@@ -492,6 +378,7 @@ int main(int argc, char const *argv[])
   void image_conversion();
   image_conversion();
 
+  void test_pallete();
   test_pallete();
 
   ctor_test();
