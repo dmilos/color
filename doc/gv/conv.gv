@@ -46,7 +46,7 @@ digraph color_conversion {
 	//Luv -> LCHub   [ label = "", dir=both ];
 
 	//yuv -> yuv   [ label = "", dir=both ];
-	//yuv -> yiq   [ label = "601", dir=both ];
+	yuv -> yiq   [ label = "BT601", dir=both ];
 
 	subgraph cluster_hue
 	{

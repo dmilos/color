@@ -57,6 +57,7 @@ int main( int argc, char *argv[] )
      max[1] = std::max( max[1], difference[ y*width+x][1] );
      max[2] = std::max( max[2], difference[ y*width+x][2] );
     }
+  std::cout << "R:" << (int)max[0] << "; G:" << (int)max[1] << "; B:" << (int)max[2] << std::endl;
 
   if( 0 ==max[0] )  max[0] = 255;
   if( 0 ==max[1] )  max[1] = 255;
@@ -69,8 +70,6 @@ int main( int argc, char *argv[] )
      difference[ y*width+x][1] *= 255/max[1];
      difference[ y*width+x][2] *= 255/max[2];
     }
-
-  std::cout << "R:" << (int)max[0] << "; G:" << (int)max[1] << "; B:" << (int)max[2] << std::endl;
 
   save_image24(  argv[3],   difference, width, height );
 
