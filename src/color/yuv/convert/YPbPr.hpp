@@ -15,10 +15,10 @@ namespace color
    {
 
     template
-      <
-        typename yuv_tag_name,    ::color::constant::yuv::reference_enum yuv_reference_number
-       ,typename YPbPr_tag_name,  ::color::constant::YPbPr::reference_enum YPbPr_reference_number
-      >
+     <
+       typename yuv_tag_name,    ::color::constant::yuv::reference_enum yuv_reference_number
+      ,typename YPbPr_tag_name,  ::color::constant::YPbPr::reference_enum YPbPr_reference_number
+     >
      struct convert
       <
         ::color::category::yuv<      yuv_tag_name,   yuv_reference_number >

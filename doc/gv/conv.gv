@@ -20,7 +20,8 @@ digraph color_conversion {
 	gray -> YDbDr [ label = "", dir=both ];
 	gray -> yiq   [ label = "", dir=both ];
 	gray -> YPbPr [ label = "", dir=both ];
-	gray -> yuv   [ label = "", dir=both ];
+	gray -> yuv601   [ label = "", dir=both ];
+	gray -> yuv709   [ label = "", dir=both ];
 
 	//hbw  -> hsv[ label = "", dir=both ];
 
@@ -35,7 +36,8 @@ digraph color_conversion {
 	rgb -> YDbDr [ label = "", dir=both ];
 	rgb -> yiq   [ label = "", dir=both ];
 	rgb -> YPbPr [ label = "", dir=both ];
-	rgb -> yuv   [ label = "", dir=both ];
+	rgb -> yuv601[ label = "", dir=both ];
+	rgb -> yuv709[ label = "", dir=both ];
 
 	//xyz -> Hunter  [ label = "", dir=both ];
 	//xyz -> xyY     [ label = "", dir=both ];
@@ -46,7 +48,8 @@ digraph color_conversion {
 	//Luv -> LCHub   [ label = "", dir=both ];
 
 	//yuv -> yuv   [ label = "", dir=both ];
-	yuv -> yiq   [ label = "BT601", dir=both ];
+
+	yuv601 -> yiq   [ label = "", dir=both ];
 
 	subgraph cluster_hue
 	{
@@ -64,7 +67,14 @@ digraph color_conversion {
 		node [ ] YDbDr;
 		node [ ] yiq  ;
 		node [ ] YPbPr;
-		node [ ] yuv  ;
+		node [ ] yuv601;
+		node [ ] yuv709;
+		subgraph cluster_yuv
+		{
+			label = "";
+			node [ ] yuv601;
+			node [ ] yuv709;
+		}
 	}
 
 	subgraph cluster_CIE
