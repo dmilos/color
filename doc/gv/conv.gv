@@ -19,7 +19,9 @@ digraph color_conversion {
 	gray -> YCgCo [ label = "", dir=both ];
 	gray -> YDbDr [ label = "", dir=both ];
 	gray -> yiq   [ label = "", dir=both ];
-	gray -> YPbPr [ label = "", dir=both ];
+	gray -> YPbPr601  [ label = "", dir=both ];
+	gray -> YPbPr709  [ label = "", dir=both ];
+	gray -> YPbPr2020 [ label = "", dir=both ];
 	gray -> yuv601   [ label = "", dir=both ];
 	gray -> yuv709   [ label = "", dir=both ];
 
@@ -35,7 +37,9 @@ digraph color_conversion {
 	rgb -> YCgCo [ label = "", dir=both ];
 	rgb -> YDbDr [ label = "", dir=both ];
 	rgb -> yiq   [ label = "", dir=both ];
-	rgb -> YPbPr [ label = "", dir=both ];
+	rgb -> YPbPr601  [ label = "", dir=both ];
+	rgb -> YPbPr709  [ label = "", dir=both ];
+	rgb -> YPbPr2020 [ label = "", dir=both ];
 	rgb -> yuv601[ label = "", dir=both ];
 	rgb -> yuv709[ label = "", dir=both ];
 
@@ -66,7 +70,9 @@ digraph color_conversion {
 		node [ ] YCgCo;
 		node [ ] YDbDr;
 		node [ ] yiq  ;
-		node [ ] YPbPr;
+		node [ ] YPbPr601 ;
+		node [ ] YPbPr709 ;
+		node [ ] YPbPr2020;
 		node [ ] yuv601;
 		node [ ] yuv709;
 		subgraph cluster_yuv
@@ -74,6 +80,13 @@ digraph color_conversion {
 			label = "";
 			node [ ] yuv601;
 			node [ ] yuv709;
+		}
+		subgraph cluster_YPbPr
+		{
+			label = "";
+			node [ ] YPbPr601 ;
+			node [ ] YPbPr709 ;
+			node [ ] YPbPr2020;
 		}
 	}
 
