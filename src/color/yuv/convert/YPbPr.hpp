@@ -16,7 +16,7 @@ namespace color
 
     template
      <
-       typename yuv_tag_name,    ::color::constant::yuv::reference_enum yuv_reference_number
+       typename yuv_tag_name,    ::color::constant::yuv::reference_enum     yuv_reference_number
       ,typename YPbPr_tag_name,  ::color::constant::YPbPr::reference_enum YPbPr_reference_number
      >
      struct convert
@@ -29,12 +29,11 @@ namespace color
          typedef ::color::category::yuv<     yuv_tag_name,   yuv_reference_number >          yuv_category_type,  category_left_type;
          typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >        YPbPr_category_type, category_right_type;
 
-         typedef typename ::color::akin::rgb< YPbPr_category_type >::akin_type  rgb_category_type;
-
-         typedef ::color::model< yuv_category_type >  yuv_model_type;
-         typedef ::color::model< YPbPr_category_type >  YPbPr_model_type;
-
+         typedef typename ::color::akin::rgb< category_right_type >::akin_type  rgb_category_type;
          typedef ::color::model< rgb_category_type >  rgb_model_type;
+
+         typedef ::color::model< category_left_type  >    yuv_model_type,  left_model_type;
+         typedef ::color::model< category_right_type >  YPbPr_model_type, right_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
