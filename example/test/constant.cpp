@@ -44,6 +44,7 @@ template< typename tag_name >
      ss << "<td>" << print_color( "YDbDr -" + name, ::color::rgb<std::uint8_t>( ::color::YDbDr< double >( constant )  ) ) << "</td>";
      ss << "<td>" << print_color( "YPbPr -" + name, ::color::rgb<std::uint8_t>( ::color::YPbPr< double >( constant )  ) ) << "</td>";
      ss << "<td>" << print_color( "xyz -"   + name, ::color::rgb<std::uint8_t>( ::color::xyz<   double >( constant )  ) ) << "</td>";
+     ss << "<td>" << print_color( "lab -"   + name, ::color::rgb<std::uint8_t>( ::color::lab<   double >( constant )  ) ) << "</td>";
     ss << "</tr>" << std::endl;
 
   return ss.str();
@@ -55,12 +56,13 @@ void test_constant()
 
   ss << "<table>";
 
+  ss << print( ::color::constant::black_t{},        "black"      );
+  ss << print( ::color::constant::white_t{},        "white"      );
   ss << print( ::color::constant::aqua_t{},         "aqua"       );
   ss << print( ::color::constant::aquamarine_t{},   "aquamarine" );
   ss << print( ::color::constant::azure_t{},        "azure"      );
   ss << print( ::color::constant::beige_t{},        "beige"      );
   ss << print( ::color::constant::bisque_t{},       "bisque"     );
-  ss << print( ::color::constant::black_t{},        "black"      );
   ss << print( ::color::constant::blue_t{},         "blue"       );
   ss << print( ::color::constant::brown_t{},        "brown"      );
   ss << print( ::color::constant::chocolate_t{},    "chocolate"  );
@@ -100,7 +102,6 @@ void test_constant()
   ss << print( ::color::constant::turquoise_t{},    "turquoise"  );
   ss << print( ::color::constant::violet_t{},       "violet"     );
   ss << print( ::color::constant::wheat_t{},        "wheat"      );
-  ss << print( ::color::constant::white_t{},        "white"      );
   ss << print( ::color::constant::yellow_t{},       "yellow"     );
 
 //  ss << print( ::color::constant::vga::black_type{},       "black"     );
@@ -121,14 +122,13 @@ void test_constant()
 //  ss << print( ::color::constant::vga::teal_type{},     "teal"     );
 //  ss << print( ::color::constant::vga::aqua_type{},     "aqua"     );
 
+  ss << print( ::color::constant::gray_t<1,1>{},    "gray"       );
   ss << print( ::color::constant::x11::gray_t{},     "#BEBEBE"  );
   ss << print( ::color::constant::x11::green_t{},    "#00FF00"  );
   ss << print( ::color::constant::x11::maroon_t{},   "#B03060"  );
   ss << print( ::color::constant::x11::purple_t{},   "#A020F0"  );
 
   ss << print( ::color::constant::gray_t<0,1>{},   "#ffffff"   ); ss << print( ::color::constant::gray_t<1,0>{},   "#000000"   );
-
-  ss << print( ::color::constant::gray_t<1,1>{},   "gray"   );
 
   ss << print( ::color::constant::gray_t<1,2>{},   "rgb(170,170,170)"   ); ss << print( ::color::constant::gray_t<2,1>{},   "rgb(85,85,85)"   );
   

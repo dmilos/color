@@ -14,8 +14,8 @@
 namespace color
  {
 
-  template< typename type_name >
-   using xyz = ::color::model< typename ::color::category::xyz< type_name > >;
+  template< typename type_name/*, reference_name */>
+   using xyz = ::color::model< typename ::color::category::xyz< type_name/*, reference_name */ > >;
 
  }
 

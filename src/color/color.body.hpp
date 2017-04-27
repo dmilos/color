@@ -9,6 +9,8 @@
 #include "./hsv/hsv.hpp"
 #include "./hsi/hsi.hpp"
 
+#include "./lab/lab.hpp"
+
 #include "./rgb/rgb.hpp"
 #include "./yiq/yiq.hpp"
 #include "./yuv/yuv.hpp"

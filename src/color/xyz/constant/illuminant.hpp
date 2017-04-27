@@ -1,8 +1,9 @@
 #ifndef color_contant_xyz_wp
 #define color_contant_xyz_wp
 
-// ::color::constant::xyz::illuminant::point< scalar_name,::color::constant::xyz::illuminant::name_enum name_number, ::color::constant::xyz::illuminant::observer_enum observer_number >::x()
+// ::color::constant::xyz::illuminant::point< scalar_name,::color::constant::xyz::illuminant::name_enum name_number, ::color::constant::xyz::illuminant::observer_enum observer_number >::X()
 // ::color::constant::xyz::illuminant::name_enum
+// ::color::constant::xyz::illuminant::observer_enum
 
 
 namespace color
@@ -106,7 +107,12 @@ namespace color
 #undef COLOR_CONTATNT_XYZ_BASE_ILLUMINANT_POINT_SPECIALIZE
        }
 
-      template< typename scalar_name,::color::constant::xyz::illuminant::name_enum name_number, ::color::constant::xyz::illuminant::observer_enum observer_number >
+      template
+       <
+          typename                                            scalar_name
+         ,::color::constant::xyz::illuminant::name_enum         name_number
+         ,::color::constant::xyz::illuminant::observer_enum observer_number
+       >
        struct point
         : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, name_number, observer_number >
         {

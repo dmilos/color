@@ -99,6 +99,8 @@ int decompose_test( int argc, char const *argv[] )
 
   decompose< ::color::xyz<double> >( image, "./dec/xyz", width, height );
 
+  decompose< ::color::lab<double> >( image, "./dec/lab", width, height );
+
   return EXIT_SUCCESS;
  }
 

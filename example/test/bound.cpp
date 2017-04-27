@@ -362,6 +362,14 @@ void print_bound()
   ss << print_bound< color::xyz<double        > >( "color::xyz", "double        " ) << std::endl;
   ss << print_bound< color::xyz<long double   > >( "color::xyz", "long double   " ) << std::endl;
 
+  ss << print_semi_title( "L","a","b" );
+  ss << print_bound< color::lab<std::uint8_t  > >( "color::lab", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::lab<std::uint16_t > >( "color::lab", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::lab<std::uint32_t > >( "color::lab", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::lab<std::uint64_t > >( "color::lab", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::lab<float         > >( "color::lab", "float         " ) << std::endl;
+  ss << print_bound< color::lab<double        > >( "color::lab", "double        " ) << std::endl;
+  ss << print_bound< color::lab<long double   > >( "color::lab", "long double   " ) << std::endl;
 
   //ss << "</table> ";
 

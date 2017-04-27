@@ -155,7 +155,7 @@ std::string print_system_sizeof( )
   ss << "<tr><td> long double   </td> <td> "<< sizeof( long double   )<< "</td> </tr> " << std::endl;
 
   ss << "</table>";
-  return ss.str();;
+  return ss.str();
  }
 
 
@@ -237,6 +237,7 @@ void check_sizeof()
   ss << print_sizeof<::color::YCgCo  > ( "<code>YCgCo </code>" );  ss << std::endl;
   ss << print_sizeof<::color::YDbDr  > ( "<code>YDbDr </code>" );  ss << std::endl;
   ss << print_sizeof<::color::xyz    > ( "<code>xyz </code>"   );  ss << std::endl;
+  ss << print_sizeof<::color::lab    > ( "<code>lab </code>"   );  ss << std::endl;
 
 
   ss << "</table>";

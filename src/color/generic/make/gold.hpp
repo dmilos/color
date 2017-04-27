@@ -1,6 +1,5 @@
 #ifndef  color_generic_make_gold
 #define color_generic_make_gold
-
 // ::color::make::gold( c )
 
 // TODO #include "model.hpp"
@@ -8,31 +7,28 @@
 
  namespace color
   {
+   namespace constant
+    {
 
+     template< typename category_name >
+      struct make<::color::constant::gold_type, category_name >
+       {
+        typedef category_name                         category_type;
+        typedef ::color::model<category_type>            model_type;
+        typedef ::color::rgb<std::uint8_t>                 rgb_type;
+        typedef ::color::constant::gold_t             constant_type;
 
-    namespace constant
-     {
+        typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 
-      template< typename category_name >
-       struct make<::color::constant::gold_type, category_name >
-        {
-         typedef category_name                         category_type;
-         typedef ::color::model<category_type>            model_type;
-         typedef ::color::rgb<std::uint8_t>                  rgb_type;
-         typedef ::color::constant::gold_t             constant_type;
+        inline static void process( container_output_type & container )
+         {
+          static model_type  s_model{ rgb_type{ 0xFF, 0xD7, 0x00 } };
+          container = s_model.container();
+         } 
 
-         typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
+       };
 
-         inline static void process( container_output_type & container )
-          {
-           static model_type  s_model{ rgb_type{ 0xFF, 0xD7, 0x00 } };
-           container = s_model.container();
-          } 
-
-        };
-
-     }
-
+    }
   }
 
 #endif

@@ -10,7 +10,7 @@ namespace color
   namespace category
    {
 
-    template< typename tag_name >
+    template< typename tag_name/*, reference_name */ >
      struct xyz
       {
        typedef void category_name;

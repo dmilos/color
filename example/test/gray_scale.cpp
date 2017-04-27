@@ -150,6 +150,7 @@ void make_test_gray_scale()
   ss <<  make_test_gray_single< ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity> >( "YPbPr2020" );
 
   ss <<  make_test_gray_single< ::color::xyz< double> >( "xyz" );
+  ss <<  make_test_gray_single< ::color::lab< double> >( "lab" );
 
   ss << "</table>" << std::endl;
 

@@ -188,5 +188,7 @@ int gray_test( int argc, char const *argv[] )
   make_gray_YPbPr<::color::constant::YPbPr::BT_709_entity>(  gray, image );  save_image_gray( "./gray/YPbPr709-y.tga",     gray, 1600, 1195 );
   make_gray_YPbPr<::color::constant::YPbPr::BT_2020_entity>( gray, image );  save_image_gray( "./gray/YPbPr2020-y.tga",    gray, 1600, 1195 );
 
+  //make_gray_lab( gray, image );        save_image_gray( "./gray/lab-L.tga",        gray, 1600, 1195 );
+
   return EXIT_SUCCESS;
  }

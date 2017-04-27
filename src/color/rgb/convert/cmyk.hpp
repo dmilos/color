@@ -9,7 +9,8 @@
 #include "../../cmyk/cmyk.hpp"
 
 #include "../../generic/operation/invert.hpp"
-#include "../../_internal/reformat.hpp"
+#include "../../_internal/diverse.hpp"
+#include "../../_internal/normalize.hpp"
 
 #include "../place/red.hpp"
 #include "../place/green.hpp"

@@ -17,3 +17,5 @@
 #include "./YPbPr.hpp"
 
 #include "./xyz.hpp"
+
+#include "./lab.hpp"

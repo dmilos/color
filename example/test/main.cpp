@@ -51,6 +51,14 @@ void print()
  }
 
 
+void sandbox_test3()
+ {
+  ::color::rgb<double>  r{1,0,0.13745098039215686274509803921569};
+  ::color::lab<double>  l;
+  l = r;
+   r = l;
+ }
+
 void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
  {
   ::color::hsi<double>  h;
@@ -345,6 +353,7 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[])
  {
+  sandbox_test3();
   test_yiq2yuv601_quick();
   test_xyz_quick();
   void make_test_gray_scale();
