@@ -41,29 +41,15 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         enum
-          { // TODO
-            ll_p  = ::color::place::_internal::luma<category_left_type>::position_enum
-           ,il_p  = ::color::place::_internal::inphase<category_left_type>::position_enum
-           ,ql_p  = ::color::place::_internal::quadrature<category_left_type>::position_enum
-          };
-
-         enum
-          {// TODO
-            lr_p  = ::color::place::_internal::luma<category_right_type>::position_enum
-           ,ir_p  = ::color::place::_internal::inphase<category_right_type>::position_enum
-           ,qr_p  = ::color::place::_internal::quadrature<category_right_type>::position_enum
-          };
-
          static void process
           (
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
           {
-           container_left_trait_type::template set<ll_p>( left, reformat_type::template process<ll_p,lr_p>( container_right_trait_type::template get<lr_p>( right ) ) );
-           container_left_trait_type::template set<il_p>( left, reformat_type::template process<il_p,ir_p>( container_right_trait_type::template get<ir_p>( right ) ) );
-           container_left_trait_type::template set<ql_p>( left, reformat_type::template process<ql_p,qr_p>( container_right_trait_type::template get<qr_p>( right ) ) );
+           container_left_trait_type::template set<0>( left, reformat_type::template process<0,0>( container_right_trait_type::template get<0>( right ) ) );
+           container_left_trait_type::template set<1>( left, reformat_type::template process<1,1>( container_right_trait_type::template get<1>( right ) ) );
+           container_left_trait_type::template set<2>( left, reformat_type::template process<2,2>( container_right_trait_type::template get<2>( right ) ) );
           }
        };
 

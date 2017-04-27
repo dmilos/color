@@ -14,6 +14,7 @@ digraph color_conversion {
 	gray -> hsi   [ label = "", dir=both ];
 	gray -> hsl   [ label = "", dir=both ];
 	gray -> hsv   [ label = "", dir=both  ];
+	gray -> lab   [ label = "", dir=both ];
 	gray -> rgb   [ label = "", dir=both ];
 	gray -> xyz   [ label = "", dir=both ];
 	gray -> YCgCo [ label = "", dir=both ];
@@ -33,6 +34,8 @@ digraph color_conversion {
 
 	hsv  -> rgb [ label = "", dir=both ];
 
+	lab -> xyz [ label = "", dir=both ];
+
 	rgb -> xyz   [ label = "", dir=both ];
 	rgb -> YCgCo [ label = "", dir=both ];
 	rgb -> YDbDr [ label = "", dir=both ];
@@ -45,10 +48,9 @@ digraph color_conversion {
 
 	//xyz -> Hunter  [ label = "", dir=both ];
 	//xyz -> xyY     [ label = "", dir=both ];
-	//xyz -> Lab     [ label = "", dir=both ];
 	//xyz -> Luv     [ label = "", dir=both ];
 	//xyz -> LMS     [ label = "", dir=both ];
-	//Lab -> LCHab   [ label = "", dir=both ];
+	//lab -> LCHab   [ label = "", dir=both ];
 	//Luv -> LCHub   [ label = "", dir=both ];
 
 	//yuv -> yuv   [ label = "", dir=both ];
@@ -96,7 +98,7 @@ digraph color_conversion {
 		node [ ] xyz;
 		//node [ ] Hunter;
 		//node [ ] xyY;
-		//node [ ] Lab;
+		node [ ] lab;
 		//node [ ] Luv;
 		//node [ ] LMS;
 		//node [ ] LCHab;

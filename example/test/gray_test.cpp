@@ -144,6 +144,17 @@ void make_gray_xyz( gray_image_type & gray, bgr_image_type const& image )
    }
  }
 
+void make_gray_lab( gray_image_type & gray, bgr_image_type const& image )
+ {
+  auto gc = gray.begin();
+  for( auto & c : image )
+   {
+    gc->set<0>( ::color::lab< std::uint8_t >( c )[0] );
+    ++gc;
+   }
+ }
+
+
 template< ::color::constant::YPbPr::reference_enum reference_number >
  void make_gray_YPbPr( gray_image_type & gray, bgr_image_type const& image )
   {
@@ -183,6 +194,7 @@ int gray_test( int argc, char const *argv[] )
   make_gray_intens_hsi( gray, image ); save_image_gray( "./gray/satur-hsi.tga",    gray, 1600, 1195 );
 
   make_gray_xyz( gray, image );        save_image_gray( "./gray/xyz-Y.tga",        gray, 1600, 1195 );
+  make_gray_lab( gray, image );        save_image_gray( "./gray/lab-L.tga",        gray, 1600, 1195 );
 
   make_gray_YPbPr<::color::constant::YPbPr::BT_601_entity>(  gray, image );  save_image_gray( "./gray/YPbPr601-y.tga",     gray, 1600, 1195 );
   make_gray_YPbPr<::color::constant::YPbPr::BT_709_entity>(  gray, image );  save_image_gray( "./gray/YPbPr709-y.tga",     gray, 1600, 1195 );
