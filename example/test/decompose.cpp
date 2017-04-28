@@ -36,7 +36,13 @@ void load_image( bgr_image_type & image, std::string const& name )
 
 template< typename color_model >
  void
- decompose( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
+ decompose
+  (
+    bgr_image_type const& image
+   ,std::string const& name
+   ,std::size_t const& width, std::size_t const& height
+   ,color_model const& fixed = color_model{ ::color::constant::black_t{} }
+  )
   {
    bgr_image_type  component;
 
@@ -52,8 +58,7 @@ template< typename color_model >
         {
          if( sub != channel )
           {
-           //other[sub] = color_model::bound_type::minimum( sub );
-           other[sub] = 0;
+           other[sub] = fixed[sub];
           }
         }
 
@@ -81,14 +86,14 @@ int decompose_test( int argc, char const *argv[] )
   decompose< ::color::cmy<double>   >( image, "./dec/cmy", width, height );
   decompose< ::color::cmyk<double>  >( image, "./dec/cmyk", width, height );
 
-  decompose< ::color::hsv<double>   >( image, "./dec/hsv", width, height );
-  decompose< ::color::hsl<double>   >( image, "./dec/hsl", width, height );
-  decompose< ::color::hsi<double>   >( image, "./dec/hsi", width, height );
+  decompose< ::color::hsv<double>   >( image, "./dec/hsv", width, height, ::color::hsv<double>{ 0, 0.5, 0.5 } );
+  decompose< ::color::hsl<double>   >( image, "./dec/hsl", width, height, ::color::hsl<double>{ 0, 0.5, 0.5 } );
+  decompose< ::color::hsi<double>   >( image, "./dec/hsi", width, height, ::color::hsi<double>{ 0, 0.5, 0.5 } );
 
   decompose< ::color::yiq<double>   >( image, "./dec/yiq", width, height );
   
-  decompose< ::color::yuv<double, ::color::constant::yuv::BT_601_entity>   >( image, "./dec/yuv-601", width, height );
-  decompose< ::color::yuv<double, ::color::constant::yuv::BT_709_entity>   >( image, "./dec/yuv-709", width, height );
+  decompose< ::color::yuv<double, ::color::constant::yuv::BT_601_entity> >( image, "./dec/yuv-601", width, height );
+  decompose< ::color::yuv<double, ::color::constant::yuv::BT_709_entity> >( image, "./dec/yuv-709", width, height );
 
   decompose< ::color::YCgCo<double> >( image, "./dec/YCgCo", width, height );
   decompose< ::color::YDbDr<double> >( image, "./dec/YDbDr", width, height );
@@ -99,7 +104,7 @@ int decompose_test( int argc, char const *argv[] )
 
   decompose< ::color::xyz<double> >( image, "./dec/xyz", width, height );
 
-  decompose< ::color::lab<double> >( image, "./dec/lab", width, height );
+  decompose< ::color::lab<double> >( image, "./dec/lab", width, height, ::color::lab<double>{ 50, 0, 0 } );
 
   return EXIT_SUCCESS;
  }

@@ -49,8 +49,8 @@ namespace color
           )
           {
            container_left_trait_type::template set<0>( left, reformat_type::template process< 0, 0 >( container_right_trait_type::template get<0>( right ) ) );
-           container_left_trait_type::template set<1>( left, reformatLAB_type::template process< 1, 1 >( 0.5 ) );
-           container_left_trait_type::template set<2>( left, reformatLAB_type::template process< 2, 2 >( 0.5 ) );
+           container_left_trait_type::template set<1>( left, reformatLAB_type::template process< 1, 1 >( 0 ) );
+           container_left_trait_type::template set<2>( left, reformatLAB_type::template process< 2, 2 >( 0 ) );
           }
       };
 

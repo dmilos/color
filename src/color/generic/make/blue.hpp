@@ -15,7 +15,7 @@
        {
         typedef category_name                         category_type;
         typedef ::color::model<category_type>            model_type;
-        typedef ::color::rgb<double>                       rgb_type;
+        typedef ::color::rgb<double>                 rgb_type;
         typedef ::color::constant::blue_t             constant_type;
 
         typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
