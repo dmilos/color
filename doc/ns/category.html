@@ -20,6 +20,7 @@
 							<li><a href="#gray">gray</a></li>
 							<li><a href="#hsl">hsl</a></li>
 							<li><a href="#hsv">hsv</a></li>
+							<li><a href="#lab">lab</a></li>
 							<li><a href="#rgb">rgb</a></li>
 							<li><a href="#xyz">xyz</a></li>
 							<li><a href="#yiq">yiq</a></li>
@@ -180,6 +181,37 @@
 								<blockquote><code>
 								::color::model&lt; ::color::category::hsv_uint32 &gt; &nbsp; &nbsp; c0; <br>
 								::color::hsv&lt; std::uint32_t &gt;  &nbsp;&nbsp;    c1; </code>
+								</blockquote>
+							</dd>
+						</dl>
+					</dd>
+
+					<dt><a name="lab" />LAB</dt>
+					<dd>
+						<dl>
+							<dt><code>template&lt; typename tag_name &gt; struct lab;</code></dt>
+							<dd>Generalized LAB category. All LAB categories are alias of instance of this class for some internal <code>tag_type</code>.</dd>
+							<dt>List</dt>
+							<dd>
+								<ul>
+									<!-- <li><code>using cmyk_bool    = ::color::category::cmyk&lt; <i>unspecified</i> &gt;;</code></li> -->
+									<li><code>using lab_uint8   = ::color::category::lab&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using lab_uint16  = ::color::category::lab&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using lab_uint24  = ::color::category::lab&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using lab_uint32  = ::color::category::lab&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using lab_uint48  = ::color::category::lab&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using lab_uint64  = ::color::category::lab&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using lab_float   = ::color::category::lab&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using lab_double  = ::color::category::lab&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using lab_ldouble = ::color::category::lab&lt; <i>unspecified</i> &gt;;</code></li>
+								</ul>
+							</dd>
+							<dt>Example(s)</dt>
+							<dd>
+								Next two types are the same:
+								<blockquote><code>
+								::color::model&lt; ::color::category::lab_uint32 &gt; &nbsp; &nbsp; c0; <br>
+								::color::lab&lt; std::uint32_t &gt;  &nbsp;&nbsp;    c1; </code>
 								</blockquote>
 							</dd>
 						</dl>

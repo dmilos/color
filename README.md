@@ -4,7 +4,6 @@
 - Documentation
  - Examples coverage: ~90%
  - HTML coverage: ~90%
-- All planed functionality implemented
 - Ready for test use
 
 ### Description
@@ -21,7 +20,7 @@
 - One file to include to start the fun
 - Out of the box ready
  - No need to recompile or start some install process.
-- Color models: CMY, CMYK, GRAY, HSI, HSL, HSV, RGB, YIQ, YUV(BT.601, BT.709), YCgCo, YPbPr(BT.601, BT.709, BT.2020), XYZ( sRGB, D65, 2° )
+- Color models: CMY, CMYK, GRAY, HSI, HSL, HSV, RGB, YIQ, YUV(BT.601, BT.709), YCgCo, YPbPr(BT.601, BT.709, BT.2020), XYZ( sRGB, D65, 2° ), LAB
 
 ### Code sample:
 ```c++
@@ -29,6 +28,7 @@ color::rgb<::color::type::split655_t>   r;                //!< One std::uint16_t
 color::bgr<std::uint8_t>  b( ::color::constant::aqua_t{} ); //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
 color::yiq<std::uint8_t>  y( { 192, 64, 92 } );           //!< Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
 color::hsv<double>        h( { 90.0, 50.0, 60.0 } );      //!< This will pack ONLY three consecutive doubles in memory
+color::lab<float>         l( { 50.0, 0, 0 } );            //!< This will pack ONLY three consecutive floats in float
 
 y = ::color::constant::turquoise_t{};  //!< Set 'y' to be turquoise.
 
@@ -36,6 +36,7 @@ b = r; //!< Reformat and convert.
 r = b; //!< Reformat and convert in opposite direction.
 h = b; //!< Reformat and convert from BGR to HSV
 h = y; //!< Reformat and convert from YIQ to HSV
+l = y; //!< Reformat and convert from HSV to YIQ
 
 color::set::red( y, 127 ); //!< Set redness of YIQ
 
@@ -60,5 +61,5 @@ b = color::operation::mix( y, 0.5, color::yiq<std::uint8_t>( h ) ); //!< Blend t
 ###Tested against:
   - GCC 4.8.4
   - GCC 5.4.0 20160609
-  - MSVC 2015 Update 2
+  - MSVC 2015 Update 3
   - MSVC 2013 Update 5
