@@ -68,7 +68,7 @@ namespace color
                 // Allow using of memset instead this default initialization
                }
 
-       explicit model( container_input_const_type container )
+       explicit model( container_input_const_type container )//!< NO explicit. Type conversion!!!
         :m_container( container )
         {
          // Do NOTHING is must!!!
@@ -80,7 +80,7 @@ namespace color
           *this = constant;
          }
 
-       explicit model( std::initializer_list<component_type> const& ilist )
+       explicit model( std::initializer_list<component_type> const& ilist ) //!< TODO Remove or keep explicit?
         {
          //TODO C++14 static_assert( container_trait_type::size_entity != ilist.size(), "Initializer list size do not match model/format length." );
          ::color::_internal::init<category_name>( this->m_container, ilist );
@@ -92,7 +92,7 @@ namespace color
         }
 
        template< typename other_category_name >
-        explicit model( ::color::model<other_category_name> const& that )
+        explicit model( ::color::model<other_category_name> const& that ) //!< NO explicit. Heavy calculation involved!!!
          {
           *this = that;
          }

@@ -15,9 +15,11 @@
 					<li><a href="#Description">Description</a></li>
 					<li><a href="#List">List</a>
 						<ul>
-							<li><a href="#combine"><code>combine</code></a></li>
 							<li><a href="#bias"><code>bias</code></a></li>
+							<li><a href="#combine"><code>combine</code></a></li>
 							<li><a href="#convex"><code>convex</code></a></li>
+							<li><a href="#distance"><code>distance</code></a></li>
+							<li><a href="#delta"><code>delta</code></a></li>
 							<li><a href="#gain"><code>gain</code></a></li>
 							<li><a href="#gamma"><code>gamma</code></a></li>
 							<li><a href="#invert "><code>invert </code></a></li>
@@ -34,6 +36,31 @@
 			<dd>Contain miscellaneous function for color processing and manipulation.</dd>
 			<dt><a name="#List" /><h3>List</h3></dt>
 			<dd>
+
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#bias" /><i>bias</i></dd>
+					<dt>Description</dt>
+					<dd>Calculate bias.</dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; bias( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar &nbsp; );                                                     <br>
+							&nbsp;                                                                   <br>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; bias( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar );
+						</code>
+					</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+							::color::rgb&lt; float &gt; r{ ::color::constant::lime_t{} }; // result<br>
+							::color::operation::bias( r, 0.5 );<br>
+							::color::operation::bias( r, a, 0.5 );
+						</code>
+					</dd>
+				</dl><hr width="%20">
 
 				<dl>
 					<dt>Name</dt>
@@ -84,30 +111,6 @@
 
 				</dl><hr width="%20">
 
-				<dl>
-					<dt>Name</dt>
-					<dd><a name="#bias" /><i>bias</i></dd>
-					<dt>Description</dt>
-					<dd>Calculate bias.</dd>
-					<dt>Declaration</dt>
-					<dd>
-						<code>
-							&nbsp;template&lt; typename category_name &gt;           <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; bias( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar &nbsp; );                                                     <br>
-							&nbsp;                                                                   <br>
-							&nbsp;template&lt; typename category_name &gt;           <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; bias( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar );
-						</code>
-					</dd>
-					<dt>Example</dt>
-					<dd>
-						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
-							::color::rgb&lt; float &gt; r{ ::color::constant::lime_t{} }; // result<br>
-							::color::operation::bias( r, 0.5 );<br>
-							::color::operation::bias( r, a, 0.5 );
-						</code>
-					</dd>
-				</dl><hr width="%20">
 
 				<dl>
 					<dt>Name</dt>
@@ -148,6 +151,49 @@
 					</dd>
 					<dt>Link</dt>
 					<dd> <a href="https://en.wikipedia.org/wiki/Convex_combination"> Wikipedia Convex Combination </a> </dd>
+				</dl><hr width="%20">
+
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#distance" /><i>distance</i></dd>
+					<dt>Description</dt>
+					<dd>Calculate distance. Calculate gray from delta.</dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;typename ::color::trait::scalar&lt; category_type &gt;::instance_type  distance( ::color::model&lt;category_name&gt; const&amp; left, ::color::model&lt;category_name&gt; const&amp; right );
+						</code>
+					</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+							::color::rgb&lt; float &gt; b{ ::color::constant::lime_t{} }; <br>
+							::color::operation::distance( a, b );<br>
+						</code>
+					</dd>
+				</dl><hr width="%20">
+
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#delta" /><i>delta</i></dd>
+					<dt>Description</dt>
+					<dd>Calculate delta vector between two color.</dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; result  delta( ::color::model&lt;category_name&gt; &amp; result, ::color::model&lt;category_name&gt; const&amp; left, ::color::model&lt;category_name&gt; const&amp; right );
+						</code>
+					</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+							::color::rgb&lt; float &gt; b{ ::color::constant::lime_t{} }; <br>
+							::color::rgb&lt; float &gt; r; <br>
+							::color::operation::delta( r, a, b );<br>
+						</code>
+					</dd>
 				</dl><hr width="%20">
 
 				<dl>

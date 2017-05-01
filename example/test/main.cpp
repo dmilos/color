@@ -353,6 +353,9 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[])
  {
+  extern int decompose_test( int argc, char const *argv[] );
+  decompose_test( argc, argv );
+
   sandbox_test3();
   test_yiq2yuv601_quick();
   test_xyz_quick();
@@ -400,9 +403,6 @@ int main(int argc, char const *argv[])
 
   extern int gray_test( int argc, char const *argv[] );
   gray_test( argc, argv );
-
-  extern int decompose_test( int argc, char const *argv[] );
-  decompose_test( argc, argv );
 
   extern void print_bound();
   print_bound();

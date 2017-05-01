@@ -15,3 +15,6 @@
 
 #include "./bias.hpp"
 #include "./gain.hpp"
+
+#include "./distance.hpp"
+#include "./delta.hpp"

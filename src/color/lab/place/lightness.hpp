@@ -1,9 +1,9 @@
-#ifndef color_lab_place_inphase
-#define color_lab_place_inphase
+#ifndef color_lab_place_lightness
+#define color_lab_place_lightness
 
-// ::color::place::inphase<category_name>()
+// ::color::place::lightness<category_name>()
 
-#include "../../generic/place/inphase.hpp"
+#include "../../generic/place/lightness.hpp"
 #include "../category.hpp"
 #include "../trait/index.hpp"
 
@@ -15,13 +15,13 @@
       {
 
        template< typename tag_name >
-        struct inphase< ::color::category::lab< tag_name > >
+        struct lightness< ::color::category::lab< tag_name > >
          {
           public:
            typedef ::color::category::lab< tag_name > category_type;
            typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
-           enum { position_enum = 1 };
+           enum { position_enum = 0 };
            enum { has_enum = true };
 
            static /*constexpr*/ index_instance_type position()

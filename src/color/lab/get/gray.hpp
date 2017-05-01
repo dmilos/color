@@ -29,11 +29,21 @@
 
         typedef typename ::color::trait::scalar< category_type > ::instance_type   scalar_type;
 
-        typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
+        typedef typename ::color::akin::gray< category_type >::akin_type     akin_category_type;
 
-        typedef ::color::_internal::reformat< akin_type, category_type, scalar_type >  reformat_type;
+        typedef ::color::_internal::reformat< akin_category_type, category_type, scalar_type >  reformat_type;
 
-        return reformat_type::template process<0,0>( color_parameter.template get<0>() );
+        enum
+         {
+           lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
+         };
+
+        enum
+         {
+           gray_p  = ::color::place::_internal::gray<akin_category_type>::position_enum
+         };
+
+        return reformat_type::template process<gray_p,lightness_p>( color_parameter.template get<lightness_p>() );
        }
 
     }

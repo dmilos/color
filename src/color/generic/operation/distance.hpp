@@ -3,8 +3,8 @@
 
 // ::color::operation::distance( left, right )
 
-#include "../../generic/model.hpp"
-#include "../../generic/subtract.hpp"
+#include "../model.hpp"
+#include "./delta.hpp"
 #include "../../gray/gray.hpp"
 
  namespace color
@@ -13,6 +13,7 @@
     {
      namespace _internal
       {
+
        template< typename category_name >
         struct distance
          {
@@ -26,14 +27,16 @@
             static scalar_type process( model_type const& left, model_type const& right )
              {
               model_type difference;
-              return ::color::gray<scalar_type>( ::color::operation::subtract( difference, left, right ) ).template get<0>();
+
+              return ::color::gray<scalar_type>( ::color::operation::delta( difference, left, right ) ).template get<0>();
              }
 
          };
+
       }
 
      template< typename category_name >
-      typename ::color::trait::scalar< category_type >::instance_type
+      typename ::color::trait::scalar< category_name >::instance_type
       distance
        (
          ::color::model<category_name> const& left

@@ -169,6 +169,7 @@ void image_conversion()
   typedef ::color::gray<double>::category_type         gray_t;
 
   typedef ::color::rgb<double>::category_type           rgb_t;
+  typedef ::color::bgr<double>::category_type           bgr_t;
 
   typedef ::color::hsi<double>::category_type           hsi_t;
   typedef ::color::hsl<double>::category_type           hsl_t;
@@ -184,6 +185,22 @@ void image_conversion()
   typedef ::color::xyz<double>::category_type        xyz_t;
   typedef ::color::lab<double>::category_type        lab_t;
 
+  make_image_conversion<         cmy_t,      bgr_t >( "./conv/bgr2cmy.tga",       0.5 );
+  make_image_conversion<        cmyk_t,      bgr_t >( "./conv/bgr2cmyk.tga",      0.5 );
+  make_image_conversion<        gray_t,      bgr_t >( "./conv/bgr2gray.tga",      0.5 );
+  make_image_conversion<         rgb_t,      bgr_t >( "./conv/bgr2rgb.tga",       0.5 );
+  make_image_conversion<         hsi_t,      bgr_t >( "./conv/bgr2hsi.tga",       0.5 );
+  make_image_conversion<         hsl_t,      bgr_t >( "./conv/bgr2hsl.tga",       0.5 );
+  make_image_conversion<         hsv_t,      bgr_t >( "./conv/bgr2hsv.tga",       0.5 );
+  make_image_conversion<       YCgCo_t,      bgr_t >( "./conv/bgr2YCgCo.tga",     0.5 );
+  make_image_conversion<       YDbDr_t,      bgr_t >( "./conv/bgr2YDbDr.tga",     0.5 );
+  make_image_conversion<         yiq_t,      bgr_t >( "./conv/bgr2yiq.tga",       0.5 );
+  make_image_conversion<    YPbPr709_t,      bgr_t >( "./conv/bgr2YPbPr709.tga",  0.5 );
+  make_image_conversion<      yuv709_t,      bgr_t >( "./conv/bgr2yuv709.tga",    0.5 );
+  make_image_conversion<        xyz_t,       bgr_t >( "./conv/bgr2xyz.tga",       0.5 );
+  make_image_conversion<        lab_t,       bgr_t >( "./conv/bgr2lab.tga",       0.5 );
+
+  make_image_conversion<         bgr_t,      rgb_t >( "./conv/rgb2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,      rgb_t >( "./conv/rgb2cmy.tga",       0.5 );
   make_image_conversion<        cmyk_t,      rgb_t >( "./conv/rgb2cmyk.tga",      0.5 );
   make_image_conversion<        gray_t,      rgb_t >( "./conv/rgb2gray.tga",      0.5 );
@@ -199,6 +216,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,       rgb_t >( "./conv/rgb2xyz.tga",       0.5 );
   make_image_conversion<        lab_t,       rgb_t >( "./conv/rgb2lab.tga",       0.5 );
 
+  make_image_conversion<         bgr_t,      cmy_t >( "./conv/cmy2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,      cmy_t >( "./conv/cmy2cmy.tga",       0.5 );
   make_image_conversion<        cmyk_t,      cmy_t >( "./conv/cmy2cmyk.tga",      0.5 );
   make_image_conversion<        gray_t,      cmy_t >( "./conv/cmy2gray.tga",      0.5 );
@@ -214,6 +232,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,       cmy_t >( "./conv/cmy2xyz.tga",       0.5 );
   make_image_conversion<        lab_t,       cmy_t >( "./conv/cmy2lab.tga",       0.5 );
 
+  make_image_conversion<         bgr_t,     cmyk_t >( "./conv/cmyk2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,     cmyk_t >( "./conv/cmyk2cmy.tga",      0.5 );
   make_image_conversion<        cmyk_t,     cmyk_t >( "./conv/cmyk2cmyk.tga",     0.5 );
   make_image_conversion<        gray_t,     cmyk_t >( "./conv/cmyk2gray.tga",     0.5 );
@@ -229,6 +248,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,      cmyk_t >( "./conv/cmyk2xyz.tga",      0.5 );
   make_image_conversion<        lab_t,      cmyk_t >( "./conv/cmyk2lab.tga",       0.5 );
 
+  make_image_conversion<         bgr_t,     gray_t >( "./conv/gray2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,     gray_t >( "./conv/gray2cmy.tga",      0.5 );
   make_image_conversion<        cmyk_t,     gray_t >( "./conv/gray2cmyk.tga",     0.5 );
   make_image_conversion<        gray_t,     gray_t >( "./conv/gray2gray.tga",     0.5 );
@@ -245,6 +265,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,      gray_t >( "./conv/gray2xyz.tga",      0.5 );
   make_image_conversion<        lab_t,      gray_t >( "./conv/gray2lab.tga",      0.5 );
 
+  make_image_conversion<         bgr_t,      hsi_t >( "./conv/hsi2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,      hsi_t >( "./conv/hsi2cmy.tga",       0.5 );
   make_image_conversion<        cmyk_t,      hsi_t >( "./conv/hsi2cmyk.tga",      0.5 );
   make_image_conversion<        gray_t,      hsi_t >( "./conv/hsi2gray.tga",      0.5 );
@@ -260,6 +281,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,       hsi_t >( "./conv/hsi2xyz.tga",       0.5 );
   make_image_conversion<        lab_t,       hsi_t >( "./conv/hsi2lab.tga",       0.5 );
 
+  make_image_conversion<         bgr_t,      hsl_t >( "./conv/hsl2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,      hsl_t >( "./conv/hsl2cmy.tga",       0.5 );
   make_image_conversion<        cmyk_t,      hsl_t >( "./conv/hsl2cmyk.tga",      0.5 );
   make_image_conversion<        gray_t,      hsl_t >( "./conv/hsl2gray.tga",      0.5 );
@@ -275,6 +297,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,       hsl_t >( "./conv/hsl2xyz.tga",       0.5 );
   make_image_conversion<        lab_t,       hsl_t >( "./conv/hsl2lab.tga",       0.5 );
 
+  make_image_conversion<         bgr_t,      hsv_t >( "./conv/hsv2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,      hsv_t >( "./conv/hsv2cmy.tga",       0.5 );
   make_image_conversion<        cmyk_t,      hsv_t >( "./conv/hsv2cmyk.tga",      0.5 );
   make_image_conversion<        gray_t,      hsv_t >( "./conv/hsv2gray.tga",      0.5 );
@@ -290,6 +313,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,       hsv_t >( "./conv/hsv2xyz.tga",       0.5 );
   make_image_conversion<        lab_t,       hsv_t >( "./conv/hsv2lab.tga",       0.5 );
 
+  make_image_conversion<         bgr_t,    YCgCo_t >( "./conv/YCgCo2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,    YCgCo_t >( "./conv/YCgCo2cmy.tga",      0.5 );
   make_image_conversion<        cmyk_t,    YCgCo_t >( "./conv/YCgCo2cmyk.tga",     0.5 );
   make_image_conversion<        gray_t,    YCgCo_t >( "./conv/YCgCo2gray.tga",     0.5 );
@@ -305,6 +329,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,     YCgCo_t >( "./conv/YCgCo2xyz.tga",      0.5 );
   make_image_conversion<        lab_t,     YCgCo_t >( "./conv/YCgCo2lab.tga",      0.5 );
 
+  make_image_conversion<         bgr_t,    YDbDr_t >( "./conv/YDbDr2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,    YDbDr_t >( "./conv/YDbDr2cmy.tga",      0.5 );
   make_image_conversion<        cmyk_t,    YDbDr_t >( "./conv/YDbDr2cmyk.tga",     0.5 );
   make_image_conversion<        gray_t,    YDbDr_t >( "./conv/YDbDr2gray.tga",     0.5 );
@@ -320,6 +345,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,     YDbDr_t >( "./conv/YDbDr2xyz.tga",      0.5 );
   make_image_conversion<        lab_t,     YDbDr_t >( "./conv/YDbDr2lab.tga",       0.5 );
 
+  make_image_conversion<         bgr_t,      yiq_t >( "./conv/yiq2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,      yiq_t >( "./conv/yiq2cmy.tga",        0.5 );
   make_image_conversion<        cmyk_t,      yiq_t >( "./conv/yiq2cmyk.tga",       0.5 );
   make_image_conversion<        gray_t,      yiq_t >( "./conv/yiq2gray.tga",       0.5 );
@@ -336,6 +362,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,       yiq_t >( "./conv/yiq2xyz.tga",        0.5 );
   make_image_conversion<        lab_t,       yiq_t >( "./conv/yiq2lab.tga",       0.5 );
 
+  make_image_conversion<         bgr_t, YPbPr709_t >( "./conv/YPbPr709_2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t, YPbPr709_t >( "./conv/YPbPr709_2cmy.tga",      0.5 );
   make_image_conversion<        cmyk_t, YPbPr709_t >( "./conv/YPbPr709_2cmyk.tga",     0.5 );
   make_image_conversion<        gray_t, YPbPr709_t >( "./conv/YPbPr709_2gray.tga",     0.5 );
@@ -351,6 +378,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,  YPbPr709_t >( "./conv/YPbPr709_2xyz.tga",      0.5 );
   make_image_conversion<        lab_t,  YPbPr709_t >( "./conv/YPbPr709_2lab.tga",       0.5 );
 
+  make_image_conversion<         bgr_t,   yuv601_t >( "./conv/yuv601_2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,   yuv601_t >( "./conv/yuv601_2cmy.tga",        0.5 );
   make_image_conversion<        cmyk_t,   yuv601_t >( "./conv/yuv601_2cmyk.tga",       0.5 );
   make_image_conversion<        gray_t,   yuv601_t >( "./conv/yuv601_2gray.tga",       0.5 );
@@ -367,7 +395,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,    yuv601_t >( "./conv/yuv601_2xyz.tga",        0.5 );
   make_image_conversion<        lab_t,    yuv601_t >( "./conv/yuv601_2lab.tga",       0.5 );
 
-
+  make_image_conversion<         bgr_t,   yuv709_t >( "./conv/yuv709_2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,   yuv709_t >( "./conv/yuv709_2cmy.tga",        0.5 );
   make_image_conversion<        cmyk_t,   yuv709_t >( "./conv/yuv709_2cmyk.tga",       0.5 );
   make_image_conversion<        gray_t,   yuv709_t >( "./conv/yuv709_2gray.tga",       0.5 );
@@ -384,6 +412,7 @@ void image_conversion()
   make_image_conversion<        xyz_t,    yuv709_t >( "./conv/yuv709_2xyz.tga",        0.5 );
   make_image_conversion<        lab_t,    yuv709_t >( "./conv/yuv709_2lab.tga",       0.5 );
 
+  make_image_conversion<         bgr_t,      xyz_t >( "./conv/xyz2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,      xyz_t >( "./conv/xyz2cmy.tga",            0.5 );
   make_image_conversion<        cmyk_t,      xyz_t >( "./conv/xyz2cmyk.tga",           0.5 );
   make_image_conversion<        gray_t,      xyz_t >( "./conv/xyz2gray.tga",           0.5 );
@@ -399,7 +428,7 @@ void image_conversion()
   make_image_conversion<         xyz_t,      xyz_t >( "./conv/xyz2xyz.tga",            0.5 );
   make_image_conversion<        lab_t,       xyz_t >( "./conv/xyz2lab.tga",            0.5 );
 
-
+  make_image_conversion<         bgr_t,      lab_t >( "./conv/lab2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,      lab_t >( "./conv/lab2cmy.tga",            0.5 );
   make_image_conversion<        cmyk_t,      lab_t >( "./conv/lab2cmyk.tga",           0.5 );
   make_image_conversion<        gray_t,      lab_t >( "./conv/lab2gray.tga",           0.5 );
@@ -414,6 +443,4 @@ void image_conversion()
   make_image_conversion<      yuv709_t,      lab_t >( "./conv/lab2yuv709.tga",         0.5 );
   make_image_conversion<         xyz_t,      lab_t >( "./conv/lab2xyz.tga",            0.5 );
   make_image_conversion<         lab_t,      lab_t >( "./conv/lab2lab.tga",            0.5 );
-
-
  }

@@ -80,15 +80,16 @@ int decompose_test( int argc, char const *argv[] )
   int width=1600;
   int height=1195;
 
+
   decompose< ::color::gray<double>  >( image, "./dec/gray", width, height );
 
   decompose< ::color::rgb<double>   >( image, "./dec/rgb", width, height );
   decompose< ::color::cmy<double>   >( image, "./dec/cmy", width, height );
   decompose< ::color::cmyk<double>  >( image, "./dec/cmyk", width, height );
 
-  decompose< ::color::hsv<double>   >( image, "./dec/hsv", width, height, ::color::hsv<double>{ 0, 0.5, 0.5 } );
-  decompose< ::color::hsl<double>   >( image, "./dec/hsl", width, height, ::color::hsl<double>{ 0, 0.5, 0.5 } );
-  decompose< ::color::hsi<double>   >( image, "./dec/hsi", width, height, ::color::hsi<double>{ 0, 0.5, 0.5 } );
+  decompose< ::color::hsv<double>   >( image, "./dec/hsv", width, height, ::color::hsv<double>{ 0, 100, 100 } );
+  decompose< ::color::hsl<double>   >( image, "./dec/hsl", width, height, ::color::hsl<double>{ 0, 100, 100 } );
+  decompose< ::color::hsi<double>   >( image, "./dec/hsi", width, height, ::color::hsi<double>{ 0, 100, 100 } );
 
   decompose< ::color::yiq<double>   >( image, "./dec/yiq", width, height );
   
