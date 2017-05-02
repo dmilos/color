@@ -39,7 +39,6 @@ int main( int argc, char *argv[] )
   int height = targa_get_width(  header_left );
   int width  = targa_get_height( header_left );
 
-
   bgr_image_type difference;
 
   bgr_color_type max = ::color::constant::black_t{};
@@ -49,19 +48,25 @@ int main( int argc, char *argv[] )
   for(int y=0; y< height; y++)
    for(int x=0; x< width; x++)
     {
-     difference[ y*width+x][0] = fabs( (int)left_data[ y*width+x][0] - (int)right_data[ y*width+x][0]);
-     difference[ y*width+x][1] = fabs( (int)left_data[ y*width+x][1] - (int)right_data[ y*width+x][1]);
-     difference[ y*width+x][2] = fabs( (int)left_data[ y*width+x][2] - (int)right_data[ y*width+x][2]);
+     ::color::operation::delta( difference[ y*width+x], left_data[ y*width+x], right_data[ y*width+x] );
 
      max[0] = std::max( max[0], difference[ y*width+x][0] );
      max[1] = std::max( max[1], difference[ y*width+x][1] );
      max[2] = std::max( max[2], difference[ y*width+x][2] );
     }
+
   std::cout << "R:" << (int)max[0] << "; G:" << (int)max[1] << "; B:" << (int)max[2] << std::endl;
 
-  if( 0 ==max[0] )  max[0] = 255;
-  if( 0 ==max[1] )  max[1] = 255;
-  if( 0 ==max[2] )  max[2] = 255;
+  if( 0 == max[0] )  max[0] = 255;
+  if( 0 == max[1] )  max[1] = 255;
+  if( 0 == max[2] )  max[2] = 255;
+
+  /*std::for_each( difference.begin(), difference.end(), [&max]( bgr_color_type & d )
+    {
+     d[0] *= 255/max[0];
+     d[1] *= 255/max[1];
+     d[2] *= 255/max[2];
+    } );*/
 
   for(int y=0; y< height; y++)
    for(int x=0; x< width; x++)

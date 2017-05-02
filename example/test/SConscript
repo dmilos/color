@@ -67,11 +67,17 @@ source_tc +=   [
 
 source_allrgb = []
 source_allrgb +=   [
-     envObject.StaticObject( target =  os.path.join( directory_obj, 'allrgb'  ) + envObject[ 'OBJSUFFIX' ],  source = './allrgb.cpp'         )
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'allrgb'  ) + envObject[ 'OBJSUFFIX' ],  source = './allrgb.cpp'     )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'image'   ) + envObject[ 'OBJSUFFIX' ],  source = './image.cpp'      )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'   ) + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp'      )
     ]
 
+source_allgray = []
+source_allgray +=   [
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'allgray' ) + envObject[ 'OBJSUFFIX' ],  source = './allgray.cpp'   )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'image'   ) + envObject[ 'OBJSUFFIX' ],  source = './image.cpp'      )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'   ) + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp'      )
+    ]
 # Make native environment
 envProgram = nucleotide.Environment( settings ).native()
 
@@ -84,5 +90,8 @@ program_tc = envProgram.Program( target =  directory_exe+ 'tc' + envProgram['PRO
 # Create program
 program_allrgb = envProgram.Program( target =  directory_exe+ 'allrgb' + envProgram['PROGSUFFIX'], source = source_allrgb )
 
+# Create program
+program_allgray = envProgram.Program( target =  directory_exe+ 'allgray' + envProgram['PROGSUFFIX'], source = source_allgray )
+
 # ... and return!
-Return(  'program_tc', 'program', 'program_allrgb' )
+Return(  'program_tc', 'program', 'program_allrgb', 'program_allgray' )

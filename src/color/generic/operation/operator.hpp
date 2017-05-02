@@ -86,7 +86,6 @@
           return result;
          }
 
-
        template< typename category_name, typename scalar_name >
         inline
         ::color::model< category_name > &
@@ -96,13 +95,12 @@
           return result;
          }
 
-
        template< typename category_name, typename scalar_name >
         inline
        ::color::model< category_name > &
         operator *=( ::color::model< category_name > & result, scalar_name const&  scalar )
          {
-         ::color::operation::scale( result, scalar );
+          ::color::operation::scale( result, scalar );
           return result;
          }
 
@@ -111,7 +109,7 @@
        ::color::model< category_name > &
         operator /=( ::color::model< category_name > & result, scalar_name const&  scalar )
          {
-         ::color::operation::scale( result, scalar_name(1) / scalar );
+          ::color::operation::scale( result, scalar_name(1) / scalar );
           return result;
          }
 

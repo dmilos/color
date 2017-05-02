@@ -59,10 +59,26 @@ void init( bgr_image_type &image )
      {
       for( int b=0; b< 256; b += 16 )
        {
-        image.push_back( {(std::uint8_t)b,(std::uint8_t)g,(std::uint8_t)r} );
+        image.push_back( bgr_color_type{(std::uint8_t)b,(std::uint8_t)g,(std::uint8_t)r} );
        }
      }
    }
+ }
+
+void initX( bgr_image_type &image )
+ {
+  image.reserve(4096*4096);
+  for( int y=0; y < 4096; ++y )
+   {
+    for( int x=0; x < 4096; ++x )
+     {
+      bgr_color_type c;
+      c[0] = y/16;
+      c[1] = x/16;
+      c[2] = (x%16) + 16*(y%16);
+      image.push_back( c );
+     }
+  }
  }
 
 void fix_blue( bgr_image_type &image )
@@ -259,15 +275,17 @@ double dispersion( bgr_image_type const& image, int x, int y )
   bgr_color_type const& c = pixel( image, x, y );
 
   summae += ::color::operation::distance( c, pixel( image, x-1, y-1 ) );
-  summae += ::color::operation::distance( c, pixel( image, x  , y-1 ) );
-  summae += ::color::operation::distance( c, pixel( image, x+1, y-1 ) );
-  summae += ::color::operation::distance( c, pixel( image, x  , y   ) );
-
-  summae += ::color::operation::distance( c, pixel( image, x+1, y   ) );
-
+  summae += ::color::operation::distance( c, pixel( image, x-1, y   ) );
   summae += ::color::operation::distance( c, pixel( image, x-1, y+1 ) );
+
+  summae += ::color::operation::distance( c, pixel( image, x  , y-1 ) );
+
   summae += ::color::operation::distance( c, pixel( image, x  , y+1 ) );
+
   summae += ::color::operation::distance( c, pixel( image, x+1, y+1 ) );
+  summae += ::color::operation::distance( c, pixel( image, x+1, y   ) );
+  summae += ::color::operation::distance( c, pixel( image, x+1, y-1 ) );
+
 
   return summae/8;
  }
@@ -277,27 +295,35 @@ double dispersion( bgr_image_type const&image, bgr_color_type const&c, int x, in
   double summae=0;
 
   summae += ::color::operation::distance( c, pixel( image, x-1, y-1 ) );
-  summae += ::color::operation::distance( c, pixel( image, x  , y-1 ) );
-  summae += ::color::operation::distance( c, pixel( image, x+1, y-1 ) );
-  summae += ::color::operation::distance( c, pixel( image, x  , y   ) );
-  
-  summae += ::color::operation::distance( c, pixel( image, x+1, y   ) );
-  
+  summae += ::color::operation::distance( c, pixel( image, x-1, y   ) );
   summae += ::color::operation::distance( c, pixel( image, x-1, y+1 ) );
+
+  summae += ::color::operation::distance( c, pixel( image, x  , y-1 ) );
+
   summae += ::color::operation::distance( c, pixel( image, x  , y+1 ) );
+  
+  summae += ::color::operation::distance( c, pixel( image, x+1, y-1 ) );
+  summae += ::color::operation::distance( c, pixel( image, x+1, y   ) );
   summae += ::color::operation::distance( c, pixel( image, x+1, y+1 ) );
 
   return summae/8;
  }
 
 
-void fix_pair( bgr_image_type &image, int x0, int y0, int x1, int y1 )
+bool fix_pair( bgr_image_type &image, int x0, int y0, int x1, int y1 )
  {
   auto d0o = dispersion( image, x0, y0 );
   auto d1o = dispersion( image, x1, y1 );
   auto d0a = dispersion( image, pixel( image, x1, y1 ), x0, y0 );
   auto d1a = dispersion( image, pixel( image, x0, y0 ), x1, y1 );
 
+  if( ( d0a < d0o ) && ( d1a < d1o ) )
+   {
+    std::swap( pixel( image, x0, y0 ), pixel( image, x1, y1 ) );
+    return true;
+   }
+
+  return false;
   if( (d0a + d1a) < ( d0o + d1o ) )
    {
     std::swap( pixel( image, x0, y0 ), pixel( image, x1, y1 ) );
@@ -306,11 +332,17 @@ void fix_pair( bgr_image_type &image, int x0, int y0, int x1, int y1 )
 
 void fix_dispersion( bgr_image_type &image )
  {
-  for( int y=0; y< g_size; y++ )
-   for( int x=0; x< g_size; x++ )
-   {
-    fix_pair( image, x, y, rand()%(g_size-2)+1, rand()%(g_size-2)+1 );
-   }
+  for( int y=0; y < g_size; y++ )
+   for( int x=0; x < g_size; x++ )
+    {
+     for( int i=0; i< 100; ++i )
+      {
+       if( true == fix_pair( image, x, y, rand()%(g_size-2)+1, rand()%(g_size-2)+1 ) ) 
+        {
+         break;
+        }
+      }
+    }
  }
 
 void fix_dispersionX( bgr_image_type &image )
@@ -327,7 +359,7 @@ void fix_dispersionX( bgr_image_type &image )
         auto d0a = dispersion( image, pixel( image, x1, y1 ), x0, y0 );
         auto d1a = dispersion( image, pixel( image, x0, y0 ), x1, y1 );
 
-        if( (d0a + d1a) < ( d0o + d1o ) )
+        if( ( d0a < d0o ) && ( d1a < d1o ) ) //if( (d0a + d1a) < ( d0o + d1o ) )
          {
           std::swap( pixel( image, x0, y0 ), pixel( image, x1, y1 ) );
          }
@@ -341,16 +373,16 @@ int main( int argc, char const *argv[] )
  {
   bgr_image_type image;
 
-  init( image );
+  initX( image ); save_image24( "allrgb_originalX.tga",  image, 4096, 4096 );
+  return 0;
   save_image24( "allrgb_original.tga",  image, g_size, g_size );
-
   for( int iteration=0; iteration< 1000; ++iteration )
    {
-    //if( 0 == ( iteration % 10 ) )
+    if( 0 == ( iteration % 10 ) )
      {
       fix_blue( image );  fix_green( image ); 
       fix_blue( image );  fix_green( image ); 
-      fix_red( image );
+      //fix_red( image );
 
       //for( int i2 = 0; i2 < 30; ++i2 )
        {
@@ -360,11 +392,11 @@ int main( int argc, char const *argv[] )
        }
      }
 
-    sort_red( image ); //save_image24(  "allrgb_"+std::to_string( iteration )+"-2-sort.tga", image, g_size, g_size );
+    //sort_red( image ); //save_image24(  "allrgb_"+std::to_string( iteration )+"-2-sort.tga", image, g_size, g_size );
     sort_blue( image );  //save_image24(  "allrgb_"+std::to_string( iteration )+"-0-sort.tga",  image, g_size, g_size );
     sort_green( image );  //save_image24(  "allrgb_"+std::to_string( iteration )+"-1-sort.tga", image, g_size, g_size );
 
-    for( int i3 = 0; i3 < 3000; ++i3 ) 
+    for( int i3 = 0; i3 < 100; ++i3 ) 
      {
       fix_dispersion( image );
      }
