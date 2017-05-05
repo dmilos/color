@@ -61,7 +61,7 @@ namespace color
            scalar_type value =
                  gray_const_type::Rc() * valueR
                + gray_const_type::Gc() * valueG
-               + gray_const_type::Bc() * valueB ;
+               + gray_const_type::Bc() * valueB;
 
            container_left_trait_type::template set<0>( left,  diverse_type::template process<0>( value ) );
           }

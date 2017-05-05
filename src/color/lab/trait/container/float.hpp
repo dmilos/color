@@ -16,19 +16,19 @@ namespace color
 
     template< >
      struct container< ::color::category::lab_float >
-      : public  ::color::_internal::utility::container::array< float, 3 >
+      : public ::color::_internal::utility::container::array< float, 3 >
       {
       };
 
     template< >
      struct container< ::color::category::lab_double >
-      : public  ::color::_internal::utility::container::array< double, 3 >
+      : public ::color::_internal::utility::container::array< double, 3 >
       {
       };
 
     template< >
      struct container< ::color::category::lab_ldouble >
-      : public  ::color::_internal::utility::container::array< long double, 3 >
+      : public ::color::_internal::utility::container::array< long double, 3 >
       {
       };
 

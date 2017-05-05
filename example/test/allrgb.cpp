@@ -19,7 +19,7 @@ template < typename color_model >
    color_model r; r= right;
    color_model d; ::color::operation::delta(d,l,r);
    typedef color::trait::bound<typename color_model::category_type > bound_type;
-   return sqrt( d[0]*d[0] +  d[1]*d[1]  + d[2]*d[2] )/ sqrt( bound_type::range<0>()*bound_type::range<0>() + bound_type::range<1>()*bound_type::range<1>() + bound_type::range<2>()*bound_type::range<2>() ) ;
+   return sqrt( d[0]*d[0] +  d[1]*d[1]  + d[2]*d[2] )/ sqrt( bound_type::template range<0>()*bound_type::template range<0>() + bound_type::template range<1>()*bound_type::template range<1>() + bound_type::template range<2>()*bound_type::template range<2>() ) ;
   }
 
 template <  >
@@ -218,7 +218,7 @@ void calc()
 
   std::sort( pallete.begin(), pallete.end(), []( bgr_color_type const& left, bgr_color_type const& right )->bool
    {
-    typedef ::color::gray<double> color_t;
+    typedef ::color::hsi<double> color_t;
     color_t  l; l= left;
     color_t  r; r= right;
     if( l < r ) return true;

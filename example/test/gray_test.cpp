@@ -193,8 +193,8 @@ int gray_test( int argc, char const *argv[] )
   make_gray_satur_hsl(  gray, image ); save_image_gray( "./gray/satur-hsl.tga",    gray, 1600, 1195 );
   make_gray_intens_hsi( gray, image ); save_image_gray( "./gray/satur-hsi.tga",    gray, 1600, 1195 );
 
-  make_gray_xyz( gray, image );        save_image_gray( "./gray/xyz-Y.tga",        gray, 1600, 1195 );
-  make_gray_lab( gray, image );        save_image_gray( "./gray/lab-L.tga",        gray, 1600, 1195 );
+  make_gray_xyz( gray, image );        save_image_gray( "./gray/xyz-y.tga",        gray, 1600, 1195 );
+  make_gray_lab( gray, image );        save_image_gray( "./gray/lab-l.tga",        gray, 1600, 1195 );
 
   make_gray_YPbPr<::color::constant::YPbPr::BT_601_entity>(  gray, image );  save_image_gray( "./gray/YPbPr601-y.tga",     gray, 1600, 1195 );
   make_gray_YPbPr<::color::constant::YPbPr::BT_709_entity>(  gray, image );  save_image_gray( "./gray/YPbPr709-y.tga",     gray, 1600, 1195 );

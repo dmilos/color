@@ -13,7 +13,7 @@
 
 using namespace std;
 
-void load_image( bgr_image_type & image, std::string const& name )
+void load_image( bgr_image_type & image, int &width, int &height, std::string const& name )
  {
   std::ifstream ifs( name.c_str(), std::ios_base::binary );
 
@@ -25,8 +25,8 @@ void load_image( bgr_image_type & image, std::string const& name )
 
   ifs.read( (char*)header, 18 );
 
-  std::size_t width  = targa_get_width( header );
-  std::size_t height = targa_get_height( header );
+              width  = targa_get_width( header );
+              height = targa_get_height( header );
   std::size_t depth  = targa_get_depth( header );
 
   image.resize( width * height );
@@ -75,11 +75,9 @@ template< typename color_model >
 int decompose_test( int argc, char const *argv[] )
  {
   bgr_image_type image;
-  load_image( image, "../data/Barns_grand_tetons.tga" );
-
-  int width=1600;
-  int height=1195;
-
+  int width=1000;
+  int height=1000;
+  load_image( image, width, height, "../data/hsl-1-100.tga" );
 
   decompose< ::color::cmyk<double>  >( image, "./dec/cmyk", width, height, ::color::constant::white_t{} );
 
