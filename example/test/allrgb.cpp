@@ -3,259 +3,103 @@
 #include <typeinfo>
 #include <string>
 #include <iomanip>
+#include <deque>
 
 #include "color/color.hpp"
 #include "./targa.hpp"
 #include "./image.hpp"
 
+typedef std::array<  int, 2 > point_type;
+typedef std::vector< bool > mask_type;
 
-
-template< typename color_model >
- void
- decompose
-  (
-    bgr_image_type const& image
-   ,std::string const& name
-   ,std::size_t const& width, std::size_t const& height
-   ,color_model const& fixed = color_model{ ::color::constant::black_t{} }
-  )
+template < typename color_model >
+ double distance( bgr_color_type const& left, bgr_color_type const& right )
   {
-   bgr_image_type  component;
-
-   for( int channel=0; channel< color_model::size(); ++channel )
-    {
-     component.clear();
-     component.reserve( image.size() );
-     for( auto & original : image )
-      {
-       color_model            other( original );
-
-       for( int sub = 0; sub < color_model::size(); ++sub )
-        {
-         if( sub != channel )
-          {
-           other[sub] = fixed[sub];
-          }
-        }
-
-       bgr_image_type::value_type back( other );
-       ::color::fix::overburn( back );
-       component.push_back( back );
-      }
-      save_image24( name+ "-" + std::to_string( channel ) + ".tga", component, width, height );
-    }
-
-   return ;
+   color_model l; l= left;
+   color_model r; r= right;
+   color_model d; ::color::operation::delta(d,l,r);
+   typedef color::trait::bound<typename color_model::category_type > bound_type;
+   return sqrt( d[0]*d[0] +  d[1]*d[1]  + d[2]*d[2] )/ sqrt( bound_type::range<0>()*bound_type::range<0>() + bound_type::range<1>()*bound_type::range<1>() + bound_type::range<2>()*bound_type::range<2>() ) ;
   }
 
-int g_size  = 64;
+template <  >
+ double distance< ::color::gray<double > >( bgr_color_type const& left, bgr_color_type const& right )
+  {
+   ::color::gray<double>  l; l= left;
+   ::color::gray<double>  r; r= right;
+   ::color::gray<double>  d; ::color::operation::delta(d,l,r);
+   return sqrt( d[0]*d[0] );
+  }
 
-void init( bgr_image_type &image )
+double distance( bgr_color_type const& left, bgr_color_type const& right )
  {
-  image.reserve( g_size * g_size );
-  for( int r=0; r< 256; r += 16 )
+  double max = 0;
+  double m;
+
+  //m = distance<  ::color::cmyk<double > >( left, right );  if( max < m ) max = m;
+  m = distance<  ::color::gray<double > >( left, right );  if( max < m ) max = m;
+  //m = distance<  ::color::rgb<double >  >( left, right );  if( max < m ) max = m;
+
+  //m = distance<  ::color::hsi<double > >( left, right );  if( max < m ) max = m;
+  //m = distance<  ::color::hsl<double > >( left, right );  if( max < m ) max = m;
+  //m = distance<  ::color::hsv<double > >( left, right );  if( max < m ) max = m;
+  //
+  //m = distance<  ::color::YCgCo<double >  >( left, right );  if( max < m ) max = m;
+  //m = distance<  ::color::YDbDr<double > >( left, right );  if( max < m ) max = m;
+  //m = distance<  ::color::yiq<double > >( left, right );  if( max < m ) max = m;
+  //m = distance<  ::color::YPbPr<double >  >( left, right );  if( max < m ) max = m;
+  //m = distance<  ::color::yuv<double > >( left, right );  if( max < m ) max = m;
+
+ // m = distance<  ::color::xyz<double > >( left, right );  if( max < m ) max = m;
+  //m = distance<  ::color::lab<double > >( left, right );  if( max < m ) max = m;
+
+  return max ;
+ }
+
+int g_size = 4096;
+
+void init( bgr_image_type &image, bgr_image_type &pallete, mask_type & mask )
+ {
+  image.resize( g_size * g_size, ::color::constant::black_t{} );
+  pallete.reserve( g_size * g_size );
+  mask.reserve( g_size * g_size );
+  for( int r=0; r< 256; r += 1 )
    {
-    for( int g=0; g< 256; g += 16 )
+    for( int g=0; g< 256; g += 1 )
      {
-      for( int b=0; b< 256; b += 16 )
+      for( int b=0; b< 256; b += 1 )
        {
-        image.push_back( bgr_color_type{(std::uint8_t)b,(std::uint8_t)g,(std::uint8_t)r} );
+        pallete.push_back( bgr_color_type{ (std::uint8_t)b,(std::uint8_t)g,(std::uint8_t)r} );
+        mask.push_back( false );
        }
      }
    }
  }
 
+
+#define VALUEU(x,y,s)    (((x)+(y))*((x)+(y)+1)/2 + (x))
+#define VALUED(x,y,s)    ((s)*(s) -  VALUEU((s)-(x)-1,(s)-(y)-1,(s)) - 1 )
+#define VALUEx(x,y,s)   ( ( (x)+(y)  )< (s) ? VALUEU(x,y,s) : VALUED(x,y,s) )
+
 void initX( bgr_image_type &image )
  {
-  image.reserve(4096*4096);
-  for( int y=0; y < 4096; ++y )
+  image.reserve(g_size*g_size);
+  for( int y=0; y < g_size; ++y )
    {
-    for( int x=0; x < 4096; ++x )
+    for( int x=0; x < g_size; ++x )
      {
       bgr_color_type c;
       c[0] = y/16;
       c[1] = x/16;
-      c[2] = (x%16) + 16*(y%16);
+      {
+       int x1 = (x%16); if( 1 == ((x/16)%2) ) x1 = 15-x1;
+       int y1 = (y%16); if( 1 == ((y/16)%2) ) y1 = 15-y1;
+       c[2] = VALUEx( (x1), (y1), 16 );
+      }
       image.push_back( c );
      }
   }
  }
-
-void fix_blue( bgr_image_type &image )
- {
-  int start=0;
-
-  for( int y=0; y < g_size; y++)
-   {
-    for( int x=0; x < g_size/2; x++)
-     {
-      if( image[ y*g_size + x ].get<0>() < 128 )
-       {
-        continue;
-       }
-
-      for( int sub_y=start; sub_y < g_size; sub_y++)
-       {
-        for( int sub_x=g_size/2; sub_x < g_size; sub_x++ )
-         {
-          if( 127 < image[ sub_y*g_size + sub_x ].get<0>()  )
-           {
-            continue;
-           }
-          std::swap( image[ y*g_size + x  ], image[ sub_y*g_size + sub_x ] );
-          start = sub_y;
-          goto l_next;
-         }
-       }
-       l_next:;
-
-     }
-   }
- }
-
-void sort_blue( bgr_image_type &image )
- {
-  for( int row=0; row< g_size; row++)
-   {
-    sort( image.begin() + g_size*row, image.begin() + g_size*row + g_size, []( bgr_color_type const&l, bgr_color_type const&r )
-     {
-      return l.get<0>() < r.get<0>();
-      if( l.get<0>() != r.get<0>() ) return l.get<0>() < r.get<0>();
-      if( l.get<1>() != r.get<1>() ) return l.get<1>() < r.get<1>();
-      return l.get<2>() < r.get<2>();
-     }  );
-   }
- }
-
-void fix_green( bgr_image_type &image )
- {
-  int start=g_size*( g_size /2 );
-
-  for( long index=0; index < g_size*( g_size /2 ); index++)
-   {
-    if( image[ index ].get<1>() < 128 )
-     {
-      continue;
-     }
-    for( long sub = start; sub < g_size * g_size ; sub++)
-     {
-      if( 127 < image[ sub ].get<1>()  )
-       {
-        continue;
-       }
-      std::swap( image[index], image[sub] );
-      start = sub;
-      break;
-     }
-   }
- }
-
-
-void sort_green( bgr_image_type &image )
- {
-  std::vector< bgr_color_type >spaghetti;
-  spaghetti.resize( g_size );
-  for( int column=0; column< g_size; column++)
-   {
-    for( int row=0; row< g_size; row++)
-     {
-      spaghetti[ row ] = image[ row*g_size + column ];
-     }
-    sort( spaghetti.begin(), spaghetti.end(), []( bgr_color_type const&l, bgr_color_type const&r )
-     {
-      return l.get<1>() < r.get<1>();
-      if( l.get<1>() != r.get<1>() ) return l.get<1>() < r.get<1>();
-      if( l.get<0>() != r.get<0>() ) return l.get<0>() < r.get<0>(); 
-      return l.get<2>() < r.get<2>();
-     }  );
-    for( int row=0; row< g_size; row++)
-     {
-      image[ row*g_size + column ]=spaghetti[ row ];
-     }
-   }
- }
-
-
-void fix_red( bgr_image_type &image )
- {
-  int start = 0;
-  for( int y = 0; y < g_size; y++ )
-   {
-    for( int x = 0; x < g_size-y; x++ )
-     {
-      if( image[ y*g_size + x ].get<2>() < 128 )
-       {
-        continue;
-       }
-
-     for( int sub_y = start; sub_y < g_size; sub_y++ )
-      {
-       for( int sub_x = g_size-sub_y; sub_x < g_size ; sub_x++ )
-        {
-         if( 127 < image[ sub_y*g_size + sub_x ].get<2>() )
-          {
-           continue;
-          }
-         std::swap( image[ y*g_size + x  ], image[ sub_y*g_size + sub_x ] );
-         start = sub_y;
-         goto l_next;
-        }
-      }
-      l_next:;
-     }
-   }
- }
-
-void sort_red( bgr_image_type &image )
- {
-  std::vector< bgr_color_type >spaghetti;
-
-  for( int pivot = 0; pivot < g_size; pivot++)
-   {
-    spaghetti.resize( g_size - pivot );
-    for( int diagonal=0; diagonal < g_size-pivot; diagonal ++)
-     {
-      spaghetti[diagonal] = image[ diagonal*g_size + pivot + diagonal ];
-     }
-
-    sort( spaghetti.begin(), spaghetti.end(), []( bgr_color_type const&l, bgr_color_type const&r )
-     {
-      return l.get<2>() < r.get<2>(); 
-      if( l.get<2>() != r.get<2>() ) return l.get<2>() < r.get<2>(); 
-      if( l.get<1>() != r.get<1>() ) return l.get<1>() < r.get<1>();
-      return l.get<0>() < r.get<0>();
-      }  );
-
-    for( int diagonal=0; diagonal < g_size-pivot; diagonal ++)
-     {
-      image[ diagonal*g_size + pivot + diagonal ] = spaghetti[diagonal];
-     }
-   }
-
-  for( int pivot = 0; pivot < g_size; pivot++)
-   {
-    spaghetti.resize( g_size - pivot );
-    for( int diagonal=0; diagonal < g_size-pivot; diagonal ++)
-     {
-      spaghetti[diagonal] = image[ (diagonal+pivot)*g_size + diagonal ];
-     }
-
-    sort( spaghetti.begin(), spaghetti.end(), []( bgr_color_type const&l, bgr_color_type const&r )
-     {
-      return l.get<2>() < r.get<2>(); 
-      if( l.get<2>() != r.get<2>() ) return l.get<2>() < r.get<2>(); 
-      if( l.get<1>() != r.get<1>() ) return l.get<1>() < r.get<1>();
-      return l.get<0>() < r.get<0>();
-      }  );
-
-    for( int diagonal=0; diagonal < g_size-pivot; diagonal ++)
-     {
-      image[ (diagonal+pivot)*g_size + diagonal ] = spaghetti[diagonal];
-     }
-   }
-
- }
-
 
 bgr_color_type const& pixel( bgr_image_type const& image, int x, int y )
  {
@@ -268,148 +112,190 @@ bgr_color_type & pixel( bgr_image_type & image, int x, int y )
  }
 
 
-double dispersion( bgr_image_type const& image, int x, int y )
+bgr_color_type const& pixel( bgr_image_type const& image, point_type const& point )
  {
-  double summae=0;
-
-  bgr_color_type const& c = pixel( image, x, y );
-
-  summae += ::color::operation::distance( c, pixel( image, x-1, y-1 ) );
-  summae += ::color::operation::distance( c, pixel( image, x-1, y   ) );
-  summae += ::color::operation::distance( c, pixel( image, x-1, y+1 ) );
-
-  summae += ::color::operation::distance( c, pixel( image, x  , y-1 ) );
-
-  summae += ::color::operation::distance( c, pixel( image, x  , y+1 ) );
-
-  summae += ::color::operation::distance( c, pixel( image, x+1, y+1 ) );
-  summae += ::color::operation::distance( c, pixel( image, x+1, y   ) );
-  summae += ::color::operation::distance( c, pixel( image, x+1, y-1 ) );
-
-
-  return summae/8;
+  return image[ point[1]*g_size + point[0]];
  }
 
-double dispersion( bgr_image_type const&image, bgr_color_type const&c, int x, int y )
+bgr_color_type & pixel( bgr_image_type & image, point_type const& point )
  {
-  double summae=0;
-
-  summae += ::color::operation::distance( c, pixel( image, x-1, y-1 ) );
-  summae += ::color::operation::distance( c, pixel( image, x-1, y   ) );
-  summae += ::color::operation::distance( c, pixel( image, x-1, y+1 ) );
-
-  summae += ::color::operation::distance( c, pixel( image, x  , y-1 ) );
-
-  summae += ::color::operation::distance( c, pixel( image, x  , y+1 ) );
-  
-  summae += ::color::operation::distance( c, pixel( image, x+1, y-1 ) );
-  summae += ::color::operation::distance( c, pixel( image, x+1, y   ) );
-  summae += ::color::operation::distance( c, pixel( image, x+1, y+1 ) );
-
-  return summae/8;
+  return image[ point[1]*g_size + point[0]];
  }
 
 
-bool fix_pair( bgr_image_type &image, int x0, int y0, int x1, int y1 )
+bool mask_pixel( mask_type const&  image, int x, int y )
  {
-  auto d0o = dispersion( image, x0, y0 );
-  auto d1o = dispersion( image, x1, y1 );
-  auto d0a = dispersion( image, pixel( image, x1, y1 ), x0, y0 );
-  auto d1a = dispersion( image, pixel( image, x0, y0 ), x1, y1 );
+  return image[ y*g_size + x];
+ }
 
-  if( ( d0a < d0o ) && ( d1a < d1o ) )
+void mask_set( mask_type & image, point_type const& point, bool const& value )
+ {
+  image[ point[1]*g_size + point[0] ] = value;
+ }
+ 
+bool search( point_type &point, bgr_image_type const& pallete, mask_type const& mask, bgr_image_type const& neighborhood )
+ {
+  bool have = false;
+  double minimal = 100000;
+  for( int y=0; y < g_size; ++y )
    {
-    std::swap( pixel( image, x0, y0 ), pixel( image, x1, y1 ) );
-    return true;
-   }
-
-  return false;
-  if( (d0a + d1a) < ( d0o + d1o ) )
-   {
-    std::swap( pixel( image, x0, y0 ), pixel( image, x1, y1 ) );
-   }
- }
-
-void fix_dispersion( bgr_image_type &image )
- {
-  for( int y=0; y < g_size; y++ )
-   for( int x=0; x < g_size; x++ )
-    {
-     for( int i=0; i< 100; ++i )
-      {
-       if( true == fix_pair( image, x, y, rand()%(g_size-2)+1, rand()%(g_size-2)+1 ) ) 
-        {
-         break;
-        }
-      }
-    }
- }
-
-void fix_dispersionX( bgr_image_type &image )
- {
-  for( int y0=0; y0< g_size; y0++ )
-   for( int x0=0; x0< g_size; x0++ )
-    {
-     auto d0o = dispersion( image, x0, y0 );
-
-     for( int y1=0; y1< g_size; y1++ )
-      for( int x1=0; x1< g_size; x1++ )
+    for( int x=0; x < g_size; ++x )
+     {
+      if( true == mask_pixel( mask, x, y ) )
        {
-        auto d1o = dispersion( image, x1, y1 );
-        auto d0a = dispersion( image, pixel( image, x1, y1 ), x0, y0 );
-        auto d1a = dispersion( image, pixel( image, x0, y0 ), x1, y1 );
-
-        if( ( d0a < d0o ) && ( d1a < d1o ) ) //if( (d0a + d1a) < ( d0o + d1o ) )
-         {
-          std::swap( pixel( image, x0, y0 ), pixel( image, x1, y1 ) );
-         }
-
+        continue;
        }
 
+      auto const& candidate = pixel( pallete, x, y );
+
+      double max = 0;
+      for( auto const& n: neighborhood )
+       {
+        auto m = distance( candidate, n );
+        if( max < m ) 
+         {
+          max = m;
+         }
+       }
+
+      if( max < minimal )
+       {
+        have  = true;
+        point[0] = x;
+        point[1] = y;
+        minimal = max;
+       }
     }
+  }
+  return have;
+ }
+
+void push( std::deque< point_type > &d, bgr_image_type const& image, point_type const& point )
+ {
+  if( point[0] < 0 ) return;
+  if( point[1] < 0 ) return;
+  if( g_size <= point[0] ) return;
+  if( g_size <= point[1] ) return;
+  if( ( 0 == point[0] ) && ( 0 ==point[1] ) ) return;
+
+  if( ::color::constant::black_t{} != pixel( image, point ) )
+   {
+    return;
+   }
+
+  d.push_back( point );
+ }
+
+void neighborhood( std::vector< bgr_color_type > &n, bgr_image_type const&image, point_type const& point )
+ {
+  if( point[0] < 0 ) return;
+  if( point[1] < 0 ) return;
+  if( g_size <= point[0] ) return;
+  if( g_size <= point[1] ) return;
+  if( ( 0 == point[0] ) && ( 0 ==point[1] ) )
+   {
+    n.push_back( pixel( image, point ) );
+    return;
+   }
+
+  if( ::color::constant::black_t{} == pixel( image, point ) )
+   {
+    return;
+   }
+  n.push_back( pixel( image, point ) );
+ }
+
+void calc()
+ {
+  bgr_image_type image, pallete;
+  std::vector<bgr_color_type> hood;
+
+  std::deque< point_type > deque;
+  mask_type mask;
+   point_type best, point;
+
+  init( image, pallete, mask ); save_image24( "allrgb_pallete.tga",  pallete, g_size, g_size );
+
+  std::sort( pallete.begin(), pallete.end(), []( bgr_color_type const& left, bgr_color_type const& right )->bool
+   {
+    typedef ::color::gray<double> color_t;
+    color_t  l; l= left;
+    color_t  r; r= right;
+    if( l < r ) return true;
+   
+    //if( l[1] < r[1] ) return true;
+    //if( l[1] == r[1] ) if( l[0] < r[0] ) return true;
+    //if( l[2] < r[2] ) return true;
+    return false;
+   }) ;
+
+  //std::for_each( pallete.begin(), pallete.end(), []( bgr_color_type & c )-> void
+  // {
+  //  ::color::gray<double> g; g = c;
+  //  c = g;
+  // } );
+
+  save_image24(  "allrgb_finale-gray_luminance_compress.tga", pallete, g_size, g_size );
+  return;
+
+  mask_set( mask, {0,0}, true );
+  pixel( image, {0,0} ) = ::color::constant::black_t{};
+
+  deque.push_back( { 0, 1}  );
+  deque.push_back( { 1, 0 } );
+
+  while( 0 != deque.size() )
+   {
+    point = deque.front();
+    deque.pop_front();
+    if( ::color::constant::black_t{} != pixel( image, point ) )
+     {
+      continue;
+     }
+
+    hood.clear();
+    neighborhood( hood, image, { point[0]-1, point[1]-1 } );
+    neighborhood( hood, image, { point[0]+0, point[1]-1 } );
+    neighborhood( hood, image, { point[0]+1, point[1]-1 } );
+
+    neighborhood( hood, image, { point[0]-1, point[1]   } );
+
+    neighborhood( hood, image, { point[0]+1, point[1]   } );
+
+    neighborhood( hood, image, { point[0]-1, point[1]+1 } );
+    neighborhood( hood, image, { point[0]+0, point[1]+1 } );
+    neighborhood( hood, image, { point[0]+1, point[1]+1 } );
+
+    if( false == search( best, pallete, mask, hood ) )
+     {
+      continue;
+     }
+
+    mask_set( mask, best, true );
+    pixel( image, point ) = pixel( pallete, best );
+
+    push( deque, image, { point[0]-1, point[1]-1 } );
+    push( deque, image, { point[0]+0, point[1]-1 } );
+    push( deque, image, { point[0]+1, point[1]-1 } );
+
+    push( deque, image, { point[0]-1, point[1]   } );
+
+    push( deque, image, { point[0]+1, point[1]   } );
+
+    push( deque, image, { point[0]-1, point[1]+1 } );
+    push( deque, image, { point[0]+0, point[1]+1 } );
+    push( deque, image, { point[0]+1, point[1]+1 } );
+
+    save_image24(  "allrgb_finale.tga", image, g_size, g_size );
+   }
+
+  save_image24(  "allrgb_finaleA.tga", image, g_size, g_size );
  }
 
 int main( int argc, char const *argv[] )
  {
-  bgr_image_type image;
 
-  initX( image ); save_image24( "allrgb_originalX.tga",  image, 4096, 4096 );
+  calc();
   return 0;
-  save_image24( "allrgb_original.tga",  image, g_size, g_size );
-  for( int iteration=0; iteration< 1000; ++iteration )
-   {
-    if( 0 == ( iteration % 10 ) )
-     {
-      fix_blue( image );  fix_green( image ); 
-      fix_blue( image );  fix_green( image ); 
-      //fix_red( image );
-
-      //for( int i2 = 0; i2 < 30; ++i2 )
-       {
-        //fix_blue( image );  //save_image24(  "allrgb_"+std::to_string( iteration )+"-"+std::to_string( i2 )+"-A-sort.tga",  image, g_size, g_size );
-        //fix_green( image ); //save_image24(  "allrgb_"+std::to_string( iteration )+"-"+std::to_string( i2 )+"-B-sort.tga",  image, g_size, g_size );
-        //fix_red( image );   //save_image24(  "allrgb_"+std::to_string( iteration )+"-"+std::to_string( i2 )+"-C-sort.tga",  image, g_size, g_size );
-       }
-     }
-
-    //sort_red( image ); //save_image24(  "allrgb_"+std::to_string( iteration )+"-2-sort.tga", image, g_size, g_size );
-    sort_blue( image );  //save_image24(  "allrgb_"+std::to_string( iteration )+"-0-sort.tga",  image, g_size, g_size );
-    sort_green( image );  //save_image24(  "allrgb_"+std::to_string( iteration )+"-1-sort.tga", image, g_size, g_size );
-
-    for( int i3 = 0; i3 < 100; ++i3 ) 
-     {
-      fix_dispersion( image );
-     }
-
-    if( 0 == ( iteration % 1 ) )
-     {
-      save_image24(  "allrgb_"+std::to_string( iteration )+"-end.tga",  image, g_size, g_size );
-     }
-
-   }
-
-   save_image24(  "allrgb_finale.tga", image, g_size, g_size );
-   decompose< ::color::rgb<double>  > ( image ,"allrgb_final_dec", g_size, g_size );
-
-  return 0;
+   
  }

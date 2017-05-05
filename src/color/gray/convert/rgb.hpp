@@ -54,11 +54,14 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
+           scalar_type valueR = normalize_type::template process<red_p  > ( container_right_trait_type::template get<red_p  >( right ) );
+           scalar_type valueG = normalize_type::template process<green_p> ( container_right_trait_type::template get<green_p>( right ) );
+           scalar_type valueB = normalize_type::template process<blue_p > ( container_right_trait_type::template get<blue_p >( right ) );
 
            scalar_type value =
-                 gray_const_type::Rc() * normalize_type::template process<red_p  > ( container_right_trait_type::template get<red_p  >( right ) )
-               + gray_const_type::Gc() * normalize_type::template process<green_p> ( container_right_trait_type::template get<green_p>( right ) )
-               + gray_const_type::Bc() * normalize_type::template process<blue_p > ( container_right_trait_type::template get<blue_p >( right ) );
+                 gray_const_type::Rc() * valueR
+               + gray_const_type::Gc() * valueG
+               + gray_const_type::Bc() * valueB ;
 
            container_left_trait_type::template set<0>( left,  diverse_type::template process<0>( value ) );
           }

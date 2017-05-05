@@ -1,23 +1,25 @@
-#ifndef color__internal_utility_bound_lab
-#define color__internal_utility_bound_lab
+#ifndef color__internal_lab_bound_scalar
+#define color__internal_lab_bound_scalar
 
-// ::color::_internal::utility::bound::lab_scalar< index_type, scalar_name >
+// ::color::_internal::lab::bound::scalar< index_type, scalar_name >
 
 
-#include "../type/traitp.hpp"
-#include "../type/index.hpp"
+#include "../../../_internal/utility/type/traitc.hpp"
+#include "../../../_internal/utility/type/index.hpp"
+
+
 
 namespace color
  {
   namespace _internal
    {
-    namespace utility
+    namespace lab
      {
       namespace bound
        {
 
         template< typename index_name, typename scalar_name >
-         struct lab_scalar // TODO
+         struct scalar // TODO
           {
            public:
              typedef scalar_name  scalar_type;

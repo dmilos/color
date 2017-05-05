@@ -31,9 +31,9 @@
          {
           return ::color::compare::great_or_equal( left, right );
          }
-      }
 
+      }
     }
- }
+  }
 
 #endif

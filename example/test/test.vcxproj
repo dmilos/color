@@ -1262,6 +1262,8 @@
     <ClInclude Include="..\..\src\color\_internal\utility\type\traitp.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="allgray.cpp" />
+    <ClCompile Include="allrgb.cpp" />
     <ClCompile Include="bound.cpp" />
     <ClCompile Include="constant.cpp" />
     <ClCompile Include="conversion.cpp" />
@@ -1316,7 +1318,7 @@
     <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=debug</NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)\out\bin-debug</OutDir>
     <IntDir>$(SolutionDir)\out\bin-debug</IntDir>
-    <NMakeOutput>$(SolutionDir)\out\allgray.exe</NMakeOutput>
+    <NMakeOutput>$(SolutionDir)\out\allrgb.exe</NMakeOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

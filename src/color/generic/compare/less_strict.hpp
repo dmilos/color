@@ -18,7 +18,7 @@
         ,::color::model< category_name >  const& right
        )
        {
-        return left.container() < right.container();
+        return left.container() <  right.container();
        }
 
      namespace  operators
@@ -27,13 +27,13 @@
        template< typename category_name >
         inline
         bool
-        operator <( ::color::model< category_name > const& left, ::color::model< category_name > const&  right )
+        operator < ( ::color::model< category_name > const& left, ::color::model< category_name > const&  right )
          {
           return ::color::compare::less_strict( left, right );
          }
 
       }
     }
- }
+  }
 
 #endif

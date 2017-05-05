@@ -14,18 +14,23 @@
 
 int g_size  = 16;
 
+
+#define VALUEU(x,y,s)    (((x)+(y))*((x)+(y)+1)/2 + (x))
+#define VALUED(x,y,s)    ((s)*(s) -  VALUEU((s)-(x)-1,(s)-(y)-1,(s)) - 1 )
+#define VALUEx(x,y,s)   ( ( (x)+(y)  )< (s) ? VALUEU(x,y,s) : VALUED(x,y,s) )
+
 void init( gray_image_type &image )
  {
   image.reserve( g_size * g_size );
-  for( int y=0; y< 16; ++y )
+  for( int y=0; y< g_size; ++y )
    {
-    for( int x=0; x< 16; ++x )
+    for( int x=0; x< g_size; ++x )
      {
-      image.push_back( gray_color_type{ (unsigned char)(16*y + x) } );
+     image.push_back( gray_color_type{ (unsigned char)VALUEx(x,y,g_size) } );
      }
    }
 
-  std::shuffle (image.begin()+1, image.end()-1, std::default_random_engine(6));     
+  //std::shuffle (image.begin()+1, image.end()-1, std::default_random_engine(6));     
  }
 
 gray_color_type const& pixel( gray_image_type const& image, int x, int y )
@@ -165,6 +170,7 @@ int main( int argc, char const *argv[] )
 
   init( image );
   save_image_gray( "allgray_original.tga",  image, g_size, g_size );
+  return 0;
 
   for( int iteration=0; iteration< 100000; ++iteration )
    {
