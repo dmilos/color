@@ -46,6 +46,8 @@ b = color::operation::mix( y, 0.5, color::yiq<std::uint8_t>( h ) ); //!< Blend t
 
 ### Install:
 1. Clone this Repository:  
+ Note:
+  Use _master_ branch.
  Examples:
   - Windows : git clone https://github.com/dmilos/color.git c:\my-work-folder\my-git-folder\color
   - Linux   : git clone https://github.com/dmilos/color.git /home/my-user-name/my-work-folder/my-git-folder/color

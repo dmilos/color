@@ -3856,6 +3856,56 @@ template< >struct cmy< ::color::category::xyz_ldouble > {
 }
 
 namespace color {
+namespace category {
+
+template< typename tag_name >
+struct lab {
+	typedef void category_name;
+};
+
+using lab_bool = ::color::category::lab< bool >;
+using lab_uint8 = ::color::category::lab< std::uint8_t >;
+using lab_uint16 = ::color::category::lab< std::uint16_t >;
+
+using lab_uint32 = ::color::category::lab< std::uint32_t >;
+
+using lab_uint64 = ::color::category::lab< std::uint64_t >;
+using lab_float = ::color::category::lab< float >;
+using lab_double = ::color::category::lab< double >;
+using lab_ldouble = ::color::category::lab< long double >;
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct cmy< ::color::category::lab_uint8 > {
+	typedef ::color::category::cmy_uint8 akin_type;
+};
+template< >struct cmy< ::color::category::lab_uint16 > {
+	typedef ::color::category::cmy_uint16 akin_type;
+};
+template< >struct cmy< ::color::category::lab_uint32 > {
+	typedef ::color::category::cmy_uint32 akin_type;
+};
+template< >struct cmy< ::color::category::lab_uint64 > {
+	typedef ::color::category::cmy_uint64 akin_type;
+};
+template< >struct cmy< ::color::category::lab_float > {
+	typedef ::color::category::cmy_float akin_type;
+};
+template< >struct cmy< ::color::category::lab_double > {
+	typedef ::color::category::cmy_double akin_type;
+};
+template< >struct cmy< ::color::category::lab_ldouble > {
+	typedef ::color::category::cmy_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template< typename category_name >
@@ -5752,6 +5802,34 @@ template< >struct gray< ::color::category::xyz_ldouble > {
 }
 
 namespace color {
+namespace akin {
+
+template< >struct gray< ::color::category::lab_uint8 > {
+	typedef ::color::category::gray_uint8 akin_type;
+};
+template< >struct gray< ::color::category::lab_uint16 > {
+	typedef ::color::category::gray_uint16 akin_type;
+};
+template< >struct gray< ::color::category::lab_uint32 > {
+	typedef ::color::category::gray_uint32 akin_type;
+};
+template< >struct gray< ::color::category::lab_uint64 > {
+	typedef ::color::category::gray_uint64 akin_type;
+};
+template< >struct gray< ::color::category::lab_float > {
+	typedef ::color::category::gray_float akin_type;
+};
+template< >struct gray< ::color::category::lab_double > {
+	typedef ::color::category::gray_double akin_type;
+};
+template< >struct gray< ::color::category::lab_ldouble > {
+	typedef ::color::category::gray_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template <> struct info< ::color::category::gray_bool > {
@@ -6694,6 +6772,34 @@ template< >struct cmyk< ::color::category::xyz_double > {
 	typedef ::color::category::cmyk_double akin_type;
 };
 template< >struct cmyk< ::color::category::xyz_ldouble > {
+	typedef ::color::category::cmyk_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct cmyk< ::color::category::lab_uint8 > {
+	typedef ::color::category::cmyk_uint8 akin_type;
+};
+template< >struct cmyk< ::color::category::lab_uint16 > {
+	typedef ::color::category::cmyk_uint16 akin_type;
+};
+template< >struct cmyk< ::color::category::lab_uint32 > {
+	typedef ::color::category::cmyk_uint32 akin_type;
+};
+template< >struct cmyk< ::color::category::lab_uint64 > {
+	typedef ::color::category::cmyk_uint64 akin_type;
+};
+template< >struct cmyk< ::color::category::lab_float > {
+	typedef ::color::category::cmyk_float akin_type;
+};
+template< >struct cmyk< ::color::category::lab_double > {
+	typedef ::color::category::cmyk_double akin_type;
+};
+template< >struct cmyk< ::color::category::lab_ldouble > {
 	typedef ::color::category::cmyk_ldouble akin_type;
 };
 
@@ -7662,6 +7768,34 @@ template< >struct rgb< ::color::category::xyz_double > {
 	typedef ::color::category::rgb_double akin_type;
 };
 template< >struct rgb< ::color::category::xyz_ldouble > {
+	typedef ::color::category::rgb_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct rgb< ::color::category::lab_uint8 > {
+	typedef ::color::category::rgb_uint8 akin_type;
+};
+template< >struct rgb< ::color::category::lab_uint16 > {
+	typedef ::color::category::rgb_uint16 akin_type;
+};
+template< >struct rgb< ::color::category::lab_uint32 > {
+	typedef ::color::category::rgb_uint32 akin_type;
+};
+template< >struct rgb< ::color::category::lab_uint64 > {
+	typedef ::color::category::rgb_uint64 akin_type;
+};
+template< >struct rgb< ::color::category::lab_float > {
+	typedef ::color::category::rgb_float akin_type;
+};
+template< >struct rgb< ::color::category::lab_double > {
+	typedef ::color::category::rgb_double akin_type;
+};
+template< >struct rgb< ::color::category::lab_ldouble > {
 	typedef ::color::category::rgb_ldouble akin_type;
 };
 
@@ -9943,6 +10077,34 @@ template< >struct hsl< ::color::category::xyz_ldouble > {
 }
 
 namespace color {
+namespace akin {
+
+template< >struct hsl< ::color::category::lab_uint8 > {
+	typedef ::color::category::hsl_uint8 akin_type;
+};
+template< >struct hsl< ::color::category::lab_uint16 > {
+	typedef ::color::category::hsl_uint16 akin_type;
+};
+template< >struct hsl< ::color::category::lab_uint32 > {
+	typedef ::color::category::hsl_uint32 akin_type;
+};
+template< >struct hsl< ::color::category::lab_uint64 > {
+	typedef ::color::category::hsl_uint64 akin_type;
+};
+template< >struct hsl< ::color::category::lab_float > {
+	typedef ::color::category::hsl_float akin_type;
+};
+template< >struct hsl< ::color::category::lab_double > {
+	typedef ::color::category::hsl_double akin_type;
+};
+template< >struct hsl< ::color::category::lab_ldouble > {
+	typedef ::color::category::hsl_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template <> struct info< ::color::category::hsl_uint8 > {
@@ -11120,6 +11282,34 @@ template< >struct hsv< ::color::category::xyz_double > {
 	typedef ::color::category::hsv_double akin_type;
 };
 template< >struct hsv< ::color::category::xyz_ldouble > {
+	typedef ::color::category::hsv_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct hsv< ::color::category::lab_uint8 > {
+	typedef ::color::category::hsv_uint8 akin_type;
+};
+template< >struct hsv< ::color::category::lab_uint16 > {
+	typedef ::color::category::hsv_uint16 akin_type;
+};
+template< >struct hsv< ::color::category::lab_uint32 > {
+	typedef ::color::category::hsv_uint32 akin_type;
+};
+template< >struct hsv< ::color::category::lab_uint64 > {
+	typedef ::color::category::hsv_uint64 akin_type;
+};
+template< >struct hsv< ::color::category::lab_float > {
+	typedef ::color::category::hsv_float akin_type;
+};
+template< >struct hsv< ::color::category::lab_double > {
+	typedef ::color::category::hsv_double akin_type;
+};
+template< >struct hsv< ::color::category::lab_ldouble > {
 	typedef ::color::category::hsv_ldouble akin_type;
 };
 
@@ -12584,6 +12774,34 @@ template< >struct hsi< ::color::category::xyz_ldouble > {
 }
 
 namespace color {
+namespace akin {
+
+template< >struct hsi< ::color::category::lab_uint8 > {
+	typedef ::color::category::hsi_uint8 akin_type;
+};
+template< >struct hsi< ::color::category::lab_uint16 > {
+	typedef ::color::category::hsi_uint16 akin_type;
+};
+template< >struct hsi< ::color::category::lab_uint32 > {
+	typedef ::color::category::hsi_uint32 akin_type;
+};
+template< >struct hsi< ::color::category::lab_uint64 > {
+	typedef ::color::category::hsi_uint64 akin_type;
+};
+template< >struct hsi< ::color::category::lab_float > {
+	typedef ::color::category::hsi_float akin_type;
+};
+template< >struct hsi< ::color::category::lab_double > {
+	typedef ::color::category::hsi_double akin_type;
+};
+template< >struct hsi< ::color::category::lab_ldouble > {
+	typedef ::color::category::hsi_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template <> struct info< ::color::category::hsi_uint8 > {
@@ -14001,6 +14219,34 @@ public:
 }
 
 namespace color {
+namespace akin {
+
+template< >struct yiq< ::color::category::lab_uint8 > {
+	typedef ::color::category::yiq_uint8 akin_type;
+};
+template< >struct yiq< ::color::category::lab_uint16 > {
+	typedef ::color::category::yiq_uint16 akin_type;
+};
+template< >struct yiq< ::color::category::lab_uint32 > {
+	typedef ::color::category::yiq_uint32 akin_type;
+};
+template< >struct yiq< ::color::category::lab_uint64 > {
+	typedef ::color::category::yiq_uint64 akin_type;
+};
+template< >struct yiq< ::color::category::lab_float > {
+	typedef ::color::category::yiq_float akin_type;
+};
+template< >struct yiq< ::color::category::lab_double > {
+	typedef ::color::category::yiq_double akin_type;
+};
+template< >struct yiq< ::color::category::lab_ldouble > {
+	typedef ::color::category::yiq_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template <> struct info< ::color::category::yiq_uint8 > {
@@ -15140,6 +15386,34 @@ template< ::color::constant::yuv::reference_enum reference_number >struct yuv< :
 }
 
 namespace color {
+namespace akin {
+
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::lab_uint8 , reference_number > {
+	typedef ::color::category::yuv_uint8 <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::lab_uint16 , reference_number > {
+	typedef ::color::category::yuv_uint16 <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::lab_uint32 , reference_number > {
+	typedef ::color::category::yuv_uint32 <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::lab_uint64 , reference_number > {
+	typedef ::color::category::yuv_uint64 <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::lab_float , reference_number > {
+	typedef ::color::category::yuv_float <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::lab_double , reference_number > {
+	typedef ::color::category::yuv_double <reference_number> akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct yuv< ::color::category::lab_ldouble, reference_number > {
+	typedef ::color::category::yuv_ldouble<reference_number> akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template < ::color::constant::yuv::reference_enum reference_number > struct info< ::color::category::yuv_uint8 < reference_number > > {
@@ -16246,6 +16520,34 @@ struct YCgCo {
 namespace color {
 namespace akin {
 
+template< >struct YCgCo< ::color::category::gray_uint8 > {
+	typedef ::color::category::YCgCo_uint8 akin_type;
+};
+template< >struct YCgCo< ::color::category::gray_uint16 > {
+	typedef ::color::category::YCgCo_uint16 akin_type;
+};
+template< >struct YCgCo< ::color::category::gray_uint32 > {
+	typedef ::color::category::YCgCo_uint32 akin_type;
+};
+template< >struct YCgCo< ::color::category::gray_uint64 > {
+	typedef ::color::category::YCgCo_uint64 akin_type;
+};
+template< >struct YCgCo< ::color::category::gray_float > {
+	typedef ::color::category::YCgCo_float akin_type;
+};
+template< >struct YCgCo< ::color::category::gray_double > {
+	typedef ::color::category::YCgCo_double akin_type;
+};
+template< >struct YCgCo< ::color::category::gray_ldouble > {
+	typedef ::color::category::YCgCo_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
 template< >struct YCgCo< ::color::category::cmy_uint8 > {
 	typedef ::color::category::YCgCo_uint8 akin_type;
 };
@@ -16293,34 +16595,6 @@ template< >struct YCgCo< ::color::category::cmyk_double > {
 	typedef ::color::category::YCgCo_double akin_type;
 };
 template< >struct YCgCo< ::color::category::cmyk_ldouble > {
-	typedef ::color::category::YCgCo_ldouble akin_type;
-};
-
-}
-}
-
-namespace color {
-namespace akin {
-
-template< >struct YCgCo< ::color::category::gray_uint8 > {
-	typedef ::color::category::YCgCo_uint8 akin_type;
-};
-template< >struct YCgCo< ::color::category::gray_uint16 > {
-	typedef ::color::category::YCgCo_uint16 akin_type;
-};
-template< >struct YCgCo< ::color::category::gray_uint32 > {
-	typedef ::color::category::YCgCo_uint32 akin_type;
-};
-template< >struct YCgCo< ::color::category::gray_uint64 > {
-	typedef ::color::category::YCgCo_uint64 akin_type;
-};
-template< >struct YCgCo< ::color::category::gray_float > {
-	typedef ::color::category::YCgCo_float akin_type;
-};
-template< >struct YCgCo< ::color::category::gray_double > {
-	typedef ::color::category::YCgCo_double akin_type;
-};
-template< >struct YCgCo< ::color::category::gray_ldouble > {
 	typedef ::color::category::YCgCo_ldouble akin_type;
 };
 
@@ -16473,6 +16747,34 @@ template< >struct YCgCo< ::color::category::xyz_double > {
 	typedef ::color::category::YCgCo_double akin_type;
 };
 template< >struct YCgCo< ::color::category::xyz_ldouble > {
+	typedef ::color::category::YCgCo_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct YCgCo< ::color::category::lab_uint8 > {
+	typedef ::color::category::YCgCo_uint8 akin_type;
+};
+template< >struct YCgCo< ::color::category::lab_uint16 > {
+	typedef ::color::category::YCgCo_uint16 akin_type;
+};
+template< >struct YCgCo< ::color::category::lab_uint32 > {
+	typedef ::color::category::YCgCo_uint32 akin_type;
+};
+template< >struct YCgCo< ::color::category::lab_uint64 > {
+	typedef ::color::category::YCgCo_uint64 akin_type;
+};
+template< >struct YCgCo< ::color::category::lab_float > {
+	typedef ::color::category::YCgCo_float akin_type;
+};
+template< >struct YCgCo< ::color::category::lab_double > {
+	typedef ::color::category::YCgCo_double akin_type;
+};
+template< >struct YCgCo< ::color::category::lab_ldouble > {
 	typedef ::color::category::YCgCo_ldouble akin_type;
 };
 
@@ -17763,6 +18065,34 @@ template< >struct YDbDr< ::color::category::xyz_double > {
 	typedef ::color::category::YDbDr_double akin_type;
 };
 template< >struct YDbDr< ::color::category::xyz_ldouble > {
+	typedef ::color::category::YDbDr_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct YDbDr< ::color::category::lab_uint8 > {
+	typedef ::color::category::YDbDr_uint8 akin_type;
+};
+template< >struct YDbDr< ::color::category::lab_uint16 > {
+	typedef ::color::category::YDbDr_uint16 akin_type;
+};
+template< >struct YDbDr< ::color::category::lab_uint32 > {
+	typedef ::color::category::YDbDr_uint32 akin_type;
+};
+template< >struct YDbDr< ::color::category::lab_uint64 > {
+	typedef ::color::category::YDbDr_uint64 akin_type;
+};
+template< >struct YDbDr< ::color::category::lab_float > {
+	typedef ::color::category::YDbDr_float akin_type;
+};
+template< >struct YDbDr< ::color::category::lab_double > {
+	typedef ::color::category::YDbDr_double akin_type;
+};
+template< >struct YDbDr< ::color::category::lab_ldouble > {
 	typedef ::color::category::YDbDr_ldouble akin_type;
 };
 
@@ -19063,6 +19393,34 @@ template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbP
 	typedef ::color::category::YPbPr_double <reference_number> akin_type;
 };
 template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::xyz_ldouble, reference_number > {
+	typedef ::color::category::YPbPr_ldouble<reference_number> akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::lab_uint8 , reference_number > {
+	typedef ::color::category::YPbPr_uint8 <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::lab_uint16 , reference_number > {
+	typedef ::color::category::YPbPr_uint16 <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::lab_uint32 , reference_number > {
+	typedef ::color::category::YPbPr_uint32 <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::lab_uint64 , reference_number > {
+	typedef ::color::category::YPbPr_uint64 <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::lab_float , reference_number > {
+	typedef ::color::category::YPbPr_float <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::lab_double , reference_number > {
+	typedef ::color::category::YPbPr_double <reference_number> akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::lab_ldouble, reference_number > {
 	typedef ::color::category::YPbPr_ldouble<reference_number> akin_type;
 };
 
@@ -20576,6 +20934,34 @@ template< ::color::constant::YPbPr::reference_enum reference_number >struct xyz<
 }
 
 namespace color {
+namespace akin {
+
+template< >struct xyz< ::color::category::lab_uint8 > {
+	typedef ::color::category::xyz_uint8 akin_type;
+};
+template< >struct xyz< ::color::category::lab_uint16 > {
+	typedef ::color::category::xyz_uint16 akin_type;
+};
+template< >struct xyz< ::color::category::lab_uint32 > {
+	typedef ::color::category::xyz_uint32 akin_type;
+};
+template< >struct xyz< ::color::category::lab_uint64 > {
+	typedef ::color::category::xyz_uint64 akin_type;
+};
+template< >struct xyz< ::color::category::lab_float > {
+	typedef ::color::category::xyz_float akin_type;
+};
+template< >struct xyz< ::color::category::lab_double > {
+	typedef ::color::category::xyz_double akin_type;
+};
+template< >struct xyz< ::color::category::lab_ldouble > {
+	typedef ::color::category::xyz_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
 namespace trait {
 
 template <> struct info< ::color::category::xyz_uint8 > {
@@ -21217,7 +21603,12 @@ template< typename scalar_name > struct base< scalar_name, ::color::constant::xy
 
 }
 
-template< typename scalar_name,::color::constant::xyz::illuminant::name_enum name_number, ::color::constant::xyz::illuminant::observer_enum observer_number >
+template
+<
+	typename scalar_name
+	,::color::constant::xyz::illuminant::name_enum name_number
+	,::color::constant::xyz::illuminant::observer_enum observer_number
+	>
 struct point
 	: private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, name_number, observer_number > {
 private:
@@ -23473,6 +23864,1489 @@ public:
 }
 
 namespace color {
+namespace akin {
+
+template< typename category_name >
+struct lab {
+	typedef category_name category_type;
+	typedef void akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct lab< ::color::category::gray_uint8 > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< >struct lab< ::color::category::gray_uint16 > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< >struct lab< ::color::category::gray_uint32 > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< >struct lab< ::color::category::gray_uint64 > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< >struct lab< ::color::category::gray_float > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< >struct lab< ::color::category::gray_double > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< >struct lab< ::color::category::gray_ldouble > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct lab< ::color::category::cmy_uint8 > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< >struct lab< ::color::category::cmy_uint16 > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< >struct lab< ::color::category::cmy_uint32 > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< >struct lab< ::color::category::cmy_uint64 > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< >struct lab< ::color::category::cmy_float > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< >struct lab< ::color::category::cmy_double > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< >struct lab< ::color::category::cmy_ldouble > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct lab< ::color::category::cmyk_uint8 > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< >struct lab< ::color::category::cmyk_uint16 > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< >struct lab< ::color::category::cmyk_uint32 > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< >struct lab< ::color::category::cmyk_uint64 > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< >struct lab< ::color::category::cmyk_float > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< >struct lab< ::color::category::cmyk_double > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< >struct lab< ::color::category::cmyk_ldouble > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct lab< ::color::category::hsl_uint8 > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< >struct lab< ::color::category::hsl_uint16 > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< >struct lab< ::color::category::hsl_uint32 > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< >struct lab< ::color::category::hsl_uint64 > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< >struct lab< ::color::category::hsl_float > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< >struct lab< ::color::category::hsl_double > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< >struct lab< ::color::category::hsl_ldouble > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct lab< ::color::category::hsv_uint8 > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< >struct lab< ::color::category::hsv_uint16 > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< >struct lab< ::color::category::hsv_uint32 > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< >struct lab< ::color::category::hsv_uint64 > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< >struct lab< ::color::category::hsv_float > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< >struct lab< ::color::category::hsv_double > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< >struct lab< ::color::category::hsv_ldouble > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct lab< ::color::category::hsi_uint8 > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< >struct lab< ::color::category::hsi_uint16 > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< >struct lab< ::color::category::hsi_uint32 > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< >struct lab< ::color::category::hsi_uint64 > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< >struct lab< ::color::category::hsi_float > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< >struct lab< ::color::category::hsi_double > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< >struct lab< ::color::category::hsi_ldouble > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct lab< ::color::category::rgb_uint8 > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< >struct lab< ::color::category::rgb_uint16 > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< >struct lab< ::color::category::rgb_uint32 > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< >struct lab< ::color::category::rgb_uint64 > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< >struct lab< ::color::category::rgb_float > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< >struct lab< ::color::category::rgb_double > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< >struct lab< ::color::category::rgb_ldouble > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct lab< ::color::category::yiq_uint8 > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< >struct lab< ::color::category::yiq_uint16 > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< >struct lab< ::color::category::yiq_uint32 > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< >struct lab< ::color::category::yiq_uint64 > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< >struct lab< ::color::category::yiq_float > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< >struct lab< ::color::category::yiq_double > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< >struct lab< ::color::category::yiq_ldouble > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< ::color::constant::yuv::reference_enum reference_number >struct lab< ::color::category::yuv_uint8 <reference_number> > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct lab< ::color::category::yuv_uint16 <reference_number> > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct lab< ::color::category::yuv_uint32 <reference_number> > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct lab< ::color::category::yuv_uint64 <reference_number> > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct lab< ::color::category::yuv_float <reference_number> > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct lab< ::color::category::yuv_double <reference_number> > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< ::color::constant::yuv::reference_enum reference_number >struct lab< ::color::category::yuv_ldouble<reference_number> > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct lab< ::color::category::YCgCo_uint8 > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< >struct lab< ::color::category::YCgCo_uint16 > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< >struct lab< ::color::category::YCgCo_uint32 > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< >struct lab< ::color::category::YCgCo_uint64 > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< >struct lab< ::color::category::YCgCo_float > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< >struct lab< ::color::category::YCgCo_double > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< >struct lab< ::color::category::YCgCo_ldouble > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< >struct lab< ::color::category::YDbDr_uint8 > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< >struct lab< ::color::category::YDbDr_uint16 > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< >struct lab< ::color::category::YDbDr_uint32 > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< >struct lab< ::color::category::YDbDr_uint64 > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< >struct lab< ::color::category::YDbDr_float > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< >struct lab< ::color::category::YDbDr_double > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< >struct lab< ::color::category::YDbDr_ldouble > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_uint8 <reference_number> > {
+	typedef ::color::category::lab_uint8 akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_uint16 <reference_number> > {
+	typedef ::color::category::lab_uint16 akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_uint32 <reference_number> > {
+	typedef ::color::category::lab_uint32 akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_uint64 <reference_number> > {
+	typedef ::color::category::lab_uint64 akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_float <reference_number> > {
+	typedef ::color::category::lab_float akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_double <reference_number> > {
+	typedef ::color::category::lab_double akin_type;
+};
+template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_ldouble<reference_number> > {
+	typedef ::color::category::lab_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template< typename tag_name >
+struct lab< ::color::category::lab< tag_name > > {
+public:
+	typedef ::color::category::lab< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template <> struct info< ::color::category::lab_uint8 > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::lab_uint16 > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::lab_uint32 > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::lab_uint64 > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::lab_float > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::lab_double > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+template <> struct info< ::color::category::lab_ldouble > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct bound< ::color::category::lab_uint8 >
+	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+};
+
+template< >
+struct bound< ::color::category::lab_uint16 >
+	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+};
+
+template< >
+struct bound< ::color::category::lab_uint32 >
+	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+};
+
+template< >
+struct bound< ::color::category::lab_uint64 >
+	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+namespace lab {
+namespace bound {
+
+template< typename index_name, typename scalar_name >
+struct scalar {
+public:
+	typedef scalar_name scalar_type;
+	typedef index_name index_type;
+
+	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::input_const_type index_input_const_type;
+
+	static instance_type magic() {
+		return instance_type(1)-instance_type(16)/instance_type(116);
+	}
+
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 100, 500*magic(), 200*magic() };
+		return max_list[index];
+	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 100, 500*magic(), 200*magic() };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { 0, -500*magic(), -200*magic() };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { 0, -500*magic(), -200*magic() };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { 100, 1000*magic(), 400*magic() };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { 100, 1000*magic(), 400*magic() };
+		return range_list[index];
+	}
+};
+
+}
+}
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct bound< ::color::category::lab_float >
+	: public ::color::_internal::lab::bound::scalar< unsigned, float > {
+};
+
+template< >
+struct bound< ::color::category::lab_double >
+	: public ::color::_internal::lab::bound::scalar< unsigned, double > {
+};
+
+template< >
+struct bound< ::color::category::lab_ldouble >
+	: public ::color::_internal::lab::bound::scalar< unsigned, long double > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::lab_float >
+	: public ::color::_internal::utility::component::array< float, unsigned> {
+};
+
+template< >
+struct component< ::color::category::lab_double >
+	: public ::color::_internal::utility::component::array< double, unsigned > {
+};
+
+template< >
+struct component< ::color::category::lab_ldouble >
+	: public ::color::_internal::utility::component::array< long double, unsigned> {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::lab_uint8 >
+	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+};
+
+template< >
+struct component< ::color::category::lab_uint16 >
+	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+};
+
+template< >
+struct component< ::color::category::lab_uint32 >
+	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+};
+
+template< >
+struct component< ::color::category::lab_uint64 >
+	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::lab_float >
+	: public ::color::_internal::utility::container::array< float, 3 > {
+};
+
+template< >
+struct container< ::color::category::lab_double >
+	: public ::color::_internal::utility::container::array< double, 3 > {
+};
+
+template< >
+struct container< ::color::category::lab_ldouble >
+	: public ::color::_internal::utility::container::array< long double, 3 > {
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::lab_uint8 >
+	: public ::color::_internal::utility::container::array< std::uint8_t, 3 > {
+};
+
+template< >
+struct container< ::color::category::lab_uint16 >
+	: public ::color::_internal::utility::container::array< std::uint16_t, 3 > {
+};
+
+template< >
+struct container< ::color::category::lab_uint32 >
+	: public ::color::_internal::utility::container::array< std::uint32_t, 3 > {
+};
+
+template< >
+struct container< ::color::category::lab_uint64 >
+	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+};
+
+}
+}
+
+namespace color {
+
+template< typename type_name >
+using lab = ::color::model< typename ::color::category::lab< type_name > >;
+
+}
+
+namespace color {
+namespace place {
+namespace _internal {
+
+template< typename tag_name >
+struct lightness< ::color::category::lab< tag_name > > {
+public:
+	typedef ::color::category::lab< tag_name > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_enum = 0 };
+	enum { has_enum = true };
+
+	static index_instance_type position() {
+		return position_enum;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace get {
+
+template< typename tag_name >
+inline
+typename ::color::trait::component< typename ::color::akin::gray< ::color::category::lab<tag_name> >::akin_type >::return_type
+gray(::color::model< ::color::category::lab<tag_name> > const& color_parameter) {
+	typedef ::color::category::lab< tag_name > category_type;
+	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
+	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
+	typedef ::color::_internal::reformat< akin_category_type, category_type, scalar_type > reformat_type;
+	enum {
+		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
+	};
+	enum {
+		gray_p = ::color::place::_internal::gray<akin_category_type>::position_enum
+	};
+	return reformat_type::template process<gray_p,lightness_p>(color_parameter.template get<lightness_p>());
+}
+
+}
+}
+
+namespace color {
+namespace get {
+
+template< typename tag_name >
+inline
+typename ::color::model< ::color::category::lab< tag_name> >::component_const_type
+lightness(::color::model< ::color::category::lab<tag_name> > const& color_parameter) {
+	typedef ::color::category::lab< tag_name> category_type;
+	enum {
+		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
+	};
+	return color_parameter.template get<lightness_p>();
+}
+
+}
+}
+
+namespace color {
+namespace set {
+
+template< typename tag_name >
+inline
+void
+gray
+(
+	::color::model< ::color::category::lab< tag_name > > & color_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::lab< tag_name > >::akin_type >::input_const_type component_parameter
+) {
+	typedef ::color::category::lab< tag_name > category_type;
+	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
+	typedef double scalar_type;
+	typedef ::color::_internal::reformat< category_type, akin_category_type, scalar_type > reformat_type;
+	enum {
+		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
+	};
+	enum {
+		gray_p = ::color::place::_internal::lightness<akin_category_type>::position_enum
+	};
+	color_parameter.template set<lightness_p>(reformat_type::template process<lightness_p,gray_p>(component_parameter));
+}
+
+}
+}
+
+namespace color {
+namespace set {
+template< typename tag_name >
+inline
+void
+lightness
+(
+	::color::model< ::color::category::lab<tag_name> > & color_parameter,
+	typename ::color::model< ::color::category::lab<tag_name> >::component_input_const_type component_parameter
+) {
+	typedef ::color::category::lab<tag_name> category_type;
+	enum {
+		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
+	};
+	color_parameter.template set<lightness_p>(component_parameter);
+}
+
+}
+}
+
+namespace color {
+namespace set {
+
+template< typename tag_name >
+inline
+void
+red
+(
+	::color::model< ::color::category::lab< tag_name > > & color_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name > >::akin_type >::input_const_type component_parameter
+) {
+	typedef ::color::category::lab< tag_name > category_type;
+	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
+	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
+	::color::model< akin_type > rgb(color_parameter);
+	rgb.template set< red_p > (component_parameter);
+	color_parameter = rgb;
+}
+
+}
+}
+
+namespace color {
+namespace set {
+
+template< typename tag_name >
+inline
+void
+green
+(
+	::color::model< ::color::category::lab< tag_name > > & color_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name > >::akin_type >::input_const_type component_parameter
+) {
+	typedef ::color::category::lab< tag_name > category_type;
+	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
+	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
+	::color::model< akin_type > rgb(color_parameter);
+	rgb.template set< green_p > (component_parameter);
+	color_parameter = rgb;
+}
+
+}
+}
+
+namespace color {
+namespace set {
+
+template< typename tag_name >
+inline
+void
+blue
+(
+	::color::model< ::color::category::lab< tag_name > > & color_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name > >::akin_type >::input_const_type component_parameter
+) {
+	typedef ::color::category::lab< tag_name > category_type;
+	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
+	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
+	::color::model< akin_type > rgb(color_parameter);
+	rgb.template set<blue_p > (component_parameter);
+	color_parameter = rgb;
+}
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename lab_tag_name, typename gray_tag_name >
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::gray< gray_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > category_left_type;
+	typedef ::color::category::gray< gray_tag_name > category_right_type;
+	typedef double scalar_type;
+	typedef ::color::category::lab< scalar_type > labSCALAR_category_type;
+
+	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, labSCALAR_category_type, scalar_type > reformatLAB_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	enum {
+		gray_p = ::color::place::_internal::gray<category_right_type>::position_enum
+	};
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process< 0, 0 >(container_right_trait_type::template get<0>(right)));
+		container_left_trait_type::template set<1>(left, reformatLAB_type::template process< 1, 1 >(0));
+		container_left_trait_type::template set<2>(left, reformatLAB_type::template process< 2, 2 >(0));
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename cmy_tag_name
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::cmy< cmy_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::cmy< cmy_tag_name > cmy_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< cmy_category_type >::akin_type rgb_category_type;
+	typedef typename ::color::akin::xyz< rgb_category_type >::akin_type xyz_category_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< cmy_category_type > cmy_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(cmy_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename cmyk_tag_name
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::cmyk< cmyk_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< cmyk_category_type >::akin_type rgb_category_type;
+	typedef typename ::color::akin::xyz< rgb_category_type >::akin_type xyz_category_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< cmyk_category_type > cmyk_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(cmyk_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename hsl_tag_name
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::hsl< hsl_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< hsl_category_type >::akin_type rgb_category_type;
+	typedef typename ::color::akin::xyz< rgb_category_type >::akin_type xyz_category_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< hsl_category_type > hsl_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(hsl_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename hsv_tag_name
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::hsv< hsv_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< hsv_category_type >::akin_type rgb_category_type;
+	typedef typename ::color::akin::xyz< rgb_category_type >::akin_type xyz_category_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< hsv_category_type > hsv_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(hsv_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename hsi_tag_name
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::hsi< hsi_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< hsi_category_type >::akin_type rgb_category_type;
+	typedef typename ::color::akin::xyz< rgb_category_type >::akin_type xyz_category_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< hsi_category_type > hsi_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(hsi_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename rgb_tag_name
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::rgb< rgb_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::rgb< rgb_tag_name > rgb_category_type, category_right_type;
+	typedef double scalar_type;
+
+	typedef ::color::model< lab_category_type > lab_model_type;
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(right))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename yiq_tag_name
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::yiq< yiq_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< yiq_category_type >::akin_type rgb_category_type;
+	typedef typename ::color::akin::xyz< rgb_category_type >::akin_type xyz_category_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< yiq_category_type > yiq_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(yiq_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename yuv_tag_name, ::color::constant::yuv::reference_enum reference_number
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::yuv< yuv_tag_name, reference_number >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::yuv< yuv_tag_name, reference_number > yuv_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< yuv_category_type >::akin_type rgb_category_type;
+	typedef typename ::color::akin::xyz< rgb_category_type >::akin_type xyz_category_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< yuv_category_type > yuv_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(yuv_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename YCgCo_tag_name
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::YCgCo< YCgCo_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< YCgCo_category_type >::akin_type rgb_category_type;
+	typedef typename ::color::akin::xyz< rgb_category_type >::akin_type xyz_category_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< YCgCo_category_type > YCgCo_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(YCgCo_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename YDbDr_tag_name
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::YDbDr< YDbDr_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< YDbDr_category_type >::akin_type rgb_category_type;
+	typedef typename ::color::akin::xyz< rgb_category_type >::akin_type xyz_category_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< YDbDr_category_type > YDbDr_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(YDbDr_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_right_type;
+
+	typedef typename ::color::akin::rgb< YPbPr_category_type >::akin_type rgb_category_type;
+	typedef typename ::color::akin::xyz< rgb_category_type >::akin_type xyz_category_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< YPbPr_category_type > YPbPr_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = lab_model_type(xyz_model_type(rgb_model_type(YPbPr_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename lab_tag_name
+	,typename xyz_tag_name
+	>
+struct convert
+	<
+	::color::category::lab< lab_tag_name >
+	,::color::category::xyz< xyz_tag_name >
+	> {
+public:
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_left_type;
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_right_type;
+	typedef double scalar_type;
+	typedef ::color::category::lab< scalar_type > labSCALAR_category_type;
+	typedef ::color::category::xyz< scalar_type > xyzSCALAR_category_type;
+
+	typedef ::color::model< lab_category_type > lab_model_type;
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::_internal::reformat< lab_category_type, labSCALAR_category_type, scalar_type > reformatLAB_type;
+	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
+
+	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
+
+	static scalar_type f(scalar_type const& t) {
+		static const scalar_type epsilon = scalar_type(216)/scalar_type(24389);
+		static const scalar_type k = scalar_type(24389)/scalar_type(27);
+		if(t > epsilon) {
+			return cbrt(t);
+		}
+		return (k*t + 16)/116;
+	}
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		scalar_type x = reformatXYZ_type::template process<0,0>(container_right_trait_type::template get<0>(right));
+		scalar_type y = reformatXYZ_type::template process<1,1>(container_right_trait_type::template get<1>(right));
+		scalar_type z = reformatXYZ_type::template process<2,2>(container_right_trait_type::template get<2>(right));
+		x /= scalar_type(100) * white_point_type::X();
+		y /= scalar_type(100) * white_point_type::Y();
+		z /= scalar_type(100) * white_point_type::Z();
+		scalar_type fx = f(x);
+		scalar_type fy = f(y);
+		scalar_type fz = f(z);
+		scalar_type l = 116 * fy - 16;
+		scalar_type a = 500*(fx - fy);
+		scalar_type b = 200*(fy - fz);
+		container_left_trait_type::template set<0>(left, reformatLAB_type::template process< 0, 0>(l));
+		container_left_trait_type::template set<1>(left, reformatLAB_type::template process< 1, 1>(a));
+		container_left_trait_type::template set<2>(left, reformatLAB_type::template process< 2, 2>(b));
+	}
+
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename tag_left_name
+	,typename tag_right_name
+	>
+struct convert
+	<
+	::color::category::lab< tag_left_name >
+	,::color::category::lab< tag_right_name>
+	> {
+public:
+	typedef ::color::category::lab< tag_left_name > category_left_type;
+	typedef ::color::category::lab< tag_right_name> category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
+		container_left_trait_type::template set<1>(left, reformat_type::template process<1,1>(container_right_trait_type::template get<1>(right)));
+		container_left_trait_type::template set<2>(left, reformat_type::template process<2,2>(container_right_trait_type::template get<2>(right)));
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename xyz_tag_name, typename lab_tag_name >
+struct convert
+	<
+	::color::category::xyz< xyz_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+	typedef double scalar_type;
+	typedef ::color::category::xyz< scalar_type > xyzSCALAR_category_type;
+	typedef ::color::category::lab< scalar_type > labSCALAR_category_type;
+
+	typedef ::color::model< xyz_category_type > xyz_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	typedef ::color::_internal::reformat< labSCALAR_category_type, lab_category_type, scalar_type > reformatLAB_type;
+	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
+
+	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		static const scalar_type epsilon = scalar_type(216)/scalar_type(24389);
+		static const scalar_type k = scalar_type(24389)/scalar_type(27);
+		scalar_type l = reformatLAB_type::template process< 0, 0>(container_right_trait_type::template get<0>(right));
+		scalar_type a = reformatLAB_type::template process< 1, 1>(container_right_trait_type::template get<1>(right));
+		scalar_type b = reformatLAB_type::template process< 2, 2>(container_right_trait_type::template get<2>(right));
+		scalar_type fy = (l +16)/116;
+		scalar_type fz = fy - b/200;
+		scalar_type fx = a/500 + fy;
+		scalar_type fx3 = fx * fx * fx;
+		scalar_type fy3 = fy * fy * fy;
+		scalar_type fz3 = fz * fz * fz;
+		scalar_type x = fx3;
+		scalar_type y = fy3;
+		scalar_type z = fz3;
+		if(z < epsilon) {
+			z = (116*fz-16)/k;
+		}
+		if(l < epsilon * k) {
+			y = l/k;
+		}
+		if(x < epsilon) {
+			x = (116*fx-16)/k;
+		}
+		x *= scalar_type(100) * white_point_type::X();
+		y *= scalar_type(100) * white_point_type::Y();
+		z *= scalar_type(100) * white_point_type::Z();
+		container_left_trait_type::template set<0>(left, reformatXYZ_type::template process< 0, 0 >(x));
+		container_left_trait_type::template set<1>(left, reformatXYZ_type::template process< 1, 1 >(y));
+		container_left_trait_type::template set<2>(left, reformatXYZ_type::template process< 2, 2 >(z));
+	}
+};
+
+}
+}
+
+namespace color {
 namespace _internal {
 
 template
@@ -23508,6 +25382,49 @@ public:
 		,container_right_const_input_type right
 	) {
 		left = YPbPr_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
+	,typename lab_tag_name
+	>
+struct convert
+	<
+	::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number > YPbPr_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::model< YPbPr_category_type > YPbPr_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::rgb< scalar_type > rgb_model_type;
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = YPbPr_model_type(rgb_model_type(xyz_model_type(lab_model_type(right)))).container();
 	}
 };
 
@@ -23588,6 +25505,49 @@ public:
 		,container_right_const_input_type right
 	) {
 		left = YDbDr_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename YDbDr_tag_name
+	,typename lab_tag_name
+	>
+struct convert
+	<
+	::color::category::YDbDr< YDbDr_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::YDbDr< YDbDr_tag_name > YDbDr_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::model< YDbDr_category_type > YDbDr_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::rgb< scalar_type > rgb_model_type;
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = YDbDr_model_type(rgb_model_type(xyz_model_type(lab_model_type(right)))).container();
 	}
 };
 
@@ -23706,6 +25666,49 @@ public:
 		,container_right_const_input_type right
 	) {
 		left = YCgCo_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename YCgCo_tag_name
+	,typename lab_tag_name
+	>
+struct convert
+	<
+	::color::category::YCgCo< YCgCo_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::YCgCo< YCgCo_tag_name > YCgCo_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::model< YCgCo_category_type > YCgCo_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::rgb< scalar_type > rgb_model_type;
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = YCgCo_model_type(rgb_model_type(xyz_model_type(lab_model_type(right)))).container();
 	}
 };
 
@@ -23873,6 +25876,49 @@ public:
 		,container_right_const_input_type right
 	) {
 		left = yuv_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
+	,typename lab_tag_name
+	>
+struct convert
+	<
+	::color::category::yuv< yuv_tag_name, yuv_reference_number >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number > yuv_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::model< yuv_category_type > yuv_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::rgb< scalar_type > rgb_model_type;
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = yuv_model_type(rgb_model_type(xyz_model_type(lab_model_type(right)))).container();
 	}
 };
 
@@ -24142,6 +26188,49 @@ public:
 namespace color {
 namespace _internal {
 
+template
+<
+	typename yiq_tag_name
+	,typename lab_tag_name
+	>
+struct convert
+	<
+	::color::category::yiq< yiq_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::model< yiq_category_type > yiq_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::rgb< scalar_type > rgb_model_type;
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = yiq_model_type(rgb_model_type(xyz_model_type(lab_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
 template< typename hsi_tag_name, typename yiq_tag_name >
 struct convert
 	<
@@ -24369,6 +26458,49 @@ public:
 		,container_right_const_input_type right
 	) {
 		left = hsi_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename hsi_tag_name
+	,typename lab_tag_name
+	>
+struct convert
+	<
+	::color::category::hsi< hsi_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::hsi< hsi_tag_name > hsi_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::model< hsi_category_type > hsi_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::rgb< scalar_type > rgb_model_type;
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = hsi_model_type(rgb_model_type(xyz_model_type(lab_model_type(right)))).container();
 	}
 };
 
@@ -24719,6 +26851,49 @@ public:
 		,container_right_const_input_type right
 	) {
 		left = hsv_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename hsv_tag_name
+	,typename lab_tag_name
+	>
+struct convert
+	<
+	::color::category::hsv< hsv_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::hsv< hsv_tag_name > hsv_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::model< hsv_category_type > hsv_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::rgb< scalar_type > rgb_model_type;
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = hsv_model_type(rgb_model_type(xyz_model_type(lab_model_type(right)))).container();
 	}
 };
 
@@ -25116,6 +27291,49 @@ public:
 		,container_right_const_input_type right
 	) {
 		left = hsl_model_type(rgb_model_type(xyz_model_type(right))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template
+<
+	typename hsl_tag_name
+	,typename lab_tag_name
+	>
+struct convert
+	<
+	::color::category::hsl< hsl_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::hsl< hsl_tag_name > hsl_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::model< hsl_category_type > hsl_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::rgb< scalar_type > rgb_model_type;
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = hsl_model_type(rgb_model_type(xyz_model_type(lab_model_type(right)))).container();
 	}
 };
 
@@ -25765,6 +27983,43 @@ public:
 }
 
 namespace color {
+namespace _internal {
+
+template< typename rgb_tag_name, typename lab_tag_name >
+struct convert
+	<
+	::color::category::rgb< rgb_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::rgb< rgb_tag_name > rgb_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+	typedef double scalar_type;
+
+	typedef ::color::model< rgb_category_type > rgb_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = rgb_model_type(xyz_model_type(lab_model_type(right))).container();
+	}
+};
+
+}
+}
+
+namespace color {
 namespace set {
 
 template< typename tag_name >
@@ -26365,6 +28620,49 @@ public:
 namespace color {
 namespace _internal {
 
+template
+<
+	typename cmyk_tag_name
+	,typename lab_tag_name
+	>
+struct convert
+	<
+	::color::category::cmyk< cmyk_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::cmyk< cmyk_tag_name > cmyk_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::model< cmyk_category_type > cmyk_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::rgb< scalar_type > rgb_model_type;
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = cmyk_model_type(rgb_model_type(xyz_model_type(lab_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
 template< typename gray_tag_name, typename cmyk_tag_name >
 struct convert
 	<
@@ -26564,10 +28862,13 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
+		scalar_type valueR = normalize_type::template process<red_p > (container_right_trait_type::template get<red_p >(right));
+		scalar_type valueG = normalize_type::template process<green_p> (container_right_trait_type::template get<green_p>(right));
+		scalar_type valueB = normalize_type::template process<blue_p > (container_right_trait_type::template get<blue_p >(right));
 		scalar_type value =
-			gray_const_type::Rc() * normalize_type::template process<red_p > (container_right_trait_type::template get<red_p >(right))
-		+ gray_const_type::Gc() * normalize_type::template process<green_p> (container_right_trait_type::template get<green_p>(right))
-		+ gray_const_type::Bc() * normalize_type::template process<blue_p > (container_right_trait_type::template get<blue_p >(right));
+			gray_const_type::Rc() * valueR
+			+ gray_const_type::Gc() * valueG
+			+ gray_const_type::Bc() * valueB;
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(value));
 	}
 };
@@ -26809,6 +29110,40 @@ public:
 	) {
 		scalar_type g = normalize_type::template process<1>(container_right_trait_type::template get<1>(right));
 		container_left_trait_type::template set<0>(left, diverse_type::template process<0>(g));
+	}
+};
+
+}
+}
+
+namespace color {
+namespace _internal {
+
+template< typename gray_tag_name, typename lab_tag_name >
+struct convert
+	<
+	::color::category::gray< gray_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::gray< gray_tag_name > category_left_type;
+	typedef ::color::category::lab<lab_tag_name> category_right_type;
+	typedef double scalar_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		container_left_trait_type::template set<0>(left, reformat_type::template process<0,0>(container_right_trait_type::template get<0>(right)));
 	}
 };
 
@@ -27845,6 +30180,49 @@ public:
 }
 
 namespace color {
+namespace _internal {
+
+template
+<
+	typename cmy_tag_name
+	,typename lab_tag_name
+	>
+struct convert
+	<
+	::color::category::cmy< cmy_tag_name >
+	,::color::category::lab< lab_tag_name >
+	> {
+public:
+	typedef ::color::category::cmy< cmy_tag_name > cmy_category_type, category_left_type;
+	typedef ::color::category::lab< lab_tag_name > lab_category_type, category_right_type;
+
+	typedef double scalar_type;
+
+	typedef ::color::model< cmy_category_type > cmy_model_type;
+	typedef ::color::model< lab_category_type > lab_model_type;
+
+	typedef ::color::rgb< scalar_type > rgb_model_type;
+	typedef ::color::xyz< scalar_type > xyz_model_type;
+
+	typedef ::color::trait::container<category_left_type> container_left_trait_type;
+	typedef ::color::trait::container<category_right_type> container_right_trait_type;
+
+	typedef typename container_left_trait_type::input_type container_left_input_type;
+	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+
+	static void process
+	(
+		container_left_input_type left
+		,container_right_const_input_type right
+	) {
+		left = cmy_model_type(rgb_model_type(xyz_model_type(lab_model_type(right)))).container();
+	}
+};
+
+}
+}
+
+namespace color {
 namespace operation {
 namespace _internal {
 
@@ -28513,6 +30891,81 @@ namespace color {
 }
 
 namespace color {
+	namespace operation {
+		namespace _internal {
+			template< typename category_name >
+			struct delta {
+				public:
+				typedef category_name category_type;
+
+				typedef ::color::model<category_type> model_type;
+				typedef typename ::color::trait::index< category_type >::instance_type index_type;
+				typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
+				typedef ::color::trait::container< category_type > container_trait_type;
+
+	static model_type& process(model_type &result, model_type const& left, model_type const& right) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(left.get(index) < right.get(index)) {
+				result.set(index, right.get(index) - left.get(index));
+			} else {
+				result.set(index, left.get(index) - right.get(index));
+			}
+		}
+		return result;
+	}
+
+	  };
+	   }
+
+	template< typename category_name >
+	::color::model<category_name> &
+	delta
+	(
+		::color::model<category_name> & result
+		,::color::model<category_name> const& left
+		,::color::model<category_name> const& right
+					   ) {
+		return ::color::operation::_internal::delta<category_name>::process(result, left, right);
+	}
+
+											   }
+}
+
+namespace color {
+	namespace operation {
+		namespace _internal {
+
+			template< typename category_name >
+			struct distance {
+				public:
+				typedef category_name category_type;
+
+				typedef ::color::model<category_type> model_type;
+
+				typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
+
+	static scalar_type process(model_type const& left, model_type const& right) {
+		model_type difference;
+		return ::color::gray<scalar_type>(::color::operation::delta(difference, left, right)).template get<0>();
+	}
+
+																									  };
+
+						}
+
+	template< typename category_name >
+	typename ::color::trait::scalar< category_name >::instance_type
+	distance
+	(
+		::color::model<category_name> const& left
+		,::color::model<category_name> const& right
+					   ) {
+		return ::color::operation::_internal::distance<category_name>::process(left, right);
+	}
+												  }
+}
+
+namespace color {
 	namespace compare {
 
 		template < typename category_name >
@@ -28524,6 +30977,24 @@ namespace color {
 		return left.container() == right.container();
 	}
 
+	template< typename tag_name, typename category_name >
+	bool equal
+	(
+		::color::constant::base< tag_name > const& left
+		,::color::model< category_name > const& right
+					   ) {
+		return ::color::model< category_name >(left).container() == right.container();
+	}
+
+	template < typename category_name, typename tag_name >
+	bool equal
+	(
+		::color::model< category_name > const& left
+		,::color::constant::base< tag_name > const& right
+								) {
+		return left.container() == ::color::model< category_name >(right).container();
+	}
+
 	namespace operators {
 
 		template< typename category_name >
@@ -28533,8 +31004,22 @@ namespace color {
 		return ::color::compare::equal(left, right);
 	}
 
-								  }
-				   }
+	template< typename tag_name, typename category_name >
+	inline
+	bool
+	operator ==(::color::constant::base< tag_name > const& left, ::color::model< category_name > const& right) {
+		return ::color::compare::equal(left, right);
+	}
+
+	template< typename category_name, typename tag_name >
+	inline
+	bool
+	operator ==(::color::model< category_name > const& left, ::color::constant::base< tag_name > const& right) {
+		return ::color::compare::equal(left, right);
+	}
+
+							  }
+			   }
 }
 namespace color {
 	namespace compare {
@@ -28548,6 +31033,24 @@ namespace color {
 		return left.container() != right.container();
 	}
 
+	template< typename tag_name, typename category_name >
+	bool different
+	(
+		::color::constant::base< tag_name > const& left
+		,::color::model< category_name > const& right
+					   ) {
+		return ::color::model< category_name >(left).container() != right.container();
+	}
+
+	template < typename category_name, typename tag_name >
+	bool different
+	(
+		::color::model< category_name > const& left
+		,::color::constant::base< tag_name > const& right
+								) {
+		return left.container() != ::color::model< category_name >(right).container();
+	}
+
 	namespace operators {
 
 		template< typename category_name >
@@ -28557,8 +31060,22 @@ namespace color {
 		return ::color::compare::different(left, right);
 	}
 
-								  }
-				   }
+	template< typename tag_name, typename category_name >
+	inline
+	bool
+	operator !=(::color::constant::base< tag_name > const& left, ::color::model< category_name > const& right) {
+		return ::color::compare::different(left, right);
+	}
+
+	template< typename category_name, typename tag_name >
+	inline
+	bool
+	operator !=(::color::model< category_name > const& left, ::color::constant::base< tag_name > const& right) {
+		return ::color::compare::different(left, right);
+	}
+
+							  }
+			   }
 }
 
 namespace color {
@@ -28581,8 +31098,8 @@ namespace color {
 	operator >=(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 		return ::color::compare::great_or_equal(left, right);
 	}
-								  }
 
+								  }
 				   }
 }
 namespace color {
@@ -28602,12 +31119,12 @@ namespace color {
 		template< typename category_name >
 		inline
 		bool
-		operator >(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
+		operator > (::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 		return ::color::compare::great_strict(left, right);
 	}
 
-								 }
-				  }
+								  }
+				   }
 }
 namespace color {
 	namespace compare {
@@ -28650,12 +31167,12 @@ namespace color {
 		template< typename category_name >
 		inline
 		bool
-	operator <(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
+	operator < (::color::model< category_name > const& left, ::color::model< category_name > const& right) {
 		return ::color::compare::less_strict(left, right);
 	}
 
-								 }
-				  }
+								  }
+				   }
 }
 
 namespace color {
@@ -28685,7 +31202,6 @@ namespace color {
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -28705,7 +31221,6 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
@@ -28883,7 +31398,6 @@ namespace color {
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -28903,7 +31417,6 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
@@ -28955,30 +31468,27 @@ namespace color {
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
 		struct make< ::color::constant::aqua_t, category_name > {
 			typedef category_name category_type;
 			typedef ::color::model<category_type> model_type;
-			typedef ::color::rgb<std::uint8_t> rgb_type;
+			typedef ::color::rgb<double> rgb_type;
 			typedef ::color::constant::aqua_t constant_type;
 
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
 	inline static void process(container_output_type & container) {
-		static model_type s_model{ rgb_type{ 0x00, 0xFF, 0xFF } };
+		static model_type s_model{ rgb_type{ 0, 1, 1 } };
 		container = s_model.container();
 	}
-
 													  };
 
 								}
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -28998,7 +31508,6 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
@@ -29136,7 +31645,6 @@ namespace color {
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -29246,11 +31754,10 @@ namespace color {
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
-		struct make<::color::constant::aquamarine_t, category_name > {
+		struct make< ::color::constant::aquamarine_t, category_name > {
 			typedef category_name category_type;
 			typedef ::color::model<category_type> model_type;
 			typedef ::color::rgb<double> rgb_type;
@@ -29269,7 +31776,6 @@ namespace color {
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -29292,7 +31798,6 @@ namespace color {
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -29312,11 +31817,9 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -29336,11 +31839,9 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -29360,11 +31861,9 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -29384,11 +31883,9 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -29408,11 +31905,9 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -29432,11 +31927,9 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -29456,11 +31949,9 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -29480,7 +31971,6 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
