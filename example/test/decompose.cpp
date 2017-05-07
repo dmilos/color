@@ -77,7 +77,7 @@ int decompose_test( int argc, char const *argv[] )
   bgr_image_type image;
   int width=1000;
   int height=1000;
-  load_image( image, width, height, "../data/hsl-1-100.tga" );
+  load_image( image, width, height, "../data/hsl.tga" );
 
   decompose< ::color::cmyk<double>  >( image, "./dec/cmyk", width, height, ::color::constant::white_t{} );
 

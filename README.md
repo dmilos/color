@@ -46,8 +46,6 @@ b = color::operation::mix( y, 0.5, color::yiq<std::uint8_t>( h ) ); //!< Blend t
 
 ### Install:
 1. Clone this Repository:  
- Note:
-  Use _master_ branch.
  Examples:
   - Windows : git clone https://github.com/dmilos/color.git c:\my-work-folder\my-git-folder\color
   - Linux   : git clone https://github.com/dmilos/color.git /home/my-user-name/my-work-folder/my-git-folder/color
@@ -56,11 +54,11 @@ b = color::operation::mix( y, 0.5, color::yiq<std::uint8_t>( h ) ); //!< Blend t
   - MSVC : /Ic:\my-work-folder\my-git-folder\color\src
   - gcc  : -I/home/my-user-name/my-work-folder/my-git-folder/color/src
 
-###Want to see more:
+### Want to see more:
   - [HTML Documentation ](doc/index.html)
   - [Wiki page](https://github.com/dmilos/color/wiki)
 
-###Tested against:
+### Tested against:
   - GCC 4.8.4
   - GCC 5.4.0 20160609
   - MSVC 2015 Update 3

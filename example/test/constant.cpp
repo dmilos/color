@@ -7,21 +7,61 @@
 #include "color/color.hpp"
 
 
-static std::string print_color( std::string const& text,  ::color::rgb<std::uint8_t> const& r )
+template< typename color_name >
+static std::string print_color( std::string const& text, color_name const& c )
  {
+  ::color::rgb<std::uint8_t> r; r = c;
   std::stringstream ss;
 
   ss <<  "<div style=\"background-color:rgb("<< (unsigned)r[0] <<","<< (unsigned)r[1] <<","<< (unsigned)r[2] <<");color:white\">";
 
   if( 0 != text.size() )
    {
-    ss << text << " - ";
+    ss << text << " - " << "<br>";
    }
-  ss << "("<< (unsigned)r[0] <<","<< (unsigned)r[1] <<","<< (unsigned)r[2] <<")";
+  ss << "("<< (int)r[0] <<","<< (int)r[1] <<","<< (int)r[2] <<")"<< "<br>";
+  ss << "("<< (int)c[0] <<","<< (int)c[1] <<","<< (int)c[2] <<")"<< "<br>";
 
   ss << "</div>";
   return ss.str();
  } 
+
+static std::string print_color( std::string const& text, ::color::gray<double> const& c )
+ {
+  ::color::rgb<std::uint8_t> r; r = c;
+  std::stringstream ss;
+
+  ss <<  "<div style=\"background-color:rgb(" << (unsigned)r[0] <<","<< (unsigned)r[1] <<","<< (unsigned)r[2] <<");color:white\">";
+
+  if( 0 != text.size() )
+   {
+    ss << text << " - " << "<br>";
+   }
+  ss << "("<< (int)r[0] <<","<< (int)r[1] <<","<< (int)r[2] <<")"<< "<br>";
+  ss << "("<< (int)c[0] <<")"<< "<br>";
+
+  ss << "</div>";
+  return ss.str();
+ } 
+
+static std::string print_color( std::string const& text, ::color::rgb<double> const& c )
+ {
+  ::color::rgb<std::uint8_t> r; r = c;
+  std::stringstream ss;
+
+  ss <<  "<div style=\"background-color:rgb("<< (unsigned)r[0] <<","<< (unsigned)r[1] <<","<< (unsigned)r[2] <<");color:white\">";
+
+  if( 0 != text.size() )
+   {
+    ss << text << " - " << "<br>";
+   }
+  ss << "("<< (int)r[0] <<","<< (int)r[1] <<","<< (int)r[2] <<")"<< "<br>";
+  ss << "("<< (int)(100*c[0]) <<","<< (int)(100*c[1]) <<","<< (int)(100*c[2]) <<")"<< "<br>";
+
+  ss << "</div>";
+  return ss.str();
+ } 
+
 
 template< typename tag_name >
  std::string print( ::color::constant::base< tag_name > const& constant, std::string const& name )
@@ -31,20 +71,20 @@ template< typename tag_name >
 
    ss << "<tr>" << std::endl;
      ss << "<td  style=\"background-color:" << name << "\"> W3  -" << name << "</td>";
-     ss << "<td>" << print_color( "gray-"   + name, ::color::rgb<std::uint8_t>( ::color::gray<  double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "rgb -"   + name, ::color::rgb<std::uint8_t>( ::color::rgb<   double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "cmy -"   + name, ::color::rgb<std::uint8_t>( ::color::cmy<   double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "cmyk-"   + name, ::color::rgb<std::uint8_t>( ::color::cmyk<  double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "hsl -"   + name, ::color::rgb<std::uint8_t>( ::color::hsl<   double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "hsv -"   + name, ::color::rgb<std::uint8_t>( ::color::hsv<   double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "hsi -"   + name, ::color::rgb<std::uint8_t>( ::color::hsi<   double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "yiq -"   + name, ::color::rgb<std::uint8_t>( ::color::yiq<   double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "yuv -"   + name, ::color::rgb<std::uint8_t>( ::color::yuv<   double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "YCgCo -" + name, ::color::rgb<std::uint8_t>( ::color::YCgCo< double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "YDbDr -" + name, ::color::rgb<std::uint8_t>( ::color::YDbDr< double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "YPbPr -" + name, ::color::rgb<std::uint8_t>( ::color::YPbPr< double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "xyz -"   + name, ::color::rgb<std::uint8_t>( ::color::xyz<   double >( constant )  ) ) << "</td>";
-     ss << "<td>" << print_color( "lab -"   + name, ::color::rgb<std::uint8_t>( ::color::lab<   double >( constant )  ) ) << "</td>";
+     ss << "<td>" << print_color( "gray-"   + name, ::color::gray<  double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "rgb -"   + name, ::color::rgb<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "cmy -"   + name, ::color::cmy<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "cmyk-"   + name, ::color::cmyk<  double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "hsl -"   + name, ::color::hsl<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "hsv -"   + name, ::color::hsv<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "hsi -"   + name, ::color::hsi<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "yiq -"   + name, ::color::yiq<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "yuv -"   + name, ::color::yuv<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "YCgCo -" + name, ::color::YCgCo< double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "YDbDr -" + name, ::color::YDbDr< double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "YPbPr -" + name, ::color::YPbPr< double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "xyz -"   + name, ::color::xyz<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "lab -"   + name, ::color::lab<   double >( constant ) ) << "</td>";
     ss << "</tr>" << std::endl;
 
   return ss.str();

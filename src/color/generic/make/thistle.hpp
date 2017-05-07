@@ -25,7 +25,7 @@
 
          inline static void process( container_output_type & container )
           {
-           static model_type  s_model{ rgb_type{ 0xD8, 0xBF, 0xD8 } };
+           static model_type  s_model{ rgb_type{ 0xD8, 0xBF, 0xD8 } }; // TODO rgb 0.85, 0.75, 0.85
            container = s_model.container();
           } 
 

@@ -22,7 +22,7 @@
 
         inline static void process( container_output_type & container )
          {
-          static model_type  s_model{ rgb_type{ 0xDB, 0xDB, 0xDB } };
+          static model_type  s_model{ rgb_type{ 0xDC, 0xDC, 0xDC } };
           container = s_model.container();
          } 
 

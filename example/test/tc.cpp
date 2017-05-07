@@ -28,16 +28,14 @@ int main( int argc, char *argv[] )
     return EXIT_FAILURE;
    }
 
+  const int depth_left  = targa_get_depth(  header_left ); const  int depth_right = targa_get_depth(  header_right );
+  const int height      = targa_get_width(  header_left ); const int height_right = targa_get_width(  header_right );
+  const int width       = targa_get_height( header_left ); const int width_right  = targa_get_height( header_right );
 
-  //if( )
-  // {
-  //  return EXIT_FAILURE;
-  // }
-
-
-  int depth  = targa_get_depth(  header_left );
-  int height = targa_get_width(  header_left );
-  int width  = targa_get_height( header_left );
+  if( depth_left != depth_right)
+   {
+    return EXIT_FAILURE;
+   }
 
   bgr_image_type difference;
 

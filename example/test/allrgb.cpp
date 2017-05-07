@@ -76,6 +76,25 @@ void init( bgr_image_type &image, bgr_image_type &pallete, mask_type & mask )
    }
  }
 
+void initHSL( bgr_image_type &image, int &width, int &height )
+ {
+  height = 100 * 21;
+  width  = 360 * 21;
+  ::color::hsl<double> hsl;
+
+  image.resize( height * width, ::color::constant::black_t{} );
+  for( int l=0; l <  height; l += 1 )
+   {
+    for( int h=0; h < width; h += 1 )
+     {
+      hsl[0]=(360.0*h)/width;
+      hsl[1]=100;
+      hsl[2]=100.0-(100.0*l)/height;
+
+      image[ l*width + h ]= bgr_color_type{ hsl };
+     }
+   }
+ }
 
 #define VALUEU(x,y,s)    (((x)+(y))*((x)+(y)+1)/2 + (x))
 #define VALUED(x,y,s)    ((s)*(s) -  VALUEU((s)-(x)-1,(s)-(y)-1,(s)) - 1 )
@@ -294,8 +313,13 @@ void calc()
 
 int main( int argc, char const *argv[] )
  {
+  bgr_image_type image;
+  int width;
+  int height;
+  initHSL( image, width, height );
+  save_image24(  "hsl.tga", image, width, height );
 
-  calc();
+  //calc();
   return 0;
    
  }

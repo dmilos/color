@@ -14,23 +14,22 @@
      template< typename category_name >
       struct make<::color::constant::pink_type, category_name >
        {
-         typedef category_name                         category_type;
-         typedef ::color::model<category_type>            model_type;
-         typedef ::color::rgb<std::uint8_t>                 rgb_type;
-         typedef ::color::constant::pink_t             constant_type;
+        typedef category_name                         category_type;
+        typedef ::color::model<category_type>            model_type;
+        typedef ::color::rgb<std::uint8_t>                 rgb_type;
+        typedef ::color::constant::pink_t             constant_type;
 
-         typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
+        typedef typename ::color::trait::container<category_type>::output_type       container_output_type;
 
-         inline static void process( container_output_type & container )
-          {
-           static model_type  s_model{ rgb_type{ 0xFF, 0xC0, 0xCB } };
-           container = s_model.container();
-          } 
+        inline static void process( container_output_type & container )
+         {
+          static model_type  s_model{ rgb_type{ 0xFF, 0xC0, 0xCB } }; // TODO rgb 1, 0.75, 0.8
+          container = s_model.container();
+         } 
 
        };
 
     }
-
   }
 
 #endif

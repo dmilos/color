@@ -22,7 +22,7 @@
 
         inline static void process( container_output_type & container )
          {
-          static model_type  s_model{ rgb_type{ 0xFF, 0xD7, 0x00 } };
+          static model_type  s_model{ rgb_type{ 0xFF, 0xD7, 0x00 } }; //!< TODO hsl (50,100,50)
           container = s_model.container();
          } 
 
