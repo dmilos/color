@@ -3914,6 +3914,7 @@ public:
 
 	enum { implemented_entity = false };
 	enum { meaningful_entity = false };
+	enum { size_entity = -1 };
 
 };
 
@@ -3922,6 +3923,14 @@ public:
 
 namespace color {
 namespace trait {
+
+template < typename tag_name >
+struct info< ::color::category::cmy< tag_name > > {
+public:
+	enum { implemented_entity = false };
+	enum { meaningful_entity = false };
+	enum { size_entity = 3 };
+};
 
 template <> struct info< ::color::category::cmy_uint8 > {
 public:
@@ -10148,11 +10157,11 @@ public:
 
 namespace color {
 namespace _internal {
-namespace utility {
+namespace hsl {
 namespace bound {
 
 template< typename index_name, typename scalar_name >
-struct hsl_scalar {
+struct scalar {
 public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
@@ -10210,17 +10219,17 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsl_float >
-	: public ::color::_internal::utility::bound::hsl_scalar< unsigned, float > {
+	: public ::color::_internal::hsl::bound::scalar< unsigned, float > {
 };
 
 template< >
 struct bound< ::color::category::hsl_double >
-	: public ::color::_internal::utility::bound::hsl_scalar< unsigned, double > {
+	: public ::color::_internal::hsl::bound::scalar< unsigned, double > {
 };
 
 template< >
 struct bound< ::color::category::hsl_ldouble >
-	: public ::color::_internal::utility::bound::hsl_scalar< unsigned, long double > {
+	: public ::color::_internal::hsl::bound::scalar< unsigned, long double > {
 };
 
 }
@@ -11360,11 +11369,11 @@ public:
 
 namespace color {
 namespace _internal {
-namespace utility {
+namespace hsv {
 namespace bound {
 
 template< typename index_name, typename scalar_name >
-struct hsv_scalar {
+struct scalar {
 public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
@@ -11422,17 +11431,17 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsv_float >
-	: public ::color::_internal::utility::bound::hsv_scalar< unsigned, float > {
+	: public ::color::_internal::hsv::bound::scalar< unsigned, float > {
 };
 
 template< >
 struct bound< ::color::category::hsv_double >
-	: public ::color::_internal::utility::bound::hsv_scalar< unsigned, double > {
+	: public ::color::_internal::hsv::bound::scalar< unsigned, double > {
 };
 
 template< >
 struct bound< ::color::category::hsv_ldouble >
-	: public ::color::_internal::utility::bound::hsv_scalar< unsigned, long double > {
+	: public ::color::_internal::hsv::bound::scalar< unsigned, long double > {
 };
 
 }
@@ -12845,11 +12854,11 @@ public:
 
 namespace color {
 namespace _internal {
-namespace utility {
+namespace hsi {
 namespace bound {
 
 template< typename index_name, typename scalar_name >
-struct hsi_scalar {
+struct scalar {
 public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
@@ -12907,17 +12916,17 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::hsi_float >
-	: public ::color::_internal::utility::bound::hsi_scalar< unsigned, float > {
+	: public ::color::_internal::hsi::bound::scalar< unsigned, float > {
 };
 
 template< >
 struct bound< ::color::category::hsi_double >
-	: public ::color::_internal::utility::bound::hsi_scalar< unsigned, double > {
+	: public ::color::_internal::hsi::bound::scalar< unsigned, double > {
 };
 
 template< >
 struct bound< ::color::category::hsi_ldouble >
-	: public ::color::_internal::utility::bound::hsi_scalar< unsigned, long double > {
+	: public ::color::_internal::hsi::bound::scalar< unsigned, long double > {
 };
 
 }
@@ -14290,11 +14299,11 @@ public:
 
 namespace color {
 namespace _internal {
-namespace utility {
+namespace yiq {
 namespace bound {
 
 template< typename index_name, typename scalar_name >
-struct yiq_scalar {
+struct scalar {
 public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
@@ -14352,17 +14361,17 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::yiq_float >
-	: public ::color::_internal::utility::bound::yiq_scalar< unsigned, float > {
+	: public ::color::_internal::yiq::bound::scalar< unsigned, float > {
 };
 
 template< >
 struct bound< ::color::category::yiq_double >
-	: public ::color::_internal::utility::bound::yiq_scalar< unsigned, double > {
+	: public ::color::_internal::yiq::bound::scalar< unsigned, double > {
 };
 
 template< >
 struct bound< ::color::category::yiq_ldouble >
-	: public ::color::_internal::utility::bound::yiq_scalar< unsigned, long double > {
+	: public ::color::_internal::yiq::bound::scalar< unsigned, long double > {
 };
 
 }
@@ -15457,11 +15466,11 @@ public:
 
 namespace color {
 namespace _internal {
-namespace utility {
+namespace yuv {
 namespace bound {
 
 template< typename index_name, typename scalar_name >
-struct yuv_scalar {
+struct scalar {
 public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
@@ -15519,17 +15528,17 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct bound< ::color::category::yuv_float<reference_number> >
-	: public ::color::_internal::utility::bound::yuv_scalar< unsigned, float > {
+	: public ::color::_internal::yuv::bound::scalar< unsigned, float > {
 };
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct bound< ::color::category::yuv_double< reference_number > >
-	: public ::color::_internal::utility::bound::yuv_scalar< unsigned, double > {
+	: public ::color::_internal::yuv::bound::scalar< unsigned, double > {
 };
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct bound< ::color::category::yuv_ldouble<reference_number> >
-	: public ::color::_internal::utility::bound::yuv_scalar< unsigned, long double > {
+	: public ::color::_internal::yuv::bound::scalar< unsigned, long double > {
 };
 
 }
@@ -16825,11 +16834,11 @@ public:
 
 namespace color {
 namespace _internal {
-namespace utility {
+namespace YCgCo {
 namespace bound {
 
 template< typename index_name, typename scalar_name >
-struct YCgCo_scalar {
+struct scalar {
 public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
@@ -16887,17 +16896,17 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YCgCo_float >
-	: public ::color::_internal::utility::bound::YCgCo_scalar< unsigned, float > {
+	: public ::color::_internal::YCgCo::bound::scalar< unsigned, float > {
 };
 
 template< >
 struct bound< ::color::category::YCgCo_double >
-	: public ::color::_internal::utility::bound::YCgCo_scalar< unsigned, double > {
+	: public ::color::_internal::YCgCo::bound::scalar< unsigned, double > {
 };
 
 template< >
 struct bound< ::color::category::YCgCo_ldouble >
-	: public ::color::_internal::utility::bound::YCgCo_scalar< unsigned, long double > {
+	: public ::color::_internal::YCgCo::bound::scalar< unsigned, long double > {
 };
 
 }
@@ -18143,11 +18152,11 @@ public:
 
 namespace color {
 namespace _internal {
-namespace utility {
+namespace YDbDr {
 namespace bound {
 
 template< typename index_name, typename scalar_name >
-struct YDbDr_scalar {
+struct scalar {
 public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
@@ -18205,17 +18214,17 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::YDbDr_float >
-	: public ::color::_internal::utility::bound::YDbDr_scalar< unsigned, float > {
+	: public ::color::_internal::YDbDr::bound::scalar< unsigned, float > {
 };
 
 template< >
 struct bound< ::color::category::YDbDr_double >
-	: public ::color::_internal::utility::bound::YDbDr_scalar< unsigned, double > {
+	: public ::color::_internal::YDbDr::bound::scalar< unsigned, double > {
 };
 
 template< >
 struct bound< ::color::category::YDbDr_ldouble >
-	: public ::color::_internal::utility::bound::YDbDr_scalar< unsigned, long double > {
+	: public ::color::_internal::YDbDr::bound::scalar< unsigned, long double > {
 };
 
 }
@@ -19471,11 +19480,11 @@ public:
 
 namespace color {
 namespace _internal {
-namespace utility {
+namespace YPbPr {
 namespace bound {
 
 template< typename index_name, typename scalar_name >
-struct YPbPr_scalar {
+struct scalar {
 public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
@@ -19533,17 +19542,17 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct bound< ::color::category::YPbPr_float< reference_number > >
-	: public ::color::_internal::utility::bound::YPbPr_scalar< unsigned, float > {
+	: public ::color::_internal::YPbPr::bound::scalar< unsigned, float > {
 };
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct bound< ::color::category::YPbPr_double<reference_number> >
-	: public ::color::_internal::utility::bound::YPbPr_scalar< unsigned, double > {
+	: public ::color::_internal::YPbPr::bound::scalar< unsigned, double > {
 };
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct bound< ::color::category::YPbPr_ldouble<reference_number> >
-	: public ::color::_internal::utility::bound::YPbPr_scalar< unsigned, long double > {
+	: public ::color::_internal::YPbPr::bound::scalar< unsigned, long double > {
 };
 
 }
@@ -21005,11 +21014,11 @@ public:
 
 namespace color {
 namespace _internal {
-namespace utility {
+namespace xyz {
 namespace bound {
 
 template< typename index_name, typename scalar_name >
-struct xyz_scalar {
+struct scalar {
 public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
@@ -21067,17 +21076,17 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::xyz_float >
-	: public ::color::_internal::utility::bound::xyz_scalar< unsigned, float > {
+	: public ::color::_internal::xyz::bound::scalar< unsigned, float > {
 };
 
 template< >
 struct bound< ::color::category::xyz_double >
-	: public ::color::_internal::utility::bound::xyz_scalar< unsigned, double > {
+	: public ::color::_internal::xyz::bound::scalar< unsigned, double > {
 };
 
 template< >
 struct bound< ::color::category::xyz_ldouble >
-	: public ::color::_internal::utility::bound::xyz_scalar< unsigned, long double > {
+	: public ::color::_internal::xyz::bound::scalar< unsigned, long double > {
 };
 
 }
@@ -31942,7 +31951,7 @@ namespace color {
 			typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
 	inline static void process(container_output_type & container) {
-		static model_type s_model{ rgb_type{ 0xDB, 0xDB, 0xDB } };
+		static model_type s_model{ rgb_type{ 0xDC, 0xDC, 0xDC } };
 		container = s_model.container();
 	}
 
@@ -32185,11 +32194,9 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
-
 	namespace constant {
 
 		template< typename category_name >
@@ -32209,7 +32216,6 @@ namespace color {
 													  };
 
 								}
-
 }
 
 namespace color {
