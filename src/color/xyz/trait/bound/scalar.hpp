@@ -1,23 +1,25 @@
-#ifndef color__internal_utility_bound_yuv
-#define color__internal_utility_bound_yuv
+#ifndef color__internal_xyz_bound_scalar
+#define color__internal_xyz_bound_scalar
 
-// ::color::_internal::utility::bound::yuv_scalar< index_type, scalar_name >
+// ::color::_internal::xyz::bound::scalar< index_type, scalar_name >
 
 
-#include "../type/traitp.hpp"
-#include "../type/index.hpp"
+#include "../../../_internal/utility/type/traitc.hpp"
+#include "../../../_internal/utility/type/index.hpp"
+
+
 
 namespace color
  {
   namespace _internal
    {
-    namespace utility
+    namespace xyz
      {
       namespace bound
        {
 
         template< typename index_name, typename scalar_name >
-         struct yuv_scalar
+         struct scalar // TODO
           {
            public:
              typedef scalar_name  scalar_type;
@@ -35,39 +37,39 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   maximum( )
                {
-                static instance_type max_list[] = { 1, scalar_type( 0.436 ), scalar_type( 0.615 ) };
+                static instance_type max_list[] = { 100, 100, 100 };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_image_type   maximum( index_input_const_type  index )
               {
-                static instance_type max_list[] = { 1, scalar_type( 0.436 ), scalar_type( 0.615 ) };
+                static instance_type max_list[] = { 100, 100, 100 };
                 return max_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   minimum( )
                {
-                static instance_type min_list[] = { 0, scalar_type( -0.436 ), scalar_type( -0.615 ) };
+                static instance_type min_list[] = { 0, 0, 0 };
                 return min_list[index];
                }
 
              static /*constexpr*/ return_image_type   minimum( index_input_const_type  index )
               {
-                static instance_type min_list[] = { 0, scalar_type( -0.436 ), scalar_type( -0.615 ) };
+                static instance_type min_list[] = { 0, 0, 0 };
                 return min_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   range()
                {
-                static instance_type range_list[] = { 1, scalar_type( 2*0.436 ), scalar_type( 2 * 0.615 ) };
+                static instance_type range_list[] = { 100, 100, 100 };
                 return range_list[index];
                }
 
              static /*constexpr*/ return_image_type   range(   index_input_const_type  index )
               {
-                static instance_type range_list[] = { 1, scalar_type( 2*0.436 ), scalar_type( 2*0.615 ) };
+                static instance_type range_list[] = { 100, 100, 100 };
                 return range_list[index];
               }
           };

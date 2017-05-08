@@ -16,6 +16,7 @@ namespace color
 
         enum { implemented_entity = false };
         enum {  meaningful_entity = false };
+        enum {  size_entity = -1 };
 
       };
 

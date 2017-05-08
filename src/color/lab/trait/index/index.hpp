@@ -1,4 +1,4 @@
-#ifdef color_lab_trait_index
+#ifdef  color_lab_trait_index
 #define color_lab_trait_index
 
 #include "../../category.hpp"

@@ -7,7 +7,6 @@
 
 
 
-
 namespace color
  {
   namespace trait

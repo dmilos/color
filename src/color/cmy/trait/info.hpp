@@ -11,6 +11,15 @@ namespace color
   namespace trait
    {
 
+    template < typename tag_name >
+     struct info< ::color::category::cmy< tag_name > >
+      {
+       public:
+        enum { implemented_entity = false };
+        enum {  meaningful_entity = false };
+        enum {  size_entity = 3 };
+      };
+
   //template <> struct info< ::color::category::cmy_bool >     {  public: enum { implemented_entity = false}; enum {  meaningful_entity = true }; };
     template <> struct info< ::color::category::cmy_uint8 >    {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
     template <> struct info< ::color::category::cmy_uint16 >   {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };

@@ -1318,7 +1318,7 @@
     <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=debug</NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)\out\bin-debug</OutDir>
     <IntDir>$(SolutionDir)\out\bin-debug</IntDir>
-    <NMakeOutput>$(SolutionDir)\out\allrgb.exe</NMakeOutput>
+    <NMakeOutput>$(SolutionDir)\out\test.exe</NMakeOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

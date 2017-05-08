@@ -56,7 +56,7 @@ void sandbox_test3()
   ::color::rgb<double>  r{1,0,0.13745098039215686274509803921569};
   ::color::lab<double>  l;
   l = r;
-   r = l;
+  r = l;
  }
 
 void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
@@ -236,9 +236,7 @@ void make_blue()
     of.write((const char *)header, 18);
     of.write((const char *)image.data(), image.size() * 4);
    }
-
  }
-
 
 void test_xyz_quick()
  {
@@ -353,10 +351,14 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[])
  {
+  extern void print_bound();
+  print_bound();
+
+  sandbox_test3( );
+
   extern int decompose_test( int argc, char const *argv[] );
   decompose_test( argc, argv );
 
-  sandbox_test3();
   test_yiq2yuv601_quick();
   test_xyz_quick();
   void make_test_gray_scale();
@@ -403,9 +405,6 @@ int main(int argc, char const *argv[])
 
   extern int gray_test( int argc, char const *argv[] );
   gray_test( argc, argv );
-
-  extern void print_bound();
-  print_bound();
 
   make_blue();
 
