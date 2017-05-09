@@ -62,8 +62,8 @@ namespace color
 
           if( 0 != small_y )
            {
-            x = small_x * big_Y / small_y;
-            z =  (1 - small_x - small_y) * big_Y / small_y;
+            x = small_x * big_y / small_y;
+            z =  (1 - small_x - small_y) * big_y / small_y;
            }
 
            container_left_trait_type::template set<0>( left, reformatXYZ_type::template process< 0, 0 >( x ) );

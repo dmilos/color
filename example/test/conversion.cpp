@@ -184,6 +184,10 @@ void check_conversion()
   color::YCgCo<long double >  ycgco;
   color::lab<long double >      lab;
 
+  color::lms<long double >      lms;
+  color::luv<long double >      luv;
+  color::xyy<long double >      xyy;
+
   check_conversion_back_and_forth( c, c  );      check_conversion_back_and_forth( ck, c  );
   check_conversion_back_and_forth( c, ck );      check_conversion_back_and_forth( ck, ck );
   check_conversion_back_and_forth( c, r  );      check_conversion_back_and_forth( ck, r  );

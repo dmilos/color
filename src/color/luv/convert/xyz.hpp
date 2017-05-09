@@ -50,18 +50,6 @@ namespace color
 
          typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
 
-         static scalar_type f( scalar_type const& t )
-          {
-           static const scalar_type epsilon = scalar_type(216)/scalar_type(24389);
-           static const scalar_type k = scalar_type(24389)/scalar_type(27);
-           if(  t > epsilon  )
-            {
-             return  cbrt( t );
-            }
-
-           return ( k*t + 16 )/116;
-          }
-
          static void process
           (
             container_left_input_type         left
@@ -72,17 +60,9 @@ namespace color
            scalar_type y = reformatXYZ_type::template process<1,1>( container_right_trait_type::template get<1>( right ) );
            scalar_type z = reformatXYZ_type::template process<2,2>( container_right_trait_type::template get<2>( right ) );
 
-           x /= scalar_type( 100 ) * white_point_type::X();
-           y /= scalar_type( 100 ) * white_point_type::Y();
-           z /= scalar_type( 100 ) * white_point_type::Z();
-
-           scalar_type fx = f( x );
-           scalar_type fy = f( y );
-           scalar_type fz = f( z );
-
-           scalar_type l = 116 * fy -  16;   //[ 0, 100 ]
-           scalar_type a = 500*( fx - fy );  //[ -431.03448275862064, 431.03448275862064 ]
-           scalar_type b = 200*( fy - fz );  //[ -172.41379310344826, 172.41379310344826 ]
+           scalar_type l = 116;
+           scalar_type a = 500;
+           scalar_type b = 200;
 
            container_left_trait_type::template set<0>( left, reformatLAB_type::template process< 0, 0>( l ) );
            container_left_trait_type::template set<1>( left, reformatLAB_type::template process< 1, 1>( a ) );

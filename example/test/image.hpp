@@ -23,5 +23,7 @@ void save_image_gray( std::string const& name,  gray_image_type const& image, st
 bool targa_image_load( targa_header_struct &header, bgr_image_type & image, std::istream     & stream );
 bool targa_image_load( targa_header_struct &header, bgr_image_type & image, std::string const& name   );
 
+void load_image( bgr_image_type & image, int &width, int &height, std::string const& name );
+
 #endif
 

@@ -26,6 +26,10 @@ digraph color_conversion {
 	gray -> yuv601   [ label = "", dir=both ];
 	gray -> yuv709   [ label = "", dir=both ];
 
+	gray -> lms   [ label = "", dir=both ];
+	gray -> luv   [ label = "", dir=both ];
+	gray -> xyY   [ label = "", dir=both ];
+
 	//hbw  -> hsv[ label = "", dir=both ];
 
 	hsi  -> rgb [ label = "", dir=both ];
@@ -35,6 +39,8 @@ digraph color_conversion {
 	hsv  -> rgb [ label = "", dir=both ];
 
 	lab -> xyz [ label = "", dir=both ];
+	lms -> xyz [ label = "", dir=both ];
+	luv -> xyz [ label = "", dir=both ];
 
 	rgb -> xyz   [ label = "", dir=both ];
 	rgb -> YCgCo [ label = "", dir=both ];
@@ -47,9 +53,7 @@ digraph color_conversion {
 	rgb -> yuv709[ label = "", dir=both ];
 
 	//xyz -> Hunter  [ label = "", dir=both ];
-	//xyz -> xyY     [ label = "", dir=both ];
-	//xyz -> Luv     [ label = "", dir=both ];
-	//xyz -> LMS     [ label = "", dir=both ];
+	xyz -> xyY     [ label = "", dir=both ];
 	//lab -> LCHab   [ label = "", dir=both ];
 	//Luv -> LCHub   [ label = "", dir=both ];
 
@@ -94,13 +98,13 @@ digraph color_conversion {
 
 	subgraph cluster_CIE
 	{
-		label = "CIE";
+		label = "XYZ";
 		node [ ] xyz;
 		//node [ ] Hunter;
-		//node [ ] xyY;
+		node [ ] xyY;
 		node [ ] lab;
-		//node [ ] Luv;
-		//node [ ] LMS;
+		node [ ] luv;
+		node [ ] lms;
 		//node [ ] LCHab;
 		//node [ ] LCHub;
 	}

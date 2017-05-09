@@ -13,27 +13,6 @@
 
 using namespace std;
 
-void load_image( bgr_image_type & image, int &width, int &height, std::string const& name )
- {
-  std::ifstream ifs( name.c_str(), std::ios_base::binary );
-
-  if( false == ifs.is_open() )
-   {
-    return;
-   }
-  targa_header_struct header;
-
-  ifs.read( (char*)header, 18 );
-
-              width  = targa_get_width( header );
-              height = targa_get_height( header );
-  std::size_t depth  = targa_get_depth( header );
-
-  image.resize( width * height );
-
-  ifs.read( reinterpret_cast<char *>( image.data() ), width * height * (depth/8) );
- }
-
 template< typename color_model >
  void
  decompose
@@ -91,7 +70,7 @@ int decompose_test( int argc, char const *argv[] )
   decompose< ::color::hsi<double>   >( image, "./dec/hsi", width, height, ::color::hsi<double>{ 0, 50, 50 } );
 
   decompose< ::color::yiq<double>   >( image, "./dec/yiq", width, height );
-  
+
   decompose< ::color::yuv<double, ::color::constant::yuv::BT_601_entity> >( image, "./dec/yuv-601", width, height );
   decompose< ::color::yuv<double, ::color::constant::yuv::BT_709_entity> >( image, "./dec/yuv-709", width, height );
 
@@ -105,6 +84,11 @@ int decompose_test( int argc, char const *argv[] )
   decompose< ::color::xyz<double> >( image, "./dec/xyz", width, height );
 
   decompose< ::color::lab<double> >( image, "./dec/lab", width, height, ::color::lab<double>{ 50, 0, 0 } );
+
+  decompose< ::color::lms<double> >( image, "./dec/lms", width, height, ::color::lms<double>{ 50, 0, 0 } );
+  decompose< ::color::luv<double> >( image, "./dec/luv", width, height, ::color::luv<double>{ 50, 0, 0 } );
+  decompose< ::color::xyy<double> >( image, "./dec/xyy", width, height, ::color::xyy<double>{ 50, 0, 0 } );
+
 
   return EXIT_SUCCESS;
  }

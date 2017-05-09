@@ -24,7 +24,7 @@ static std::string print_color( std::string const& text, color_name const& c )
 
   ss << "</div>";
   return ss.str();
- } 
+ }
 
 static std::string print_color( std::string const& text, ::color::gray<double> const& c )
  {
@@ -42,7 +42,7 @@ static std::string print_color( std::string const& text, ::color::gray<double> c
 
   ss << "</div>";
   return ss.str();
- } 
+ }
 
 static std::string print_color( std::string const& text, ::color::rgb<double> const& c )
  {
@@ -60,7 +60,7 @@ static std::string print_color( std::string const& text, ::color::rgb<double> co
 
   ss << "</div>";
   return ss.str();
- } 
+ }
 
 
 template< typename tag_name >
@@ -85,14 +85,17 @@ template< typename tag_name >
      ss << "<td>" << print_color( "YPbPr -" + name, ::color::YPbPr< double >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "xyz -"   + name, ::color::xyz<   double >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "lab -"   + name, ::color::lab<   double >( constant ) ) << "</td>";
-    ss << "</tr>" << std::endl;
+     ss << "<td>" << print_color( "lms -"   + name, ::color::lms<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "luv -"   + name, ::color::luv<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "xyy -"   + name, ::color::xyy<   double >( constant ) ) << "</td>";
+     ss << "</tr>" << std::endl;
 
   return ss.str();
  }
 
 void test_constant()
  {
-  std::stringstream ss; 
+  std::stringstream ss;
 
   ss << "<table>";
 
@@ -171,10 +174,10 @@ void test_constant()
   ss << print( ::color::constant::gray_t<0,1>{},   "#ffffff"   ); ss << print( ::color::constant::gray_t<1,0>{},   "#000000"   );
 
   ss << print( ::color::constant::gray_t<1,2>{},   "rgb(170,170,170)"   ); ss << print( ::color::constant::gray_t<2,1>{},   "rgb(85,85,85)"   );
-  
+
   ss << print( ::color::constant::gray_t<1,3>{},   "rgb(191,191,191)"   ); ss << print( ::color::constant::gray_t<3,1>{},   "rgb(63,63,63)"   );
   ss << print( ::color::constant::gray_t<2,3>{},   "rgb(153,153,153)"   ); ss << print( ::color::constant::gray_t<3,2>{},   "rgb(102,102,102)"   );
-  
+
   ss << print( ::color::constant::gray_t<1,4>{},   "rgb(204,204,204)"   ); ss << print( ::color::constant::gray_t<4,1>{},   "rgb(51,51,51)"   );
 
   ss << print( ::color::constant::gray_t<2,4>{},   "rgb(170,170,170)"   ); ss << print( ::color::constant::gray_t<4,2>{},  "rgb(85,85,85)"   );

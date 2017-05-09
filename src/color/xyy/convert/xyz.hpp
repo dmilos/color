@@ -45,22 +45,10 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef ::color::_internal::reformat< xyy_category_type, xyySCALAR_category_type, scalar_type >     reformatLAB_type;
+         typedef ::color::_internal::reformat< xyy_category_type, xyySCALAR_category_type, scalar_type >     reformatXYY_type;
          typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type >     reformatXYZ_type;
 
          typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
-
-         static scalar_type f( scalar_type const& t )
-          {
-           static const scalar_type epsilon = scalar_type(216)/scalar_type(24389);
-           static const scalar_type k = scalar_type(24389)/scalar_type(27);
-           if(  t > epsilon  )
-            {
-             return  cbrt( t );
-            }
-
-           return ( k*t + 16 )/116;
-          }
 
          static void process
           (
@@ -78,15 +66,15 @@ namespace color
                  scalar_type small_y = 0;
            const scalar_type big_Y   = y;
 
-           if( 0 != sum )
+           if( 0 != s ) // TODO is epsilon
             {
              small_x = x / s;
              small_y = y / s;
             }
 
-           container_left_trait_type::template set<0>( left, reformatLAB_type::template process< 0, 0>( small_x ) );
-           container_left_trait_type::template set<1>( left, reformatLAB_type::template process< 1, 1>( small_y ) );
-           container_left_trait_type::template set<2>( left, reformatLAB_type::template process< 2, 2>( big_Y   ) );
+           container_left_trait_type::template set<0>( left, reformatXYY_type::template process< 0, 0>( small_x ) );
+           container_left_trait_type::template set<1>( left, reformatXYY_type::template process< 1, 1>( small_y ) );
+           container_left_trait_type::template set<2>( left, reformatXYY_type::template process< 2, 2>( big_Y   ) );
           }
 
 

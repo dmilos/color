@@ -53,10 +53,22 @@ void print()
 
 void sandbox_test3()
  {
-  ::color::rgb<double>  r{1,0,0.13745098039215686274509803921569};
-  ::color::lab<double>  l;
-  l = r;
-  r = l;
+  ::color::xyy<double>  a{ ::color::constant::white_t{} };
+  ::color::xyz<double>  b{ ::color::constant::white_t{} };
+  ::color::rgb<double>  r{ ::color::constant::white_t{} };
+
+  ::color::gray<double>  g{ ::color::constant::white_t{} };
+
+  
+  a = b;
+  g = b;
+  g = a;
+  a = g;
+  r = a;
+  a = r;
+  b = a;
+  a = b;
+
  }
 
 void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
@@ -351,10 +363,11 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[])
  {
-  extern void print_bound();
+  sandbox_test3( );
+
+  extern void print_bound( );
   print_bound();
 
-  sandbox_test3( );
 
   extern int decompose_test( int argc, char const *argv[] );
   decompose_test( argc, argv );
@@ -395,7 +408,7 @@ int main(int argc, char const *argv[])
   void test_pallete();
   test_pallete();
 
-  ctor_test();
+  ctor_test( );
 
   void main_place();
   main_place();

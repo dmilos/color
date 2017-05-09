@@ -34,47 +34,42 @@ namespace color
              typedef typename index_trait_type::instance_type    index_instance_type;
              typedef typename index_trait_type::input_const_type index_input_const_type;
 
-             static instance_type magic()
-              {
-               return instance_type(1)-instance_type(16)/instance_type(116);
-              }
-
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   maximum( )
                {
-                static instance_type max_list[] = { 100, 500*magic(), 200*magic() };
+                static instance_type max_list[] = { 100, 100, 100 };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_image_type   maximum( index_input_const_type  index )
               {
-                static instance_type max_list[] = { 100, 500*magic(), 200*magic() };
+                static instance_type max_list[] = { 1, 1, 100 };
                 return max_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   minimum( )
                {
-                static instance_type min_list[] = { 0, -500*magic(), -200*magic() };
+                static instance_type min_list[] = { 0, 0, 0 };
                 return min_list[index];
                }
 
              static /*constexpr*/ return_image_type   minimum( index_input_const_type  index )
               {
-                static instance_type min_list[] = { 0, -500*magic(), -200*magic() };
+                static instance_type min_list[] = { 0, 0, 0 };
                 return min_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   range()
                {
-                static instance_type range_list[] = { 100, 1000*magic(), 400*magic() };
+                static instance_type range_list[] = { 1, 1, 100 };
                 return range_list[index];
                }
 
              static /*constexpr*/ return_image_type   range(   index_input_const_type  index )
               {
-                static instance_type range_list[] = { 100, 1000*magic(), 400*magic() };
+                static instance_type range_list[] = { 1, 1, 100 };
                 return range_list[index];
               }
           };

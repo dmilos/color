@@ -371,6 +371,33 @@ void print_bound()
   ss << print_bound< color::lab<double        > >( "color::lab", "double        " ) << std::endl;
   ss << print_bound< color::lab<long double   > >( "color::lab", "long double   " ) << std::endl;
 
+  ss << print_semi_title( "L","m","s" );
+  ss << print_bound< color::lms<std::uint8_t  > >( "color::lms", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::lms<std::uint16_t > >( "color::lms", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::lms<std::uint32_t > >( "color::lms", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::lms<std::uint64_t > >( "color::lms", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::lms<float         > >( "color::lms", "float         " ) << std::endl;
+  ss << print_bound< color::lms<double        > >( "color::lms", "double        " ) << std::endl;
+  ss << print_bound< color::lms<long double   > >( "color::lms", "long double   " ) << std::endl;
+
+  ss << print_semi_title( "L","u","v" );
+  ss << print_bound< color::luv<std::uint8_t  > >( "color::luv", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::luv<std::uint16_t > >( "color::luv", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::luv<std::uint32_t > >( "color::luv", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::luv<std::uint64_t > >( "color::luv", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::luv<float         > >( "color::luv", "float         " ) << std::endl;
+  ss << print_bound< color::luv<double        > >( "color::luv", "double        " ) << std::endl;
+  ss << print_bound< color::luv<long double   > >( "color::luv", "long double   " ) << std::endl;
+
+  ss << print_semi_title( "x","y","Y" );
+  ss << print_bound< color::xyy<std::uint8_t  > >( "color::xyy", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::xyy<std::uint16_t > >( "color::xyy", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::xyy<std::uint32_t > >( "color::xyy", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::xyy<std::uint64_t > >( "color::xyy", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::xyy<float         > >( "color::xyy", "float         " ) << std::endl;
+  ss << print_bound< color::xyy<double        > >( "color::xyy", "double        " ) << std::endl;
+  ss << print_bound< color::xyy<long double   > >( "color::xyy", "long double   " ) << std::endl;
+
   //ss << "</table> ";
 
    {
