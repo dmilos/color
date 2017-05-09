@@ -1,3 +1,4 @@
+
 #include "./gray.hpp"
 
 #include "./cmy.hpp"
@@ -19,3 +20,6 @@
 #include "./xyz.hpp"
 
 #include "./lab.hpp"
+#include "./xyy.hpp"
+#include "./lms.hpp"
+#include "./luv.hpp"

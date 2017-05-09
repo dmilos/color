@@ -9,8 +9,6 @@
 #include "./hsv/hsv.hpp"
 #include "./hsi/hsi.hpp"
 
-#include "./lab/lab.hpp"
-
 #include "./rgb/rgb.hpp"
 #include "./yiq/yiq.hpp"
 #include "./yuv/yuv.hpp"
@@ -20,6 +18,11 @@
 #include "./YCgCo/YCgCo.hpp"
 #include "./YDbDr/YDbDr.hpp"
 #include "./YPbPr/YPbPr.hpp"
+
+#include "./lab/lab.hpp"
+#include "./lms/lms.hpp"
+#include "./luv/luv.hpp"
+#include "./xyy/xyy.hpp"
 
 #include "./generic/operation/operation.hpp"
 //#include "./gray/operation/operation.hpp"
