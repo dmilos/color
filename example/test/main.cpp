@@ -53,15 +53,14 @@ void print()
 
 void sandbox_test3()
  {
-  ::color::xyy<double>  a{ ::color::constant::white_t{} };
+  ::color::lab<double>  a{ ::color::constant::white_t{} };
   ::color::xyz<double>  b{ ::color::constant::white_t{} };
   ::color::rgb<double>  r{ ::color::constant::white_t{} };
-
   ::color::gray<double>  g{ ::color::constant::white_t{} };
 
   
-  a = b;
-  g = b;
+  a = g ;
+  g = a;
   g = a;
   a = g;
   r = a;
@@ -445,8 +444,6 @@ mkdir gray
 mkdir hue
 mkdir operation
 mkdir palette
-
 */
 
- 
  

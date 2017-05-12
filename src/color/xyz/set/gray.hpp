@@ -33,12 +33,7 @@
 
         typedef ::color::_internal::reformat< category_type, akin_type, scalar_type >    reformat_type;
 
-        enum
-         {
-           luma_p  = ::color::place::_internal::luma<category_type>::position_enum
-         };
-
-        color_parameter.template set<luma_p>( reformat_type::template process<luma_p,0>( component_parameter ) );
+        color_parameter.template set<0>( reformat_type::template process<0,0>( component_parameter ) );
        }
 
     }

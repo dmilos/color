@@ -45,7 +45,7 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef ::color::_internal::reformat< luv_category_type, luvSCALAR_category_type, scalar_type >     reformatLAB_type;
+         typedef ::color::_internal::reformat< luv_category_type, luvSCALAR_category_type, scalar_type >     reformatLUV_type;
          typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type >     reformatXYZ_type;
 
          typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
@@ -56,17 +56,35 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
+           static scalar_type u0 = 4* white_point_type::X()/( white_point_type::X() +  15*white_point_type::Y() + 3*white_point_type::Z() );
+           static scalar_type v0 = 9* white_point_type::Y()/( white_point_type::X() +  15*white_point_type::Y() + 3*white_point_type::Z() );
+
            scalar_type x = reformatXYZ_type::template process<0,0>( container_right_trait_type::template get<0>( right ) );
            scalar_type y = reformatXYZ_type::template process<1,1>( container_right_trait_type::template get<1>( right ) );
            scalar_type z = reformatXYZ_type::template process<2,2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type l = 116;
-           scalar_type a = 500;
-           scalar_type b = 200;
+           scalar_type up = 4 * x/( x + 15*y + 3*z );
+           scalar_type vp = 9 * y/( x + 15*y + 3*z );
 
-           container_left_trait_type::template set<0>( left, reformatLAB_type::template process< 0, 0>( l ) );
-           container_left_trait_type::template set<1>( left, reformatLAB_type::template process< 1, 1>( a ) );
-           container_left_trait_type::template set<2>( left, reformatLAB_type::template process< 2, 2>( b ) );
+           scalar_type yr = y / white_point_type::Y();
+
+           scalar_type l;
+
+           if( scalar_type(216)/scalar_type(24389) < yr ) 
+            {
+             l = scalar_type(116)*cbrt(yr)-scalar_type(16);
+            }
+           else
+            {
+             l = scalar_type(24389)/scalar_type(27)* yr;
+            }
+
+           scalar_type u = 13*l*( up - u0 );
+           scalar_type v = 13*l*( vp - v0 );
+
+           container_left_trait_type::template set<0>( left, reformatLUV_type::template process< 0, 0>( l ) );
+           container_left_trait_type::template set<1>( left, reformatLUV_type::template process< 1, 1>( u ) );
+           container_left_trait_type::template set<2>( left, reformatLUV_type::template process< 2, 2>( v ) );
           }
 
 

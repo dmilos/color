@@ -45,7 +45,7 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef ::color::_internal::reformat< lms_category_type, lmsSCALAR_category_type, scalar_type >     reformatLAB_type;
+         typedef ::color::_internal::reformat< lms_category_type, lmsSCALAR_category_type, scalar_type >     reformatLMS_type;
          typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type >     reformatXYZ_type;
 
          typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
@@ -60,13 +60,13 @@ namespace color
            scalar_type y = reformatXYZ_type::template process<1,1>( container_right_trait_type::template get<1>( right ) );
            scalar_type z = reformatXYZ_type::template process<2,2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type l;
-           scalar_type a;
-           scalar_type b;
+           scalar_type l = 2*x;
+           scalar_type m = 2*y;
+           scalar_type s = 2*z;
 
-           container_left_trait_type::template set<0>( left, reformatLAB_type::template process< 0, 0>( l ) );
-           container_left_trait_type::template set<1>( left, reformatLAB_type::template process< 1, 1>( a ) );
-           container_left_trait_type::template set<2>( left, reformatLAB_type::template process< 2, 2>( b ) );
+           container_left_trait_type::template set<0>( left, reformatLMS_type::template process< 0, 0>( l ) );
+           container_left_trait_type::template set<1>( left, reformatLMS_type::template process< 1, 1>( m ) );
+           container_left_trait_type::template set<2>( left, reformatLMS_type::template process< 2, 2>( s ) );
           }
 
 
