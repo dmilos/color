@@ -2,6 +2,7 @@
 #include <fstream>
 #include <typeinfo>
 #include <cstring>
+#include <iostream>
 #include <iomanip>
 
 #include "color/color.hpp"
@@ -53,21 +54,83 @@ void print()
 
 void sandbox_test3()
  {
-  ::color::lab<double>  a{ ::color::constant::white_t{} };
-  ::color::xyz<double>  b{ ::color::constant::white_t{} };
-  ::color::rgb<double>  r{ ::color::constant::white_t{} };
-  ::color::gray<double>  g{ ::color::constant::white_t{} };
 
-  
-  a = g ;
-  g = a;
-  g = a;
-  a = g;
-  r = a;
-  a = r;
-  b = a;
+  ::color::luv< long double>  a;
+  ::color::xyz<long double>   b{ ::color::constant::white_t{} };
+  ::color::rgb<long double>   r{ ::color::constant::white_t{} };
+  ::color::gray<long double>  g{ ::color::constant::white_t{} };
+
   a = b;
+  b = a;
+ }
 
+void luv_bound()
+ {
+  typedef long double scalar_type;
+  typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
+
+  static scalar_type u0 = 4* white_point_type::X()/( white_point_type::X() +  15*white_point_type::Y() + 3*white_point_type::Z() );
+  static scalar_type v0 = 9* white_point_type::Y()/( white_point_type::X() +  15*white_point_type::Y() + 3*white_point_type::Z() );
+
+  scalar_type l,u,v;
+  scalar_type l_min = +1e6,u_min = +1e6,v_min = +1e6;
+  scalar_type l_max = -1e6,u_max = -1e6,v_max = -1e6;
+
+  scalar_type vx_min=0.000000001;  scalar_type vx_max=0.000000001;
+  scalar_type vy_min=0.000000001;  scalar_type vy_max=0.000000001;
+  scalar_type vz_min=0.000000001;  scalar_type vz_max=0.000000001;
+  
+  scalar_type ux_min=0.000000001;  scalar_type ux_max=0.000000001;
+  scalar_type uy_min=0.000000001;  scalar_type uy_max=0.000000001;
+  scalar_type uz_min=0.000000001;  scalar_type uz_max=0.000000001;
+  
+  scalar_type lx_min=0.000000001;  scalar_type lx_max=0.000000001;
+  scalar_type ly_min=0.000000001;  scalar_type ly_max=0.000000001;
+  scalar_type lz_min=0.000000001;  scalar_type lz_max=0.000000001;
+
+  scalar_type x=100;
+  //scalar_type y=100;
+  scalar_type z=100;
+
+ // for( scalar_type x=0.00001; x < 101; x+=1 )
+   for( scalar_type y=12.206940; y < 12.20695; y += scalar_type(0.00000000001) )
+    //for( scalar_type z=0.00001; z < 101; z+=1  ) 
+     {
+     ::color::_internal::constant::luv< scalar_type >::xyz2luv( x,y,z,l,u,v  );
+
+      if( l < l_min ) { lx_min = x;  ly_min = y; lz_min = z; l_min = l; }
+      if( u < u_min ) { ux_min = x; uy_min = y; uz_min = z; u_min = u; }
+      if( v < v_min ) { vx_min = x; vy_min = y; vz_min = z; v_min = v; }
+
+      if( l_max < l ) { lx_max = x; ly_max = y; lz_max = z; l_max = l; }
+      if( u_max < u ) { ux_max = x; uy_max = y; uz_max = z; u_max = u; }
+      if( v_max < v ) { vx_max = x; vy_max = y; vz_max = z; v_max = v; }
+     }
+
+  std::cout<< "l[" << l_min<<","<< l_max<<" ]" << "u[ " << u_min<<","<< u_max<<" ]" << "v[ " << v_min<<","<< v_max<<" ]" << std::endl;
+
+  std::cout << "l_min:x: " << std::setprecision(20) << lx_min << std::endl;
+  std::cout << "l_min:y: " << std::setprecision(20) << ly_min << std::endl;
+  std::cout << "l_min:z: " << std::setprecision(20) << lz_min << std::endl;
+  std::cout << "l_max:x: " << std::setprecision(20) << lx_max << std::endl;
+  std::cout << "l_max:y: " << std::setprecision(20) << ly_max << std::endl;
+  std::cout << "l_max:z: " << std::setprecision(20) << lz_max << std::endl;
+
+  std::cout << "u_min:x: " << std::setprecision(20) << ux_min << std::endl;
+  std::cout << "u_min:y: " << std::setprecision(20) << uy_min << std::endl;
+  std::cout << "u_min:z: " << std::setprecision(20) << uz_min << std::endl;
+  std::cout << "u_max:x: " << std::setprecision(20) << ux_max << std::endl;
+  std::cout << "u_max:y: " << std::setprecision(20) << uy_max << std::endl;
+  std::cout << "u_max:z: " << std::setprecision(20) << uz_max << std::endl;
+
+  std::cout << "v_min:x: " << std::setprecision(25) << vx_min << std::endl;
+  std::cout << "v_min:y: " << std::setprecision(25) << vy_min << std::endl;
+  std::cout << "v_min:z: " << std::setprecision(25) << vz_min << std::endl;
+  std::cout << "v_max:x: " << std::setprecision(25) << vx_max << std::endl;
+  std::cout << "v_max:y: " << std::setprecision(25) << vy_max << std::endl;
+  std::cout << "v_max:z: " << std::setprecision(25) << vz_max << std::endl;
+
+  std::cin.get();
  }
 
 void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
@@ -362,7 +425,8 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[])
  {
-  sandbox_test3( );
+  sandbox_test3();
+  //luv_bound ();
 
   extern void print_bound( );
   print_bound();
@@ -432,7 +496,7 @@ int main(int argc, char const *argv[])
   void test_get_invoke( double value );
   test_get_invoke(0.5);
 
-  return 0;
+  return 0 ;
  }
 
 /*

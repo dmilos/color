@@ -8,10 +8,9 @@
 
 #include "../../xyz/xyz.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+#include "../../_internal/reformat.hpp"
 
-
+#include "../constant.hpp" 
 
 namespace color
  {
@@ -63,30 +62,16 @@ namespace color
            scalar_type y = reformatXYZ_type::template process<1,1>( container_right_trait_type::template get<1>( right ) );
            scalar_type z = reformatXYZ_type::template process<2,2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type up = 4 * x/( x + 15*y + 3*z );
-           scalar_type vp = 9 * y/( x + 15*y + 3*z );
-
-           scalar_type yr = y / white_point_type::Y();
-
            scalar_type l;
+           scalar_type u;
+           scalar_type v;
 
-           if( scalar_type(216)/scalar_type(24389) < yr ) 
-            {
-             l = scalar_type(116)*cbrt(yr)-scalar_type(16);
-            }
-           else
-            {
-             l = scalar_type(24389)/scalar_type(27)* yr;
-            }
+           ::color::_internal::constant::luv< scalar_type >::xyz2luv( x, y, z, l, u, v );
 
-           scalar_type u = 13*l*( up - u0 );
-           scalar_type v = 13*l*( vp - v0 );
-
-           container_left_trait_type::template set<0>( left, reformatLUV_type::template process< 0, 0>( l ) );
-           container_left_trait_type::template set<1>( left, reformatLUV_type::template process< 1, 1>( u ) );
-           container_left_trait_type::template set<2>( left, reformatLUV_type::template process< 2, 2>( v ) );
+           container_left_trait_type::template set<0>( left, reformatLUV_type::template process<0,0>( l ) );
+           container_left_trait_type::template set<1>( left, reformatLUV_type::template process<1,1>( u ) );
+           container_left_trait_type::template set<2>( left, reformatLUV_type::template process<2,2>( v ) );
           }
-
 
         };
 

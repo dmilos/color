@@ -56,8 +56,8 @@ namespace color
            static const scalar_type  k = scalar_type(24389)/scalar_type(27);
            // TODO static const scalar_type   = k  * e;
 
-           static scalar_type u0 = 4* white_point_type::X()/( white_point_type::X() +  15*white_point_type::Y() + 3*white_point_type::Z() );
-           static scalar_type v0 = 9* white_point_type::Y()/( white_point_type::X() +  15*white_point_type::Y() + 3*white_point_type::Z() );
+           static scalar_type u0 = scalar_type(4)* white_point_type::X()/( white_point_type::X() +  scalar_type(15)*white_point_type::Y() + scalar_type(3)*white_point_type::Z() );
+           static scalar_type v0 = scalar_type(9)* white_point_type::Y()/( white_point_type::X() +  scalar_type(15)*white_point_type::Y() + scalar_type(3)*white_point_type::Z() );
 
            scalar_type l = reformatLUV_type::template process< 0, 0>( container_right_trait_type::template get<0>( right ) );
            scalar_type u = reformatLUV_type::template process< 1, 1>( container_right_trait_type::template get<1>( right ) );
@@ -67,18 +67,18 @@ namespace color
 
            if( k * epsilon < l )
             {
-             y = (l+16)/116; y *= y*y;
+             y = (l+scalar_type(16))/scalar_type(116); y *= y*y;
             }
            else
            {
             y = l/k;
            }
-           y *= white_point_type::Y();
+           y *= white_point_type::Y()* scalar_type( 100 );
 
-           scalar_type a = (scalar_type(52)*l/(u+13*l*v0))/scalar_type(3);
-           scalar_type b = -5*y;
+           scalar_type a = (scalar_type(52)*l/(u+13*l*u0) - scalar_type(1) )/scalar_type(3);
+           scalar_type b = -scalar_type(5)*y;
            scalar_type c = -scalar_type(1)/scalar_type(3);
-           scalar_type d = y*( scalar_type(39)*l/( v+13*l*v0) - scalar_type(5) );
+           scalar_type d = y*( scalar_type(39)*l/( v+scalar_type(13)*l*v0) - scalar_type(5) );
 
            scalar_type x = ( d-b)/(a-c);
            scalar_type z = a*x+b;
