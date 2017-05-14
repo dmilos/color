@@ -52,11 +52,10 @@ void print()
  }
 
 
-void sandbox_test3()
+void sandbox_test3( )
  {
-
   ::color::luv< long double>  a;
-  ::color::xyz<long double>   b{ ::color::constant::white_t{} };
+  ::color::xyy<long double>   b{ ::color::constant::white_t{} };
   ::color::rgb<long double>   r{ ::color::constant::white_t{} };
   ::color::gray<long double>  g{ ::color::constant::white_t{} };
 
@@ -428,8 +427,13 @@ int main(int argc, char const *argv[])
   sandbox_test3();
   //luv_bound ();
 
+  void test_pallete();
+  test_pallete();
+
+
   extern void print_bound( );
   print_bound();
+
 
 
   extern int decompose_test( int argc, char const *argv[] );
@@ -467,9 +471,6 @@ int main(int argc, char const *argv[])
 
   void image_conversion();
   image_conversion();
-
-  void test_pallete();
-  test_pallete();
 
   ctor_test( );
 

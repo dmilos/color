@@ -31,7 +31,9 @@ namespace color
        public:
          typedef ::color::category::luv< luv_tag_name >    luv_category_type, category_left_type;
          typedef ::color::category::xyz< xyz_tag_name >    xyz_category_type, category_right_type;
+
          typedef double scalar_type;
+
          typedef  ::color::category::luv< scalar_type >  luvSCALAR_category_type;
          typedef  ::color::category::xyz< scalar_type >  xyzSCALAR_category_type;
 

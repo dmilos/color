@@ -4241,5 +4241,8 @@
     <ClCompile Include="allrgb.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
+    <ClCompile Include="pallete.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

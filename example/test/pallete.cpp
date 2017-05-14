@@ -34,7 +34,13 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
                            diverse_type::template process<2>( x / double(width) )
                                                 , 0 } );
            check = m;
-           ::color::fix::overburn( check );
+           if( true == ::color::check::overburn( check ) )
+            {
+             ::color::fix::overburn( check ); 
+             if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
+             if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
+            }
+
            image[y * width + x] = check;
          }break;
         case( 1 ):
@@ -44,7 +50,12 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
                            diverse_type::template process<2>( x / double(width) )
                                                , 0 } );
            check = m;
-           ::color::fix::overburn( check );
+           if( true == ::color::check::overburn( check ) )
+            {
+             ::color::fix::overburn( check ); 
+             if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
+             if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
+            }
            image[y * width + x] = check;
            image[y * width + x].set<3>( 255 );
           }break;
@@ -54,7 +65,12 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
                           diverse_type::template process<1>( x / double(width) ),
                           diverse_type::template process<2>( plane )
                                                , 0 } );
-           check = m;
+           if( true == ::color::check::overburn( check ) )
+            {
+             ::color::fix::overburn( check ); 
+             if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
+             if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
+            }
            ::color::fix::overburn( check );
            image[y * width + x] = check;
          }break;
@@ -224,6 +240,18 @@ void test_pallete()
   make_image<color::xyy<double> >( "./palette/xyy-0-080.tga" , 0.8, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-080.tga" , 0.8, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-080.tga" , 0.8, 2 );
   make_image<color::xyy<double> >( "./palette/xyy-0-090.tga" , 0.9, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-090.tga" , 0.9, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-090.tga" , 0.9, 2 );
   make_image<color::xyy<double> >( "./palette/xyy-0-100.tga" , 1.0, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-100.tga" , 1.0, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-100.tga" , 1.0, 2 );
+
+  make_image<color::luv<double> >( "./palette/luv-0-000.tga" , 0.0, 0 ); make_image<color::luv<double> >( "./palette/luv-1-000.tga" , 0.0, 1 ); make_image<color::luv<double> >( "./palette/luv-2-000.tga" , 0.0, 2 );
+  make_image<color::luv<double> >( "./palette/luv-0-010.tga" , 0.1, 0 ); make_image<color::luv<double> >( "./palette/luv-1-010.tga" , 0.1, 1 ); make_image<color::luv<double> >( "./palette/luv-2-010.tga" , 0.1, 2 );
+  make_image<color::luv<double> >( "./palette/luv-0-020.tga" , 0.2, 0 ); make_image<color::luv<double> >( "./palette/luv-1-020.tga" , 0.2, 1 ); make_image<color::luv<double> >( "./palette/luv-2-020.tga" , 0.2, 2 );
+  make_image<color::luv<double> >( "./palette/luv-0-030.tga" , 0.3, 0 ); make_image<color::luv<double> >( "./palette/luv-1-030.tga" , 0.3, 1 ); make_image<color::luv<double> >( "./palette/luv-2-030.tga" , 0.3, 2 );
+  make_image<color::luv<double> >( "./palette/luv-0-040.tga" , 0.4, 0 ); make_image<color::luv<double> >( "./palette/luv-1-040.tga" , 0.4, 1 ); make_image<color::luv<double> >( "./palette/luv-2-040.tga" , 0.4, 2 );
+  make_image<color::luv<double> >( "./palette/luv-0-050.tga" , 0.5, 0 ); make_image<color::luv<double> >( "./palette/luv-1-050.tga" , 0.5, 1 ); make_image<color::luv<double> >( "./palette/luv-2-050.tga" , 0.5, 2 );
+  make_image<color::luv<double> >( "./palette/luv-0-060.tga" , 0.6, 0 ); make_image<color::luv<double> >( "./palette/luv-1-060.tga" , 0.6, 1 ); make_image<color::luv<double> >( "./palette/luv-2-060.tga" , 0.6, 2 );
+  make_image<color::luv<double> >( "./palette/luv-0-070.tga" , 0.7, 0 ); make_image<color::luv<double> >( "./palette/luv-1-070.tga" , 0.7, 1 ); make_image<color::luv<double> >( "./palette/luv-2-070.tga" , 0.7, 2 );
+  make_image<color::luv<double> >( "./palette/luv-0-080.tga" , 0.8, 0 ); make_image<color::luv<double> >( "./palette/luv-1-080.tga" , 0.8, 1 ); make_image<color::luv<double> >( "./palette/luv-2-080.tga" , 0.8, 2 );
+  make_image<color::luv<double> >( "./palette/luv-0-090.tga" , 0.9, 0 ); make_image<color::luv<double> >( "./palette/luv-1-090.tga" , 0.9, 1 ); make_image<color::luv<double> >( "./palette/luv-2-090.tga" , 0.9, 2 );
+  make_image<color::luv<double> >( "./palette/luv-0-100.tga" , 1.0, 0 ); make_image<color::luv<double> >( "./palette/luv-1-100.tga" , 1.0, 1 ); make_image<color::luv<double> >( "./palette/luv-2-100.tga" , 1.0, 2 );
 
  }
 

@@ -39,7 +39,7 @@ namespace color
                 continue;
                }
              }
-            return container_trait_type::size();
+            return false;
            }
 
         };
@@ -50,7 +50,7 @@ namespace color
      bool
      overburn( ::color::model<category_name> const& m )
       {
-       return  ::color::check::_internal::overburn<category_name>::process( m );
+       return ::color::check::_internal::overburn<category_name>::process( m );
       }
 
    }
