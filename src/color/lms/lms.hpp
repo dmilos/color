@@ -4,18 +4,19 @@
 #include "../generic/type/type.hpp"
 
 #include "./category.hpp"
+
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
 #include "../generic/model.hpp"
-
+#include "./constant/constant.hpp"
 
 
 namespace color
  {
 
-  template< typename type_name >
-   using lms = ::color::model< typename ::color::category::lms< type_name > >;
+  template< typename type_name/*, ::color::constant::lms::reference_enum reference_number = ::color::constant::lms::von_Kries_D65_entity*/ >
+   using lms = ::color::model< typename ::color::category::lms< type_name/*, reference_number*/ > >;
 
  }
 

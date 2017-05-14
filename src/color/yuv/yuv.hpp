@@ -1,6 +1,7 @@
 #ifndef color_yuv_yuv_
 #define color_yuv_yuv_
 
+#include "../generic/type/type.hpp"
 
 #include "./category.hpp"
 
@@ -18,6 +19,9 @@ namespace color
    using yuv = ::color::model< typename ::color::category::yuv< type_name, reference_number > >;
 
  }
+
+
+
 
 
 #include "./place/place.hpp"

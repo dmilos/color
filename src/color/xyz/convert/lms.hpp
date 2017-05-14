@@ -6,11 +6,11 @@
 #include "../category.hpp"
 
 
+#include "../../xyz/xyz.hpp"
 #include "../../lms/lms.hpp"
-#include "../../rgb/rgb.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+#include "../../_internal/reformat.hpp"
+
 
 
 namespace color
@@ -18,11 +18,15 @@ namespace color
   namespace _internal
    {
 
-    template< typename xyz_tag_name, typename lms_tag_name >
+    template
+     < 
+       typename xyz_tag_name
+      ,typename lms_tag_name  /*, ::color::constant::lms::reference_enum reference_number*/
+     >
      struct convert
       <
-        ::color::category::xyz< xyz_tag_name >
-       ,::color::category::lms<  lms_tag_name >
+        ::color::category::xyz<  xyz_tag_name >
+       ,::color::category::lms<  lms_tag_name/*,reference_number*/ >
       >
       {
        public:
@@ -44,6 +48,8 @@ namespace color
          typedef ::color::_internal::reformat< lmsSCALAR_category_type, lms_category_type, scalar_type >     reformatLMS_type;
          typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type >     reformatXYZ_type;
 
+         typedef ::color::constant::lms::matrix< scalar_type, ::color::constant::lms::von_Kries_E_entity >     matrix_type;
+
          typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
 
          static void process
@@ -52,18 +58,19 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           scalar_type l = reformatLMS_type::template process< 0, 0 >( container_right_trait_type::template get<0>( right ) );
-           scalar_type m = reformatLMS_type::template process< 1, 1 >( container_right_trait_type::template get<1>( right ) );
-           scalar_type s = reformatLMS_type::template process< 2, 2 >( container_right_trait_type::template get<2>( right ) );
+           scalar_type l = reformatLMS_type::template process<0, 0>( container_right_trait_type::template get<0>( right ) );
+           scalar_type m = reformatLMS_type::template process<1, 1>( container_right_trait_type::template get<1>( right ) );
+           scalar_type s = reformatLMS_type::template process<2, 2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type x = l;
-           scalar_type y = m;
-           scalar_type z = s;
+           scalar_type x = matrix_type::i11() * l + matrix_type::i12() * m + matrix_type::i13() * s;
+           scalar_type y = matrix_type::i21() * l + matrix_type::i22() * m + matrix_type::i23() * s;
+           scalar_type z = matrix_type::i31() * l + matrix_type::i32() * m + matrix_type::i33() * s;
 
            container_left_trait_type::template set<0>( left, reformatXYZ_type::template process< 0, 0 >( x ) );
            container_left_trait_type::template set<1>( left, reformatXYZ_type::template process< 1, 1 >( y ) );
            container_left_trait_type::template set<2>( left, reformatXYZ_type::template process< 2, 2 >( z ) );
           }
+
         };
 
    }

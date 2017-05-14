@@ -129,7 +129,7 @@ void luv_bound()
   std::cout << "v_max:y: " << std::setprecision(25) << vy_max << std::endl;
   std::cout << "v_max:z: " << std::setprecision(25) << vz_max << std::endl;
 
-  std::cin.get();
+  //std::cin.get();
  }
 
 void sandbox_test2( ::color::rgb<double>  r, std::string const& s )

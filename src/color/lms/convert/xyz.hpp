@@ -6,10 +6,10 @@
 #include "../category.hpp"
 
 
-#include "../../xyz/xyz.hpp"
+#include "../../lms/lms.hpp"
+#include "../../xyy/xyy.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+#include "../../_internal/reformat.hpp"
 
 
 
@@ -20,7 +20,7 @@ namespace color
 
     template
      <
-       typename lms_tag_name
+       typename lms_tag_name /*, ::color::constant::lms::reference_enum reference_number*/
       ,typename xyz_tag_name
      >
      struct convert
@@ -48,6 +48,8 @@ namespace color
          typedef ::color::_internal::reformat< lms_category_type, lmsSCALAR_category_type, scalar_type >     reformatLMS_type;
          typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type >     reformatXYZ_type;
 
+         typedef ::color::constant::lms::matrix< scalar_type, ::color::constant::lms::von_Kries_E_entity >     matrix_type;
+
          typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
 
          static void process
@@ -60,15 +62,14 @@ namespace color
            scalar_type y = reformatXYZ_type::template process<1,1>( container_right_trait_type::template get<1>( right ) );
            scalar_type z = reformatXYZ_type::template process<2,2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type l = 2*x;
-           scalar_type m = 2*y;
-           scalar_type s = 2*z;
+           scalar_type l = matrix_type::a11() * x + matrix_type::a12() * y + matrix_type::a13() * z;
+           scalar_type m = matrix_type::a21() * x + matrix_type::a22() * y + matrix_type::a23() * z;
+           scalar_type s = matrix_type::a31() * x + matrix_type::a32() * y + matrix_type::a33() * z;
 
            container_left_trait_type::template set<0>( left, reformatLMS_type::template process< 0, 0>( l ) );
            container_left_trait_type::template set<1>( left, reformatLMS_type::template process< 1, 1>( m ) );
            container_left_trait_type::template set<2>( left, reformatLMS_type::template process< 2, 2>( s ) );
           }
-
 
         };
 
