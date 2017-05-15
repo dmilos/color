@@ -251,8 +251,6 @@ void check_get()
   test_get_red< ::color::category::YPbPr_double<::color::constant::YPbPr::BT_2020_entity > >();
   test_get_red< ::color::category::xyz_double >();
 
-
-
   test_get_green< ::color::category::gray_double>();
   test_get_green< ::color::category::cmy_double>();
   test_get_green< ::color::category::cmyk_double>();
