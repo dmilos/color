@@ -7,7 +7,7 @@
 #include "../../../_internal/utility/type/traitc.hpp"
 #include "../../../_internal/utility/type/index.hpp"
 
-#include "../constant.hpp"
+#include "../../constant.hpp"
 
 namespace color
  {

@@ -10,11 +10,14 @@ namespace color
   namespace akin
    {
 
-    template< typename tag_name, ::color::constant::yuv::reference_enum reference_number >
-     struct yuv< ::color::category::yuv< tag_name, reference_number >, reference_number >
+    template
+     <
+       typename tag_name,          ::color::constant::yuv::reference_enum       yuv_reference_number
+     >
+     struct yuv< ::color::category::yuv< tag_name, yuv_reference_number >, yuv_reference_number >
       {
        public:
-         typedef ::color::category::yuv< tag_name, reference_number > akin_type;
+         typedef ::color::category::yuv< tag_name, yuv_reference_number > akin_type;
       };
 
    }
