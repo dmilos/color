@@ -427,6 +427,9 @@ int main(int argc, char const *argv[])
   sandbox_test3();
   //luv_bound ();
 
+  void check_get();
+  check_get();
+
   void test_pallete();
   test_pallete();
 
@@ -476,9 +479,6 @@ int main(int argc, char const *argv[])
 
   void main_place();
   main_place();
-
-  void check_get();
-  check_get();
 
   extern int gray_test( int argc, char const *argv[] );
   gray_test( argc, argv );

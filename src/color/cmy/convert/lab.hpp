@@ -27,7 +27,7 @@ namespace color
       >
       {
        public:
-         typedef ::color::category::cmy< cmy_tag_name >    cmy_category_type, category_left_type;
+         typedef ::color::category::cmy< cmy_tag_name >    cmy_category_type,  category_left_type;
          typedef ::color::category::lab< lab_tag_name >    lab_category_type, category_right_type;
 
          typedef double scalar_type;
