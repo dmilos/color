@@ -32,7 +32,7 @@ namespace color
 
          typedef double scalar_type;
 
-         typedef ::color::model< cmy_category_type > cmy_model_type;
+         typedef ::color::model< cmy_category_type >  cmy_model_type;
          typedef ::color::model< lab_category_type >  lab_model_type;
 
          typedef ::color::rgb< scalar_type >  rgb_model_type;

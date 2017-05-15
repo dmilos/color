@@ -28,17 +28,16 @@ namespace color
       >
       {
        public:
-         typedef ::color::category::luv< luv_tag_name >    luv_category_type, category_left_type;
+         typedef ::color::category::luv< luv_tag_name >    luv_category_type,  category_left_type;
          typedef ::color::category::hsi< hsi_tag_name >    hsi_category_type, category_right_type;
 
-         typedef typename ::color::akin::rgb< hsi_category_type >::akin_type    rgb_category_type;
-         typedef typename ::color::akin::xyz< rgb_category_type >::akin_type    xyz_category_type;
-       //typedef typename ::color::akin::luv< xyz_category_type >::akin_type    luv_category_type;
+         typedef double scalar_type;
 
-         typedef ::color::model<   rgb_category_type >      rgb_model_type;
-         typedef ::color::model<   hsi_category_type >      hsi_model_type;
-         typedef ::color::model<   xyz_category_type >      xyz_model_type;
-         typedef ::color::model<   luv_category_type >      luv_model_type;
+         typedef ::color::model< hsi_category_type >  hsi_model_type;
+         typedef ::color::model< luv_category_type >  luv_model_type;
+
+         typedef ::color::rgb< scalar_type >  rgb_model_type;
+         typedef ::color::xyz< scalar_type >  xyz_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
@@ -54,7 +53,7 @@ namespace color
           {
            left = luv_model_type( xyz_model_type( rgb_model_type( hsi_model_type( right ) ) ) ).container();
           }
-        };
+      };
 
    }
  }

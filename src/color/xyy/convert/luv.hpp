@@ -30,6 +30,7 @@ namespace color
        public:
          typedef ::color::category::xyy<  xyy_tag_name > xyy_category_type, category_left_type;
          typedef ::color::category::luv<  luv_tag_name > luv_category_type, category_right_type;
+
          typedef double scalar_type;
 
          typedef ::color::model<   xyy_category_type >      xyy_model_type;

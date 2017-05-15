@@ -24,7 +24,9 @@ namespace color
        public:
          typedef ::color::category::lab<   lab_tag_name > category_left_type;
          typedef ::color::category::gray< gray_tag_name > category_right_type;
+
          typedef double scalar_type;
+
          typedef ::color::category::lab< scalar_type > labSCALAR_category_type;
 
          typedef ::color::trait::bound<category_left_type>         bound_left_trait_type;

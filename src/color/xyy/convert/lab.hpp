@@ -19,7 +19,7 @@ namespace color
     template
      <
        typename xyy_tag_name
-      ,typename lab_tag_name 
+      ,typename lab_tag_name
      >
      struct convert
       <
@@ -30,6 +30,7 @@ namespace color
        public:
          typedef ::color::category::xyy<  xyy_tag_name > xyy_category_type, category_left_type;
          typedef ::color::category::lab<  lab_tag_name > lab_category_type, category_right_type;
+
          typedef double scalar_type;
 
          typedef ::color::model<   xyy_category_type >      xyy_model_type;
@@ -56,4 +57,4 @@ namespace color
    }
  }
 
-#endif 
+#endif

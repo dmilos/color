@@ -28,17 +28,16 @@ namespace color
       >
       {
        public:
-         typedef ::color::category::lab< lab_tag_name >    lab_category_type, category_left_type;
+         typedef ::color::category::lab< lab_tag_name >    lab_category_type,  category_left_type;
          typedef ::color::category::cmy< cmy_tag_name >    cmy_category_type, category_right_type;
 
-         typedef typename ::color::akin::rgb< cmy_category_type >::akin_type    rgb_category_type;
-         typedef typename ::color::akin::xyz< rgb_category_type >::akin_type    xyz_category_type;
-       //typedef typename ::color::akin::lab< xyz_category_type >::akin_type    lab_category_type;
+         typedef double scalar_type;
 
-         typedef ::color::model<   rgb_category_type >      rgb_model_type;
-         typedef ::color::model<   cmy_category_type >      cmy_model_type;
-         typedef ::color::model<   xyz_category_type >      xyz_model_type;
-         typedef ::color::model<   lab_category_type >      lab_model_type;
+         typedef ::color::model< cmy_category_type >  cmy_model_type;
+         typedef ::color::model< lab_category_type >  lab_model_type;
+
+         typedef ::color::rgb< scalar_type >  rgb_model_type;
+         typedef ::color::xyz< scalar_type >  xyz_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
@@ -54,7 +53,7 @@ namespace color
           {
            left = lab_model_type( xyz_model_type( rgb_model_type( cmy_model_type( right ) ) ) ).container();
           }
-        };
+      };
 
    }
  }

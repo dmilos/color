@@ -19,7 +19,7 @@ namespace color
     template
      <
        typename lms_tag_name
-      ,typename rgb_tag_name 
+      ,typename rgb_tag_name
      >
      struct convert
       <
@@ -30,6 +30,7 @@ namespace color
        public:
          typedef ::color::category::lms<  lms_tag_name > lms_category_type, category_left_type;
          typedef ::color::category::rgb<  rgb_tag_name > rgb_category_type, category_right_type;
+
          typedef double scalar_type;
 
          typedef ::color::model<   lms_category_type >      lms_model_type;

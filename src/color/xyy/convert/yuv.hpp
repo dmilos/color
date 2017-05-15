@@ -10,7 +10,7 @@
 #include "../../rgb/rgb.hpp"
 #include "../../xyz/xyz.hpp"
 
-    
+
 namespace color
  {
   namespace _internal
@@ -19,26 +19,25 @@ namespace color
     template
      <
        typename xyy_tag_name
-      ,typename yuv_tag_name, ::color::constant::yuv::reference_enum reference_number
+      ,typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
      >
      struct convert
       <
-        ::color::category::xyy< xyy_tag_name >
-       ,::color::category::yuv<  yuv_tag_name, reference_number >
+        ::color::category::xyy<  xyy_tag_name >
+       ,::color::category::yuv<  yuv_tag_name, yuv_reference_number >
       >
       {
        public:
-         typedef ::color::category::xyy< xyy_tag_name > xyy_category_type, category_left_type;
-         typedef ::color::category::yuv< yuv_tag_name, reference_number >    yuv_category_type, category_right_type;
+         typedef ::color::category::xyy< xyy_tag_name >                                   xyy_category_type, category_left_type;
+         typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number >    yuv_category_type, category_right_type;
 
-         typedef typename ::color::akin::rgb< yuv_category_type >::akin_type  rgb_category_type;
-         typedef typename ::color::akin::xyz< rgb_category_type >::akin_type    xyz_category_type;
-       //typedef typename ::color::akin::xyy< xyz_category_type >::akin_type    xyy_category_type;
+         typedef double scalar_type;
 
-         typedef ::color::model<   rgb_category_type >      rgb_model_type;
-         typedef ::color::model<   yuv_category_type >      yuv_model_type;
-         typedef ::color::model<   xyz_category_type >      xyz_model_type;
-         typedef ::color::model<   xyy_category_type >      xyy_model_type;
+         typedef ::color::model< xyy_category_type >    xyy_model_type;
+         typedef ::color::model< yuv_category_type >    yuv_model_type;
+
+         typedef ::color::rgb< scalar_type >  rgb_model_type;
+         typedef ::color::xyz< scalar_type >  xyz_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
@@ -54,7 +53,7 @@ namespace color
           {
            left = xyy_model_type( xyz_model_type( rgb_model_type( yuv_model_type( right ) ) ) ).container();
           }
-        };
+      };
 
    }
  }
