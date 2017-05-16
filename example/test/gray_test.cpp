@@ -77,10 +77,7 @@ void make_gray_satur_hsv( gray_image_type & gray, bgr_image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    auto h = ::color::hsv< std::uint8_t >( c );
-    h.set<1>( 0 );
-
-    gc->set<0>( ::color::rgb< std::uint8_t >( h )[0] );
+    gc->set<0>( ::color::hsv< std::uint8_t >( c )[1] );
     ++gc;
    }
  }
@@ -90,10 +87,7 @@ void make_gray_satur_hsl( gray_image_type & gray, bgr_image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    auto h = ::color::hsl< std::uint8_t >( c );
-    h.set<1>( 0 );
-
-    gc->set<0>( ::color::rgb< std::uint8_t >( h )[0] );
+    gc->set<0>( ::color::hsl< std::uint8_t >( c )[1] );
     ++gc;
    }
  }
@@ -103,10 +97,7 @@ void make_gray_intens_hsi( gray_image_type & gray, bgr_image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    auto h = ::color::hsi< std::uint8_t >( c );
-    h.set<1>( 0 );
-
-    gc->set<0>( ::color::rgb< std::uint8_t >( h )[0] );
+    gc->set<0>( ::color::hsi< std::uint8_t >( c )[2] );
     ++gc;
    }
  }
@@ -166,7 +157,7 @@ void make_gray_xyy( gray_image_type & gray, bgr_image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    gc->set<0>( ::color::xyy< std::uint8_t >( c )[0] );
+    gc->set<0>( ::color::xyy< std::uint8_t >( c )[2] );
     ++gc;
    }
  }
@@ -177,10 +168,7 @@ template< ::color::constant::YPbPr::reference_enum reference_number >
    auto gc = gray.begin();
    for( auto & c : image )
     {
-     auto h = ::color::YPbPr< std::uint8_t, reference_number >( c );
-     h.template set<1>( 0 );
-
-     gc->template set<0>( ::color::rgb< std::uint8_t >( h )[0] );
+     gc->template set<0>( ::color::YPbPr< std::uint8_t, reference_number >( c )[0] );
      ++gc;
     }
   }
@@ -191,9 +179,9 @@ int gray_test( int argc, char const *argv[] )
   std::cout << sizeof( bgr_color_type )  << " == sizeof (" <<typeid( bgr_color_type ).name() << ")" << std::endl;
 
   bgr_image_type image;
-  int width=1000;
-  int height=1000;
-  load_image( image, width, height, "../data/hsl.tga" );
+  int width;
+  int height;
+  load_image( image, width, height, "../data/hsl-1-100x.tga" );
 
   gray_image_type gray;
   gray.resize( width * height );
@@ -216,7 +204,7 @@ int gray_test( int argc, char const *argv[] )
   
   make_gray_lms( gray, image );        save_image_gray( "./gray/lms-l.tga",        gray, width, height );
   make_gray_luv( gray, image );        save_image_gray( "./gray/luv-l.tga",        gray, width, height );
-  make_gray_xyy( gray, image );        save_image_gray( "./gray/xyy-l.tga",        gray, width, height );
+  make_gray_xyy( gray, image );        save_image_gray( "./gray/xyy-Y.tga",        gray, width, height );
 
   make_gray_YPbPr<::color::constant::YPbPr::BT_601_entity>(  gray, image );  save_image_gray( "./gray/YPbPr601-y.tga",     gray, width, height );
   make_gray_YPbPr<::color::constant::YPbPr::BT_709_entity>(  gray, image );  save_image_gray( "./gray/YPbPr709-y.tga",     gray, width, height );

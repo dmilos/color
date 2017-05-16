@@ -25,7 +25,10 @@
 							<li><a href="#hsl">hsl  </a></li>
 							<li><a href="#hsv">hsv  </a></li>
 							<li><a href="#lab">lab  </a></li>
+							<li><a href="#lms">lms  </a></li>
+							<li><a href="#luv">luv  </a></li>
 							<li><a href="#rgb">rgb  </a></li>
+							<li><a href="#xyy">xyy  </a></li>
 							<li><a href="#xyz">xyz  </a></li>
 							<li><a href="#yiq">yiq  </a></li>
 							<li><a href="#yuv">yuv  </a></li>
@@ -108,6 +111,22 @@
 						</dl><hr width="%20">
 
 						<dl>
+							<dt>Name</dt><dd><a name="lms" />lms</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using lms = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements LMS color model.</dd>
+							<dt>Example:</dt><dd><code>::color::lms&lt; double &gt; c;</code></dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/LMS_color_space">Wikipedia LMS</a></dd>
+						</dl><hr width="%20">
+
+						<dl>
+							<dt>Name</dt><dd><a name="luv" />luv</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using luv = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements LUV(CIELUV) color model.</dd>
+							<dt>Example:</dt><dd><code>::color::LUV&lt; double &gt; c;</code></dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/CIELUV">Wikipedia LUV</a></dd>
+						</dl><hr width="%20">
+
+						<dl>
 							<dt>Name</dt><dd><a name="hsl" />hsl</dd>
 							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsl = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements HSL color model.</dd>
@@ -129,6 +148,15 @@
 							<dt>Decription</dt><dd>Implements RGB color model.</dd>
 							<dt>Example:</dt><dd><code>::color::rgb&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/RGB_color_model">Wikipedia RGB</a></dd>
+						</dl><hr width="%20">
+
+						<dl>
+							<dt>Name</dt><dd><a name="xyy" />xyy</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using xyy = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements xyY color model.</dd>
+							<dt>Example:</dt><dd><code>::color::xyy&lt; double &gt; c;</code></dd>
+							<dt>Note</dt><dd><b>It is used: <ul> <li>Space: sRGB</li><li>White point: D65</li><li> Observer: 2&deg;</ul></b> </dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/CIE_1931_color_space#CIE_xy_chromaticity_diagram_and_the_CIE_xyY_color_space">Wikipedia xyY</a></dd>
 						</dl><hr width="%20">
 
 						<dl>

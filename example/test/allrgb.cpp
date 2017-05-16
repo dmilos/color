@@ -80,7 +80,7 @@ void initHSL( bgr_image_type &image, int &width, int &height )
  {
   height = 100 * 21;
   width  = 360 * 21;
-  ::color::hsl<double> hsl;
+  ::color::hsi<double> hsl;
 
   image.resize( height * width, ::color::constant::black_t{} );
   for( int l=0; l <  height; l += 1 )
@@ -91,7 +91,10 @@ void initHSL( bgr_image_type &image, int &width, int &height )
       hsl[1]=100;
       hsl[2]=100.0-(100.0*l)/height;
 
-      image[ l*width + h ]= bgr_color_type{ hsl };
+      ::color::rgb<double> r; r= hsl;
+      ::color::fix::overburn( r );
+
+      image[ l*width + h ]= r;
      }
    }
  }

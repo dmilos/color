@@ -26,7 +26,11 @@ digraph color_conversion {
 	gray -> yuv601   [ label = "", dir=both ];
 	gray -> yuv709   [ label = "", dir=both ];
 
-	gray -> lms   [ label = "", dir=both ];
+	gray -> lms_vonKries_ee   [ label = "", dir=both ];
+	gray -> lms_vonKries_D65   [ label = "", dir=both ];
+	gray -> lms_BFD   [ label = "", dir=both ];
+	gray -> lms_CAT97s   [ label = "", dir=both ];
+	gray -> lms_CAT02   [ label = "", dir=both ];
 	gray -> luv   [ label = "", dir=both ];
 	gray -> xyY   [ label = "", dir=both ];
 
@@ -39,7 +43,11 @@ digraph color_conversion {
 	hsv  -> rgb [ label = "", dir=both ];
 
 	lab -> xyz [ label = "", dir=both ];
-	lms -> xyz [ label = "", dir=both ];
+	lms_vonKries_ee -> xyz[ label = "", dir=both ];
+	lms_vonKries_D65 -> xyz[ label = "", dir=both ];
+	lms_BFD  -> xyz[ label = "", dir=both ];
+	lms_CAT97s -> xyz[ label = "", dir=both ];
+	lms_CAT02  -> xyz[ label = "", dir=both ];
 	luv -> xyz [ label = "", dir=both ];
 
 	rgb -> xyz   [ label = "", dir=both ];
@@ -83,13 +91,13 @@ digraph color_conversion {
 		node [ ] yuv709;
 		subgraph cluster_yuv
 		{
-			label = "";
+			label = "YUV";
 			node [ ] yuv601;
 			node [ ] yuv709;
 		}
 		subgraph cluster_YPbPr
 		{
-			label = "";
+			label = "YPbPr";
 			node [ ] YPbPr601 ;
 			node [ ] YPbPr709 ;
 			node [ ] YPbPr2020;
@@ -104,7 +112,16 @@ digraph color_conversion {
 		node [ ] xyY;
 		node [ ] lab;
 		node [ ] luv;
-		node [ ] lms;
+		subgraph cluster_LMS
+		{
+			label = "LMS";
+			node [ ] lms_vonKries_ee;
+			node [ ] lms_vonKries_D65;
+			node [ ] lms_BFD;
+			node [ ] lms_CAT97s;
+			node [ ] lms_CAT02;
+		}
+
 		//node [ ] LCHab;
 		//node [ ] LCHub;
 	}
