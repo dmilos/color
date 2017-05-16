@@ -14,6 +14,7 @@ namespace color
      struct rgb< ::color::category::rgb< tag_name >  >
       {
        public:
+         // TODO typedef ::color::category::rgb< ::color::category::_internal::rgb_scramble< tag_name, 0, 1, 2 >;  > akin_type;
          typedef ::color::category::rgb< tag_name > akin_type;
       };
 

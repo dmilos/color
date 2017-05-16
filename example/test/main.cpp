@@ -433,11 +433,8 @@ int main(int argc, char const *argv[])
   void test_pallete();
   test_pallete();
 
-
   extern void print_bound( );
   print_bound();
-
-
 
   extern int decompose_test( int argc, char const *argv[] );
   decompose_test( argc, argv );
@@ -489,7 +486,6 @@ int main(int argc, char const *argv[])
 
   extern void check_conversion();
   check_conversion();
-
 
   void test_set_invoke();
   test_set_invoke();

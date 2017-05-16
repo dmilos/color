@@ -10,16 +10,13 @@ namespace color
   namespace akin
    {
 
-    template
-     <
-       typename tag_name
-
-     >
-     struct rgb< ::color::category::hsl< tag_name > >
-      {
-       public:
-         typedef ::color::category::rgb< tag_name > akin_type;
-      };
+    template< >struct rgb< ::color::category::hsl_uint8   >{ typedef ::color::category::rgb_uint8   akin_type; };
+    template< >struct rgb< ::color::category::hsl_uint16  >{ typedef ::color::category::rgb_uint16  akin_type; };
+    template< >struct rgb< ::color::category::hsl_uint32  >{ typedef ::color::category::rgb_uint32  akin_type; };
+    template< >struct rgb< ::color::category::hsl_uint64  >{ typedef ::color::category::rgb_uint64  akin_type; };
+    template< >struct rgb< ::color::category::hsl_float   >{ typedef ::color::category::rgb_float   akin_type; };
+    template< >struct rgb< ::color::category::hsl_double  >{ typedef ::color::category::rgb_double  akin_type; };
+    template< >struct rgb< ::color::category::hsl_ldouble >{ typedef ::color::category::rgb_ldouble akin_type; };
 
    }
  }

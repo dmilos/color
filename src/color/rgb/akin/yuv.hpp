@@ -10,16 +10,13 @@ namespace color
   namespace akin
    {
 
-    template
-     <
-       typename tag_name
-                         , typename ::color::constant::yuv::reference_enum          yuv_reference_number
-     >
-     struct rgb< ::color::category::yuv< tag_name, yuv_reference_number > >
-      {
-       public:
-         typedef ::color::category::rgb< tag_name > akin_type;
-      };
+    template< ::color::constant::yuv::reference_enum reference_number >struct rgb< ::color::category::yuv_uint8   <reference_number> >{ typedef ::color::category::rgb_uint8   akin_type; };
+    template< ::color::constant::yuv::reference_enum reference_number >struct rgb< ::color::category::yuv_uint16  <reference_number> >{ typedef ::color::category::rgb_uint16  akin_type; };
+    template< ::color::constant::yuv::reference_enum reference_number >struct rgb< ::color::category::yuv_uint32  <reference_number> >{ typedef ::color::category::rgb_uint32  akin_type; };
+    template< ::color::constant::yuv::reference_enum reference_number >struct rgb< ::color::category::yuv_uint64  <reference_number> >{ typedef ::color::category::rgb_uint64  akin_type; };
+    template< ::color::constant::yuv::reference_enum reference_number >struct rgb< ::color::category::yuv_float   <reference_number> >{ typedef ::color::category::rgb_float   akin_type; };
+    template< ::color::constant::yuv::reference_enum reference_number >struct rgb< ::color::category::yuv_double  <reference_number> >{ typedef ::color::category::rgb_double  akin_type; };
+    template< ::color::constant::yuv::reference_enum reference_number >struct rgb< ::color::category::yuv_ldouble <reference_number> >{ typedef ::color::category::rgb_ldouble akin_type; };
 
    }
  }

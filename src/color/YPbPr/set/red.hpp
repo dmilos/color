@@ -29,7 +29,6 @@
         typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
         enum { red_p  = ::color::place::_internal::red<akin_type>::position_enum };
 
-
         ::color::model< akin_type > rgb( color_parameter );
 
         rgb.template set<red_p> ( component_parameter );
