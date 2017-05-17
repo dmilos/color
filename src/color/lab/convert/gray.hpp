@@ -41,6 +41,11 @@ namespace color
 
          enum
           {
+            lightness_p  = ::color::place::_internal::lightness<category_left_type>::position_enum
+          };
+
+         enum
+          {
             gray_p       = ::color::place::_internal::gray<category_right_type>::position_enum
           };
 
