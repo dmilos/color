@@ -59,6 +59,10 @@ void sandbox_test3( )
   ::color::rgb<long double>   r{ ::color::constant::white_t{} };
   ::color::gray<long double>  g{ ::color::constant::white_t{} };
 
+  r[0] = 0;
+  r[1] = 0.5;
+  r[2] = 0.5;
+
   a = b;
   b = a;
  }
@@ -424,6 +428,9 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[])
  {
+  extern int gray_test( int argc, char const *argv[]  );
+  gray_test( argc, argv );
+
   sandbox_test3();
   //luv_bound ();
 
@@ -476,9 +483,6 @@ int main(int argc, char const *argv[])
 
   void main_place();
   main_place();
-
-  extern int gray_test( int argc, char const *argv[] );
-  gray_test( argc, argv );
 
   make_blue();
 

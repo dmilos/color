@@ -92,8 +92,8 @@ namespace color
               l = scalar_type(24389)/scalar_type(27)* yr;
              }
 
-            scalar_type up = scalar_type(4) * x/( x + scalar_type(15)*y + scalar_type(3)*z );
-            scalar_type vp = scalar_type(9) * y/( x + scalar_type(15)*y + scalar_type(3)*z );
+            scalar_type up = scalar_type(4) * x/( x + scalar_type(15)*y + scalar_type(3)*z ); if( x < 1e-6 ) up=0;
+            scalar_type vp = scalar_type(9) * y/( x + scalar_type(15)*y + scalar_type(3)*z ); if( y < 1e-6 ) vp=0;
 
             u = 13*l*( up - u0() );
             v = 13*l*( vp - v0() );
