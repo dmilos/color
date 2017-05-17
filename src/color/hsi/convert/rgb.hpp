@@ -65,7 +65,7 @@ namespace color
 
            scalar_type h = 0;
            scalar_type i = ( r + g + b ) / scalar_type(3);
-           scalar_type s = scalar_type(1) - lo / i; if( lo < 1e-6 ){ s = 0; /*TODO*/ }
+           scalar_type s = scalar_type(1) - lo / i; if( lo < 1e-6 ){ s = 1; /*TODO*/ }
 
            scalar_type c1 = r - g* scalar_type( 0.5 ) - b * scalar_type( 0.5 );
            scalar_type c2 = (g-b) * hsi_constant_type::sqrt_3() * scalar_type( 0.5 );
