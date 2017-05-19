@@ -19,7 +19,7 @@ namespace color
     template
      <
        typename lab_tag_name
-      ,typename lms_tag_name
+      ,typename lms_tag_name  /*, ::color::constant::lms::reference_enum reference_number*/
      >
      struct convert
       <

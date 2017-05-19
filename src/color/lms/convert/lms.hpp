@@ -18,8 +18,8 @@ namespace color
 
     template
      <
-       typename tag_left_name
-      ,typename tag_right_name
+       typename tag_left_name  /*, ::color::constant::lms::reference_enum reference_number*/
+      ,typename tag_right_name  /*, ::color::constant::lms::reference_enum reference_number*/
      >
      struct convert
       <

@@ -9,6 +9,10 @@
 #include "../../lms/lms.hpp"
 #include "../../xyz/xyz.hpp"
 
+
+
+
+
 namespace color
  {
   namespace _internal
@@ -17,7 +21,7 @@ namespace color
     template
      <
        typename luv_tag_name
-      ,typename lms_tag_name
+      ,typename lms_tag_name  /*, ::color::constant::lms::reference_enum reference_number*/
      >
      struct convert
       <

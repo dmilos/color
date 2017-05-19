@@ -14,7 +14,7 @@
      namespace _internal
       {
 
-       template< typename tag_name >
+       template< typename tag_name  /*, ::color::constant::lms::reference_enum reference_number*/ >
         struct lightness< ::color::category::lms< tag_name > >
          {
           public:

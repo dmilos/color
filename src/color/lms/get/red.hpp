@@ -16,7 +16,7 @@
    namespace get
     {
 
-     template< typename tag_name >
+     template< typename tag_name  /*, ::color::constant::lms::reference_enum reference_number*/ >
       inline
       typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lms<tag_name> >::akin_type >::return_type
       red( ::color::model< ::color::category::lms<tag_name> > const& color_parameter )

@@ -18,7 +18,7 @@ namespace color
 
     template
      <
-       typename lms_tag_name
+       typename lms_tag_name  /*, ::color::constant::lms::reference_enum reference_number*/
       ,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
      >
      struct convert

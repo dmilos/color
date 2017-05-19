@@ -11,7 +11,11 @@ namespace color
   namespace _internal
    {
 
-    template< typename gray_tag_name, typename lms_tag_name >
+    template
+     < 
+        typename gray_tag_name
+       ,typename lms_tag_name   /*, ::color::constant::lms::reference_enum reference_number*/
+     >
      struct convert
       <
         ::color::category::gray< gray_tag_name >

@@ -14,7 +14,7 @@
    namespace get
     {
 
-     template< typename tag_name >
+     template< typename tag_name  /*, ::color::constant::lms::reference_enum reference_number*/ >
       inline
       typename ::color::model< ::color::category::lms< tag_name> >::component_const_type
       lightness( ::color::model< ::color::category::lms<tag_name> > const& color_parameter )

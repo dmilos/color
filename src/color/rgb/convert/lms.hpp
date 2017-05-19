@@ -5,16 +5,24 @@
 
 #include "../category.hpp"
 
-
 #include "../../lms/lms.hpp"
 #include "../../xyz/xyz.hpp"
+
+
+
+
+
 
 namespace color
  {
   namespace _internal
    {
 
-    template< typename rgb_tag_name, typename lms_tag_name >
+    template
+     <
+       typename rgb_tag_name
+      ,typename lms_tag_name   /*, ::color::constant::lms::reference_enum reference_number*/
+     >
      struct convert
       <
         ::color::category::rgb< rgb_tag_name >

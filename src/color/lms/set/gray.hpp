@@ -18,7 +18,7 @@
    namespace set
     {
 
-     template< typename tag_name >
+     template< typename tag_name  /*, ::color::constant::lms::reference_enum reference_number*/ >
       inline
       void
       gray

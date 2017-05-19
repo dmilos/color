@@ -5,10 +5,12 @@
 
 #include "../category.hpp"
 
-
-
 #include "../../lms/lms.hpp"
 #include "../../xyz/xyz.hpp"
+
+
+
+
 
 
 namespace color
@@ -19,7 +21,7 @@ namespace color
     template
      <
        typename xyy_tag_name
-      ,typename lms_tag_name
+      ,typename lms_tag_name/* ::color::constant::lms::reference_enum lms_reference_number */
      >
      struct convert
       <

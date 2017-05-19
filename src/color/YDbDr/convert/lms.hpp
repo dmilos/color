@@ -5,10 +5,13 @@
 
 #include "../category.hpp"
 
-
 #include "../../lms/lms.hpp"
 #include "../../xyz/xyz.hpp"
 #include "../../rgb/rgb.hpp"
+
+
+
+
 
 namespace color
  {
@@ -18,7 +21,7 @@ namespace color
     template
      <
        typename  YDbDr_tag_name
-      ,typename  lms_tag_name
+      ,typename  lms_tag_name/* ::color::constant::lms::reference_enum lms_reference_number */
      >
      struct convert
       <

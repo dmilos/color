@@ -5,9 +5,9 @@
 
 #include "../category.hpp"
 
-
-#include "../../xyz/xyz.hpp"
 #include "../../lms/lms.hpp"
+#include "../../xyz/xyz.hpp".
+
 
 #include "../../_internal/reformat.hpp"
 
@@ -32,9 +32,11 @@ namespace color
        public:
          typedef ::color::category::xyz< xyz_tag_name >    xyz_category_type, category_left_type;
          typedef ::color::category::lms< lms_tag_name >    lms_category_type, category_right_type;
+         
          typedef double scalar_type;
-         typedef  ::color::category::xyz< scalar_type >  xyzSCALAR_category_type;
-         typedef  ::color::category::lms< scalar_type >  lmsSCALAR_category_type;
+         
+         typedef ::color::category::xyz< scalar_type >  xyzSCALAR_category_type;
+         typedef ::color::category::lms< scalar_type >  lmsSCALAR_category_type;
 
          typedef ::color::model< xyz_category_type >  xyz_model_type;
          typedef ::color::model< lms_category_type >  lms_model_type;

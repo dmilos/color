@@ -10,7 +10,7 @@ namespace color
   namespace akin
    {
 
-    template< typename tag_name >
+    template< typename tag_name  /*, ::color::constant::lms::reference_enum reference_number*/ >
      struct lab< ::color::category::lms< tag_name >  >
       {
        public:
