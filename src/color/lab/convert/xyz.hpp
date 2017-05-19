@@ -4,13 +4,13 @@
 #include "../../_internal/convert.hpp"
 
 #include "../category.hpp"
+#include "../place/place.hpp"
 
 
 #include "../../xyz/xyz.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
-
 
 
 namespace color
@@ -49,6 +49,11 @@ namespace color
          typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type >     reformatXYZ_type;
 
          typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
+
+         enum
+          {
+            lightness_p       = ::color::place::_internal::lightness<category_left_type>::position_enum
+          };
 
          static scalar_type f( scalar_type const& t )
           {
