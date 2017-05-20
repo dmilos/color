@@ -20,23 +20,23 @@ namespace color
 
     template
      <
-       typename  yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
-      ,typename  lms_tag_name/* ::color::constant::lms::reference_enum lms_reference_number */
+       typename   yuv_tag_name, ::color::constant::yuv::reference_enum     yuv_reference_number
+      ,typename   lms_tag_name, ::color::constant::lms::reference_enum     lms_reference_number
      >
      struct convert
       <
-        ::color::category::yuv< yuv_tag_name, yuv_reference_number >
-       ,::color::category::lms< lms_tag_name >
+        ::color::category::yuv<     yuv_tag_name, yuv_reference_number >
+       ,::color::category::lms<     lms_tag_name, lms_reference_number >
       >
       {
        public:
-         typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number >    yuv_category_type, category_left_type;
-         typedef ::color::category::lms< lms_tag_name >    lms_category_type, category_right_type;
+         typedef ::color::category::yuv<     yuv_tag_name,   yuv_reference_number >    yuv_category_type,  category_left_type;
+         typedef ::color::category::lms<     lms_tag_name,   lms_reference_number >    lms_category_type, category_right_type;
 
          typedef double scalar_type;
 
-         typedef ::color::model< yuv_category_type > yuv_model_type;
-         typedef ::color::model< lms_category_type >  lms_model_type;
+         typedef ::color::model<   yuv_category_type >   yuv_model_type;
+         typedef ::color::model<   lms_category_type >   lms_model_type;
 
          typedef ::color::rgb< scalar_type >  rgb_model_type;
          typedef ::color::xyz< scalar_type >  xyz_model_type;

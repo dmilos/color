@@ -11,6 +11,8 @@
 #include "../../xyz/xyz.hpp"
 
 
+
+
 namespace color
  {
   namespace _internal
@@ -18,24 +20,23 @@ namespace color
 
     template
      <
-       typename lab_tag_name
-      ,typename lms_tag_name  /*, ::color::constant::lms::reference_enum reference_number*/
+       typename   lab_tag_name
+      ,typename   lms_tag_name, ::color::constant::lms::reference_enum lms_reference_number
      >
      struct convert
       <
         ::color::category::lab< lab_tag_name >
-       ,::color::category::lms<  lms_tag_name >
+       ,::color::category::lms<     lms_tag_name,   lms_reference_number >
       >
       {
        public:
-         typedef ::color::category::lab< lab_tag_name >    lab_category_type, category_left_type;
-         typedef ::color::category::lms< lms_tag_name >    lms_category_type, category_right_type;
+         typedef ::color::category::lab<     lab_tag_name >                            lab_category_type,  category_left_type;
+         typedef ::color::category::lms<     lms_tag_name,   lms_reference_number >    lms_category_type, category_right_type;
 
          typedef double scalar_type;
 
-         typedef ::color::model< lab_category_type > lab_model_type;
-         typedef ::color::model< lms_category_type >  lms_model_type;
-
+         typedef ::color::model<   lab_category_type >   lab_model_type;
+         typedef ::color::model<   lms_category_type >   lms_model_type;
 
 
          typedef ::color::xyz< scalar_type >  xyz_model_type;

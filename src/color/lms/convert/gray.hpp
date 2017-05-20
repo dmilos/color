@@ -7,7 +7,9 @@
 
 
 #include "../../gray/gray.hpp"
+
 #include "../../xyz/xyz.hpp"
+
 
 namespace color
  {

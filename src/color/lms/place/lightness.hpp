@@ -14,11 +14,11 @@
      namespace _internal
       {
 
-       template< typename tag_name  /*, ::color::constant::lms::reference_enum reference_number*/ >
-        struct lightness< ::color::category::lms< tag_name > >
+       template< typename tag_name, ::color::constant::lms::reference_enum reference_number >
+        struct lightness< ::color::category::lms< tag_name, reference_number > >
          {
           public:
-           typedef ::color::category::lms< tag_name > category_type;
+           typedef ::color::category::lms< tag_name, reference_number > category_type;
            typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
            enum { position_enum = 0 };

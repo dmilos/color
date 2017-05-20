@@ -3,7 +3,7 @@
 
 // ::color::_internal::lms::bound::scalar< index_type, scalar_name >
 
-
+#include "../../constant/matrix.hpp"
 #include "../../../_internal/utility/type/traitc.hpp"
 #include "../../../_internal/utility/type/index.hpp"
 
@@ -18,7 +18,7 @@ namespace color
       namespace bound
        {
 
-        template< typename index_name, typename scalar_name >
+        template< typename index_name, typename scalar_name, ::color::constant::lms::reference_enum reference_number = ::color::constant::lms::von_Kries_D65_entity >
          struct scalar // TODO
           {
            public:

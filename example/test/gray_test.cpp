@@ -181,7 +181,7 @@ int gray_test( int argc, char const *argv[] )
   bgr_image_type image;
   int width;
   int height;
-  load_image( image, width, height, "../data/hsl-1-100x.tga" );
+  load_image( image, width, height, "../data/hsi.tga" );
 
   gray_image_type gray;
   gray.resize( width * height );

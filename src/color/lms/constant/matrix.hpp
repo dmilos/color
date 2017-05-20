@@ -14,7 +14,7 @@ namespace color
     namespace lms
      {
 
-        template< typename scalar_name, ::color::constant::lms::reference_enum reference_number = ::color::constant::lms::error_entity  >
+        template< typename scalar_name, ::color::constant::lms::reference_enum reference_number >
          struct matrix
           {
            typedef scalar_name scalar_type;
@@ -158,7 +158,7 @@ namespace color
            static /* constexpr*/ scalar_type const a33(){ return 0.9834; }
 
            static /* constexpr*/ scalar_type const i11(){ return 1.096123820835510 ; }
-           static /* constexpr*/ scalar_type const i12(){ return -0.278869000218287    ; }
+           static /* constexpr*/ scalar_type const i12(){ return -0.278869000218287; }
            static /* constexpr*/ scalar_type const i13(){ return 0.182745179382773; }
 
            static /* constexpr*/ scalar_type const i21(){ return 0.454369041975359  ; }

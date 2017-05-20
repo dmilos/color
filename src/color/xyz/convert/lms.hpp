@@ -6,7 +6,7 @@
 #include "../category.hpp"
 
 #include "../../lms/lms.hpp"
-#include "../../xyz/xyz.hpp".
+#include "../../xyz/xyz.hpp"
 
 
 #include "../../_internal/reformat.hpp"
@@ -19,27 +19,27 @@ namespace color
    {
 
     template
-     < 
-       typename xyz_tag_name
-      ,typename lms_tag_name  /*, ::color::constant::lms::reference_enum reference_number*/
+     <
+       typename   xyz_tag_name
+      ,typename   lms_tag_name, ::color::constant::lms::reference_enum lms_reference_number
      >
      struct convert
       <
-        ::color::category::xyz<  xyz_tag_name >
-       ,::color::category::lms<  lms_tag_name/*,reference_number*/ >
+        ::color::category::xyz<     xyz_tag_name >
+       ,::color::category::lms<     lms_tag_name,   lms_reference_number >
       >
       {
        public:
-         typedef ::color::category::xyz< xyz_tag_name >    xyz_category_type, category_left_type;
-         typedef ::color::category::lms< lms_tag_name >    lms_category_type, category_right_type;
-         
+         typedef ::color::category::xyz<     xyz_tag_name >                            xyz_category_type,  category_left_type;
+         typedef ::color::category::lms<     lms_tag_name,   lms_reference_number >    lms_category_type, category_right_type;
+
          typedef double scalar_type;
-         
+
+         typedef ::color::model<   xyz_category_type >   xyz_model_type;
+         typedef ::color::model<   lms_category_type >   lms_model_type;
+
          typedef ::color::category::xyz< scalar_type >  xyzSCALAR_category_type;
          typedef ::color::category::lms< scalar_type >  lmsSCALAR_category_type;
-
-         typedef ::color::model< xyz_category_type >  xyz_model_type;
-         typedef ::color::model< lms_category_type >  lms_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

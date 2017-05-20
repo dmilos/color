@@ -15,8 +15,8 @@
 namespace color
  {
 
-  template< typename type_name/*, ::color::constant::lms::reference_enum reference_number = ::color::constant::lms::von_Kries_D65_entity*/ >
-   using lms = ::color::model< typename ::color::category::lms< type_name/*, reference_number*/ > >;
+  template< typename type_name, ::color::constant::lms::reference_enum reference_number = ::color::constant::lms::von_Kries_D65_entity >
+   using lms = ::color::model< typename ::color::category::lms< type_name, reference_number > >;
 
  }
 

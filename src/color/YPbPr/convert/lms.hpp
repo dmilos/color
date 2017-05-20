@@ -20,23 +20,23 @@ namespace color
 
     template
      <
-       typename  YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
-      ,typename  lms_tag_name/* ::color::constant::lms::reference_enum lms_reference_number */
+       typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
+      ,typename   lms_tag_name, ::color::constant::lms::reference_enum     lms_reference_number
      >
      struct convert
       <
         ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >
-       ,::color::category::lms< lms_tag_name >
+       ,::color::category::lms<     lms_tag_name,   lms_reference_number >
       >
       {
        public:
-         typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >    YPbPr_category_type, category_left_type;
-         typedef ::color::category::lms< lms_tag_name >    lms_category_type, category_right_type;
+         typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >  YPbPr_category_type, category_left_type;
+         typedef ::color::category::lms<     lms_tag_name,   lms_reference_number >    lms_category_type, category_right_type;
 
          typedef double scalar_type;
 
          typedef ::color::model< YPbPr_category_type > YPbPr_model_type;
-         typedef ::color::model< lms_category_type >  lms_model_type;
+         typedef ::color::model<   lms_category_type >   lms_model_type;
 
          typedef ::color::rgb< scalar_type >  rgb_model_type;
          typedef ::color::xyz< scalar_type >  xyz_model_type;

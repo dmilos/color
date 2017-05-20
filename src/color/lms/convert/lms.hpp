@@ -11,6 +11,8 @@
 
 
 
+
+
 namespace color
  {
   namespace _internal
@@ -18,18 +20,18 @@ namespace color
 
     template
      <
-       typename tag_left_name  /*, ::color::constant::lms::reference_enum reference_number*/
-      ,typename tag_right_name  /*, ::color::constant::lms::reference_enum reference_number*/
+       typename tag_left_name,  ::color::constant::lms::reference_enum  left_reference_number
+      ,typename tag_right_name, ::color::constant::lms::reference_enum right_reference_number
      >
      struct convert
       <
-        ::color::category::lms< tag_left_name >
-       ,::color::category::lms< tag_right_name>
+        ::color::category::lms< tag_left_name ,  left_reference_number >
+       ,::color::category::lms< tag_right_name, right_reference_number >
       >
       {
        public:
-         typedef ::color::category::lms< tag_left_name > category_left_type;
-         typedef ::color::category::lms< tag_right_name> category_right_type;
+         typedef ::color::category::lms< tag_left_name ,  left_reference_number> category_left_type;
+         typedef ::color::category::lms< tag_right_name, right_reference_number> category_right_type;
 
          typedef double scalar_type;
 

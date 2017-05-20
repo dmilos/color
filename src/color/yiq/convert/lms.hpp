@@ -10,6 +10,9 @@
 #include "../../xyz/xyz.hpp"
 #include "../../rgb/rgb.hpp"
 
+
+
+
 namespace color
  {
   namespace _internal
@@ -17,23 +20,23 @@ namespace color
 
     template
      <
-       typename  yiq_tag_name
-      ,typename  lms_tag_name/* ::color::constant::lms::reference_enum lms_reference_number */
+       typename   yiq_tag_name
+      ,typename   lms_tag_name, ::color::constant::lms::reference_enum     lms_reference_number
      >
      struct convert
       <
-        ::color::category::yiq< yiq_tag_name >
-       ,::color::category::lms< lms_tag_name >
+        ::color::category::yiq<     yiq_tag_name >
+       ,::color::category::lms<     lms_tag_name,   lms_reference_number >
       >
       {
        public:
-         typedef ::color::category::yiq< yiq_tag_name >    yiq_category_type, category_left_type;
-         typedef ::color::category::lms< lms_tag_name >    lms_category_type, category_right_type;
+         typedef ::color::category::yiq<     yiq_tag_name >                            yiq_category_type,  category_left_type;
+         typedef ::color::category::lms<     lms_tag_name,   lms_reference_number >    lms_category_type, category_right_type;
 
          typedef double scalar_type;
 
-         typedef ::color::model< yiq_category_type > yiq_model_type;
-         typedef ::color::model< lms_category_type >  lms_model_type;
+         typedef ::color::model<   yiq_category_type >   yiq_model_type;
+         typedef ::color::model<   lms_category_type >   lms_model_type;
 
          typedef ::color::rgb< scalar_type >  rgb_model_type;
          typedef ::color::xyz< scalar_type >  xyz_model_type;

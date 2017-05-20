@@ -6,25 +6,33 @@
 
 #include "../../_internal/reformat.hpp"
 
+
+
+
+
+
+
+
 namespace color
  {
   namespace _internal
    {
 
     template
-     < 
-        typename gray_tag_name
-       ,typename lms_tag_name   /*, ::color::constant::lms::reference_enum reference_number*/
+     <
+       typename  gray_tag_name
+      ,typename   lms_tag_name, ::color::constant::lms::reference_enum lms_reference_number
      >
      struct convert
       <
         ::color::category::gray< gray_tag_name >
-       ,::color::category::lms< lms_tag_name >
+       ,::color::category::lms<     lms_tag_name,   lms_reference_number >
       >
       {
        public:
-         typedef ::color::category::gray< gray_tag_name > category_left_type;
-         typedef ::color::category::lms<lms_tag_name> category_right_type;
+         typedef ::color::category::gray<   gray_tag_name >                           gray_category_type,  category_left_type;
+         typedef ::color::category::lms<     lms_tag_name,   lms_reference_number >    lms_category_type, category_right_type;
+
          typedef double scalar_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;

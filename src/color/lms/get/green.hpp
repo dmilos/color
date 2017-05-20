@@ -16,12 +16,12 @@
    namespace get
     {
 
-     template< typename tag_name >
+     template< typename tag_name/*, ::color::constant::lms::reference_enum reference_number */ >
       inline
-      typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lms<tag_name> >::akin_type >::return_type
-      green( ::color::model< ::color::category::lms<tag_name> > const& color_parameter )
+      typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lms<tag_name/*,reference_number*/> >::akin_type >::return_type
+      green( ::color::model< ::color::category::lms<tag_name/*,reference_number*/> > const& color_parameter )
        {
-        typedef ::color::category::lms<tag_name> category_type;
+        typedef ::color::category::lms<tag_name/*,reference_number*/> category_type;
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_category_type;
         enum { green_p  = ::color::place::_internal::green<akin_category_type>::position_enum };
 

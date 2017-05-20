@@ -174,6 +174,16 @@ template< typename  type_type  >
 template< typename  type_type  >
  using YPbPr2020 = ::color::YPbPr< type_type, ::color::constant::YPbPr::BT_2020_entity>;
 
+template< typename  type_type  >
+ using lms1 = ::color::lms< type_type, ::color::constant::lms::von_Kries_D65_entity >;
+
+template< typename  type_type  > using lmsKries65 = ::color::lms< type_type, ::color::constant::lms::von_Kries_D65_entity  >;
+template< typename  type_type  > using lmsKriesE  = ::color::lms< type_type, ::color::constant::lms::von_Kries_E_entity  >;
+template< typename  type_type  > using lmsBFD     = ::color::lms< type_type, ::color::constant::lms::BFD_entity  >;
+template< typename  type_type  > using lmsMCAT02  = ::color::lms< type_type, ::color::constant::lms::MCAT02_entity  >;
+
+
+
 void check_sizeof()
  {
   std::stringstream ss;
@@ -238,7 +248,10 @@ void check_sizeof()
   ss << print_sizeof<::color::YDbDr  > ( "<code>YDbDr </code>" );  ss << std::endl;
   ss << print_sizeof<::color::xyz    > ( "<code>xyz </code>"   );  ss << std::endl;
   ss << print_sizeof<::color::lab    > ( "<code>lab </code>"   );  ss << std::endl;
-  ss << print_sizeof<::color::lms    > ( "<code>lms </code>"   );  ss << std::endl;
+  ss << print_sizeof< lmsKries65 > ( "<code>lmsKries65 </code>"   );  ss << std::endl;
+  ss << print_sizeof< lmsKriesE  > ( "<code>lmsKriesE  </code>"   );  ss << std::endl;
+  ss << print_sizeof< lmsBFD     > ( "<code>lmsBFD     </code>"   );  ss << std::endl;
+  ss << print_sizeof< lmsMCAT02  > ( "<code>lmsMCAT02  </code>"   );  ss << std::endl;
   ss << print_sizeof<::color::luv    > ( "<code>luv </code>"   );  ss << std::endl;
   ss << print_sizeof<::color::xyy    > ( "<code>xyy </code>"   );  ss << std::endl;
 

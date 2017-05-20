@@ -4,6 +4,7 @@
 // ::color::constant::lms::reference_enum
 
 
+
 namespace color
  {
   namespace constant
@@ -20,7 +21,7 @@ namespace color
         ,MCAT02_entity 
        };
 
-    }
+     }
    }
  }
 
