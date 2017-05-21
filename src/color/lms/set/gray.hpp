@@ -18,16 +18,16 @@
    namespace set
     {
 
-     template< typename tag_name  /*, ::color::constant::lms::reference_enum reference_number*/ >
+     template< typename tag_name , ::color::constant::lms::reference_enum lms_reference_number >
       inline
       void
       gray
        (
-                  ::color::model< ::color::category::lms< tag_name > >                                   & color_parameter
-        ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::lms< tag_name > >::akin_type >::input_const_type         component_parameter
+                  ::color::model< ::color::category::lms< tag_name, lms_reference_number > >                                   & color_parameter
+        ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::lms< tag_name, lms_reference_number > >::akin_type >::input_const_type         component_parameter
        )
        {
-        typedef ::color::category::lms< tag_name >    category_type;
+        typedef ::color::category::lms< tag_name, lms_reference_number >    category_type;
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_category_type;
         typedef double  scalar_type;
 

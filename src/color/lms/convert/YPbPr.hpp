@@ -18,17 +18,17 @@ namespace color
 
     template
      <
-       typename lms_tag_name  /*, ::color::constant::lms::reference_enum reference_number*/
+       typename   lms_tag_name, ::color::constant::lms::reference_enum     lms_reference_number
       ,typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
      >
      struct convert
       <
-        ::color::category::lms<  lms_tag_name >
+        ::color::category::lms<      lms_tag_name, lms_reference_number >
        ,::color::category::YPbPr<  YPbPr_tag_name, YPbPr_reference_number >
       >
       {
        public:
-         typedef ::color::category::lms< lms_tag_name >                                   lms_category_type, category_left_type;
+         typedef ::color::category::lms<     lms_tag_name, lms_reference_number   >    lms_category_type,    category_left_type;
          typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >    YPbPr_category_type, category_right_type;
 
          typedef double scalar_type;

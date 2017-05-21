@@ -12,7 +12,7 @@ namespace color
   namespace category
    {
 
-    template< typename tag_name, ::color::constant::lms::reference_enum reference_number = ::color::constant::lms::von_Kries_D65_entity >
+    template< typename tag_name, ::color::constant::lms::reference_enum lms_reference_number >
      struct lms
       {
        typedef tag_name category_name;

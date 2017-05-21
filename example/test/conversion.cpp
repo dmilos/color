@@ -184,7 +184,7 @@ void check_conversion()
   color::YCgCo<long double >  ycgco;
   color::lab<long double >      lab;
 
-  color::lms<long double >      lms;
+  color::lms<long double, ::color::constant::lms::von_Kries_D65_entity >      lms;
   color::luv<long double >      luv;
   color::xyy<long double >      xyy;
 

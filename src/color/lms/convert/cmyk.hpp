@@ -18,17 +18,17 @@ namespace color
 
     template
      <
-       typename lms_tag_name  /*, ::color::constant::lms::reference_enum reference_number*/
+       typename lms_tag_name,   ::color::constant::lms::reference_enum lms_reference_number
       ,typename cmyk_tag_name 
      >
      struct convert
       <
-        ::color::category::lms< lms_tag_name >
+        ::color::category::lms< lms_tag_name, lms_reference_number  >
        ,::color::category::cmyk<  cmyk_tag_name >
       >
       {
        public:
-         typedef ::color::category::lms< lms_tag_name >    lms_category_type,  category_left_type;
+         typedef ::color::category::lms< lms_tag_name, lms_reference_number  >    lms_category_type,  category_left_type;
          typedef ::color::category::cmyk< cmyk_tag_name >    cmyk_category_type, category_right_type;
 
          typedef double scalar_type;

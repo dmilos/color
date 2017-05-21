@@ -39,7 +39,7 @@ namespace color
          typedef ::color::model<   lms_category_type >   lms_model_type;
 
          typedef ::color::category::xyz< scalar_type >  xyzSCALAR_category_type;
-         typedef ::color::category::lms< scalar_type >  lmsSCALAR_category_type;
+         typedef ::color::category::lms< scalar_type, lms_reference_number >  lmsSCALAR_category_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

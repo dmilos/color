@@ -85,7 +85,12 @@ int decompose_test( int argc, char const *argv[] )
 
   decompose< ::color::lab<double> >( image, "./dec/lab", width, height, ::color::lab<double>{ 50, 0, 0 } );
 
-  decompose< ::color::lms<double> >( image, "./dec/lms", width, height, ::color::lms<double>{ 50, 0, 0 } );
+  decompose< ::color::lms<double, ::color::constant::lms::von_Kries_D65_entity > >( image, "./dec/lmsK65", width, height,    ::color::lms<double, ::color::constant::lms::von_Kries_D65_entity>{ 50, 0, 0 } );
+  decompose< ::color::lms<double, ::color::constant::lms::von_Kries_E_entity   > >( image, "./dec/lmsKE", width, height,     ::color::lms<double, ::color::constant::lms::von_Kries_E_entity  >{ 50, 0, 0 } );
+  decompose< ::color::lms<double, ::color::constant::lms::BFD_entity           > >( image, "./dec/lmsBFD", width, height,    ::color::lms<double, ::color::constant::lms::BFD_entity          >{ 50, 0, 0 } );
+  decompose< ::color::lms<double, ::color::constant::lms::MCAT02_entity        > >( image, "./dec/lmsMCAT02", width, height, ::color::lms<double, ::color::constant::lms::MCAT02_entity       >{ 50, 0, 0 } );
+
+
   decompose< ::color::luv<double> >( image, "./dec/luv", width, height, ::color::luv<double>{ 50, 0, 0 } );
   decompose< ::color::xyy<double> >( image, "./dec/xyy", width, height, ::color::xyy<double>{ 50, 0, 0 } );
 

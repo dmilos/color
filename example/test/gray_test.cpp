@@ -137,7 +137,7 @@ void make_gray_lms( gray_image_type & gray, bgr_image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    gc->set<0>( ::color::lms< std::uint8_t >( c )[0] );
+    gc->set<0>( ::color::lms< std::uint8_t, ::color::constant::lms::von_Kries_D65_entity >( c )[0] );
     ++gc;
    }
  }

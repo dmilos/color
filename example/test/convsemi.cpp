@@ -185,10 +185,12 @@ void image_conversion()
   typedef ::color::xyz<double>::category_type        xyz_t;
   typedef ::color::lab<double>::category_type        lab_t;
 
-  typedef ::color::lms<double>::category_type        lms_t;
+  typedef ::color::lms<double, ::color::constant::lms::von_Kries_D65_entity>::category_type        lms_t;
+  //typedef ::color::lms<double, ::color::constant::lms::von_Kries_E_entity  >::category_type        lms_t;
+  //typedef ::color::lms<double, ::color::constant::lms::BFD_entity          >::category_type        lms_t;
+  //typedef ::color::lms<double, ::color::constant::lms::MCAT02_entity       >::category_type        lms_t;
   typedef ::color::luv<double>::category_type        luv_t;
   typedef ::color::xyy<double>::category_type        xyy_t;
-
 
   make_image_conversion<         bgr_t,      bgr_t >( "./conv/bgr2bgr.tga",       0.5 );
   make_image_conversion<         cmy_t,      bgr_t >( "./conv/bgr2cmy.tga",       0.5 );

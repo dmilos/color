@@ -85,7 +85,10 @@ template< typename tag_name >
      ss << "<td>" << print_color( "YPbPr -" + name, ::color::YPbPr< double >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "xyz -"   + name, ::color::xyz<   double >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "lab -"   + name, ::color::lab<   double >( constant ) ) << "</td>";
-     ss << "<td>" << print_color( "lms -"   + name, ::color::lms<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "lmsK65 -"   + name, ::color::lms<   double, ::color::constant::lms::von_Kries_D65_entity >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "lmsKE -"   + name, ::color::lms<   double, ::color::constant::lms::von_Kries_E_entity   >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "lmsBFD -"   + name, ::color::lms<   double, ::color::constant::lms::BFD_entity           >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "lmsMCAT -"   + name, ::color::lms<   double, ::color::constant::lms::MCAT02_entity        >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "luv -"   + name, ::color::luv<   double >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "xyy -"   + name, ::color::xyy<   double >( constant ) ) << "</td>";
      ss << "</tr>" << std::endl;
