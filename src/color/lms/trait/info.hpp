@@ -11,13 +11,14 @@ namespace color
   namespace trait
    {
 
-    template <> struct info< ::color::category::lms_uint8 >    {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
-    template <> struct info< ::color::category::lms_uint16 >   {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
-    template <> struct info< ::color::category::lms_uint32 >   {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
-    template <> struct info< ::color::category::lms_uint64 >   {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
-    template <> struct info< ::color::category::lms_float >    {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
-    template <> struct info< ::color::category::lms_double >   {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
-    template <> struct info< ::color::category::lms_ldouble >  {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template< ::color::constant::lms::reference_enum  lms_reference_number > struct info< ::color::category::lms_uint8  <lms_reference_number> > {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template< ::color::constant::lms::reference_enum  lms_reference_number > struct info< ::color::category::lms_uint16 <lms_reference_number> > {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template< ::color::constant::lms::reference_enum  lms_reference_number > struct info< ::color::category::lms_uint32 <lms_reference_number> > {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template< ::color::constant::lms::reference_enum  lms_reference_number > struct info< ::color::category::lms_uint64 <lms_reference_number> > {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template< ::color::constant::lms::reference_enum  lms_reference_number > struct info< ::color::category::lms_float  <lms_reference_number> > {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template< ::color::constant::lms::reference_enum  lms_reference_number > struct info< ::color::category::lms_double <lms_reference_number> > {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template< ::color::constant::lms::reference_enum  lms_reference_number > struct info< ::color::category::lms_ldouble<lms_reference_number> > {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+
 
    }
  }

@@ -12,20 +12,20 @@ namespace color
   namespace trait
    {
 
-    template< >
-     struct bound< ::color::category::lms_float >
+    template< ::color::constant::lms::reference_enum reference_number >
+     struct bound< ::color::category::lms_float<reference_number> >
       : public ::color::_internal::lms::bound::scalar< unsigned, float >
       {
       };
 
-    template< >
-     struct bound< ::color::category::lms_double >
+    template< ::color::constant::lms::reference_enum reference_number >
+     struct bound< ::color::category::lms_double<reference_number> >
       : public ::color::_internal::lms::bound::scalar< unsigned, double >
       {
       };
 
-    template< >
-     struct bound< ::color::category::lms_ldouble >
+    template< ::color::constant::lms::reference_enum reference_number >
+     struct bound< ::color::category::lms_ldouble<reference_number> >
       : public ::color::_internal::lms::bound::scalar< unsigned, long double >
       {
       };

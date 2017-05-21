@@ -10,13 +10,17 @@ namespace color
   namespace akin
    {
 
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lms< ::color::category::YPbPr_uint8  <reference_number> >{ typedef ::color::category::lms_uint8   akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lms< ::color::category::YPbPr_uint16 <reference_number> >{ typedef ::color::category::lms_uint16  akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lms< ::color::category::YPbPr_uint32 <reference_number> >{ typedef ::color::category::lms_uint32  akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lms< ::color::category::YPbPr_uint64 <reference_number> >{ typedef ::color::category::lms_uint64  akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lms< ::color::category::YPbPr_float  <reference_number> >{ typedef ::color::category::lms_float   akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lms< ::color::category::YPbPr_double <reference_number> >{ typedef ::color::category::lms_double  akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lms< ::color::category::YPbPr_ldouble<reference_number> >{ typedef ::color::category::lms_ldouble akin_type; };
+    template
+     <
+       typename tag_name
+      ,::color::constant::lms::reference_enum        lms_reference_number
+      ,::color::constant::YPbPr::reference_enum    YPbPr_reference_number 
+     >
+     struct lms< ::color::category::YPbPr< tag_name, YPbPr_reference_number >, lms_reference_number  >
+      {
+       public:
+         typedef ::color::category::lms< tag_name, lms_reference_number > akin_type;
+      };
 
    }
  }

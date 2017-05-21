@@ -14,24 +14,23 @@ namespace color
   namespace trait
    {
 
-    template< >
-     struct component< ::color::category::lms_float >
+    template< ::color::constant::lms::reference_enum reference_number >
+     struct component< ::color::category::lms_float<reference_number> >
       : public ::color::_internal::utility::component::array< float, unsigned>
       {
       };
 
-    template< >
-     struct component< ::color::category::lms_double >
+    template< ::color::constant::lms::reference_enum reference_number >
+     struct component< ::color::category::lms_double<reference_number> >
       : public ::color::_internal::utility::component::array< double, unsigned >
       {
       };
 
-    template< >
-     struct component< ::color::category::lms_ldouble >
+    template< ::color::constant::lms::reference_enum reference_number >
+     struct component< ::color::category::lms_ldouble<reference_number> >
       : public ::color::_internal::utility::component::array< long double, unsigned>
       {
       };
-
 
    }
  }

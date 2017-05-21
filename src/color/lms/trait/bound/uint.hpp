@@ -14,26 +14,26 @@ namespace color
   namespace trait
    {
 
-    template< >
-     struct bound< ::color::category::lms_uint8  >
+    template< ::color::constant::lms::reference_enum reference_number >
+     struct bound< ::color::category::lms_uint8<reference_number> >
       : public ::color::_internal::utility::bound::general< std::uint8_t, unsigned >
       {
       };
 
-    template< >
-     struct bound< ::color::category::lms_uint16 >
+    template< ::color::constant::lms::reference_enum reference_number >
+     struct bound< ::color::category::lms_uint16<reference_number> >
       : public ::color::_internal::utility::bound::general< std::uint16_t, unsigned >
       {
       };
 
-    template< >
-     struct bound< ::color::category::lms_uint32 >
+    template< ::color::constant::lms::reference_enum reference_number >
+     struct bound< ::color::category::lms_uint32<reference_number> >
       : public ::color::_internal::utility::bound::general< std::uint32_t, unsigned >
       {
       };
 
-    template< >
-     struct bound< ::color::category::lms_uint64 >
+    template< ::color::constant::lms::reference_enum reference_number >
+     struct bound< ::color::category::lms_uint64<reference_number> >
       : public ::color::_internal::utility::bound::general< std::uint64_t, unsigned >
       {
       };

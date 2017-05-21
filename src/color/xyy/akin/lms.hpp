@@ -10,13 +10,17 @@ namespace color
   namespace akin
    {
 
-    template< >struct xyy< ::color::category::lms_uint8   >{ typedef ::color::category::xyy_uint8   akin_type; };
-    template< >struct xyy< ::color::category::lms_uint16  >{ typedef ::color::category::xyy_uint16  akin_type; };
-    template< >struct xyy< ::color::category::lms_uint32  >{ typedef ::color::category::xyy_uint32  akin_type; };
-    template< >struct xyy< ::color::category::lms_uint64  >{ typedef ::color::category::xyy_uint64  akin_type; };
-    template< >struct xyy< ::color::category::lms_float   >{ typedef ::color::category::xyy_float   akin_type; };
-    template< >struct xyy< ::color::category::lms_double  >{ typedef ::color::category::xyy_double  akin_type; };
-    template< >struct xyy< ::color::category::lms_ldouble >{ typedef ::color::category::xyy_ldouble akin_type; };
+    template
+     <
+       typename tag_name
+      ,::color::constant::lms::reference_enum reference_number 
+
+     >
+     struct xyy< ::color::category::lms< tag_name, reference_number >  >
+      {
+       public:
+         typedef ::color::category::xyy< tag_name > akin_type;
+      };
 
    }
  }
