@@ -48,7 +48,7 @@ namespace color
          typedef ::color::_internal::reformat< lms_category_type, lmsSCALAR_category_type, scalar_type >     reformatLMS_type;
          typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type >     reformatXYZ_type;
 
-         typedef ::color::constant::lms::matrix< scalar_type, ::color::constant::lms::von_Kries_E_entity >     matrix_type;
+         typedef ::color::constant::lms::matrix< scalar_type, lms_reference_number >     matrix_type;
 
          typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
 
