@@ -18,7 +18,6 @@ namespace color
          struct matrix
           {
            typedef scalar_name scalar_type;
-           typedef ::color::constant::lms::matrix< scalar_name, ::color::constant::lms::error_entity > this_type;
 
            static /* constexpr*/ scalar_type const a11(){ return 1; }
            static /* constexpr*/ scalar_type const a12(){ return 0; }
@@ -50,7 +49,6 @@ namespace color
          struct matrix< scalar_name, ::color::constant::lms::von_Kries_E_entity >
           {
            typedef scalar_name scalar_type;
-           typedef ::color::constant::lms::matrix< scalar_name, ::color::constant::lms::von_Kries_E_entity > this_type;
 
            static /* constexpr*/ scalar_type const a11(){ return 0.38971;  }
            static /* constexpr*/ scalar_type const a12(){ return 0.68898;  }
@@ -81,7 +79,6 @@ namespace color
          struct matrix< scalar_name, ::color::constant::lms::von_Kries_D65_entity >
           {
            typedef scalar_name scalar_type;
-           typedef ::color::constant::lms::matrix< scalar_name, ::color::constant::lms::von_Kries_D65_entity > this_type;
 
            static /* constexpr*/ scalar_type const a11(){ return 0.4002; }
            static /* constexpr*/ scalar_type const a12(){ return 0.7076; }
@@ -112,7 +109,6 @@ namespace color
          struct matrix< scalar_name, ::color::constant::lms::BFD_entity >
           {
            typedef scalar_name scalar_type;
-           typedef ::color::constant::lms::matrix< scalar_name, ::color::constant::lms::BFD_entity > this_type;
 
            static /* constexpr*/ scalar_type const a11(){ return 0.8951; }
            static /* constexpr*/ scalar_type const a12(){ return 0.2664; }
@@ -143,7 +139,6 @@ namespace color
          struct matrix< scalar_name, ::color::constant::lms::MCAT02_entity >
           {
            typedef scalar_name scalar_type;
-           typedef ::color::constant::lms::matrix< scalar_name, ::color::constant::lms::MCAT02_entity > this_type;
 
            static /* constexpr*/ scalar_type const a11(){ return 0.7328; }
            static /* constexpr*/ scalar_type const a12(){ return 0.4296; }

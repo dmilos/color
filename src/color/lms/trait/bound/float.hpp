@@ -14,19 +14,19 @@ namespace color
 
     template< ::color::constant::lms::reference_enum reference_number >
      struct bound< ::color::category::lms_float<reference_number> >
-      : public ::color::_internal::lms::bound::scalar< unsigned, float >
+      : public ::color::_internal::lms::bound::scalar< unsigned, float, reference_number >
       {
       };
 
     template< ::color::constant::lms::reference_enum reference_number >
      struct bound< ::color::category::lms_double<reference_number> >
-      : public ::color::_internal::lms::bound::scalar< unsigned, double >
+      : public ::color::_internal::lms::bound::scalar< unsigned, double, reference_number >
       {
       };
 
     template< ::color::constant::lms::reference_enum reference_number >
      struct bound< ::color::category::lms_ldouble<reference_number> >
-      : public ::color::_internal::lms::bound::scalar< unsigned, long double >
+      : public ::color::_internal::lms::bound::scalar< unsigned, long double, reference_number >
       {
       };
 
