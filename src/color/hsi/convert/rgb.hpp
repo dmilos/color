@@ -37,6 +37,9 @@ namespace color
 
          typedef  ::color::constant::hsi< category_right_type > hsi_constant_type;
 
+         typedef   ::color::constant::generic< category_right_type > constant_type;
+
+
          enum
           {
                    hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
