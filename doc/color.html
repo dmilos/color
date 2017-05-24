@@ -69,7 +69,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="cmy" />cmy</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using cmy = ::color::model&lt; <i>unspecified</i> &gt;</code>;
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using cmy = ::color::model&lt; ::color::category::cmy&lt; <i>unspecified</i> &gt; &gt;</code>;
 							 </dd>
 							<dt>Note</dt><dd></dd>
 							<dd>Above mentioned list of types applies to this <code>type_name</code>.</dd>
@@ -80,7 +80,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="cmyk" />cmyk</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using cmyk = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using cmyk = ::color::model&lt; ::color::category::cmyk&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements CMYK color model.</dd>
 							<dt>Example:</dt><dd><code>::color::cmyk&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/CMYK_color_model">Wikipedia CMYK</a></dd>
@@ -88,7 +88,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="gray" />gray</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using gray = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using gray = ::color::model&lt; ::color::category::gray&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements gray color model.</dd>
 							<dt>Example:</dt><dd><code>::color::gray&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Grayscale">Wikipedia Grayscale</a></dd>
@@ -96,39 +96,15 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="hsi" />hsi</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsi = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsi = ::color::model&lt; ::color::category::hsi&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements HSI color model.</dd>
 							<dt>Example:</dt><dd><code>::color::hsi&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/HSL_and_HSV">Wikipedia HSI</a></dd>
 						</dl><hr width="%20">
 
 						<dl>
-							<dt>Name</dt><dd><a name="lab" />lab</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using lab = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
-							<dt>Decription</dt><dd>Implements LAB( CIELAB ) color model.</dd>
-							<dt>Example:</dt><dd><code>::color::lab&lt; double &gt; c;</code></dd>
-							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Lab_color_space">Wikipedia LAB</a></dd>
-						</dl><hr width="%20">
-
-						<dl>
-							<dt>Name</dt><dd><a name="lms" />lms</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using lms = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
-							<dt>Decription</dt><dd>Implements LMS color model.</dd>
-							<dt>Example:</dt><dd><code>::color::lms&lt; double &gt; c;</code></dd>
-							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/LMS_color_space">Wikipedia LMS</a></dd>
-						</dl><hr width="%20">
-
-						<dl>
-							<dt>Name</dt><dd><a name="luv" />luv</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using luv = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
-							<dt>Decription</dt><dd>Implements LUV(CIELUV) color model.</dd>
-							<dt>Example:</dt><dd><code>::color::LUV&lt; double &gt; c;</code></dd>
-							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/CIELUV">Wikipedia LUV</a></dd>
-						</dl><hr width="%20">
-
-						<dl>
 							<dt>Name</dt><dd><a name="hsl" />hsl</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsl = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsl = ::color::model&lt; ::color::category::hsl&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements HSL color model.</dd>
 							<dt>Example:</dt><dd><code>::color::hsli&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/HSL_and_HSV">Wikipedia HSL</a></dd>
@@ -136,15 +112,39 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="hsv" />hsv</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsv = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using hsv = ::color::model&lt; ::color::category::hsv&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements HSV color model.</dd>
 							<dt>Example:</dt><dd><code>::color::hsv&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/HSL_and_HSV">Wikipedia HSV</a></dd>
 						</dl><hr width="%20">
 
 						<dl>
+							<dt>Name</dt><dd><a name="lab" />lab</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using lab = ::color::model&lt; ::color::category::lab&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements LAB( CIELAB ) color model.</dd>
+							<dt>Example:</dt><dd><code>::color::lab&lt; double &gt; c;</code></dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Lab_color_space">Wikipedia LAB</a></dd>
+						</dl><hr width="%20">
+
+						<dl>
+							<dt>Name</dt><dd><a name="lms" />lms</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using lms = ::color::model&lt; ::color::category::lms&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements LMS color model.</dd>
+							<dt>Example:</dt><dd><code>::color::lms&lt; double &gt; c;</code></dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/LMS_color_space">Wikipedia LMS</a></dd>
+						</dl><hr width="%20">
+
+						<dl>
+							<dt>Name</dt><dd><a name="luv" />luv</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using luv = ::color::model&lt; ::color::category::luv&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements LUV(CIELUV) color model.</dd>
+							<dt>Example:</dt><dd><code>::color::LUV&lt; double &gt; c;</code></dd>
+							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/CIELUV">Wikipedia LUV</a></dd>
+						</dl><hr width="%20">
+
+						<dl>
 							<dt>Name</dt><dd><a name="rgb" />rgb</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using rgb = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using rgb = ::color::model&lt; ::color::category::rgb&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements RGB color model.</dd>
 							<dt>Example:</dt><dd><code>::color::rgb&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/RGB_color_model">Wikipedia RGB</a></dd>
@@ -152,7 +152,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="xyy" />xyy</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using xyy = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using xyy = ::color::model&lt; ::color::category::xyy&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements xyY color model.</dd>
 							<dt>Example:</dt><dd><code>::color::xyy&lt; double &gt; c;</code></dd>
 							<dt>Note</dt><dd><b>It is used: <ul> <li>Space: sRGB</li><li>White point: D65</li><li> Observer: 2&deg;</ul></b> </dd>
@@ -161,7 +161,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="xyz" />xyz</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using xyz = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using xyz = ::color::model&lt; ::color::category::xyz&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements XYZ color model.</dd>
 							<dt>Example:</dt><dd><code>::color::xyz&lt; double &gt; c;</code></dd>
 							<dt>Note</dt><dd><b>It is used: <ul> <li>Space: sRGB</li><li>White point: D65</li><li> Observer: 2&deg;</ul></b> </dd>
@@ -170,7 +170,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="yiq" />yiq</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yiq = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yiq = ::color::model&lt; ::color::category::yiq&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements YIQ color model.</dd>
 							<dt>Example:</dt><dd><code>::color::yiq&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YIQ">Wikipedia YIQ</a></dd>
@@ -178,7 +178,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="yuv" />yuv</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yuv = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yuv = ::color::model&lt; ::color::category::yuv&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements YUV color model.</dd>
 							<dt>Example:</dt><dd><code>::color::yuv&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YUV">Wikipedia YUV</a></dd>
@@ -186,7 +186,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="YCgCo" />YCgCo</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using YCgCo = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using YCgCo = ::color::model&lt; ::color::category::YCgCo&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements YCgCo color model.</dd>
 							<dt>Example:</dt><dd><code>::color::YCgCo&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YCgCo">Wikipedia YCgCo</a></dd>
@@ -194,7 +194,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="YDbDr" />YDbDr</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using YDbDr = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using YDbDr = ::color::model&lt; ::color::category::YDbDr&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements YDbDr color model.</dd>
 							<dt>Example:</dt><dd><code>::color::YDbDr&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YDbDr">Wikipedia YDbDr</a></dd>
@@ -202,7 +202,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="YPbPr" />YPbPr</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using YPbPr = ::color::model&lt; <i>unspecified</i> &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using YPbPr = ::color::model&lt; ::color::category::YPbPr&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements YPbPr color model.</dd>
 							<dt>Example:</dt><dd><code>::color::YPbPr&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YPbPr">Wikipedia YPbPr</a><br><a href="https://en.wikipedia.org/wiki/YCbCr">Wikipedia YCbCr</a></dd>
