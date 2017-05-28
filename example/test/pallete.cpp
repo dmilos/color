@@ -15,16 +15,15 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
 
   targa_header_struct header;
 
-  targa_make_header( width, height, header);
+  targa_make_header24( width, height, header);
 
-  std::vector< color::bgra<std::uint8_t> >   image(height * width);
+  std::vector< color::bgr<std::uint8_t> >   image(height * width);
   color::rgb<double >  check;
 
   for (int y = 0; y < height; y++)
    {
     for (int x = 0; x < width; x++)
      {
-      image[y * width + x].set<3>(255);
       switch( side )
        {
         case( 0 ):
@@ -57,7 +56,6 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
              if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
             }
            image[y * width + x] = check;
-           image[y * width + x].set<3>( 255 );
           }break;
         case( 2 ):
          {
@@ -65,13 +63,13 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
                           diverse_type::template process<1>( x / double(width) ),
                           diverse_type::template process<2>( plane )
                                                , 0 } );
+           check = m;
            if( true == ::color::check::overburn( check ) )
             {
              ::color::fix::overburn( check ); 
              if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
              if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
             }
-           ::color::fix::overburn( check );
            image[y * width + x] = check;
          }break;
        }
@@ -81,12 +79,14 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
    {
     std::ofstream of(name, std::ios_base::binary);
     of.write((const char *)header, 18);
-    of.write((const char *)image.data(), image.size() * 4);
+    of.write((const char *)image.data(), image.size() * 3 );
    }
  }
 
 void test_pallete()
  {
+  //make_image<color::lab<double> >( "./palette/lab-2-050.tga" , 0.5, 2 );
+
   make_image<color::hsi<double> >( "./palette/hsi-1-000.tga" , 0.00, 1 );
   make_image<color::hsi<double> >( "./palette/hsi-1-025.tga" , 0.25, 1 );
   make_image<color::hsi<double> >( "./palette/hsi-1-050.tga" , 0.50, 1 );

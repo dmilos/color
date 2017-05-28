@@ -9,10 +9,11 @@ int main( int argc, char *argv[] )
  {
   if( 4 != argc )
    {
+    std::cout << "Not enought command line parameters" << std::endl;
     return EXIT_FAILURE;
    }
 
-  bgr_image_type left_data;
+  bgr_image_type  left_data;
   bgr_image_type right_data;
 
   targa_header_struct  header_left;
@@ -20,20 +21,35 @@ int main( int argc, char *argv[] )
 
   if( false == targa_image_load( header_left,   left_data,  argv[1] ) )
    {
+    std::cout << "Can not open left" << std::endl;
     return EXIT_FAILURE;
    }
 
   if( false == targa_image_load( header_right,  right_data, argv[2] ) )
    {
+    std::cout << "Can not open right" << std::endl;
     return EXIT_FAILURE;
    }
 
-  const int depth_left  = targa_get_depth(  header_left ); const  int depth_right = targa_get_depth(  header_right );
-  const int height      = targa_get_width(  header_left ); const int height_right = targa_get_width(  header_right );
-  const int width       = targa_get_height( header_left ); const int width_right  = targa_get_height( header_right );
+  const int depth_left  = targa_get_depth(  header_left ); const int  depth_right = targa_get_depth(  header_right );
+  const int width       = targa_get_width(  header_left ); const int  width_right = targa_get_width(  header_right );
+  const int height      = targa_get_height( header_left ); const int height_right = targa_get_height( header_right );
 
-  if( depth_left != depth_right)
+  if( depth_left != depth_right )
    {
+    std::cout << "Different depth" << std::endl;
+    return EXIT_FAILURE;
+   }
+
+  if( width != width_right )
+   {
+    std::cout << "Different width" << std::endl;
+    return EXIT_FAILURE;
+   }
+
+  if( height!= height_right )
+   {
+    std::cout << "Different height" << std::endl;
     return EXIT_FAILURE;
    }
 
@@ -74,7 +90,7 @@ int main( int argc, char *argv[] )
      difference[ y*width+x][2] *= 255/max[2];
     }
 
-  save_image24(  argv[3],   difference, width, height );
+  save_image24( argv[3], difference, width, height );
 
   return EXIT_SUCCESS;
  }

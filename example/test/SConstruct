@@ -5,8 +5,10 @@ import nucleotide
 settings = nucleotide.Settings( )
 settings.set_custom( 'configuration', 'release' )
 settings.set_custom( 'compiler_version_msvc', '14.0' )
+settings.set_custom( 'pp2f', 'true' )
 
 settings.set_custom( 'configuration',   ARGUMENTS.get( 'configuration', settings.get_custom( 'configuration' ) ) ) 
+settings.set_custom( 'pp2f',   ARGUMENTS.get( 'pp2f', settings.get_custom( 'pp2f' ) ) ) 
 
 #Accumulate 
 # Nothing to accumulate. This is minimal
