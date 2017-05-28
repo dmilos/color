@@ -3118,11 +3118,25 @@ public:
 
 	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 
+	typedef ::color::constant::generic<category_type> this_type;
+
 	static scalar_type const zero() {
 		return scalar_type(0);
 	}
+	static scalar_type const sixth() {
+		return scalar_type(1) / scalar_type(6);
+	}
+	static scalar_type const third() {
+		return scalar_type(1) / scalar_type(3);
+	}
 	static scalar_type const half() {
 		return scalar_type(0.5);
+	}
+	static scalar_type const inv_sqrt_3() {
+		return scalar_type(1) / sqrt(scalar_type(3));
+	}
+	static scalar_type const two_third() {
+		return scalar_type(2) / scalar_type(3);
 	}
 	static scalar_type const one() {
 		return scalar_type(1);
@@ -3137,10 +3151,19 @@ public:
 		return scalar_type(3.141592653589793238462643383279502884197169399375105820974944592307816406286);
 	}
 	static scalar_type const pi_half() {
-		return scalar_type(3.141592653589793238462643383279502884197169399375105820974944592307816406286/2);
+		return this_type::pi() / scalar_type(2) ;
 	}
 	static scalar_type const two_pi() {
-		return scalar_type(2 * 3.141592653589793238462643383279502884197169399375105820974944592307816406286);
+		return scalar_type(2) * this_type::pi();
+	}
+	static scalar_type const deg60() {
+		return this_type::pi() / scalar_type(3);
+	}
+	static scalar_type const deg120() {
+		return scalar_type(2) * this_type::pi() / scalar_type(3);
+	}
+	static scalar_type const deg240() {
+		return scalar_type(4) * this_type::pi() / scalar_type(3);
 	}
 };
 
@@ -3272,26 +3295,10 @@ using cmyk_ldouble = ::color::category::cmyk< long double >;
 namespace color {
 namespace akin {
 
-template< >struct cmy< ::color::category::cmyk_uint8 > {
-	typedef ::color::category::cmy_uint8 akin_type;
-};
-template< >struct cmy< ::color::category::cmyk_uint16 > {
-	typedef ::color::category::cmy_uint16 akin_type;
-};
-template< >struct cmy< ::color::category::cmyk_uint32 > {
-	typedef ::color::category::cmy_uint32 akin_type;
-};
-template< >struct cmy< ::color::category::cmyk_uint64 > {
-	typedef ::color::category::cmy_uint64 akin_type;
-};
-template< >struct cmy< ::color::category::cmyk_float > {
-	typedef ::color::category::cmy_float akin_type;
-};
-template< >struct cmy< ::color::category::cmyk_double > {
-	typedef ::color::category::cmy_double akin_type;
-};
-template< >struct cmy< ::color::category::cmyk_ldouble > {
-	typedef ::color::category::cmy_ldouble akin_type;
+template< typename tag_name >
+struct cmy< ::color::category::cmyk< tag_name > > {
+public:
+	typedef ::color::category::cmy< tag_name > akin_type;
 };
 
 }
@@ -3322,26 +3329,10 @@ using hsl_ldouble = ::color::category::hsl< long double >;
 namespace color {
 namespace akin {
 
-template< >struct cmy< ::color::category::hsl_uint8 > {
-	typedef ::color::category::cmy_uint8 akin_type;
-};
-template< >struct cmy< ::color::category::hsl_uint16 > {
-	typedef ::color::category::cmy_uint16 akin_type;
-};
-template< >struct cmy< ::color::category::hsl_uint32 > {
-	typedef ::color::category::cmy_uint32 akin_type;
-};
-template< >struct cmy< ::color::category::hsl_uint64 > {
-	typedef ::color::category::cmy_uint64 akin_type;
-};
-template< >struct cmy< ::color::category::hsl_float > {
-	typedef ::color::category::cmy_float akin_type;
-};
-template< >struct cmy< ::color::category::hsl_double > {
-	typedef ::color::category::cmy_double akin_type;
-};
-template< >struct cmy< ::color::category::hsl_ldouble > {
-	typedef ::color::category::cmy_ldouble akin_type;
+template< typename tag_name >
+struct cmy< ::color::category::hsl< tag_name > > {
+public:
+	typedef ::color::category::cmy< tag_name > akin_type;
 };
 
 }
@@ -3371,26 +3362,10 @@ using hsv_ldouble = ::color::category::hsv< long double >;
 namespace color {
 namespace akin {
 
-template< >struct cmy< ::color::category::hsv_uint8 > {
-	typedef ::color::category::cmy_uint8 akin_type;
-};
-template< >struct cmy< ::color::category::hsv_uint16 > {
-	typedef ::color::category::cmy_uint16 akin_type;
-};
-template< >struct cmy< ::color::category::hsv_uint32 > {
-	typedef ::color::category::cmy_uint32 akin_type;
-};
-template< >struct cmy< ::color::category::hsv_uint64 > {
-	typedef ::color::category::cmy_uint64 akin_type;
-};
-template< >struct cmy< ::color::category::hsv_float > {
-	typedef ::color::category::cmy_float akin_type;
-};
-template< >struct cmy< ::color::category::hsv_double > {
-	typedef ::color::category::cmy_double akin_type;
-};
-template< >struct cmy< ::color::category::hsv_ldouble > {
-	typedef ::color::category::cmy_ldouble akin_type;
+template< typename tag_name >
+struct cmy< ::color::category::hsv< tag_name > > {
+public:
+	typedef ::color::category::cmy< tag_name > akin_type;
 };
 
 }
@@ -3420,26 +3395,10 @@ using hsi_ldouble = ::color::category::hsi< long double >;
 namespace color {
 namespace akin {
 
-template< >struct cmy< ::color::category::hsi_uint8 > {
-	typedef ::color::category::cmy_uint8 akin_type;
-};
-template< >struct cmy< ::color::category::hsi_uint16 > {
-	typedef ::color::category::cmy_uint16 akin_type;
-};
-template< >struct cmy< ::color::category::hsi_uint32 > {
-	typedef ::color::category::cmy_uint32 akin_type;
-};
-template< >struct cmy< ::color::category::hsi_uint64 > {
-	typedef ::color::category::cmy_uint64 akin_type;
-};
-template< >struct cmy< ::color::category::hsi_float > {
-	typedef ::color::category::cmy_float akin_type;
-};
-template< >struct cmy< ::color::category::hsi_double > {
-	typedef ::color::category::cmy_double akin_type;
-};
-template< >struct cmy< ::color::category::hsi_ldouble > {
-	typedef ::color::category::cmy_ldouble akin_type;
+template< typename tag_name >
+struct cmy< ::color::category::hsi< tag_name > > {
+public:
+	typedef ::color::category::cmy< tag_name > akin_type;
 };
 
 }
@@ -3699,26 +3658,10 @@ using yiq_ldouble = ::color::category::yiq< long double >;
 namespace color {
 namespace akin {
 
-template< >struct cmy< ::color::category::yiq_uint8 > {
-	typedef ::color::category::cmy_uint8 akin_type;
-};
-template< >struct cmy< ::color::category::yiq_uint16 > {
-	typedef ::color::category::cmy_uint16 akin_type;
-};
-template< >struct cmy< ::color::category::yiq_uint32 > {
-	typedef ::color::category::cmy_uint32 akin_type;
-};
-template< >struct cmy< ::color::category::yiq_uint64 > {
-	typedef ::color::category::cmy_uint64 akin_type;
-};
-template< >struct cmy< ::color::category::yiq_float > {
-	typedef ::color::category::cmy_float akin_type;
-};
-template< >struct cmy< ::color::category::yiq_double > {
-	typedef ::color::category::cmy_double akin_type;
-};
-template< >struct cmy< ::color::category::yiq_ldouble > {
-	typedef ::color::category::cmy_ldouble akin_type;
+template< typename tag_name >
+struct cmy< ::color::category::yiq< tag_name > > {
+public:
+	typedef ::color::category::cmy< tag_name > akin_type;
 };
 
 }
@@ -3797,26 +3740,10 @@ using YCgCo_ldouble = ::color::category::YCgCo< long double >;
 namespace color {
 namespace akin {
 
-template< >struct cmy< ::color::category::YCgCo_uint8 > {
-	typedef ::color::category::cmy_uint8 akin_type;
-};
-template< >struct cmy< ::color::category::YCgCo_uint16 > {
-	typedef ::color::category::cmy_uint16 akin_type;
-};
-template< >struct cmy< ::color::category::YCgCo_uint32 > {
-	typedef ::color::category::cmy_uint32 akin_type;
-};
-template< >struct cmy< ::color::category::YCgCo_uint64 > {
-	typedef ::color::category::cmy_uint64 akin_type;
-};
-template< >struct cmy< ::color::category::YCgCo_float > {
-	typedef ::color::category::cmy_float akin_type;
-};
-template< >struct cmy< ::color::category::YCgCo_double > {
-	typedef ::color::category::cmy_double akin_type;
-};
-template< >struct cmy< ::color::category::YCgCo_ldouble > {
-	typedef ::color::category::cmy_ldouble akin_type;
+template< typename tag_name >
+struct cmy< ::color::category::YCgCo< tag_name > > {
+public:
+	typedef ::color::category::cmy< tag_name > akin_type;
 };
 
 }
@@ -3847,26 +3774,10 @@ using YDbDr_ldouble = ::color::category::YDbDr< long double >;
 namespace color {
 namespace akin {
 
-template< >struct cmy< ::color::category::YDbDr_uint8 > {
-	typedef ::color::category::cmy_uint8 akin_type;
-};
-template< >struct cmy< ::color::category::YDbDr_uint16 > {
-	typedef ::color::category::cmy_uint16 akin_type;
-};
-template< >struct cmy< ::color::category::YDbDr_uint32 > {
-	typedef ::color::category::cmy_uint32 akin_type;
-};
-template< >struct cmy< ::color::category::YDbDr_uint64 > {
-	typedef ::color::category::cmy_uint64 akin_type;
-};
-template< >struct cmy< ::color::category::YDbDr_float > {
-	typedef ::color::category::cmy_float akin_type;
-};
-template< >struct cmy< ::color::category::YDbDr_double > {
-	typedef ::color::category::cmy_double akin_type;
-};
-template< >struct cmy< ::color::category::YDbDr_ldouble > {
-	typedef ::color::category::cmy_ldouble akin_type;
+template< typename tag_name >
+struct cmy< ::color::category::YDbDr< tag_name > > {
+public:
+	typedef ::color::category::cmy< tag_name > akin_type;
 };
 
 }
@@ -3946,26 +3857,10 @@ using xyz_ldouble = ::color::category::xyz< long double >;
 namespace color {
 namespace akin {
 
-template< >struct cmy< ::color::category::xyz_uint8 > {
-	typedef ::color::category::cmy_uint8 akin_type;
-};
-template< >struct cmy< ::color::category::xyz_uint16 > {
-	typedef ::color::category::cmy_uint16 akin_type;
-};
-template< >struct cmy< ::color::category::xyz_uint32 > {
-	typedef ::color::category::cmy_uint32 akin_type;
-};
-template< >struct cmy< ::color::category::xyz_uint64 > {
-	typedef ::color::category::cmy_uint64 akin_type;
-};
-template< >struct cmy< ::color::category::xyz_float > {
-	typedef ::color::category::cmy_float akin_type;
-};
-template< >struct cmy< ::color::category::xyz_double > {
-	typedef ::color::category::cmy_double akin_type;
-};
-template< >struct cmy< ::color::category::xyz_ldouble > {
-	typedef ::color::category::cmy_ldouble akin_type;
+template< typename tag_name >
+struct cmy< ::color::category::xyz< tag_name > > {
+public:
+	typedef ::color::category::cmy< tag_name > akin_type;
 };
 
 }
@@ -10528,10 +10423,42 @@ namespace akin {
 template
 <
 	typename tag_name
+
+	>
+struct hsl< ::color::category::xyy< tag_name > > {
+public:
+	typedef ::color::category::hsl< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
 	,::color::constant::lms::reference_enum reference_number
 
 	>
 struct hsl< ::color::category::lms< tag_name, reference_number > > {
+public:
+	typedef ::color::category::hsl< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
+
+	>
+struct hsl< ::color::category::luv< tag_name > > {
 public:
 	typedef ::color::category::hsl< tag_name > akin_type;
 };
@@ -11757,10 +11684,42 @@ namespace akin {
 template
 <
 	typename tag_name
+
+	>
+struct hsv< ::color::category::xyy< tag_name > > {
+public:
+	typedef ::color::category::hsv< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
 	,::color::constant::lms::reference_enum reference_number
 
 	>
 struct hsv< ::color::category::lms< tag_name, reference_number > > {
+public:
+	typedef ::color::category::hsv< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
+
+	>
+struct hsv< ::color::category::luv< tag_name > > {
 public:
 	typedef ::color::category::hsv< tag_name > akin_type;
 };
@@ -13247,10 +13206,42 @@ namespace akin {
 template
 <
 	typename tag_name
+
+	>
+struct hsi< ::color::category::xyy< tag_name > > {
+public:
+	typedef ::color::category::hsi< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
 	,::color::constant::lms::reference_enum reference_number
 
 	>
 struct hsi< ::color::category::lms< tag_name, reference_number > > {
+public:
+	typedef ::color::category::hsi< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
+
+	>
+struct hsi< ::color::category::luv< tag_name > > {
 public:
 	typedef ::color::category::hsi< tag_name > akin_type;
 };
@@ -13512,18 +13503,11 @@ public:
 
 	typedef ::color::constant::hsi<category_type> this_type;
 
-	static scalar_type const two() {
-		return 2;
-	}
-	static scalar_type const third() {
-		return scalar_type(1) / scalar_type(3);
-	}
 	static scalar_type const sixth() {
 		return scalar_type(1) / scalar_type(6);
 	}
-
-	static scalar_type const sqrt_3() {
-		return sqrt(scalar_type(3));
+	static scalar_type const third() {
+		return scalar_type(1) / scalar_type(3);
 	}
 	static scalar_type const inv_sqrt_3() {
 		return scalar_type(1) / sqrt(scalar_type(3));
@@ -13531,12 +13515,17 @@ public:
 	static scalar_type const two_third() {
 		return scalar_type(2) / scalar_type(3);
 	}
-
+	static scalar_type const two() {
+		return scalar_type(2);
+	}
+	static scalar_type const sqrt_3() {
+		return sqrt(scalar_type(3));
+	}
 	static scalar_type const pi() {
 		return scalar_type(3.141592653589793238462643383279502884197169399375105820974944592307816406286);
 	}
 	static scalar_type const two_pi() {
-		return 2 * this_type::pi();
+		return scalar_type(2) * this_type::pi();
 	}
 	static scalar_type const deg60() {
 		return this_type::pi() / scalar_type(3);
@@ -14358,6 +14347,8 @@ public:
 
 	typedef ::color::constant::hsi< category_right_type > hsi_constant_type;
 
+	typedef ::color::constant::generic< category_right_type > constant_type;
+
 	enum {
 		hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
 		,saturation_p = ::color::place::_internal::saturation<category_left_type>::position_enum
@@ -14661,6 +14652,22 @@ template< ::color::constant::YPbPr::reference_enum reference_number >struct yiq<
 };
 template< ::color::constant::YPbPr::reference_enum reference_number >struct yiq< ::color::category::YPbPr_ldouble<reference_number> > {
 	typedef ::color::category::yiq_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
+
+	>
+struct yiq< ::color::category::xyz< tag_name > > {
+public:
+	typedef ::color::category::yiq< tag_name > akin_type;
 };
 
 }
@@ -17332,10 +17339,42 @@ namespace akin {
 template
 <
 	typename tag_name
+
+	>
+struct YCgCo< ::color::category::xyy< tag_name > > {
+public:
+	typedef ::color::category::YCgCo< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
 	,::color::constant::lms::reference_enum reference_number
 
 	>
 struct YCgCo< ::color::category::lms< tag_name, reference_number > > {
+public:
+	typedef ::color::category::YCgCo< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
+
+	>
+struct YCgCo< ::color::category::luv< tag_name > > {
 public:
 	typedef ::color::category::YCgCo< tag_name > akin_type;
 };
@@ -18655,10 +18694,42 @@ namespace akin {
 template
 <
 	typename tag_name
+
+	>
+struct YDbDr< ::color::category::xyy< tag_name > > {
+public:
+	typedef ::color::category::YDbDr< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
 	,::color::constant::lms::reference_enum reference_number
 
 	>
 struct YDbDr< ::color::category::lms< tag_name, reference_number > > {
+public:
+	typedef ::color::category::YDbDr< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
+
+	>
+struct YDbDr< ::color::category::luv< tag_name > > {
 public:
 	typedef ::color::category::YDbDr< tag_name > akin_type;
 };
@@ -29657,6 +29728,38 @@ template< ::color::constant::YPbPr::reference_enum reference_number >struct luv<
 };
 template< ::color::constant::YPbPr::reference_enum reference_number >struct luv< ::color::category::YPbPr_ldouble<reference_number> > {
 	typedef ::color::category::luv_ldouble akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
+
+	>
+struct luv< ::color::category::lab< tag_name > > {
+public:
+	typedef ::color::category::luv< tag_name > akin_type;
+};
+
+}
+}
+
+namespace color {
+namespace akin {
+
+template
+<
+	typename tag_name
+
+	>
+struct luv< ::color::category::xyy< tag_name > > {
+public:
+	typedef ::color::category::luv< tag_name > akin_type;
 };
 
 }
