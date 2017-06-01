@@ -53,7 +53,6 @@ namespace color
 
       template < unsigned red_size, unsigned green_size, unsigned blue_size >
        using rgb_pack = ::color::category::_internal::rgb_scramble< ::color::type::pack3< red_size, green_size, blue_size  >, 0, 1, 2 >;
-
      }
 
     using rgb_error     = ::color::category::rgb< ::color::category::_internal::rgb_error     >;

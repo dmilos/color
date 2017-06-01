@@ -13,6 +13,7 @@
     {
      namespace _internal
       {
+
        template< typename category_name >
         struct delta
          {
@@ -42,10 +43,11 @@
              }
 
          };
+
       }
 
      template< typename category_name >
-      ::color::model<category_name> & 
+      ::color::model<category_name> &
       delta
        (
          ::color::model<category_name>      & result

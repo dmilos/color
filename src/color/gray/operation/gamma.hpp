@@ -66,7 +66,7 @@
       gamma
        (
          ::color::model< ::color::category::gray_float >                                 & result
-        ,::color::trait::scalar< ::color::category::gray_float >::instance_type      const& value
+        ,::color::trait::component<::color::category::gray_float>::instance_type    const& value
        )
        {
         typedef ::color::category::gray_float   category_type;
@@ -79,9 +79,9 @@
       ::color::model< ::color::category::gray_float > &
       gamma
        (
-                  ::color::model< ::color::category::gray_float >                                  & result
-        ,         ::color::model< ::color::category::gray_float >                             const& right
-        ,::color::trait::scalar< ::color::category::gray_float >::instance_type      const& value
+                  ::color::model< ::color::category::gray_float >                          & result
+        ,         ::color::model< ::color::category::gray_float >                     const& right
+        ,::color::trait::component<::color::category::gray_float>::instance_type      const& value
        )
        {
         typedef ::color::category::gray_float   category_type;

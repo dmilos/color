@@ -137,11 +137,11 @@ namespace color
          /*return*/ container_trait_type::template set<index>( this->m_container, component );
         }
 
-       /*TODO set_return_type
+       void
        set( std::initializer_list<component_type> const& ilist )
         {
          return ::color::_internal::init<category_name>( this->m_container, ilist );
-        }*/
+        }
 
        component_return_const_type operator[]( index_input_const_type index )const
         {

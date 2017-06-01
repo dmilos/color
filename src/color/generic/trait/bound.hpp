@@ -39,7 +39,7 @@ namespace color
          typedef category_name category_type;
 
          typedef ::color::trait::component< category_name >   component_trait_type;
-         typedef ::color::trait::index< category_name >       index_trait_type;
+         typedef ::color::trait::index< category_name >           index_trait_type;
 
          typedef typename component_trait_type::instance_type      component_instance_type;
          typedef typename index_trait_type::instance_type    index_instance_type;

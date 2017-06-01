@@ -27,7 +27,7 @@
 							<li><a href="#lab">lab  </a></li>
 							<li><a href="#lms">lms  </a></li>
 							<li><a href="#luv">luv  </a></li>
-							<li><a href="#rgb">rgb  </a></li>
+							<li><a href="#rgb">rgb ( bgr, rgba, argb, abgr and bgra )  </a></li>
 							<li><a href="#xyy">xyy  </a></li>
 							<li><a href="#xyz">xyz  </a></li>
 							<li><a href="#yiq">yiq  </a></li>
@@ -143,9 +143,16 @@
 						</dl><hr width="%20">
 
 						<dl>
-							<dt>Name</dt><dd><a name="rgb" />rgb</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using rgb = ::color::model&lt; ::color::category::rgb&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
-							<dt>Decription</dt><dd>Implements RGB color model.</dd>
+							<dt>Name</dt><dd><a name="rgb" />rgb ( bgr, rgba, argb, abgr and bgra ) </dd>
+							<dt>Declaration</dt><dd>
+								<code>template&lt; typename type_name &gt; using rgb  = ::color::model&lt; ::color::category::rgb&lt; <i>unspecified</i> &gt; &gt;;</code></br>
+								<code>template&lt; typename type_name &gt; using bgr  = ::color::model&lt; ::color::category::rgb&lt; <i>unspecified</i> &gt; &gt;;</code></br>
+								<code>template&lt; typename type_name &gt; using rgba = ::color::model&lt; ::color::category::rgb&lt; <i>unspecified</i> &gt; &gt;;</code></br>
+								<code>template&lt; typename type_name &gt; using argb = ::color::model&lt; ::color::category::rgb&lt; <i>unspecified</i> &gt; &gt;;</code></br>
+								<code>template&lt; typename type_name &gt; using abgr = ::color::model&lt; ::color::category::rgb&lt; <i>unspecified</i> &gt; &gt;;</code></br>
+								<code>template&lt; typename type_name &gt; using bgra = ::color::model&lt; ::color::category::rgb&lt; <i>unspecified</i> &gt; &gt;;</code></br>
+							</dd>
+							<dt>Decription</dt><dd>Implements RGB color model .</dd>
 							<dt>Example:</dt><dd><code>::color::rgb&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/RGB_color_model">Wikipedia RGB</a></dd>
 						</dl><hr width="%20">
