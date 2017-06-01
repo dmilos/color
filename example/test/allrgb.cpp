@@ -314,7 +314,7 @@ void calc()
   save_image24(  "allrgb_finaleA.tga", image, g_size, g_size );
  }
 
-int main( int argc, char const *argv[] )
+int mainX( int argc, char const *argv[] )
  {
   bgr_image_type image;
   int width;
@@ -324,5 +324,166 @@ int main( int argc, char const *argv[] )
 
   //calc();
   return 0;
-   
  }
+
+void make_red( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
+ {
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+     {
+      image[ y*width + x ][0] = 0;
+      image[ y*width + x ][1] = 0;
+      image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+     }
+
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+     {
+      image[ y*width + x ][0] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+      image[ y*width + x ][1] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+      image[ y*width + x ][2] = 255;
+     }
+ }
+
+void make_green( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
+ {
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+     {
+      image[ y*width + x ][0] = 0;
+      image[ y*width + x ][1] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][2] = 0; 
+     }
+
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+     {
+      image[ y*width + x ][0] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+      image[ y*width + x ][1] = 255;
+      image[ y*width + x ][2] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+     }
+ }
+
+void make_blue( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
+ {
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+     {
+      image[ y*width + x ][0] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][1] = 0;
+      image[ y*width + x ][2] = 0;
+     }
+
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+     {
+      image[ y*width + x ][0] = 255;
+      image[ y*width + x ][1] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+      image[ y*width + x ][2] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+     }
+ }
+
+void make_cyan( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
+ {
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+     {
+      image[ y*width + x ][0] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][1] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][2] = 0;
+     }
+
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+     {
+      image[ y*width + x ][0] = 255;
+      image[ y*width + x ][1] = 255;
+      image[ y*width + x ][2] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+     }
+ }
+
+void make_magenta( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
+ {
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+     {
+      image[ y*width + x ][0] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][1] = 0;
+      image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+     }
+
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+     {
+      image[ y*width + x ][0] = 255;
+      image[ y*width + x ][1] = 255* ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+      image[ y*width + x ][2] = 255 ;
+     }
+ }
+
+void make_yellow( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
+ {
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+     {
+      image[ y*width + x ][0] = 0;
+      image[ y*width + x ][1] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+     }
+
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+     {
+      image[ y*width + x ][0] = 255* ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+      image[ y*width + x ][1] = 255;
+      image[ y*width + x ][2] = 255 ;
+     }
+ }
+
+void make_black( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
+ {
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x; x < pos_x + len_x; x++ ) 
+     {
+      image[ y*width + x ][0] = 0; image[ y*width + x ][1] = 0; image[ y*width + x ][2] = 0; 
+     }
+ }
+
+void make_white( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
+ {
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x; x < pos_x + len_x; x++ ) 
+     {
+      image[ y*width + x ][0] = 255; image[ y*width + x ][1] = 255; image[ y*width + x ][2] = 255; 
+     }
+ }
+
+void make_gray( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
+ {
+  for( int y = pos_y; y < pos_y + len_y; y++ ) 
+   for( int x = pos_x; x < pos_x + len_x; x++ ) 
+     {
+      image[ y*width + x ][0] = image[ y*width + x ][1] = image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x - 1 ); 
+     }
+ }
+
+int main( int argc, char const *argv[] )
+ {
+  bgr_image_type image;
+  int width;
+  int height;
+  load_image( image, width, height, "..//data//color-reper.tga" );
+
+  make_red(     image, width,  25, 24 + 0*160, width-50, 140 );
+  make_green(   image, width,  25, 24 + 1*160, width-50, 140 );
+  make_blue(    image, width,  25, 24 + 2*160, width-50, 140 );
+  make_cyan(     image, width,  25, 24 + 3*160, width-50, 140 );
+  make_magenta(     image, width,  25, 24 + 4*160, width-50, 140 );
+  make_yellow(     image, width,  25, 24 + 5*160, width-50, 140 );
+  make_gray(    image, width,  25, 24 + 6*160, width-50, 140 );
+  make_white(   image, width,  25, 24 + 7*160, width-50, 140 );
+  make_black(   image, width,  25, 24 + 8*160, width-50, 140 );
+
+  save_image24(  "aaaaa.tga", image, width, height );
+ }
+
