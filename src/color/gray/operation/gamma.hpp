@@ -71,7 +71,8 @@
        {
         typedef ::color::category::gray_float   category_type;
         typedef ::color::trait::scalar<category_type>::instance_type    scalar_type;
-        result.set<0>( std::pow( result.get<0>(), scalar_type(1)/value ) );
+        typedef ::color::trait::component<category_type>::instance_type    component_type;
+        result.set<0>( component_type( std::pow( result.get<0>(), scalar_type(1)/value ) ) );
         return result;
        }
 
@@ -85,8 +86,9 @@
        )
        {
         typedef ::color::category::gray_float   category_type;
-        typedef  ::color::trait::scalar<category_type>::instance_type    scalar_type;
-        result.set<0>( std::pow( right.get<0>(), scalar_type(1)/value ) );
+        typedef  ::color::trait::scalar<category_type>::instance_type         scalar_type;
+        typedef ::color::trait::component<category_type>::instance_type    component_type;
+        result.set<0>(  component_type( std::pow( right.get<0>(), scalar_type(1)/value ) ) );
         return result;
        }
 
@@ -94,13 +96,14 @@
       ::color::model< ::color::category::gray_double > &
       gamma
        (
-                  ::color::model< ::color::category::gray_double >                                 & result
+                  ::color::model< ::color::category::gray_double >                          & result
         , ::color::trait::scalar< ::color::category::gray_double >::instance_type      const& value
        )
        {
         typedef ::color::category::gray_double   category_type;
-        typedef  ::color::trait::scalar<category_type>::instance_type    scalar_type;
-        result.set<0>( std::pow( result.get<0>(), scalar_type(1)/value ) );
+        typedef  ::color::trait::scalar<category_type>::instance_type         scalar_type;
+        typedef ::color::trait::component<category_type>::instance_type    component_type;
+        result.set<0>( component_type( std::pow( result.get<0>(), scalar_type(1)/value ) ) );
         return result;
        }
 
