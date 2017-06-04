@@ -95,7 +95,7 @@ void test_pallete()
 
   make_image<color::hsl<double> >( "./palette/hsl-1-000.tga" , 0.00, 1 );
   make_image<color::hsl<double> >( "./palette/hsl-1-025.tga" , 0.25, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-005.tga" , 0.50, 1 );
+  make_image<color::hsl<double> >( "./palette/hsl-1-050.tga" , 0.50, 1 );
   make_image<color::hsl<double> >( "./palette/hsl-1-075.tga" , 0.75, 1 );
   make_image<color::hsl<double> >( "./palette/hsl-1-100.tga" , 1.00, 1 );
 

@@ -45,7 +45,7 @@ template< typename color_model >
        ::color::fix::overburn( back );
        component.push_back( back );
       }
-      save_image24( name+ "-" + std::to_string( channel ) + ".tga", component, width, height );
+     save_image24( name+ "-" + std::to_string( channel ) + ".tga", component, width, height );
     }
 
    return ;

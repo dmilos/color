@@ -1,7 +1,7 @@
 #ifndef color_trait_diagonal
 #define color_trait_diagonal
 
-// ::color::trait::bound< category >::value
+// ::color::trait::diagonal< category >::value
 
 #include "./index.hpp"
 #include "./bound.hpp"

@@ -428,6 +428,9 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[])
  {
+  void main_extract( );
+  main_extract();
+
   void test_pallete();
   test_pallete();
 
@@ -483,6 +486,8 @@ int main(int argc, char const *argv[])
 
   void main_place();
   main_place();
+
+
 
   make_blue();
 
