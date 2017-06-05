@@ -428,11 +428,11 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[])
  {
-  void main_extract( );
-  main_extract();
-
   void test_pallete();
   test_pallete();
+
+  void main_extract();
+  main_extract();
 
   extern int gray_test( int argc, char const *argv[]  );
   gray_test( argc, argv );

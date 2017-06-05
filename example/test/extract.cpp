@@ -1,3 +1,5 @@
+#include <iostream>
+#include <iomanip>
 #include "./image.hpp"
 
 void
@@ -61,15 +63,20 @@ extract_color( bgr_image_type const& image, std::string const& name, std::size_t
 void main_extract()
  {
   bgr_image_type image;
-  int width=1000;
-  int height=1000;
+  int width=0;
+  int height=0;
   //load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_red (  image,"./extract/extract-hsl-1-000", width, height ); extract_green( image,"./extract/extract-hsl-1-000", width, height ); extract_blue( image,"./extract/extract-hsl-1-000", width, height );
   //load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_red (  image,"./extract/extract-hsl-1-025", width, height ); extract_green( image,"./extract/extract-hsl-1-025", width, height ); extract_blue( image,"./extract/extract-hsl-1-025", width, height );
   //load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_red (  image,"./extract/extract-hsl-1-050", width, height ); extract_green( image,"./extract/extract-hsl-1-050", width, height ); extract_blue( image,"./extract/extract-hsl-1-050", width, height );
   //load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_red (  image,"./extract/extract-hsl-1-075", width, height ); extract_green( image,"./extract/extract-hsl-1-075", width, height ); extract_blue( image,"./extract/extract-hsl-1-075", width, height );
   //load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_red (  image,"./extract/extract-hsl-1-100", width, height ); extract_green( image,"./extract/extract-hsl-1-100", width, height ); extract_blue( image,"./extract/extract-hsl-1-100", width, height );
 
-  load_image( image, width, height, "./palette/hsl-1-100.tga" ); 
+  if( false == load_image( image, width, height, "./palette/hsl-1-100.tga" ) )
+   {
+    std::cout << "Can not load" <<  "./palette/hsl-1-100.tga" << std::endl;
+    return;
+   }
+
   extract_color (  image,"./extract/extract-color-hs-red", width, height,     ::color::constant::red_t{}     );
   extract_color (  image,"./extract/extract-color-hs-lime", width, height,    ::color::constant::lime_t{}    );
   extract_color (  image,"./extract/extract-color-hs-blue", width, height,    ::color::constant::blue_t{}    );

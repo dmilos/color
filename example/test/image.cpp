@@ -57,14 +57,15 @@ bool targa_image_load( targa_header_struct &header,  bgr_image_type & image, std
   return true;
  }
 
-void load_image( bgr_image_type & image, int &width, int &height, std::string const& name )
+bool load_image( bgr_image_type & image, int &width, int &height, std::string const& name )
  {
   std::ifstream ifs( name.c_str(), std::ios_base::binary );
 
   if( false == ifs.is_open() )
    {
-    return;
+    return false;
    }
+
   targa_header_struct header;
 
   ifs.read( (char*)header, 18 );
@@ -76,5 +77,7 @@ void load_image( bgr_image_type & image, int &width, int &height, std::string co
   image.resize( width * height );
 
   ifs.read( reinterpret_cast<char *>( image.data() ), width * height * (depth/8) );
+
+  return true;
  }
 

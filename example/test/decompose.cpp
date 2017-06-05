@@ -56,7 +56,12 @@ int decompose_test( int argc, char const *argv[] )
   bgr_image_type image;
   int width=1000;
   int height=1000;
-  load_image( image, width, height, "../data/hsi.tga" );
+
+  if( false == load_image( image, width, height, "../data/hsl.tga" ) )
+   {
+    std::cout << "Can not load" <<  "../data/* Fixed status value connection.tga" << std::endl;
+    return 0;
+   }
 
   decompose< ::color::cmyk<double>  >( image, "./dec/cmyk", width, height, ::color::constant::white_t{} );
 

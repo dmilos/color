@@ -2,6 +2,7 @@
 #include <fstream>
 #include <typeinfo>
 #include <string>
+#include <iostream>
 #include <iomanip>
 #include <deque>
 
@@ -154,7 +155,7 @@ void mask_set( mask_type & image, point_type const& point, bool const& value )
  {
   image[ point[1]*g_size + point[0] ] = value;
  }
- 
+
 bool search( point_type &point, bgr_image_type const& pallete, mask_type const& mask, bgr_image_type const& neighborhood )
  {
   bool have = false;
@@ -174,7 +175,7 @@ bool search( point_type &point, bgr_image_type const& pallete, mask_type const& 
       for( auto const& n: neighborhood )
        {
         auto m = distance( candidate, n );
-        if( max < m ) 
+        if( max < m )
          {
           max = m;
          }
@@ -244,7 +245,7 @@ void calc()
     color_t  l; l= left;
     color_t  r; r= right;
     if( l < r ) return true;
-   
+
     //if( l[1] < r[1] ) return true;
     //if( l[1] == r[1] ) if( l[0] < r[0] ) return true;
     //if( l[2] < r[2] ) return true;
@@ -328,16 +329,16 @@ int mainX( int argc, char const *argv[] )
 
 void make_red( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
  {
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
       image[ y*width + x ][0] = 0;
       image[ y*width + x ][1] = 0;
       image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
      }
 
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
       image[ y*width + x ][0] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
       image[ y*width + x ][1] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
@@ -347,16 +348,16 @@ void make_red( bgr_image_type &image, int const& width, int const& pos_x, int co
 
 void make_green( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
  {
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
       image[ y*width + x ][0] = 0;
       image[ y*width + x ][1] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
-      image[ y*width + x ][2] = 0; 
+      image[ y*width + x ][2] = 0;
      }
 
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
       image[ y*width + x ][0] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
       image[ y*width + x ][1] = 255;
@@ -366,16 +367,16 @@ void make_green( bgr_image_type &image, int const& width, int const& pos_x, int 
 
 void make_blue( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
  {
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
       image[ y*width + x ][0] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
       image[ y*width + x ][1] = 0;
       image[ y*width + x ][2] = 0;
      }
 
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
       image[ y*width + x ][0] = 255;
       image[ y*width + x ][1] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
@@ -385,16 +386,16 @@ void make_blue( bgr_image_type &image, int const& width, int const& pos_x, int c
 
 void make_cyan( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
  {
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
       image[ y*width + x ][0] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
       image[ y*width + x ][1] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
       image[ y*width + x ][2] = 0;
      }
 
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
       image[ y*width + x ][0] = 255;
       image[ y*width + x ][1] = 255;
@@ -404,16 +405,16 @@ void make_cyan( bgr_image_type &image, int const& width, int const& pos_x, int c
 
 void make_magenta( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
  {
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
       image[ y*width + x ][0] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
       image[ y*width + x ][1] = 0;
       image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
      }
 
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
       image[ y*width + x ][0] = 255;
       image[ y*width + x ][1] = 255* ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
@@ -423,16 +424,16 @@ void make_magenta( bgr_image_type &image, int const& width, int const& pos_x, in
 
 void make_yellow( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
  {
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x; x < pos_x + len_x/2; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
       image[ y*width + x ][0] = 0;
       image[ y*width + x ][1] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
       image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
      }
 
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
       image[ y*width + x ][0] = 255* ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
       image[ y*width + x ][1] = 255;
@@ -442,28 +443,28 @@ void make_yellow( bgr_image_type &image, int const& width, int const& pos_x, int
 
 void make_black( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
  {
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x; x < pos_x + len_x; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x; x < pos_x + len_x; x++ )
      {
-      image[ y*width + x ][0] = 0; image[ y*width + x ][1] = 0; image[ y*width + x ][2] = 0; 
+      image[ y*width + x ][0] = 0; image[ y*width + x ][1] = 0; image[ y*width + x ][2] = 0;
      }
  }
 
 void make_white( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
  {
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x; x < pos_x + len_x; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x; x < pos_x + len_x; x++ )
      {
-      image[ y*width + x ][0] = 255; image[ y*width + x ][1] = 255; image[ y*width + x ][2] = 255; 
+      image[ y*width + x ][0] = 255; image[ y*width + x ][1] = 255; image[ y*width + x ][2] = 255;
      }
  }
 
 void make_gray( bgr_image_type &image, int const& width, int const& pos_x, int const& pos_y, int const& len_x, int const& len_y )
  {
-  for( int y = pos_y; y < pos_y + len_y; y++ ) 
-   for( int x = pos_x; x < pos_x + len_x; x++ ) 
+  for( int y = pos_y; y < pos_y + len_y; y++ )
+   for( int x = pos_x; x < pos_x + len_x; x++ )
      {
-      image[ y*width + x ][0] = image[ y*width + x ][1] = image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x - 1 ); 
+      image[ y*width + x ][0] = image[ y*width + x ][1] = image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x - 1 );
      }
  }
 
@@ -472,7 +473,12 @@ int main( int argc, char const *argv[] )
   bgr_image_type image;
   int width;
   int height;
-  load_image( image, width, height, "..//data//color-reper.tga" );
+  
+  if( false == load_image( image, width, height, "../data//color-reper.tga" ) )
+   {
+    std::cout << "Can not load" <<  "../data//color-reper.tga" << std::endl;
+    return 0;
+   }
 
   make_red(     image, width,  25, 24 + 0*160, width-50, 140 );
   make_green(   image, width,  25, 24 + 1*160, width-50, 140 );

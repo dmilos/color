@@ -181,7 +181,11 @@ int gray_test( int argc, char const *argv[] )
   bgr_image_type image;
   int width;
   int height;
-  load_image( image, width, height, "../data/hsi.tga" );
+  if( false == load_image( image, width, height, "../data/hsl.tga" ) )
+   {
+    std::cout << "Can not load" <<  "../data/hsl.tga" << std::endl;
+    return 0;
+   }
 
   gray_image_type gray;
   gray.resize( width * height );
@@ -201,7 +205,7 @@ int gray_test( int argc, char const *argv[] )
 
   make_gray_xyz( gray, image );        save_image_gray( "./gray/xyz-y.tga",        gray, width, height );
   make_gray_lab( gray, image );        save_image_gray( "./gray/lab-l.tga",        gray, width, height );
-  
+
   make_gray_lms( gray, image );        save_image_gray( "./gray/lms-l.tga",        gray, width, height );
   make_gray_luv( gray, image );        save_image_gray( "./gray/luv-l.tga",        gray, width, height );
   make_gray_xyy( gray, image );        save_image_gray( "./gray/xyy-Y.tga",        gray, width, height );
