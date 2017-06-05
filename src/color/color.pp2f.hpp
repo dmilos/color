@@ -298,10 +298,10 @@ namespace trait {
 
 template< typename category_name >
 struct index
-	: public ::color::_internal::utility::type::index< unsigned > {
+	: public ::color::_internal::utility::type::index< std::size_t > {
 public:
 
-	typedef ::color::_internal::utility::type::index< unsigned > utility_type;
+	typedef ::color::_internal::utility::type::index< std::size_t > utility_type;
 
 	typedef typename utility_type::instance_type instance_type;
 
@@ -1185,6 +1185,11 @@ public:
 	set_return_type
 	set(component_input_const_type component) {
 		container_trait_type::template set<index>(this->m_container, component);
+	}
+
+	void
+	set(std::initializer_list<component_type> const& ilist) {
+		return ::color::_internal::init<category_name>(this->m_container, ilist);
 	}
 
 	component_return_const_type operator[](index_input_const_type index)const {
@@ -2922,6 +2927,47 @@ quadrature
 }
 
 namespace color {
+namespace trait {
+template< typename category_name >
+struct diagonal {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::trait::container< category_type > container_trait_type;
+	typedef ::color::trait::bound<category_type> bound_type;
+
+	typedef typename ::color::trait::index< category_type >::instance_type index_type;
+	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+
+	static scalar_type value() {
+		scalar_type result=0;
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result += scalar_type(bound_type::range(index)) * scalar_type(bound_type::range(index));
+		}
+		return sqrt(result);
+	}
+};
+
+}
+}
+
+namespace color {
+namespace trait {
+
+template< typename category_name >
+struct info {
+public:
+
+	enum { implemented_entity = false };
+	enum { meaningful_entity = false };
+	enum { size_entity = -1 };
+
+};
+
+}
+}
+
+namespace color {
 namespace fix {
 
 namespace _internal {
@@ -3454,7 +3500,6 @@ using rgb_ldouble = ::color::category::_internal::rgb_scramble< long double, 0, 
 
 template < unsigned red_size, unsigned green_size, unsigned blue_size >
 using rgb_pack = ::color::category::_internal::rgb_scramble< ::color::type::pack3< red_size, green_size, blue_size >, 0, 1, 2 >;
-
 }
 
 using rgb_error = ::color::category::rgb< ::color::category::_internal::rgb_error >;
@@ -4009,22 +4054,6 @@ public:
 namespace color {
 namespace trait {
 
-template< typename category_name >
-struct info {
-public:
-
-	enum { implemented_entity = false };
-	enum { meaningful_entity = false };
-	enum { size_entity = -1 };
-
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
 template < typename tag_name >
 struct info< ::color::category::cmy< tag_name > > {
 public:
@@ -4388,7 +4417,7 @@ namespace trait {
 
 template< typename tag_name >
 struct index< ::color::category::rgb< tag_name> >
-	: public ::color::_internal::utility::type::index< unsigned > {
+	: public ::color::_internal::utility::type::index< std::size_t > {
 };
 
 }
@@ -8414,17 +8443,17 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::rgb_float >
-	: public ::color::_internal::utility::bound::general< float, unsigned > {
+	: public ::color::_internal::utility::bound::general< float, typename ::color::trait::index< ::color::category::rgb_float >::instance_type > {
 };
 
 template< >
 struct bound< ::color::category::rgb_double >
-	: public ::color::_internal::utility::bound::general< double, unsigned > {
+	: public ::color::_internal::utility::bound::general< double, typename ::color::trait::index< ::color::category::rgb_double >::instance_type > {
 };
 
 template< >
 struct bound< ::color::category::rgb_ldouble >
-	: public ::color::_internal::utility::bound::general< long double, unsigned > {
+	: public ::color::_internal::utility::bound::general< long double, typename ::color::trait::index< ::color::category::rgb_ldouble >::instance_type > {
 };
 
 }
@@ -8435,22 +8464,22 @@ namespace trait {
 
 template< >
 struct bound< ::color::category::rgb_uint8 >
-	: public ::color::_internal::utility::bound::general< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint8_t, typename ::color::trait::index< ::color::category::rgb_uint8 >::instance_type > {
 };
 
 template< >
 struct bound< ::color::category::rgb_uint16 >
-	: public ::color::_internal::utility::bound::general< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint16_t, typename ::color::trait::index< ::color::category::rgb_uint16 >::instance_type > {
 };
 
 template< >
 struct bound< ::color::category::rgb_uint32 >
-	: public ::color::_internal::utility::bound::general< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint32_t, typename ::color::trait::index< ::color::category::rgb_uint32 >::instance_type > {
 };
 
 template< >
 struct bound< ::color::category::rgb_uint64 >
-	: public ::color::_internal::utility::bound::general< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::bound::general< std::uint64_t, typename ::color::trait::index< ::color::category::rgb_uint64 >::instance_type > {
 };
 
 }
@@ -8461,7 +8490,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position >
 struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, first_position, second_position, third_position > > >
-	: public ::color::_internal::utility::bound::general< value_name, unsigned > {
+	: public ::color::_internal::utility::bound::general< value_name, typename ::color::trait::index< ::color::category::rgb_float >::instance_type > {
 };
 
 }
@@ -36929,11 +36958,12 @@ inline
 gamma
 (
 	::color::model< ::color::category::gray_float > & result
-	,::color::trait::scalar< ::color::category::gray_float >::instance_type const& value
+	,::color::trait::component<::color::category::gray_float>::instance_type const& value
 ) {
 	typedef ::color::category::gray_float category_type;
 	typedef ::color::trait::scalar<category_type>::instance_type scalar_type;
-	result.set<0>(std::pow(result.get<0>(), scalar_type(1)/value));
+	typedef ::color::trait::component<category_type>::instance_type component_type;
+	result.set<0>(component_type(std::pow(result.get<0>(), scalar_type(1)/value)));
 	return result;
 }
 
@@ -36943,11 +36973,12 @@ gamma
 (
 	::color::model< ::color::category::gray_float > & result
 	, ::color::model< ::color::category::gray_float > const& right
-	,::color::trait::scalar< ::color::category::gray_float >::instance_type const& value
+	,::color::trait::component<::color::category::gray_float>::instance_type const& value
 ) {
 	typedef ::color::category::gray_float category_type;
 	typedef ::color::trait::scalar<category_type>::instance_type scalar_type;
-	result.set<0>(std::pow(right.get<0>(), scalar_type(1)/value));
+	typedef ::color::trait::component<category_type>::instance_type component_type;
+	result.set<0>(component_type(std::pow(right.get<0>(), scalar_type(1)/value)));
 	return result;
 }
 
@@ -36960,7 +36991,8 @@ gamma
 ) {
 	typedef ::color::category::gray_double category_type;
 	typedef ::color::trait::scalar<category_type>::instance_type scalar_type;
-	result.set<0>(std::pow(result.get<0>(), scalar_type(1)/value));
+	typedef ::color::trait::component<category_type>::instance_type component_type;
+	result.set<0>(component_type(std::pow(result.get<0>(), scalar_type(1)/value)));
 	return result;
 }
 
@@ -38628,6 +38660,7 @@ namespace color {
 namespace color {
 	namespace operation {
 		namespace _internal {
+
 			template< typename category_name >
 			struct delta {
 				public:
@@ -38650,6 +38683,7 @@ namespace color {
 	}
 
 	  };
+
 	   }
 
 	template< typename category_name >
@@ -38667,35 +38701,86 @@ namespace color {
 }
 
 namespace color {
+	namespace constant {
+		namespace distance {
+
+	enum reference_enum {
+		delta_gray_entity
+		,hsl_special_entity
+		,euclid_entity
+
+	};
+
+		}
+	}
+
 	namespace operation {
 		namespace _internal {
 
-			template< typename category_name >
+			template< typename category_name, enum ::color::constant::distance::reference_enum reference_number= ::color::constant::distance::euclid_entity >
 			struct distance {
 				public:
 				typedef category_name category_type;
-
 				typedef ::color::model<category_type> model_type;
-
 				typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
+				typedef ::color::trait::diagonal< category_name > diagonal_type;
+
+	static scalar_type process(model_type const& left, model_type const& right) {
+		model_type difference;
+		::color::operation::delta<category_type>(difference, left, right);
+		scalar_type lenght = sqrt(scalar_type(difference[0])*scalar_type(difference[0])
+								  + scalar_type(difference[1])*scalar_type(difference[1])
+								  + scalar_type(difference[2])*scalar_type(difference[2])) / diagonal_type::value();
+		return lenght;
+	}
+							 };
+
+	template< typename category_name>
+	struct distance< category_name, ::color::constant::distance::delta_gray_entity > {
+		public:
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 
 	static scalar_type process(model_type const& left, model_type const& right) {
 		model_type difference;
 		return ::color::gray<scalar_type>(::color::operation::delta(difference, left, right)).template get<0>();
 	}
-
 																									  };
 
-						}
-
 	template< typename category_name >
+	struct distance< category_name, ::color::constant::distance::hsl_special_entity > {
+		public:
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
+		typedef ::color::hsl<scalar_type> hsl_type;
+
+	static scalar_type process(model_type const& left, model_type const& right) {
+		hsl_type left_hsl(left);
+		hsl_type right_hsl(right);
+		scalar_type angle = left_hsl[0] - right_hsl[0];
+		if(angle < 0) {
+			angle = -angle;
+		}
+		if(180 < angle) {
+			angle = 360 - angle;
+		}
+		scalar_type lenght = (angle)*scalar_type(4)/scalar_type(3) + fabs(left_hsl[2] - right_hsl[2]);
+		return lenght / 100;
+	}
+	  };
+
+	  }
+
+	template< enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::euclid_entity, typename category_name >
 	typename ::color::trait::scalar< category_name >::instance_type
 	distance
 	(
 		::color::model<category_name> const& left
 		,::color::model<category_name> const& right
 					   ) {
-		return ::color::operation::_internal::distance<category_name>::process(left, right);
+		return ::color::operation::_internal::distance<category_name,reference_number>::process(left, right);
 	}
 												  }
 }
