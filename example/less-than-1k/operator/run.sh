@@ -1,0 +1,10 @@
+./addition.exe
+./bias.exe
+./convex1.exe
+./convex2.exe
+./gain.exe
+./gamma.exe
+./mix_alpha.exe
+./mix_noalpha.exe
+./scale.exe
+./subtract.exe

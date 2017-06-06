@@ -1,21 +1,19 @@
-
 cd ./bound
-./make.sh
+./run.sh
 cd .. 
 
 cd ./component
-./make.sh
+./run.sh
 cd .. 
 
 cd ./container
-./make.sh
+./run.sh
 cd .. 
 
 cd ./index
-./make.sh
+./run.sh
 cd .. 
 
 cd ./scalar
-./make.sh
+./run.sh
 cd .. 
-

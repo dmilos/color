@@ -1,0 +1,12 @@
+./const_hsl_lavender.exe
+./const_rgb_lavender.exe
+./const_rgb_red.exe
+./const_yiq_lavender.exe
+./list_cmy.exe
+./list_cmyk.exe
+./list_gray.exe
+./list_hsl.exe
+./list_hsv.exe
+./list_rgb.exe
+./list_yiq.exe
+./list_yuv.exe
