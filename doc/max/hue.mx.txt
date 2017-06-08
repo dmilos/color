@@ -1,0 +1,16 @@
+
+alpha:pi/4;
+theta:-asin( sqrt( 1/3)  );
+
+A:matrix( [ 1,  0, 0   ],
+          [ 0,  cos(alpha), -sin(alpha)   ],
+          [ 0,  sin(alpha), cos(alpha)   ] );
+
+T:matrix( [ cos(theta),  0, sin(theta)   ],
+          [ 0,  1, 0   ],
+          [ -sin(theta),  0, cos(theta)   ] );
+
+
+T . A;
+
+ev (%, numer);

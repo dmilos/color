@@ -4,11 +4,9 @@
 // ::color::operation::distance( left, right )
 // ::color::constant::delta_gray_entity, hsl_special_entity, euclid_entity
 
-#include "../model.hpp"
-#include "./delta.hpp"
 #include "../../gray/gray.hpp"
-#include "./delta.hpp"
 #include "../trait/diagonal.hpp"
+#include "./delta.hpp"
 
  namespace color
   {
@@ -22,7 +20,7 @@
           delta_gray_entity
          ,hsl_special_entity
          ,euclid_entity
-       //,fast_entity
+         ,rgb_special_entity
         };
 
       }
@@ -45,7 +43,7 @@
             static scalar_type process( model_type const& left, model_type const& right )
              {
               model_type difference;
-              ::color::operation::delta<category_type>( difference, left, right );
+              ::color::operation::delta( difference, left, right );
               scalar_type lenght = sqrt(  scalar_type( difference[0] )*scalar_type( difference[0] )
                                         + scalar_type( difference[1] )*scalar_type( difference[1] )
                                         + scalar_type( difference[2] )*scalar_type( difference[2] ) ) / diagonal_type::value();
@@ -81,10 +79,36 @@
              {
               hsl_type left_hsl(left);
               hsl_type right_hsl(right);
-              scalar_type  angle = left_hsl[0] -  right_hsl[0]; if( angle < 0 ) angle = -angle; if( 180 < angle ) angle = 360 - angle;
-              scalar_type  lenght = ( angle )*scalar_type(4)/scalar_type(3) + fabs( left_hsl[2] -  right_hsl[2] );
-              // lenght /=  fabs( left_hsl[1] -  right_hsl[1] ) );
-              return lenght / 100;
+              scalar_type  angle = left_hsl[0] -  right_hsl[0]; if( angle < 0 ) angle = - angle; if( 180 < angle ) angle = 360 - angle;
+              angle /= 360;
+              scalar_type  lenght = angle * scalar_type(4)/scalar_type(3);
+              lenght *= fabs( left_hsl[1] -  right_hsl[1] )/100;
+              lenght *= fabs( left_hsl[2] -  right_hsl[2] )/100;
+              return lenght;
+             }
+         };
+
+       template< typename category_name >
+        struct distance< category_name, ::color::constant::distance::rgb_special_entity >
+         {
+          public:
+            typedef category_name  category_type;
+            typedef ::color::model<category_type>  model_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef ::color::rgb<scalar_type>  rgb_type;
+
+            static scalar_type process( model_type const& left, model_type const& right )
+             {
+              rgb_type left_rgb(left);
+              rgb_type right_rgb(right);
+              rgb_type difference; ::color::operation::delta( difference, left_rgb, right_rgb );
+
+              scalar_type  d = 1;
+               d *= fabs( left_rgb[0] - std::max( right_rgb[1], right_rgb[2] ) );
+               d *= fabs( left_rgb[1] - std::max( right_rgb[0], right_rgb[2] ) );
+               d *= fabs( left_rgb[2] - std::max( right_rgb[0], right_rgb[1] ) );
+            //scalar_type  d = difference[0]*difference[1]*difference[2]; // d * = d;
+              return d;
              }
          };
 

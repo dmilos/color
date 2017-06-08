@@ -5,6 +5,8 @@
 
 #include "../category.hpp"
 #include "../place/place.hpp"
+#include "../../generic/get/hue.hpp"
+#include "../../generic/constant.hpp"
 
 
 
@@ -101,8 +103,8 @@
 
           scalar_type h = 0;
 
-          scalar_type c1 = r - g* scalar_type(0.5) - b * scalar_type(0.5);
-          scalar_type c2 = (g - b) * generic_constant_type::sqrt_3() * scalar_type(0.5);
+          scalar_type c1 = scalar_type(2) * r - g - b ;
+          scalar_type c2 = (g - b) * generic_constant_type::sqrt_3();
           scalar_type thetaX = atan2(c2, c1);
           if (thetaX < 0) { thetaX += generic_constant_type::two_pi(); }
           h = thetaX;
@@ -153,6 +155,8 @@
 
           return diverse_type::template process< red_p >(h);
          }
+
+
 
       }
 
