@@ -8,6 +8,7 @@
 #include "./hsl/hsl.hpp"
 #include "./hsv/hsv.hpp"
 #include "./hsi/hsi.hpp"
+#include "./hwb/hwb.hpp"
 
 #include "./rgb/rgb.hpp"
 #include "./yiq/yiq.hpp"

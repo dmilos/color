@@ -10,11 +10,11 @@ digraph color_conversion {
 	cmyk -> rgb [ label = "", dir=both ];
 
 	gray -> cmyk [ label = "", dir=forward  ];
-	//gray -> hbw   [ label = "", dir=both  ];
+	gray -> hwb   [ label = "", dir=both  ];
 	gray -> hsi   [ label = "", dir=both ];
 	gray -> hsl   [ label = "", dir=both ];
 	gray -> hsv   [ label = "", dir=both  ];
-	gray -> lab   [ label = "", dir=both ];
+	gray -> hwb   [ label = "", dir=both ];
 	gray -> rgb   [ label = "", dir=both ];
 	gray -> xyz   [ label = "", dir=both ];
 	gray -> YCgCo [ label = "", dir=both ];
@@ -34,7 +34,7 @@ digraph color_conversion {
 	gray -> luv   [ label = "", dir=both ];
 	gray -> xyY   [ label = "", dir=both ];
 
-	//hbw  -> hsv[ label = "", dir=both ];
+	hwb  -> hsv[ label = "", dir=both ];
 
 	hsi  -> rgb [ label = "", dir=both ];
 
@@ -42,7 +42,7 @@ digraph color_conversion {
 
 	hsv  -> rgb [ label = "", dir=both ];
 
-	lab -> xyz [ label = "", dir=both ];
+	hwb -> xyz [ label = "", dir=both ];
 	lms_vonKries_ee -> xyz[ label = "", dir=both ];
 	lms_vonKries_D65 -> xyz[ label = "", dir=both ];
 	lms_BFD  -> xyz[ label = "", dir=both ];
@@ -62,7 +62,7 @@ digraph color_conversion {
 
 	//xyz -> Hunter  [ label = "", dir=both ];
 	xyz -> xyY     [ label = "", dir=both ];
-	//lab -> LCHab   [ label = "", dir=both ];
+	//hwb -> LCHab   [ label = "", dir=both ];
 	//Luv -> LCHub   [ label = "", dir=both ];
 
 	//yuv -> yuv   [ label = "", dir=both ];
@@ -72,7 +72,7 @@ digraph color_conversion {
 	subgraph cluster_hue
 	{
 		label = "Hue";
-		//node [ ] hbw;
+		node [ ] hwb;
 		node [ ] hsi;
 		node [ ] hsl;
 		node [ ] hsv;
@@ -110,7 +110,7 @@ digraph color_conversion {
 		node [ ] xyz;
 		//node [ ] Hunter;
 		node [ ] xyY;
-		node [ ] lab;
+		node [ ] hwb;
 		node [ ] luv;
 		subgraph cluster_LMS
 		{

@@ -253,5 +253,16 @@ void test_pallete()
   make_image<color::luv<double> >( "./palette/luv-0-090.tga" , 0.9, 0 ); make_image<color::luv<double> >( "./palette/luv-1-090.tga" , 0.9, 1 ); make_image<color::luv<double> >( "./palette/luv-2-090.tga" , 0.9, 2 );
   make_image<color::luv<double> >( "./palette/luv-0-100.tga" , 1.0, 0 ); make_image<color::luv<double> >( "./palette/luv-1-100.tga" , 1.0, 1 ); make_image<color::luv<double> >( "./palette/luv-2-100.tga" , 1.0, 2 );
 
+  std::string number="000";
+  for( int layer= 0; layer <= 10; layer += 1 )
+   {
+    number[0] = layer/10 + '0';
+    number[1] = layer%10 + '0';
+    number[2] = '0';
+    make_image<color::luv<double> >( "./palette/hwb-0-"+number+".tga" , layer, 0 ); 
+    make_image<color::luv<double> >( "./palette/hwb-1-"+number+".tga" , layer, 1 ); 
+    make_image<color::luv<double> >( "./palette/hwb-2-"+number+".tga" , layer, 2 );
+   }
+
  }
 
