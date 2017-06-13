@@ -159,6 +159,7 @@ void make_test_gray_scale()
 
   ss <<  make_test_gray_single< ::color::luv< double> >( "luv" );  
   ss <<  make_test_gray_single< ::color::xyy< double> >( "xyy" );
+  ss <<  make_test_gray_single< ::color::hwb< double> >( "hwb" );
 
   ss << "</table>" << std::endl;
 

@@ -83,185 +83,57 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
    }
  }
 
+template< typename category_name >
+void pallete( std::string const& name, int planes )
+ {
+  std::string number="000";
+  for( int index = 0; index < planes; index += 1 )
+   {
+    auto layer = index/double(planes-1);
+    number[0] =  int(layer*1)%10 + '0';
+    number[1] =  int(layer*10)%10 + '0';
+    number[2] = (int(layer*100))%10 + '0';
+    make_image< color::model<category_name> >( "./palette/"+name+"-0-"+number+".tga" , layer, 0 ); 
+    make_image< color::model<category_name> >( "./palette/"+name+"-1-"+number+".tga" , layer, 1 ); 
+    make_image< color::model<category_name> >( "./palette/"+name+"-2-"+number+".tga" , layer, 2 );
+   }
+ }
+
 void test_pallete()
  {
-  //make_image<color::lab<double> >( "./palette/lab-2-050.tga" , 0.5, 2 );
 
-  make_image<color::hsi<double> >( "./palette/hsi-1-000.tga" , 0.00, 1 );
-  make_image<color::hsi<double> >( "./palette/hsi-1-025.tga" , 0.25, 1 );
-  make_image<color::hsi<double> >( "./palette/hsi-1-050.tga" , 0.50, 1 );
-  make_image<color::hsi<double> >( "./palette/hsi-1-075.tga" , 0.75, 1 );
-  make_image<color::hsi<double> >( "./palette/hsi-1-100.tga" , 1.00, 1 );
+  make_image<color::cmyk<double> >("./palette/cmyk.tga", 3 );
 
-  make_image<color::hsl<double> >( "./palette/hsl-1-000.tga" , 0.00, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-025.tga" , 0.25, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-050.tga" , 0.50, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-075.tga" , 0.75, 1 );
-  make_image<color::hsl<double> >( "./palette/hsl-1-100.tga" , 1.00, 1 );
-
-  make_image<color::hsv<double> >( "./palette/hsv-1-000.tga", 0.00, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-050.tga", 0.50, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-060.tga", 0.60, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-075.tga", 0.70, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-080.tga", 0.80, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-090.tga", 0.90, 1 );
-
-  make_image<color::hsv<double> >( "./palette/hsv-1-090.tga", 0.90, 1 );
-  make_image<color::hsv<double> >( "./palette/hsv-1-091.tga", 0.91, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-092.tga", 0.92, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-093.tga", 0.93, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-094.tga", 0.94, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-095.tga", 0.95, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-096.tga", 0.96, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-097.tga", 0.97, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-098.tga", 0.98, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-099.tga", 0.99, 1);
-  make_image<color::hsv<double> >( "./palette/hsv-1-100.tga", 1.0, 1 );
-
-  make_image<color::rgb<double> >( "./palette/rgb-0-00.tga" , 0.00,  0 );
-  make_image<color::rgb<double> >( "./palette/rgb-0-05.tga" , 0.25,  0 );
-  make_image<color::rgb<double> >( "./palette/rgb-0-05.tga" , 0.50,  0 );
-  make_image<color::rgb<double> >( "./palette/rgb-0-05.tga" , 0.75,  0 );
-  make_image<color::rgb<double> >( "./palette/rgb-0-10.tga" , 1.00,  0 );
-
-  make_image<color::cmy<double> >( "./palette/cmy.tga" , 0.5 );
-  make_image<color::cmyk<double> >("./palette/cmyk.tga", 0.5 );
-
-  make_image<color::yiq<double> >( "./palette/yiq-0-000.tga" , 0  , 0 );
-  make_image<color::yiq<double> >( "./palette/yiq-0-010.tga" , 0.1, 0 );
-  make_image<color::yiq<double> >( "./palette/yiq-0-050.tga" , 0.5, 0 );
-  make_image<color::yiq<double> >( "./palette/yiq-0-090.tga" , 0.9, 0 );
-  make_image<color::yiq<double> >( "./palette/yiq-0-100.tga" , 1  , 0 );
-
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-00.tga", 0.0, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-01.tga", 0.1, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-02.tga", 0.2, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-03.tga", 0.3, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-04.tga", 0.4, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-05.tga", 0.5, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-06.tga", 0.6, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-07.tga", 0.7, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-08.tga", 0.8, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-09.tga", 0.9, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_601_entity > >( "./palette/yuv-601_-0-10.tga", 1.0, 0 );
-
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-00.tga", 0.0, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-01.tga", 0.1, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-02.tga", 0.2, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-03.tga", 0.3, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-04.tga", 0.4, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-05.tga", 0.5, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-06.tga", 0.6, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-07.tga", 0.7, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-08.tga", 0.8, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-09.tga", 0.9, 0 );
-  make_image<color::yuv<double, ::color::constant::yuv::BT_709_entity > >( "./palette/yuv-709_-0-10.tga", 1.0, 0 );
-
-  make_image<color::xyz<double> >( "./palette/xyz-0-000.tga" , 0.0, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-010.tga" , 0.1, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-020.tga" , 0.2, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-030.tga" , 0.3, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-040.tga" , 0.4, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-050.tga" , 0.5, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-060.tga" , 0.6, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-070.tga" , 0.7, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-080.tga" , 0.8, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-090.tga" , 0.9, 0 );
-  make_image<color::xyz<double> >( "./palette/xyz-0-100.tga" , 1.0, 0 );
-
-  make_image<color::xyz<double> >( "./palette/xyz-1-000.tga" , 0.0, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-010.tga" , 0.1, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-020.tga" , 0.2, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-030.tga" , 0.3, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-040.tga" , 0.4, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-050.tga" , 0.5, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-060.tga" , 0.6, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-070.tga" , 0.7, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-080.tga" , 0.8, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-090.tga" , 0.9, 1 );
-  make_image<color::xyz<double> >( "./palette/xyz-1-100.tga" , 1.0, 1 );
-
-  make_image<color::xyz<double> >( "./palette/xyz-2-000.tga" , 0.0, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-010.tga" , 0.1, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-020.tga" , 0.2, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-030.tga" , 0.3, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-040.tga" , 0.4, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-050.tga" , 0.5, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-060.tga" , 0.6, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-070.tga" , 0.7, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-080.tga" , 0.8, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-090.tga" , 0.9, 2 );
-  make_image<color::xyz<double> >( "./palette/xyz-2-100.tga" , 1.0, 2 );
-
-  make_image<color::lab<double> >( "./palette/lab-0-000.tga" , 0.0, 0 ); make_image<color::lab<double> >( "./palette/lab-1-000.tga" , 0.0, 1 ); make_image<color::lab<double> >( "./palette/lab-2-000.tga" , 0.0, 2 );
-  make_image<color::lab<double> >( "./palette/lab-0-010.tga" , 0.1, 0 ); make_image<color::lab<double> >( "./palette/lab-1-010.tga" , 0.1, 1 ); make_image<color::lab<double> >( "./palette/lab-2-010.tga" , 0.1, 2 );
-  make_image<color::lab<double> >( "./palette/lab-0-020.tga" , 0.2, 0 ); make_image<color::lab<double> >( "./palette/lab-1-020.tga" , 0.2, 1 ); make_image<color::lab<double> >( "./palette/lab-2-020.tga" , 0.2, 2 );
-  make_image<color::lab<double> >( "./palette/lab-0-030.tga" , 0.3, 0 ); make_image<color::lab<double> >( "./palette/lab-1-030.tga" , 0.3, 1 ); make_image<color::lab<double> >( "./palette/lab-2-030.tga" , 0.3, 2 );
-  make_image<color::lab<double> >( "./palette/lab-0-040.tga" , 0.4, 0 ); make_image<color::lab<double> >( "./palette/lab-1-040.tga" , 0.4, 1 ); make_image<color::lab<double> >( "./palette/lab-2-040.tga" , 0.4, 2 );
-  make_image<color::lab<double> >( "./palette/lab-0-050.tga" , 0.5, 0 ); make_image<color::lab<double> >( "./palette/lab-1-050.tga" , 0.5, 1 ); make_image<color::lab<double> >( "./palette/lab-2-050.tga" , 0.5, 2 );
-  make_image<color::lab<double> >( "./palette/lab-0-060.tga" , 0.6, 0 ); make_image<color::lab<double> >( "./palette/lab-1-060.tga" , 0.6, 1 ); make_image<color::lab<double> >( "./palette/lab-2-060.tga" , 0.6, 2 );
-  make_image<color::lab<double> >( "./palette/lab-0-070.tga" , 0.7, 0 ); make_image<color::lab<double> >( "./palette/lab-1-070.tga" , 0.7, 1 ); make_image<color::lab<double> >( "./palette/lab-2-070.tga" , 0.7, 2 );
-  make_image<color::lab<double> >( "./palette/lab-0-080.tga" , 0.8, 0 ); make_image<color::lab<double> >( "./palette/lab-1-080.tga" , 0.8, 1 ); make_image<color::lab<double> >( "./palette/lab-2-080.tga" , 0.8, 2 );
-  make_image<color::lab<double> >( "./palette/lab-0-090.tga" , 0.9, 0 ); make_image<color::lab<double> >( "./palette/lab-1-090.tga" , 0.9, 1 ); make_image<color::lab<double> >( "./palette/lab-2-090.tga" , 0.9, 2 );
-  make_image<color::lab<double> >( "./palette/lab-0-100.tga" , 1.0, 0 ); make_image<color::lab<double> >( "./palette/lab-1-100.tga" , 1.0, 1 ); make_image<color::lab<double> >( "./palette/lab-2-100.tga" , 1.0, 2 );
-
-  make_image<color::luv<double> >( "./palette/luv-0-000.tga" , 0.0, 0 ); make_image<color::luv<double> >( "./palette/luv-1-000.tga" , 0.0, 1 ); make_image<color::luv<double> >( "./palette/luv-2-000.tga" , 0.0, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-010.tga" , 0.1, 0 ); make_image<color::luv<double> >( "./palette/luv-1-010.tga" , 0.1, 1 ); make_image<color::luv<double> >( "./palette/luv-2-010.tga" , 0.1, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-020.tga" , 0.2, 0 ); make_image<color::luv<double> >( "./palette/luv-1-020.tga" , 0.2, 1 ); make_image<color::luv<double> >( "./palette/luv-2-020.tga" , 0.2, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-030.tga" , 0.3, 0 ); make_image<color::luv<double> >( "./palette/luv-1-030.tga" , 0.3, 1 ); make_image<color::luv<double> >( "./palette/luv-2-030.tga" , 0.3, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-040.tga" , 0.4, 0 ); make_image<color::luv<double> >( "./palette/luv-1-040.tga" , 0.4, 1 ); make_image<color::luv<double> >( "./palette/luv-2-040.tga" , 0.4, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-050.tga" , 0.5, 0 ); make_image<color::luv<double> >( "./palette/luv-1-050.tga" , 0.5, 1 ); make_image<color::luv<double> >( "./palette/luv-2-050.tga" , 0.5, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-060.tga" , 0.6, 0 ); make_image<color::luv<double> >( "./palette/luv-1-060.tga" , 0.6, 1 ); make_image<color::luv<double> >( "./palette/luv-2-060.tga" , 0.6, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-070.tga" , 0.7, 0 ); make_image<color::luv<double> >( "./palette/luv-1-070.tga" , 0.7, 1 ); make_image<color::luv<double> >( "./palette/luv-2-070.tga" , 0.7, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-080.tga" , 0.8, 0 ); make_image<color::luv<double> >( "./palette/luv-1-080.tga" , 0.8, 1 ); make_image<color::luv<double> >( "./palette/luv-2-080.tga" , 0.8, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-090.tga" , 0.9, 0 ); make_image<color::luv<double> >( "./palette/luv-1-090.tga" , 0.9, 1 ); make_image<color::luv<double> >( "./palette/luv-2-090.tga" , 0.9, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-100.tga" , 1.0, 0 ); make_image<color::luv<double> >( "./palette/luv-1-100.tga" , 1.0, 1 ); make_image<color::luv<double> >( "./palette/luv-2-100.tga" , 1.0, 2 );
-
-  make_image<color::lms<double> >( "./palette/lms-0-000.tga" , 0.0, 0 ); make_image<color::lms<double> >( "./palette/lms-1-000.tga" , 0.0, 1 ); make_image<color::lms<double> >( "./palette/lms-2-000.tga" , 0.0, 2 );
-  make_image<color::lms<double> >( "./palette/lms-0-010.tga" , 0.1, 0 ); make_image<color::lms<double> >( "./palette/lms-1-010.tga" , 0.1, 1 ); make_image<color::lms<double> >( "./palette/lms-2-010.tga" , 0.1, 2 );
-  make_image<color::lms<double> >( "./palette/lms-0-020.tga" , 0.2, 0 ); make_image<color::lms<double> >( "./palette/lms-1-020.tga" , 0.2, 1 ); make_image<color::lms<double> >( "./palette/lms-2-020.tga" , 0.2, 2 );
-  make_image<color::lms<double> >( "./palette/lms-0-030.tga" , 0.3, 0 ); make_image<color::lms<double> >( "./palette/lms-1-030.tga" , 0.3, 1 ); make_image<color::lms<double> >( "./palette/lms-2-030.tga" , 0.3, 2 );
-  make_image<color::lms<double> >( "./palette/lms-0-040.tga" , 0.4, 0 ); make_image<color::lms<double> >( "./palette/lms-1-040.tga" , 0.4, 1 ); make_image<color::lms<double> >( "./palette/lms-2-040.tga" , 0.4, 2 );
-  make_image<color::lms<double> >( "./palette/lms-0-050.tga" , 0.5, 0 ); make_image<color::lms<double> >( "./palette/lms-1-050.tga" , 0.5, 1 ); make_image<color::lms<double> >( "./palette/lms-2-050.tga" , 0.5, 2 );
-  make_image<color::lms<double> >( "./palette/lms-0-060.tga" , 0.6, 0 ); make_image<color::lms<double> >( "./palette/lms-1-060.tga" , 0.6, 1 ); make_image<color::lms<double> >( "./palette/lms-2-060.tga" , 0.6, 2 );
-  make_image<color::lms<double> >( "./palette/lms-0-070.tga" , 0.7, 0 ); make_image<color::lms<double> >( "./palette/lms-1-070.tga" , 0.7, 1 ); make_image<color::lms<double> >( "./palette/lms-2-070.tga" , 0.7, 2 );
-  make_image<color::lms<double> >( "./palette/lms-0-080.tga" , 0.8, 0 ); make_image<color::lms<double> >( "./palette/lms-1-080.tga" , 0.8, 1 ); make_image<color::lms<double> >( "./palette/lms-2-080.tga" , 0.8, 2 );
-  make_image<color::lms<double> >( "./palette/lms-0-090.tga" , 0.9, 0 ); make_image<color::lms<double> >( "./palette/lms-1-090.tga" , 0.9, 1 ); make_image<color::lms<double> >( "./palette/lms-2-090.tga" , 0.9, 2 );
-  make_image<color::lms<double> >( "./palette/lms-0-100.tga" , 1.0, 0 ); make_image<color::lms<double> >( "./palette/lms-1-100.tga" , 1.0, 1 ); make_image<color::lms<double> >( "./palette/lms-2-100.tga" , 1.0, 2 );
-
-  make_image<color::xyy<double> >( "./palette/xyy-0-000.tga" , 0.0, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-000.tga" , 0.0, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-000.tga" , 0.0, 2 );
-  make_image<color::xyy<double> >( "./palette/xyy-0-010.tga" , 0.1, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-010.tga" , 0.1, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-010.tga" , 0.1, 2 );
-  make_image<color::xyy<double> >( "./palette/xyy-0-020.tga" , 0.2, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-020.tga" , 0.2, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-020.tga" , 0.2, 2 );
-  make_image<color::xyy<double> >( "./palette/xyy-0-030.tga" , 0.3, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-030.tga" , 0.3, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-030.tga" , 0.3, 2 );
-  make_image<color::xyy<double> >( "./palette/xyy-0-040.tga" , 0.4, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-040.tga" , 0.4, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-040.tga" , 0.4, 2 );
-  make_image<color::xyy<double> >( "./palette/xyy-0-050.tga" , 0.5, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-050.tga" , 0.5, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-050.tga" , 0.5, 2 );
-  make_image<color::xyy<double> >( "./palette/xyy-0-060.tga" , 0.6, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-060.tga" , 0.6, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-060.tga" , 0.6, 2 );
-  make_image<color::xyy<double> >( "./palette/xyy-0-070.tga" , 0.7, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-070.tga" , 0.7, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-070.tga" , 0.7, 2 );
-  make_image<color::xyy<double> >( "./palette/xyy-0-080.tga" , 0.8, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-080.tga" , 0.8, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-080.tga" , 0.8, 2 );
-  make_image<color::xyy<double> >( "./palette/xyy-0-090.tga" , 0.9, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-090.tga" , 0.9, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-090.tga" , 0.9, 2 );
-  make_image<color::xyy<double> >( "./palette/xyy-0-100.tga" , 1.0, 0 ); make_image<color::xyy<double> >( "./palette/xyy-1-100.tga" , 1.0, 1 ); make_image<color::xyy<double> >( "./palette/xyy-2-100.tga" , 1.0, 2 );
-
-  make_image<color::luv<double> >( "./palette/luv-0-000.tga" , 0.0, 0 ); make_image<color::luv<double> >( "./palette/luv-1-000.tga" , 0.0, 1 ); make_image<color::luv<double> >( "./palette/luv-2-000.tga" , 0.0, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-010.tga" , 0.1, 0 ); make_image<color::luv<double> >( "./palette/luv-1-010.tga" , 0.1, 1 ); make_image<color::luv<double> >( "./palette/luv-2-010.tga" , 0.1, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-020.tga" , 0.2, 0 ); make_image<color::luv<double> >( "./palette/luv-1-020.tga" , 0.2, 1 ); make_image<color::luv<double> >( "./palette/luv-2-020.tga" , 0.2, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-030.tga" , 0.3, 0 ); make_image<color::luv<double> >( "./palette/luv-1-030.tga" , 0.3, 1 ); make_image<color::luv<double> >( "./palette/luv-2-030.tga" , 0.3, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-040.tga" , 0.4, 0 ); make_image<color::luv<double> >( "./palette/luv-1-040.tga" , 0.4, 1 ); make_image<color::luv<double> >( "./palette/luv-2-040.tga" , 0.4, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-050.tga" , 0.5, 0 ); make_image<color::luv<double> >( "./palette/luv-1-050.tga" , 0.5, 1 ); make_image<color::luv<double> >( "./palette/luv-2-050.tga" , 0.5, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-060.tga" , 0.6, 0 ); make_image<color::luv<double> >( "./palette/luv-1-060.tga" , 0.6, 1 ); make_image<color::luv<double> >( "./palette/luv-2-060.tga" , 0.6, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-070.tga" , 0.7, 0 ); make_image<color::luv<double> >( "./palette/luv-1-070.tga" , 0.7, 1 ); make_image<color::luv<double> >( "./palette/luv-2-070.tga" , 0.7, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-080.tga" , 0.8, 0 ); make_image<color::luv<double> >( "./palette/luv-1-080.tga" , 0.8, 1 ); make_image<color::luv<double> >( "./palette/luv-2-080.tga" , 0.8, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-090.tga" , 0.9, 0 ); make_image<color::luv<double> >( "./palette/luv-1-090.tga" , 0.9, 1 ); make_image<color::luv<double> >( "./palette/luv-2-090.tga" , 0.9, 2 );
-  make_image<color::luv<double> >( "./palette/luv-0-100.tga" , 1.0, 0 ); make_image<color::luv<double> >( "./palette/luv-1-100.tga" , 1.0, 1 ); make_image<color::luv<double> >( "./palette/luv-2-100.tga" , 1.0, 2 );
+  pallete< color::hsi<double>::category_type  >( "hsi",      5 );
+  pallete< color::hsl<double>::category_type  >( "hsl",      5 );
+  pallete< color::hsv<double>::category_type  >( "hsv",      5 );
+//pallete< color::hwb<double>::category_type  >( "hwb",      5 );
+  pallete< color::rgb<double>::category_type  >( "rgb",      5 );
+  pallete< color::cmy<double>::category_type  >( "cmy",      5 );
+  pallete< color::yiq<double>::category_type  >( "yiq",      5 );
+  pallete< color::yuv<double>::category_type  >( "yuv-709",  5 );
+  pallete< color::xyz<double>::category_type  >( "xyz",      5 );
+  pallete< color::luv<double>::category_type  >( "luv",      5 );
+  pallete< color::lab<double>::category_type  >( "lab",      5 );
+  pallete< color::lms<double>::category_type  >( "lms",      5 );
+  pallete< color::xyy<double>::category_type  >( "xyy",      5 );
 
   std::string number="000";
+  for( int layer= 0; layer < 12; layer += 1 )
+   {
+    number[0] =  layer/10 + '0';
+    number[1] =  layer%10 + '0';
+    number[2] = (layer/10)%10 + '0';
+    make_image<color::hwb<double> >( "./palette/hwb-0-"+number+".tga" , layer/12.0, 0 ); 
+   }
+
   for( int layer= 0; layer <= 10; layer += 1 )
    {
     number[0] = layer/10 + '0';
     number[1] = layer%10 + '0';
     number[2] = '0';
-    make_image<color::luv<double> >( "./palette/hwb-0-"+number+".tga" , layer, 0 ); 
-    make_image<color::luv<double> >( "./palette/hwb-1-"+number+".tga" , layer, 1 ); 
-    make_image<color::luv<double> >( "./palette/hwb-2-"+number+".tga" , layer, 2 );
+    make_image<color::hwb<double> >( "./palette/hwb-1-"+number+".tga" , layer/10.0, 1 ); 
+    make_image<color::hwb<double> >( "./palette/hwb-2-"+number+".tga" , layer/10.0, 2 );
    }
 
  }

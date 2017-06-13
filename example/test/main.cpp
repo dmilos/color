@@ -17,7 +17,7 @@
 #include "./targa.hpp"
 
 template < typename category_name >
-void print()
+void print( )
  {
   typedef category_name category_t;
 
@@ -428,6 +428,15 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[])
  {
+  extern void test_constant();
+  test_constant();
+
+  extern void check_sizeof();
+  check_sizeof();
+
+  extern void print_bound( );
+  print_bound();
+
   void test_pallete();
   test_pallete();
 
@@ -442,9 +451,6 @@ int main(int argc, char const *argv[])
 
   void check_get();
   check_get();
-
-  extern void print_bound( );
-  print_bound();
 
   extern int decompose_test( int argc, char const *argv[] );
   decompose_test( argc, argv );
@@ -470,11 +476,7 @@ int main(int argc, char const *argv[])
 
   sandbox_test();
 
-  extern void test_constant();
-  test_constant();
 
-  extern void check_sizeof();
-  check_sizeof();
 
   void test_operation();
   test_operation();

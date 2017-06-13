@@ -46,7 +46,7 @@ template< typename color_model >
      ss << "<td class=\"table_divider\"></td>";
      if( 3 < color_model::size() ) ss <<  print_triplet( bound_type::minimum(3), bound_type::maximum(3), bound_type::range(3) );
      else ss << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>";
-   ss << "<tr>";
+   ss << "</tr>";
 
    return ss.str();
   }
@@ -69,8 +69,7 @@ template< typename color_model >
      ss << "<td class=\"table_divider\"></td>";
      if( 2 < color_model::size() ) ss <<  print_triplet( bound_type::minimum(2), bound_type::maximum(2), bound_type::range(2) );
      else ss << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>" << "<td>" << "N/A" << "</td>";
-
-   ss << "<tr>";
+   ss << "</tr>";
 
    return ss.str();
   }
@@ -424,6 +423,15 @@ void print_bound()
   ss << print_bound< color::xyy<float         > >( "color::xyy", "float         " ) << std::endl;
   ss << print_bound< color::xyy<double        > >( "color::xyy", "double        " ) << std::endl;
   ss << print_bound< color::xyy<long double   > >( "color::xyy", "long double   " ) << std::endl;
+
+  ss << print_semi_title( "hue","white","black" );
+  ss << print_bound< color::hwb<std::uint8_t  > >( "color::hwb", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::hwb<std::uint16_t > >( "color::hwb", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::hwb<std::uint32_t > >( "color::hwb", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::hwb<std::uint64_t > >( "color::hwb", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::hwb<float         > >( "color::hwb", "float         " ) << std::endl;
+  ss << print_bound< color::hwb<double        > >( "color::hwb", "double        " ) << std::endl;
+  ss << print_bound< color::hwb<long double   > >( "color::hwb", "long double   " ) << std::endl;
 
   //ss << "</table> ";
 

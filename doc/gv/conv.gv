@@ -10,7 +10,6 @@ digraph color_conversion {
 	cmyk -> rgb [ label = "", dir=both ];
 
 	gray -> cmyk [ label = "", dir=forward  ];
-	gray -> hwb   [ label = "", dir=both  ];
 	gray -> hsi   [ label = "", dir=both ];
 	gray -> hsl   [ label = "", dir=both ];
 	gray -> hsv   [ label = "", dir=both  ];
@@ -42,7 +41,6 @@ digraph color_conversion {
 
 	hsv  -> rgb [ label = "", dir=both ];
 
-	hwb -> xyz [ label = "", dir=both ];
 	lms_vonKries_ee -> xyz[ label = "", dir=both ];
 	lms_vonKries_D65 -> xyz[ label = "", dir=both ];
 	lms_BFD  -> xyz[ label = "", dir=both ];
@@ -62,8 +60,8 @@ digraph color_conversion {
 
 	//xyz -> Hunter  [ label = "", dir=both ];
 	xyz -> xyY     [ label = "", dir=both ];
-	//hwb -> LCHab   [ label = "", dir=both ];
-	//Luv -> LCHub   [ label = "", dir=both ];
+	//lab -> LCHab   [ label = "", dir=both ];
+	//luv -> LCHub   [ label = "", dir=both ];
 
 	//yuv -> yuv   [ label = "", dir=both ];
 
@@ -110,7 +108,6 @@ digraph color_conversion {
 		node [ ] xyz;
 		//node [ ] Hunter;
 		node [ ] xyY;
-		node [ ] hwb;
 		node [ ] luv;
 		subgraph cluster_LMS
 		{
