@@ -82,11 +82,11 @@ void luv_bound()
   scalar_type vx_min=0.000000001;  scalar_type vx_max=0.000000001;
   scalar_type vy_min=0.000000001;  scalar_type vy_max=0.000000001;
   scalar_type vz_min=0.000000001;  scalar_type vz_max=0.000000001;
-  
+
   scalar_type ux_min=0.000000001;  scalar_type ux_max=0.000000001;
   scalar_type uy_min=0.000000001;  scalar_type uy_max=0.000000001;
   scalar_type uz_min=0.000000001;  scalar_type uz_max=0.000000001;
-  
+
   scalar_type lx_min=0.000000001;  scalar_type lx_max=0.000000001;
   scalar_type ly_min=0.000000001;  scalar_type ly_max=0.000000001;
   scalar_type lz_min=0.000000001;  scalar_type lz_max=0.000000001;
@@ -97,7 +97,7 @@ void luv_bound()
 
  // for( scalar_type x=0.00001; x < 101; x+=1 )
    for( scalar_type y=12.206940; y < 12.20695; y += scalar_type(0.00000000001) )
-    //for( scalar_type z=0.00001; z < 101; z+=1  ) 
+    //for( scalar_type z=0.00001; z < 101; z+=1  )
      {
      ::color::_internal::constant::luv< scalar_type >::xyz2luv( x,y,z,l,u,v  );
 
@@ -221,6 +221,14 @@ void invoke()
   test_operation< color::category::gray_double  >();
   test_operation< color::category::gray_ldouble >();
 
+  test_operation< color::category::cmy_uint8   >();
+  test_operation< color::category::cmy_uint16  >();
+  test_operation< color::category::cmy_uint32  >();
+  test_operation< color::category::cmy_uint64  >();
+  test_operation< color::category::cmy_float   >();
+  test_operation< color::category::cmy_double  >();
+  test_operation< color::category::cmy_ldouble >();
+
   test_operation< color::category::cmyk_uint8   >();
   test_operation< color::category::cmyk_uint16  >();
   test_operation< color::category::cmyk_uint32  >();
@@ -252,6 +260,22 @@ void invoke()
   test_operation< color::category::hsi_float   >();
   test_operation< color::category::hsi_double  >();
   test_operation< color::category::hsi_ldouble >();
+
+  test_operation< color::category::hwb_uint8   >();
+  test_operation< color::category::hwb_uint16  >();
+  test_operation< color::category::hwb_uint32  >();
+  test_operation< color::category::hwb_uint64  >();
+  test_operation< color::category::hwb_float   >();
+  test_operation< color::category::hwb_double  >();
+  test_operation< color::category::hwb_ldouble >();
+
+  test_operation< color::category::rgb_uint8   >();
+  test_operation< color::category::rgb_uint16  >();
+  test_operation< color::category::rgb_uint32  >();
+  test_operation< color::category::rgb_uint64  >();
+  test_operation< color::category::rgb_float   >();
+  test_operation< color::category::rgb_double  >();
+  test_operation< color::category::rgb_ldouble >();
 
 
   /*test_make< color::category::rgb_uint8   >();
@@ -345,11 +369,11 @@ void test_xyz_quick()
 
   r = ::color::constant::black_t{};      x = r;  std::cout << "black        "; print( x ); std::cout << std::endl;
   r = ::color::constant::white_t{};      x = r;  std::cout << "white        "; print( x ); std::cout << std::endl;
-  
+
   r = ::color::constant::red_t{};        x = r;  std::cout << "red          "; print( x ); std::cout << std::endl;
   r = ::color::constant::lime_t{};       x = r;  std::cout << "lime         "; print( x ); std::cout << std::endl;
   r = ::color::constant::blue_t{};       x = r;  std::cout << "blue         "; print( x ); std::cout << std::endl;
-  
+
   r = ::color::constant::cyan_t{};       x = r;  std::cout << "cyan         "; print( x ); std::cout << std::endl;
   r = ::color::constant::yellow_t{};     x = r;  std::cout << "yellow       "; print( x ); std::cout << std::endl;
   r = ::color::constant::magenta_t{};    x = r;  std::cout << "magenta      "; print( x ); std::cout << std::endl;
@@ -518,4 +542,3 @@ mkdir operation
 mkdir palette
 */
 
- 

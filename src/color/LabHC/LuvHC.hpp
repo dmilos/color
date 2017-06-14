@@ -1,26 +1,27 @@
-#ifndef color_hwb_hwb_
-#define color_hwb_hwb_
+#ifndef color_LuvHC_LuvHC_
+#define color_LuvHC_LuvHC_
 
 #include "../generic/type/type.hpp"
 
 #include "./category.hpp"
+
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
 #include "../generic/model.hpp"
-
+#include "./constant.hpp"
 
 
 namespace color
  {
 
   template< typename type_name >
-   using hwb = ::color::model< typename ::color::category::hwb< type_name > >;
+   using LuvHC = ::color::model< typename ::color::category::LuvHC< type_name> >;
 
  }
 
-#include "./check/check.hpp"
-#include "./fix/fix.hpp"
+
+
 
 
 #include "./place/place.hpp"
