@@ -42,6 +42,10 @@ namespace color
          static /* constexpr*/ scalar_type const deg60(){ return  this_type::pi() / scalar_type(3); }
          static /* constexpr*/ scalar_type const deg120(){ return  scalar_type(2) * this_type::pi() / scalar_type(3); }
          static /* constexpr*/ scalar_type const deg240(){ return  scalar_type(4) * this_type::pi() / scalar_type(3); }
+
+         static /* constexpr*/ scalar_type const deg2rad(){ return  this_type::pi()/scalar_type(180); }
+         static /* constexpr*/ scalar_type const rad2deg(){ return  scalar_type(180)/this_type::pi(); }
+
       };
 
     namespace hue

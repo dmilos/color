@@ -118,6 +118,9 @@ void test_pallete()
   pallete< color::lms<double>::category_type  >( "lms",      5 );
   pallete< color::xyy<double>::category_type  >( "xyy",      5 );
 
+  pallete< color::LuvCH<double>::category_type  >( "LuvCH",      5 );
+  pallete< color::LabCH<double>::category_type  >( "LabCH",      5 );
+
   std::string number="000";
   for( int layer= 0; layer < 12; layer += 1 )
    {

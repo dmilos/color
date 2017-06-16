@@ -25,6 +25,10 @@
 #include "./luv/luv.hpp"
 #include "./xyy/xyy.hpp"
 
+#include "./LabCH/LabCH.hpp"
+#include "./LuvCH/LuvCH.hpp"
+
+
 #include "./generic/operation/operation.hpp"
 //#include "./gray/operation/operation.hpp"
 

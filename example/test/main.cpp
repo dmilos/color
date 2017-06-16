@@ -147,6 +147,30 @@ void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
   std::cout << "*******" << std::endl;
  }
 
+void LabCH_test( )
+ {
+  const color::rgb<double>   rC = ::color::constant::brown_t{};
+  color::rgb<double>   r = ::color::constant::brown_t{};
+  color::xyz<double>   xa = ::color::constant::brown_t{};
+  color::xyz<double>   xb = ::color::constant::brown_t{};
+  color::lab<double>   l0a = ::color::constant::brown_t{};
+  color::lab<double>   l0b = ::color::constant::brown_t{};
+
+  color::LabCH<double> lx;
+  color::LabCH<double> ll;
+  color::LabCH<double> lr;
+
+  lx = xa;
+  ll = l0a;
+  lr = r;
+  r = lr;
+  
+  //l1  = l0a;
+  l0a = l0b;
+  //l1  = l1;
+ }
+
+
 void sandbox_test()
  {
   ::color::hsi<double>  h;
@@ -447,11 +471,12 @@ void test_yiq2yuv601_quick()
   yuv = ::color::constant::cyan_t{};     yiq = yuv; std::cout << "cyan     "; print( yiq ); std::cout << std::endl;
   yuv = ::color::constant::yellow_t{};   yiq = yuv; std::cout << "yellow   "; print( yiq ); std::cout << std::endl;
   yuv = ::color::constant::magenta_t{};  yiq = yuv; std::cout << "magenta  "; print( yiq ); std::cout << std::endl;
-
  }
 
 int main(int argc, char const *argv[])
  {
+  LabCH_test();
+
   extern void test_constant();
   test_constant();
 
@@ -499,8 +524,6 @@ int main(int argc, char const *argv[])
   print< ::color::argb< ::color::type::split2AAA_t >::category_type  >();
 
   sandbox_test();
-
-
 
   void test_operation();
   test_operation();

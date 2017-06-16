@@ -1,5 +1,5 @@
-#ifndef color_LuvHC_LuvHC_
-#define color_LuvHC_LuvHC_
+#ifndef color_LuvCH_LuvCH_
+#define color_LuvCH_LuvCH_
 
 #include "../generic/type/type.hpp"
 
@@ -9,14 +9,13 @@
 #include "./trait/trait.hpp"
 
 #include "../generic/model.hpp"
-#include "./constant.hpp"
 
 
 namespace color
  {
 
   template< typename type_name >
-   using LuvHC = ::color::model< typename ::color::category::LuvHC< type_name> >;
+   using LuvCH = ::color::model< typename ::color::category::LuvCH< type_name> >;
 
  }
 

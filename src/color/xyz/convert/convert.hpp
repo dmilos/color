@@ -24,3 +24,6 @@
 #include "./xyy.hpp"
 #include "./lms.hpp"
 #include "./luv.hpp"
+
+#include "./LabCH.hpp"
+#include "./LuvCH.hpp"
