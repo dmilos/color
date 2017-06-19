@@ -1,4 +1,4 @@
- #ifndef color_LuvCH_convert_gray
+#ifndef color_LuvCH_convert_gray
 #define color_LuvCH_convert_gray
 
 #include "../category.hpp"
@@ -20,8 +20,8 @@ namespace color
 
     template
      <
-       typename  LuvCH_tag_name
-      ,typename gray_tag_name
+       typename LuvCH_tag_name
+      ,typename  gray_tag_name
      >
      struct convert
       <
@@ -30,8 +30,8 @@ namespace color
       >
       { // TODO
        public:
-         typedef ::color::category::LuvCH<   LuvCH_tag_name > LuvCH_category_type, category_left_type;
-         typedef ::color::category::gray< gray_tag_name > category_right_type;
+         typedef ::color::category::LuvCH<  LuvCH_tag_name > LuvCH_category_type, category_left_type;
+         typedef ::color::category::gray<    gray_tag_name > category_right_type;
 
          typedef typename ::color::trait::scalar< LuvCH_category_type >::instance_type scalar_type;
 

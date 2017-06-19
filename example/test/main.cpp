@@ -156,9 +156,16 @@ void LabCH_test( )
   color::lab<double>   l0a = ::color::constant::brown_t{};
   color::lab<double>   l0b = ::color::constant::brown_t{};
 
-  color::LabCH<double> lx;
-  color::LabCH<double> ll;
-  color::LabCH<double> lr;
+  color::gray<double>   g0 = ::color::constant::brown_t{};
+  color::gray<double>   g1 = ::color::constant::brown_t{};
+  color::gray<double>   g2 = ::color::constant::brown_t{};
+
+  color::LuvCH<double> lx = ::color::constant::brown_t{};
+  color::LuvCH<double> ll;
+  color::LuvCH<double> lr;
+
+  g0 = lx ;
+  lx = g0;
 
   lx = xa;
   ll = l0a;
