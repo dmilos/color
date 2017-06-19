@@ -31,7 +31,11 @@ digraph color_conversion {
 	gray -> lms_CAT97s   [ label = "", dir=both ];
 	gray -> lms_CAT02   [ label = "", dir=both ];
 	gray -> luv   [ label = "", dir=both ];
+	gray -> lab   [ label = "", dir=both ];
 	gray -> xyY   [ label = "", dir=both ];
+
+	gray -> LabCH [ label = "", dir=both ];
+	gray -> LuvCH [ label = "", dir=both ];
 
 	hwb  -> hsv[ label = "", dir=both ];
 
@@ -60,8 +64,9 @@ digraph color_conversion {
 
 	//xyz -> Hunter  [ label = "", dir=both ];
 	xyz -> xyY     [ label = "", dir=both ];
-	//lab -> LCHab   [ label = "", dir=both ];
-	//luv -> LCHub   [ label = "", dir=both ];
+	lab -> xyz     [ label = "", dir=both ];
+	lab -> LabCH   [ label = "", dir=both ];
+	luv -> LuvCH   [ label = "", dir=both ];
 
 	//yuv -> yuv   [ label = "", dir=both ];
 
@@ -107,6 +112,7 @@ digraph color_conversion {
 		label = "XYZ";
 		node [ ] xyz;
 		//node [ ] Hunter;
+		node [ ] lab;
 		node [ ] xyY;
 		node [ ] luv;
 		subgraph cluster_LMS
@@ -119,8 +125,8 @@ digraph color_conversion {
 			node [ ] lms_CAT02;
 		}
 
-		//node [ ] LCHab;
-		//node [ ] LCHub;
+		node [ ] LabCH;
+		node [ ] LuvCH;
 	}
 
 	subgraph cluster_RGB

@@ -433,6 +433,25 @@ void print_bound()
   ss << print_bound< color::hwb<double        > >( "color::hwb", "double        " ) << std::endl;
   ss << print_bound< color::hwb<long double   > >( "color::hwb", "long double   " ) << std::endl;
 
+  ss << print_semi_title( "L","chroma","hue" );
+  ss << print_bound< color::LabCH<std::uint8_t  > >( "color::LabCH", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::LabCH<std::uint16_t > >( "color::LabCH", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::LabCH<std::uint32_t > >( "color::LabCH", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::LabCH<std::uint64_t > >( "color::LabCH", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::LabCH<float         > >( "color::LabCH", "float         " ) << std::endl;
+  ss << print_bound< color::LabCH<double        > >( "color::LabCH", "double        " ) << std::endl;
+  ss << print_bound< color::LabCH<long double   > >( "color::LabCH", "long double   " ) << std::endl;
+
+  ss << print_semi_title( "L","chroma","hue" );
+  ss << print_bound< color::LuvCH<std::uint8_t  > >( "color::LuvCH", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::LuvCH<std::uint16_t > >( "color::LuvCH", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::LuvCH<std::uint32_t > >( "color::LuvCH", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::LuvCH<std::uint64_t > >( "color::LuvCH", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::LuvCH<float         > >( "color::LuvCH", "float         " ) << std::endl;
+  ss << print_bound< color::LuvCH<double        > >( "color::LuvCH", "double        " ) << std::endl;
+  ss << print_bound< color::LuvCH<long double   > >( "color::LuvCH", "long double   " ) << std::endl;
+
+
   //ss << "</table> ";
 
    {
