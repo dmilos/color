@@ -28,7 +28,7 @@ namespace color
         ::color::category::LuvCH< LuvCH_tag_name >
        ,::color::category::gray<   gray_tag_name >
       >
-      { // TODO
+      {
        public:
          typedef ::color::category::LuvCH<  LuvCH_tag_name > LuvCH_category_type, category_left_type;
          typedef ::color::category::gray<    gray_tag_name > category_right_type;
@@ -50,6 +50,8 @@ namespace color
          enum
           {
             lightness_p  = ::color::place::_internal::lightness<category_left_type>::position_enum
+           ,chroma_p     = ::color::place::_internal::chroma<category_left_type>::position_enum
+           ,hue_p        = ::color::place::_internal::hue<category_left_type>::position_enum
           };
 
          enum
@@ -63,9 +65,9 @@ namespace color
            ,container_right_const_input_type  right
           )
           { // TODO
-           container_left_trait_type::template set<0>( left, reformat_type::template process< 0, 0 >( container_right_trait_type::template get<0>( right ) ) );
-           container_left_trait_type::template set<1>( left, reformatLuvCH_type::template process< 1, 1 >( 0 ) );
-           container_left_trait_type::template set<2>( left, reformatLuvCH_type::template process< 2, 2 >( 0 ) );
+           container_left_trait_type::template set<0>( left, reformat_type::template process< lightness_p, 0 >( container_right_trait_type::template get<0>( right ) ) );
+           container_left_trait_type::template set<1>( left, reformatLuvCH_type::template process< chroma_p, 1 >( 0 ) );
+           container_left_trait_type::template set<2>( left, reformatLuvCH_type::template process< hue_p, 2 >( 0 ) );
           }
       };
 

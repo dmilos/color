@@ -138,4 +138,12 @@ digraph color_conversion {
 	}
 
 
+	//subgraph cluster_center
+	//{
+	//	label = "center";
+	//	node [ ] rgb;
+	//	node [ ] xyz;
+	//	node [ ] gray;
+	//}
+
 }

@@ -29,7 +29,7 @@ namespace color
         ::color::category::hwb< hwb_tag_name >
        ,::color::category::gray<   gray_tag_name >
       >
-      { // TODO
+      {
        public:
          typedef ::color::category::hwb<   hwb_tag_name > hwb_category_type, category_left_type;
          typedef ::color::category::gray< gray_tag_name > category_right_type;
@@ -55,10 +55,10 @@ namespace color
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
-          { // TODO
-           container_left_trait_type::template set<0>( left, reformatHWB_type::template process< 1, 1 >( 0 ) );
-           container_left_trait_type::template set<1>( left, reformatHWB_type::template process< 1, 1 >( 0 ) );
-           container_left_trait_type::template set<2>( left, reformat_type::template process< 2, 0 >( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
+          {
+           container_left_trait_type::template set<0>( left, reformatHWB_type::template process< 0, 0 >( 0 ) );
+           container_left_trait_type::template set<1>( left, reformat_type::template    process< 1, 0 >(                                     container_right_trait_type::template get<0>( right )   ) );
+           container_left_trait_type::template set<2>( left, reformat_type::template    process< 2, 0 >( invert_type::template component<0>( container_right_trait_type::template get<0>( right ) ) ) );
           }
       };
 

@@ -20,7 +20,7 @@
           public:
            typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
 
-           enum { position_enum = -8 };
+           enum { position_enum = -2 };
            enum { has_enum = false };
 
            static /*constexpr*/ index_instance_type position()

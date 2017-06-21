@@ -1,8 +1,8 @@
-#ifndef color_generic_place_cyan
-#define color_generic_place_cyan
+#ifndef color_generic_place_chroma
+#define color_generic_place_chroma
 
-// ::color::place::cyan<category_name>()
-// ::color::place::_internal::cyan<category_name>::position_enum
+// ::color::place::chroma<category_name>()
+// ::color::place::_internal::chroma<category_name>::position_enum
 
 #include "../trait/index.hpp"
 
@@ -15,12 +15,12 @@
       {
 
        template< typename category_name >
-        struct cyan
+        struct chroma
          {
           public:
            typedef typename ::color::trait::index< category_name >::instance_type index_instance_type;
 
-           enum { position_enum = -4 };
+           enum { position_enum = -7 };
            enum { has_enum = false };
 
            static /*constexpr*/ index_instance_type position()
@@ -35,9 +35,9 @@
       inline
       /*constexpr*/
       typename ::color::trait::index< category_name >::instance_type
-      cyan()
+      chroma()
        {
-        return ::color::place::_internal::cyan<category_name>::position();
+        return ::color::place::_internal::chroma<category_name>::position();
        }
 
     }

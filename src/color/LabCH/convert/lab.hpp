@@ -4,7 +4,7 @@
 #include "../../_internal/convert.hpp"
 
 #include "../category.hpp"
-
+#include "../place/place.hpp"
 
 #include "../../lab/lab.hpp"
 
@@ -49,6 +49,13 @@ namespace color
 
          typedef ::color::constant::generic< LABscalar_category_type > generic_costant_type;
 
+         enum
+          {
+            lightness_p  = ::color::place::_internal::lightness<category_left_type>::position_enum
+           ,chroma_p     = ::color::place::_internal::chroma<category_left_type>::position_enum
+           ,hue_p        = ::color::place::_internal::hue<category_left_type>::position_enum
+          };
+
          static void process
           (
             container_left_input_type         left
@@ -63,9 +70,9 @@ namespace color
            scalar_type h = atan2( b, a ) * generic_costant_type::rad2deg();
            if( h < 0 ) h += 360;
 
-           container_left_trait_type::template set<0>( left, reformatCH_type::template process< 0, 0 >( l ) );
-           container_left_trait_type::template set<1>( left, reformatCH_type::template process< 1, 1 >( c ) );
-           container_left_trait_type::template set<2>( left, reformatCH_type::template process< 2, 2 >( h ) );
+           container_left_trait_type::template set<lightness_p>( left, reformatCH_type::template process< lightness_p, 0 >( l ) );
+           container_left_trait_type::template set<chroma_p   >( left, reformatCH_type::template process< chroma_p,    1 >( c ) );
+           container_left_trait_type::template set<hue_p      >( left, reformatCH_type::template process< hue_p,       2 >( h ) );
           }
       };
 

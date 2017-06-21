@@ -6,6 +6,8 @@
 
 #include "./gray.hpp"
 
+#include "./chroma.hpp"
+
 #include "./hue.hpp"
 #include "./saturation.hpp"
 #include "./lightness.hpp"
