@@ -13,6 +13,7 @@ namespace color
     template
      <
        typename tag_name
+
      >
      struct lab< ::color::category::hwb< tag_name >  >
       {

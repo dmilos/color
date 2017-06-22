@@ -137,6 +137,7 @@ void make_test_gray_scale()
   ss <<  make_test_gray_single< ::color::hsv< double> >( "hsv" );
   ss <<  make_test_gray_single< ::color::hsi< double> >( "hsi" );
   ss <<  make_test_gray_single< ::color::hsl< double> >( "hsl" );
+  ss <<  make_test_gray_single< ::color::hwb< double> >( "hwb" );
   ss <<  make_test_gray_single< ::color::rgb< double> >( "rgb" );
   ss <<  make_test_gray_single< ::color::yiq< double> >( "yiq" );
   ss <<  make_test_gray_single< ::color::yuv< double, ::color::constant::yuv::BT_601_entity> >( "y601" );
@@ -151,15 +152,18 @@ void make_test_gray_scale()
 
   ss <<  make_test_gray_single< ::color::xyz< double> >( "xyz" );
   ss <<  make_test_gray_single< ::color::lab< double> >( "lab" );
-  
+
   ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::von_Kries_D65_entity> >( "lmsK65" );
   ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::von_Kries_E_entity > >( "lmsE" );
   ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::BFD_entity > >( "lmsBFD" );
   ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::MCAT02_entity > >( "lmsMCAT02" );
 
-  ss <<  make_test_gray_single< ::color::luv< double> >( "luv" );  
+  ss <<  make_test_gray_single< ::color::luv< double> >( "luv" );
   ss <<  make_test_gray_single< ::color::xyy< double> >( "xyy" );
-  ss <<  make_test_gray_single< ::color::hwb< double> >( "hwb" );
+
+  ss <<  make_test_gray_single< ::color::LabCH< double> >( "LabCH" );
+  ss <<  make_test_gray_single< ::color::LuvCH< double> >( "LuvCH" );
+
 
   ss << "</table>" << std::endl;
 

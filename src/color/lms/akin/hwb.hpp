@@ -12,8 +12,7 @@ namespace color
 
     template
      <
-       typename tag_name
-      ,::color::constant::lms::reference_enum        lms_reference_number
+       typename tag_name ,::color::constant::lms::reference_enum        lms_reference_number
 
      >
      struct lms< ::color::category::hwb< tag_name >, lms_reference_number  >

@@ -8,7 +8,11 @@ namespace color
   namespace akin
    {
 
-    template< typename category_name >
+    template
+     <
+      typename category_name
+
+     >
      struct hwb
       {
        typedef category_name category_type;

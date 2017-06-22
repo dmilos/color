@@ -10,7 +10,11 @@ namespace color
   namespace akin
    {
 
-    template< typename tag_name >
+    template
+     <
+      typename tag_name
+
+     >
      struct hwb< ::color::category::hwb< tag_name >  >
       {
        public:
