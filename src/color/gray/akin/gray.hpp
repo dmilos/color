@@ -11,7 +11,7 @@ namespace color
    {
 
     template< typename tag_name >
-     struct gray< ::color::category::gray< tag_name >  >
+     struct gray< ::color::category::gray< tag_name > >
       {
        public:
          typedef ::color::category::gray< tag_name > akin_type;

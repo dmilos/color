@@ -16,7 +16,7 @@ namespace color
       ,::color::constant::lms::reference_enum reference_number 
 
      >
-     struct gray< ::color::category::lms< tag_name, reference_number >  >
+     struct gray< ::color::category::lms< tag_name, reference_number > >
       {
        public:
          typedef ::color::category::gray< tag_name > akin_type;

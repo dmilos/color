@@ -7,6 +7,7 @@
 #include "./hsl.hpp"
 #include "./hsv.hpp"
 #include "./hsi.hpp"
+#include "./hwb.hpp"
 
 #include "./rgb.hpp"
 
@@ -19,7 +20,10 @@
 
 #include "./xyz.hpp"
 
-#include "./hwb.hpp"
+#include "./lab.hpp"
 #include "./xyy.hpp"
 #include "./lms.hpp"
 #include "./luv.hpp"
+
+#include "./LabCH.hpp"
+#include "./LuvCH.hpp"

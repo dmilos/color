@@ -14,7 +14,6 @@ namespace color
      <
        typename tag_name
       ,::color::constant::lms::reference_enum reference_number 
-
      >
      struct xyy< ::color::category::lms< tag_name, reference_number >  >
       {

@@ -7,11 +7,12 @@
 #include "./hsl.hpp"
 #include "./hsv.hpp"
 #include "./hsi.hpp"
+#include "./hwb.hpp"
 
 #include "./rgb.hpp"
 
 #include "./yiq.hpp"
-// TODO #include "./yuv.hpp"
+#include "./yuv.hpp"
 
 #include "./YCgCo.hpp"
 #include "./YDbDr.hpp"
@@ -23,3 +24,6 @@
 #include "./xyy.hpp"
 #include "./lms.hpp"
 #include "./luv.hpp"
+
+#include "./LabCH.hpp"
+#include "./LuvCH.hpp"

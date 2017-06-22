@@ -3,228 +3,250 @@ set  right_folder=..\out-x\palette
 set  target_folder=..\out\check
 set  program_TC=..\out\tc.exe
 
-%program_TC% %left_folder%\cmy.tga                %right_folder%\cmy.tga                   %target_folder%\cmy.tga
-%program_TC% %left_folder%\cmyk.tga               %right_folder%\cmyk.tga                  %target_folder%\cmyk.tga
-%program_TC% %left_folder%\hsi-1-000.tga          %right_folder%\hsi-1-000.tga             %target_folder%\hsi-1-000.tga
-%program_TC% %left_folder%\hsi-1-025.tga          %right_folder%\hsi-1-025.tga             %target_folder%\hsi-1-025.tga
-%program_TC% %left_folder%\hsi-1-050.tga          %right_folder%\hsi-1-050.tga             %target_folder%\hsi-1-050.tga
-%program_TC% %left_folder%\hsi-1-075.tga          %right_folder%\hsi-1-075.tga             %target_folder%\hsi-1-075.tga
-%program_TC% %left_folder%\hsi-1-100.tga          %right_folder%\hsi-1-100.tga             %target_folder%\hsi-1-100.tga
-%program_TC% %left_folder%\hsl-1-000.tga          %right_folder%\hsl-1-000.tga             %target_folder%\hsl-1-000.tga
-%program_TC% %left_folder%\hsl-1-005.tga          %right_folder%\hsl-1-005.tga             %target_folder%\hsl-1-005.tga
-%program_TC% %left_folder%\hsl-1-025.tga          %right_folder%\hsl-1-025.tga             %target_folder%\hsl-1-025.tga
-%program_TC% %left_folder%\hsl-1-075.tga          %right_folder%\hsl-1-075.tga             %target_folder%\hsl-1-075.tga
-%program_TC% %left_folder%\hsl-1-100.tga          %right_folder%\hsl-1-100.tga             %target_folder%\hsl-1-100.tga
-%program_TC% %left_folder%\hsv-1-000.tga          %right_folder%\hsv-1-000.tga             %target_folder%\hsv-1-000.tga
-%program_TC% %left_folder%\hsv-1-050.tga          %right_folder%\hsv-1-050.tga             %target_folder%\hsv-1-050.tga
-%program_TC% %left_folder%\hsv-1-060.tga          %right_folder%\hsv-1-060.tga             %target_folder%\hsv-1-060.tga
-%program_TC% %left_folder%\hsv-1-075.tga          %right_folder%\hsv-1-075.tga             %target_folder%\hsv-1-075.tga
-%program_TC% %left_folder%\hsv-1-080.tga          %right_folder%\hsv-1-080.tga             %target_folder%\hsv-1-080.tga
-%program_TC% %left_folder%\hsv-1-090.tga          %right_folder%\hsv-1-090.tga             %target_folder%\hsv-1-090.tga
-%program_TC% %left_folder%\hsv-1-091.tga          %right_folder%\hsv-1-091.tga             %target_folder%\hsv-1-091.tga
-%program_TC% %left_folder%\hsv-1-092.tga          %right_folder%\hsv-1-092.tga             %target_folder%\hsv-1-092.tga
-%program_TC% %left_folder%\hsv-1-093.tga          %right_folder%\hsv-1-093.tga             %target_folder%\hsv-1-093.tga
-%program_TC% %left_folder%\hsv-1-094.tga          %right_folder%\hsv-1-094.tga             %target_folder%\hsv-1-094.tga
-%program_TC% %left_folder%\hsv-1-095.tga          %right_folder%\hsv-1-095.tga             %target_folder%\hsv-1-095.tga
-%program_TC% %left_folder%\hsv-1-096.tga          %right_folder%\hsv-1-096.tga             %target_folder%\hsv-1-096.tga
-%program_TC% %left_folder%\hsv-1-097.tga          %right_folder%\hsv-1-097.tga             %target_folder%\hsv-1-097.tga
-%program_TC% %left_folder%\hsv-1-098.tga          %right_folder%\hsv-1-098.tga             %target_folder%\hsv-1-098.tga
-%program_TC% %left_folder%\hsv-1-099.tga          %right_folder%\hsv-1-099.tga             %target_folder%\hsv-1-099.tga
-%program_TC% %left_folder%\hsv-1-100.tga          %right_folder%\hsv-1-100.tga             %target_folder%\hsv-1-100.tga
-%program_TC% %left_folder%\lab-0-000.tga          %right_folder%\lab-0-000.tga             %target_folder%\lab-0-000.tga
-%program_TC% %left_folder%\lab-0-010.tga          %right_folder%\lab-0-010.tga             %target_folder%\lab-0-010.tga
-%program_TC% %left_folder%\lab-0-020.tga          %right_folder%\lab-0-020.tga             %target_folder%\lab-0-020.tga
-%program_TC% %left_folder%\lab-0-030.tga          %right_folder%\lab-0-030.tga             %target_folder%\lab-0-030.tga
-%program_TC% %left_folder%\lab-0-040.tga          %right_folder%\lab-0-040.tga             %target_folder%\lab-0-040.tga
-%program_TC% %left_folder%\lab-0-050.tga          %right_folder%\lab-0-050.tga             %target_folder%\lab-0-050.tga
-%program_TC% %left_folder%\lab-0-060.tga          %right_folder%\lab-0-060.tga             %target_folder%\lab-0-060.tga
-%program_TC% %left_folder%\lab-0-070.tga          %right_folder%\lab-0-070.tga             %target_folder%\lab-0-070.tga
-%program_TC% %left_folder%\lab-0-080.tga          %right_folder%\lab-0-080.tga             %target_folder%\lab-0-080.tga
-%program_TC% %left_folder%\lab-0-090.tga          %right_folder%\lab-0-090.tga             %target_folder%\lab-0-090.tga
-%program_TC% %left_folder%\lab-0-100.tga          %right_folder%\lab-0-100.tga             %target_folder%\lab-0-100.tga
-%program_TC% %left_folder%\lab-1-000.tga          %right_folder%\lab-1-000.tga             %target_folder%\lab-1-000.tga
-%program_TC% %left_folder%\lab-1-010.tga          %right_folder%\lab-1-010.tga             %target_folder%\lab-1-010.tga
-%program_TC% %left_folder%\lab-1-020.tga          %right_folder%\lab-1-020.tga             %target_folder%\lab-1-020.tga
-%program_TC% %left_folder%\lab-1-030.tga          %right_folder%\lab-1-030.tga             %target_folder%\lab-1-030.tga
-%program_TC% %left_folder%\lab-1-040.tga          %right_folder%\lab-1-040.tga             %target_folder%\lab-1-040.tga
-%program_TC% %left_folder%\lab-1-050.tga          %right_folder%\lab-1-050.tga             %target_folder%\lab-1-050.tga
-%program_TC% %left_folder%\lab-1-060.tga          %right_folder%\lab-1-060.tga             %target_folder%\lab-1-060.tga
-%program_TC% %left_folder%\lab-1-070.tga          %right_folder%\lab-1-070.tga             %target_folder%\lab-1-070.tga
-%program_TC% %left_folder%\lab-1-080.tga          %right_folder%\lab-1-080.tga             %target_folder%\lab-1-080.tga
-%program_TC% %left_folder%\lab-1-090.tga          %right_folder%\lab-1-090.tga             %target_folder%\lab-1-090.tga
-%program_TC% %left_folder%\lab-1-100.tga          %right_folder%\lab-1-100.tga             %target_folder%\lab-1-100.tga
-%program_TC% %left_folder%\lab-2-000.tga          %right_folder%\lab-2-000.tga             %target_folder%\lab-2-000.tga
-%program_TC% %left_folder%\lab-2-010.tga          %right_folder%\lab-2-010.tga             %target_folder%\lab-2-010.tga
-%program_TC% %left_folder%\lab-2-020.tga          %right_folder%\lab-2-020.tga             %target_folder%\lab-2-020.tga
-%program_TC% %left_folder%\lab-2-030.tga          %right_folder%\lab-2-030.tga             %target_folder%\lab-2-030.tga
-%program_TC% %left_folder%\lab-2-040.tga          %right_folder%\lab-2-040.tga             %target_folder%\lab-2-040.tga
-%program_TC% %left_folder%\lab-2-050.tga          %right_folder%\lab-2-050.tga             %target_folder%\lab-2-050.tga
-%program_TC% %left_folder%\lab-2-060.tga          %right_folder%\lab-2-060.tga             %target_folder%\lab-2-060.tga
-%program_TC% %left_folder%\lab-2-070.tga          %right_folder%\lab-2-070.tga             %target_folder%\lab-2-070.tga
-%program_TC% %left_folder%\lab-2-080.tga          %right_folder%\lab-2-080.tga             %target_folder%\lab-2-080.tga
-%program_TC% %left_folder%\lab-2-090.tga          %right_folder%\lab-2-090.tga             %target_folder%\lab-2-090.tga
-%program_TC% %left_folder%\lab-2-100.tga          %right_folder%\lab-2-100.tga             %target_folder%\lab-2-100.tga
-%program_TC% %left_folder%\lms-0-000.tga          %right_folder%\lms-0-000.tga             %target_folder%\lms-0-000.tga
-%program_TC% %left_folder%\lms-0-010.tga          %right_folder%\lms-0-010.tga             %target_folder%\lms-0-010.tga
-%program_TC% %left_folder%\lms-0-020.tga          %right_folder%\lms-0-020.tga             %target_folder%\lms-0-020.tga
-%program_TC% %left_folder%\lms-0-030.tga          %right_folder%\lms-0-030.tga             %target_folder%\lms-0-030.tga
-%program_TC% %left_folder%\lms-0-040.tga          %right_folder%\lms-0-040.tga             %target_folder%\lms-0-040.tga
-%program_TC% %left_folder%\lms-0-050.tga          %right_folder%\lms-0-050.tga             %target_folder%\lms-0-050.tga
-%program_TC% %left_folder%\lms-0-060.tga          %right_folder%\lms-0-060.tga             %target_folder%\lms-0-060.tga
-%program_TC% %left_folder%\lms-0-070.tga          %right_folder%\lms-0-070.tga             %target_folder%\lms-0-070.tga
-%program_TC% %left_folder%\lms-0-080.tga          %right_folder%\lms-0-080.tga             %target_folder%\lms-0-080.tga
-%program_TC% %left_folder%\lms-0-090.tga          %right_folder%\lms-0-090.tga             %target_folder%\lms-0-090.tga
-%program_TC% %left_folder%\lms-0-100.tga          %right_folder%\lms-0-100.tga             %target_folder%\lms-0-100.tga
-%program_TC% %left_folder%\lms-1-000.tga          %right_folder%\lms-1-000.tga             %target_folder%\lms-1-000.tga
-%program_TC% %left_folder%\lms-1-010.tga          %right_folder%\lms-1-010.tga             %target_folder%\lms-1-010.tga
-%program_TC% %left_folder%\lms-1-020.tga          %right_folder%\lms-1-020.tga             %target_folder%\lms-1-020.tga
-%program_TC% %left_folder%\lms-1-030.tga          %right_folder%\lms-1-030.tga             %target_folder%\lms-1-030.tga
-%program_TC% %left_folder%\lms-1-040.tga          %right_folder%\lms-1-040.tga             %target_folder%\lms-1-040.tga
-%program_TC% %left_folder%\lms-1-050.tga          %right_folder%\lms-1-050.tga             %target_folder%\lms-1-050.tga
-%program_TC% %left_folder%\lms-1-060.tga          %right_folder%\lms-1-060.tga             %target_folder%\lms-1-060.tga
-%program_TC% %left_folder%\lms-1-070.tga          %right_folder%\lms-1-070.tga             %target_folder%\lms-1-070.tga
-%program_TC% %left_folder%\lms-1-080.tga          %right_folder%\lms-1-080.tga             %target_folder%\lms-1-080.tga
-%program_TC% %left_folder%\lms-1-090.tga          %right_folder%\lms-1-090.tga             %target_folder%\lms-1-090.tga
-%program_TC% %left_folder%\lms-1-100.tga          %right_folder%\lms-1-100.tga             %target_folder%\lms-1-100.tga
-%program_TC% %left_folder%\lms-2-000.tga          %right_folder%\lms-2-000.tga             %target_folder%\lms-2-000.tga
-%program_TC% %left_folder%\lms-2-010.tga          %right_folder%\lms-2-010.tga             %target_folder%\lms-2-010.tga
-%program_TC% %left_folder%\lms-2-020.tga          %right_folder%\lms-2-020.tga             %target_folder%\lms-2-020.tga
-%program_TC% %left_folder%\lms-2-030.tga          %right_folder%\lms-2-030.tga             %target_folder%\lms-2-030.tga
-%program_TC% %left_folder%\lms-2-040.tga          %right_folder%\lms-2-040.tga             %target_folder%\lms-2-040.tga
-%program_TC% %left_folder%\lms-2-050.tga          %right_folder%\lms-2-050.tga             %target_folder%\lms-2-050.tga
-%program_TC% %left_folder%\lms-2-060.tga          %right_folder%\lms-2-060.tga             %target_folder%\lms-2-060.tga
-%program_TC% %left_folder%\lms-2-070.tga          %right_folder%\lms-2-070.tga             %target_folder%\lms-2-070.tga
-%program_TC% %left_folder%\lms-2-080.tga          %right_folder%\lms-2-080.tga             %target_folder%\lms-2-080.tga
-%program_TC% %left_folder%\lms-2-090.tga          %right_folder%\lms-2-090.tga             %target_folder%\lms-2-090.tga
-%program_TC% %left_folder%\lms-2-100.tga          %right_folder%\lms-2-100.tga             %target_folder%\lms-2-100.tga
-%program_TC% %left_folder%\luv-0-000.tga          %right_folder%\luv-0-000.tga             %target_folder%\luv-0-000.tga
-%program_TC% %left_folder%\luv-0-010.tga          %right_folder%\luv-0-010.tga             %target_folder%\luv-0-010.tga
-%program_TC% %left_folder%\luv-0-020.tga          %right_folder%\luv-0-020.tga             %target_folder%\luv-0-020.tga
-%program_TC% %left_folder%\luv-0-030.tga          %right_folder%\luv-0-030.tga             %target_folder%\luv-0-030.tga
-%program_TC% %left_folder%\luv-0-040.tga          %right_folder%\luv-0-040.tga             %target_folder%\luv-0-040.tga
-%program_TC% %left_folder%\luv-0-050.tga          %right_folder%\luv-0-050.tga             %target_folder%\luv-0-050.tga
-%program_TC% %left_folder%\luv-0-060.tga          %right_folder%\luv-0-060.tga             %target_folder%\luv-0-060.tga
-%program_TC% %left_folder%\luv-0-070.tga          %right_folder%\luv-0-070.tga             %target_folder%\luv-0-070.tga
-%program_TC% %left_folder%\luv-0-080.tga          %right_folder%\luv-0-080.tga             %target_folder%\luv-0-080.tga
-%program_TC% %left_folder%\luv-0-090.tga          %right_folder%\luv-0-090.tga             %target_folder%\luv-0-090.tga
-%program_TC% %left_folder%\luv-0-100.tga          %right_folder%\luv-0-100.tga             %target_folder%\luv-0-100.tga
-%program_TC% %left_folder%\luv-1-000.tga          %right_folder%\luv-1-000.tga             %target_folder%\luv-1-000.tga
-%program_TC% %left_folder%\luv-1-010.tga          %right_folder%\luv-1-010.tga             %target_folder%\luv-1-010.tga
-%program_TC% %left_folder%\luv-1-020.tga          %right_folder%\luv-1-020.tga             %target_folder%\luv-1-020.tga
-%program_TC% %left_folder%\luv-1-030.tga          %right_folder%\luv-1-030.tga             %target_folder%\luv-1-030.tga
-%program_TC% %left_folder%\luv-1-040.tga          %right_folder%\luv-1-040.tga             %target_folder%\luv-1-040.tga
-%program_TC% %left_folder%\luv-1-050.tga          %right_folder%\luv-1-050.tga             %target_folder%\luv-1-050.tga
-%program_TC% %left_folder%\luv-1-060.tga          %right_folder%\luv-1-060.tga             %target_folder%\luv-1-060.tga
-%program_TC% %left_folder%\luv-1-070.tga          %right_folder%\luv-1-070.tga             %target_folder%\luv-1-070.tga
-%program_TC% %left_folder%\luv-1-080.tga          %right_folder%\luv-1-080.tga             %target_folder%\luv-1-080.tga
-%program_TC% %left_folder%\luv-1-090.tga          %right_folder%\luv-1-090.tga             %target_folder%\luv-1-090.tga
-%program_TC% %left_folder%\luv-1-100.tga          %right_folder%\luv-1-100.tga             %target_folder%\luv-1-100.tga
-%program_TC% %left_folder%\luv-2-000.tga          %right_folder%\luv-2-000.tga             %target_folder%\luv-2-000.tga
-%program_TC% %left_folder%\luv-2-010.tga          %right_folder%\luv-2-010.tga             %target_folder%\luv-2-010.tga
-%program_TC% %left_folder%\luv-2-020.tga          %right_folder%\luv-2-020.tga             %target_folder%\luv-2-020.tga
-%program_TC% %left_folder%\luv-2-030.tga          %right_folder%\luv-2-030.tga             %target_folder%\luv-2-030.tga
-%program_TC% %left_folder%\luv-2-040.tga          %right_folder%\luv-2-040.tga             %target_folder%\luv-2-040.tga
-%program_TC% %left_folder%\luv-2-050.tga          %right_folder%\luv-2-050.tga             %target_folder%\luv-2-050.tga
-%program_TC% %left_folder%\luv-2-060.tga          %right_folder%\luv-2-060.tga             %target_folder%\luv-2-060.tga
-%program_TC% %left_folder%\luv-2-070.tga          %right_folder%\luv-2-070.tga             %target_folder%\luv-2-070.tga
-%program_TC% %left_folder%\luv-2-080.tga          %right_folder%\luv-2-080.tga             %target_folder%\luv-2-080.tga
-%program_TC% %left_folder%\luv-2-090.tga          %right_folder%\luv-2-090.tga             %target_folder%\luv-2-090.tga
-%program_TC% %left_folder%\luv-2-100.tga          %right_folder%\luv-2-100.tga             %target_folder%\luv-2-100.tga
-%program_TC% %left_folder%\rgb-0-00.tga           %right_folder%\rgb-0-00.tga              %target_folder%\rgb-0-00.tga
-%program_TC% %left_folder%\rgb-0-05.tga           %right_folder%\rgb-0-05.tga              %target_folder%\rgb-0-05.tga
-%program_TC% %left_folder%\rgb-0-10.tga           %right_folder%\rgb-0-10.tga              %target_folder%\rgb-0-10.tga
-%program_TC% %left_folder%\xyy-0-000.tga          %right_folder%\xyy-0-000.tga             %target_folder%\xyy-0-000.tga
-%program_TC% %left_folder%\xyy-0-010.tga          %right_folder%\xyy-0-010.tga             %target_folder%\xyy-0-010.tga
-%program_TC% %left_folder%\xyy-0-020.tga          %right_folder%\xyy-0-020.tga             %target_folder%\xyy-0-020.tga
-%program_TC% %left_folder%\xyy-0-030.tga          %right_folder%\xyy-0-030.tga             %target_folder%\xyy-0-030.tga
-%program_TC% %left_folder%\xyy-0-040.tga          %right_folder%\xyy-0-040.tga             %target_folder%\xyy-0-040.tga
-%program_TC% %left_folder%\xyy-0-050.tga          %right_folder%\xyy-0-050.tga             %target_folder%\xyy-0-050.tga
-%program_TC% %left_folder%\xyy-0-060.tga          %right_folder%\xyy-0-060.tga             %target_folder%\xyy-0-060.tga
-%program_TC% %left_folder%\xyy-0-070.tga          %right_folder%\xyy-0-070.tga             %target_folder%\xyy-0-070.tga
-%program_TC% %left_folder%\xyy-0-080.tga          %right_folder%\xyy-0-080.tga             %target_folder%\xyy-0-080.tga
-%program_TC% %left_folder%\xyy-0-090.tga          %right_folder%\xyy-0-090.tga             %target_folder%\xyy-0-090.tga
-%program_TC% %left_folder%\xyy-0-100.tga          %right_folder%\xyy-0-100.tga             %target_folder%\xyy-0-100.tga
-%program_TC% %left_folder%\xyy-1-000.tga          %right_folder%\xyy-1-000.tga             %target_folder%\xyy-1-000.tga
-%program_TC% %left_folder%\xyy-1-010.tga          %right_folder%\xyy-1-010.tga             %target_folder%\xyy-1-010.tga
-%program_TC% %left_folder%\xyy-1-020.tga          %right_folder%\xyy-1-020.tga             %target_folder%\xyy-1-020.tga
-%program_TC% %left_folder%\xyy-1-030.tga          %right_folder%\xyy-1-030.tga             %target_folder%\xyy-1-030.tga
-%program_TC% %left_folder%\xyy-1-040.tga          %right_folder%\xyy-1-040.tga             %target_folder%\xyy-1-040.tga
-%program_TC% %left_folder%\xyy-1-050.tga          %right_folder%\xyy-1-050.tga             %target_folder%\xyy-1-050.tga
-%program_TC% %left_folder%\xyy-1-060.tga          %right_folder%\xyy-1-060.tga             %target_folder%\xyy-1-060.tga
-%program_TC% %left_folder%\xyy-1-070.tga          %right_folder%\xyy-1-070.tga             %target_folder%\xyy-1-070.tga
-%program_TC% %left_folder%\xyy-1-080.tga          %right_folder%\xyy-1-080.tga             %target_folder%\xyy-1-080.tga
-%program_TC% %left_folder%\xyy-1-090.tga          %right_folder%\xyy-1-090.tga             %target_folder%\xyy-1-090.tga
-%program_TC% %left_folder%\xyy-1-100.tga          %right_folder%\xyy-1-100.tga             %target_folder%\xyy-1-100.tga
-%program_TC% %left_folder%\xyy-2-000.tga          %right_folder%\xyy-2-000.tga             %target_folder%\xyy-2-000.tga
-%program_TC% %left_folder%\xyy-2-010.tga          %right_folder%\xyy-2-010.tga             %target_folder%\xyy-2-010.tga
-%program_TC% %left_folder%\xyy-2-020.tga          %right_folder%\xyy-2-020.tga             %target_folder%\xyy-2-020.tga
-%program_TC% %left_folder%\xyy-2-030.tga          %right_folder%\xyy-2-030.tga             %target_folder%\xyy-2-030.tga
-%program_TC% %left_folder%\xyy-2-040.tga          %right_folder%\xyy-2-040.tga             %target_folder%\xyy-2-040.tga
-%program_TC% %left_folder%\xyy-2-050.tga          %right_folder%\xyy-2-050.tga             %target_folder%\xyy-2-050.tga
-%program_TC% %left_folder%\xyy-2-060.tga          %right_folder%\xyy-2-060.tga             %target_folder%\xyy-2-060.tga
-%program_TC% %left_folder%\xyy-2-070.tga          %right_folder%\xyy-2-070.tga             %target_folder%\xyy-2-070.tga
-%program_TC% %left_folder%\xyy-2-080.tga          %right_folder%\xyy-2-080.tga             %target_folder%\xyy-2-080.tga
-%program_TC% %left_folder%\xyy-2-090.tga          %right_folder%\xyy-2-090.tga             %target_folder%\xyy-2-090.tga
-%program_TC% %left_folder%\xyy-2-100.tga          %right_folder%\xyy-2-100.tga             %target_folder%\xyy-2-100.tga
-%program_TC% %left_folder%\xyz-0-000.tga          %right_folder%\xyz-0-000.tga             %target_folder%\xyz-0-000.tga
-%program_TC% %left_folder%\xyz-0-010.tga          %right_folder%\xyz-0-010.tga             %target_folder%\xyz-0-010.tga
-%program_TC% %left_folder%\xyz-0-020.tga          %right_folder%\xyz-0-020.tga             %target_folder%\xyz-0-020.tga
-%program_TC% %left_folder%\xyz-0-030.tga          %right_folder%\xyz-0-030.tga             %target_folder%\xyz-0-030.tga
-%program_TC% %left_folder%\xyz-0-040.tga          %right_folder%\xyz-0-040.tga             %target_folder%\xyz-0-040.tga
-%program_TC% %left_folder%\xyz-0-050.tga          %right_folder%\xyz-0-050.tga             %target_folder%\xyz-0-050.tga
-%program_TC% %left_folder%\xyz-0-060.tga          %right_folder%\xyz-0-060.tga             %target_folder%\xyz-0-060.tga
-%program_TC% %left_folder%\xyz-0-070.tga          %right_folder%\xyz-0-070.tga             %target_folder%\xyz-0-070.tga
-%program_TC% %left_folder%\xyz-0-080.tga          %right_folder%\xyz-0-080.tga             %target_folder%\xyz-0-080.tga
-%program_TC% %left_folder%\xyz-0-090.tga          %right_folder%\xyz-0-090.tga             %target_folder%\xyz-0-090.tga
-%program_TC% %left_folder%\xyz-0-100.tga          %right_folder%\xyz-0-100.tga             %target_folder%\xyz-0-100.tga
-%program_TC% %left_folder%\xyz-1-000.tga          %right_folder%\xyz-1-000.tga             %target_folder%\xyz-1-000.tga
-%program_TC% %left_folder%\xyz-1-010.tga          %right_folder%\xyz-1-010.tga             %target_folder%\xyz-1-010.tga
-%program_TC% %left_folder%\xyz-1-020.tga          %right_folder%\xyz-1-020.tga             %target_folder%\xyz-1-020.tga
-%program_TC% %left_folder%\xyz-1-030.tga          %right_folder%\xyz-1-030.tga             %target_folder%\xyz-1-030.tga
-%program_TC% %left_folder%\xyz-1-040.tga          %right_folder%\xyz-1-040.tga             %target_folder%\xyz-1-040.tga
-%program_TC% %left_folder%\xyz-1-050.tga          %right_folder%\xyz-1-050.tga             %target_folder%\xyz-1-050.tga
-%program_TC% %left_folder%\xyz-1-060.tga          %right_folder%\xyz-1-060.tga             %target_folder%\xyz-1-060.tga
-%program_TC% %left_folder%\xyz-1-070.tga          %right_folder%\xyz-1-070.tga             %target_folder%\xyz-1-070.tga
-%program_TC% %left_folder%\xyz-1-080.tga          %right_folder%\xyz-1-080.tga             %target_folder%\xyz-1-080.tga
-%program_TC% %left_folder%\xyz-1-090.tga          %right_folder%\xyz-1-090.tga             %target_folder%\xyz-1-090.tga
-%program_TC% %left_folder%\xyz-1-100.tga          %right_folder%\xyz-1-100.tga             %target_folder%\xyz-1-100.tga
-%program_TC% %left_folder%\xyz-2-000.tga          %right_folder%\xyz-2-000.tga             %target_folder%\xyz-2-000.tga
-%program_TC% %left_folder%\xyz-2-010.tga          %right_folder%\xyz-2-010.tga             %target_folder%\xyz-2-010.tga
-%program_TC% %left_folder%\xyz-2-020.tga          %right_folder%\xyz-2-020.tga             %target_folder%\xyz-2-020.tga
-%program_TC% %left_folder%\xyz-2-030.tga          %right_folder%\xyz-2-030.tga             %target_folder%\xyz-2-030.tga
-%program_TC% %left_folder%\xyz-2-040.tga          %right_folder%\xyz-2-040.tga             %target_folder%\xyz-2-040.tga
-%program_TC% %left_folder%\xyz-2-050.tga          %right_folder%\xyz-2-050.tga             %target_folder%\xyz-2-050.tga
-%program_TC% %left_folder%\xyz-2-060.tga          %right_folder%\xyz-2-060.tga             %target_folder%\xyz-2-060.tga
-%program_TC% %left_folder%\xyz-2-070.tga          %right_folder%\xyz-2-070.tga             %target_folder%\xyz-2-070.tga
-%program_TC% %left_folder%\xyz-2-080.tga          %right_folder%\xyz-2-080.tga             %target_folder%\xyz-2-080.tga
-%program_TC% %left_folder%\xyz-2-090.tga          %right_folder%\xyz-2-090.tga             %target_folder%\xyz-2-090.tga
-%program_TC% %left_folder%\xyz-2-100.tga          %right_folder%\xyz-2-100.tga             %target_folder%\xyz-2-100.tga
-%program_TC% %left_folder%\yiq-0-000.tga          %right_folder%\yiq-0-000.tga             %target_folder%\yiq-0-000.tga
-%program_TC% %left_folder%\yiq-0-010.tga          %right_folder%\yiq-0-010.tga             %target_folder%\yiq-0-010.tga
-%program_TC% %left_folder%\yiq-0-050.tga          %right_folder%\yiq-0-050.tga             %target_folder%\yiq-0-050.tga
-%program_TC% %left_folder%\yiq-0-090.tga          %right_folder%\yiq-0-090.tga             %target_folder%\yiq-0-090.tga
-%program_TC% %left_folder%\yiq-0-100.tga          %right_folder%\yiq-0-100.tga             %target_folder%\yiq-0-100.tga
-%program_TC% %left_folder%\yuv-601_-0-00.tga      %right_folder%\yuv-601_-0-00.tga         %target_folder%\yuv-601_-0-00.tga
-%program_TC% %left_folder%\yuv-601_-0-01.tga      %right_folder%\yuv-601_-0-01.tga         %target_folder%\yuv-601_-0-01.tga
-%program_TC% %left_folder%\yuv-601_-0-02.tga      %right_folder%\yuv-601_-0-02.tga         %target_folder%\yuv-601_-0-02.tga
-%program_TC% %left_folder%\yuv-601_-0-03.tga      %right_folder%\yuv-601_-0-03.tga         %target_folder%\yuv-601_-0-03.tga
-%program_TC% %left_folder%\yuv-601_-0-04.tga      %right_folder%\yuv-601_-0-04.tga         %target_folder%\yuv-601_-0-04.tga
-%program_TC% %left_folder%\yuv-601_-0-05.tga      %right_folder%\yuv-601_-0-05.tga         %target_folder%\yuv-601_-0-05.tga
-%program_TC% %left_folder%\yuv-601_-0-06.tga      %right_folder%\yuv-601_-0-06.tga         %target_folder%\yuv-601_-0-06.tga
-%program_TC% %left_folder%\yuv-601_-0-07.tga      %right_folder%\yuv-601_-0-07.tga         %target_folder%\yuv-601_-0-07.tga
-%program_TC% %left_folder%\yuv-601_-0-08.tga      %right_folder%\yuv-601_-0-08.tga         %target_folder%\yuv-601_-0-08.tga
-%program_TC% %left_folder%\yuv-601_-0-09.tga      %right_folder%\yuv-601_-0-09.tga         %target_folder%\yuv-601_-0-09.tga
-%program_TC% %left_folder%\yuv-601_-0-10.tga      %right_folder%\yuv-601_-0-10.tga         %target_folder%\yuv-601_-0-10.tga
-%program_TC% %left_folder%\yuv-709_-0-00.tga      %right_folder%\yuv-709_-0-00.tga         %target_folder%\yuv-709_-0-00.tga
-%program_TC% %left_folder%\yuv-709_-0-01.tga      %right_folder%\yuv-709_-0-01.tga         %target_folder%\yuv-709_-0-01.tga
-%program_TC% %left_folder%\yuv-709_-0-02.tga      %right_folder%\yuv-709_-0-02.tga         %target_folder%\yuv-709_-0-02.tga
-%program_TC% %left_folder%\yuv-709_-0-03.tga      %right_folder%\yuv-709_-0-03.tga         %target_folder%\yuv-709_-0-03.tga
-%program_TC% %left_folder%\yuv-709_-0-04.tga      %right_folder%\yuv-709_-0-04.tga         %target_folder%\yuv-709_-0-04.tga
-%program_TC% %left_folder%\yuv-709_-0-05.tga      %right_folder%\yuv-709_-0-05.tga         %target_folder%\yuv-709_-0-05.tga
-%program_TC% %left_folder%\yuv-709_-0-06.tga      %right_folder%\yuv-709_-0-06.tga         %target_folder%\yuv-709_-0-06.tga
-%program_TC% %left_folder%\yuv-709_-0-07.tga      %right_folder%\yuv-709_-0-07.tga         %target_folder%\yuv-709_-0-07.tga
-%program_TC% %left_folder%\yuv-709_-0-08.tga      %right_folder%\yuv-709_-0-08.tga         %target_folder%\yuv-709_-0-08.tga
-%program_TC% %left_folder%\yuv-709_-0-09.tga      %right_folder%\yuv-709_-0-09.tga         %target_folder%\yuv-709_-0-09.tga
-%program_TC% %left_folder%\yuv-709_-0-10.tga      %right_folder%\yuv-709_-0-10.tga         %target_folder%\yuv-709_-0-10.tga
+call check_1palette.bat  cmy-0-000.tga
+call check_1palette.bat  cmy-0-025.tga
+call check_1palette.bat  cmy-0-050.tga
+call check_1palette.bat  cmy-0-075.tga
+call check_1palette.bat  cmy-0-100.tga
+call check_1palette.bat  cmy-1-000.tga
+call check_1palette.bat  cmy-1-025.tga
+call check_1palette.bat  cmy-1-050.tga
+call check_1palette.bat  cmy-1-075.tga
+call check_1palette.bat  cmy-1-100.tga
+call check_1palette.bat  cmy-2-000.tga
+call check_1palette.bat  cmy-2-025.tga
+call check_1palette.bat  cmy-2-050.tga
+call check_1palette.bat  cmy-2-075.tga
+call check_1palette.bat  cmy-2-100.tga
+call check_1palette.bat  cmyk.tga
+call check_1palette.bat  hsi-0-000.tga
+call check_1palette.bat  hsi-0-025.tga
+call check_1palette.bat  hsi-0-050.tga
+call check_1palette.bat  hsi-0-075.tga
+call check_1palette.bat  hsi-0-100.tga
+call check_1palette.bat  hsi-1-000.tga
+call check_1palette.bat  hsi-1-025.tga
+call check_1palette.bat  hsi-1-050.tga
+call check_1palette.bat  hsi-1-075.tga
+call check_1palette.bat  hsi-1-100.tga
+call check_1palette.bat  hsi-2-000.tga
+call check_1palette.bat  hsi-2-025.tga
+call check_1palette.bat  hsi-2-050.tga
+call check_1palette.bat  hsi-2-075.tga
+call check_1palette.bat  hsi-2-100.tga
+call check_1palette.bat  hsl-0-000.tga
+call check_1palette.bat  hsl-0-025.tga
+call check_1palette.bat  hsl-0-050.tga
+call check_1palette.bat  hsl-0-075.tga
+call check_1palette.bat  hsl-0-100.tga
+call check_1palette.bat  hsl-1-000.tga
+call check_1palette.bat  hsl-1-025.tga
+call check_1palette.bat  hsl-1-050.tga
+call check_1palette.bat  hsl-1-075.tga
+call check_1palette.bat  hsl-1-100.tga
+call check_1palette.bat  hsl-2-000.tga
+call check_1palette.bat  hsl-2-025.tga
+call check_1palette.bat  hsl-2-050.tga
+call check_1palette.bat  hsl-2-075.tga
+call check_1palette.bat  hsl-2-100.tga
+call check_1palette.bat  hsv-0-000.tga
+call check_1palette.bat  hsv-0-025.tga
+call check_1palette.bat  hsv-0-050.tga
+call check_1palette.bat  hsv-0-075.tga
+call check_1palette.bat  hsv-0-100.tga
+call check_1palette.bat  hsv-1-000.tga
+call check_1palette.bat  hsv-1-025.tga
+call check_1palette.bat  hsv-1-050.tga
+call check_1palette.bat  hsv-1-075.tga
+call check_1palette.bat  hsv-1-100.tga
+call check_1palette.bat  hsv-2-000.tga
+call check_1palette.bat  hsv-2-025.tga
+call check_1palette.bat  hsv-2-050.tga
+call check_1palette.bat  hsv-2-075.tga
+call check_1palette.bat  hsv-2-100.tga
+call check_1palette.bat  hwb-0-000.tga
+call check_1palette.bat  hwb-0-010.tga
+call check_1palette.bat  hwb-0-020.tga
+call check_1palette.bat  hwb-0-030.tga
+call check_1palette.bat  hwb-0-040.tga
+call check_1palette.bat  hwb-0-050.tga
+call check_1palette.bat  hwb-0-060.tga
+call check_1palette.bat  hwb-0-070.tga
+call check_1palette.bat  hwb-0-080.tga
+call check_1palette.bat  hwb-0-090.tga
+call check_1palette.bat  hwb-0-101.tga
+call check_1palette.bat  hwb-0-111.tga
+call check_1palette.bat  hwb-1-000.tga
+call check_1palette.bat  hwb-1-010.tga
+call check_1palette.bat  hwb-1-020.tga
+call check_1palette.bat  hwb-1-030.tga
+call check_1palette.bat  hwb-1-040.tga
+call check_1palette.bat  hwb-1-050.tga
+call check_1palette.bat  hwb-1-060.tga
+call check_1palette.bat  hwb-1-070.tga
+call check_1palette.bat  hwb-1-080.tga
+call check_1palette.bat  hwb-1-090.tga
+call check_1palette.bat  hwb-1-100.tga
+call check_1palette.bat  hwb-2-000.tga
+call check_1palette.bat  hwb-2-010.tga
+call check_1palette.bat  hwb-2-020.tga
+call check_1palette.bat  hwb-2-030.tga
+call check_1palette.bat  hwb-2-040.tga
+call check_1palette.bat  hwb-2-050.tga
+call check_1palette.bat  hwb-2-060.tga
+call check_1palette.bat  hwb-2-070.tga
+call check_1palette.bat  hwb-2-080.tga
+call check_1palette.bat  hwb-2-090.tga
+call check_1palette.bat  hwb-2-100.tga
+call check_1palette.bat  lab-0-000.tga
+call check_1palette.bat  lab-0-025.tga
+call check_1palette.bat  lab-0-050.tga
+call check_1palette.bat  lab-0-075.tga
+call check_1palette.bat  lab-0-100.tga
+call check_1palette.bat  lab-1-000.tga
+call check_1palette.bat  lab-1-025.tga
+call check_1palette.bat  lab-1-050.tga
+call check_1palette.bat  lab-1-075.tga
+call check_1palette.bat  lab-1-100.tga
+call check_1palette.bat  lab-2-000.tga
+call check_1palette.bat  lab-2-025.tga
+call check_1palette.bat  lab-2-050.tga
+call check_1palette.bat  lab-2-075.tga
+call check_1palette.bat  lab-2-100.tga
+call check_1palette.bat  LabCH-0-000.tga
+call check_1palette.bat  LabCH-0-025.tga
+call check_1palette.bat  LabCH-0-050.tga
+call check_1palette.bat  LabCH-0-075.tga
+call check_1palette.bat  LabCH-0-100.tga
+call check_1palette.bat  LabCH-1-000.tga
+call check_1palette.bat  LabCH-1-025.tga
+call check_1palette.bat  LabCH-1-050.tga
+call check_1palette.bat  LabCH-1-075.tga
+call check_1palette.bat  LabCH-1-100.tga
+call check_1palette.bat  LabCH-2-000.tga
+call check_1palette.bat  LabCH-2-025.tga
+call check_1palette.bat  LabCH-2-050.tga
+call check_1palette.bat  LabCH-2-075.tga
+call check_1palette.bat  LabCH-2-100.tga
+call check_1palette.bat  lms-0-000.tga
+call check_1palette.bat  lms-0-025.tga
+call check_1palette.bat  lms-0-050.tga
+call check_1palette.bat  lms-0-075.tga
+call check_1palette.bat  lms-0-100.tga
+call check_1palette.bat  lms-1-000.tga
+call check_1palette.bat  lms-1-025.tga
+call check_1palette.bat  lms-1-050.tga
+call check_1palette.bat  lms-1-075.tga
+call check_1palette.bat  lms-1-100.tga
+call check_1palette.bat  lms-2-000.tga
+call check_1palette.bat  lms-2-025.tga
+call check_1palette.bat  lms-2-050.tga
+call check_1palette.bat  lms-2-075.tga
+call check_1palette.bat  lms-2-100.tga
+call check_1palette.bat  luv-0-000.tga
+call check_1palette.bat  luv-0-025.tga
+call check_1palette.bat  luv-0-050.tga
+call check_1palette.bat  luv-0-075.tga
+call check_1palette.bat  luv-0-100.tga
+call check_1palette.bat  luv-1-000.tga
+call check_1palette.bat  luv-1-025.tga
+call check_1palette.bat  luv-1-050.tga
+call check_1palette.bat  luv-1-075.tga
+call check_1palette.bat  luv-1-100.tga
+call check_1palette.bat  luv-2-000.tga
+call check_1palette.bat  luv-2-025.tga
+call check_1palette.bat  luv-2-050.tga
+call check_1palette.bat  luv-2-075.tga
+call check_1palette.bat  luv-2-100.tga
+call check_1palette.bat  LuvCH-0-000.tga
+call check_1palette.bat  LuvCH-0-025.tga
+call check_1palette.bat  LuvCH-0-050.tga
+call check_1palette.bat  LuvCH-0-075.tga
+call check_1palette.bat  LuvCH-0-100.tga
+call check_1palette.bat  LuvCH-1-000.tga
+call check_1palette.bat  LuvCH-1-025.tga
+call check_1palette.bat  LuvCH-1-050.tga
+call check_1palette.bat  LuvCH-1-075.tga
+call check_1palette.bat  LuvCH-1-100.tga
+call check_1palette.bat  LuvCH-2-000.tga
+call check_1palette.bat  LuvCH-2-025.tga
+call check_1palette.bat  LuvCH-2-050.tga
+call check_1palette.bat  LuvCH-2-075.tga
+call check_1palette.bat  LuvCH-2-100.tga
+call check_1palette.bat  rgb-0-000.tga
+call check_1palette.bat  rgb-0-025.tga
+call check_1palette.bat  rgb-0-050.tga
+call check_1palette.bat  rgb-0-075.tga
+call check_1palette.bat  rgb-0-100.tga
+call check_1palette.bat  rgb-1-000.tga
+call check_1palette.bat  rgb-1-025.tga
+call check_1palette.bat  rgb-1-050.tga
+call check_1palette.bat  rgb-1-075.tga
+call check_1palette.bat  rgb-1-100.tga
+call check_1palette.bat  rgb-2-000.tga
+call check_1palette.bat  rgb-2-025.tga
+call check_1palette.bat  rgb-2-050.tga
+call check_1palette.bat  rgb-2-075.tga
+call check_1palette.bat  rgb-2-100.tga
+call check_1palette.bat  xyy-0-000.tga
+call check_1palette.bat  xyy-0-025.tga
+call check_1palette.bat  xyy-0-050.tga
+call check_1palette.bat  xyy-0-075.tga
+call check_1palette.bat  xyy-0-100.tga
+call check_1palette.bat  xyy-1-000.tga
+call check_1palette.bat  xyy-1-025.tga
+call check_1palette.bat  xyy-1-050.tga
+call check_1palette.bat  xyy-1-075.tga
+call check_1palette.bat  xyy-1-100.tga
+call check_1palette.bat  xyy-2-000.tga
+call check_1palette.bat  xyy-2-025.tga
+call check_1palette.bat  xyy-2-050.tga
+call check_1palette.bat  xyy-2-075.tga
+call check_1palette.bat  xyy-2-100.tga
+call check_1palette.bat  xyz-0-000.tga
+call check_1palette.bat  xyz-0-025.tga
+call check_1palette.bat  xyz-0-050.tga
+call check_1palette.bat  xyz-0-075.tga
+call check_1palette.bat  xyz-0-100.tga
+call check_1palette.bat  xyz-1-000.tga
+call check_1palette.bat  xyz-1-025.tga
+call check_1palette.bat  xyz-1-050.tga
+call check_1palette.bat  xyz-1-075.tga
+call check_1palette.bat  xyz-1-100.tga
+call check_1palette.bat  xyz-2-000.tga
+call check_1palette.bat  xyz-2-025.tga
+call check_1palette.bat  xyz-2-050.tga
+call check_1palette.bat  xyz-2-075.tga
+call check_1palette.bat  xyz-2-100.tga
+call check_1palette.bat  yiq-0-000.tga
+call check_1palette.bat  yiq-0-025.tga
+call check_1palette.bat  yiq-0-050.tga
+call check_1palette.bat  yiq-0-075.tga
+call check_1palette.bat  yiq-0-100.tga
+call check_1palette.bat  yiq-1-000.tga
+call check_1palette.bat  yiq-1-025.tga
+call check_1palette.bat  yiq-1-050.tga
+call check_1palette.bat  yiq-1-075.tga
+call check_1palette.bat  yiq-1-100.tga
+call check_1palette.bat  yiq-2-000.tga
+call check_1palette.bat  yiq-2-025.tga
+call check_1palette.bat  yiq-2-050.tga
+call check_1palette.bat  yiq-2-075.tga
+call check_1palette.bat  yiq-2-100.tga
+call check_1palette.bat  yuv-709-0-000.tga
+call check_1palette.bat  yuv-709-0-025.tga
+call check_1palette.bat  yuv-709-0-050.tga
+call check_1palette.bat  yuv-709-0-075.tga
+call check_1palette.bat  yuv-709-0-100.tga
+call check_1palette.bat  yuv-709-1-000.tga
+call check_1palette.bat  yuv-709-1-025.tga
+call check_1palette.bat  yuv-709-1-050.tga
+call check_1palette.bat  yuv-709-1-075.tga
+call check_1palette.bat  yuv-709-1-100.tga
+call check_1palette.bat  yuv-709-2-000.tga
+call check_1palette.bat  yuv-709-2-025.tga
+call check_1palette.bat  yuv-709-2-050.tga
+call check_1palette.bat  yuv-709-2-075.tga
+call check_1palette.bat  yuv-709-2-100.tga
 
 pause
