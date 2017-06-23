@@ -16,25 +16,25 @@ namespace color
 
     template< >
      struct bound< ::color::category::LuvCH_uint8  >
-      : public ::color::_internal::utility::bound::general< std::uint8_t, unsigned >
+      : public ::color::_internal::utility::bound::general< std::uint8_t, typename ::color::trait::index< ::color::category::LuvCH_uint8 >::instance_type >
       {
       };
 
     template< >
      struct bound< ::color::category::LuvCH_uint16 >
-      : public ::color::_internal::utility::bound::general< std::uint16_t, unsigned >
+      : public ::color::_internal::utility::bound::general< std::uint16_t, typename ::color::trait::index< ::color::category::LuvCH_uint16 >::instance_type >
       {
       };
 
     template< >
      struct bound< ::color::category::LuvCH_uint32 >
-      : public ::color::_internal::utility::bound::general< std::uint32_t, unsigned >
+      : public ::color::_internal::utility::bound::general< std::uint32_t, typename ::color::trait::index< ::color::category::LuvCH_uint32 >::instance_type >
       {
       };
 
     template< >
      struct bound< ::color::category::LuvCH_uint64 >
-      : public ::color::_internal::utility::bound::general< std::uint64_t, unsigned >
+      : public ::color::_internal::utility::bound::general< std::uint64_t, typename ::color::trait::index< ::color::category::LuvCH_uint64 >::instance_type >
       {
       };
 
