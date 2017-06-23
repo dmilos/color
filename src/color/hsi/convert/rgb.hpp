@@ -6,6 +6,7 @@
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
+#include "../../generic/constant.hpp"
 
 namespace color
  {
@@ -22,7 +23,8 @@ namespace color
        public:
          typedef ::color::category::hsi< hsi_tag_name > category_left_type;
          typedef ::color::category::rgb< rgb_tag_name > category_right_type;
-         typedef double  scalar_type;
+
+         typedef typename ::color::trait::scalar< category_left_type >::instance_type scalar_type;
 
          typedef ::color::trait::scalar<category_left_type> scalar_trait_type;
 
@@ -35,9 +37,7 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-         typedef  ::color::constant::hsi< category_right_type > hsi_constant_type;
-
-         typedef   ::color::constant::generic< category_right_type > constant_type;
+         typedef   ::color::constant::generic< category_left_type > constant_type;
 
 
          enum
@@ -71,19 +71,19 @@ namespace color
            scalar_type s = scalar_type(1) - lo / i; if( true == scalar_trait_type::is_small( lo ) ){ s = scalar_type(1); }
 
            scalar_type c1 = r - g* scalar_type( 0.5 ) - b * scalar_type( 0.5 );
-           scalar_type c2 = (g-b) * hsi_constant_type::sqrt_3() * scalar_type( 0.5 );
+           scalar_type c2 = (g-b) * constant_type::sqrt_3() * scalar_type( 0.5 );
            scalar_type thetaX = atan2( c2, c1 );
-           if( thetaX < 0 ){ thetaX += hsi_constant_type::two_pi(); }
+           if( thetaX < 0 ){ thetaX += constant_type::two_pi(); }
            h = thetaX;
 
            //scalar_type alpha = ( (r-g) + ( r- b) ) * scalar_type( 0.5 );
            //scalar_type beta =  (r-g)*(r-g) + (r-b)*(g-b) ;
            //            beta = sqrt( beta );
            //scalar_type thetaA = acos( alpha / beta );
-           //if( b > g ) { thetaA = hsi_constant_type::two_pi() - thetaA; }
+           //if( b > g ) { thetaA = constant_type::two_pi() - thetaA; }
            //h = thetaA;
 
-            h /= hsi_constant_type::two_pi();
+            h /= constant_type::two_pi();
 
            container_left_trait_type::template set<       hue_p>( left, diverse_type::template process<       hue_p>( h ) );
            container_left_trait_type::template set<saturation_p>( left, diverse_type::template process<saturation_p>( s ) );

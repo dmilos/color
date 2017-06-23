@@ -30,7 +30,8 @@ namespace color
        public:
          typedef ::color::category::cmy< cmy_tag_name > category_left_type;
          typedef ::color::category::hsi<hsi_tag_name> category_right_type;
-         typedef double  scalar_type;
+
+         typedef typename ::color::trait::scalar< category_left_type >::instance_type scalar_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
@@ -41,7 +42,7 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-         typedef  ::color::constant::hsi< category_right_type > hsi_constant_type;
+         typedef  ::color::constant::generic< category_left_type > constant_type;
 
          enum
           {
@@ -70,9 +71,9 @@ namespace color
            scalar_type min = i * ( 1 - s );
 
            int region  = int( 3 * h );
-           h -= region * hsi_constant_type::third();
-           h *= hsi_constant_type::two_pi();
-           scalar_type n = i*( 1+ s*cos( h ) / cos( hsi_constant_type::deg60() - h ) );
+           h -= region * constant_type::third();
+           h *= constant_type::two_pi();
+           scalar_type n = i*( 1+ s*cos( h ) / cos( constant_type::deg60() - h ) );
 
            scalar_type r;
            scalar_type g;

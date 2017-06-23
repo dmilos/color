@@ -5,6 +5,8 @@
 
 #include "../../_internal/convert.hpp"
 
+#include "../../generic/constant.hpp"
+
 #include "../../hsi/hsi.hpp"
 
 
@@ -13,6 +15,7 @@
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
+#include "../../generic/constant.hpp"
 
 
 namespace color
@@ -42,7 +45,7 @@ namespace color
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
-         typedef  ::color::constant::hsi< category_right_type > hsi_constant_type;
+         typedef  ::color::constant::generic< category_left_type > constant_type;
 
          enum
           {
@@ -71,9 +74,9 @@ namespace color
            scalar_type min = i * ( 1 - s );
 
            int region  = int( 3 * h );
-           h -= region * hsi_constant_type::third();
-           h *= hsi_constant_type::two_pi();
-           scalar_type n = i*( 1+ s*cos( h ) / cos( hsi_constant_type::deg60() - h ) );
+           h -= region * constant_type::third();
+           h *= constant_type::two_pi();
+           scalar_type n = i*( 1+ s*cos( h ) / cos( constant_type::deg60() - h ) );
 
            scalar_type r;
            scalar_type g;

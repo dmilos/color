@@ -4,6 +4,9 @@
 #include "../../_internal/convert.hpp"
 #include "../../_internal/reformat.hpp"
 
+#include "../../generic/constant.hpp"
+
+
 #include "../category.hpp"
 
 
@@ -90,6 +93,8 @@ namespace color
          typedef ::color::_internal::reformat< category_left_type, yuv_scalar_category_type, scalar_type >    reformat_yuv_type;
          typedef ::color::_internal::reformat< yiq_scalar_category_type, category_right_type, scalar_type >    reformat_yiq_type;
 
+         typedef ::color::constant::generic< category_left_type > constant_type;
+
          enum
           {
                   luma_p  = ::color::place::_internal::luma<category_right_type>::position_enum
@@ -103,8 +108,8 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           static scalar_type sin_33 = sin( 33 *( 3.14159265358979323846 / 180 ) );
-           static scalar_type cos_33 = cos( 33 *( 3.14159265358979323846 / 180 ) );
+           static scalar_type sin_33 = sin( 33 * constant_type::deg2rad() );
+           static scalar_type cos_33 = cos( 33 * constant_type::deg2rad() );
 
            scalar_type y = reformat_yiq_type::template process<0,      luma_p>( container_right_trait_type::template get<      luma_p>( right ) );
            scalar_type i = reformat_yiq_type::template process<1,   inphase_p>( container_right_trait_type::template get<   inphase_p>( right ) );

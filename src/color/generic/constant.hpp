@@ -40,7 +40,9 @@ namespace color
          static /* constexpr*/ scalar_type const pi_half( ) { return this_type::pi() / scalar_type(2) ; }
          static /* constexpr*/ scalar_type const two_pi()   { return scalar_type(2) * this_type::pi(); }
          static /* constexpr*/ scalar_type const deg60(){ return  this_type::pi() / scalar_type(3); }
+         static /* constexpr*/ scalar_type const deg90(){ return  this_type::pi() / scalar_type(2); }
          static /* constexpr*/ scalar_type const deg120(){ return  scalar_type(2) * this_type::pi() / scalar_type(3); }
+         static /* constexpr*/ scalar_type const deg180(){ return  this_type::pi() * scalar_type(2); }
          static /* constexpr*/ scalar_type const deg240(){ return  scalar_type(4) * this_type::pi() / scalar_type(3); }
 
          static /* constexpr*/ scalar_type const deg2rad(){ return  this_type::pi()/scalar_type(180); }

@@ -3,6 +3,8 @@
 
 #include "../../_internal/convert.hpp"
 
+#include "../../generic/constant.hpp"
+
 #include "../category.hpp"
 
 
@@ -67,6 +69,7 @@ namespace color
        public:
          typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_left_type;
          typedef ::color::category::yuv< yuv_tag_name, ::color::constant::yuv::BT_601_entity >    yuv_category_type, category_right_type;
+
          typedef double scalar_type;
 
          typedef ::color::yiq< scalar_type >                                         yiq_scalar_type;
@@ -90,6 +93,8 @@ namespace color
          typedef ::color::_internal::reformat< category_left_type, yiq_scalar_category_type, scalar_type >    reformat_yiq_type;
          typedef ::color::_internal::reformat< yuv_scalar_category_type, category_right_type, scalar_type >    reformat_yuv_type;
 
+         typedef ::color::constant::generic< category_left_type > constant_type;
+
          enum
           {
                   luma_p  = ::color::place::_internal::luma<category_left_type>::position_enum
@@ -103,8 +108,8 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           static scalar_type sin_33 = sin( 33 *( 3.14159265358979323846 / 180 ) );
-           static scalar_type cos_33 = cos( 33 *( 3.14159265358979323846 / 180 ) );
+           static scalar_type sin_33 = sin( 33 * constant_type::deg2rad() );
+           static scalar_type cos_33 = cos( 33 * constant_type::deg2rad() );
 
            scalar_type y = reformat_yuv_type::template process<0,0>( container_right_trait_type::template get<0>( right ) );
            scalar_type u = reformat_yuv_type::template process<1,1>( container_right_trait_type::template get<1>( right ) );
