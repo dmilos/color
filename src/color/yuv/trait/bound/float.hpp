@@ -12,19 +12,19 @@ namespace color
 
     template< ::color::constant::yuv::reference_enum reference_number >
      struct bound< ::color::category::yuv_float<reference_number> >
-      : public ::color::_internal::yuv::bound::scalar< unsigned, float >
+      : public ::color::_internal::yuv::bound::scalar< typename ::color::trait::index< ::color::category::yuv_float<reference_number> >::instance_type, float >
       {
       };
 
     template< ::color::constant::yuv::reference_enum reference_number >
      struct bound< ::color::category::yuv_double< reference_number > >
-      : public ::color::_internal::yuv::bound::scalar< unsigned, double >
+      : public ::color::_internal::yuv::bound::scalar< typename ::color::trait::index< ::color::category::yuv_double<reference_number> >::instance_type, double >
       {
       };
 
     template< ::color::constant::yuv::reference_enum reference_number >
      struct bound< ::color::category::yuv_ldouble<reference_number> >
-      : public ::color::_internal::yuv::bound::scalar< unsigned, long double >
+      : public ::color::_internal::yuv::bound::scalar< typename ::color::trait::index< ::color::category::yuv_ldouble<reference_number> >::instance_type, long double >
       {
       };
 

@@ -14,19 +14,19 @@ namespace color
 
     template< >
      struct bound< ::color::category::luv_float >
-      : public ::color::_internal::luv::bound::scalar< unsigned, float >
+      : public ::color::_internal::luv::bound::scalar< typename ::color::trait::index< ::color::category::luv_float >::instance_type, float >
       {
       };
 
     template< >
      struct bound< ::color::category::luv_double >
-      : public ::color::_internal::luv::bound::scalar< unsigned, double >
+      : public ::color::_internal::luv::bound::scalar< typename ::color::trait::index< ::color::category::luv_double >::instance_type, double >
       {
       };
 
     template< >
      struct bound< ::color::category::luv_ldouble >
-      : public ::color::_internal::luv::bound::scalar< unsigned, long double >
+      : public ::color::_internal::luv::bound::scalar< typename ::color::trait::index< ::color::category::luv_ldouble >::instance_type, long double >
       {
       };
 

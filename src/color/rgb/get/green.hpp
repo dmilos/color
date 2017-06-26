@@ -9,6 +9,12 @@
 
 
 
+
+
+
+
+
+
  namespace color
   {
    namespace constant
@@ -19,7 +25,7 @@
        enum algorithm_enum
         {
          channel_number
-         ,MoD_number
+         ,hsl_star_number
         };
 
        namespace _internal
@@ -57,7 +63,7 @@
         green
          (
            ::color::model< ::color::category::rgb<tag_name> >                           const& color_parameter
-          ,::color::constant::green::_internal::algorithm< ::color::constant::green::MoD_number> const& algorithm
+          ,::color::constant::green::_internal::algorithm< ::color::constant::green::hsl_star_number> const& algorithm
          )
          {
           typedef ::color::category::rgb< tag_name>  category_type;

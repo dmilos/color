@@ -14,19 +14,19 @@ namespace color
 
     template< ::color::constant::YPbPr::reference_enum reference_number >
      struct bound< ::color::category::YPbPr_float< reference_number > >
-      : public ::color::_internal::YPbPr::bound::scalar< unsigned, float >
+      : public ::color::_internal::YPbPr::bound::scalar< typename ::color::trait::index< ::color::category::YPbPr_float<reference_number> >::instance_type, float >
       {
       };
 
     template< ::color::constant::YPbPr::reference_enum reference_number >
      struct bound< ::color::category::YPbPr_double<reference_number> >
-      : public ::color::_internal::YPbPr::bound::scalar< unsigned, double >
+      : public ::color::_internal::YPbPr::bound::scalar< typename ::color::trait::index< ::color::category::YPbPr_double<reference_number> >::instance_type, double >
       {
       };
 
     template< ::color::constant::YPbPr::reference_enum reference_number >
      struct bound< ::color::category::YPbPr_ldouble<reference_number> >
-      : public ::color::_internal::YPbPr::bound::scalar< unsigned, long double >
+      : public ::color::_internal::YPbPr::bound::scalar< typename ::color::trait::index< ::color::category::YPbPr_ldouble<reference_number> >::instance_type, long double >
       {
       };
 

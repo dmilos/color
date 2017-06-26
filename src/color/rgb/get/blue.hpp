@@ -19,7 +19,7 @@
        enum algorithm_enum
         {
          channel_number
-         ,MoD_number
+         ,hsl_star_number
         };
 
        namespace _internal
@@ -57,7 +57,7 @@
         blue
          (
            ::color::model< ::color::category::rgb<tag_name> >                           const& color_parameter
-          ,::color::constant::blue::_internal::algorithm< ::color::constant::blue::MoD_number> const& algorithm
+          ,::color::constant::blue::_internal::algorithm< ::color::constant::blue::hsl_star_number > const& algorithm
          )
          {
           typedef ::color::category::rgb< tag_name>  category_type;
@@ -85,11 +85,11 @@
             if( b < r ) { result = 0; break; }
             if( r < g )
              {
-              result = ( b - g )* ( 1- ( g - r ) );
+              result = ( b - g ) * ( 1- ( g - r ) );
               break;
              }
 
-            result = ( b - r )* ( 1- ( r - g ) );
+            result = ( b - r ) * ( 1- ( r - g ) );
             break;
            }
 

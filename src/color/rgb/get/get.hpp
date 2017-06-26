@@ -5,6 +5,11 @@
 #include "./green.hpp"
 #include "./blue.hpp"
 
+
+#include "./cyan.hpp"
+#include "./magenta.hpp"
+#include "./yellow.hpp"
+
 #include "./alpha.hpp"
 
 #include "./inphase.hpp"

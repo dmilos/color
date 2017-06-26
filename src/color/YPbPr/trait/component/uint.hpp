@@ -16,25 +16,25 @@ namespace color
 
     template< ::color::constant::YPbPr::reference_enum reference_number >
      struct component< ::color::category::YPbPr_uint8<reference_number> >
-      : public ::color::_internal::utility::component::array< std::uint8_t, unsigned >
+      : public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::YPbPr_uint8<reference_number> >::instance_type >
       {
       };
 
     template< ::color::constant::YPbPr::reference_enum reference_number >
      struct component< ::color::category::YPbPr_uint16<reference_number> >
-      : public ::color::_internal::utility::component::array< std::uint16_t, unsigned >
+      : public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::YPbPr_uint16<reference_number> >::instance_type >
       {
       };
 
     template< ::color::constant::YPbPr::reference_enum reference_number >
      struct component< ::color::category::YPbPr_uint32<reference_number> >
-      : public ::color::_internal::utility::component::array< std::uint32_t, unsigned >
+      : public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::YPbPr_uint32<reference_number> >::instance_type >
       {
       };
 
     template< ::color::constant::YPbPr::reference_enum reference_number >
      struct component< ::color::category::YPbPr_uint64<reference_number> >
-      : public ::color::_internal::utility::component::array< std::uint64_t, unsigned >
+      : public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::YPbPr_uint64<reference_number> >::instance_type >
       {
       };
 
