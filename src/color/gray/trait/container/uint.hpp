@@ -16,25 +16,25 @@ namespace color
 
     template< >
      struct container< ::color::category::gray_uint8 >
-      : public ::color::_internal::utility::container::Unsigned< std::uint8_t,  std::uint8_t, unsigned,  1, 8  >
+      : public ::color::_internal::utility::container::Unsigned< std::uint8_t,  std::uint8_t,  typename ::color::trait::index< ::color::category::gray_uint8 >::instance_type,  1, 8  >
       {
       };
 
     template< >
      struct container< ::color::category::gray_uint16 >
-      : public ::color::_internal::utility::container::Unsigned< std::uint16_t, std::uint16_t, unsigned, 1, 16 >
+      : public ::color::_internal::utility::container::Unsigned< std::uint16_t, std::uint16_t,  typename ::color::trait::index< ::color::category::gray_uint16 >::instance_type, 1, 16 >
       {
       };
 
     template< >
      struct container< ::color::category::gray_uint32 >
-      : public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint32_t, unsigned, 1, 32 >
+      : public ::color::_internal::utility::container::Unsigned< std::uint32_t, std::uint32_t,  typename ::color::trait::index< ::color::category::gray_uint32 >::instance_type, 1, 32 >
       {
       };
 
     template< >
      struct container< ::color::category::gray_uint64 >
-      : public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint64_t, unsigned, 1, 64 >
+      : public ::color::_internal::utility::container::Unsigned< std::uint64_t, std::uint64_t,  typename ::color::trait::index< ::color::category::gray_uint64 >::instance_type, 1, 64 >
       {
       };
 

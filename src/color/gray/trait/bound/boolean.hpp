@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct bound< ::color::category::gray_bool >
-      : public ::color::_internal::utility::bound::general< bool, unsigned >
+      : public ::color::_internal::utility::bound::general< bool, typename ::color::trait::index< ::color::category::gray_bool >::instance_type >
       {
       };
 

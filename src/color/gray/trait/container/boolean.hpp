@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct container< ::color::category::gray_bool >
-      : public  ::color::_internal::utility::container::boolean< unsigned >
+      : public  ::color::_internal::utility::container::boolean< typename ::color::trait::index< ::color::category::gray_bool >::instance_type >
       {
       };
 

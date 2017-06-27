@@ -2,8 +2,8 @@
 
 ### Status:
 - Documentation
- - Examples coverage: ~90%
- - HTML coverage: ~90%
+  - Examples coverage: ~90%
+  - HTML coverage: ~90%
 - Ready for test use
 
 ### Description
@@ -19,8 +19,13 @@
 - No additional binaries
 - One file to include to start the fun
 - Out of the box ready
- - No need to recompile or start some install process.
-- Color models: CMY, CMYK, GRAY, HSI, HSL, HSV, HWB, RGB, YIQ, YUV(BT.601, BT.709), YCgCo, YPbPr(BT.601, BT.709, BT.2020), XYZ( sRGB, D65, 2° ), LAB, LUV, LMS, xyY, LabCH, LuvCH
+  - No need to recompile or start some install process.
+- Color models:
+  - GRAY,
+  - RGB, CMY, CMYK,
+  - HSI, HSL, HSV, HWB,
+  - YIQ, YUV(BT.601, BT.709), YCgCo, YPbPr(BT.601, BT.709, BT.2020),
+  - XYZ( sRGB, D65, 2° ), LAB, LUV, LMS( von Kries D65, von Kries E, BFD, MCAT02  ), xyY, LabCH, LuvCH
 
 ### Code sample:
 ```c++
@@ -46,13 +51,13 @@ b = color::operation::mix( y, 0.5, color::yiq<std::uint8_t>( h ) ); //!< Blend t
 
 ### Install:
 1. Clone this Repository:
- Examples:
-  - Windows : git clone https://github.com/dmilos/color.git c:\my-work-folder\my-git-folder\color
-  - Linux   : git clone https://github.com/dmilos/color.git /home/my-user-name/my-work-folder/my-git-folder/color
+  Examples:
+    - Windows : git clone https://github.com/dmilos/color.git c:\my-work-folder\my-git-folder\color
+    - Linux   : git clone https://github.com/dmilos/color.git /home/my-user-name/my-work-folder/my-git-folder/color
 2. Inform compiler where to find headers:
- Examples:
-  - MSVC : /Ic:\my-work-folder\my-git-folder\color\src
-  - gcc  : -I/home/my-user-name/my-work-folder/my-git-folder/color/src
+  Examples:
+   - MSVC : /Ic:\my-work-folder\my-git-folder\color\src
+   - gcc  : -I/home/my-user-name/my-work-folder/my-git-folder/color/src
 
 ### Want to see more:
   - [HTML Documentation ](doc/index.html)
@@ -63,3 +68,10 @@ b = color::operation::mix( y, 0.5, color::yiq<std::uint8_t>( h ) ); //!< Blend t
   - GCC 5.4.0 20160609
   - MSVC 2015 Update 3
   - MSVC 2013 Update 5
+
+
+
+
+
+
+
