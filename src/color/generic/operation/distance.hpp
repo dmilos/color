@@ -5,7 +5,6 @@
 // ::color::constant::delta_gray_entity, hsl_special_entity, euclid_entity
 
 #include "../../gray/gray.hpp"
-#include "../trait/diagonal.hpp"
 #include "./delta.hpp"
 
  namespace color
@@ -17,9 +16,9 @@
 
        enum reference_enum
         {
-          delta_gray_entity
+          euclid_entity
+         ,delta_gray_entity
          ,hsl_special_entity
-         ,euclid_entity
          ,rgb_special_entity
         };
 
@@ -31,23 +30,39 @@
      namespace _internal
       {
 
-       template< typename category_name, enum ::color::constant::distance::reference_enum reference_number= ::color::constant::distance::euclid_entity >
+       template< typename category_name, enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::euclid_entity >
         struct distance
          {
           public:
             typedef category_name  category_type;
             typedef ::color::model<category_type>  model_type;
-            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
-            typedef ::color::trait::diagonal< category_name >         diagonal_type;
+            typedef typename ::color::trait::container< category_type >              container_trait_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type   scalar_type;
+            typedef typename ::color::trait::index< category_type >::instance_type     index_type;
+
+            typedef color::operation::_internal::distance< category_name, ::color::constant::distance::euclid_entity> this_type;
+
+            static   scalar_type square( scalar_type const& s )
+             {
+              return s * s;
+             }
 
             static scalar_type process( model_type const& left, model_type const& right )
              {
-              model_type difference;
-              ::color::operation::delta( difference, left, right );
-              scalar_type lenght = sqrt(  scalar_type( difference[0] )*scalar_type( difference[0] )
-                                        + scalar_type( difference[1] )*scalar_type( difference[1] )
-                                        + scalar_type( difference[2] )*scalar_type( difference[2] ) ) / diagonal_type::value();
-              return lenght;
+              scalar_type lenght = 0;
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
+               {
+                if( left.get( index ) < right.get( index ) )
+                 {
+                  lenght += this_type::square( scalar_type( right.get( index ) - left.get( index ) ) );
+                 }
+                else
+                 {
+                  lenght +=  this_type::square( scalar_type( left.get( index ) - right.get( index ) ) );
+                 }
+               }
+
+              return sqrt( lenght );
              }
          };
 
@@ -58,11 +73,12 @@
             typedef category_name  category_type;
             typedef ::color::model<category_type>  model_type;
             typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef ::color::gray<scalar_type> gray_type;
 
             static scalar_type process( model_type const& left, model_type const& right )
              {
               model_type difference;
-              return ::color::gray<scalar_type>( ::color::operation::delta( difference, left, right ) ).template get<0>();
+              return gray_type( ::color::operation::delta( difference, left, right ) ).template get<0>();
              }
          };
 
