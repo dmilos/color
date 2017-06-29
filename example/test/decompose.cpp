@@ -15,6 +15,33 @@ using namespace std;
 
 template< typename color_model >
  void
+ decompose2gray
+  (
+    bgr_image_type const& image
+   ,std::string const& name
+   ,std::size_t const& width, std::size_t const& height
+  )
+  {
+   gray_image_type  component;
+
+   for( int channel=0; channel< color_model::size(); ++channel )
+    {
+     component.clear();
+     component.reserve( image.size() );
+     for( auto & original : image )
+      {
+       color_model            other( original );
+
+       component.push_back( gray_color_type( { (unsigned char )(255 * ::color::operation::normalize( other, channel ) ) } ) );
+      }
+     save_image_gray( name + "-" + std::to_string( channel ) + ".tga", component, width, height );
+    }
+
+   return ;
+  }
+
+template< typename color_model >
+ void
  decompose
   (
     bgr_image_type const& image
@@ -100,7 +127,45 @@ int decompose_test( int argc, char const *argv[] )
   decompose< ::color::lms<double, ::color::constant::lms::BFD_entity           > >( image, "./dec/lmsBFD", width, height,    ::color::lms<double, ::color::constant::lms::BFD_entity          >{ 50, 0, 0 } );
   decompose< ::color::lms<double, ::color::constant::lms::MCAT02_entity        > >( image, "./dec/lmsMCAT02", width, height, ::color::lms<double, ::color::constant::lms::MCAT02_entity       >{ 50, 0, 0 } );
 
+  {
+   decompose2gray< ::color::cmyk<double>  >( image, "./dec-gray/cmyk", width, height );
+   
+   decompose2gray< ::color::gray<double>  >( image, "./dec-gray/gray", width, height );
+   
+   decompose2gray< ::color::rgb<double>   >( image, "./dec-gray/rgb", width, height );
+   decompose2gray< ::color::cmy<double>   >( image, "./dec-gray/cmy", width, height );
+   
+   decompose2gray< ::color::hsv<double>   >( image, "./dec-gray/hsv", width, height );
+   decompose2gray< ::color::hsl<double>   >( image, "./dec-gray/hsl", width, height );
+   decompose2gray< ::color::hsi<double>   >( image, "./dec-gray/hsi", width, height );
+   decompose2gray< ::color::hwb<double>   >( image, "./dec-gray/hwb", width, height );
+   
+   decompose2gray< ::color::yiq<double>   >( image, "./dec-gray/yiq", width, height );
+   
+   decompose2gray< ::color::yuv<double, ::color::constant::yuv::BT_601_entity> >( image, "./dec/yuv-601", width, height );
+   decompose2gray< ::color::yuv<double, ::color::constant::yuv::BT_709_entity> >( image, "./dec/yuv-709", width, height );
+   
+   decompose2gray< ::color::YCgCo<double> >( image, "./dec-gray/YCgCo", width, height );
+   decompose2gray< ::color::YDbDr<double> >( image, "./dec-gray/YDbDr", width, height );
+   
+   decompose2gray< ::color::YPbPr<double, ::color::constant::YPbPr::BT_601_entity  > >( image, "./dec/YPbPr601", width, height );
+   decompose2gray< ::color::YPbPr<double, ::color::constant::YPbPr::BT_709_entity  > >( image, "./dec/YPbPr709", width, height );
+   decompose2gray< ::color::YPbPr<double, ::color::constant::YPbPr::BT_2020_entity > >( image, "./dec/YPbPr2020", width, height );
+   
+   decompose2gray< ::color::xyz<double> >( image, "./dec-gray/xyz", width, height );
+   decompose2gray< ::color::xyy<double> >( image, "./dec-gray/xyy", width, height );
+   
+   decompose2gray< ::color::lab<   double> >( image, "./dec-gray/lab",   width, height );
+   decompose2gray< ::color::LabCH< double> >( image, "./dec-gray/LabHC", width, height );
+   decompose2gray< ::color::luv<   double> >( image, "./dec-gray/luv",   width, height );
+   decompose2gray< ::color::LuvCH< double> >( image, "./dec-gray/LuvHC", width, height );
+   
+   decompose2gray< ::color::lms<double, ::color::constant::lms::von_Kries_D65_entity > >( image, "./dec-gray/lmsK65", width, height      );
+   decompose2gray< ::color::lms<double, ::color::constant::lms::von_Kries_E_entity   > >( image, "./dec-gray/lmsKE", width, height       );
+   decompose2gray< ::color::lms<double, ::color::constant::lms::BFD_entity           > >( image, "./dec-gray/lmsBFD", width, height      );
+   decompose2gray< ::color::lms<double, ::color::constant::lms::MCAT02_entity        > >( image, "./dec-gray/lmsMCAT02", width, height   );
 
+  }
 
 
   return EXIT_SUCCESS;

@@ -28,7 +28,7 @@ namespace color
       {
        return ::color::_internal::normalize<category_name>::process( m.get( index ), index ) ;
       }
-      
+
     template
      <
        unsigned index_size
@@ -40,9 +40,9 @@ namespace color
       (
        ::color::model<category_name>                     const& m
       )
-     {
-      return  ::color::_internal::normalize<category_name>::template process<index_size>( m.template get<index_size>() );
-     }
+      {
+       return  ::color::_internal::normalize<category_name>::template process<index_size>( m.template get<index_size>() );
+      }
 
    }
  }
