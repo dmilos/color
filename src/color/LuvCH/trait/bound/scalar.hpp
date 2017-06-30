@@ -42,7 +42,7 @@ namespace color
               {
                scalar_instance_type a = std::max<scalar_instance_type>( fabs( luv_bound_type::template minimum<1>() ), luv_bound_type::template maximum<1>() );
                scalar_instance_type b = std::max<scalar_instance_type>( fabs( luv_bound_type::template minimum<2>() ), luv_bound_type::template maximum<2>() );
-               return sqrt( a*a+b*b );
+               return sqrt( a*a + b*b );
               }
 
              template< index_instance_type index >

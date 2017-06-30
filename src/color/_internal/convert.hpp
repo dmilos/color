@@ -59,7 +59,7 @@ namespace color
        };
 
     template< typename category_name >
-     struct convert< category_name,category_name >
+     struct convert< category_name, category_name >
       {
        public:
 

@@ -16,15 +16,15 @@
      template< typename category_name >
       void init
        (
-          typename ::color::trait::container< category_name >::output_type                                    container
-        , std::initializer_list< typename ::color::trait::component< category_name >::instance_type > const&  ilist
+          typename ::color::trait::container< category_name >::output_type                                   container
+        ,std::initializer_list< typename ::color::trait::component< category_name >::instance_type > const&  ilist
        )
        {
         typedef ::color::trait::container< category_name >                      container_trait_type;
 
         typedef typename ::color::trait::index< category_name >::instance_type     index_type;
 
-        //TODO C++14 static_assert( ilist.size() < container_trait_type::size_entity, "Initizlizer list size do not mach model/format length." );
+        //TODO C++14 static_assert( ilist.size() < container_trait_type::size_entity, "Initializer list size do not match model/format length." );
 
         auto ili = ilist.begin();
         index_type index=0;

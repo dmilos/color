@@ -116,14 +116,14 @@ namespace color
         {
          return container_trait_type::get( this->m_container, index );
         }
-       
+
        template< index_type index >
         component_return_const_type
         get()const
          {
           return container_trait_type::template get<index>( this->m_container );
          }
-       
+
        set_return_type
        set( index_input_const_type index, component_input_const_type component )
         {
@@ -147,7 +147,7 @@ namespace color
         {
          return this->get( index );
         }
-       
+
      private: // Very ugly but effective
        class proxy
         {
@@ -211,12 +211,12 @@ namespace color
          return proxy{ *this, index };
         }
 
-       container_return_const_type container()const
+       container_return_const_type      container()const
         {
          return this->m_container;
         }
 
-       container_return_original_type       container()
+       container_return_original_type   container()
         {
          return this->m_container;
         }

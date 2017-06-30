@@ -13,6 +13,7 @@
 			<dd>
 				<ul>
 					<li><a href="#bound">bound</a></li>
+					<li><a href="#diagonal">diagonal</a></li>
 					<li><a href="#component">component</a></li>
 					<li><a href="#container">container</a></li>
 					<li><a href="#index">index</a></li>
@@ -20,7 +21,7 @@
 				</ul>
 			</dd>
 			<dt><h3>Description</h3></dt>
-			<dd>Every color model format combination has its own traits. Those traits can be retrieved in run or compile time. </dd>
+			<dd>Every color <a href="../glossary.html#model">model</a>/<a href="../glossary.html#format">format</a> combination has its own traits. Those traits can be retrieved in run or compile time. </dd>
 			<dt><h3>List</h3></dt>
 			<dd>
 				<dl>
@@ -42,7 +43,8 @@
 											<dt>Example</dt>
 											<dd>
 												<code>
-												std::count &lt;&lt; ::color::rgb&lt; double&gt;::bound_type::minimum() &lt;&lt; std::endl;
+												//This will print 0.<br>
+												std::count &lt;&lt; ::color::rgb&lt;double&gt;::bound_type::minimum( 0 ) &lt;&lt; std::endl;
 												</code>
 											</dd>
 										</dl>
@@ -57,7 +59,8 @@
 											<dt>Example</dt>
 											<dd>
 												<code>
-												std::count &lt;&lt; ::color::hsl&lt; double&gt;::bound_type::maximum() &lt;&lt; std::endl;
+												//This will print 360.<br>
+												std::count &lt;&lt; ::color::hsl&lt;double&gt;::bound_type::maximum( 2 ) &lt;&lt; std::endl;
 												</code>
 											</dd>
 										</dl>
@@ -67,12 +70,13 @@
 										<dl>
 											<dt>Description</dt>
 											<dd>
-												Return range for given index. Equivalent to <code>maximum()- minimum()</code>
+												Return range for given index. Equivalent to <code>maximum( index )- minimum( index  )</code>
 											</dd>
 											<dt>Example</dt>
 											<dd>
 												<code>
-												std::count &lt;&lt; ::color::yiq&lt; double&gt;::bound_type::range() &lt;&lt; std::endl;
+												//This will print 1.045182091.<br>
+												std::count &lt;&lt; ::color::yiq&lt;double&gt;::bound_type::range( 2 ) &lt;&lt; std::endl;
 												</code>
 											</dd>
 										</dl>
@@ -81,28 +85,19 @@
 							</dd>
 						</dl>
 					</dd>
-					<dt><a name="component" /><code>component</code></dt>
+					<dt><a name="diagonal" /><code>diagonal</code></dt>
 					<dd>
 						<dl>
 							<dt>Description</dt>
-							<dd>Types of component. Instance, input/output parameters, return (non)modifiable types.</dd>
+							<dd>Return distance between two the most far color by using euclidean distance.</dd>
 							<dt>Members</dt>
 							<dd>
 								<dl>
-									<dt><code>instance_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make instance of component</dd>
-									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::instance_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
-									<dt><code>const_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make constant instance of component</dd>
-									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::const_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
-									<dt><code>return_image_type</code></dt><dd><dl><dt>Description</dt><dd>Returned component which can not be modified.</dd>
-									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::return_image_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
-									<dt><code>return_type</code></dt><dd><dl><dt>Description</dt><dd>Returned component without guaranteed properties</dd>
-									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::return_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
-									<dt><code>return_original_type</code></dt><dd><dl><dt>Description</dt><dd>Returned component which can be modified.</dd>
-									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::return_original_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
-									<dt><code>input_const_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd>
-									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::input_const_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
-									<dt><code>input_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which might be modifiable.</dd>
-									<dt>Example</dt><dd><code> std::count &lt;&lt; typeid( ::color::trait::component&lt; color::category::cmy_uint8 &gt;::input_type ).name() &lt;&lt; std::endl;</code></dd></dl></dd>
+									<dt><code>value</code></dt>
+									<dd><dl><dt>Description</dt><dd>Return distance betwen two the most far colors.</dd>
+												<dt>Example</dt>
+												<dd><code>std::count &lt;&lt;  ::color::trait::diagonal&lt; ::color::yiq&lt;double&gt;::category_type &gt;::value() &lt;&lt; std::endl; </code></dd>
+											</dl></dd>
 								</dl>
 							</dd>
 						</dl>
@@ -198,7 +193,7 @@
 					<dd>
 						<dl>
 							<dt>Description</dt>
-							<dd><code>float</code> like number ( usually double ) used for operations that require more precision that component can give.</dd>
+							<dd><code>float</code> like number ( usually <code>double</code> ) used for operations that require more precision that component can give.</dd>
 							<dt>Members</dt>
 							<dd>
 								<dl>

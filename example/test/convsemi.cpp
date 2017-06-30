@@ -186,9 +186,9 @@ void image_conversion()
   typedef ::color::lab<double>::category_type           lab_t;
 
   typedef ::color::lms<double, ::color::constant::lms::von_Kries_D65_entity>::category_type        lms_t;
-  //typedef ::color::lms<double, ::color::constant::lms::von_Kries_E_entity  >::category_type        lms_t;
-  //typedef ::color::lms<double, ::color::constant::lms::BFD_entity          >::category_type        lms_t;
-  //typedef ::color::lms<double, ::color::constant::lms::MCAT02_entity       >::category_type        lms_t;
+//typedef ::color::lms<double, ::color::constant::lms::von_Kries_E_entity  >::category_type        lmsKE_t;
+//typedef ::color::lms<double, ::color::constant::lms::BFD_entity          >::category_type        lmsBFD_t;
+//typedef ::color::lms<double, ::color::constant::lms::MCAT02_entity       >::category_type        lmsMC2_t;
   typedef ::color::luv<double>::category_type        luv_t;
   typedef ::color::LabCH<double>::category_type    LabCH_t;
   typedef ::color::LuvCH<double>::category_type    LuvCH_t;
