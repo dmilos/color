@@ -51,31 +51,31 @@ namespace color
            return container_trait_type::get( this->m_container, this->m_index );
           }
 
-         proxy & operator=( component_input_const_type component )
+         this_type & operator=( component_input_const_type component )
           {
            container_trait_type::set( this->m_container, this->m_index, component );
            return *this;
           }
 
-         proxy & operator+=( component_input_const_type component )
+         this_type & operator+=( component_input_const_type component )
           {
            container_trait_type::set( this->m_container, this->m_index, container_trait_type::get( this->m_container, this->m_index ) + component );
            return *this;
           }
 
-         proxy & operator-=( component_input_const_type component )
+         this_type & operator-=( component_input_const_type component )
           {
            container_trait_type::set( this->m_container, this->m_index, container_trait_type::get( this->m_container, this->m_index ) - component );
            return *this;
           }
 
-         proxy & operator*=( scalar_input_const_type scalar )
+         this_type & operator*=( scalar_input_const_type scalar )
           {
            container_trait_type::set( this->m_container, this->m_index, container_trait_type::get( this->m_container, this->m_index ) * scalar );
            return *this;
           }
 
-         proxy & operator/=( scalar_input_const_type scalar )
+         this_type & operator/=( scalar_input_const_type scalar )
           {
            container_trait_type::set( this->m_container, this->m_index, container_trait_type::get( this->m_container, this->m_index ) / scalar );
            return *this;
