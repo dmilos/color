@@ -17,6 +17,10 @@
        enum reference_enum
         {
           euclid_entity
+         ,CIE76_entity
+         ,CIE94_entity //!< NYI
+         ,CIEDE2000_entity //!< NYI
+         ,CMC1984_entity //!< NYI
          ,delta_gray_entity
          ,hsl_special_entity
          ,rgb_special_entity
@@ -82,6 +86,24 @@
              }
          };
 
+       template< typename category_name>
+        struct distance< category_name, ::color::constant::distance::CIE76_entity >
+         {
+          public:
+            typedef category_name  category_type;
+            typedef ::color::model<category_type>  model_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef ::color::lab<scalar_type>  lab_type;
+
+            static scalar_type process( model_type const& left, model_type const& right )
+             {
+              lab_type lab_left(left);
+              lab_type lab_right(right);
+
+              return ::color::operation::distance< ::color::constant::distance::euclid_entity >( lab_left, lab_right );
+             }
+         };
+
        template< typename category_name >
         struct distance< category_name, ::color::constant::distance::hsl_special_entity >
          {
@@ -130,7 +152,11 @@
 
       }
 
-     template< enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::euclid_entity, typename category_name >
+     template
+      <
+        enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::euclid_entity
+       ,typename category_name 
+      >
       typename ::color::trait::scalar< category_name >::instance_type
       distance
        (
