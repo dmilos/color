@@ -18,7 +18,9 @@
         {
           euclid_entity
          ,CIE76_entity
-         ,CIE94_entity //!< NYI
+         ,CIE94__base_entity
+         ,CIE94_graphics_entity
+         ,CIE94_textile_entity
          ,CIEDE2000_entity //!< NYI
          ,CMC1984_entity //!< NYI
          ,delta_gray_entity
@@ -105,6 +107,81 @@
          };
 
        template< typename category_name >
+        struct distance< category_name, ::color::constant::distance::CIE94__base_entity >
+         {
+          public:
+            typedef category_name  category_type;
+            typedef ::color::model<category_type>  model_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef ::color::lab<scalar_type>  lab_type;
+
+            static scalar_type process( model_type const& left, model_type const& right, scalar_type const& K_L, scalar_type const& K_1, scalar_type const& K_2 )
+             {
+              static const scalar_type K_C = 1;
+              static const scalar_type K_H = 1;
+
+              lab_type lab_left(left);
+              lab_type lab_right(right);
+
+              scalar_type delta_L =  lab_left[0] - lab_right[0];
+
+              scalar_type C_1 =  sqrt(  lab_left[1]* lab_left[1] +  lab_left[2]* lab_left[2] );
+              scalar_type C_2 =  sqrt( lab_right[1]*lab_right[1] + lab_right[2]*lab_right[2] );
+              scalar_type delta_C =  C_1 - C_2;
+
+              scalar_type delta_a =  lab_left[1] - lab_right[1];
+              scalar_type delta_b =  lab_left[2] - lab_right[2];
+
+              scalar_type delta_H = sqrt( delta_a*delta_a + delta_b*delta_b - delta_C*delta_C );
+
+              scalar_type S_L  =  1;
+              scalar_type S_C  =  1 + K_1 * C_1;
+              scalar_type S_H  =  1 + K_2 * C_1;
+
+              scalar_type delta_E_1  = delta_L/( K_L * S_L );
+              scalar_type delta_E_2  = delta_C/( K_C * S_C );
+              scalar_type delta_E_3  = delta_H/( K_H * S_H );
+
+              scalar_type delta_E_main = sqrt( delta_E_1*delta_E_1 +  delta_E_2*delta_E_2 + delta_E_3*delta_E_3  );
+
+              return delta_E_main;
+             }
+         };
+
+       template< typename category_name >
+        struct distance< category_name, ::color::constant::distance::CIE94_graphics_entity >
+         {
+          public:
+            typedef category_name  category_type;
+            typedef ::color::model<category_type>  model_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+
+            typedef distance< category_name, ::color::constant::distance::CIE94__base_entity > base_type;
+
+            static scalar_type process( model_type const& left, model_type const& right )
+             {
+              return base_type::process( left, right, 1, 0.045, 0.015 );
+             }
+         };
+
+       template< typename category_name >
+        struct distance< category_name, ::color::constant::distance::CIE94_textile_entity >
+         {
+          public:
+            typedef category_name  category_type;
+            typedef ::color::model<category_type>  model_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+
+            typedef distance< category_name, ::color::constant::distance::CIE94__base_entity > base_type;
+
+            static scalar_type process( model_type const& left, model_type const& right )
+             {
+              return base_type::process( left, right, 2, 0.048, 0.014  );
+             }
+         };
+
+
+       template< typename category_name >
         struct distance< category_name, ::color::constant::distance::hsl_special_entity >
          {
           public:
@@ -155,7 +232,7 @@
      template
       <
         enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::euclid_entity
-       ,typename category_name 
+       ,typename category_name
       >
       typename ::color::trait::scalar< category_name >::instance_type
       distance
