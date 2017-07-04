@@ -104,7 +104,7 @@
               lab_type lab_left(left);
               lab_type lab_right(right);
 
-              return ::color::operation::distance< ::color::constant::distance::euclid_entity >( lab_left, lab_right );
+              return::color::operation::_internal::distance<category_name,::color::constant::distance::euclid_entity>::process( lab_left, lab_right );
              }
          };
 
