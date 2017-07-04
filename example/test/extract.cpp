@@ -54,6 +54,7 @@ extract_color( bgr_image_type const& image, std::string const& name, std::size_t
     auto e = 1 - ::color::operation::distance<::color::constant::distance::euclid_entity>(      origin, pixel );
     auto h = 1 - ::color::operation::distance<::color::constant::distance::hsl_special_entity>( origin, pixel );
     auto r = 1 - ::color::operation::distance<::color::constant::distance::rgb_special_entity>( origin, pixel );
+    auto X    = ::color::operation::distance<::color::constant::distance::CMC1984_entity>( origin, pixel, 1, 2 );
 
     //auto g = ::color::gray<double>( { h * pow( e, 10 ) } ) ;
 

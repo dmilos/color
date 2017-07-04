@@ -7,6 +7,8 @@
 #include "../../gray/gray.hpp"
 #include "./delta.hpp"
 
+#include "../constant.hpp"
+
  namespace color
   {
    namespace constant
@@ -180,6 +182,71 @@
              }
          };
 
+       template< typename category_name>
+        struct distance< category_name, ::color::constant::distance::CMC1984_entity >
+         {
+          public:
+            typedef category_name  category_type;
+            typedef ::color::model<category_type>  model_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef ::color::gray<scalar_type> gray_type;
+            typedef ::color::lab<scalar_type>  lab_type;
+            typedef  ::color::constant::generic< category_name > constant_type;
+
+            static scalar_type process( model_type const& left, model_type const& right, scalar_type const& l, scalar_type const& c )
+             {
+              lab_type lab_left(left);
+              lab_type lab_right(right);
+
+              scalar_type delta_H;
+              {
+               scalar_type C_1 =  sqrt(  lab_left[1]* lab_left[1] +  lab_left[2]* lab_left[2] );
+               scalar_type C_2 =  sqrt( lab_right[1]*lab_right[1] + lab_right[2]*lab_right[2] );
+               scalar_type delta_C =  C_1 - C_2;
+               
+               scalar_type delta_a =  lab_left[1] - lab_right[1];
+               scalar_type delta_b =  lab_left[2] - lab_right[2];
+               delta_H = sqrt( delta_a*delta_a + delta_b*delta_b - delta_C*delta_C );
+              }
+
+              scalar_type S_H;
+              {
+               scalar_type F = sqrt( pow( lab_left[1], 4 ) / ( pow( lab_left[1], 4 ) + 1900 ) );
+
+               scalar_type T;
+               if( ( 164 <= lab_left[2] ) && ( lab_left[2] < 345 ) )
+                {
+                 T = 0.56 + fabs( 0.2* cos( ( lab_left[2] + 168 ) * constant_type::deg2rad() ) );
+                }
+               else
+                {
+                 T = 0.36 + fabs( 0.4* cos( ( lab_left[2] + 35 ) * constant_type::deg2rad() ) );
+                }
+
+               S_H = F*T+1-F;
+              }
+
+              scalar_type S_C = (0.0638*lab_left[1])/(1+0.0131*lab_left[1]) + 0.638;
+              scalar_type S_L;
+              if( lab_left[0] < 16 )
+               {
+                S_L = 0.511;
+               }
+              else
+               {
+                S_L = (0.040975*lab_left[0])/(1+0.01765*lab_left[0]);
+               }
+
+              scalar_type delta_E_1  = ( lab_left[0] - lab_right[0] )/( l * S_L);
+              scalar_type delta_E_2  = ( lab_left[1] - lab_right[1] )/( c * S_C);
+              scalar_type delta_E_3  = ( delta_H )/( S_H);
+
+              scalar_type delta_E_main = sqrt( delta_E_1*delta_E_1 +  delta_E_2*delta_E_2 + delta_E_3*delta_E_3  );
+
+              return delta_E_main;
+             }
+         };
+
 
        template< typename category_name >
         struct distance< category_name, ::color::constant::distance::hsl_special_entity >
@@ -243,7 +310,26 @@
        {
         return ::color::operation::_internal::distance<category_name,reference_number>::process( left, right );
        }
+
+     template
+      <
+       enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::CMC1984_entity
+       ,typename category_name
+      >
+      typename ::color::trait::scalar< category_name >::instance_type
+      distance
+       (
+         ::color::model<category_name> const& left
+        ,::color::model<category_name> const& right
+        , typename ::color::trait::scalar< category_name >::instance_type const& l
+        , typename ::color::trait::scalar< category_name >::instance_type const& c
+       )
+       {
+        return ::color::operation::_internal::distance< category_name, ::color::constant::distance::CMC1984_entity>::process( left, right, l, c );
+       }
+
     }
+
   }
 
 #endif
