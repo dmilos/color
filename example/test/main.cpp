@@ -228,6 +228,11 @@ void LabCH_test( )
   TEST( r[0] = r[1] * r[2] );
   TEST( r[0] = r[1] / r[2] );
 
+  TEST( r[1] = r[0]++ );
+  TEST( r[1] = ++r[0] );
+
+  TEST( r[1] = r[0]-- );
+  TEST( r[1] = --r[0]  );
  }
 
 
