@@ -1,4 +1,4 @@
-#ifndef  color_generic_operation_distance
+﻿#ifndef  color_generic_operation_distance
 #define color_generic_operation_distance
 
 // ::color::operation::distance( left, right )
@@ -23,8 +23,8 @@
          ,CIE94__base_entity
          ,CIE94_graphics_entity
          ,CIE94_textile_entity
-         ,CIEDE2000_entity //!< NYI
-         ,CMC1984_entity //!< NYI
+         ,CIEDE2000_entity
+         ,CMC1984_entity
          ,delta_gray_entity
          ,hsl_special_entity
          ,rgb_special_entity
@@ -117,6 +117,11 @@
             typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
             typedef ::color::lab<scalar_type>  lab_type;
 
+            typedef color::operation::_internal::distance< category_name, ::color::constant::distance::CIE94__base_entity > this_type;
+
+
+            static   scalar_type square( scalar_type const& s ){ return s * s; }
+
             static scalar_type process( model_type const& left, model_type const& right, scalar_type const& K_L, scalar_type const& K_1, scalar_type const& K_2 )
              {
               static const scalar_type K_C = 1;
@@ -125,26 +130,34 @@
               lab_type lab_left(left);
               lab_type lab_right(right);
 
-              scalar_type delta_L =  lab_left[0] - lab_right[0];
+              scalar_type const& L_1 = lab_left[0];
+              scalar_type const& a_1 = lab_left[1];
+              scalar_type const& b_1 = lab_left[2];
 
-              scalar_type C_1 =  sqrt(  lab_left[1]* lab_left[1] +  lab_left[2]* lab_left[2] );
-              scalar_type C_2 =  sqrt( lab_right[1]*lab_right[1] + lab_right[2]*lab_right[2] );
-              scalar_type delta_C =  C_1 - C_2;
+              scalar_type const& L_2 = lab_right[0];
+              scalar_type const& a_2 = lab_right[1];
+              scalar_type const& b_2 = lab_right[2];
 
-              scalar_type delta_a =  lab_left[1] - lab_right[1];
-              scalar_type delta_b =  lab_left[2] - lab_right[2];
+              scalar_type delta_L =  L_1 - L_2;
 
-              scalar_type delta_H = sqrt( delta_a*delta_a + delta_b*delta_b - delta_C*delta_C );
+              scalar_type C_1 =  sqrt( this_type::square( a_1 ) +  this_type::square( b_1 ) );
+              scalar_type C_2 =  sqrt( this_type::square( a_2 ) +  this_type::square( b_2 ) );
+              scalar_type delta_C_ab =  C_1 - C_2;
+
+              scalar_type delta_a = a_1 - a_2;
+              scalar_type delta_b = b_1 - b_2;
+
+              scalar_type delta_H_ab = sqrt( fabs( this_type::square( delta_a ) + this_type::square( delta_b ) - this_type::square( delta_C_ab ) ) );
 
               scalar_type S_L  =  1;
               scalar_type S_C  =  1 + K_1 * C_1;
               scalar_type S_H  =  1 + K_2 * C_1;
 
-              scalar_type delta_E_1  = delta_L/( K_L * S_L );
-              scalar_type delta_E_2  = delta_C/( K_C * S_C );
-              scalar_type delta_E_3  = delta_H/( K_H * S_H );
+              scalar_type delta_E_1 = delta_L   /( K_L * S_L );
+              scalar_type delta_E_2 = delta_C_ab/( K_C * S_C );
+              scalar_type delta_E_3 = delta_H_ab/( K_H * S_H );
 
-              scalar_type delta_E_main = sqrt( delta_E_1*delta_E_1 +  delta_E_2*delta_E_2 + delta_E_3*delta_E_3  );
+              scalar_type delta_E_main = sqrt( this_type::square( delta_E_1 ) +  this_type::square( delta_E_2 ) + this_type::square( delta_E_3 ) );
 
               return delta_E_main;
              }
@@ -182,6 +195,114 @@
              }
          };
 
+       template< typename category_name >
+        struct distance< category_name, ::color::constant::distance::CIEDE2000_entity >
+         {
+          public:
+            typedef category_name  category_type;
+            typedef ::color::model<category_type>  model_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+
+            typedef ::color::lab<scalar_type>  lab_type;
+
+            typedef  ::color::constant::generic< category_name > constant_type;
+
+            typedef color::operation::_internal::distance< category_name, ::color::constant::distance::CIEDE2000_entity > this_type;
+
+            static   scalar_type square( scalar_type const& s ){ return s * s; }
+
+            static scalar_type process( model_type const& left, model_type const& right )
+             {
+              lab_type lab_left(left);
+              lab_type lab_right(right);
+
+              scalar_type const& L_1 = lab_left.template get<0>();
+              scalar_type const& a_1 = lab_left.template get<1>();
+              scalar_type const& b_1 = lab_left.template get<2>();
+
+              scalar_type const& L_2 = lab_right.template get<0>();
+              scalar_type const& a_2 = lab_right.template get<1>();
+              scalar_type const& b_2 = lab_right.template get<2>();
+
+              scalar_type L_p_a = ( L_1 + L_2 ) /2;
+
+              scalar_type C_1 = sqrt( this_type::square( a_1 ) + this_type::square( b_1 ) );
+              scalar_type C_2 = sqrt( this_type::square( a_2 ) + this_type::square( b_2 ) );
+
+              scalar_type C_a = ( C_1 + C_2 ) /2;
+
+              scalar_type G = ( 1- sqrt( pow(C_a,7)/( pow(C_a,7) + pow(25,7) ) ) ) /2;
+
+              scalar_type a_1_p =  a_1 * (1+G);
+              scalar_type a_2_p =  a_2 * (1+G);
+
+              scalar_type C_1_p =  sqrt( this_type::square( a_1_p ) + this_type::square( b_1 ) );
+              scalar_type C_2_p =  sqrt( this_type::square( a_2_p ) + this_type::square( b_2 ) );
+
+              scalar_type C_p_a =  ( C_1_p + C_2_p )/2;
+
+              scalar_type h_1_p =  atan2( b_1, a_1_p ); if( h_1_p < 0 ) h_1_p += 2*constant_type::pi();  h_1_p *= constant_type::rad2deg();
+              scalar_type h_2_p =  atan2( b_2, a_2_p ); if( h_2_p < 0 ) h_2_p += 2*constant_type::pi();  h_2_p *= constant_type::rad2deg();
+
+              //scalar_type h_1_p =  atan( b_1/ a_1_p ); if( h_1_p < 0 ) h_1_p += constant_type::pi(); h_1_p *= constant_type::rad2deg();
+              //scalar_type h_2_p =  atan( b_2/ a_2_p ); if( h_2_p < 0 ) h_2_p += constant_type::pi(); h_2_p *= constant_type::rad2deg();
+
+              scalar_type H_a_p = ( h_1_p +  h_2_p )/2; if( 180 < fabs( h_1_p - h_2_p ) ) H_a_p += 180;
+
+              scalar_type T = + 1 
+                              - 0.17 * cos(   (   H_a_p - 30 )*constant_type::deg2rad() ) 
+                              + 0.24 * cos(   ( 2*H_a_p -  0 )*constant_type::deg2rad() ) 
+                              + 0.32 * cos(   ( 3*H_a_p +  6 )*constant_type::deg2rad() ) 
+                              - 0.20 * cos(   ( 4*H_a_p - 63 )*constant_type::deg2rad() );
+
+              scalar_type delta_h_p;
+
+              if( 180 < fabs( h_1_p - h_2_p ) ) 
+               {
+                if( h_2_p < h_1_p )
+                 {
+                  delta_h_p = h_2_p - h_1_p + 360;
+                 }
+                else
+                 {
+                  delta_h_p = h_2_p - h_1_p - 360;
+                 }
+               }
+              else
+               {
+                delta_h_p = h_2_p - h_1_p;
+               }
+
+              scalar_type delta_L_p = L_2 - L_1;
+              scalar_type delta_C_p = C_2_p - C_1_p;
+
+              scalar_type delta_H_p = 2*sqrt( C_1_p* C_2_p ) * sin( (delta_h_p / 2) * constant_type::deg2rad() );
+
+              scalar_type S_L = 1 + ( 0.015* this_type::square( L_p_a - 50 )  )/sqrt( 20 + this_type::square( L_p_a - 50 ) );
+              scalar_type S_C = 1 + 0.045 * C_p_a;
+              scalar_type S_H = 1 + 0.015 * C_p_a * T;
+
+              scalar_type delta_theta = 30 * exp( - this_type::square( ( H_a_p - 275)/25 ) );
+
+              scalar_type R_C =  2*sqrt( pow(C_p_a,7)/( pow(C_p_a,7) + pow(25,7) ) );
+              scalar_type R_T =  - R_C * sin( ( 2 * delta_theta) * constant_type::rad2deg() );
+
+              scalar_type K_L = 1;
+              scalar_type K_C = 1;
+              scalar_type K_H = 1;
+
+              scalar_type delta_E_1  = delta_L_p/( K_L * S_L );
+              scalar_type delta_E_2  = delta_C_p/( K_C * S_C );
+              scalar_type delta_E_3  = delta_H_p/( K_H * S_H );
+              scalar_type delta_E_4  = R_T * delta_E_2 * delta_E_3;
+
+              scalar_type delta_E_main = sqrt( this_type::square( delta_E_1 ) + this_type::square( delta_E_2 ) + this_type::square( delta_E_3 ) + delta_E_4 );
+
+              return delta_E_main;
+             }
+         };
+        
+
        template< typename category_name>
         struct distance< category_name, ::color::constant::distance::CMC1984_entity >
          {
@@ -198,47 +319,56 @@
               lab_type lab_left(left);
               lab_type lab_right(right);
 
+              scalar_type const& L_1 = lab_left[0];
+              scalar_type const& a_1 = lab_left[1];
+              scalar_type const& b_1 = lab_left[2];
+
+              scalar_type const& L_2 = lab_right[0];
+              scalar_type const& a_2 = lab_right[1];
+              scalar_type const& b_2 = lab_right[2];
+
               scalar_type delta_H;
               {
-               scalar_type C_1 =  sqrt(  lab_left[1]* lab_left[1] +  lab_left[2]* lab_left[2] );
-               scalar_type C_2 =  sqrt( lab_right[1]*lab_right[1] + lab_right[2]*lab_right[2] );
+               scalar_type C_1 =  sqrt( a_1* a_1 +  b_1* b_1 );
+               scalar_type C_2 =  sqrt( a_2 * a_2 + b_2 * b_2 );
                scalar_type delta_C =  C_1 - C_2;
                
-               scalar_type delta_a =  lab_left[1] - lab_right[1];
-               scalar_type delta_b =  lab_left[2] - lab_right[2];
-               delta_H = sqrt( delta_a*delta_a + delta_b*delta_b - delta_C*delta_C );
+               scalar_type delta_a =  a_1 - a_2;
+               scalar_type delta_b =  b_1 - b_2;
+               delta_H = delta_a*delta_a + delta_b*delta_b - delta_C*delta_C;
+               delta_H = sqrt( fabs( delta_H ) );
               }
 
               scalar_type S_H;
               {
-               scalar_type F = sqrt( pow( lab_left[1], 4 ) / ( pow( lab_left[1], 4 ) + 1900 ) );
+               scalar_type F = sqrt( pow( a_1, 4 ) / ( pow( a_1, 4 ) + 1900 ) );
 
                scalar_type T;
-               if( ( 164 <= lab_left[2] ) && ( lab_left[2] < 345 ) )
+               if( ( 164 <= b_1 ) && ( b_1 < 345 ) )
                 {
-                 T = 0.56 + fabs( 0.2* cos( ( lab_left[2] + 168 ) * constant_type::deg2rad() ) );
+                 T = 0.56 + fabs( 0.2* cos( ( b_1 + 168 ) * constant_type::deg2rad() ) );
                 }
                else
                 {
-                 T = 0.36 + fabs( 0.4* cos( ( lab_left[2] + 35 ) * constant_type::deg2rad() ) );
+                 T = 0.36 + fabs( 0.4* cos( ( b_1 + 35 ) * constant_type::deg2rad() ) );
                 }
 
                S_H = F*T+1-F;
               }
 
-              scalar_type S_C = (0.0638*lab_left[1])/(1+0.0131*lab_left[1]) + 0.638;
+              scalar_type S_C = (0.0638*a_1)/(1+0.0131*a_1) + 0.638;
               scalar_type S_L;
-              if( lab_left[0] < 16 )
+              if( L_1 < 16 )
                {
                 S_L = 0.511;
                }
               else
                {
-                S_L = (0.040975*lab_left[0])/(1+0.01765*lab_left[0]);
+                S_L = (0.040975*L_1)/(1+0.01765*L_1);
                }
 
-              scalar_type delta_E_1  = ( lab_left[0] - lab_right[0] )/( l * S_L);
-              scalar_type delta_E_2  = ( lab_left[1] - lab_right[1] )/( c * S_C);
+              scalar_type delta_E_1  = ( L_1 - lab_right[0] )/( l * S_L);
+              scalar_type delta_E_2  = ( a_1 - a_2 )/( c * S_C);
               scalar_type delta_E_3  = ( delta_H )/( S_H);
 
               scalar_type delta_E_main = sqrt( delta_E_1*delta_E_1 +  delta_E_2*delta_E_2 + delta_E_3*delta_E_3  );
