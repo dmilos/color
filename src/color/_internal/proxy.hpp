@@ -36,7 +36,7 @@ namespace color
           }
 
          proxy( this_type const& that )
-          : m_container( that->m_container ), m_index( that->m_index )
+          : m_container( that.m_container ), m_index( that.m_index )
           {
           }
 

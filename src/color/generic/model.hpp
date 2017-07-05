@@ -11,7 +11,7 @@
 
 #include "../_internal/convert.hpp"
 #include "../_internal/init.hpp"
-#include "./_internal/proxy.hpp"
+#include "../_internal/proxy.hpp"
 #include "./constant/base.hpp"
 #include "./constant/make.hpp"
 
