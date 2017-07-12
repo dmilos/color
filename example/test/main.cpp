@@ -17,7 +17,7 @@
 #include "./targa.hpp"
 
 template < typename category_name >
-void print( )
+void print()
  {
   typedef category_name category_t;
 
@@ -175,6 +175,64 @@ void LabCH_test( )
   //l1  = l0a;
   l0a = l0b;
   //l1  = l1;
+
+  r[0];
+
+#define TEST(e)                                   \
+  r[0]=0; r[1]=0.5; r[2]=0.5;                     \
+  std::cout << "r[0]= " << r[0] <<" ; " ;     \
+  std::cout << "r[0]= " << r[1] <<" ; " ;     \
+  std::cout << "r[0]= " << r[2] <<" ; " ;     \
+  std::cout << #e << " *** " ;                      \
+  e;                                              \
+  std::cout << "r[0]= " << r[0] <<" ; " ;     \
+  std::cout << "r[1]= " << r[1] <<" ; " ;     \
+  std::cout << "r[2]= " << r[2] <<" ; " ;  \
+  std::cout << std::endl ;       
+
+  TEST( r[0]=1 );
+
+  TEST( r[0]= - r[0] ); 
+  TEST( r[0]= + r[0] ); 
+
+  TEST( r[0] += 1 );    
+  TEST( r[0] -= 1 );    
+  TEST( r[0] /= 1 );    
+  TEST( r[0] *= 1 );    
+
+  TEST( r[0] += 1.0 );  
+  TEST( r[0] -= 1.0 );  
+  TEST( r[0] /= 1.0 );  
+  TEST( r[0] *= 1.0 );  
+
+  TEST( r[0] = r[1] );    
+
+
+  TEST( r[0] += r[1] );    
+  TEST( r[0] -= r[1] );    
+  TEST( r[0] /= r[1] );    
+  TEST( r[0] *= r[1] );    
+
+  TEST( r[0]= r[1] + 1 );  
+  TEST( r[0]= r[1] - 1 );  
+  TEST( r[0]= r[1] * 1 );  
+  TEST( r[0]= r[1] / 1 );  
+
+  TEST( r[0]=1 - r[1] );
+  TEST( r[0]=1 + r[1] );
+  TEST( r[0]=1 * r[1] );
+  TEST( r[0]=1 / r[1] );
+
+  TEST( r[0] = r[1] - r[2] );
+  TEST( r[0] = r[1] + r[2] );
+  TEST( r[0] = r[1] * r[2] );
+  TEST( r[0] = r[1] / r[2] );
+
+  TEST( r[1] = r[0]++ );
+  TEST( r[1] = ++r[0] );
+
+  TEST( r[1] = r[0]-- );
+  TEST( r[1] = --r[0]  );
  }
 
 

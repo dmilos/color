@@ -11,6 +11,7 @@
 
 #include "../_internal/convert.hpp"
 #include "../_internal/init.hpp"
+#include "../_internal/proxy.hpp"
 #include "./constant/base.hpp"
 #include "./constant/make.hpp"
 
@@ -148,67 +149,13 @@ namespace color
          return this->get( index );
         }
 
-     private: // Very ugly but effective
-       class proxy
-        {
-         public:
-           proxy( model_type & model, index_type const& index )
-            : m_model( model ), m_index( index )
-            {
-            }
-
-           proxy & operator=( proxy const& that )
-            {
-             m_model.set( m_index, that.m_model.get( that.m_index ) );
-             return *this;
-            }
-
-           proxy & operator=( component_input_const_type component )
-            {
-             m_model.set( m_index, component );
-             return *this;
-            }
-
-           proxy & operator+=( component_input_const_type component )
-            {
-             m_model.set( m_index, m_model.get( m_index ) + component );
-             return *this;
-            }
-
-           proxy & operator-=( component_input_const_type component )
-            {
-             m_model.set( m_index, m_model.get( m_index ) - component );
-             return *this;
-            }
-
-           proxy & operator*=( scalar_input_const_type scalar )
-            {
-             m_model.set( m_index, m_model.get( m_index ) * scalar );
-             return *this;
-            }
-
-           proxy & operator/=( scalar_input_const_type scalar )
-            {
-             m_model.set( m_index, m_model.get( m_index ) / scalar );
-             return *this;
-            }
-
-           operator component_type()const
-            {
-             return m_model.get( m_index );
-            }
-
-         private:
-           model_type      & m_model;
-           index_type const& m_index;
-        };
-
-       typedef typename ::color::model< category_name >::proxy proxy_type;
+     private:
+       typedef typename ::color::_internal::proxy< category_name > proxy_type;
 
      public:
        proxy_type       operator[]( index_input_const_type index )
         {
-         return proxy{ *this, index };
+         return proxy_type{ this->m_container, index };
         }
 
        container_return_const_type      container()const
