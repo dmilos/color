@@ -551,8 +551,8 @@ int main(int argc, char const *argv[])
   extern void print_bound( );
   print_bound();
 
-  void test_pallete();
-  test_pallete();
+  void test_palette();
+  test_palette();
 
   void main_extract();
   main_extract();
@@ -620,7 +620,6 @@ int main(int argc, char const *argv[])
  }
 
 /*
-
 mkdir conv
 mkdir conv-rgb
 mkdir dec
@@ -629,4 +628,3 @@ mkdir hue
 mkdir operation
 mkdir palette
 */
-

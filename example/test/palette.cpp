@@ -84,7 +84,7 @@ void make_image(std::string const& name, float plane = 0.5, int side = 1 )
  }
 
 template< typename category_name >
-void pallete( std::string const& name, int planes )
+void palette( std::string const& name, int planes )
  {
   std::string number="000";
   for( int index = 0; index < planes; index += 1 )
@@ -99,27 +99,27 @@ void pallete( std::string const& name, int planes )
    }
  }
 
-void test_pallete()
+void test_palette()
  {
 
   make_image<color::cmyk<double> >("./palette/cmyk.tga", 3 );
 
-  pallete< color::hsi<double>::category_type  >( "hsi",      5 );
-  pallete< color::hsl<double>::category_type  >( "hsl",      5 );
-  pallete< color::hsv<double>::category_type  >( "hsv",      5 );
-//pallete< color::hwb<double>::category_type  >( "hwb",      5 );
-  pallete< color::rgb<double>::category_type  >( "rgb",      5 );
-  pallete< color::cmy<double>::category_type  >( "cmy",      5 );
-  pallete< color::yiq<double>::category_type  >( "yiq",      5 );
-  pallete< color::yuv<double>::category_type  >( "yuv-709",  5 );
-  pallete< color::xyz<double>::category_type  >( "xyz",      5 );
-  pallete< color::luv<double>::category_type  >( "luv",      5 );
-  pallete< color::lab<double>::category_type  >( "lab",      5 );
-  pallete< color::lms<double>::category_type  >( "lms",      5 );
-  pallete< color::xyy<double>::category_type  >( "xyy",      5 );
+  palette< color::hsi<double>::category_type  >( "hsi",      5 );
+  palette< color::hsl<double>::category_type  >( "hsl",      5 );
+  palette< color::hsv<double>::category_type  >( "hsv",      5 );
+//palette< color::hwb<double>::category_type  >( "hwb",      5 );
+  palette< color::rgb<double>::category_type  >( "rgb",      5 );
+  palette< color::cmy<double>::category_type  >( "cmy",      5 );
+  palette< color::yiq<double>::category_type  >( "yiq",      5 );
+  palette< color::yuv<double>::category_type  >( "yuv-709",  5 );
+  palette< color::xyz<double>::category_type  >( "xyz",      5 );
+  palette< color::luv<double>::category_type  >( "luv",      5 );
+  palette< color::lab<double>::category_type  >( "lab",      5 );
+  palette< color::lms<double>::category_type  >( "lms",      5 );
+  palette< color::xyy<double>::category_type  >( "xyy",      5 );
 
-  pallete< color::LuvCH<double>::category_type  >( "LuvCH",      5 );
-  pallete< color::LabCH<double>::category_type  >( "LabCH",      5 );
+  palette< color::LuvCH<double>::category_type  >( "LuvCH",      5 );
+  palette< color::LabCH<double>::category_type  >( "LabCH",      5 );
 
   std::string number="000";
   for( int layer= 0; layer < 12; layer += 1 )

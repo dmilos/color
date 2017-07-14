@@ -11,7 +11,6 @@
 g++ -std=c++11 -g -I../src  readme.cpp                        -o  readme
 
 g++ -std=c++11 -g -I../src  akin.cpp                          -o  akin
-g++ -std=c++11 -g -I../src  assign_const_heavy.cpp            -o  assign_const_heavy
 g++ -std=c++11 -g -I../src  format_split233.cpp               -o  format_split233
 g++ -std=c++11 -g -I../src  format_split332.cpp               -o  format_split332
 g++ -std=c++11 -g -I../src  format_split422.cpp               -o  format_split422

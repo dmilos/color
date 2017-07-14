@@ -1277,7 +1277,7 @@
     <ClCompile Include="image.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="operation\gamma.cpp" />
-    <ClCompile Include="pallete.cpp" />
+    <ClCompile Include="palette.cpp" />
     <ClCompile Include="place.cpp" />
     <ClCompile Include="set_invoke.cpp" />
     <ClCompile Include="sizeof.cpp" />

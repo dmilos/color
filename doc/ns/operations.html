@@ -157,11 +157,25 @@
 					<dt>Name</dt>
 					<dd><a name="#distance" /><i>distance</i></dd>
 					<dt>Description</dt>
-					<dd>Calculate distance. Calculate gray from delta.</dd>
+					<dd>Calculate distance between two colors.<br>
+						To specify algorithm use on of next enumerants.
+						<dl>
+							<dt>euclid_entity</dt><dd>Observe color as two vectors and calulate euclidian distance between them.<br> <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance on Wikipedia.</a> </dd>
+							<dt>CIE76_entity</dt>            <dd>Compare two colors by converting to lab and calculatin euclidian distance.<br>Links: <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia link</a></dd>
+							<dt>CIE94_graphics_entity</dt>   <dd>Compare two colors by using CIE94 with textile parameters algorithm. <br>Links: <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia link</a>, <a href="http://www.brucelindbloom.com/index.html?Eqn_DeltaE_CIE94.html">Bruce Lindbloom CIE94</a></dd>
+							<dt>CIE94_textile_entity</dt>    <dd>Compare two colors by using CIE94 with graphics parameters algorithm. <br>Links: <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia link</a>, <a href="http://www.brucelindbloom.com/index.html?Eqn_DeltaE_CIE94.html">Bruce Lindbloom CIE94</a></dd>
+							<dt>CIEDE2000_entity</dt>        <dd>Compare two colors by using CIEDE2000 algorithm. <br>Links: <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia link</a>, <a href="http://www.brucelindbloom.com/index.html?Eqn_DeltaE_CIE2000.html">Bruce Lindbloom CIE2000</a> </dd>
+							<dt>CMC1984_entity</dt>          <dd>Compare two colors by using CMC1984 algorithm. <br>Links: <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia link</a></dd> 
+							<dt>delta_gray_entity</dt>       <dd>Calculate <a href="#delta"><code>delta</code></a> of two color that convert that delta to gray. <br>Links: <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia link</a></dd>
+						</dl>
+					</dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>
-							&nbsp;template&lt; typename category_name &gt;           <br>
+							&nbsp;template&lt;
+								enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::euclid_entity
+								,typename category_name
+							&gt;<br>
 							&nbsp;&nbsp;typename ::color::trait::scalar&lt; category_type &gt;::instance_type  distance( ::color::model&lt;category_name&gt; const&amp; left, ::color::model&lt;category_name&gt; const&amp; right );
 						</code>
 					</dd>
@@ -169,7 +183,12 @@
 					<dd>
 						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
 							::color::rgb&lt; float &gt; b{ ::color::constant::lime_t{} }; <br>
-							::color::operation::distance( a, b );<br>
+							::color::operation::distance&lt; ::color::constant::distance::euclid_entity &gt;( a, b );<br>
+							::color::operation::distance&lt; ::color::constant::distance::CIE76_entity &gt;( a, b );<br>
+							::color::operation::distance&lt; ::color::constant::distance::CIE94_graphics_entity &gt;( a, b );<br>
+							::color::operation::distance&lt; ::color::constant::distance::CIE94_textile_entity &gt;( a, b );<br>
+							::color::operation::distance&lt; ::color::constant::distance::CIEDE2000_entity &gt;( a, b );<br>
+							::color::operation::distance&lt; ::color::constant::distance::CMC1984_entity &gt;( a, b );<br>
 						</code>
 					</dd>
 				</dl><hr width="%20">

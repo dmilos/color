@@ -1060,7 +1060,7 @@ public:
 };
 
 template< typename category_name >
-struct convert< category_name,category_name > {
+struct convert< category_name, category_name > {
 public:
 
 	typedef ::color::trait::container< category_name > container_trait_type;
@@ -1089,7 +1089,7 @@ template< typename category_name >
 void init
 (
 	typename ::color::trait::container< category_name >::output_type container
-	, std::initializer_list< typename ::color::trait::component< category_name >::instance_type > const& ilist
+	,std::initializer_list< typename ::color::trait::component< category_name >::instance_type > const& ilist
 ) {
 	typedef ::color::trait::container< category_name > container_trait_type;
 	typedef typename ::color::trait::index< category_name >::instance_type index_type;
@@ -1098,6 +1098,97 @@ void init
 	for(; index < std::min<index_type>(container_trait_type::size(), ilist.size()) ; ++index, ++ili) {
 		container_trait_type::set(container, index, *ili);
 	}
+};
+
+}
+}
+namespace color {
+namespace _internal {
+
+template< typename category_name >
+class proxy {
+public:
+	typedef ::color::trait::component< category_name > component_trait_type;
+	typedef ::color::trait::container< category_name > container_trait_type;
+	typedef ::color::trait::scalar< category_name > scalar_trait_type;
+
+	typedef typename ::color::trait::container< category_name >::instance_type constainer_type;
+	typedef typename ::color::trait::index< category_name >::instance_type index_type;
+
+	typedef typename component_trait_type::instance_type component_type;
+	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename scalar_trait_type::input_const_type scalar_input_const_type;
+
+	typedef ::color::_internal::proxy<category_name> this_type;
+
+public:
+	proxy(constainer_type & container, index_type const& index)
+		: m_container(container), m_index(index) {
+	}
+
+	proxy(this_type const& that)
+		: m_container(that.m_container), m_index(that.m_index) {
+	}
+
+	proxy & operator=(this_type const& that) {
+		container_trait_type::set(this->m_container, this->m_index, container_trait_type::get(that.m_container, that.m_index));
+		return *this;
+	}
+
+	operator component_type()const {
+		return container_trait_type::get(this->m_container, this->m_index);
+	}
+
+	this_type & operator=(component_input_const_type component) {
+		container_trait_type::set(this->m_container, this->m_index, component);
+		return *this;
+	}
+
+	this_type & operator+=(component_input_const_type component) {
+		container_trait_type::set(this->m_container, this->m_index, container_trait_type::get(this->m_container, this->m_index) + component);
+		return *this;
+	}
+
+	this_type & operator-=(component_input_const_type component) {
+		container_trait_type::set(this->m_container, this->m_index, container_trait_type::get(this->m_container, this->m_index) - component);
+		return *this;
+	}
+
+	this_type & operator*=(scalar_input_const_type scalar) {
+		container_trait_type::set(this->m_container, this->m_index, container_trait_type::get(this->m_container, this->m_index) * scalar);
+		return *this;
+	}
+
+	this_type & operator/=(scalar_input_const_type scalar) {
+		container_trait_type::set(this->m_container, this->m_index, container_trait_type::get(this->m_container, this->m_index) / scalar);
+		return *this;
+	}
+
+	this_type & operator++() {
+		container_trait_type::set(this->m_container, this->m_index, container_trait_type::get(this->m_container, this->m_index) + component_type(1));
+		return *this;
+	}
+
+	component_type operator++(int k) {
+		component_type value = container_trait_type::get(this->m_container, this->m_index);
+		container_trait_type::set(this->m_container, this->m_index, value + component_type(1));
+		return value;
+	}
+
+	this_type & operator--() {
+		container_trait_type::set(this->m_container, this->m_index, container_trait_type::get(this->m_container, this->m_index) - component_type(1));
+		return *this;
+	}
+
+	component_type operator--(int k) {
+		component_type value = container_trait_type::get(this->m_container, this->m_index);
+		container_trait_type::set(this->m_container, this->m_index, value - component_type(1));
+		return value;
+	}
+
+private:
+	constainer_type & m_container;
+	index_type const& m_index;
 };
 
 }
@@ -1237,56 +1328,11 @@ public:
 	}
 
 private:
-	class proxy {
-	public:
-		proxy(model_type & model, index_type const& index)
-			: m_model(model), m_index(index) {
-		}
-
-		proxy & operator=(proxy const& that) {
-			m_model.set(m_index, that.m_model.get(that.m_index));
-			return *this;
-		}
-
-		proxy & operator=(component_input_const_type component) {
-			m_model.set(m_index, component);
-			return *this;
-		}
-
-		proxy & operator+=(component_input_const_type component) {
-			m_model.set(m_index, m_model.get(m_index) + component);
-			return *this;
-		}
-
-		proxy & operator-=(component_input_const_type component) {
-			m_model.set(m_index, m_model.get(m_index) - component);
-			return *this;
-		}
-
-		proxy & operator*=(scalar_input_const_type scalar) {
-			m_model.set(m_index, m_model.get(m_index) * scalar);
-			return *this;
-		}
-
-		proxy & operator/=(scalar_input_const_type scalar) {
-			m_model.set(m_index, m_model.get(m_index) / scalar);
-			return *this;
-		}
-
-		operator component_type()const {
-			return m_model.get(m_index);
-		}
-
-	private:
-		model_type & m_model;
-		index_type const& m_index;
-	};
-
-	typedef typename ::color::model< category_name >::proxy proxy_type;
+	typedef typename ::color::_internal::proxy< category_name > proxy_type;
 
 public:
 	proxy_type operator[](index_input_const_type index) {
-		return proxy{ *this, index };
+		return proxy_type{ this->m_container, index };
 	}
 
 	container_return_const_type container()const {
@@ -36673,7 +36719,7 @@ public:
 	static scalar_instance_type c_max() {
 		scalar_instance_type a = std::max<scalar_instance_type>(fabs(luv_bound_type::template minimum<1>()), luv_bound_type::template maximum<1>());
 		scalar_instance_type b = std::max<scalar_instance_type>(fabs(luv_bound_type::template minimum<2>()), luv_bound_type::template maximum<2>());
-		return sqrt(a*a+b*b);
+		return sqrt(a*a + b*b);
 	}
 
 	template< index_instance_type index >
@@ -47968,6 +48014,12 @@ namespace color {
 
 	enum reference_enum {
 		euclid_entity
+		,CIE76_entity
+		,CIE94__base_entity
+		,CIE94_graphics_entity
+		,CIE94_textile_entity
+		,CIEDE2000_entity
+		,CMC1984_entity
 		,delta_gray_entity
 		,hsl_special_entity
 		,rgb_special_entity
@@ -48021,6 +48073,234 @@ namespace color {
 	}
 																					 };
 
+	template< typename category_name>
+	struct distance< category_name, ::color::constant::distance::CIE76_entity > {
+		public:
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
+		typedef ::color::lab<scalar_type> lab_type;
+		typedef typename lab_type::category_type lab_category_type;
+
+	static scalar_type process(model_type const& left, model_type const& right) {
+		lab_type lab_left(left);
+		lab_type lab_right(right);
+		return::color::operation::_internal::distance<lab_category_type,::color::constant::distance::euclid_entity>::process(lab_left, lab_right);
+	}
+												 };
+
+	template< typename category_name >
+	struct distance< category_name, ::color::constant::distance::CIE94__base_entity > {
+		public:
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
+		typedef ::color::lab<scalar_type> lab_type;
+
+		typedef color::operation::_internal::distance< category_name, ::color::constant::distance::CIE94__base_entity > this_type;
+
+	static scalar_type square(scalar_type const& s) {
+		return s * s;
+	}
+
+	static scalar_type process(model_type const& left, model_type const& right, scalar_type const& K_L, scalar_type const& K_1, scalar_type const& K_2) {
+		static const scalar_type K_C = 1;
+		static const scalar_type K_H = 1;
+		lab_type lab_left(left);
+		lab_type lab_right(right);
+		scalar_type const& L_1 = lab_left[0];
+		scalar_type const& a_1 = lab_left[1];
+		scalar_type const& b_1 = lab_left[2];
+		scalar_type const& L_2 = lab_right[0];
+		scalar_type const& a_2 = lab_right[1];
+		scalar_type const& b_2 = lab_right[2];
+		scalar_type delta_L = L_1 - L_2;
+		scalar_type C_1 = sqrt(this_type::square(a_1) + this_type::square(b_1));
+		scalar_type C_2 = sqrt(this_type::square(a_2) + this_type::square(b_2));
+		scalar_type delta_C_ab = C_1 - C_2;
+		scalar_type delta_a = a_1 - a_2;
+		scalar_type delta_b = b_1 - b_2;
+		scalar_type delta_H_ab = sqrt(fabs(this_type::square(delta_a) + this_type::square(delta_b) - this_type::square(delta_C_ab)));
+		scalar_type S_L = 1;
+		scalar_type S_C = 1 + K_1 * C_1;
+		scalar_type S_H = 1 + K_2 * C_1;
+		scalar_type delta_E_1 = delta_L /(K_L * S_L);
+		scalar_type delta_E_2 = delta_C_ab/(K_C * S_C);
+		scalar_type delta_E_3 = delta_H_ab/(K_H * S_H);
+		scalar_type delta_E_main = sqrt(this_type::square(delta_E_1) + this_type::square(delta_E_2) + this_type::square(delta_E_3));
+		return delta_E_main;
+	}
+													 };
+
+	template< typename category_name >
+	struct distance< category_name, ::color::constant::distance::CIE94_graphics_entity > {
+		public:
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
+
+		typedef distance< category_name, ::color::constant::distance::CIE94__base_entity > base_type;
+
+	static scalar_type process(model_type const& left, model_type const& right) {
+		return base_type::process(left, right, 1, 0.045, 0.015);
+	}
+						};
+
+	template< typename category_name >
+	struct distance< category_name, ::color::constant::distance::CIE94_textile_entity > {
+		public:
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
+
+		typedef distance< category_name, ::color::constant::distance::CIE94__base_entity > base_type;
+
+	static scalar_type process(model_type const& left, model_type const& right) {
+		return base_type::process(left, right, 2, 0.048, 0.014);
+	}
+						};
+
+	template< typename category_name >
+	struct distance< category_name, ::color::constant::distance::CIEDE2000_entity > {
+		public:
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
+
+		typedef ::color::lab<scalar_type> lab_type;
+
+		typedef ::color::constant::generic< category_name > constant_type;
+
+		typedef color::operation::_internal::distance< category_name, ::color::constant::distance::CIEDE2000_entity > this_type;
+
+	static scalar_type square(scalar_type const& s) {
+		return s * s;
+	}
+
+	static scalar_type process(model_type const& left, model_type const& right) {
+		lab_type lab_left(left);
+		lab_type lab_right(right);
+		scalar_type const& L_1 = lab_left.template get<0>();
+		scalar_type const& a_1 = lab_left.template get<1>();
+		scalar_type const& b_1 = lab_left.template get<2>();
+		scalar_type const& L_2 = lab_right.template get<0>();
+		scalar_type const& a_2 = lab_right.template get<1>();
+		scalar_type const& b_2 = lab_right.template get<2>();
+		scalar_type L_p_a = (L_1 + L_2) /2;
+		scalar_type C_1 = sqrt(this_type::square(a_1) + this_type::square(b_1));
+		scalar_type C_2 = sqrt(this_type::square(a_2) + this_type::square(b_2));
+		scalar_type C_a = (C_1 + C_2) /2;
+		scalar_type G = (1- sqrt(pow(C_a,7)/(pow(C_a,7) + pow(25,7)))) /2;
+		scalar_type a_1_p = a_1 * (1+G);
+		scalar_type a_2_p = a_2 * (1+G);
+		scalar_type C_1_p = sqrt(this_type::square(a_1_p) + this_type::square(b_1));
+		scalar_type C_2_p = sqrt(this_type::square(a_2_p) + this_type::square(b_2));
+		scalar_type C_p_a = (C_1_p + C_2_p)/2;
+		scalar_type h_1_p = atan2(b_1, a_1_p);
+		if(h_1_p < 0) {
+			h_1_p += 2*constant_type::pi();
+		}
+		h_1_p *= constant_type::rad2deg();
+		scalar_type h_2_p = atan2(b_2, a_2_p);
+		if(h_2_p < 0) {
+			h_2_p += 2*constant_type::pi();
+		}
+		h_2_p *= constant_type::rad2deg();
+		scalar_type H_a_p = (h_1_p + h_2_p)/2;
+		if(180 < fabs(h_1_p - h_2_p)) {
+			H_a_p += 180;
+		}
+		scalar_type T = + 1
+		- 0.17 * cos((H_a_p - 30)*constant_type::deg2rad())
+		+ 0.24 * cos((2*H_a_p - 0)*constant_type::deg2rad())
+		+ 0.32 * cos((3*H_a_p + 6)*constant_type::deg2rad())
+		- 0.20 * cos((4*H_a_p - 63)*constant_type::deg2rad());
+		scalar_type delta_h_p;
+		if(180 < fabs(h_1_p - h_2_p)) {
+			if(h_2_p < h_1_p) {
+				delta_h_p = h_2_p - h_1_p + 360;
+			} else {
+				delta_h_p = h_2_p - h_1_p - 360;
+			}
+		} else {
+			delta_h_p = h_2_p - h_1_p;
+		}
+		scalar_type delta_L_p = L_2 - L_1;
+		scalar_type delta_C_p = C_2_p - C_1_p;
+		scalar_type delta_H_p = 2*sqrt(C_1_p* C_2_p) * sin((delta_h_p / 2) * constant_type::deg2rad());
+		scalar_type S_L = 1 + (0.015* this_type::square(L_p_a - 50))/sqrt(20 + this_type::square(L_p_a - 50));
+		scalar_type S_C = 1 + 0.045 * C_p_a;
+		scalar_type S_H = 1 + 0.015 * C_p_a * T;
+		scalar_type delta_theta = 30 * exp(- this_type::square((H_a_p - 275)/25));
+		scalar_type R_C = 2*sqrt(pow(C_p_a,7)/(pow(C_p_a,7) + pow(25,7)));
+		scalar_type R_T = - R_C * sin((2 * delta_theta) * constant_type::rad2deg());
+		scalar_type K_L = 1;
+		scalar_type K_C = 1;
+		scalar_type K_H = 1;
+		scalar_type delta_E_1 = delta_L_p/(K_L * S_L);
+		scalar_type delta_E_2 = delta_C_p/(K_C * S_C);
+		scalar_type delta_E_3 = delta_H_p/(K_H * S_H);
+		scalar_type delta_E_4 = R_T * delta_E_2 * delta_E_3;
+		scalar_type delta_E_main = sqrt(this_type::square(delta_E_1) + this_type::square(delta_E_2) + this_type::square(delta_E_3) + delta_E_4);
+		return delta_E_main;
+	}
+	  };
+
+	template< typename category_name>
+	struct distance< category_name, ::color::constant::distance::CMC1984_entity > {
+		public:
+		typedef category_name category_type;
+		typedef ::color::model<category_type> model_type;
+		typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
+		typedef ::color::gray<scalar_type> gray_type;
+		typedef ::color::lab<scalar_type> lab_type;
+		typedef ::color::constant::generic< category_name > constant_type;
+
+	static scalar_type process(model_type const& left, model_type const& right, scalar_type const& l, scalar_type const& c) {
+		lab_type lab_left(left);
+		lab_type lab_right(right);
+		scalar_type const& L_1 = lab_left[0];
+		scalar_type const& a_1 = lab_left[1];
+		scalar_type const& b_1 = lab_left[2];
+		scalar_type const& L_2 = lab_right[0];
+		scalar_type const& a_2 = lab_right[1];
+		scalar_type const& b_2 = lab_right[2];
+		scalar_type delta_H;
+		{
+			scalar_type C_1 = sqrt(a_1* a_1 + b_1* b_1);
+			scalar_type C_2 = sqrt(a_2 * a_2 + b_2 * b_2);
+			scalar_type delta_C = C_1 - C_2;
+			scalar_type delta_a = a_1 - a_2;
+			scalar_type delta_b = b_1 - b_2;
+			delta_H = delta_a*delta_a + delta_b*delta_b - delta_C*delta_C;
+			delta_H = sqrt(fabs(delta_H));
+		}
+		scalar_type S_H;
+		{
+			scalar_type F = sqrt(pow(a_1, 4) / (pow(a_1, 4) + 1900));
+			scalar_type T;
+			if((164 <= b_1) && (b_1 < 345)) {
+				T = 0.56 + fabs(0.2* cos((b_1 + 168) * constant_type::deg2rad()));
+			} else {
+				T = 0.36 + fabs(0.4* cos((b_1 + 35) * constant_type::deg2rad()));
+			}
+			S_H = F*T+1-F;
+		}
+		scalar_type S_C = (0.0638*a_1)/(1+0.0131*a_1) + 0.638;
+		scalar_type S_L;
+		if(L_1 < 16) {
+			S_L = 0.511;
+		} else {
+			S_L = (0.040975*L_1)/(1+0.01765*L_1);
+		}
+		scalar_type delta_E_1 = (L_1 - lab_right[0])/(l * S_L);
+		scalar_type delta_E_2 = (a_1 - a_2)/(c * S_C);
+		scalar_type delta_E_3 = (delta_H)/(S_H);
+		scalar_type delta_E_main = sqrt(delta_E_1*delta_E_1 + delta_E_2*delta_E_2 + delta_E_3*delta_E_3);
+		return delta_E_main;
+	}
+	  };
+
 	template< typename category_name >
 	struct distance< category_name, ::color::constant::distance::hsl_special_entity > {
 		public:
@@ -48061,16 +48341,20 @@ namespace color {
 		rgb_type difference;
 		::color::operation::delta(difference, left_rgb, right_rgb);
 		scalar_type d = 1;
-		d *= fabs(left_rgb[0] - std::max(right_rgb[1], right_rgb[2]));
-		d *= fabs(left_rgb[1] - std::max(right_rgb[0], right_rgb[2]));
-		d *= fabs(left_rgb[2] - std::max(right_rgb[0], right_rgb[1]));
+		d *= fabs(std::max(left_rgb[0] - std::max(right_rgb[1], right_rgb[2]), left_rgb[0] - std::min(right_rgb[1], right_rgb[2])));
+		d *= fabs(std::max(left_rgb[1] - std::max(right_rgb[0], right_rgb[2]), left_rgb[1] - std::min(right_rgb[0], right_rgb[2])));
+		d *= fabs(std::max(left_rgb[2] - std::max(right_rgb[0], right_rgb[1]), left_rgb[2] - std::min(right_rgb[0], right_rgb[1])));
 		return d;
 	}
 							};
 
 											   }
 
-	template< enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::euclid_entity, typename category_name >
+	template
+	<
+		enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::euclid_entity
+		,typename category_name
+		>
 	typename ::color::trait::scalar< category_name >::instance_type
 	distance
 	(
@@ -48079,7 +48363,25 @@ namespace color {
 					   ) {
 		return ::color::operation::_internal::distance<category_name,reference_number>::process(left, right);
 	}
+
+	template
+	<
+		enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::CMC1984_entity
+		,typename category_name
+		>
+	typename ::color::trait::scalar< category_name >::instance_type
+	distance
+	(
+		::color::model<category_name> const& left
+		,::color::model<category_name> const& right
+		, typename ::color::trait::scalar< category_name >::instance_type const& l
+		, typename ::color::trait::scalar< category_name >::instance_type const& c
+										 ) {
+		return ::color::operation::_internal::distance< category_name, ::color::constant::distance::CMC1984_entity>::process(left, right, l, c);
+	}
+
 												  }
+
 }
 
 namespace color {

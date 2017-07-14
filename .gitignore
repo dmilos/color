@@ -131,6 +131,7 @@ example/make_red
 
 
 example/test/out/
+example/test/out-x/
 example/test/gen*
 example/test/*.tga
 example/test/test

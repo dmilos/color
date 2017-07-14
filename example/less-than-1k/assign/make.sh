@@ -1,3 +1,9 @@
-g++ -fexceptions -std=c++11 -g -I../../../src const_simple_cmy.cpp       -o  const_simple_cmy
-g++ -fexceptions -std=c++11 -g -I../../../src const_simple_rgb.cpp       -o  const_simple_rgb
-g++ -fexceptions -std=c++11 -g -I../../../src const_simple_yuv601.cpp    -o  const_simple_yuv601
+g++ -fexceptions -std=c++11 -g -I../../../src const_simple_cmy.cpp          -o const_simple_cmy
+g++ -fexceptions -std=c++11 -g -I../../../src const_simple_cmyk.cpp         -o const_simple_cmyk
+g++ -fexceptions -std=c++11 -g -I../../../src const_simple_hsi.cpp          -o const_simple_hsi
+g++ -fexceptions -std=c++11 -g -I../../../src const_simple_hsl.cpp          -o const_simple_hsl
+g++ -fexceptions -std=c++11 -g -I../../../src const_simple_hsv.cpp          -o const_simple_hsv
+g++ -fexceptions -std=c++11 -g -I../../../src const_simple_rgb.cpp          -o const_simple_rgb
+g++ -fexceptions -std=c++11 -g -I../../../src const_simple_yiq.cpp          -o const_simple_yiq
+g++ -fexceptions -std=c++11 -g -I../../../src const_simple_yuv.cpp          -o const_simple_yuv
+g++ -fexceptions -std=c++11 -g -I../../../src const_simple_yuv601.cpp       -o const_simple_yuv601

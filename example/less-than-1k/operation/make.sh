@@ -6,6 +6,11 @@ cd ./blend
 ./make.sh
 cd ..
 
+cd ./distance
+./make.sh
+cd ..
+
+
 g++ -fexceptions -std=c++11 -g -I../../../src convex1.cpp           -o  convex1
 g++ -fexceptions -std=c++11 -g -I../../../src convex2.cpp           -o  convex2
 g++ -fexceptions -std=c++11 -g -I../../../src mix_alpha.cpp         -o  mix_alpha

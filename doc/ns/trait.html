@@ -85,6 +85,73 @@
 							</dd>
 						</dl>
 					</dd>
+
+					<dt><a name="container" /><code>container</code></dt>
+					<dd>
+						<dl>
+							<dt>Description</dt>
+							<dd>Contain color component in some it specific manner.
+							 Instance, input/output parameters, return (non)modifiable types.
+							 </dd>
+							<dt>Members</dt>
+							<dd>
+								<dl>
+									<dt><code>get</code></dt>
+									<dd>
+										<dl>
+											<dt>Description</dt><dd>Get component for given index.</dd>
+											<dt>Declaration</dt>
+											<dd><code>static component_return_const_type get( input_const_type container, index_input_const_type index );</code></dd>
+											<dt>Example</dt>
+											<dd>TODO</dd>
+										</dl>
+									</dd>
+									<dt><code>get</code></dt>
+									<dd>
+										<dl>
+											<dt>Description</dt>
+											<dd>Get component for given index supplied in template.</dd>
+											<dt>Declaration</dt>
+											<dd><code>template&lt; index_instance_type index&gt; static component_return_const_type get( input_const_type container );</code></dd>
+											<dt>Example</dt>
+											<dd>TODO</dd>
+										</dl>
+									</dd>
+									<dt><code>set</code></dt>
+									<dd>
+										<dl>
+											<dt>Description</dt><dd>Set component for given index and value.</dd>
+											<dt>Declaration</dt>
+											<dd><code>static set_return_type set( input_type container, index_input_const_type index, component_input_const_type value );</code></dd>
+											<dt>Example</dt>
+											<dd>TODO</dd>
+										</dl>
+									</dd>
+									<dt><code>set</code></dt>
+									<dd>
+										<dl>
+											<dt>Description</dt><dd>Set component for given index and value.</dd>
+											<dt>Declaration</dt>
+											<dd><code>template&lt; index_instance_type index &gt; static component_return_const_type get( input_const_type container );</code></dd>
+											<dt>Example</dt>
+											<dd>TODO</dd>
+										</dl>
+									</dd>
+									<dt><code>size</code></dt>
+									<dd>
+										<dl>
+											<dt>Description</dt><dd>Get size of container.</dd>
+											<dt>Declaration</dt>
+											<dd><code>static index_return_image_type size();</code></dd>
+											<dt>Example</dt>
+											<dd>TODO</dd>
+										</dl>
+									</dd>
+								</dl>
+							</dd>
+						</dl>
+					</dd>
+
 					<dt><a name="diagonal" /><code>diagonal</code></dt>
 					<dd>
 						<dl>
@@ -103,72 +170,6 @@
 						</dl>
 					</dd>
 
-					<dt><a name="container" /><code>container</code></dt>
-					<dd>
-						<dl>
-							<dt>Description</dt>
-							<dd>Contain color component in some it specific manner.
-							 Instance, input/output parameters, return (non)modifiable types.
-							 </dd>
-							<dt>Members</dt>
-							<dd>
-								<dl>
-									<dt><code>get</code></code></dt>
-									<dd>
-										<dl>
-											<dt>Description</dt><dd>Get component for given index.</dd>
-											<dt>Declaration</dt>
-											<dd><code>static component_return_const_type get( input_const_type container, index_input_const_type index );</code></dd>
-											<dt>Example</dt>
-											<dd>TODO</dd>
-										</dl>
-									</dd>
-									<dt><code>get</code></code></dt>
-									<dd>
-										<dl>
-											<dt>Description</dt>
-											<dd>Get component for given index supplied in template.</dd>
-											<dt>Declaration</dt>
-											<dd><code>template&lt; index_instance_type index&gt; static component_return_const_type get( input_const_type container );</code></dd>
-											<dt>Example</dt>
-											<dd>TODO</dd>
-										</dl>
-									</dd>
-									<dt><code>set</code></code></dt>
-									<dd>
-										<dl>
-											<dt>Description</dt><dd>Set component for given index and value.</dd>
-											<dt>Declaration</dt>
-											<dd><code>static set_return_type set( input_type container, index_input_const_type index, component_input_const_type value );</code></dd>
-											<dt>Example</dt>
-											<dd>TODO</dd>
-										</dl>
-									</dd>
-									<dt><code>set</code></code></dt>
-									<dd>
-										<dl>
-											<dt>Description</dt><dd>Set component for given index and value.</dd>
-											<dt>Declaration</dt>
-											<dd><code>template&lt; index_instance_type index &gt; static component_return_const_type get( input_const_type container );</code></dd>
-											<dt>Example</dt>
-											<dd>TODO</dd>
-										</dl>
-									</dd>
-									<dt><code>size</code></code></dt>
-									<dd>
-										<dl>
-											<dt>Description</dt><dd>Get size of container.</dd>
-											<dt>Declaration</dt>
-											<dd><code>static index_return_image_type size();</code></dd>
-											<dt>Example</dt>
-											<dd>TODO</dd>
-										</dl>
-									</dd>
-								</dl>
-							</dd>
-						</dl>
-					</dd>
-
 					<dt><a name="index" /><code>index</code></dt>
 					<dd>
 						<dl>
@@ -176,14 +177,14 @@
 							<dd>Type used to iterate trough color's components .</dd>
 							<dt>Members</dt>
 							<dd>
-								<dl>
-									<dt><code>instance_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make instance of index</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>const_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make constant instance of index</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>return_image_type</code></dt><dd><dl><dt>Description</dt><dd>Returned index which can not be modified.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>return_type</code></dt><dd><dl><dt>Description</dt><dd>Returned index without guaranteed properties</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>return_original_type</code></dt><dd><dl><dt>Description</dt><dd>Returned index which can be modified.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>input_const_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>input_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which might be modifiable.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
+								<dl> 
+									<dt><code>instance_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make instance of index</dd><dt>Example</dt>         <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::instance_type;</code></dd></dl></dd>
+									<dt><code>const_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make constant instance of index</dd><dt>Example</dt>   <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::const_type;</code></dd></dl></dd>
+									<dt><code>return_image_type</code></dt><dd><dl><dt>Description</dt><dd>Returned index which can not be modified.</dd><dt>Example</dt> <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::return_image_type;</code></dd></dl></dd>
+									<dt><code>return_type</code></dt><dd><dl><dt>Description</dt><dd>Returned index without guaranteed properties</dd><dt>Example</dt>    <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::return_type;</code></dd></dl></dd>
+									<dt><code>return_original_type</code></dt><dd><dl><dt>Description</dt><dd>Returned index which can be modified.</dd><dt>Example</dt>  <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::return_original_type;</code></dd></dl></dd>
+									<dt><code>input_const_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd><dt>Example</dt>    <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::input_const_type;</code></dd></dl></dd>
+									<dt><code>input_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which might be modifiable.</dd><dt>Example</dt>        <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::input_type; </code></dd></dl></dd>
 								</dl>
 							</dd>
 						</dl>
@@ -197,13 +198,13 @@
 							<dt>Members</dt>
 							<dd>
 								<dl>
-									<dt><code>instance_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make instance of scalar</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>const_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make constant instance of scalar</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>return_image_type</code></dt><dd><dl><dt>Description</dt><dd>Returned scalar which can not be modified.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>return_type</code></dt><dd><dl><dt>Description</dt><dd>Returned scalar without guaranteed properties</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>return_original_type</code></dt><dd><dl><dt>Description</dt><dd>Returned scalar which can be modified.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>input_const_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
-									<dt><code>input_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which might be modifiable.</dd><dt>Example</dt><dd>TODO</dd></dl></dd>
+									<dt><code>instance_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make instance of scalar</dd><dt>Example</dt>        <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::instance_type;</code></dd></dl></dd>
+									<dt><code>const_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make constant instance of scalar</dd><dt>Example</dt>  <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::const_type;</code></dd></dl></dd>
+									<dt><code>return_image_type</code></dt><dd><dl><dt>Description</dt><dd>Returned scalar which can not be modified.</dd><dt>Example</dt><dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::return_image_type;</code></dd></dl></dd>
+									<dt><code>return_type</code></dt><dd><dl><dt>Description</dt><dd>Returned scalar without guaranteed properties</dd><dt>Example</dt>   <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::return_type;</code></dd></dl></dd>
+									<dt><code>return_original_type</code></dt><dd><dl><dt>Description</dt><dd>Returned scalar which can be modified.</dd><dt>Example</dt> <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::return_original_type;</code></dd></dl></dd>
+									<dt><code>input_const_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd><dt>Example</dt>    <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::input_const_type;</code></dd></dl></dd>
+									<dt><code>input_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which might be modifiable.</dd><dt>Example</dt>        <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::input_type;</code></dd></dl></dd>
 								</dl>
 							</dd>
 						</dl>

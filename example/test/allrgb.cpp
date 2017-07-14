@@ -59,10 +59,10 @@ double distance( bgr_color_type const& left, bgr_color_type const& right )
 
 int g_size = 4096;
 
-void init( bgr_image_type &image, bgr_image_type &pallete, mask_type & mask )
+void init( bgr_image_type &image, bgr_image_type &palette, mask_type & mask )
  {
   image.resize( g_size * g_size, ::color::constant::black_t{} );
-  pallete.reserve( g_size * g_size );
+  palette.reserve( g_size * g_size );
   mask.reserve( g_size * g_size );
   for( int r=0; r< 256; r += 1 )
    {
@@ -70,7 +70,7 @@ void init( bgr_image_type &image, bgr_image_type &pallete, mask_type & mask )
      {
       for( int b=0; b< 256; b += 1 )
        {
-        pallete.push_back( bgr_color_type{ (std::uint8_t)b,(std::uint8_t)g,(std::uint8_t)r} );
+        palette.push_back( bgr_color_type{ (std::uint8_t)b,(std::uint8_t)g,(std::uint8_t)r} );
         mask.push_back( false );
        }
      }
@@ -156,7 +156,7 @@ void mask_set( mask_type & image, point_type const& point, bool const& value )
   image[ point[1]*g_size + point[0] ] = value;
  }
 
-bool search( point_type &point, bgr_image_type const& pallete, mask_type const& mask, bgr_image_type const& neighborhood )
+bool search( point_type &point, bgr_image_type const& palette, mask_type const& mask, bgr_image_type const& neighborhood )
  {
   bool have = false;
   double minimal = 100000;
@@ -169,7 +169,7 @@ bool search( point_type &point, bgr_image_type const& pallete, mask_type const& 
         continue;
        }
 
-      auto const& candidate = pixel( pallete, x, y );
+      auto const& candidate = pixel( palette, x, y );
 
       double max = 0;
       for( auto const& n: neighborhood )
@@ -230,16 +230,16 @@ void neighborhood( std::vector< bgr_color_type > &n, bgr_image_type const&image,
 
 void calc()
  {
-  bgr_image_type image, pallete;
+  bgr_image_type image, palette;
   std::vector<bgr_color_type> hood;
 
   std::deque< point_type > deque;
   mask_type mask;
    point_type best, point;
 
-  init( image, pallete, mask ); save_image24( "allrgb_pallete.tga",  pallete, g_size, g_size );
+  init( image, palette, mask ); save_image24( "allrgb_palette.tga",  palette, g_size, g_size );
 
-  std::sort( pallete.begin(), pallete.end(), []( bgr_color_type const& left, bgr_color_type const& right )->bool
+  std::sort( palette.begin(), palette.end(), []( bgr_color_type const& left, bgr_color_type const& right )->bool
    {
     typedef ::color::hsi<double> color_t;
     color_t  l; l= left;
@@ -252,13 +252,13 @@ void calc()
     return false;
    }) ;
 
-  //std::for_each( pallete.begin(), pallete.end(), []( bgr_color_type & c )-> void
+  //std::for_each( palette.begin(), palette.end(), []( bgr_color_type & c )-> void
   // {
   //  ::color::gray<double> g; g = c;
   //  c = g;
   // } );
 
-  save_image24(  "allrgb_finale-gray_luminance_compress.tga", pallete, g_size, g_size );
+  save_image24(  "allrgb_finale-gray_luminance_compress.tga", palette, g_size, g_size );
   return;
 
   mask_set( mask, {0,0}, true );
@@ -289,13 +289,13 @@ void calc()
     neighborhood( hood, image, { point[0]+0, point[1]+1 } );
     neighborhood( hood, image, { point[0]+1, point[1]+1 } );
 
-    if( false == search( best, pallete, mask, hood ) )
+    if( false == search( best, palette, mask, hood ) )
      {
       continue;
      }
 
     mask_set( mask, best, true );
-    pixel( image, point ) = pixel( pallete, best );
+    pixel( image, point ) = pixel( palette, best );
 
     push( deque, image, { point[0]-1, point[1]-1 } );
     push( deque, image, { point[0]+0, point[1]-1 } );
