@@ -48108,12 +48108,12 @@ namespace color {
 		static const scalar_type K_H = 1;
 		lab_type lab_left(left);
 		lab_type lab_right(right);
-		scalar_type const& L_1 = lab_left[0];
-		scalar_type const& a_1 = lab_left[1];
-		scalar_type const& b_1 = lab_left[2];
-		scalar_type const& L_2 = lab_right[0];
-		scalar_type const& a_2 = lab_right[1];
-		scalar_type const& b_2 = lab_right[2];
+		scalar_type const& L_1 = lab_left.template get<0>();
+		scalar_type const& a_1 = lab_left.template get<1>();
+		scalar_type const& b_1 = lab_left.template get<2>();
+		scalar_type const& L_2 = lab_right.template get<0>();
+		scalar_type const& a_2 = lab_right.template get<1>();
+		scalar_type const& b_2 = lab_right.template get<2>();
 		scalar_type delta_L = L_1 - L_2;
 		scalar_type C_1 = sqrt(this_type::square(a_1) + this_type::square(b_1));
 		scalar_type C_2 = sqrt(this_type::square(a_2) + this_type::square(b_2));
@@ -48130,7 +48130,7 @@ namespace color {
 		scalar_type delta_E_main = sqrt(this_type::square(delta_E_1) + this_type::square(delta_E_2) + this_type::square(delta_E_3));
 		return delta_E_main;
 	}
-													 };
+												   };
 
 	template< typename category_name >
 	struct distance< category_name, ::color::constant::distance::CIE94_graphics_entity > {
@@ -48259,12 +48259,12 @@ namespace color {
 	static scalar_type process(model_type const& left, model_type const& right, scalar_type const& l, scalar_type const& c) {
 		lab_type lab_left(left);
 		lab_type lab_right(right);
-		scalar_type const& L_1 = lab_left[0];
-		scalar_type const& a_1 = lab_left[1];
-		scalar_type const& b_1 = lab_left[2];
-		scalar_type const& L_2 = lab_right[0];
-		scalar_type const& a_2 = lab_right[1];
-		scalar_type const& b_2 = lab_right[2];
+		scalar_type const& L_1 = lab_left.template get<0>();
+		scalar_type const& a_1 = lab_left.template get<1>();
+		scalar_type const& b_1 = lab_left.template get<2>();
+		scalar_type const& L_2 = lab_right.template get<0>();
+		scalar_type const& a_2 = lab_right.template get<1>();
+		scalar_type const& b_2 = lab_right.template get<2>();
 		scalar_type delta_H;
 		{
 			scalar_type C_1 = sqrt(a_1* a_1 + b_1* b_1);
@@ -48293,7 +48293,7 @@ namespace color {
 		} else {
 			S_L = (0.040975*L_1)/(1+0.01765*L_1);
 		}
-		scalar_type delta_E_1 = (L_1 - lab_right[0])/(l * S_L);
+		scalar_type delta_E_1 = (L_1 - L_2)/(l * S_L);
 		scalar_type delta_E_2 = (a_1 - a_2)/(c * S_C);
 		scalar_type delta_E_3 = (delta_H)/(S_H);
 		scalar_type delta_E_main = sqrt(delta_E_1*delta_E_1 + delta_E_2*delta_E_2 + delta_E_3*delta_E_3);

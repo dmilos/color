@@ -131,13 +131,13 @@
               lab_type lab_left(left);
               lab_type lab_right(right);
 
-              scalar_type const& L_1 = lab_left[0];
-              scalar_type const& a_1 = lab_left[1];
-              scalar_type const& b_1 = lab_left[2];
+              scalar_type const& L_1 = lab_left.template get<0>();
+              scalar_type const& a_1 = lab_left.template get<1>();
+              scalar_type const& b_1 = lab_left.template get<2>();
 
-              scalar_type const& L_2 = lab_right[0];
-              scalar_type const& a_2 = lab_right[1];
-              scalar_type const& b_2 = lab_right[2];
+              scalar_type const& L_2 = lab_right.template get<0>();
+              scalar_type const& a_2 = lab_right.template get<1>();
+              scalar_type const& b_2 = lab_right.template get<2>();
 
               scalar_type delta_L =  L_1 - L_2;
 
@@ -320,13 +320,13 @@
               lab_type lab_left(left);
               lab_type lab_right(right);
 
-              scalar_type const& L_1 = lab_left[0];
-              scalar_type const& a_1 = lab_left[1];
-              scalar_type const& b_1 = lab_left[2];
+              scalar_type const& L_1 = lab_left.template get<0>();
+              scalar_type const& a_1 = lab_left.template get<1>();
+              scalar_type const& b_1 = lab_left.template get<2>();
 
-              scalar_type const& L_2 = lab_right[0];
-              scalar_type const& a_2 = lab_right[1];
-              scalar_type const& b_2 = lab_right[2];
+              scalar_type const& L_2 = lab_right.template get<0>();
+              scalar_type const& a_2 = lab_right.template get<1>();
+              scalar_type const& b_2 = lab_right.template get<2>();
 
               scalar_type delta_H;
               {
@@ -368,7 +368,7 @@
                 S_L = (0.040975*L_1)/(1+0.01765*L_1);
                }
 
-              scalar_type delta_E_1  = ( L_1 - lab_right[0] )/( l * S_L);
+              scalar_type delta_E_1  = ( L_1 - L_2 )/( l * S_L);
               scalar_type delta_E_2  = ( a_1 - a_2 )/( c * S_C);
               scalar_type delta_E_3  = ( delta_H )/( S_H);
 
