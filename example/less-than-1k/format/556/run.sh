@@ -1,0 +1,2 @@
+./rgb.exe
+./bgr.exe

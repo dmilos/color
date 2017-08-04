@@ -7,6 +7,8 @@
 
 #include "../../../generic/trait/component.hpp"
 
+#include "../index/index.hpp"
+
 
 
 namespace color

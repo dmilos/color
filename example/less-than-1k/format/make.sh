@@ -31,6 +31,24 @@ cd ./ldouble
 ./make.sh
 cd ..
 
+
+cd ./233
+./make.sh
+cd ..
+
+
+cd ./332
+./make.sh
+cd ..
+
+cd ./556
+./make.sh
+cd ..
+
+cd ./655
+./make.sh
+cd ..
+
 g++ -fexceptions -std=c++11 -g -I../../../src split2222_abgr.cpp      -o  split2222_abgr
 g++ -fexceptions -std=c++11 -g -I../../../src split2222_argb.cpp      -o  split2222_argb
 g++ -fexceptions -std=c++11 -g -I../../../src split2222_bgra.cpp      -o  split2222_bgra

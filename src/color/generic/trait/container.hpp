@@ -66,7 +66,7 @@ namespace color
             container = ( container & ~(  0xFF << ( index << 3 ) ) )  |  ( ((instance_type)value) << ( index << 3) );
            }
 
-         static index_return_image_type size()
+         static  /*constexpr*/  index_return_image_type size()
           {
            static index_instance_type length = 4;
            return length;

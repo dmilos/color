@@ -173,7 +173,7 @@ namespace color
          this->m_container = container;
         }
 
-       static /*constexpr*/ unsigned       size()
+       static /*constexpr*/ index_return_image_type       size()
         {
          return container_trait_type::size();
         }
