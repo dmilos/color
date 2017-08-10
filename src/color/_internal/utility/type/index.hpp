@@ -15,9 +15,10 @@ namespace color
         // Referent type trait point
         template< typename index_name >
          struct index
+         //: public ::color::_internal::utility::type::traitC< index_name >
           {
            public:
-             typedef  index_name              instance_type;   //!< Instance
+             typedef  index_name              instance_type;     //!< Something that must instacible
 
              typedef  instance_type  const    const_type;     //!< constant instance
 

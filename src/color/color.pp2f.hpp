@@ -13,6 +13,11 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+/*
+ Project Name: Color
+ Description: Handle and play with color(s)
+ Source: http://github.com/dmilos/color
+*/
 namespace color {
 namespace akin {
 
@@ -1347,7 +1352,7 @@ public:
 		this->m_container = container;
 	}
 
-	static unsigned size() {
+	static index_return_image_type size() {
 		return container_trait_type::size();
 	}
 
@@ -4883,22 +4888,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::rgb_uint8 >::instance_type > {
 };
 
 template< >
 struct component< ::color::category::rgb_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::rgb_uint16 >::instance_type > {
 };
 
 template< >
 struct component< ::color::category::rgb_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::rgb_uint32 >::instance_type > {
 };
 
 template< >
 struct component< ::color::category::rgb_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, unsigned > {
+	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::rgb_uint64 >::instance_type > {
 };
 
 }

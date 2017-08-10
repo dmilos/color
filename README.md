@@ -15,9 +15,10 @@
 - Ability to copy _array_/_vector_ of colors with _memcpy_, _memmove_ and initialize with _memset_.
 - Conversions from/to different types ( and its formats ).
 - Headers only
+  - One file to include to start the fun
+  - By using _del_ or _rm_ it is reducible in to only two of them.
 - No third parties
 - No additional binaries
-- One file to include to start the fun
 - Out of the box ready
   - No need to recompile or start some install process.
 - Color models:
@@ -25,7 +26,7 @@
   - RGB, CMY, CMYK,
   - HSI, HSL, HSV, HWB,
   - YIQ, YUV(BT.601, BT.709), YCgCo, YPbPr(BT.601, BT.709, BT.2020),
-  - XYZ( sRGB, D65, 2° ), LAB, LUV, LMS( von Kries D65, von Kries E, BFD, MCAT02  ), xyY, LabCH, LuvCH
+  - XYZ( sRGB, D65, 2° ), LAB, LUV, LMS( von Kries D65, von Kries E, BFD, MCAT02 ), xyY, LabCH, LuvCH
 
 ### Code sample:
 ```c++

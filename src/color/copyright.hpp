@@ -13,3 +13,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+/*
+ Project Name: Color
+ Description: Handle and play with color(s)
+ Source: http://github.com/dmilos/color
+*/

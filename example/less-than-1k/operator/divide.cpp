@@ -11,7 +11,6 @@ int main( int argc, char *argv[] )
 
   a = ::color::constant::orange_t{};
 
-
   color_t result;
 
   result = a / 2;
