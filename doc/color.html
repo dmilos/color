@@ -18,23 +18,23 @@
 					<li><a href="#Note">Note</a></li>
 					<li><a href="#List">List </a>
 						<ul>
-							<li><a href="#cmy">cmy  </a></li>
-							<li><a href="#cmyk">cmyk </a></li>
-							<li><a href="#gray">gray </a></li>
-							<li><a href="#hsi">hsi  </a></li>
-							<li><a href="#hsl">hsl  </a></li>
-							<li><a href="#hsv">hsv  </a></li>
-							<li><a href="#hwb">hwb  </a></li>
-							<li><a href="#lab">lab  </a></li>
-							<li><a href="#labCH">LabCH  </a></li>
-							<li><a href="#lms">lms  </a></li>
-							<li><a href="#luv">luv  </a></li>
+							<li><a href="#cmy">cmy</a></li>
+							<li><a href="#cmyk">cmyk</a></li>
+							<li><a href="#gray">gray</a></li>
+							<li><a href="#hsi">hsi</a></li>
+							<li><a href="#hsl">hsl</a></li>
+							<li><a href="#hsv">hsv</a></li>
+							<li><a href="#hwb">hwb</a></li>
+							<li><a href="#lab">lab</a></li>
+							<li><a href="#labCH">LabCH</a></li>
+							<li><a href="#lms">lms</a></li>
+							<li><a href="#luv">luv</a></li>
 							<li><a href="#LuvCH">LuvCH  </a></li>
 							<li><a href="#rgb">rgb ( bgr, rgba, argb, abgr and bgra )  </a></li>
-							<li><a href="#xyy">xyy  </a></li>
-							<li><a href="#xyz">xyz  </a></li>
-							<li><a href="#yiq">yiq  </a></li>
-							<li><a href="#yuv">yuv  </a></li>
+							<li><a href="#xyy">xyy</a></li>
+							<li><a href="#xyz">xyz</a></li>
+							<li><a href="#yiq">yiq</a></li>
+							<li><a href="#yuv">yuv</a></li>
 							<li><a href="#YCgCo">YCgCo</a></li>
 							<li><a href="#YDbDr">YDbDr</a></li>
 							<li><a href="#YPbPr">YPbPr</a></li>
@@ -149,10 +149,15 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="lms" />lms</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using lms = ::color::model&lt; ::color::category::lms&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name, ::color::constant::lms::reference_enum reference_number = ::color::constant::lms::von_Kries_D65_entity &gt;
+												<br>&nbsp; using lms = ::color::model&lt; ::color::category::lms&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements LMS color model.</dd>
 							<dt>Example:</dt><dd><code>::color::lms&lt; double &gt; c;</code></dd>
-							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/LMS_color_space">Wikipedia LMS</a></dd>
+							<dt>See also</dt>
+							<dd>
+								<a href="https://en.wikipedia.org/wiki/LMS_color_space">Wikipedia LMS</a><br>
+								<a href="./ns/constant.html#lms">Specify reference of LMS.</a>
+							</dd>
 						</dl><hr width="%20">
 
 						<dl>
@@ -170,7 +175,6 @@
 							<dt>Example:</dt><dd><code>::color::LUV&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/CIELUV#Cylindrical_representation_.28CIELCH.29">Wikipedia LUV</a></dd>
 						</dl><hr width="%20">
-
 
 						<dl>
 							<dt>Name</dt><dd><a name="rgb" />rgb ( bgr, rgba, argb, abgr and bgra ) </dd>
@@ -214,11 +218,15 @@
 						</dl><hr width="%20">
 
 						<dl>
-							<dt>Name</dt><dd><a name="yuv" />yuv</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using yuv = ::color::model&lt; ::color::category::yuv&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
-							<dt>Decription</dt><dd>Implements YUV color model.</dd>
+							<dt>Name:</dt><dd><a name="yuv" />yuv</dd>
+							<dt>Declaration:</dt><dd><code>template&lt; typename type_name, ::color::constant::yuv::reference_enum reference_number = ::color::constant::yuv::BT_709_entity &gt;
+												<br>&nbsp; using yuv = ::color::model&lt; ::color::category::yuv&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
+							<dt>Decription:</dt><dd>Implements YUV color model.</dd>
 							<dt>Example:</dt><dd><code>::color::yuv&lt; double &gt; c;</code></dd>
-							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YUV">Wikipedia YUV</a></dd>
+							<dt>See also:</dt>
+							<dd><a href="https://en.wikipedia.org/wiki/YUV">Wikipedia YUV</a><br>
+								<a href="./ns/constant.html#yuv">Specify reference of YUV.</a>
+							</dd>
 						</dl><hr width="%20">
 
 						<dl>
@@ -239,10 +247,17 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="YPbPr" />YPbPr</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using YPbPr = ::color::model&lt; ::color::category::YPbPr&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name, ::color::constant::YPbPr::reference_enum reference_number = ::color::constant::YPbPr::BT_709_entity &gt; 
+												<br>&nbsp; using YPbPr = ::color::model&lt; ::color::category::YPbPr&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements YPbPr color model.</dd>
 							<dt>Example:</dt><dd><code>::color::YPbPr&lt; double &gt; c;</code></dd>
-							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/YPbPr">Wikipedia YPbPr</a><br><a href="https://en.wikipedia.org/wiki/YCbCr">Wikipedia YCbCr</a></dd>
+							<dt>See also:</dt>
+							<dd>
+								<a href="https://en.wikipedia.org/wiki/YPbPr">Wikipedia YPbPr</a><br>
+								<a href="https://en.wikipedia.org/wiki/YCbCr">Wikipedia YCbCr</a><br>
+								<a href="./faq.html#">Where is YCbCr?</a><br>
+								<a href="./ns/constant.html#YPbPr">Specify reference of YPbPr.</a>
+							</dd>
 						</dl><hr width="%20">
 
 					</dd>
