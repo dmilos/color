@@ -10,6 +10,9 @@
 #include "../../xyz/xyz.hpp"
 #include "../../rgb/rgb.hpp"
 
+
+
+
 namespace color
  {
   namespace _internal
@@ -30,7 +33,7 @@ namespace color
          typedef ::color::category::hsi< hsi_tag_name >    hsi_category_type, category_left_type;
          typedef ::color::category::xyy< xyy_tag_name >    xyy_category_type, category_right_type;
 
-         typedef double scalar_type;
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
          typedef ::color::model< hsi_category_type > hsi_model_type;
          typedef ::color::model< xyy_category_type >  xyy_model_type;

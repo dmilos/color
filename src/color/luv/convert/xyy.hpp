@@ -29,7 +29,7 @@ namespace color
          typedef ::color::category::luv< luv_tag_name >    luv_category_type, category_left_type;
          typedef ::color::category::xyy< xyy_tag_name >    xyy_category_type, category_right_type;
 
-         typedef double scalar_type;
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
          typedef ::color::model< luv_category_type >        luv_model_type;
          typedef ::color::xyz< scalar_type >                xyz_model_type;

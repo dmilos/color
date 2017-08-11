@@ -28,7 +28,9 @@ namespace color
        public:
          typedef ::color::category::xyz< xyz_tag_name >    xyz_category_type, category_left_type;
          typedef ::color::category::xyy< xyy_tag_name >    xyy_category_type, category_right_type;
-         typedef double scalar_type;
+
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
+
          typedef  ::color::category::xyz< scalar_type >  xyzSCALAR_category_type;
          typedef  ::color::category::xyy< scalar_type >  xyySCALAR_category_type;
 

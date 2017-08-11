@@ -21,7 +21,7 @@ namespace color
     template
      <
        typename xyz_tag_name
-      ,typename rgb_tag_name 
+      ,typename rgb_tag_name
      >
      struct convert
       <
@@ -32,7 +32,8 @@ namespace color
        public:
          typedef ::color::category::xyz<   xyz_tag_name > category_left_type;
          typedef ::color::category::rgb<   rgb_tag_name > category_right_type;
-         typedef double  scalar_type;
+
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type  scalar_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
@@ -68,7 +69,7 @@ namespace color
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           r = xyz_gamma_type::decode( r ); 
+           r = xyz_gamma_type::decode( r );
            g = xyz_gamma_type::decode( g );
            b = xyz_gamma_type::decode( b );
 

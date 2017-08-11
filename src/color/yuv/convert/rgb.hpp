@@ -29,7 +29,7 @@ namespace color
        public:
          typedef ::color::category::yuv<   yuv_tag_name, yuv_reference_number > category_left_type;
          typedef ::color::category::rgb<   rgb_tag_name > category_right_type;
-         typedef double  scalar_type;
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type  scalar_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

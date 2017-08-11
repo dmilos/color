@@ -22,7 +22,8 @@ namespace color
        public:
          typedef ::color::category::YCgCo<   YCgCo_tag_name > category_left_type;
          typedef ::color::category::gray< gray_tag_name > category_right_type;
-         typedef double  scalar_type;
+
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type  scalar_type;
 
          typedef ::color::trait::bound<category_left_type>         bound_left_trait_type;
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;

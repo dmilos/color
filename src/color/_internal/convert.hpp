@@ -20,7 +20,7 @@ namespace color
        public:
          typedef category_left_name category_left_type;
          typedef category_right_name category_right_type;
-         typedef double scalar_type;
+         typedef typename ::color::trait::scalar<category_left_name>::instance_type scalar_type;
 
          typedef ::color::trait::index<category_left_type>          index_trait_type;
          typedef typename index_trait_type::instance_type               index_type;

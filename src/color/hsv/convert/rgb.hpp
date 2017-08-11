@@ -22,7 +22,7 @@ namespace color
        public:
          typedef ::color::category::hsv< hsv_tag_name > category_left_type;
          typedef ::color::category::rgb< rgb_tag_name > category_right_type;
-         typedef double  scalar_type;
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type  scalar_type;
 
          typedef ::color::trait::scalar<category_left_type> scalar_trait_type;
 

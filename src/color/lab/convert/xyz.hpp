@@ -32,7 +32,7 @@ namespace color
        public:
          typedef ::color::category::lab< lab_tag_name >    lab_category_type, category_left_type;
          typedef ::color::category::xyz< xyz_tag_name >    xyz_category_type, category_right_type;
-         typedef double scalar_type;
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
          typedef  ::color::category::lab< scalar_type >  labSCALAR_category_type;
          typedef  ::color::category::xyz< scalar_type >  xyzSCALAR_category_type;
 
