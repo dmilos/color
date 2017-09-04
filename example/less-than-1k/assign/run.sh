@@ -1,9 +1,7 @@
-./const_simple_cmy.exe
-./const_simple_cmyk.exe
-./const_simple_hsi.exe
-./const_simple_hsl.exe
-./const_simple_hsv.exe
-./const_simple_rgb.exe
-./const_simple_yiq.exe
-./const_simple_yuv.exe
-./const_simple_yuv601.exe
+cd ./const
+./run.sh
+cd ..
+
+./cmy2hwb.exe
+./cmy2lab.exe
+./cmy2rgb.exe

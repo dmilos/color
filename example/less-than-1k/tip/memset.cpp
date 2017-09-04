@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 
   // ---- In here fill image with RGB data ----
 
-  memset ( image.data(),0 , 3 * image.size() );
+  memset ( image.data(), 0 , 3 * image.size() );
 
   return 0;
  }

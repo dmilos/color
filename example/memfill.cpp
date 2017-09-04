@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
  {
   std::vector< std::array< double, 3 > >  image( 1000 * 1000 );
 
-  // <---- In here we fill somehow image with RGB data ---- />
+  // ---->>> In here we somehow fill image with useful RGB data <<<----
 
   ::color::rgb<double> sample( ::color::constant::turquoise_type{} );
 

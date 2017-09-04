@@ -1,10 +1,8 @@
+cd ./compare
+./run.sh
+cd ..
+
 ./addition.exe
-./bias.exe
-./convex1.exe
-./convex2.exe
-./gain.exe
-./gamma.exe
-./mix_alpha.exe
-./mix_noalpha.exe
+./divide.exe
 ./scale.exe
-./subtract.exe
+./subtraction.exe

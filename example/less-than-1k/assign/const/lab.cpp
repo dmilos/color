@@ -5,9 +5,9 @@
 
 int main( int argc, char *argv[] )
  {
-  ::color::hsi< float >          c; //!< Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
+  ::color::lab< float >          c; //!< Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
 
-  // Initialize from constant
+  // Assign constant to instance
   c = ::color::constant::lavender_type{};
 
   //  now you may do whatever you want to do with c
