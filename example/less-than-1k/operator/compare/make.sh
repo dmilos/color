@@ -1,4 +1,3 @@
-g++ -fexceptions -std=c++11 -g -I../../../../src eq.cpp                    -o eq
 g++ -fexceptions -std=c++11 -g -I../../../../src equal.cpp                 -o equal
 g++ -fexceptions -std=c++11 -g -I../../../../src great.cpp                 -o great
 g++ -fexceptions -std=c++11 -g -I../../../../src great_ore_qual.cpp        -o great_ore_qual
