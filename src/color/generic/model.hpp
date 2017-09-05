@@ -108,7 +108,7 @@ namespace color
        template< typename other_category_name >
         model & operator=( ::color::model<other_category_name> const& that )
          {
-         ::color::_internal::convert< category_name, other_category_name>::process( this->m_container, that.container() );
+          ::color::_internal::convert< category_name, other_category_name>::process( this->m_container, that.container() );
           return *this;
          }
 

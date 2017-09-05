@@ -18,6 +18,7 @@
 							<li><a href="#cmy">cmy</a></li>
 							<li><a href="#cmyk">cmyk</a></li>
 							<li><a href="#gray">gray</a></li>
+							<li><a href="#hsl">hsi</a></li>
 							<li><a href="#hsl">hsl</a></li>
 							<li><a href="#hsv">hsv</a></li>
 							<li><a href="#hwb">hwb</a></li>
@@ -123,8 +124,39 @@
 								</blockquote>
 							</dd>
 						</dl>
-
 					</dd>
+
+					<dt><a name="HSI" />HSI</dt>
+					<dd>
+						<dl>
+							<dt><code>template&lt; typename tag_name &gt; struct hsi;</code></dt>
+							<dd>Generalized HSI category. All HSI categories are alias of instance of this class for some internal <code>tag_type</code>.</dd>
+							<dt>List</dt>
+							<dd>
+								<ul>
+									<!-- <li><code>using hsi_bool    = ::color::category::hsi&lt; <i>unspecified</i> &gt;;</code></li> -->
+									<li><code>using hsi_uint8   = ::color::category::hsi&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hsi_uint16  = ::color::category::hsi&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hsi_uint24  = ::color::category::hsi&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hsi_uint32  = ::color::category::hsi&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hsi_uint48  = ::color::category::hsi&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hsi_uint64  = ::color::category::hsi&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hsi_float   = ::color::category::hsi&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hsi_double  = ::color::category::hsi&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hsi_ldouble = ::color::category::hsi&lt; <i>unspecified</i> &gt;;</code></li>
+								</ul>
+							</dd>
+							<dt>Example(s)</dt>
+							<dd>
+								Next two types are the same:
+								<blockquote><code>
+								::color::model&lt; ::color::category::hsi_uint16 &gt;   &nbsp; &nbsp; c0; <br>
+								::color::hsi&lt; std::uint16_t &gt;  &nbsp;&nbsp; c1; </code>
+								</blockquote>
+							</dd>
+						</dl>
+					</dd>
+
 					<dt><a name="HSL" />HSL</dt>
 					<dd>
 						<dl>
@@ -133,7 +165,7 @@
 							<dt>List</dt>
 							<dd>
 								<ul>
-									<!-- <li><code>using cmyk_bool    = ::color::category::cmyk&lt; <i>unspecified</i> &gt;;</code></li> -->
+									<!-- <li><code>using hsl_bool    = ::color::category::hsk&lt; <i>unspecified</i> &gt;;</code></li> -->
 									<li><code>using hsl_uint8   = ::color::category::hsl&lt; <i>unspecified</i> &gt;;</code></li>
 									<li><code>using hsl_uint16  = ::color::category::hsl&lt; <i>unspecified</i> &gt;;</code></li>
 									<li><code>using hsl_uint24  = ::color::category::hsl&lt; <i>unspecified</i> &gt;;</code></li>

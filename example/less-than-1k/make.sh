@@ -66,7 +66,5 @@ cd ..
 
 g++ -fexceptions -std=c++11 -g -I../../src empty.cpp        -o  empty
 g++ -fexceptions -std=c++11 -g -I../../src hello.cpp        -o  hello
-g++ -fexceptions -std=c++11 -g -I../../src yuv601.cpp       -o  yuv601
-g++ -fexceptions -std=c++11 -g -I../../src yuv709.cpp       -o  yuv709
 g++ -fexceptions -std=c++11 -g -I../../src pp2f.cpp         -o  pp2f
 

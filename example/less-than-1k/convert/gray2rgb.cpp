@@ -6,14 +6,17 @@
 
 int main( int argc, char *argv[] )
  {
-  color::rgb<float>          r; //!< Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
-  color::gray<std::uint32_t> g; //!< Instead of uint32_t you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
+  color::rgb<float>          c1; //!< Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
+  color::gray<std::uint32_t> c2; //!< Instead of uint32_t you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
 
   // Do some initialization
-  g = color::constant::gray50_t{};
+  c1 = color::constant::red_t{};
 
-  // Here is how to convert from one to another
-  r = g;
+  // Here is how to reformat/convert from one to another
+  c2 = c1;
+
+  // And vice versa
+  c1 = c2;
 
   return EXIT_SUCCESS;
  }

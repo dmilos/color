@@ -6,10 +6,10 @@
 
 int main( int argc, char *argv[] )
  {
-  ::color::bgra< ::color::type::split556_t > r;
+  ::color::bgr< ::color::type::split556_t > r;
 
   r = ::color::constant::orange_t{}; //!< Fill with some useful information
-  ::color::set::alpha( r, 7 );
+
 
   std::cout<< (unsigned)r[0] << "," << (unsigned)r[1] << "," << (unsigned)r[2] << "," << (unsigned)r[3];
 

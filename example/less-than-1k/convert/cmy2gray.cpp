@@ -14,6 +14,7 @@ int main( int argc, char *argv[] )
 
   // Here is how to reformat/convert from one to another
   c2 = c1;
+
   // And vice versa
   c1 = c2;
 

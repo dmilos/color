@@ -31,7 +31,7 @@ namespace color
       {
        public:
          typedef ::color::category::luv< luv_tag_name >    luv_category_type, category_left_type;
-         typedef ::color::category::LuvCH< luv_tag_name >    LuvCH_category_type, category_right_type;
+         typedef ::color::category::LuvCH< LuvCH_tag_name >    LuvCH_category_type, category_right_type;
 
          typedef typename ::color::trait::scalar< luv_category_type >::instance_type scalar_type;
 
