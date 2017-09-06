@@ -1,7 +1,3 @@
-cd ./const
-./run.sh
-cd ..
-
 ./cmyk2cmy.exe
 ./cmyk2cmyk.exe
 ./cmyk2gray.exe
