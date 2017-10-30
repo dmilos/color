@@ -1,0 +1,11 @@
+language: c++
+git:
+  depth: 3
+
+dist: trusty
+
+script:
+- cmake .
+- make all -j2
+- make test -j2
+
