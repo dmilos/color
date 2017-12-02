@@ -9,6 +9,7 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
       struct chocolate_type{};

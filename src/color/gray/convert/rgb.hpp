@@ -39,7 +39,7 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef  ::color::constant::gray< category_left_type > gray_const_type;
+         typedef ::color::constant::gray::rgb< category_left_type > gray_const_type;
 
          enum
           {

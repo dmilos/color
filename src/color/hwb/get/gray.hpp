@@ -35,7 +35,7 @@
 
         enum
          {
-           lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
+           white_p  = 2 // TODO
          };
 
         enum
@@ -43,7 +43,7 @@
            gray_p  = ::color::place::_internal::gray<akin_category_type>::position_enum
          };
 
-        return reformat_type::template process<gray_p,lightness_p>( color_parameter.template get<lightness_p>() );
+        return reformat_type::template process<gray_p,white_p>( color_parameter.template get<white_p>() );
        }
 
     }

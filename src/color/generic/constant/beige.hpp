@@ -9,6 +9,7 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
       struct beige_type{};

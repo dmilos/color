@@ -4,7 +4,7 @@ import nucleotide
 #make setting
 settings = nucleotide.Settings( )
 settings.set_custom( 'configuration', 'release' )
-settings.set_custom( 'compiler_version_msvc', '14.0' )
+#settings.set_custom( 'compiler_version_msvc', '14.0' )
 settings.set_custom( 'pp2f', 'false' )
 
 settings.set_custom( 'configuration',   ARGUMENTS.get( 'configuration', settings.get_custom( 'configuration' ) ) ) 

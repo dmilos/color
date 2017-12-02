@@ -538,8 +538,11 @@ void test_yiq2yuv601_quick()
   yuv = ::color::constant::magenta_t{};  yiq = yuv; std::cout << "magenta  "; print( yiq ); std::cout << std::endl;
  }
 
-int main(int argc, char const *argv[])
+int main(int argc, char const *argv[] )
  {
+  void test_get_invoke( double value );
+  test_get_invoke( 0.5 );
+
   LabCH_test();
 
   extern void test_constant();
@@ -601,8 +604,6 @@ int main(int argc, char const *argv[])
   void main_place();
   main_place();
 
-
-
   make_blue();
 
   invoke();
@@ -613,10 +614,8 @@ int main(int argc, char const *argv[])
   void test_set_invoke();
   test_set_invoke();
 
-  void test_get_invoke( double value );
-  test_get_invoke(0.5);
 
-  return 0 ;
+  return 0;
  }
 
 /*

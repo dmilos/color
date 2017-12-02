@@ -1,11 +1,14 @@
 #ifndef color_contant_generic
 #define color_contant_generic
 
-// ::color::constant::generic< typename ::color::akin::generic< category_name >::akin_type > >::()
+// ::color::constant::generic<  category_name >
 
 // ::color::constant::hue::formula_enum, // ::color::constant::hue::hexagon_entity,
-
 // ::color::constant::hue::_internal::algorithm< ::color::constant::hue::formula_enum >
+
+// ::color::constant::gray::formula_enum, // ::color::constant::gray::native_entity,
+// ::color::constant::gray::_internal::algorithm< ::color::constant::gray::formula_enum >
+
 
 #include "./category.hpp"
 #include "./trait/scalar.hpp"
@@ -56,10 +59,10 @@ namespace color
       enum formula_enum
        {
          error_entity
-        ,hexagon_entity     // =  Preucil
-        ,polar_atan2_entity // EHB(atan2) = Evans, Hanson, and Brewer
-        ,polar_acos_entity  // EHB(acos)  = Evans, Hanson, and Brewer
-        ,polar_entity = polar_atan2_entity  // Default polar formula
+        ,hexagon_entity                     //!< =  Preucil
+        ,polar_atan2_entity                 //!< EHB(atan2) = Evans, Hanson, and Brewer
+        ,polar_acos_entity                  //!< EHB(acos)  = Evans, Hanson, and Brewer
+        ,polar_entity = polar_atan2_entity  //!< Default polar formula
        };
 
       namespace _internal
@@ -70,6 +73,25 @@ namespace color
        }
 
      }
+
+    namespace gray
+     {
+
+      enum formula_enum
+       {
+         error_entity
+        ,native_entity
+       };
+
+      namespace _internal
+       {
+
+        template < enum ::color::constant::gray::formula_enum hue_number > struct algorithm{};
+
+       }
+
+     }
+
 
    }
  }

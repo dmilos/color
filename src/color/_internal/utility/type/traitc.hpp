@@ -17,7 +17,7 @@ namespace color
          struct traitC // for types in container
           {
            public:
-             typedef  type_name       instance_type;     //!< Something that must instacible
+             typedef  type_name            instance_type;     //!< Something that must instacible
 
              typedef  instance_type  const    const_type; //!< constant instance
 
@@ -29,7 +29,6 @@ namespace color
              typedef  instance_type         input_type,       param_input_type;         //!< Input type that can be change. Effect might or might be in visible to outside. Prefer NOT.
              typedef  instance_type       & output_type,      param_output_type;        //!< Output type that can be changed. Must have outside effect.
              typedef  instance_type       & transmit_type,    param_transmit_type;      //!< Input and output at the same time.
-
           };
 
        }

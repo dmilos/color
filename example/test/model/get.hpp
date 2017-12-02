@@ -8,11 +8,11 @@
 template< typename category_name >
  void test_generic_get()
   {
-   //std::cout << std::endl;
-   //std::cout << "{{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{"<< std::endl;
-   //std::cout << "begin - " << __FUNCTION__ ;
-   //std::cout << "  < " << typeid( category_name ).name()   << " > ()" << std::endl;
-   //std::cout << std::endl;
+   std::cout << std::endl;
+   std::cout << "{{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{ {{{{"<< std::endl;
+   std::cout << "begin - " << __FUNCTION__ ;
+   std::cout << "  < " << typeid( category_name ).name()   << " > ()" << std::endl;
+   std::cout << std::endl;
 
    typedef color::model< category_name > model_type;
    typedef typename model_type::component_type     component_type;
@@ -28,9 +28,9 @@ template< typename category_name >
    color::get::blue( c )  ;
    color::get::hue( c )   ;
 
-   //std::cout << std::endl;
-   //std::cout << "end - " << __FUNCTION__ ;
-   //std::cout << "  < " << typeid( category_name ).name()   << " > ()" << std::endl;
-   //std::cout << "}}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}}" << std::endl;
+   std::cout << std::endl;
+   std::cout << "end - " << __FUNCTION__ ;
+   std::cout << "  < " << typeid( category_name ).name()   << " > ()" << std::endl;
+   std::cout << "}}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}} }}}}" << std::endl;
  }
 

@@ -39,7 +39,7 @@
 					<li>Optional: Copy <code>src</code> folder in some for your suitable place.<br>
 					If you want to use directly from place where you clone color project you may skip this step.
 					</li>
-					<li>Put <code>src</code> in your path.<br> If you copy <code>src</code> in someplace that is already in your path then skip this step.</li>
+					<li>Optional: Put <code>src</code> in your path.<br> If you copy <code>src</code> in someplace that is already in your path then skip this step.</li>
 				</ol>
 				Done!<br>
 			</dd>
@@ -74,7 +74,9 @@ int main( int argc, char *argv[] )
  {
   color::rgb&lt;double&gt; r;
 
-  std::cout &lt;&lt; "Hello world" &lt;&lt; std::endl;
+  r = ::color::constant::lavender_type{};
+
+  std::cout &lt;&lt; "Red: " << r[0] &lt;&lt; ",  Green: " &lt;&lt; r[1] &lt;&lt; ", Blue: " &lt;&lt; r[2] &lt;&lt; std::endl;
 
   return EXIT_SUCCESS;
  }

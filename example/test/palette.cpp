@@ -141,3 +141,43 @@ void test_palette()
 
  }
 
+
+
+void make_image_RGB2LAB(std::string const& name )
+ {
+  int height = 1000;
+  int width  = 1000;
+
+  targa_header_struct header;
+  targa_make_header24( width, height, header);
+  std::vector< color::bgr< std::uint8_t> >   image( height * width );
+
+  std::fill( image.begin(), image.end(), ::color::constant::gray_t<1,1>{} );
+
+  color::rgb<double>  check;
+  typedef ::color::lab<double> model_type;
+
+  for( int r = 0; r < 256; r++)
+   {
+    for( int g = 0; g < 256; g++)
+     {
+      for( int b = 0; b < 256; b++)
+       {
+        color::rgb< std::uint8_t >  rgb( { (std::uint8_t)r, (std::uint8_t)g, (std::uint8_t)b } );
+
+        color::lab< double >lab;
+        lab = rgb;
+
+        image[ (int)( lab[2] + 128 )* width +  (int)( 128 + lab[1] ) ] = ::color::constant::white_t{};
+     }
+   }
+
+  }
+
+   {
+    std::ofstream of(name, std::ios_base::binary);
+    of.write((const char *)header, 18);
+    of.write((const char *)image.data(), image.size() * 3 );
+   }
+ }
+

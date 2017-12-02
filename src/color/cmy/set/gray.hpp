@@ -36,7 +36,7 @@
         typedef ::color::_internal::normalize< category_type > normalize_cmy_type;
         typedef ::color::_internal::normalize< akin_type >     normalize_akin_type;
 
-        typedef  ::color::constant::gray< akin_type > gray_const_type;
+        typedef ::color::constant::gray::rgb< akin_type > gray_const_type;
 
         enum
          {

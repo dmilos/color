@@ -42,9 +42,9 @@
          };
 
         scalar_type value =
-           + yiq_const_type::b21() * ( 1 - normalize_type::template process<   cyan_p>( color_parameter.template get<   cyan_p>() ) )
-           + yiq_const_type::b22() * ( 1 - normalize_type::template process<magenta_p>( color_parameter.template get<magenta_p>() ) )
-           + yiq_const_type::b23() * ( 1 - normalize_type::template process< yellow_p>( color_parameter.template get< yellow_p>() ) )
+           + yiq_const_type::b21() * ( scalar_type(1) - normalize_type::template process<   cyan_p>( color_parameter.template get<   cyan_p>() ) )
+           + yiq_const_type::b22() * ( scalar_type(1) - normalize_type::template process<magenta_p>( color_parameter.template get<magenta_p>() ) )
+           + yiq_const_type::b23() * ( scalar_type(1) - normalize_type::template process< yellow_p>( color_parameter.template get< yellow_p>() ) )
            ;
 
         value = yiq_const_type::i_normalize( value );

@@ -14,7 +14,7 @@
 			<dd>
 				<ul>
 					<li> There are too much files in project. How to reduce?</li>
-					<li> Get return only constant values. Where is get which return something modifiable like <code>operator[]</code> ?</li>
+					<li> <code>get</code> return only constant values. Where is <code>get</code> which return something modifiable like <code>operator[]</code> ?</li>
 					<li> How to reduce <code>namespace</code> path?</li>
 					<li> Inconsistent from/to gray conversion?</li>
 					<li> Where are: 1,2,4 bits gray?</li>
@@ -52,9 +52,9 @@
 				See also: <a href="./macro.html#PP2F">Macros</a>.
 				<br><br>
 			</dd>
-			<dt>&bull; Get return only constant values. Where is get which return something modifiable like <code>operator[]</code> ?</dt>
+			<dt>&bull; <code>get</code> return only constant values. Where is <code>get</code> which return something modifiable like <code>operator[]</code> ?</dt>
 			<dd>
-				This is by design.<br> When you use get you will be always sure that object is intact even is it non constant.<br>
+				This is by design.<br> When you use <code>get</code> you will be always sure that object is intact even is it non constant.<br>
 				Just separation of jurisdiction.<br>
 				&nbsp; &nbsp; <code><a href="./model.html#function_set">get</a></code>s only read,<br>
 				&nbsp; &nbsp; <code><a href="./model.html#function_set">set</a></code>s only modify,<br>

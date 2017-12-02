@@ -24,7 +24,7 @@
         typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
         hue
          (
-           ::color::model< ::color::category::rgb< tag_name> >                              const& color_parameter
+           ::color::model< ::color::category::rgb< tag_name > >                                          const& color_parameter
           ,::color::constant::hue::_internal::algorithm< ::color::constant::hue::hexagon_entity >       const& algorithm_param
          )
          {
@@ -78,7 +78,7 @@
         typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
          hue
          (
-           ::color::model< ::color::category::rgb< tag_name> >                             const& color_parameter
+           ::color::model< ::color::category::rgb< tag_name > >                                         const& color_parameter
           ,::color::constant::hue::_internal::algorithm< ::color::constant::hue::polar_atan2_entity >  const& algorithm_param
          )
          {
