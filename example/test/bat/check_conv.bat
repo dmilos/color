@@ -1,7 +1,9 @@
+echo off
+
+set  program_TC=..\out\tc.exe
 set  left_folder=..\out\conv-rgb
 set  right_folder=..\out\conv
 set  target_folder=..\out\check
-set  program_TC=..\out\tc.exe
 
 %program_TC%  %left_folder%\bgr_double_2bgr.tga  %right_folder%\bgr2bgr.tga                  %target_folder%\bgr2bgr.tga
 %program_TC%  %left_folder%\bgr_double_2bgr.tga  %right_folder%\bgr2cmy.tga                  %target_folder%\bgr2cmy.tga

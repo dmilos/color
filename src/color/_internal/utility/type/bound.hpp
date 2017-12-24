@@ -69,7 +69,7 @@ namespace color
          };
 
         template <>
-         struct bound<std::uint8_t, std::uint8_t const& >
+         struct bound< std::uint8_t, std::uint8_t const& >
          {
           typedef std::uint8_t           number_type;
           typedef std::uint8_t const&    image_type;

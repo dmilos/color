@@ -23,6 +23,8 @@
 
             typedef ::color::trait::index<category_type>         index_trait_type;
             typedef ::color::trait::container< category_type >   container_trait_type;
+            typedef ::color::trait::component< category_type >   component_trait_type;
+
             typedef ::color::model<category_type>     model_type;
 
             typedef model_type &  model_input_type;
@@ -43,7 +45,7 @@
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, scalar * left.get( index ) +(scalar_type( 1 ) - scalar ) *right.get( index )  );
+                result.set( index, scalar * left.get( index ) +( scalar_type( 1 ) - scalar ) *right.get( index )  );
                }
               return result;
              }

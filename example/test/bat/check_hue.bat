@@ -1,3 +1,4 @@
+echo off
 set  left_folder=..\out\hue
 set  right_folder=..\out-x\hue
 set  target_folder=..\out\check

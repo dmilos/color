@@ -168,3 +168,4 @@ example/test/mc.html
 example/make_rgb_red
 
 /example/test/.vs
+/example/test/*.db

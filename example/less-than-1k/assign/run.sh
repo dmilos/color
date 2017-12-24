@@ -6,6 +6,10 @@ cd ./cmyk
 ./run.sh
 cd ..
 
+cd ./const
+./run.sh
+cd ..
+
 cd ./gray
 ./run.sh
 cd ..
@@ -78,6 +82,3 @@ cd ./yuv
 ./run.sh
 cd ..
 
-cd ./const
-./run.sh
-cd ..

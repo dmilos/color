@@ -18,7 +18,7 @@
 
      template< typename tag_name, ::color::constant::YPbPr::reference_enum reference_number >
       inline
-      typename ::color::trait::component< typename ::color::akin::rgb<::color::category::YPbPr<tag_name,reference_number> >::akin_type >::return_type
+      typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::return_type
       blue( ::color::model< ::color::category::YPbPr<tag_name,reference_number> > const& color_parameter )
        {
         typedef ::color::category::YPbPr<tag_name,reference_number> category_type;

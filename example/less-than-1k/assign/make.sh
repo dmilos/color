@@ -6,6 +6,10 @@ cd ./cmyk
 ./make.sh
 cd ..
 
+cd ./const
+./make.sh
+cd ..
+
 cd ./gray
 ./make.sh
 cd ..
@@ -75,9 +79,5 @@ cd ./YPbPr
 cd ..
 
 cd ./yuv
-./make.sh
-cd ..
-
-cd ./const
 ./make.sh
 cd ..

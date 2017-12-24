@@ -619,6 +619,7 @@ int main(int argc, char const *argv[] )
  }
 
 /*
+mkdir check
 mkdir conv
 mkdir conv-rgb
 mkdir dec

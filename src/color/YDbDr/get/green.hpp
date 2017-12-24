@@ -18,7 +18,7 @@
 
      template< typename tag_name >
       inline
-      typename ::color::trait::component< typename ::color::akin::rgb<::color::category::YDbDr<tag_name> >::akin_type >::return_type
+      typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YDbDr<tag_name> >::akin_type >::return_type
       green( ::color::model< ::color::category::YDbDr<tag_name> > const& color_parameter )
        {
         typedef ::color::category::YDbDr<tag_name>  category_type;

@@ -71,13 +71,13 @@ namespace color
 
          this_type & operator*=( scalar_input_const_type scalar )
           {
-           container_trait_type::set( this->m_container, this->m_index, container_trait_type::get( this->m_container, this->m_index ) * scalar );
+           container_trait_type::set( this->m_container, this->m_index, component_type( container_trait_type::get( this->m_container, this->m_index ) * scalar ) );
            return *this;
           }
 
          this_type & operator/=( scalar_input_const_type scalar )
           {
-           container_trait_type::set( this->m_container, this->m_index, container_trait_type::get( this->m_container, this->m_index ) / scalar );
+           container_trait_type::set( this->m_container, this->m_index, component_type( container_trait_type::get( this->m_container, this->m_index ) / scalar ) );
            return *this;
           }
 

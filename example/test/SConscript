@@ -33,6 +33,10 @@ if 'true' == settings.get_custom( 'pp2f' ):
 
 # Accumulate source
 envObject = nucleotide.Environment( settings ).native()
+#envObject.Append( CPPFLAGS = [ '/Wall' ] )
+#envObject.Append( CPPFLAGS = [ '/wd4464' ] ) 
+#envObject.Append( CPPFLAGS   = [ '/we4800', '/we4244', '/we4365', '/we4365' ] )
+
 
 source = []
 source +=   [
@@ -81,6 +85,7 @@ source_allgray +=   [
     ]
 # Make native environment
 envProgram = nucleotide.Environment( settings ).native()
+
 
 # Create program
 program = envProgram.Program( target =  directory_exe+ 'test' + envProgram['PROGSUFFIX'], source = source )

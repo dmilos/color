@@ -22,7 +22,7 @@
 
      template< typename tag_name >
       inline
-      typename ::color::trait::component< typename ::color::akin::rgb<::color::category::cmyk< tag_name > >::akin_type >::return_type
+      typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::return_type
       red( ::color::model< ::color::category::cmyk< tag_name > > const& color_parameter )
        {
         typedef ::color::category::cmyk< tag_name > category_type;

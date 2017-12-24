@@ -1,3 +1,4 @@
+echo off
 set  left_folder=..\out\operation
 set  right_folder=..\out-x\operation
 set  target_folder=..\out\check

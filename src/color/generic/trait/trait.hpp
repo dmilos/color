@@ -5,3 +5,4 @@
 #include "./index.hpp"
 #include "./info.hpp"
 #include "./scalar.hpp"
+#include "./size.hpp"

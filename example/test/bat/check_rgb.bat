@@ -1,3 +1,4 @@
+echo off
 set  left_folder=..\out\conv-rgb
 set  right_folder=..\out-x\conv-rgb
 set  target_folder=..\out\check

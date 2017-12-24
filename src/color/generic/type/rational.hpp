@@ -69,6 +69,176 @@ namespace color
       underlying_type m_underlying;
     };
 
+
+    template < typename underlying_name >
+     inline
+     ::counter::number< underlying_name> operator+
+      (
+       ::counter::number< underlying_name> const& left
+      )
+      {
+       return ::counter::number< underlying_name>( + left.get() );
+      }
+
+    template < typename underlying_name >
+     inline
+     ::counter::number< underlying_name> operator+
+      (
+       ::counter::number< underlying_name> const& left, ::counter::number< underlying_name> const& right
+      )
+      {
+       return ::counter::number< underlying_name>( left.get() + right.get() );
+      }
+
+
+    template < typename underlying_name >
+     inline
+     ::counter::number< underlying_name> & operator+=
+      (
+       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+      )
+      {
+       left.get() += right.get();
+       return left;
+      }
+
+
+    template < typename underlying_name >
+     inline
+     ::counter::number< underlying_name> operator-
+      (
+       ::counter::number< underlying_name> const& left
+      )
+      {
+       return ::counter::number< underlying_name>( - left.get() );
+      }
+
+
+    template < typename underlying_name >
+     inline
+     ::counter::number< underlying_name> operator-
+      (
+       ::counter::number< underlying_name> const& left, ::counter::number< underlying_name> const& right
+      )
+      {
+       return ::counter::number< underlying_name>( left.get() - right.get() );
+      }
+
+
+    template < typename underlying_name >
+     inline
+     ::counter::number< underlying_name> & operator-=
+      (
+       ::counter::number< underlying_name>     & left, ::counter::number< underlying_name> const& right
+      )
+      {
+       left.get() -= right.get();
+       return left;
+      }
+
+    template < typename underlying_name >
+     inline
+     ::counter::number< underlying_name> operator*
+      (
+       ::counter::number< underlying_name> const& left, ::counter::number< underlying_name> const& right
+      )
+      {
+       return ::counter::number< underlying_name>( left.get() * right.get() );
+      }
+
+    template < typename underlying_name >
+     inline
+     ::counter::number< underlying_name> & operator *=
+      (
+       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+      )
+      {
+       left.get() *= right.get();
+       return left;
+      }
+
+    template < typename underlying_name >
+     inline
+     ::counter::number< underlying_name> operator/
+      (
+       ::counter::number< underlying_name> const& left, ::counter::number< underlying_name> const& right
+      )
+      {
+       return ::counter::number< underlying_name>( left.get() / right.get() );
+      }
+
+
+    template < typename underlying_name >
+     inline
+     ::counter::number< underlying_name> & operator /=
+      (
+       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+      )
+      {
+       left.get() /= right.get();
+       return left;
+      }
+
+    template < typename underlying_name >
+     inline
+     bool operator ==
+      (
+       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+      )
+      {
+       return left.get() == right.get();
+      }
+
+    template < typename underlying_name >
+     inline
+     bool operator !=
+      (
+       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+      )
+      {
+       return left.get() != right.get();
+      }
+
+    template < typename underlying_name >
+     inline
+     bool operator <
+      (
+       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+      )
+      {
+       return left.get() < right.get();
+      }
+
+    template < typename underlying_name >
+     inline
+     bool operator <=
+      (
+       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+      )
+      {
+       return left.get() <= right.get();
+      }
+
+    template < typename underlying_name >
+     inline
+     bool operator >
+      (
+       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+      )
+      {
+       return left.get() > right.get();
+      }
+
+    template < typename underlying_name >
+     inline
+     bool operator >=
+      (
+       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+      )
+      {
+       return left.get() >= right.get();
+      }
+
 #endif
 
    }

@@ -67,9 +67,9 @@
        //template<> struct integrity< ::color::category::hsv_uint16  > : public ::color::fix::_internal::_privateHSV::integrity<::color::category::hsv_uint16 >{ };
        //template<> struct integrity< ::color::category::hsv_uint32  > : public ::color::fix::_internal::_privateHSV::integrity<::color::category::hsv_uint32 >{ };
        //template<> struct integrity< ::color::category::hsv_uint64  > : public ::color::fix::_internal::_privateHSV::integrity<::color::category::hsv_uint64 >{ };
-       template<> struct integrity< ::color::category::hsv_float   > : public ::color::fix::_internal::_privateHSV::integrity<::color::category::hsv_float  >{ };
-       template<> struct integrity< ::color::category::hsv_double  > : public ::color::fix::_internal::_privateHSV::integrity<::color::category::hsv_double >{ };
-       template<> struct integrity< ::color::category::hsv_ldouble > : public ::color::fix::_internal::_privateHSV::integrity<::color::category::hsv_ldouble>{ };
+       template<> struct integrity< ::color::category::hsv_float   > : public ::color::fix::_internal::_privateHSV::integrity< ::color::category::hsv_float  >{ };
+       template<> struct integrity< ::color::category::hsv_double  > : public ::color::fix::_internal::_privateHSV::integrity< ::color::category::hsv_double >{ };
+       template<> struct integrity< ::color::category::hsv_ldouble > : public ::color::fix::_internal::_privateHSV::integrity< ::color::category::hsv_ldouble>{ };
 
       }
     }

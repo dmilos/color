@@ -4,10 +4,12 @@
 // ::color::model< category >
 
 
-// #include "./trait/index.hpp"
-// #include "./trait/component.hpp"
-// #include "./trait/container.hpp"
-// #include "./trait/bound.hpp"
+#include "./trait/index.hpp"
+#include "./trait/size.hpp"
+#include "./trait/component.hpp"
+#include "./trait/container.hpp"
+#include "./trait/bound.hpp"
+#include "./trait/scalar.hpp"
 
 #include "../_internal/convert.hpp"
 #include "../_internal/init.hpp"
@@ -33,6 +35,7 @@ namespace color
        typedef category_name category_type;
 
        typedef ::color::trait::index< category_name >      index_trait_type;
+  	   typedef ::color::trait::size< category_name >       size_trait_type;
        typedef ::color::trait::component< category_name >  component_trait_type;
        typedef ::color::trait::container< category_name >  container_trait_type;
        typedef ::color::trait::bound< category_name >      bound_trait_type, bound_type;
@@ -44,6 +47,9 @@ namespace color
        typedef typename index_trait_type::const_type             index_const_type;
        typedef typename index_trait_type::input_const_type       index_input_const_type;
        typedef typename index_trait_type::return_image_type      index_return_image_type;
+
+	   typedef typename size_trait_type::instance_type          size_type;
+	   typedef typename size_trait_type::return_image_type      size_return_image_type;
 
        typedef typename component_trait_type::instance_type       component_type;
        typedef typename component_trait_type::const_type          component_const_type;
@@ -99,9 +105,9 @@ namespace color
          }
 
        template< typename tag_name >
-        model &  operator=( ::color::constant::base< tag_name > const& constant )
+        model &  operator=( ::color::constant::base< tag_name > const& )
          {
-          ::color::constant::make<::color::constant::base< tag_name >,category_name>::process( this->m_container );
+          ::color::constant::make< ::color::constant::base< tag_name >,category_name>::process( this->m_container );
           return *this;
          }
 
@@ -173,7 +179,7 @@ namespace color
          this->m_container = container;
         }
 
-       static /*constexpr*/ index_return_image_type       size()
+       static /*constexpr*/ size_return_image_type       size()
         {
          return container_trait_type::size();
         }

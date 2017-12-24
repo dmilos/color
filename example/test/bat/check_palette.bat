@@ -1,3 +1,4 @@
+echo off
 set  left_folder=..\out\palette
 set  right_folder=..\out-x\palette
 set  target_folder=..\out\check

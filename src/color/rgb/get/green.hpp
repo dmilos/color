@@ -47,8 +47,8 @@
         typename ::color::model< ::color::category::rgb< tag_name> >::component_const_type
         green
          (
-           ::color::model< ::color::category::rgb<tag_name> >                               const& color_parameter
-          ,::color::constant::green::_internal::algorithm<::color::constant::green::channel_number> const& algorithm
+           ::color::model< ::color::category::rgb<tag_name> >                                         const& color_parameter
+          ,::color::constant::green::_internal::algorithm< ::color::constant::green::channel_number > const& algorithm
          )
          {
           typedef ::color::category::rgb< tag_name>  category_type;

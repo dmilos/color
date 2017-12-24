@@ -184,7 +184,7 @@ namespace color
 
 #define COLOR_CONTATNT_XYZ_SPACE_ILLUMINANT_SPECIALIZE( DP_space, DP_name, DP_observer )   \
         template<>                                                                         \
-         struct illuminant<DP_space>                                                       \
+         struct illuminant< DP_space >                                                     \
           {                                                                                \
            typedef ::color::constant::xyz::illuminant::name_enum         name_type;        \
            typedef ::color::constant::xyz::illuminant::observer_enum observer_type;        \

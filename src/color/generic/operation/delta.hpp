@@ -21,8 +21,10 @@
             typedef category_name  category_type;
 
             typedef ::color::model<category_type>  model_type;
-            typedef typename ::color::trait::index< category_type >::instance_type   index_type;
-            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef typename ::color::trait::index< category_type >::instance_type          index_type;
+            typedef typename ::color::trait::scalar< category_type >::instance_type        scalar_type;
+            typedef typename ::color::trait::component< category_type >::instance_type  component_type;
+
             typedef ::color::trait::container< category_type >   container_trait_type;
 
             static model_type& process( model_type &result, model_type const& left, model_type const& right )
@@ -31,11 +33,11 @@
                {
                 if( left.get( index ) < right.get( index ) )
                  {
-                  result.set( index, right.get( index ) - left.get( index ) );
+                  result.set( index, component_type( right.get( index ) - left.get( index ) ) );
                  }
                 else
                  {
-                  result.set( index, left.get( index ) - right.get( index ) );
+                  result.set( index, component_type( left.get( index ) - right.get( index ) ) );
                  }
                }
 

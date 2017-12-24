@@ -33,29 +33,13 @@ void test_get_invoke( double value )
   test_generic_get< hsi_double  >(); test_generic_get< hsi_double  >(); test_generic_get< hsl_double  >(); test_generic_get< hsv_double  >(); test_generic_get< hwb_double  >();
   test_generic_get< hsi_ldouble >(); test_generic_get< hsi_ldouble >(); test_generic_get< hsl_ldouble >(); test_generic_get< hsv_ldouble >(); test_generic_get< hwb_ldouble >();
 
-  test_generic_get< yiq_uint8   >();
-  test_generic_get< yiq_uint16  >();
-  test_generic_get< yiq_uint32  >();
-  test_generic_get< yiq_uint64  >();
-  test_generic_get< yiq_float   >();
-  test_generic_get< yiq_double  >();
-  test_generic_get< yiq_ldouble >();
-
-  test_generic_get< YDbDr_uint8   >();
-  test_generic_get< YDbDr_uint16  >();
-  test_generic_get< YDbDr_uint32  >();
-  test_generic_get< YDbDr_uint64  >();
-  test_generic_get< YDbDr_float   >();
-  test_generic_get< YDbDr_double  >();
-  test_generic_get< YDbDr_ldouble >();
-
-  test_generic_get< YCgCo_uint8   >();
-  test_generic_get< YCgCo_uint16  >();
-  test_generic_get< YCgCo_uint32  >();
-  test_generic_get< YCgCo_uint64  >();
-  test_generic_get< YCgCo_float   >();
-  test_generic_get< YCgCo_double  >();
-  test_generic_get< YCgCo_ldouble >();
+  test_generic_get< yiq_uint8   >();  test_generic_get< YDbDr_uint8   >();  test_generic_get< YCgCo_uint8   >();
+  test_generic_get< yiq_uint16  >();  test_generic_get< YDbDr_uint16  >();  test_generic_get< YCgCo_uint16  >();
+  test_generic_get< yiq_uint32  >();  test_generic_get< YDbDr_uint32  >();  test_generic_get< YCgCo_uint32  >();
+  test_generic_get< yiq_uint64  >();  test_generic_get< YDbDr_uint64  >();  test_generic_get< YCgCo_uint64  >();
+  test_generic_get< yiq_float   >();  test_generic_get< YDbDr_float   >();  test_generic_get< YCgCo_float   >();
+  test_generic_get< yiq_double  >();  test_generic_get< YDbDr_double  >();  test_generic_get< YCgCo_double  >();
+  test_generic_get< yiq_ldouble >();  test_generic_get< YDbDr_ldouble >();  test_generic_get< YCgCo_ldouble >();
 
   test_generic_get< xyz_uint8   >();  test_generic_get< xyy_uint8   >();
   test_generic_get< xyz_uint16  >();  test_generic_get< xyy_uint16  >();
@@ -81,6 +65,27 @@ void test_get_invoke( double value )
   test_generic_get< lab_double  >();  test_generic_get< LabCH_double  >();
   test_generic_get< lab_ldouble >();  test_generic_get< LabCH_ldouble >();
 
+  test_generic_get< yuv_uint8  <::color::constant::yuv::BT_601_entity> >(); 
+  test_generic_get< yuv_uint16 <::color::constant::yuv::BT_601_entity> >(); 
+  test_generic_get< yuv_uint32 <::color::constant::yuv::BT_601_entity> >(); 
+  test_generic_get< yuv_uint64 <::color::constant::yuv::BT_601_entity> >(); 
+  test_generic_get< yuv_float  <::color::constant::yuv::BT_601_entity> >(); 
+  test_generic_get< yuv_double <::color::constant::yuv::BT_601_entity> >(); 
+  test_generic_get< yuv_ldouble<::color::constant::yuv::BT_601_entity> >(); 
 
-// TODO YUV, YPbPr, etc
+  test_generic_get< YPbPr_uint8  <::color::constant::YPbPr::BT_2020_entity> >(); 
+  test_generic_get< YPbPr_uint16 <::color::constant::YPbPr::BT_2020_entity> >(); 
+  test_generic_get< YPbPr_uint32 <::color::constant::YPbPr::BT_2020_entity> >(); 
+  test_generic_get< YPbPr_uint64 <::color::constant::YPbPr::BT_2020_entity> >(); 
+  test_generic_get< YPbPr_float  <::color::constant::YPbPr::BT_2020_entity> >(); 
+  test_generic_get< YPbPr_double <::color::constant::YPbPr::BT_2020_entity> >(); 
+  test_generic_get< YPbPr_ldouble<::color::constant::YPbPr::BT_2020_entity> >(); 
+
+  test_generic_get< lms_uint8  <::color::constant::lms::von_Kries_D65_entity> >(); 
+  test_generic_get< lms_uint16 <::color::constant::lms::von_Kries_D65_entity> >(); 
+  test_generic_get< lms_uint32 <::color::constant::lms::von_Kries_D65_entity> >(); 
+  test_generic_get< lms_uint64 <::color::constant::lms::von_Kries_D65_entity> >(); 
+  test_generic_get< lms_float  <::color::constant::lms::von_Kries_D65_entity> >(); 
+  test_generic_get< lms_double <::color::constant::lms::von_Kries_D65_entity> >(); 
+  test_generic_get< lms_ldouble<::color::constant::lms::von_Kries_D65_entity> >(); 
  }

@@ -19,7 +19,7 @@ namespace color
 
           typedef ::color::model<category_type>          model_type;
 
-          static void process( model_type & m )
+          static void process( model_type & )
            {
             //Model specific.
            }
