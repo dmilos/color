@@ -13,7 +13,7 @@
      {
 
       template< typename category_name >
-       struct make<::color::constant::green_t, category_name >
+       struct make< ::color::constant::green_t, category_name >
         {
          typedef category_name                         category_type;
          typedef ::color::model<category_type>            model_type;
@@ -31,7 +31,7 @@
         };
 
       template< typename category_name >
-       struct make<::color::constant::x11::green_t, category_name >
+       struct make< ::color::constant::x11::green_t, category_name >
         {
          typedef category_name                        category_type;
          typedef ::color::model<category_type>           model_type;

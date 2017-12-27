@@ -24,7 +24,7 @@ template< typename color_model >
   {
    gray_image_type  component;
 
-   for( int channel=0; channel< color_model::size(); ++channel )
+   for( std::size_t channel=0; channel< color_model::size(); ++channel )
     {
      component.clear();
      component.reserve( image.size() );
@@ -52,7 +52,7 @@ template< typename color_model >
   {
    bgr_image_type  component;
 
-   for( int channel=0; channel< color_model::size(); ++channel )
+   for( std::size_t channel=0; channel< color_model::size(); ++channel )
     {
      component.clear();
      component.reserve( image.size() );
@@ -60,7 +60,7 @@ template< typename color_model >
       {
        color_model            other( original );
 
-       for( int sub = 0; sub < color_model::size(); ++sub )
+       for( std::size_t sub = 0; sub < color_model::size(); ++sub )
         {
          if( sub != channel )
           {
@@ -84,7 +84,7 @@ int decompose_test( int argc, char const *argv[] )
   int width=1000;
   int height=1000;
 
-  if( false == load_image( image, width, height, "../data/hsl.tga" ) )
+  if( false == load_image( image, width, height, "./palette/hsl-1-100.tga" ) )
    {
     std::cout << "Can not load" <<  "../data/* Fixed status value connection.tga" << std::endl;
     return 0;

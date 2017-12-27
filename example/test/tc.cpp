@@ -59,17 +59,31 @@ int main( int argc, char *argv[] )
 
   difference.resize( width * height );
 
+  std::uint64_t equal = 0;
   for(int y=0; y< height; y++)
    for(int x=0; x< width; x++)
     {
-     ::color::operation::delta( difference[ y*width+x], left_data[ y*width+x], right_data[ y*width+x] );
+     ::color::operation::delta( difference[ y*width+x ], left_data[ y*width+x ], right_data[ y*width+x ] );
 
      max[0] = std::max( max[0], difference[ y*width+x][0] );
      max[1] = std::max( max[1], difference[ y*width+x][1] );
      max[2] = std::max( max[2], difference[ y*width+x][2] );
+     if( left_data[ y*width+x ] == right_data[ y*width+x ] )
+      {
+       ++equal;
+      }
     }
 
-  std::cout << "R:" << (int)max[0] << "; G:" << (int)max[1] << "; B:" << (int)max[2] << std::endl;
+  std::cout << "R:" << std::setw( 3 ) << (int)max[0] << "; "
+            << "G:" << std::setw( 3 ) << (int)max[1] << "; "
+            << "B:" << std::setw( 3 ) << (int)max[2] << "; "
+            << "=% " << std::setw( 7 ) << std::fixed << std::setprecision(2)<< 100 * equal /((double)width*height)<< "; "
+            << "=# " << std::setw( 7 ) << equal << "; "
+            << "## " << std::setw( 7 ) << (width*height)<< "; "
+            << "l: " << std::setw( 40 ) << argv[1] << "; "
+            << "r: " << std::setw( 40 ) << argv[2] << "; "
+            << "t: " << std::setw( 40 ) << argv[3] << "; "
+            << std::endl;
 
   if( 0 == max[0] )  max[0] = 255;
   if( 0 == max[1] )  max[1] = 255;
@@ -82,13 +96,18 @@ int main( int argc, char *argv[] )
      d[2] *= 255/max[2];
     } );*/
 
-  for(int y=0; y< height; y++)
-   for(int x=0; x< width; x++)
-    {
-     difference[ y*width+x][0] *= 255/max[0];
-     difference[ y*width+x][1] *= 255/max[1];
-     difference[ y*width+x][2] *= 255/max[2];
-    }
+
+  if( false ) // No normalize
+   {
+    for(int y=0; y< height; y++)
+     for(int x=0; x< width; x++)
+      {
+       difference[ y*width+x][0] *= 255/max[0];
+       difference[ y*width+x][1] *= 255/max[1];
+       difference[ y*width+x][2] *= 255/max[2];
+      }
+   }
+
 
   save_image24( argv[3], difference, width, height );
 

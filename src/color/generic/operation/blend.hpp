@@ -37,6 +37,9 @@
             typedef ::color::trait::index< category_type >       index_trait_type;
             typedef typename index_trait_type::instance_type     index_type;
 
+			typedef ::color::trait::component< category_name >     component_trait_type;
+			typedef typename component_trait_type::instance_type   component_instance_type;
+
             typedef ::color::trait::container< category_type >   container_trait_type;
 
             typedef ::color::model<category_type>     model_type;
@@ -56,7 +59,7 @@
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, ( scalar_type(1) - alpha ) * lower.get( index ) + alpha * upper.get( index ) );
+                result.set( index, component_instance_type( ( scalar_type(1) - alpha ) * lower.get( index ) + alpha * upper.get( index ) ) );
                }
               return result;
              }
@@ -80,7 +83,7 @@
 
                for( index_type index = 0; index < container_trait_type::size(); index ++ )
                 {
-                 result.set( index, cL * lower.get( index ) + cU * upper.get( index ) );
+                 result.set( index, component_instance_type( cL * lower.get( index ) + cU * upper.get( index ) ) );
                 }
 
                ::color::set::alpha( result, diverse_type::template process<alpha_index>( divisor ) );

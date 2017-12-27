@@ -6,7 +6,7 @@
 #include "./targa.hpp"
 
 template < typename model_name >
-void make_image(std::string const& name, float plane = 0.5, int side = 1 )
+void make_image(std::string const& name, double plane = 0.5, int side = 1 )
  {
   int height = 1000;
   int width  = 1000;

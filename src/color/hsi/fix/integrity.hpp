@@ -63,13 +63,13 @@
 
       }
 
-       //template<> struct integrity< ::color::category::hsi_uint8   > : public ::color::fix::_internal::_privateHSI::integrity<::color::category::hsi_uint8  >{ };
-       //template<> struct integrity< ::color::category::hsi_uint16  > : public ::color::fix::_internal::_privateHSI::integrity<::color::category::hsi_uint16 >{ };
-       //template<> struct integrity< ::color::category::hsi_uint32  > : public ::color::fix::_internal::_privateHSI::integrity<::color::category::hsi_uint32 >{ };
-       //template<> struct integrity< ::color::category::hsi_uint64  > : public ::color::fix::_internal::_privateHSI::integrity<::color::category::hsi_uint64 >{ };
-       template<> struct integrity< ::color::category::hsi_float   > : public ::color::fix::_internal::_privateHSI::integrity< ::color::category::hsi_float  >{ };
-       template<> struct integrity< ::color::category::hsi_double  > : public ::color::fix::_internal::_privateHSI::integrity< ::color::category::hsi_double >{ };
-       template<> struct integrity< ::color::category::hsi_ldouble > : public ::color::fix::_internal::_privateHSI::integrity< ::color::category::hsi_ldouble>{ };
+       //template<> struct integrity< ::color::category::hsi_uint8   > : public ::color::fix::_internal::_privateHSI::integrity< ::color::category::hsi_uint8  >{ };
+       //template<> struct integrity< ::color::category::hsi_uint16  > : public ::color::fix::_internal::_privateHSI::integrity< ::color::category::hsi_uint16 >{ };
+       //template<> struct integrity< ::color::category::hsi_uint32  > : public ::color::fix::_internal::_privateHSI::integrity< ::color::category::hsi_uint32 >{ };
+       //template<> struct integrity< ::color::category::hsi_uint64  > : public ::color::fix::_internal::_privateHSI::integrity< ::color::category::hsi_uint64 >{ };
+       template<> struct integrity< ::color::category::hsi_float     > : public ::color::fix::_internal::_privateHSI::integrity< ::color::category::hsi_float  >{ };
+       template<> struct integrity< ::color::category::hsi_double    > : public ::color::fix::_internal::_privateHSI::integrity< ::color::category::hsi_double >{ };
+       template<> struct integrity< ::color::category::hsi_ldouble   > : public ::color::fix::_internal::_privateHSI::integrity< ::color::category::hsi_ldouble>{ };
 
       }
     }

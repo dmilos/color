@@ -67,6 +67,7 @@ b = color::operation::mix( y, 0.5, color::yiq<std::uint8_t>( h ) ); //!< Blend t
 ### Tested against:
   - GCC 4.8.4
   - GCC 5.4.0 20160609
+  - MSVC 2017 (15.3.2)
   - MSVC 2015 Update 3
   - -MSVC 2013 Update 5-
 

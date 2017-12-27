@@ -26,11 +26,11 @@ template< typename category_name >
    model_type   c;
    c = color::constant::chocolate_t{};
 
-   { auto vx = value;                                         ; color::set::alpha(    c, vx ); }
-   { auto vx = rgb_diverse_type::template process<0>( value ) ; color::set::red(      c, vx ); }
-   { auto vx = rgb_diverse_type::template process<1>( value ) ; color::set::blue(     c, vx ); }
-   { auto vx = rgb_diverse_type::template process<2>( value ) ; color::set::green(    c, vx ); }
-   { auto vx = gray_diverse_type::template process<0>( value ); color::set::gray(     c, vx ); }
+   { component_type vx = component_type( value );                       ; color::set::alpha(    c, vx ); }
+   { component_type vx = rgb_diverse_type::template process<0>( value ) ; color::set::red(      c, vx ); }
+   { component_type vx = rgb_diverse_type::template process<1>( value ) ; color::set::blue(     c, vx ); }
+   { component_type vx = rgb_diverse_type::template process<2>( value ) ; color::set::green(    c, vx ); }
+   { component_type vx = gray_diverse_type::template process<0>( value ); color::set::gray(     c, vx ); }
 
    //std::cout << std::endl;
    //std::cout << "  function - " << __FUNCTION__ << std::endl;

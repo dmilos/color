@@ -110,29 +110,29 @@ namespace color
           {
            typedef scalar_name scalar_type;
 
-           static /* constexpr*/ scalar_type const a11(){ return 0.8951; }
-           static /* constexpr*/ scalar_type const a12(){ return 0.2664; }
+           static /* constexpr*/ scalar_type const a11(){ return  0.8951; }
+           static /* constexpr*/ scalar_type const a12(){ return  0.2664; }
            static /* constexpr*/ scalar_type const a13(){ return -0.1614; }
 
            static /* constexpr*/ scalar_type const a21(){ return -0.7502; }
-           static /* constexpr*/ scalar_type const a22(){ return 1.7135; }
-           static /* constexpr*/ scalar_type const a23(){ return 0.0367; }
+           static /* constexpr*/ scalar_type const a22(){ return  1.7135; }
+           static /* constexpr*/ scalar_type const a23(){ return  0.0367; }
 
-           static /* constexpr*/ scalar_type const a31(){ return 0.0389; }
+           static /* constexpr*/ scalar_type const a31(){ return  0.0389; }
            static /* constexpr*/ scalar_type const a32(){ return -0.0685; }
-           static /* constexpr*/ scalar_type const a33(){ return 1.0296; }
+           static /* constexpr*/ scalar_type const a33(){ return  1.0296; }
 
-           static /* constexpr*/ scalar_type const i11(){ return 0.986992905466712 ; }
-           static /* constexpr*/ scalar_type const i12(){ return -0.147054256420990  ; }
-           static /* constexpr*/ scalar_type const i13(){ return 0.159962651663731; }
+           static /* constexpr*/ scalar_type const i11(){ return  0.986992905466712; }
+           static /* constexpr*/ scalar_type const i12(){ return -0.147054256420990; }
+           static /* constexpr*/ scalar_type const i13(){ return  0.159962651663731; }
 
            static /* constexpr*/ scalar_type const i21(){ return 0.432305269723394; }
-           static /* constexpr*/ scalar_type const i22(){ return 0.518360271536777  ; }
+           static /* constexpr*/ scalar_type const i22(){ return 0.518360271536777; }
            static /* constexpr*/ scalar_type const i23(){ return 0.049291228212856; }
 
-           static /* constexpr*/ scalar_type const i31(){ return -0.008528664575177  ; }
-           static /* constexpr*/ scalar_type const i32(){ return 0.040042821654085  ; }
-           static /* constexpr*/ scalar_type const i33(){ return 0.968486695787550; }
+           static /* constexpr*/ scalar_type const i31(){ return -0.008528664575177; }
+           static /* constexpr*/ scalar_type const i32(){ return  0.040042821654085; }
+           static /* constexpr*/ scalar_type const i33(){ return  0.968486695787550; }
           };
 
         template< typename scalar_name >
@@ -140,29 +140,29 @@ namespace color
           {
            typedef scalar_name scalar_type;
 
-           static /* constexpr*/ scalar_type const a11(){ return 0.7328; }
-           static /* constexpr*/ scalar_type const a12(){ return 0.4296; }
+           static /* constexpr*/ scalar_type const a11(){ return  0.7328; }
+           static /* constexpr*/ scalar_type const a12(){ return  0.4296; }
            static /* constexpr*/ scalar_type const a13(){ return -0.1624; }
 
            static /* constexpr*/ scalar_type const a21(){ return -0.7036; }
-           static /* constexpr*/ scalar_type const a22(){ return 1.6975; }
-           static /* constexpr*/ scalar_type const a23(){ return 0.0061; }
+           static /* constexpr*/ scalar_type const a22(){ return  1.6975; }
+           static /* constexpr*/ scalar_type const a23(){ return  0.0061; }
 
-           static /* constexpr*/ scalar_type const a31(){ return 0.0030; }
-           static /* constexpr*/ scalar_type const a32(){ return 0.0136; }
-           static /* constexpr*/ scalar_type const a33(){ return 0.9834; }
+           static /* constexpr*/ scalar_type const a31(){ return  0.0030; }
+           static /* constexpr*/ scalar_type const a32(){ return  0.0136; }
+           static /* constexpr*/ scalar_type const a33(){ return  0.9834; }
 
-           static /* constexpr*/ scalar_type const i11(){ return 1.096123820835510 ; }
+           static /* constexpr*/ scalar_type const i11(){ return  1.096123820835510 ; }
            static /* constexpr*/ scalar_type const i12(){ return -0.278869000218287; }
-           static /* constexpr*/ scalar_type const i13(){ return 0.182745179382773; }
+           static /* constexpr*/ scalar_type const i13(){ return  0.182745179382773; }
 
-           static /* constexpr*/ scalar_type const i21(){ return 0.454369041975359  ; }
-           static /* constexpr*/ scalar_type const i22(){ return 0.473533154307412  ; }
-           static /* constexpr*/ scalar_type const i23(){ return 0.072097803717229; }
+           static /* constexpr*/ scalar_type const i21(){ return  0.454369041975359  ; }
+           static /* constexpr*/ scalar_type const i22(){ return  0.473533154307412  ; }
+           static /* constexpr*/ scalar_type const i23(){ return  0.072097803717229; }
 
            static /* constexpr*/ scalar_type const i31(){ return -0.009627608738429 ; }
            static /* constexpr*/ scalar_type const i32(){ return -0.005698031216113  ; }
-           static /* constexpr*/ scalar_type const i33(){ return 1.015325639954540; }
+           static /* constexpr*/ scalar_type const i33(){ return  1.015325639954540; }
           };
 
      }

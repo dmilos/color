@@ -1,9 +1,9 @@
 #include <iomanip>
 #include <iostream>
 
-#include "../src/color.hpp"
+#include "color/color.hpp"
 
-#include print.hpp"
+#include "print.hpp"
 
 using namespace color::operation::arithmetic;
 

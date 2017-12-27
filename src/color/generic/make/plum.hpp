@@ -12,7 +12,7 @@
     {
 
      template< typename category_name >
-      struct make<::color::constant::plum_type, category_name >
+      struct make< ::color::constant::plum_type, category_name >
        {
         typedef category_name                         category_type;
         typedef ::color::model<category_type>            model_type;

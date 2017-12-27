@@ -63,13 +63,13 @@
 
       }
 
-       //template<> struct integrity< ::color::category::hwb_uint8   > : public ::color::fix::_internal::_privatehwb::integrity<::color::category::hwb_uint8  >{ };
-       //template<> struct integrity< ::color::category::hwb_uint16  > : public ::color::fix::_internal::_privatehwb::integrity<::color::category::hwb_uint16 >{ };
-       //template<> struct integrity< ::color::category::hwb_uint32  > : public ::color::fix::_internal::_privatehwb::integrity<::color::category::hwb_uint32 >{ };
-       //template<> struct integrity< ::color::category::hwb_uint64  > : public ::color::fix::_internal::_privatehwb::integrity<::color::category::hwb_uint64 >{ };
-       template<> struct integrity< ::color::category::hwb_float   > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_float  >{ };
-       template<> struct integrity< ::color::category::hwb_double  > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_double >{ };
-       template<> struct integrity< ::color::category::hwb_ldouble > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_ldouble>{ };
+       //template<> struct integrity< ::color::category::hwb_uint8   > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_uint8  >{ };
+       //template<> struct integrity< ::color::category::hwb_uint16  > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_uint16 >{ };
+       //template<> struct integrity< ::color::category::hwb_uint32  > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_uint32 >{ };
+       //template<> struct integrity< ::color::category::hwb_uint64  > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_uint64 >{ };
+       template<> struct integrity< ::color::category::hwb_float     > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_float  >{ };
+       template<> struct integrity< ::color::category::hwb_double    > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_double >{ };
+       template<> struct integrity< ::color::category::hwb_ldouble   > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_ldouble>{ };
 
       }
     }

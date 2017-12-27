@@ -34,7 +34,7 @@ namespace color
          scalar_type
          process(  component_input_const_type divergent, index_input_const_type  index )
           {
-           scalar_type normal = static_cast<component_instance_type>( divergent );
+           scalar_type normal = scalar_type( divergent );
 
            normal -= bound_trait_type::minimum( index );
            normal /= bound_trait_type::range( index );
@@ -46,7 +46,7 @@ namespace color
           scalar_type
           process( component_input_const_type divergent )
            {
-            scalar_type normal = static_cast<component_instance_type>( divergent );
+            scalar_type normal = scalar_type( divergent );
 
             normal -= bound_trait_type::template minimum<index_size>( );
             normal /= bound_trait_type::template range<index_size>( );

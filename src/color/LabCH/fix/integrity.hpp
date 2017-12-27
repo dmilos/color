@@ -63,13 +63,13 @@
 
       }
 
-       //template<> struct integrity< ::color::category::LabCH_uint8   > : public ::color::fix::_internal::_privateLabCH::integrity<::color::category::LabCH_uint8  >{ };
-       //template<> struct integrity< ::color::category::LabCH_uint16  > : public ::color::fix::_internal::_privateLabCH::integrity<::color::category::LabCH_uint16 >{ };
-       //template<> struct integrity< ::color::category::LabCH_uint32  > : public ::color::fix::_internal::_privateLabCH::integrity<::color::category::LabCH_uint32 >{ };
-       //template<> struct integrity< ::color::category::LabCH_uint64  > : public ::color::fix::_internal::_privateLabCH::integrity<::color::category::LabCH_uint64 >{ };
-       template<> struct integrity< ::color::category::LabCH_float   > : public ::color::fix::_internal::_privateLabCH::integrity<::color::category::LabCH_float  >{ };
-       template<> struct integrity< ::color::category::LabCH_double  > : public ::color::fix::_internal::_privateLabCH::integrity<::color::category::LabCH_double >{ };
-       template<> struct integrity< ::color::category::LabCH_ldouble > : public ::color::fix::_internal::_privateLabCH::integrity<::color::category::LabCH_ldouble>{ };
+       //template<> struct integrity< ::color::category::LabCH_uint8   > : public ::color::fix::_internal::_privateLabCH::integrity< ::color::category::LabCH_uint8  >{ };
+       //template<> struct integrity< ::color::category::LabCH_uint16  > : public ::color::fix::_internal::_privateLabCH::integrity< ::color::category::LabCH_uint16 >{ };
+       //template<> struct integrity< ::color::category::LabCH_uint32  > : public ::color::fix::_internal::_privateLabCH::integrity< ::color::category::LabCH_uint32 >{ };
+       //template<> struct integrity< ::color::category::LabCH_uint64  > : public ::color::fix::_internal::_privateLabCH::integrity< ::color::category::LabCH_uint64 >{ };
+       template<> struct integrity< ::color::category::LabCH_float     > : public ::color::fix::_internal::_privateLabCH::integrity< ::color::category::LabCH_float  >{ };
+       template<> struct integrity< ::color::category::LabCH_double    > : public ::color::fix::_internal::_privateLabCH::integrity< ::color::category::LabCH_double >{ };
+       template<> struct integrity< ::color::category::LabCH_ldouble   > : public ::color::fix::_internal::_privateLabCH::integrity< ::color::category::LabCH_ldouble>{ };
 
       }
     }

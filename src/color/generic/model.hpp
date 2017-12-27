@@ -35,7 +35,7 @@ namespace color
        typedef category_name category_type;
 
        typedef ::color::trait::index< category_name >      index_trait_type;
-  	   typedef ::color::trait::size< category_name >       size_trait_type;
+       typedef ::color::trait::size< category_name >       size_trait_type;
        typedef ::color::trait::component< category_name >  component_trait_type;
        typedef ::color::trait::container< category_name >  container_trait_type;
        typedef ::color::trait::bound< category_name >      bound_trait_type, bound_type;
@@ -48,8 +48,8 @@ namespace color
        typedef typename index_trait_type::input_const_type       index_input_const_type;
        typedef typename index_trait_type::return_image_type      index_return_image_type;
 
-	   typedef typename size_trait_type::instance_type          size_type;
-	   typedef typename size_trait_type::return_image_type      size_return_image_type;
+       typedef typename size_trait_type::instance_type          size_type;
+       typedef typename size_trait_type::return_image_type      size_return_image_type;
 
        typedef typename component_trait_type::instance_type       component_type;
        typedef typename component_trait_type::const_type          component_const_type;

@@ -12,10 +12,14 @@
 //#include <iostream>
 //#include <iomanip>
 
+//#pragma warning( disable: 4305 )
+
 #if defined COLOR_USE_PP2FILE
 #include "./color.pp2f.hpp"
 #else
 #include "./color.body.hpp"
 #endif
+
+//#pragma warning( default: 4305 )
 
 #endif

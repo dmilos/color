@@ -23,7 +23,9 @@
 
             typedef ::color::trait::index<category_type>         index_trait_type;
             typedef ::color::trait::container< category_type >   container_trait_type;
+
             typedef ::color::trait::component< category_type >   component_trait_type;
+			typedef typename component_trait_type::instance_type   component_instance_type;
 
             typedef ::color::model<category_type>     model_type;
 
@@ -36,7 +38,7 @@
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, scalar * result.get( index ) +( scalar_type( 1 ) - scalar ) *right.get( index )  );
+                result.set( index, component_instance_type( scalar * result.get( index ) +( scalar_type( 1 ) - scalar ) *right.get( index ) ) );
                }
               return result;
              }
@@ -45,7 +47,7 @@
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, scalar * left.get( index ) +( scalar_type( 1 ) - scalar ) *right.get( index )  );
+                result.set( index, component_instance_type( scalar * left.get( index ) +( scalar_type( 1 ) - scalar ) *right.get( index ) ) );
                }
               return result;
              }

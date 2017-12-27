@@ -169,3 +169,5 @@ example/make_rgb_red
 
 /example/test/.vs
 /example/test/*.db
+/example/test/out-gcc
+/example/test/out-win

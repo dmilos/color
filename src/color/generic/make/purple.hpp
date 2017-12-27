@@ -11,7 +11,7 @@
     {
         
      template< typename category_name >
-      struct make<::color::constant::purple_t, category_name >
+      struct make< ::color::constant::purple_t, category_name >
        {
         typedef category_name                         category_type;
         typedef ::color::model<category_type>            model_type;
@@ -28,7 +28,7 @@
        };
 
       template< typename category_name >
-       struct make<::color::constant::x11::purple_t, category_name >
+       struct make< ::color::constant::x11::purple_t, category_name >
         {
          typedef category_name                        category_type;
          typedef ::color::model<category_type>           model_type;

@@ -181,9 +181,10 @@ int gray_test( int argc, char const *argv[] )
   bgr_image_type image;
   int width;
   int height;
-  if( false == load_image( image, width, height, "../data/hsl.tga" ) )
+
+  if( false == load_image( image, width, height, "./palette/hsl-1-100.tga" ) )
    {
-    std::cout << "Can not load" <<  "../data/hsl.tga" << std::endl;
+    std::cout << "Can not load" <<  "./palette/hsl-1-100.tga" << std::endl;
     return 0;
    }
 
