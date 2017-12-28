@@ -21,13 +21,13 @@ int main( int argc, char *argv[] )
 
   if( false == targa_image_load( header_left,   left_data,  argv[1] ) )
    {
-    std::cout << "Can not open left" << std::endl;
+    std::cout << "Can not open left: " << argv[1] <<  std::endl;
     return EXIT_FAILURE;
    }
 
   if( false == targa_image_load( header_right,  right_data, argv[2] ) )
    {
-    std::cout << "Can not open right" << std::endl;
+    std::cout << "Can not open right: " << argv[2] <<  std::endl;
     return EXIT_FAILURE;
    }
 
@@ -97,7 +97,7 @@ int main( int argc, char *argv[] )
     } );*/
 
 
-  if( false ) // No normalize
+  if( true ) // No normalize
    {
     for(int y=0; y< height; y++)
      for(int x=0; x< width; x++)
