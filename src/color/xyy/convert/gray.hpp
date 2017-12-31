@@ -1,9 +1,10 @@
 #ifndef color_xyy_convert_gray
 #define color_xyy_convert_gray
 
+#include "../category.hpp"
+
 #include "../../_internal/convert.hpp"
 
-#include "../category.hpp"
 
 
 #include "../../gray/gray.hpp"
@@ -29,12 +30,12 @@ namespace color
          typedef ::color::category::xyy< xyy_tag_name >    xyy_category_type, category_left_type;
          typedef ::color::category::gray< gray_tag_name >    gray_category_type, category_right_type;
 
-         typedef typename ::color::akin::xyz< gray_category_type >::akin_type  xyz_category_type;
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
          typedef ::color::model< xyy_category_type > xyy_model_type;
          typedef ::color::model< gray_category_type >  gray_model_type;
 
-         typedef ::color::model< xyz_category_type >  xyz_model_type;
+         typedef ::color::xyz< scalar_type >  xyz_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

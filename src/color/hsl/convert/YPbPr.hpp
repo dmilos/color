@@ -7,9 +7,9 @@
 
 
 
-
 #include "../../YPbPr/YPbPr.hpp"
 #include "../../rgb/rgb.hpp"
+
 
 namespace color
  {
@@ -31,12 +31,13 @@ namespace color
          typedef ::color::category::hsl< hsl_tag_name >                                  hsl_category_type,  category_left_type;
          typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >    YPbPr_category_type, category_right_type;
 
-         typedef typename ::color::akin::rgb< YPbPr_category_type >::akin_type  rgb_category_type;
+         typedef typename ::color::trait::scalar< category_left_type >::instance_type scalar_type;
 
          typedef ::color::model< hsl_category_type >  hsl_model_type;
          typedef ::color::model< YPbPr_category_type >  YPbPr_model_type;
 
-         typedef ::color::model< rgb_category_type >  rgb_model_type;
+         typedef ::color::rgb< scalar_type >  rgb_model_type;
+
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

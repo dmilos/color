@@ -64,7 +64,7 @@ namespace color
             container_left_input_type         left
            ,container_right_const_input_type  right
           )
-          { // TODO
+          {
            container_left_trait_type::template set<0>( left, reformat_type::template process< lightness_p, 0 >( container_right_trait_type::template get<0>( right ) ) );
            container_left_trait_type::template set<1>( left, reformatLuvCH_type::template process< chroma_p, 1 >( 0 ) );
            container_left_trait_type::template set<2>( left, reformatLuvCH_type::template process< hue_p, 2 >( 0 ) );

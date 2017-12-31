@@ -28,7 +28,7 @@ namespace color
         ::color::category::LabCH< LabCH_tag_name >
        ,::color::category::gray<   gray_tag_name >
       >
-      { // TODO
+      {
        public:
          typedef ::color::category::LabCH<   LabCH_tag_name > LabCH_category_type, category_left_type;
          typedef ::color::category::gray< gray_tag_name > category_right_type;

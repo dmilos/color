@@ -8,7 +8,7 @@ template< typename category_left_name, typename category_right_name>
  void check_conversion_back_and_forth
   (
    color::model< category_left_name> &left,
-   color::model<category_right_name> &desno
+   color::model<category_right_name> &right
   )
   {
    typedef color::model< category_left_name> left_type;
@@ -41,15 +41,16 @@ template< typename category_left_name, typename category_right_name>
          continue;
         }
 
-       desno = left;
+       right = left;
 
-       left = desno;
+       left = right;
 
        if( e0 < fabs( left.template get<0>() - c0 ) )
         {
          e0 = fabs( left.template get<0>() - c0 );
          if( 0.1 < e0 )
           {
+
            e0 = e0;
           }
         }
@@ -188,6 +189,12 @@ void check_conversion()
   color::luv<long double >      luv;
   color::xyy<long double >      xyy;
 
+  // error
+  // TODO check_conversion_back_and_forth( hl,     hi );
+  // TODO check_conversion_back_and_forth( hi, r );
+
+
+  // Tests
   check_conversion_back_and_forth( c, c  );      check_conversion_back_and_forth( ck, c  );
   check_conversion_back_and_forth( c, ck );      check_conversion_back_and_forth( ck, ck );
   check_conversion_back_and_forth( c, r  );      check_conversion_back_and_forth( ck, r  );

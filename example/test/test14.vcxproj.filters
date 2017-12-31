@@ -4182,6 +4182,15 @@
     <ClInclude Include="..\..\src\color\xyz\xyz.hpp">
       <Filter>Source Files\src\xyz</Filter>
     </ClInclude>
+    <ClInclude Include="image.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="print.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="targa.hpp">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bound.cpp">

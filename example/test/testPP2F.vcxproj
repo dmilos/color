@@ -64,19 +64,21 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir)</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) configuration=debug pp2f=true</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=debug pp2f=true</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=debug pp2f=true</NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)\out\bin-debug</OutDir>
     <IntDir>$(SolutionDir)\out\bin-debug</IntDir>
+    <NMakeOutput>$(SolutionDir)\out\test.exe</NMakeOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)\out\bin-release</OutDir>
     <IntDir>$(SolutionDir)\out\bin-release</IntDir>
-    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir)</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) configuration=release pp2f=true</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=release pp2f=true</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=release pp2f=true</NMakeCleanCommandLine>
+    <NMakeOutput>$(SolutionDir)\out\test.exe</NMakeOutput>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

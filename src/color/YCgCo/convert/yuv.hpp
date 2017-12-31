@@ -9,6 +9,12 @@
 #include "../../yuv/yuv.hpp"
 #include "../../rgb/rgb.hpp"
 
+
+
+
+
+
+
 namespace color
  {
   namespace _internal
@@ -29,12 +35,13 @@ namespace color
          typedef ::color::category::YCgCo< YCgCo_tag_name >                     YCgCo_category_type, category_left_type;
          typedef ::color::category::yuv< yuv_tag_name, yuv_reference_number >     yuv_category_type, category_right_type;
 
-         typedef typename ::color::akin::rgb< yuv_category_type >::akin_type  rgb_category_type;
+         typedef typename ::color::trait::scalar< YCgCo_category_type >::instance_type scalar_type;
 
          typedef ::color::model< YCgCo_category_type > YCgCo_model_type;
          typedef ::color::model< yuv_category_type >  yuv_model_type;
 
-         typedef ::color::model< rgb_category_type >  rgb_model_type;
+         typedef ::color::rgb< scalar_type >  rgb_model_type;
+
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

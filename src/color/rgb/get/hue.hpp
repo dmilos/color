@@ -88,7 +88,7 @@
           typedef ::color::_internal::normalize< category_type > normalize_type;
           typedef ::color::_internal::diverse< category_type >    diverse_type; //! Diverse to self
 
-          typedef ::color::constant::generic< category_type > generic_constant_type;
+          typedef ::color::constant::generic< category_type > constant_type;
 
           enum
            {
@@ -104,12 +104,12 @@
           scalar_type h = 0;
 
           scalar_type c1 = scalar_type(2) * r - g - b ;
-          scalar_type c2 = (g - b) * generic_constant_type::sqrt_3();
-          scalar_type thetaX = atan2(c2, c1);
-          if (thetaX < 0) { thetaX += generic_constant_type::two_pi(); }
+          scalar_type c2 = ( g - b ) * constant_type::sqrt_3();
+          scalar_type thetaX = atan2( c2, c1 );
+          if( thetaX < scalar_type(0) ) { thetaX += constant_type::two_pi(); }
           h = thetaX;
 
-          h /= generic_constant_type::two_pi();
+          h /= constant_type::two_pi();
 
           return diverse_type::template process< red_p >(h);
          }
@@ -155,8 +155,6 @@
 
           return diverse_type::template process< red_p >(h);
          }
-
-
 
       }
 

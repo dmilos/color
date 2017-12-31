@@ -1,6 +1,9 @@
 #ifndef color_hsl_convert_rgb
 #define color_hsl_convert_rgb
 
+#include "../category.hpp"
+#include "../place/place.hpp"
+
 #include "../../_internal/convert.hpp"
 
 #include "../../rgb/trait/container.hpp"
@@ -9,18 +12,21 @@
 #include "../../rgb/trait/bound.hpp"
 #include "../../rgb/category.hpp"
 
-#include "../category.hpp"
-#include "../place/place.hpp"
 
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
+
 
 namespace color
  {
   namespace _internal
    {
 
-    template< typename hsl_tag_name, typename rgb_tag_name >
+    template
+     < 
+       typename hsl_tag_name
+      ,typename rgb_tag_name 
+     >
      struct convert
       <
         ::color::category::hsl< hsl_tag_name >
@@ -30,6 +36,7 @@ namespace color
        public:
          typedef ::color::category::hsl< hsl_tag_name > category_left_type;
          typedef ::color::category::rgb< rgb_tag_name > category_right_type;
+
          typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
          typedef ::color::trait::scalar<category_left_type> scalar_trait_type;
@@ -63,7 +70,6 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-
            scalar_type r = normalize_type::template process<red_p  >( container_right_trait_type::template get<red_p  >( right ) );
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );

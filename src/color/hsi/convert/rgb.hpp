@@ -71,7 +71,7 @@ namespace color
            scalar_type s = scalar_type(1) - lo / i; if( true == scalar_trait_type::is_small( lo ) ){ s = scalar_type(1); }
 
            scalar_type c1 = r - g* scalar_type( 0.5 ) - b * scalar_type( 0.5 );
-           scalar_type c2 = (g-b) * constant_type::sqrt_3() * scalar_type( 0.5 );
+           scalar_type c2 = ( g - b ) * constant_type::sqrt_3() * scalar_type( 0.5 );
            scalar_type thetaX = atan2( c2, c1 );
            if( thetaX < 0 ){ thetaX += constant_type::two_pi(); }
            h = thetaX;

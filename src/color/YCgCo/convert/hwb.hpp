@@ -33,10 +33,10 @@ namespace color
          typedef ::color::category::YCgCo< YCgCo_tag_name >    YCgCo_category_type,  category_left_type;
          typedef ::color::category::hwb< hwb_tag_name >    hwb_category_type, category_right_type;
 
-         typedef typename ::color::trait::scalar< YCgCo_category_type >::instance_type scalar_type;
+         typedef typename ::color::trait::scalar< category_left_type >::instance_type scalar_type;
 
          typedef ::color::model<   YCgCo_category_type >      YCgCo_model_type;
-         typedef ::color::model<   hwb_category_type >      hwb_model_type;
+         typedef ::color::model<     hwb_category_type >        hwb_model_type;
 
          typedef ::color::rgb< scalar_type >  rgb_model_type;
          typedef ::color::hsv< scalar_type >  hsv_model_type;

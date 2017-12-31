@@ -1,9 +1,10 @@
 #ifndef color_hsl_convert_luv
 #define color_hsl_convert_luv
 
+#include "../category.hpp"
+
 #include "../../_internal/convert.hpp"
 
-#include "../category.hpp"
 
 
 #include "../../luv/luv.hpp"

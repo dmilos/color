@@ -59,7 +59,7 @@ void sandbox_test3( )
   ::color::rgb<long double>   r{ ::color::constant::white_t{} };
   ::color::gray<long double>  g{ ::color::constant::white_t{} };
 
-  r[0] = 0;
+  r[0] = 0.0;
   r[1] = 0.5;
   r[2] = 0.5;
 
@@ -514,7 +514,6 @@ void test_yiq2yuv601_quick()
   yuv = ::color::constant::yellow_t{};     std::cout << "yellow       "; print( yuv ); std::cout << std::endl; // yuv = yellow       < 0.88565000000000004832,  -0.43599999999999999867,  0.10029829097739317856, >
   yuv = ::color::constant::magenta_t{};    std::cout << "magenta      "; print( yuv ); std::cout << std::endl; // yuv = magenta      < 0.41318900000000002848,  0.28888341444137072278,  0.51470170902260692358, >
 
-
   yiq = ::color::constant::black_t{};    yuv = yiq; std::cout << "black    "; print( yuv ); std::cout << std::endl;
   yiq = ::color::constant::white_t{};    yuv = yiq; std::cout << "white    "; print( yuv ); std::cout << std::endl;
 
@@ -540,6 +539,9 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[] )
  {
+  extern void check_conversion();
+  check_conversion();
+
   void test_get_invoke( double value );
   test_get_invoke( 0.5 );
 
@@ -607,9 +609,6 @@ int main(int argc, char const *argv[] )
   make_blue();
 
   invoke();
-
-  extern void check_conversion();
-  check_conversion();
 
   void test_set_invoke();
   test_set_invoke();

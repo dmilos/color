@@ -1260,6 +1260,9 @@
     <ClInclude Include="..\..\src\color\_internal\utility\type\index.hpp" />
     <ClInclude Include="..\..\src\color\_internal\utility\type\traitc.hpp" />
     <ClInclude Include="..\..\src\color\_internal\utility\type\traitp.hpp" />
+    <ClInclude Include="image.hpp" />
+    <ClInclude Include="print.hpp" />
+    <ClInclude Include="targa.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="allgray.cpp" />

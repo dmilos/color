@@ -29,12 +29,12 @@ namespace color
          typedef ::color::category::xyz< xyz_tag_name > xyz_category_type, category_left_type;
          typedef ::color::category::yiq< yiq_tag_name > yiq_category_type, category_right_type;
 
-         typedef typename ::color::akin::rgb< yiq_category_type >::akin_type  rgb_category_type;
+         typedef typename ::color::trait::scalar< category_left_type >::instance_type scalar_type;
 
          typedef ::color::model< xyz_category_type > xyz_model_type;
          typedef ::color::model< yiq_category_type >  yiq_model_type;
 
-         typedef ::color::model< rgb_category_type >  rgb_model_type;
+         typedef ::color::rgb< scalar_type >  rgb_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

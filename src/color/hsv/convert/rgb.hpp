@@ -60,7 +60,8 @@ namespace color
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
            scalar_type lo = std::min<scalar_type>( {r,g,b} );
-           scalar_type v =  std::max<scalar_type>( {r,g,b} );
+           scalar_type hi = std::max<scalar_type>( {r,g,b} );
+           scalar_type const& v =  hi;
            scalar_type delta = v - lo;
 
            scalar_type h = 0;
@@ -70,17 +71,15 @@ namespace color
                && ( false == scalar_trait_type::is_small( delta ) ) )
             {
              s = delta / v;
-
-             if( v == r )
+             if( hi == r )
               {
                h = (scalar_type(60)/scalar_type(360)) * (g - b) / delta + (g < b ? scalar_type(1) : scalar_type(0));
               }
-             if( v == g )
+             if( hi == g )
               {
                h = (scalar_type(60)/scalar_type(360)) * (b - r) / delta + (scalar_type(120)/scalar_type(360));
               }
-
-             if( v == b )
+             if( hi == b )
               {
                h = (scalar_type(60)/scalar_type(360)) * (r - g) / delta + (scalar_type(240)/scalar_type(360));
               }

@@ -35,12 +35,12 @@ namespace color
 
          typedef typename ::color::trait::scalar< cmy_category_type >::instance_type scalar_type;
 
-         typedef ::color::model<   LuvCH_category_type >      LuvCH_model_type;
          typedef ::color::model<   cmy_category_type >          cmy_model_type;
+         typedef ::color::model<   LuvCH_category_type >      LuvCH_model_type;
 
-         typedef ::color::luv< scalar_type >  luv_model_type;
-         typedef ::color::xyz< scalar_type >  xyz_model_type;
          typedef ::color::rgb< scalar_type >  rgb_model_type;
+         typedef ::color::xyz< scalar_type >  xyz_model_type;
+         typedef ::color::luv< scalar_type >  luv_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

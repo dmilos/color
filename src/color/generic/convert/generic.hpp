@@ -22,15 +22,15 @@ namespace color
       >
       {
        public:
-         typedef ::color::category::$[![Left]!]< $[![Left]!]_tag_name > $[![Left]!]_category_type, category_left_type;
+         typedef ::color::category::$[![Left]!]< $[![Left]!]_tag_name >       $[![Left]!]_category_type, category_left_type;
          typedef ::color::category::$[![Right]!]< $[![Right]!]_tag_name >    $[![Right]!]_category_type, category_right_type;
 
-         typedef typename ::color::akin::rgb< $[![Right]!]_category_type >::akin_type  rgb_category_type;
+         typedef typename ::color::trait::scalar< $[![Left]!]_category_type >::instance_type  scalar_type;
 
          typedef ::color::model< $[![Left]!]_category_type > $[![Left]!]_model_type;
          typedef ::color::model< $[![Right]!]_category_type >  $[![Right]!]_model_type;
 
-         typedef ::color::model< rgb_category_type >  rgb_model_type;
+         typedef ::color::rgb< scalar_type >  rgb_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

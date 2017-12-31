@@ -74,9 +74,9 @@ namespace color
            scalar_type min = i * ( 1 - s );
 
            int region  = int( 3 * h );
-           h -= region * constant_type::third();
+           h -= scalar_type( region ) * constant_type::third();
            h *= constant_type::two_pi();
-           scalar_type n = i*( 1+ s*cos( h ) / cos( constant_type::deg60() - h ) );
+           scalar_type n = i*( scalar_type(1) + s * cos( h ) / cos( constant_type::deg60() - h ) );
 
            scalar_type r;
            scalar_type g;
@@ -84,9 +84,9 @@ namespace color
 
            switch( region  % 3 )
             {
-             case 0: r = n; b = min; g = 3*i-(r+b); break;
-             case 1: g = n; r = min; b = 3*i-(r+g); break;
-             case 2: b = n; g = min; r = 3*i-(g+b); break;
+             case 0: r = n; b = min; g = scalar_type(3)*i - (r+b); break;
+             case 1: g = n; r = min; b = scalar_type(3)*i - (r+g); break;
+             case 2: b = n; g = min; r = scalar_type(3)*i - (g+b); break;
             }
 
            container_left_trait_type::template set<red_p  >( left, diverse_type::template process<red_p  >( r ) );

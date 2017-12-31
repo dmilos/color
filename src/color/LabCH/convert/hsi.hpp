@@ -1,12 +1,12 @@
 #ifndef color_LabCH_convert_hsi
 #define color_LabCH_convert_hsi
 
+#include "../category.hpp"
 #include "../../_internal/convert.hpp"
 
-#include "../category.hpp"
 
 
-#include "../../hsi/hsi.hpp"
+ #include "../../hsi/hsi.hpp"
 #include "../../rgb/rgb.hpp"
 #include "../../lab/lab.hpp"
 #include "../../xyz/xyz.hpp"

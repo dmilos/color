@@ -17,7 +17,7 @@ namespace color
     template
      <
        typename YPbPr_tag_name, ::color::constant::YPbPr::reference_enum YPbPr_reference_number
-      ,typename YCgCo_tag_name 
+      ,typename YCgCo_tag_name
      >
      struct convert
       <
@@ -29,12 +29,12 @@ namespace color
          typedef ::color::category::YPbPr< YPbPr_tag_name, YPbPr_reference_number >    YPbPr_category_type, category_left_type;
          typedef ::color::category::YCgCo< YCgCo_tag_name >    YCgCo_category_type, category_right_type;
 
-         typedef typename ::color::akin::rgb< YCgCo_category_type >::akin_type  rgb_category_type;
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type  scalar_type;
 
          typedef ::color::model< YPbPr_category_type >  YPbPr_model_type;
          typedef ::color::model< YCgCo_category_type >  YCgCo_model_type;
 
-         typedef ::color::model< rgb_category_type >  rgb_model_type;
+         typedef ::color::rgb< scalar_type >  rgb_model_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;

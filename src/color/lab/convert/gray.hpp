@@ -20,7 +20,7 @@ namespace color
         ::color::category::lab< lab_tag_name >
        ,::color::category::gray<   gray_tag_name >
       >
-      { // TODO
+      {
        public:
          typedef ::color::category::lab<   lab_tag_name > category_left_type;
          typedef ::color::category::gray< gray_tag_name > category_right_type;
