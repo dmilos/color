@@ -28,7 +28,7 @@ void make_gray_yuv601( gray_image_type & gray, bgr_image_type const& image )
   auto gc = gray.begin();
   for( auto & c : image )
    {
-    gc->set<0>( ::color::yuv< std::uint8_t, ::color::constant::yuv::BT_601_entity >( c )[0] );
+    gc->set<0>( ::color::yuv< std::uint8_t,  ::color::constant::yuv::BT_601_entity >( c )[0] );
     ++gc;
    }
  }

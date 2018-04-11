@@ -27,6 +27,8 @@ template< typename category_name >
    color::get::green( c ) ;
    color::get::blue( c )  ;
    color::get::hue( c )   ;
+   color::get::black( c ) ;
+   color::get::white( c ) ;
 
    std::cout << std::endl;
    std::cout << "end - " << __FUNCTION__ ;

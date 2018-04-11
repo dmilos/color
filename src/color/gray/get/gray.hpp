@@ -3,6 +3,7 @@
 
 // ::color::get::gray( c )
 
+#include "../../generic/get/gray.hpp"
 #include "../../generic/model.hpp"
 #include "../category.hpp"
 #include "../trait/component.hpp"

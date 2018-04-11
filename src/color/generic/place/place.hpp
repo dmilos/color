@@ -26,3 +26,6 @@
 #include "./magenta.hpp"
 #include "./yellow.hpp"
 #include "./key.hpp"
+
+#include "./black.hpp"
+#include "./white.hpp"

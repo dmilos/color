@@ -5,6 +5,7 @@
 
 int main( int argc, char *argv[] )
  {
+  //!< Instead of std::uint8_t    you may put: std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double  
   ::color::yuv< std::uint8_t > yv;
 
   yv = ::color::constant::orange_t{}; //!< Fill with some useful information

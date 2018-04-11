@@ -6,7 +6,8 @@
 #include "../../YDbDr/category.hpp"
 #include "../../YDbDr/constant.hpp"
 
-#include "../../generic/operation/invert.hpp"
+#include "../../generic/operation/diverse.hpp"
+#include "../../generic/operation/normalize.hpp"
 #include "../../_internal/reformat.hpp"
 
 #include "../place/red.hpp"

@@ -5,10 +5,12 @@
 #include "./green.hpp"
 #include "./blue.hpp"
 
-
 #include "./cyan.hpp"
 #include "./magenta.hpp"
 #include "./yellow.hpp"
+
+#include "./black.hpp"
+#include "./white.hpp"
 
 #include "./alpha.hpp"
 

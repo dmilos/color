@@ -3,7 +3,6 @@
 
 #include "color/color.hpp"
 
-
 int main( int argc, char *argv[] )
  {
   ::color::rgb<double> a, b;

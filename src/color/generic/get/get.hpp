@@ -13,4 +13,7 @@
 
 #include "./luma.hpp"
 
+#include "./black.hpp"
+#include "./white.hpp"
+
 #endif

@@ -1260,9 +1260,6 @@
     <ClInclude Include="..\..\src\color\_internal\utility\type\index.hpp" />
     <ClInclude Include="..\..\src\color\_internal\utility\type\traitc.hpp" />
     <ClInclude Include="..\..\src\color\_internal\utility\type\traitp.hpp" />
-    <ClInclude Include="image.hpp" />
-    <ClInclude Include="print.hpp" />
-    <ClInclude Include="targa.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="allgray.cpp" />
@@ -1279,6 +1276,7 @@
     <ClCompile Include="gray_test.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="operation\distance.cpp" />
     <ClCompile Include="operation\gamma.cpp" />
     <ClCompile Include="palette.cpp" />
     <ClCompile Include="place.cpp" />
@@ -1325,7 +1323,7 @@
     <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=debug</NMakeCleanCommandLine>
     <OutDir>$(SolutionDir)\out\bin-debug</OutDir>
     <IntDir>$(SolutionDir)\out\bin-debug</IntDir>
-    <NMakeOutput>$(SolutionDir)\out\test.exe</NMakeOutput>
+    <NMakeOutput>$(SolutionDir)out\test.exe</NMakeOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

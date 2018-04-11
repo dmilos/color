@@ -4,7 +4,8 @@
 #include "../trait/bound.hpp"
 #include "../category.hpp"
 #include "../../generic/fix/unique.hpp"
-#include "../../generic/operation/invert.hpp"
+#include "../../generic/operation/diverse.hpp"
+#include "../../generic/operation/normalize.hpp"
 
 
 
@@ -24,7 +25,6 @@
             typedef ::color::model<category_type>  model_type;
             typedef ::color::trait::bound<category_type>      bound_type;
             typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
-            typedef  ::color::operation::_internal::invert< category_type > invert_type;
             typedef ::color::_internal::diverse< category_type >    diverse_type;
             typedef ::color::_internal::normalize< category_type > normalize_type;
 

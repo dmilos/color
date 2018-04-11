@@ -2,47 +2,108 @@
 #include <iomanip>
 #include "./image.hpp"
 
-template< enum ::color::constant::red::algorithm_enum algorithm_name >
 void
 extract_red( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
  {
-  gray_image_type  component; component.reserve( image.size() );
+  gray_image_type  component_channel; component_channel.reserve( image.size() );
+  gray_image_type  component_star;    component_star.reserve(image.size());
 
   for( auto & pixel : image )
    {
-    component.push_back( gray_color_type( ::color::get::red<algorithm_name>( pixel ) ) );
+    component_channel.push_back( gray_color_type( ::color::get::red< ::color::get::constant::red::channel_entity  >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::red< ::color::get::constant::red::hsl_star_entity >( pixel ) ) );
    }
 
-  save_image_gray( name+ "-red.tga", component, width, height );
+  save_image_gray( name + "-channel.tga", component_channel, width, height );
+  save_image_gray( name + "-star.tga",     component_star,    width, height );
  }
 
-template< enum ::color::constant::green::algorithm_enum algorithm_name >
 void
 extract_green( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
  {
-  gray_image_type  component; component.reserve( image.size() );
+  gray_image_type  component_channel; component_channel.reserve( image.size() );
+  gray_image_type  component_star;    component_star.reserve(image.size());
 
   for( auto & pixel : image )
    {
-    component.push_back( gray_color_type( ::color::get::green<algorithm_name>( pixel ) ) );
+    component_channel.push_back( gray_color_type( ::color::get::green< ::color::get::constant::green::channel_entity  >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::green< ::color::get::constant::green::hsl_star_entity >( pixel ) ) );
    }
 
-  save_image_gray( name+ "-green.tga", component, width, height );
+  save_image_gray( name + "-channel.tga", component_channel, width, height );
+  save_image_gray( name + "-star.tga",     component_star,    width, height );
  }
 
-template< enum ::color::constant::blue::algorithm_enum algorithm_name >
 void
 extract_blue( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
  {
-  gray_image_type  component; component.reserve( image.size() );
+  gray_image_type  component_channel; component_channel.reserve( image.size() );
+  gray_image_type  component_star;    component_star.reserve(image.size());
 
   for( auto & pixel : image )
    {
-    component.push_back( gray_color_type( ::color::get::blue<algorithm_name>( pixel ) ) );
+    component_channel.push_back( gray_color_type( ::color::get::blue< ::color::get::constant::blue::channel_entity  >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::blue< ::color::get::constant::blue::hsl_star_entity >( pixel ) ) );
    }
 
-  save_image_gray( name+ "-blue.tga", component, width, height );
+  save_image_gray( name + "-channel.tga", component_channel, width, height );
+  save_image_gray( name + "-star.tga",     component_star,    width, height );
  }
+
+void
+extract_gray( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
+ {
+  gray_image_type  component_average; component_average.reserve( image.size() );
+  gray_image_type  component_yuv709;  component_yuv709.reserve(image.size());
+  gray_image_type  component_middle;  component_middle.reserve(image.size());
+  gray_image_type  component_star;    component_star.reserve(image.size());
+
+  for( auto & pixel : image )
+   {
+    component_average.push_back( gray_color_type( ::color::get::gray< ::color::get::constant::gray::average_entity  >( pixel ) ) );
+    component_middle.push_back(  gray_color_type( ::color::get::gray< ::color::get::constant::gray::middle_entity   >( pixel ) ) );
+    component_yuv709.push_back(gray_color_type(::color::get::gray< ::color::get::constant::gray::yuv709_entity   >(pixel)));
+    component_star.push_back(    gray_color_type( ::color::get::gray< ::color::get::constant::gray::hsl_star_entity >( pixel ) ) );
+   }
+
+  save_image_gray( name + "-average.tga",  component_average, width, height );
+  save_image_gray( name + "-middle.tga",   component_middle, width, height );
+  save_image_gray( name + "-yuv709.tga",   component_yuv709,  width, height );
+  save_image_gray( name + "-star.tga",     component_star,    width, height );
+ }
+
+void
+extract_black( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
+ {
+  gray_image_type  component_average; component_average.reserve( image.size() );
+  gray_image_type  component_star;    component_star.reserve(image.size());
+
+  for( auto & pixel : image )
+   {
+    component_average.push_back( gray_color_type( ::color::get::black< ::color::get::constant::black::alvy_entity      >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::black< ::color::get::constant::black::hsl_star_entity >( pixel ) ) );
+   }
+
+  save_image_gray( name + "-alvy.tga",  component_average, width, height );
+  save_image_gray( name + "-star.tga", component_star,    width, height );
+ }
+
+void
+extract_white( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
+ {
+  gray_image_type  component_average; component_average.reserve( image.size() );
+  gray_image_type  component_star;    component_star.reserve(image.size());
+
+  for( auto & pixel : image )
+   {
+    component_average.push_back( gray_color_type( ::color::get::white< ::color::get::constant::white::alvy_entity      >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::white< ::color::get::constant::white::hsl_star_entity >( pixel ) ) );
+   }
+
+  save_image_gray( name + "-alvy.tga",  component_average, width, height );
+  save_image_gray( name + "-star.tga", component_star,    width, height );
+ }
+
 
 void
 extract_color( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height, bgr_color_type const& origin )
@@ -54,7 +115,8 @@ extract_color( bgr_image_type const& image, std::string const& name, std::size_t
     auto e = 1 - ::color::operation::distance<::color::constant::distance::euclid_entity>(      origin, pixel );
     auto h = 1 - ::color::operation::distance<::color::constant::distance::hsl_special_entity>( origin, pixel );
     auto r = 1 - ::color::operation::distance<::color::constant::distance::rgb_special_entity>( origin, pixel );
-    auto X    = ::color::operation::distance<::color::constant::distance::CMC1984_entity>( origin, pixel, 1, 2 );
+  //auto r = 1 - ::color::operation::distance<::color::constant::distance:: >( origin, pixel );
+    auto X =     ::color::operation::distance<::color::constant::distance::CMC1984_entity>( origin, pixel, 1, 2 );
 
     //auto g = ::color::gray<double>( { h * pow( e, 10 ) } ) ;
 
@@ -71,29 +133,46 @@ void main_extract()
   bgr_image_type image;
   int width=0;
   int height=0;
-  //load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_red (  image,"./extract/extract-hsl-1-000", width, height ); extract_green( image,"./extract/extract-hsl-1-000", width, height ); extract_blue( image,"./extract/extract-hsl-1-000", width, height );
-  //load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_red (  image,"./extract/extract-hsl-1-025", width, height ); extract_green( image,"./extract/extract-hsl-1-025", width, height ); extract_blue( image,"./extract/extract-hsl-1-025", width, height );
-  //load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_red (  image,"./extract/extract-hsl-1-050", width, height ); extract_green( image,"./extract/extract-hsl-1-050", width, height ); extract_blue( image,"./extract/extract-hsl-1-050", width, height );
-  //load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_red (  image,"./extract/extract-hsl-1-075", width, height ); extract_green( image,"./extract/extract-hsl-1-075", width, height ); extract_blue( image,"./extract/extract-hsl-1-075", width, height );
-  //load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_red (  image,"./extract/extract-hsl-1-100", width, height ); extract_green( image,"./extract/extract-hsl-1-100", width, height ); extract_blue( image,"./extract/extract-hsl-1-100", width, height );
 
-   load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_red< ::color::constant::red::channel_number >(  image,"./extract/extract-hsl-1-000-red-ch", width, height ); extract_red< ::color::constant::red::hsl_star_number >(  image,"./extract/extract-hsl-1-000-red-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_red< ::color::constant::red::channel_number >(  image,"./extract/extract-hsl-1-025-red-ch", width, height ); extract_red< ::color::constant::red::hsl_star_number >(  image,"./extract/extract-hsl-1-025-red-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_red< ::color::constant::red::channel_number >(  image,"./extract/extract-hsl-1-050-red-ch", width, height ); extract_red< ::color::constant::red::hsl_star_number >(  image,"./extract/extract-hsl-1-050-red-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_red< ::color::constant::red::channel_number >(  image,"./extract/extract-hsl-1-075-red-ch", width, height ); extract_red< ::color::constant::red::hsl_star_number >(  image,"./extract/extract-hsl-1-075-red-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_red< ::color::constant::red::channel_number >(  image,"./extract/extract-hsl-1-100-red-ch", width, height ); extract_red< ::color::constant::red::hsl_star_number >(  image,"./extract/extract-hsl-1-100-red-mod", width, height );
+   load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_red(  image,"./extract/red-hsl-1-000", width, height );
+   load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_red(  image,"./extract/red-hsl-1-025", width, height );
+   load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_red(  image,"./extract/red-hsl-1-050", width, height );
+   load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_red(  image,"./extract/red-hsl-1-075", width, height );
+   load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_red(  image,"./extract/red-hsl-1-100", width, height );
 
-   load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_green< ::color::constant::green::channel_number >(  image,"./extract/extract-hsl-1-000-green-ch", width, height ); extract_green< ::color::constant::green::hsl_star_number >(  image,"./extract/extract-hsl-1-000-green-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_green< ::color::constant::green::channel_number >(  image,"./extract/extract-hsl-1-025-green-ch", width, height ); extract_green< ::color::constant::green::hsl_star_number >(  image,"./extract/extract-hsl-1-025-green-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_green< ::color::constant::green::channel_number >(  image,"./extract/extract-hsl-1-050-green-ch", width, height ); extract_green< ::color::constant::green::hsl_star_number >(  image,"./extract/extract-hsl-1-050-green-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_green< ::color::constant::green::channel_number >(  image,"./extract/extract-hsl-1-075-green-ch", width, height ); extract_green< ::color::constant::green::hsl_star_number >(  image,"./extract/extract-hsl-1-075-green-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_green< ::color::constant::green::channel_number >(  image,"./extract/extract-hsl-1-100-green-ch", width, height ); extract_green< ::color::constant::green::hsl_star_number >(  image,"./extract/extract-hsl-1-100-green-mod", width, height );
+   load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_green(  image,"./extract/green-hsl-1-000", width, height );
+   load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_green(  image,"./extract/green-hsl-1-025", width, height );
+   load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_green(  image,"./extract/green-hsl-1-050", width, height );
+   load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_green(  image,"./extract/green-hsl-1-075", width, height );
+   load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_green(  image,"./extract/green-hsl-1-100", width, height );
 
-   load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_blue< ::color::constant::blue::channel_number >(  image,"./extract/extract-hsl-1-000-blue-ch", width, height ); extract_blue< ::color::constant::blue::hsl_star_number >(  image,"./extract/extract-hsl-1-000-blue-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_blue< ::color::constant::blue::channel_number >(  image,"./extract/extract-hsl-1-025-blue-ch", width, height ); extract_blue< ::color::constant::blue::hsl_star_number >(  image,"./extract/extract-hsl-1-025-blue-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_blue< ::color::constant::blue::channel_number >(  image,"./extract/extract-hsl-1-050-blue-ch", width, height ); extract_blue< ::color::constant::blue::hsl_star_number >(  image,"./extract/extract-hsl-1-050-blue-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_blue< ::color::constant::blue::channel_number >(  image,"./extract/extract-hsl-1-075-blue-ch", width, height ); extract_blue< ::color::constant::blue::hsl_star_number >(  image,"./extract/extract-hsl-1-075-blue-mod", width, height );
-   load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_blue< ::color::constant::blue::channel_number >(  image,"./extract/extract-hsl-1-100-blue-ch", width, height ); extract_blue< ::color::constant::blue::hsl_star_number >(  image,"./extract/extract-hsl-1-100-blue-mod", width, height );
+   load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_blue(  image,"./extract/blue-hsl-1-000", width, height );
+   load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_blue(  image,"./extract/blue-hsl-1-025", width, height );
+   load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_blue(  image,"./extract/blue-hsl-1-050", width, height );
+   load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_blue(  image,"./extract/blue-hsl-1-075", width, height );
+   load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_blue(  image,"./extract/blue-hsl-1-100", width, height );
+
+   // TODO white
+   // TODO yellow
+   // TODO magenta
+
+   load_image(image, width, height, "./palette/hsl-1-000.tga"); extract_gray( image, "./extract/gray-hsl-1-000", width, height);
+   load_image(image, width, height, "./palette/hsl-1-025.tga"); extract_gray( image, "./extract/gray-hsl-1-025", width, height);
+   load_image(image, width, height, "./palette/hsl-1-050.tga"); extract_gray( image, "./extract/gray-hsl-1-050", width, height);
+   load_image(image, width, height, "./palette/hsl-1-100.tga"); extract_gray( image, "./extract/gray-hsl-1-100", width, height);
+   load_image(image, width, height, "./palette/hsl-1-075.tga"); extract_gray( image, "./extract/gray-hsl-1-075", width, height);
+
+   load_image( image, width, height, "./palette/hsl-1-000.tga" );  extract_black(  image,"./extract/black-hsl-1-000", width, height );
+   load_image( image, width, height, "./palette/hsl-1-025.tga" );  extract_black(  image,"./extract/black-hsl-1-025", width, height );
+   load_image( image, width, height, "./palette/hsl-1-050.tga" );  extract_black(  image,"./extract/black-hsl-1-050", width, height );
+   load_image( image, width, height, "./palette/hsl-1-075.tga" );  extract_black(  image,"./extract/black-hsl-1-075", width, height );
+   load_image( image, width, height, "./palette/hsl-1-100.tga" );  extract_black(  image,"./extract/black-hsl-1-100", width, height );
+
+   load_image( image, width, height, "./palette/hsl-1-000.tga" );  extract_white(  image,"./extract/white-hsl-1-000", width, height );
+   load_image( image, width, height, "./palette/hsl-1-025.tga" );  extract_white(  image,"./extract/white-hsl-1-025", width, height );
+   load_image( image, width, height, "./palette/hsl-1-050.tga" );  extract_white(  image,"./extract/white-hsl-1-050", width, height );
+   load_image( image, width, height, "./palette/hsl-1-075.tga" );  extract_white(  image,"./extract/white-hsl-1-075", width, height );
+   load_image( image, width, height, "./palette/hsl-1-100.tga" );  extract_white(  image,"./extract/white-hsl-1-100", width, height );
 
   if( false == load_image( image, width, height, "./palette/hsl-1-100.tga" ) )
    {
@@ -101,15 +180,15 @@ void main_extract()
     return;
    }
 
-  extract_color(  image,"./extract/extract-color-red",        width, height, ::color::constant::red_t{}         );
-  extract_color(  image,"./extract/extract-color-lime",       width, height, ::color::constant::lime_t{}        );
-  extract_color(  image,"./extract/extract-color-blue",       width, height, ::color::constant::blue_t{}        );
-  extract_color(  image,"./extract/extract-color-magenta",    width, height, ::color::constant::magenta_t{}     );
-  extract_color(  image,"./extract/extract-color-gold",       width, height, ::color::constant::gold_t{}        );
-  extract_color(  image,"./extract/extract-color-aqua",       width, height, ::color::constant::aqua_t{}        );
-  extract_color(  image,"./extract/extract-color-aquamarine", width, height, ::color::constant::aquamarine_t{}  );
-  extract_color(  image,"./extract/extract-color-azure",      width, height, ::color::constant::azure_t{}       );
-  extract_color(  image,"./extract/extract-color-beige",      width, height, ::color::constant::beige_t{}       );
-  extract_color(  image,"./extract/extract-color-bisque",     width, height, ::color::constant::bisque_t{}      );
-  extract_color(  image,"./extract/extract-color-gray",       width, height, ::color::constant::gray_t<1,1>{}   );
+  extract_color(  image,"./extract/color-red",        width, height, ::color::constant::red_t{}         );
+  extract_color(  image,"./extract/color-lime",       width, height, ::color::constant::lime_t{}        );
+  extract_color(  image,"./extract/color-blue",       width, height, ::color::constant::blue_t{}        );
+  extract_color(  image,"./extract/color-magenta",    width, height, ::color::constant::magenta_t{}     );
+  extract_color(  image,"./extract/color-gold",       width, height, ::color::constant::gold_t{}        );
+  extract_color(  image,"./extract/color-aqua",       width, height, ::color::constant::aqua_t{}        );
+  extract_color(  image,"./extract/color-aquamarine", width, height, ::color::constant::aquamarine_t{}  );
+  extract_color(  image,"./extract/color-azure",      width, height, ::color::constant::azure_t{}       );
+  extract_color(  image,"./extract/color-beige",      width, height, ::color::constant::beige_t{}       );
+  extract_color(  image,"./extract/color-bisque",     width, height, ::color::constant::bisque_t{}      );
+  extract_color(  image,"./extract/color-gray",       width, height, ::color::constant::gray_t<1,1>{}   );
  }

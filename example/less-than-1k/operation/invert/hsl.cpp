@@ -5,7 +5,8 @@
 
 int main( int argc, char *argv[] )
  {
-  ::color::hsl< std::uint8_t > hl;
+   //!< Instead of std::uint8_t    you may put: std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double  
+ ::color::hsl< std::uint8_t > hl;
 
   hl = ::color::constant::orange_t{}; //!< Fill with some useful ininvertion
 

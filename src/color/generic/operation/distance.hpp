@@ -2,7 +2,7 @@
 #define color_generic_operation_distance
 
 // ::color::operation::distance( left, right )
-// ::color::constant::delta_gray_entity, hsl_special_entity, euclid_entity
+// ::color::constant::distance:: delta_gray_entity, hsl_special_entity, euclid_entity
 
 #include "../../gray/gray.hpp"
 #include "./delta.hpp"
@@ -18,7 +18,8 @@
 
        enum reference_enum
         {
-          euclid_entity
+          error_entity
+         ,euclid_entity
          ,CIE76_entity
          ,CIE94__base_entity
          ,CIE94_graphics_entity
@@ -38,8 +39,34 @@
      namespace _internal
       {
 
-       template< typename category_name, enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::euclid_entity >
+       template
+         < 
+           typename category_left_name
+          ,typename category_right_name
+          ,enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::error_entity 
+         >
         struct distance
+         {
+          public:
+            typedef category_left_name   category_left_type;
+            typedef category_right_name  category_right_type;
+            typedef ::color::model< category_left_type  >  model_left_type;
+            typedef ::color::model< category_right_type >  model_right_type;
+
+            typedef typename ::color::trait::scalar< category_left_type >::instance_type   scalar_type;
+
+
+            typedef color::operation::_internal::distance< category_left_type, category_right_type, ::color::constant::distance::error_entity > this_type;
+
+            static scalar_type process( model_left_type const& left, model_right_type const& right )
+             {
+              return -1;
+             }
+         };
+
+
+       template< typename category_name >
+        struct distance< category_name, category_name, ::color::constant::distance::euclid_entity >
          {
           public:
             typedef category_name  category_type;
@@ -48,7 +75,7 @@
             typedef typename ::color::trait::scalar< category_type >::instance_type   scalar_type;
             typedef typename ::color::trait::index< category_type >::instance_type     index_type;
 
-            typedef color::operation::_internal::distance< category_name, ::color::constant::distance::euclid_entity> this_type;
+            typedef color::operation::_internal::distance< category_name, category_name, ::color::constant::distance::euclid_entity> this_type;
 
             static   scalar_type square( scalar_type const& s )
              {
@@ -74,8 +101,8 @@
              }
          };
 
-       template< typename category_name>
-        struct distance< category_name, ::color::constant::distance::delta_gray_entity >
+       template< typename category_name >
+        struct distance< category_name, category_name, ::color::constant::distance::delta_gray_entity >
          {
           public:
             typedef category_name  category_type;
@@ -90,46 +117,53 @@
              }
          };
 
-       template< typename category_name>
-        struct distance< category_name, ::color::constant::distance::CIE76_entity >
+       template< typename category_left_name, typename category_right_name >
+        struct distance< category_left_name, category_right_name, ::color::constant::distance::CIE76_entity >
          {
           public:
-            typedef category_name  category_type;
-            typedef ::color::model<category_type>  model_type;
-            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef category_left_name   category_left_type;
+            typedef category_right_name  category_right_type;
+            typedef ::color::model< category_left_type  >  model_left_type;
+            typedef ::color::model< category_right_type >  model_right_type;
+
+            typedef typename ::color::trait::scalar< category_left_type >::instance_type  scalar_type;
+
             typedef ::color::lab<scalar_type>  lab_type;
             typedef typename lab_type::category_type  lab_category_type;
 
-            static scalar_type process( model_type const& left, model_type const& right )
+            static scalar_type process( model_left_type const& left, model_right_type const& right )
              {
-              lab_type lab_left(left);
-              lab_type lab_right(right);
+              lab_type lab_left(  left  );
+              lab_type lab_right( right );
 
-              return::color::operation::_internal::distance<lab_category_type,::color::constant::distance::euclid_entity>::process( lab_left, lab_right );
+              return::color::operation::_internal::distance<lab_category_type, lab_category_type,::color::constant::distance::euclid_entity>::process( lab_left, lab_right );
              }
          };
 
-       template< typename category_name >
-        struct distance< category_name, ::color::constant::distance::CIE94__base_entity >
+       template< typename category_left_name, typename category_right_name >
+        struct distance< category_left_name, category_right_name, ::color::constant::distance::CIE94__base_entity >
          {
           public:
-            typedef category_name  category_type;
-            typedef ::color::model<category_type>  model_type;
-            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef category_left_name   category_left_type;
+            typedef category_right_name  category_right_type;
+            typedef ::color::model< category_left_type  >  model_left_type;
+            typedef ::color::model< category_right_type >  model_right_type;
+
+            typedef typename ::color::trait::scalar< category_left_name >::instance_type  scalar_type;
             typedef ::color::lab<scalar_type>  lab_type;
 
-            typedef color::operation::_internal::distance< category_name, ::color::constant::distance::CIE94__base_entity > this_type;
+            typedef color::operation::_internal::distance< category_left_name, category_right_name, ::color::constant::distance::CIE94__base_entity > this_type;
 
 
             static   scalar_type square( scalar_type const& s ){ return s * s; }
 
-            static scalar_type process( model_type const& left, model_type const& right, scalar_type const& K_L, scalar_type const& K_1, scalar_type const& K_2 )
+            static scalar_type process( model_left_type const& left, model_right_type const& right, scalar_type const& K_L, scalar_type const& K_1, scalar_type const& K_2 )
              {
               static const scalar_type K_C = 1;
               static const scalar_type K_H = 1;
 
-              lab_type lab_left(left);
-              lab_type lab_right(right);
+              lab_type lab_left(   left );
+              lab_type lab_right( right );
 
               scalar_type const& L_1 = lab_left.template get<0>();
               scalar_type const& a_1 = lab_left.template get<1>();
@@ -164,58 +198,64 @@
              }
          };
 
-       template< typename category_name >
-        struct distance< category_name, ::color::constant::distance::CIE94_graphics_entity >
+       template< typename category_left_name, typename category_right_name >
+        struct distance< category_left_name, category_right_name, ::color::constant::distance::CIE94_graphics_entity >
          {
           public:
-            typedef category_name  category_type;
-            typedef ::color::model<category_type>  model_type;
-            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef category_left_name   category_left_type;
+            typedef category_right_name  category_right_type;
+            typedef ::color::model< category_left_type  >  model_left_type;
+            typedef ::color::model< category_right_type >  model_right_type;
 
-            typedef distance< category_name, ::color::constant::distance::CIE94__base_entity > base_type;
+            typedef distance< category_left_type, category_right_type, ::color::constant::distance::CIE94__base_entity > base_type;
+            typedef typename base_type::scalar_type  scalar_type;
 
-            static scalar_type process( model_type const& left, model_type const& right )
+            static scalar_type process( model_left_type const& left, model_right_type const& right )
              {
               return base_type::process( left, right, 1, 0.045, 0.015 );
              }
          };
 
-       template< typename category_name >
-        struct distance< category_name, ::color::constant::distance::CIE94_textile_entity >
+       template< typename category_left_name, typename category_right_name >
+        struct distance< category_left_name, category_right_name, ::color::constant::distance::CIE94_textile_entity >
          {
           public:
-            typedef category_name  category_type;
-            typedef ::color::model<category_type>  model_type;
-            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef category_left_name   category_left_type;
+            typedef category_right_name  category_right_type;
+            typedef ::color::model< category_left_type  >  model_left_type;
+            typedef ::color::model< category_right_type >  model_right_type;
 
-            typedef distance< category_name, ::color::constant::distance::CIE94__base_entity > base_type;
+            typedef distance< category_left_type, category_right_type, ::color::constant::distance::CIE94__base_entity > base_type;
+            typedef typename base_type::scalar_type  scalar_type;
 
-            static scalar_type process( model_type const& left, model_type const& right )
+            static scalar_type process( model_left_type const& left, model_right_type const& right )
              {
               return base_type::process( left, right, 2, 0.048, 0.014  );
              }
          };
 
-       template< typename category_name >
-        struct distance< category_name, ::color::constant::distance::CIEDE2000_entity >
+       template< typename category_left_name, typename category_right_name >
+        struct distance< category_left_name, category_right_name, ::color::constant::distance::CIEDE2000_entity >
          {
           public:
-            typedef category_name  category_type;
-            typedef ::color::model<category_type>  model_type;
-            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
+            typedef category_left_name   category_left_type;
+            typedef category_right_name  category_right_type;
+            typedef ::color::model< category_left_type  >  model_left_type;
+            typedef ::color::model< category_right_type >  model_right_type;
+
+            typedef typename ::color::trait::scalar< category_left_type >::instance_type  scalar_type;
+            typedef  ::color::constant::generic< category_left_type > constant_type;
 
             typedef ::color::lab<scalar_type>  lab_type;
-
-            typedef  ::color::constant::generic< category_name > constant_type;
-
-            typedef color::operation::_internal::distance< category_name, ::color::constant::distance::CIEDE2000_entity > this_type;
+            
+            typedef color::operation::_internal::distance< category_left_name, category_right_name, ::color::constant::distance::CIEDE2000_entity > this_type;
 
             static   scalar_type square( scalar_type const& s ){ return s * s; }
 
-            static scalar_type process( model_type const& left, model_type const& right )
+            static scalar_type process( model_left_type const& left, model_right_type const& right )
              {
-              lab_type lab_left(left);
-              lab_type lab_right(right);
+              lab_type lab_left(   left );
+              lab_type lab_right( right );
 
               scalar_type const& L_1 = lab_left.template get<0>();
               scalar_type const& a_1 = lab_left.template get<1>();
@@ -302,23 +342,26 @@
               return delta_E_main;
              }
          };
-        
 
-       template< typename category_name>
-        struct distance< category_name, ::color::constant::distance::CMC1984_entity >
+       template< typename category_left_name, typename category_right_name >
+        struct distance< category_left_name, category_right_name, ::color::constant::distance::CMC1984_entity >
          {
           public:
-            typedef category_name  category_type;
-            typedef ::color::model<category_type>  model_type;
-            typedef typename ::color::trait::scalar< category_type >::instance_type  scalar_type;
-            typedef ::color::gray<scalar_type> gray_type;
-            typedef ::color::lab<scalar_type>  lab_type;
-            typedef  ::color::constant::generic< category_name > constant_type;
+            typedef category_left_name   category_left_type;
+            typedef category_right_name  category_right_type;
+            typedef ::color::model< category_left_type  >  model_left_type;
+            typedef ::color::model< category_right_type >  model_right_type;
 
-            static scalar_type process( model_type const& left, model_type const& right, scalar_type const& l, scalar_type const& c )
+            typedef typename ::color::trait::scalar< category_left_type >::instance_type  scalar_type;
+
+            // typedef ::color::gray<scalar_type> gray_type;
+            typedef ::color::lab<scalar_type>  lab_type;
+            typedef  ::color::constant::generic< category_left_type > constant_type;
+
+            static scalar_type process( model_left_type const& left, model_right_type const& right, scalar_type const& l, scalar_type const& c )
              {
-              lab_type lab_left(left);
-              lab_type lab_right(right);
+              lab_type lab_left(   left );
+              lab_type lab_right( right );
 
               scalar_type const& L_1 = lab_left.template get<0>();
               scalar_type const& a_1 = lab_left.template get<1>();
@@ -378,9 +421,8 @@
              }
          };
 
-
        template< typename category_name >
-        struct distance< category_name, ::color::constant::distance::hsl_special_entity >
+        struct distance< category_name, category_name, ::color::constant::distance::hsl_special_entity >
          {
           public:
             typedef category_name  category_type;
@@ -402,7 +444,7 @@
          };
 
        template< typename category_name >
-        struct distance< category_name, ::color::constant::distance::rgb_special_entity >
+        struct distance< category_name, category_name, ::color::constant::distance::rgb_special_entity >
          {
           public:
             typedef category_name  category_type;
@@ -435,29 +477,66 @@
       typename ::color::trait::scalar< category_name >::instance_type
       distance
        (
-         ::color::model<category_name> const& left
-        ,::color::model<category_name> const& right
+         ::color::model< category_name > const&  left
+        ,::color::model< category_name > const& right
        )
        {
-        return ::color::operation::_internal::distance<category_name,reference_number>::process( left, right );
+        return ::color::operation::_internal::distance<category_name, category_name, reference_number>::process( left, right );
        }
 
      template
       <
-       enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::CMC1984_entity
-       ,typename category_name
+       enum ::color::constant::distance::reference_enum reference_number
+       ,typename category_left_name
+       ,typename category_right_name
       >
-      typename ::color::trait::scalar< category_name >::instance_type
+      typename ::color::operation::_internal::distance< category_left_name, category_right_name, reference_number >::scalar_type
       distance
        (
-         ::color::model<category_name> const& left
-        ,::color::model<category_name> const& right
-        , typename ::color::trait::scalar< category_name >::instance_type const& l
-        , typename ::color::trait::scalar< category_name >::instance_type const& c
+         ::color::model<  category_left_name > const&  left
+        ,::color::model< category_right_name > const& right
        )
        {
-        return ::color::operation::_internal::distance< category_name, ::color::constant::distance::CMC1984_entity>::process( left, right, l, c );
+        return ::color::operation::_internal::distance< category_left_name, category_right_name, reference_number >::process( left, right );
        }
+
+     template
+      <
+       enum ::color::constant::distance::reference_enum reference_number
+       ,typename category_left_name
+       ,typename category_right_name
+      >
+      typename ::color::operation::_internal::distance< category_left_name, category_right_name, reference_number >::scalar_type
+      distance
+       (
+         ::color::model<category_left_name> const& left
+        ,::color::model<category_right_name> const& right
+        , typename ::color::trait::scalar< category_left_name >::instance_type const& l
+        , typename ::color::trait::scalar< category_left_name >::instance_type const& c
+       )
+       {
+        return ::color::operation::_internal::distance< category_left_name, category_right_name, reference_number >::process( left, right, l, c );
+       }
+
+     template
+      <
+       enum ::color::constant::distance::reference_enum reference_number
+       ,typename category_left_name
+       ,typename category_right_name
+      >
+      typename ::color::operation::_internal::distance< category_left_name, category_right_name, reference_number >::scalar_type
+      distance
+       (
+         ::color::model<category_left_name> const& left
+        ,::color::model<category_right_name> const& right
+        , typename ::color::trait::scalar< category_left_name >::instance_type const& K_L
+        , typename ::color::trait::scalar< category_left_name >::instance_type const& K_1
+        , typename ::color::trait::scalar< category_left_name >::instance_type const& K_2
+       )
+       {
+        return ::color::operation::_internal::distance< category_left_name, category_right_name, reference_number >::process( left, right, K_L, K_1, K_2 );
+       }
+
 
     }
 

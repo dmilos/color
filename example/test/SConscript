@@ -24,6 +24,7 @@ settings.accumulate( 'RTTI', { 'enable': 'false' } )
 settings.accumulate( 'compiler:configuration', { 'name'          : configuration  } )
 settings.accumulate( 'compiler:optimisation',  { 'configuration' : configuration  } )
 settings.accumulate( 'compiler:version',  { 'msvc' : [ settings.get_custom( 'compiler_version_msvc' ) ] } )
+settings.accumulate( 'compiler:warning', { 'return-address-of-local-variable': 'enable'  } ) 
 
 settings.accumulate( 'PDB', { 'configuration': configuration , 'synchronous' : 'false', 'file-name': os.path.join( directory_pdb, name_full + '.pdb' ) } )
 settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.get_custom( 'RTL' ) } )
@@ -60,6 +61,7 @@ source +=   [
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/gamma'      ) + envObject[ 'OBJSUFFIX' ],  source = './operation/gamma.cpp'      )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/bias'       ) + envObject[ 'OBJSUFFIX' ],  source = './operation/bias.cpp'       )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/gain'       ) + envObject[ 'OBJSUFFIX' ],  source = './operation/gain.cpp'       )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/distance'   ) + envObject[ 'OBJSUFFIX' ],  source = './operation/distance.cpp'  )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/operation'  ) + envObject[ 'OBJSUFFIX' ],  source = './operation/operation.cpp'  )
    ]
 

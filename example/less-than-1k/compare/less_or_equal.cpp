@@ -25,7 +25,7 @@ int main( int argc, char *argv[] )
   std::cout << a[0] << ", " << a[1] << ", " << a[2] << std::endl;
   std::cout << b[0] << ", " << b[1] << ", " << b[2] << std::endl;
 
-  std::cout << " color::compare::less_or_equal( a, b ) == " <<color::compare::less_or_equal( a, b ) << std::endl;
+  std::cout << "color::compare::less_or_equal( a, b ) == " <<color::compare::less_or_equal( a, b ) << std::endl;
 
   return EXIT_SUCCESS;
  }

@@ -53,46 +53,6 @@ namespace color
 
       };
 
-    namespace hue
-     {
-
-      enum formula_enum
-       {
-         error_entity
-        ,hexagon_entity                     //!< =  Preucil
-        ,polar_atan2_entity                 //!< EHB(atan2) = Evans, Hanson, and Brewer
-        ,polar_acos_entity                  //!< EHB(acos)  = Evans, Hanson, and Brewer
-        ,polar_entity = polar_atan2_entity  //!< Default polar formula
-       };
-
-      namespace _internal
-       {
-
-        template < enum ::color::constant::hue::formula_enum hue_number > struct algorithm{};
-
-       }
-
-     }
-
-    namespace gray
-     {
-
-      enum formula_enum
-       {
-         error_entity
-        ,native_entity
-       };
-
-      namespace _internal
-       {
-
-        template < enum ::color::constant::gray::formula_enum hue_number > struct algorithm{};
-
-       }
-
-     }
-
-
    }
  }
 

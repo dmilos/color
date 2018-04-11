@@ -8,7 +8,8 @@
 #include "../../cmyk/place/place.hpp"
 #include "../../cmyk/cmyk.hpp"
 
-#include "../../generic/operation/invert.hpp"
+#include "../../generic/operation/diverse.hpp"
+#include "../../generic/operation/normalize.hpp"
 #include "../../_internal/diverse.hpp"
 #include "../../_internal/normalize.hpp"
 

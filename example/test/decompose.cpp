@@ -164,7 +164,6 @@ int decompose_test( int argc, char const *argv[] )
    decompose2gray< ::color::lms<double, ::color::constant::lms::von_Kries_E_entity   > >( image, "./dec-gray/lmsKE", width, height       );
    decompose2gray< ::color::lms<double, ::color::constant::lms::BFD_entity           > >( image, "./dec-gray/lmsBFD", width, height      );
    decompose2gray< ::color::lms<double, ::color::constant::lms::MCAT02_entity        > >( image, "./dec-gray/lmsMCAT02", width, height   );
-
   }
 
 

@@ -1,5 +1,7 @@
 #ifndef color_rgb_rgb_
 #define color_rgb_rgb_
+// RGB: red, green, blue
+
 
 #include "../generic/type/type.hpp"
 
@@ -16,7 +18,7 @@ namespace color
   namespace _internal
    {
 
-    //  RGB
+    // RGB
     template< typename type_name >
      struct pick_rgb
       {
@@ -173,6 +175,8 @@ namespace color
 #include "./set/set.hpp"
 
 #include "./convert/convert.hpp"
+
+// #include "./operation/operation.hpp"
 
 
 #endif

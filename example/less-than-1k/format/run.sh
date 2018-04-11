@@ -1,3 +1,35 @@
+cd ./2222
+./run.sh
+cd ..
+
+cd ./233
+./run.sh
+cd ..
+
+cd ./332
+./run.sh
+cd ..
+
+cd ./4444
+./run.sh
+cd ..
+
+cd ./556
+./run.sh
+cd ..
+
+cd ./655
+./run.sh
+cd ..
+
+cd ./8888
+./run.sh
+cd ..
+
+cd ./AAA2
+./run.sh
+cd ..
+
 cd ./double
 ./run.sh
 cd ..
@@ -25,18 +57,3 @@ cd ..
 cd ./uint8
 ./run.sh
 cd ..
-
-./split2222_abgr.exe
-./split2222_argb.exe
-./split2222_bgra.exe
-./split2222_rgba.exe
-./split4444_abgr.exe
-./split4444_argb.exe
-./split4444_bgra.exe
-./split4444_rgba.exe
-./split8888_abgr.exe
-./split8888_argb.exe
-./split8888_bgra.exe
-./split8888_rgba.exe
-./splitAAA2_cmyk.exe
-./splitAAA2_rgba.exe

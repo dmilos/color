@@ -37,6 +37,7 @@
             typedef typename index_trait_type::input_const_type  index_input_const_type;
 
 
+          // private:
             static component_return_type
             component
              (
@@ -55,6 +56,7 @@
               return bound_type::template range<index_size>() - component;
              }
 
+          public:
             static model_type & process( model_type &result )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )

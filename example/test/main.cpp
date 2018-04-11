@@ -51,20 +51,38 @@ void print()
   std::cout << "**************************************************************************************************************"  << std::endl;
  }
 
+void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
+ {
+  ::color::hsi<double>  h;
+  std::cout << "----" << s <<std::endl;
+  std::cout << "Original RGB: " << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  h = r; r = h;
+  std::cout << "BAck     RGB: " << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
+  std::cout << "HSV: " << h[0] << ", " << h[1] << ", " << h[2] << std::endl;
+  std::cout << "*******" << std::endl;
+ }
 
-void sandbox_test3( )
+void sandbox_test3()
  {
   ::color::luv< long double>  a;
   ::color::xyy<long double>   b{ ::color::constant::white_t{} };
   ::color::rgb<long double>   r{ ::color::constant::white_t{} };
   ::color::gray<long double>  g{ ::color::constant::white_t{} };
 
-  r[0] = 0.0;
+  r[0] = 0;
   r[1] = 0.5;
   r[2] = 0.5;
 
   a = b;
   b = a;
+ }
+
+void sandbox_test4()
+ {
+  ::color::hwb<double> h= color::constant::turquoise_t{};
+  ::color::rgb<double> r= color::constant::turquoise_t{};
+   
+  h = r;
  }
 
 void luv_bound()
@@ -134,17 +152,6 @@ void luv_bound()
   std::cout << "v_max:z: " << std::setprecision(25) << vz_max << std::endl;
 
   //std::cin.get();
- }
-
-void sandbox_test2( ::color::rgb<double>  r, std::string const& s )
- {
-  ::color::hsi<double>  h;
-  std::cout << "----" << s <<std::endl;
-  std::cout << "Original RGB: " << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
-  h = r; r = h;
-  std::cout << "BAck     RGB: " << r[0] << ", " << r[1] << ", " <<r[2] << std::endl;
-  std::cout << "HSV: " << h[0] << ", " << h[1] << ", " << h[2] << std::endl;
-  std::cout << "*******" << std::endl;
  }
 
 void LabCH_test( )
@@ -235,7 +242,6 @@ void LabCH_test( )
   TEST( r[1] = --r[0]  );
  }
 
-
 void sandbox_test()
  {
   ::color::hsi<double>  h;
@@ -277,7 +283,6 @@ void sandbox_test()
   sandbox_test2( ::color::rgb<double>{ 0.211, 0.149, 0.597, }, "  247.3°           0.533          0.319       " );
   sandbox_test2( ::color::rgb<double>{ 0.495, 0.493, 0.721, }, "  240.4°           0.135          0.570       " );
  }
-
 
 void ctor_test()
  {
@@ -401,7 +406,6 @@ void invoke()
 //  test_conversion< color::yuv, color::rgb >();
 
  }
-
 
 void make_blue()
  {
@@ -539,8 +543,7 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[] )
  {
-  extern void check_conversion();
-  check_conversion();
+  sandbox_test4( );
 
   void test_get_invoke( double value );
   test_get_invoke( 0.5 );
@@ -558,6 +561,9 @@ int main(int argc, char const *argv[] )
 
   void test_palette();
   test_palette();
+
+  void test_operation_distance__all( );
+  test_operation_distance__all();
 
   void main_extract();
   main_extract();
@@ -610,6 +616,9 @@ int main(int argc, char const *argv[] )
 
   invoke();
 
+  extern void check_conversion();
+  check_conversion();
+
   void test_set_invoke();
   test_set_invoke();
 
@@ -626,4 +635,5 @@ mkdir gray
 mkdir hue
 mkdir operation
 mkdir palette
+mkdir extract
 */

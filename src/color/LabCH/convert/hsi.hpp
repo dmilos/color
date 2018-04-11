@@ -6,7 +6,7 @@
 
 
 
- #include "../../hsi/hsi.hpp"
+#include "../../hsi/hsi.hpp"
 #include "../../rgb/rgb.hpp"
 #include "../../lab/lab.hpp"
 #include "../../xyz/xyz.hpp"

@@ -7,8 +7,8 @@ int main( int argc, char *argv[] )
  {
   ::color::rgb<double> a, b;
 
-   a = ::color::constant::orange_t{};
-   b = ::color::constant::lime_t{};
+  a = ::color::constant::orange_t{};
+  b = ::color::constant::lime_t{};
 
   ::color::rgb<double> j;
 

@@ -218,7 +218,7 @@ template< typename category_name >
   save_targa_gray("./hue/difference.tga", width, height, image_uint8 );
  }
 
-template< typename type_type  >
+template< typename type_type >
  using yuv601 = color::yuv <type_type, ::color::constant::yuv::BT_601_entity >;
 
 template< typename  type_type  >

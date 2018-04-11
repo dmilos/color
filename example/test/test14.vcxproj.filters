@@ -4182,15 +4182,6 @@
     <ClInclude Include="..\..\src\color\xyz\xyz.hpp">
       <Filter>Source Files\src\xyz</Filter>
     </ClInclude>
-    <ClInclude Include="image.hpp">
-      <Filter>Source Files\main</Filter>
-    </ClInclude>
-    <ClInclude Include="print.hpp">
-      <Filter>Source Files\main</Filter>
-    </ClInclude>
-    <ClInclude Include="targa.hpp">
-      <Filter>Source Files\main</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bound.cpp">
@@ -4254,6 +4245,9 @@
       <Filter>Source Files\main</Filter>
     </ClCompile>
     <ClCompile Include="extract.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="operation\distance.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
   </ItemGroup>
