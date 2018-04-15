@@ -18,3 +18,4 @@ g++ -fexceptions -std=c++11 -g -I../../../../src  ./YDbDr_lavender.cpp          
 g++ -fexceptions -std=c++11 -g -I../../../../src  ./yiq_lavender.cpp            -o  yiq_lavender
 g++ -fexceptions -std=c++11 -g -I../../../../src  ./YPbPr_lavender.cpp          -o  YPbPr_lavender
 g++ -fexceptions -std=c++11 -g -I../../../../src  ./yuv_lavender.cpp            -o  yuv_lavender
+g++ -fexceptions -std=c++11 -g -I../../../../src  ./rgb_red.cpp                 -o  rgb_red

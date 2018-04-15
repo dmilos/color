@@ -1,8 +1,8 @@
-./gray_cmy.exe
-./gray_cmyk.exe
-./gray_gray.exe
-./gray_hsl.exe
-./gray_hsv.exe
-./gray_rgb.exe
-./gray_yiq.exe
-./gray_yuv.exe
+./my.exe
+./myk.exe
+./ray.exe
+./sl.exe
+./sv.exe
+./gb.exe
+./iq.exe
+./uv.exe

@@ -12,6 +12,9 @@
 #include "../../_internal/normalize.hpp"
 #include "../../_internal/diverse.hpp"
 #include "../../generic/trait/scalar.hpp"
+#include "../../generic/get/quadrature.hpp"
+
+
 
 
  namespace color

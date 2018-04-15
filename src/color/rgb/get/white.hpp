@@ -7,6 +7,12 @@
 #include "../place/place.hpp"
 #include "../../generic/get/white.hpp"
 
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
+
+
+
+
  namespace color
   {
    namespace get
@@ -14,7 +20,7 @@
 
      namespace constant
       {
-       namespace white
+       namespace rgb { namespace white
         {
 
          enum formula_enum
@@ -24,9 +30,9 @@
           };
 
         }
-       }
+      }}
 
-     namespace _internal/*::rgb */
+     namespace _internal { namespace rgb
       {
        namespace white
         {
@@ -34,7 +40,7 @@
          template
           <
             typename category_name
-           ,enum ::color::get::constant::white::formula_enum formula_number
+           ,enum ::color::get::constant::rgb::white::formula_enum formula_number
           >
           struct usher
            {
@@ -50,7 +56,7 @@
            };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, color::get::constant::white::alvy_entity >
+          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::white::alvy_entity >
            {
             typedef ::color::category::rgb< tag_name > category_type;
             typedef ::color::model< category_type > model_type;
@@ -83,10 +89,8 @@
              }
            };
 
-
-
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, color::get::constant::white::hsl_star_entity >
+          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::white::hsl_star_entity >
            {
             typedef ::color::category::rgb< tag_name > category_type;
             typedef ::color::model< category_type > model_type;
@@ -121,12 +125,12 @@
           };
 
         }
-      }
+      }}
 
 
      template
       <
-        enum ::color::get::constant::white::formula_enum formula_number = ::color::get::constant::white::alvy_entity
+        enum ::color::get::constant::rgb::white::formula_enum formula_number = ::color::get::constant::rgb::white::alvy_entity
        ,typename tag_name
       >
       inline
@@ -136,7 +140,7 @@
          ::color::model< ::color::category::rgb< tag_name > > const& color_parameter
        )
        {
-        return ::color::get::_internal::white::usher< ::color::category::rgb< tag_name >, formula_number >::process( color_parameter );
+        return ::color::get::_internal::rgb::white::usher< ::color::category::rgb< tag_name >, formula_number >::process( color_parameter );
        }
 
     }

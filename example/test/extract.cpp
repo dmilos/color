@@ -10,8 +10,8 @@ extract_red( bgr_image_type const& image, std::string const& name, std::size_t c
 
   for( auto & pixel : image )
    {
-    component_channel.push_back( gray_color_type( ::color::get::red< ::color::get::constant::red::channel_entity  >( pixel ) ) );
-    component_star.push_back(    gray_color_type( ::color::get::red< ::color::get::constant::red::hsl_star_entity >( pixel ) ) );
+    component_channel.push_back( gray_color_type( ::color::get::red< ::color::get::constant::rgb::red::channel_entity  >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::red< ::color::get::constant::rgb::red::hsl_star_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-channel.tga", component_channel, width, height );
@@ -26,8 +26,8 @@ extract_green( bgr_image_type const& image, std::string const& name, std::size_t
 
   for( auto & pixel : image )
    {
-    component_channel.push_back( gray_color_type( ::color::get::green< ::color::get::constant::green::channel_entity  >( pixel ) ) );
-    component_star.push_back(    gray_color_type( ::color::get::green< ::color::get::constant::green::hsl_star_entity >( pixel ) ) );
+    component_channel.push_back( gray_color_type( ::color::get::green< ::color::get::constant::rgb::green::channel_entity  >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::green< ::color::get::constant::rgb::green::hsl_star_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-channel.tga", component_channel, width, height );
@@ -42,13 +42,73 @@ extract_blue( bgr_image_type const& image, std::string const& name, std::size_t 
 
   for( auto & pixel : image )
    {
-    component_channel.push_back( gray_color_type( ::color::get::blue< ::color::get::constant::blue::channel_entity  >( pixel ) ) );
-    component_star.push_back(    gray_color_type( ::color::get::blue< ::color::get::constant::blue::hsl_star_entity >( pixel ) ) );
+    component_channel.push_back( gray_color_type( ::color::get::blue< ::color::get::constant::rgb::blue::channel_entity  >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::blue< ::color::get::constant::rgb::blue::hsl_star_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-channel.tga", component_channel, width, height );
   save_image_gray( name + "-star.tga",     component_star,    width, height );
  }
+
+void
+extract_cyan( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
+ {
+  gray_image_type  component_cmy;   component_cmy.reserve( image.size() );
+  gray_image_type  component_cmyk;  component_cmyk.reserve(image.size());
+  gray_image_type  component_star;  component_star.reserve(image.size());
+
+  for( auto & pixel : image )
+   {
+    component_cmy.push_back(   gray_color_type( ::color::get::cyan< ::color::get::constant::rgb::cyan::cmy_entity      >( pixel ) ) );
+    component_cmyk.push_back(  gray_color_type( ::color::get::cyan< ::color::get::constant::rgb::cyan::cmyk_entity     >( pixel ) ) );
+    component_star.push_back(  gray_color_type( ::color::get::cyan< ::color::get::constant::rgb::cyan::hsl_star_entity >( pixel ) ) );
+   }
+
+  save_image_gray( name + "-cmy.tga",   component_cmy,   width, height );
+  save_image_gray( name + "-cmyk.tga",  component_cmyk,  width, height );
+  save_image_gray( name + "-star.tga",  component_star,  width, height );
+ }
+
+void
+extract_magenta( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
+ {
+  gray_image_type  component_cmy;   component_cmy.reserve( image.size() );
+  gray_image_type  component_cmyk;  component_cmyk.reserve(image.size());
+  gray_image_type  component_star;  component_star.reserve(image.size());
+
+  for( auto & pixel : image )
+   {
+    component_cmy.push_back(   gray_color_type( ::color::get::magenta< ::color::get::constant::rgb::magenta::cmy_entity      >( pixel ) ) );
+    component_cmyk.push_back(  gray_color_type( ::color::get::magenta< ::color::get::constant::rgb::magenta::cmyk_entity     >( pixel ) ) );
+    component_star.push_back(  gray_color_type( ::color::get::magenta< ::color::get::constant::rgb::magenta::hsl_star_entity >( pixel ) ) );
+   }
+
+  save_image_gray( name + "-cmy.tga",   component_cmy,   width, height );
+  save_image_gray( name + "-cmyk.tga",  component_cmyk,  width, height );
+  save_image_gray( name + "-star.tga",  component_star,  width, height );
+ }
+
+
+
+void
+extract_yellow( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
+ {
+  gray_image_type  component_cmy;   component_cmy.reserve( image.size() );
+  gray_image_type  component_cmyk;  component_cmyk.reserve(image.size());
+  gray_image_type  component_star;  component_star.reserve(image.size());
+
+  for( auto & pixel : image )
+   {
+    component_cmy.push_back(   gray_color_type( ::color::get::yellow< ::color::get::constant::rgb::yellow::cmy_entity      >( pixel ) ) );
+    component_cmyk.push_back(  gray_color_type( ::color::get::yellow< ::color::get::constant::rgb::yellow::cmyk_entity     >( pixel ) ) );
+    component_star.push_back(  gray_color_type( ::color::get::yellow< ::color::get::constant::rgb::yellow::hsl_star_entity >( pixel ) ) );
+   }
+
+  save_image_gray( name + "-cmy.tga",   component_cmy,   width, height );
+  save_image_gray( name + "-cmyk.tga",  component_cmyk,  width, height );
+  save_image_gray( name + "-star.tga",  component_star,  width, height );
+ }
+
 
 void
 extract_gray( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
@@ -60,10 +120,10 @@ extract_gray( bgr_image_type const& image, std::string const& name, std::size_t 
 
   for( auto & pixel : image )
    {
-    component_average.push_back( gray_color_type( ::color::get::gray< ::color::get::constant::gray::average_entity  >( pixel ) ) );
-    component_middle.push_back(  gray_color_type( ::color::get::gray< ::color::get::constant::gray::middle_entity   >( pixel ) ) );
-    component_yuv709.push_back(gray_color_type(::color::get::gray< ::color::get::constant::gray::yuv709_entity   >(pixel)));
-    component_star.push_back(    gray_color_type( ::color::get::gray< ::color::get::constant::gray::hsl_star_entity >( pixel ) ) );
+    component_average.push_back( gray_color_type( ::color::get::gray< ::color::get::constant::rgb::gray::average_entity  >( pixel ) ) );
+    component_middle.push_back(  gray_color_type( ::color::get::gray< ::color::get::constant::rgb::gray::middle_entity   >( pixel ) ) );
+    component_yuv709.push_back(gray_color_type(   ::color::get::gray< ::color::get::constant::rgb::gray::yuv709_entity   >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::gray< ::color::get::constant::rgb::gray::hsl_star_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-average.tga",  component_average, width, height );
@@ -80,8 +140,8 @@ extract_black( bgr_image_type const& image, std::string const& name, std::size_t
 
   for( auto & pixel : image )
    {
-    component_average.push_back( gray_color_type( ::color::get::black< ::color::get::constant::black::alvy_entity      >( pixel ) ) );
-    component_star.push_back(    gray_color_type( ::color::get::black< ::color::get::constant::black::hsl_star_entity >( pixel ) ) );
+    component_average.push_back( gray_color_type( ::color::get::black< ::color::get::constant::rgb::black::alvy_entity     >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::black< ::color::get::constant::rgb::black::hsl_star_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-alvy.tga",  component_average, width, height );
@@ -96,8 +156,8 @@ extract_white( bgr_image_type const& image, std::string const& name, std::size_t
 
   for( auto & pixel : image )
    {
-    component_average.push_back( gray_color_type( ::color::get::white< ::color::get::constant::white::alvy_entity      >( pixel ) ) );
-    component_star.push_back(    gray_color_type( ::color::get::white< ::color::get::constant::white::hsl_star_entity >( pixel ) ) );
+    component_average.push_back( gray_color_type( ::color::get::white< ::color::get::constant::rgb::white::alvy_entity     >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::white< ::color::get::constant::rgb::white::hsl_star_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-alvy.tga",  component_average, width, height );
@@ -152,9 +212,23 @@ void main_extract()
    load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_blue(  image,"./extract/blue-hsl-1-075", width, height );
    load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_blue(  image,"./extract/blue-hsl-1-100", width, height );
 
-   // TODO white
-   // TODO yellow
-   // TODO magenta
+   load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_cyan(  image,"./extract/cyan-hsl-1-000", width, height );
+   load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_cyan(  image,"./extract/cyan-hsl-1-025", width, height );
+   load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_cyan(  image,"./extract/cyan-hsl-1-050", width, height );
+   load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_cyan(  image,"./extract/cyan-hsl-1-075", width, height );
+   load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_cyan(  image,"./extract/cyan-hsl-1-100", width, height );
+
+   load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_magenta(  image,"./extract/magenta-hsl-1-000", width, height );
+   load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_magenta(  image,"./extract/magenta-hsl-1-025", width, height );
+   load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_magenta(  image,"./extract/magenta-hsl-1-050", width, height );
+   load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_magenta(  image,"./extract/magenta-hsl-1-075", width, height );
+   load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_magenta(  image,"./extract/magenta-hsl-1-100", width, height );
+
+   load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_yellow(  image,"./extract/yellow-hsl-1-000", width, height );
+   load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_yellow(  image,"./extract/yellow-hsl-1-025", width, height );
+   load_image( image, width, height, "./palette/hsl-1-050.tga" ); extract_yellow(  image,"./extract/yellow-hsl-1-050", width, height );
+   load_image( image, width, height, "./palette/hsl-1-075.tga" ); extract_yellow(  image,"./extract/yellow-hsl-1-075", width, height );
+   load_image( image, width, height, "./palette/hsl-1-100.tga" ); extract_yellow(  image,"./extract/yellow-hsl-1-100", width, height );
 
    load_image(image, width, height, "./palette/hsl-1-000.tga"); extract_gray( image, "./extract/gray-hsl-1-000", width, height);
    load_image(image, width, height, "./palette/hsl-1-025.tga"); extract_gray( image, "./extract/gray-hsl-1-025", width, height);

@@ -11,6 +11,7 @@ g++ -fexceptions -std=c++11 -g -I../../../../src  lms.cpp      -o   lms
 g++ -fexceptions -std=c++11 -g -I../../../../src  luv.cpp      -o   luv
 g++ -fexceptions -std=c++11 -g -I../../../../src  LuvCH.cpp    -o   LuvCH
 g++ -fexceptions -std=c++11 -g -I../../../../src  rgb.cpp      -o   rgb
+g++ -fexceptions -std=c++11 -g -I../../../../src  xyz.cpp      -o   xyz
 g++ -fexceptions -std=c++11 -g -I../../../../src  YCgCo.cpp    -o   YCgCo
 g++ -fexceptions -std=c++11 -g -I../../../../src  YDbDr.cpp    -o   YDbDr
 g++ -fexceptions -std=c++11 -g -I../../../../src  yiq.cpp      -o   yiq

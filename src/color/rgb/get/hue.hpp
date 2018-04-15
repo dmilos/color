@@ -8,6 +8,8 @@
 #include "../../generic/get/hue.hpp"
 #include "../../generic/constant.hpp"
 
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
 
 
 
@@ -16,7 +18,7 @@
 
    namespace constant
     {
-     namespace hue
+     namespace /*rgb::*/hue
       {
 
        enum formula_enum
@@ -41,7 +43,7 @@
    namespace get
     {
 
-     namespace _internal
+     namespace _internal { namespace rgb 
       {
 
        template< typename tag_name >
@@ -181,7 +183,7 @@
           return diverse_type::template process< red_p >(h);
          }
 
-      }
+      }}
 
      template
       <
@@ -195,7 +197,7 @@
          ::color::model< ::color::category::rgb< tag_name> > const& color_parameter
        )
        {
-        return ::color::get::_internal::hue< tag_name >( color_parameter, ::color::constant::hue::_internal::algorithm< hue_number >{} );
+        return ::color::get::_internal::rgb::hue< tag_name >( color_parameter, ::color::constant::hue::_internal::algorithm< hue_number >{} );
        }
 
     }

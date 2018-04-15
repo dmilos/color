@@ -13,6 +13,8 @@
 #include "../../generic/operation/invert.hpp"
 #include "../../_internal/reformat.hpp"
 #include "../../generic/trait/scalar.hpp"
+#include "../../generic/get/red.hpp"
+
 
 
  namespace color

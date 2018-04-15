@@ -7,6 +7,12 @@
 #include "../place/place.hpp"
 #include "../../generic/get/black.hpp"
 
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
+
+
+
+
  namespace color
   {
    namespace get
@@ -14,7 +20,7 @@
 
      namespace constant
       {
-       namespace /*rgb::*/black
+       namespace rgb { namespace black
         {
 
          enum formula_enum
@@ -24,9 +30,9 @@
           };
 
         }
-       }
+      }}
 
-     namespace _internal/* ::rgb */
+     namespace _internal { namespace rgb
       {
        namespace black
         {
@@ -34,7 +40,7 @@
          template
           <
             typename category_name
-           ,enum ::color::get::constant::black::formula_enum formula_number
+           ,enum ::color::get::constant::rgb::black::formula_enum formula_number
           >
           struct usher
            {
@@ -49,82 +55,81 @@
              }
            };
 
-       template< typename tag_name >
-        struct usher< ::color::category::rgb< tag_name >, color::get::constant::black::alvy_entity >
-         {
-          typedef ::color::category::rgb< tag_name > category_type;
-          typedef ::color::model< category_type > model_type;
-
-          typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
-
-          typedef typename ::color::trait::component< category_type >::return_type return_type;
-
-          typedef ::color::_internal::diverse< category_type >     diverse_type;
-          typedef ::color::_internal::normalize< category_type > normalize_type;
-
-          enum
+         template< typename tag_name >
+          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::black::alvy_entity >
            {
-             red_p   = ::color::place::_internal::red<category_type>::position_enum
-            ,green_p = ::color::place::_internal::green<category_type>::position_enum
-            ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
+            typedef ::color::category::rgb< tag_name > category_type;
+            typedef ::color::model< category_type > model_type;
+            
+            typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
+            
+            typedef typename ::color::trait::component< category_type >::return_type return_type;
+            
+            typedef ::color::_internal::diverse< category_type >     diverse_type;
+            typedef ::color::_internal::normalize< category_type > normalize_type;
+            
+            enum
+             {
+               red_p   = ::color::place::_internal::red<category_type>::position_enum
+              ,green_p = ::color::place::_internal::green<category_type>::position_enum
+              ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
+             };
+            
+            static return_type process( model_type const& color_parameter )
+             {
+              scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p  >(  ) );
+              scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>(  ) );
+              scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p >(  ) );
+            
+              scalar_type hi = std::max<scalar_type>( {r,g,b} );
+              scalar_type black = scalar_type(1) - hi;
+            
+              return diverse_type::template process<red_p >( black );
+             }
            };
 
-          static return_type process( model_type const& color_parameter )
+         template< typename tag_name >
+          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::black::hsl_star_entity >
            {
-            scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p  >(  ) );
-            scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>(  ) );
-            scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p >(  ) );
-
-            scalar_type hi = std::max<scalar_type>( {r,g,b} );
-            scalar_type black = scalar_type(1) - hi;
-
-            return diverse_type::template process<red_p >( black );
-           }
-         };
-
-
-       template< typename tag_name >
-        struct usher< ::color::category::rgb< tag_name >, color::get::constant::black::hsl_star_entity >
-         {
-          typedef ::color::category::rgb< tag_name > category_type;
-          typedef ::color::model< category_type > model_type;
-
-          typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
-
-          typedef typename ::color::akin::gray< category_type >::akin_type  akin_type;
-
-          typedef typename ::color::trait::component< akin_type >::return_type return_type;
-
-          typedef ::color::_internal::diverse< akin_type >       diverse_type;
-          typedef ::color::_internal::normalize< category_type > normalize_type;
-
-          enum
-           {
-             red_p   = ::color::place::_internal::red<category_type>::position_enum
-            ,green_p = ::color::place::_internal::green<category_type>::position_enum
-            ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
+            typedef ::color::category::rgb< tag_name > category_type;
+            typedef ::color::model< category_type > model_type;
+            
+            typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
+            
+            typedef typename ::color::akin::gray< category_type >::akin_type  akin_type;
+            
+            typedef typename ::color::trait::component< akin_type >::return_type return_type;
+            
+            typedef ::color::_internal::diverse< akin_type >       diverse_type;
+            typedef ::color::_internal::normalize< category_type > normalize_type;
+            
+            enum
+             {
+               red_p   = ::color::place::_internal::red<category_type>::position_enum
+              ,green_p = ::color::place::_internal::green<category_type>::position_enum
+              ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
+             };
+            
+            static return_type process( model_type const& color_parameter )
+             {
+              scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p  >(  ) );
+              scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>(  ) );
+              scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p >(  ) );
+            
+              scalar_type lightnes   = std::max( {r,g,b} );
+              scalar_type saturation = std::max( {r,g,b} ) - std::min( {r,g,b} );
+            
+              return diverse_type::template process<red_p >( ( scalar_type(1) - lightnes )* ( scalar_type(1) - saturation ) );
+             }
            };
 
-          static return_type process( model_type const& color_parameter )
-           {
-            scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p  >(  ) );
-            scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>(  ) );
-            scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p >(  ) );
-
-            scalar_type lightnes   = std::max( {r,g,b} );
-            scalar_type saturation = std::max( {r,g,b} ) - std::min( {r,g,b} );
-
-            return diverse_type::template process<red_p >( ( scalar_type(1) - lightnes )* ( scalar_type(1) - saturation ) );
-           }
-        };
-
-      }
-      }
+        }
+      }}
 
 
      template
       <
-        enum ::color::get::constant::black::formula_enum formula_number = ::color::get::constant::black::alvy_entity
+        enum ::color::get::constant::rgb::black::formula_enum formula_number = ::color::get::constant::rgb::black::alvy_entity
        ,typename tag_name
       >
       inline
@@ -134,7 +139,7 @@
          ::color::model< ::color::category::rgb< tag_name > > const& color_parameter
        )
        {
-        return ::color::get::_internal::black::usher< ::color::category::rgb< tag_name >, formula_number  >::process( color_parameter );
+        return ::color::get::_internal::rgb::black::usher< ::color::category::rgb< tag_name >, formula_number  >::process( color_parameter );
        }
 
     }

@@ -1,7 +1,6 @@
-#ifndef color_hwb_get_get
-#define color_hwb_get_get
+// TODO #include "./gray.hpp"
 
-#include "./gray.hpp"
-#include "./lightness.hpp"
+#include "./black.hpp"
+#include "./hue.hpp"
+#include "./white.hpp"
 
-#endif

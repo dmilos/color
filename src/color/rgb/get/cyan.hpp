@@ -5,7 +5,11 @@
 
 #include "../category.hpp"
 #include "../place/place.hpp"
+#include "../../generic/get/cyan.hpp"
 
+
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
 
 
 
@@ -18,7 +22,7 @@
 
      namespace constant
       {
-       namespace /*rgb::*/cyan
+       namespace rgb { namespace cyan
         {
 
          enum formula_enum
@@ -28,10 +32,10 @@
             ,hsl_star_entity
           };
 
-        }
+        }}
       }
 
-     namespace _internal/*::rgb*/
+     namespace _internal { namespace rgb
       {
        namespace cyan
         {
@@ -39,7 +43,7 @@
          template
           <
             typename category_name
-           ,enum ::color::get::constant::cyan::formula_enum formula_number
+           ,enum ::color::get::constant::rgb::cyan::formula_enum formula_number
           >
           struct usher
            {
@@ -55,7 +59,7 @@
            };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, color::get::constant::cyan::hsl_star_entity >
+          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::cyan::hsl_star_entity >
            {
             typedef ::color::category::rgb< tag_name>  category_type;
             typedef ::color::model< category_type > model_type;
@@ -99,13 +103,13 @@
          }
        };
 
-      }
-    }
+        }
+      }}
 
 
      template
       <
-        enum ::color::get::constant::cyan::formula_enum formula_number = ::color::get::constant::cyan::hsl_star_entity
+        enum ::color::get::constant::rgb::cyan::formula_enum formula_number = ::color::get::constant::rgb::cyan::cmy_entity
        ,typename tag_name
       >
       inline
@@ -115,7 +119,7 @@
          ::color::model< ::color::category::rgb< tag_name> > const& color_parameter
        )
        {
-        return ::color::get::_internal::cyan::usher< ::color::category::rgb< tag_name >, formula_number  >::process( color_parameter );
+        return ::color::get::_internal::rgb::cyan::usher< ::color::category::rgb< tag_name >, formula_number  >::process( color_parameter );
        }
 
     }

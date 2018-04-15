@@ -6,6 +6,8 @@
 #include "../category.hpp"
 #include "../place/place.hpp"
 
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
 
 
 
@@ -18,7 +20,7 @@
 
      namespace constant
       {
-       namespace /*rgb::*/blue
+       namespace rgb { namespace blue
         {
 
          enum formula_enum
@@ -28,9 +30,9 @@
           };
 
         }
-      }
+      }}
 
-     namespace _internal/*::rgb*/
+     namespace _internal { namespace rgb
       {
        namespace blue
         {
@@ -38,7 +40,7 @@
          template
           <
             typename category_name
-           ,enum ::color::get::constant::blue::formula_enum formula_number = ::color::get::constant::blue::channel_entity
+           ,enum ::color::get::constant::rgb::blue::formula_enum formula_number = ::color::get::constant::rgb::blue::channel_entity
           >
           struct usher
            {
@@ -59,7 +61,7 @@
            };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, color::get::constant::blue::hsl_star_entity >
+          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::blue::hsl_star_entity >
            {
             typedef ::color::category::rgb< tag_name>  category_type;
             typedef ::color::model< category_type > model_type;
@@ -104,12 +106,12 @@
           };
 
         }
-      }
+      }}
 
 
      template
       <
-        enum ::color::get::constant::blue::formula_enum formula_number = ::color::get::constant::blue::channel_entity
+        enum ::color::get::constant::rgb::blue::formula_enum formula_number = ::color::get::constant::rgb::blue::channel_entity
        ,typename tag_name
       >
       inline
@@ -119,7 +121,7 @@
          ::color::model< ::color::category::rgb< tag_name> > const& color_parameter
        )
        {
-        return ::color::get::_internal::blue::usher< ::color::category::rgb< tag_name >, formula_number  >::process( color_parameter );
+        return ::color::get::_internal::rgb::blue::usher< ::color::category::rgb< tag_name >, formula_number  >::process( color_parameter );
        }
 
     }

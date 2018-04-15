@@ -5,7 +5,10 @@
 
 #include "../category.hpp"
 #include "../place/place.hpp"
+#include "../../generic/get/magenta.hpp"
 
+#include "../../_internal/normalize.hpp"
+#include "../../_internal/diverse.hpp"
 
 
 
@@ -18,7 +21,7 @@
 
      namespace constant
       {
-       namespace /*rgb::*/magenta
+       namespace rgb { namespace magenta
         {
 
          enum formula_enum
@@ -28,10 +31,10 @@
             ,hsl_star_entity
           };
 
-        }
+        }}
       }
 
-     namespace _internal/*::rgb*/
+     namespace _internal { namespace rgb
       {
        namespace magenta
         {
@@ -39,7 +42,7 @@
          template
           <
             typename category_name
-           ,enum ::color::get::constant::magenta::formula_enum formula_number
+           ,enum ::color::get::constant::rgb::magenta::formula_enum formula_number
           >
           struct usher
            {
@@ -55,7 +58,7 @@
            };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, color::get::constant::magenta::hsl_star_entity >
+          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::magenta::hsl_star_entity >
            {
             typedef ::color::category::rgb< tag_name>  category_type;
             typedef ::color::model< category_type > model_type;
@@ -73,6 +76,7 @@
               ,green_p = ::color::place::_internal::green<category_type>::position_enum
               ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
              };
+
 
             static return_type process( model_type const& color_parameter )
              {
@@ -99,13 +103,13 @@
              }
            };
 
-       }
-     }
+        }
+      }}
 
 
      template
       <
-        enum ::color::get::constant::magenta::formula_enum formula_number = ::color::get::constant::magenta::hsl_star_entity
+        enum ::color::get::constant::rgb::magenta::formula_enum formula_number = ::color::get::constant::rgb::magenta::cmy_entity
        ,typename tag_name
       >
       inline
@@ -115,7 +119,7 @@
          ::color::model< ::color::category::rgb< tag_name> > const& color_parameter
        )
        {
-        return ::color::get::_internal::magenta::usher< ::color::category::rgb< tag_name >, formula_number  >::process( color_parameter );
+        return ::color::get::_internal::rgb::magenta::usher< ::color::category::rgb< tag_name >, formula_number  >::process( color_parameter );
        }
 
     }

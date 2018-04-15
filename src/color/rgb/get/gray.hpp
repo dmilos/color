@@ -21,7 +21,6 @@
 #include "../../generic/get/gray.hpp"
 
 
-
  namespace color
   {
    namespace get
@@ -29,7 +28,7 @@
 
      namespace constant
       {
-       namespace /*rgb::*/gray
+       namespace rgb { namespace gray
         {
 
          enum formula_enum
@@ -42,9 +41,9 @@
           };
 
         }
-      }
+      }}
 
-     namespace _internal/*::rgb*/
+     namespace _internal { namespace rgb
       {
        namespace gray
         {
@@ -52,7 +51,7 @@
          template
           <
             typename category_name
-           ,enum ::color::get::constant::gray::formula_enum formula_number
+           ,enum ::color::get::constant::rgb::gray::formula_enum formula_number
           >
           struct usher
            {
@@ -68,7 +67,7 @@
            };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::gray::average_entity >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::gray::average_entity >
            {
             typedef ::color::category::rgb< tag_name > category_type;
             typedef ::color::model< category_type > model_type;
@@ -106,7 +105,7 @@
            };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::gray::middle_entity >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::gray::middle_entity >
            {
             typedef ::color::category::rgb< tag_name > category_type;
             typedef ::color::model< category_type > model_type;
@@ -141,9 +140,8 @@
              }
            };
 
-           
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::gray::yuv709_entity >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::gray::yuv709_entity >
            {
             typedef ::color::category::rgb< tag_name > category_type;
             typedef ::color::model< category_type > model_type;
@@ -180,7 +178,7 @@
            };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::gray::hsl_star_entity >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::gray::hsl_star_entity >
            {
             typedef ::color::category::rgb< tag_name > category_type;
             typedef ::color::model< category_type > model_type;
@@ -218,12 +216,11 @@
            };
 
         }
-      }
-
+      }}
 
      template
       <
-        enum ::color::get::constant::gray::formula_enum formula_number = ::color::get::constant::gray::yuv709_entity
+        enum ::color::get::constant::rgb::gray::formula_enum formula_number = ::color::get::constant::rgb::gray::yuv709_entity
        ,typename tag_name
       >
       inline
@@ -233,7 +230,7 @@
          ::color::model< ::color::category::rgb< tag_name> > const& color_parameter
        )
        {
-        return ::color::get::_internal::gray::usher< ::color::category::rgb< tag_name >, formula_number  >::process( color_parameter );
+        return ::color::get::_internal::rgb::gray::usher< ::color::category::rgb< tag_name >, formula_number  >::process( color_parameter );
        }
 
     }

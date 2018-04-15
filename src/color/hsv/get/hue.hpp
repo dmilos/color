@@ -3,9 +3,9 @@
 
 // ::color::get::hue( c )
 
+
 #include "../category.hpp"
 #include "../place/place.hpp"
-
 
 
 
@@ -28,4 +28,4 @@
     }
   }
 
-#endif 
+#endif

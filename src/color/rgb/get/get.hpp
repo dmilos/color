@@ -1,5 +1,3 @@
-#ifndef color_rgb_get_get
-#define color_rgb_get_get
 
 #include "./red.hpp"
 #include "./green.hpp"
@@ -20,5 +18,3 @@
 #include "./gray.hpp"
 
 #include "./hue.hpp"
-
-#endif

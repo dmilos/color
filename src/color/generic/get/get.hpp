@@ -1,6 +1,3 @@
-#ifndef color_generic_get_get
-#define color_generic_get_get
-
 #include "./red.hpp"
 #include "./green.hpp"
 #include "./blue.hpp"
@@ -16,4 +13,6 @@
 #include "./black.hpp"
 #include "./white.hpp"
 
-#endif
+#include "./cyan.hpp"
+#include "./magenta.hpp"
+#include "./yellow.hpp"
