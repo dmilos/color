@@ -65,6 +65,13 @@ source +=   [
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/operation'  ) + envObject[ 'OBJSUFFIX' ],  source = './operation/operation.cpp'  )
    ]
 
+source_ec = []
+source_ec +=   [
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'ec'      ) + envObject[ 'OBJSUFFIX' ],  source = './ec.cpp'         )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'image'   ) + envObject[ 'OBJSUFFIX' ],  source = './image.cpp'      )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'   ) + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp'      )
+    ]
+
 source_tc = []
 source_tc +=   [
      envObject.StaticObject( target =  os.path.join( directory_obj, 'tc'      ) + envObject[ 'OBJSUFFIX' ],  source = './tc.cpp'         )
@@ -85,12 +92,16 @@ source_allgray +=   [
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'image'   ) + envObject[ 'OBJSUFFIX' ],  source = './image.cpp'      )
    , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'   ) + envObject[ 'OBJSUFFIX' ],  source = './targa.cpp'      )
     ]
+
 # Make native environment
 envProgram = nucleotide.Environment( settings ).native()
 
 
 # Create program
 program = envProgram.Program( target =  directory_exe+ 'test' + envProgram['PROGSUFFIX'], source = source )
+
+# Create program
+program_ec = envProgram.Program( target =  directory_exe+ 'ec' + envProgram['PROGSUFFIX'], source = source_ec )
 
 # Create program
 program_tc = envProgram.Program( target =  directory_exe+ 'tc' + envProgram['PROGSUFFIX'], source = source_tc )
@@ -102,4 +113,4 @@ program_allrgb = envProgram.Program( target =  directory_exe+ 'allrgb' + envProg
 program_allgray = envProgram.Program( target =  directory_exe+ 'allgray' + envProgram['PROGSUFFIX'], source = source_allgray )
 
 # ... and return!
-Return(  'program_tc', 'program', 'program_allrgb', 'program_allgray' )
+Return(  'program_ec', 'program_tc', 'program', 'program_allrgb', 'program_allgray' )

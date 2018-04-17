@@ -194,10 +194,10 @@ template< typename category_name >
       image_hsi[ index ][0]               = (std::uint8_t)( 255 * ::color::get::hue( hi )/360.0 );
       image_hsv[ index ][0]               = (std::uint8_t)( 255 * ::color::get::hue( hv )/360.0 );
       image_rgb_default[ index ][0]       = (std::uint8_t)( 255 * ::color::get::hue(  r ) );
-      image_rgb_polar_default[ index ][0] = (std::uint8_t)( 255 * ::color::get::hue<::color::constant::hue::polar_entity       >(r) );
-      image_rgb_polar_atan2[ index ][0]   = (std::uint8_t)( 255 * ::color::get::hue<::color::constant::hue::polar_atan2_entity >(r) );
-      image_rgb_polar_acos[ index ][0]    = (std::uint8_t)( 255 * ::color::get::hue<::color::constant::hue::polar_acos_entity  >(r) );
-      image_rgb_hexagon[ index ][0]       = (std::uint8_t)( 255 * ::color::get::hue<::color::constant::hue::hexagon_entity     >(r) );
+      image_rgb_polar_default[ index ][0] = (std::uint8_t)( 255 * ::color::get::hue<::color::get::constant::rgb::hue::polar_entity       >(r) );
+      image_rgb_polar_atan2[ index ][0]   = (std::uint8_t)( 255 * ::color::get::hue<::color::get::constant::rgb::hue::polar_atan2_entity >(r) );
+      image_rgb_polar_acos[ index ][0]    = (std::uint8_t)( 255 * ::color::get::hue<::color::get::constant::rgb::hue::polar_acos_entity  >(r) );
+      image_rgb_hexagon[ index ][0]       = (std::uint8_t)( 255 * ::color::get::hue<::color::get::constant::rgb::hue::hexagon_entity     >(r) );
       ++index;
      }
    }

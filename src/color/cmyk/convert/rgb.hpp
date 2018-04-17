@@ -65,16 +65,17 @@ namespace color
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           scalar_type k = scalar_type(1) - std::max( { r, g, b } );
+           scalar_type max = std::max( { r, g, b } );
+           scalar_type k = scalar_type(1) - max;
            scalar_type c = scalar_type(0);
            scalar_type m = scalar_type(0);
            scalar_type y = scalar_type(0);
 
-           if( false == scalar_trait_type::is_small( 1 - k ) )
+           if( false == scalar_trait_type::is_small( max ) )
             {
-             c = 1 - r / (1-k);
-             m = 1 - g / (1-k);
-             y = 1 - b / (1-k);
+             c = scalar_type(1) - r / max;
+             m = scalar_type(1) - g / max;
+             y = scalar_type(1) - b / max;
             }
 
            container_left_trait_type::template set<   cyan_p>( left, diverse_type::template process<   cyan_p>( c ) );

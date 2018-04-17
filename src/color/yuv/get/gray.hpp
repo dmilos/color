@@ -32,7 +32,9 @@
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
         typedef ::color::_internal::reformat< akin_type, category_type, scalar_type >  reformat_type;
 
-        return reformat_type::template process<0,0>( color_parameter.template get<0>() );
+        enum { luma_p  = ::color::place::_internal::luma<category_type>::position_enum };
+
+        return reformat_type::template process<0,luma_p>( color_parameter.template get<luma_p>() );
        }
 
     }

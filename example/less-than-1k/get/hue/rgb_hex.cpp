@@ -14,7 +14,7 @@ int main( int argc, char *argv[] )
   c = color::constant::turquoise_t{};
 
   // Here is how to get hue value from RGB.
-  auto hue = color::get::hue< ::color::constant::hue::hexagon_entity >( c );
+  auto hue = color::get::hue< ::color::get::constant::rgb::hue::hexagon_entity >( c );
 
   // Now do whatever you wan to do
   std::cout << hue << std::endl;

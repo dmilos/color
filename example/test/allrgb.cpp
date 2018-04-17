@@ -474,9 +474,9 @@ int main( int argc, char const *argv[] )
   int width;
   int height;
   
-  if( false == load_image( image, width, height, "../data//color-reper.tga" ) )
+  if( false == load_image( image, width, height, "../data/color-reper.tga" ) )
    {
-    std::cout << "Can not load" <<  "../data//color-reper.tga" << std::endl;
+    std::cout << "Can not load" <<  "../data/color-reper.tga" << std::endl;
     return 0;
    }
 

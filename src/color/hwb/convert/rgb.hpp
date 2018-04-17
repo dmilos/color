@@ -74,6 +74,7 @@ namespace color
 
            scalar_type white = std::min<scalar_type>( {r,g,b} );
            scalar_type max   = std::max<scalar_type>( {r,g,b} );
+           scalar_type black = scalar_type(1) - max;
            scalar_type delta = max - white;
 
            scalar_type hue = 0;
@@ -96,7 +97,7 @@ namespace color
 
            container_left_trait_type::template set<    hue_p >( left, diverse_type::template process<    hue_p>( hue ) );
            container_left_trait_type::template set<  white_p >( left, diverse_type::template process<  white_p>( white ) );
-           container_left_trait_type::template set<  black_p >( left, diverse_type::template process<  black_p>(scalar_type(1) - max ) );
+           container_left_trait_type::template set<  black_p >( left, diverse_type::template process<  black_p>( black ) );
 
            //left = hwb_model_type( hsv_model_type( rgb_model_type( right ) ) ).container();
           }
