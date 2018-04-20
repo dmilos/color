@@ -1,3 +1,5 @@
+pwd
+
 g++ -fexceptions -std=c++11 -g -I../../../src cmy2cmy.cpp      -o  cmy2cmy
 g++ -fexceptions -std=c++11 -g -I../../../src cmy2cmyk.cpp     -o  cmy2cmyk
 g++ -fexceptions -std=c++11 -g -I../../../src cmy2gray.cpp     -o  cmy2gray

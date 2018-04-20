@@ -8,10 +8,10 @@ using namespace color;
 
 int main( int argc, char *argv[] )
  {
-  YCgCo<std::uint8_t>   c1( constant::lavender_type{} );
-  YCgCo<std::uint16_t>  c2( constant::lavender_type{} );
-  YCgCo<std::uint32_t>  c3( constant::lavender_type{} );
-  YCgCo<std::uint64_t>  c4( constant::lavender_type{} );
+  YCgCo<uint8_t>   c1( constant::lavender_type{} );
+  YCgCo<uint16_t>  c2( constant::lavender_type{} );
+  YCgCo<uint32_t>  c3( constant::lavender_type{} );
+  YCgCo<uint64_t>  c4( constant::lavender_type{} );
   YCgCo<float>          c5( constant::lavender_type{} );
   YCgCo<double>         c6( constant::lavender_type{} );
   YCgCo<long double>    c7( constant::lavender_type{} );

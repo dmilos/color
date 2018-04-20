@@ -1,3 +1,5 @@
+pwd
+
 g++ -fexceptions -std=c++11 -g -I../../../../src CIE76.cpp           -o CIE76
 g++ -fexceptions -std=c++11 -g -I../../../../src cie94g.cpp          -o cie94g
 g++ -fexceptions -std=c++11 -g -I../../../../src cie94t.cpp          -o cie94t

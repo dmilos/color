@@ -6,17 +6,27 @@
 
 int main( int argc, char *argv[] )
  {
-  // Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
-  color::rgb<float> c;
+  // Instead of float you may put std::uint8_t, ..., std::uint64_t, double, long double
+  ::color::rgb<float> c = ::color::constant::aqua_t{};
 
-  // initialize c before get.
-  c = color::constant::turquoise_t{};
+  // Here is how to get magenta component. Default is cmy_entity
+  auto f0 = ::color::get::magenta( c );
 
-  // Here is how to get magenta component.
-  auto magenta = color::get::magenta( c );
+  // Get magenta component by using Alvy Ray Smith algorithm.
+  auto f1 = ::color::get::magenta< ::color::get::constant::rgb::magenta::cmy_entity  >( c );
 
+  // Get magenta component by using CMYK calculation
+  auto f2 = ::color::get::magenta< ::color::get::constant::rgb::magenta::cmyk_entity >( c );
+
+  // Get magenta component by using HSL* calculation
+  auto f3 = ::color::get::magenta< ::color::get::constant::rgb::magenta::hsl_star_entity >( c );
+  
   // Now do whatever you wan to do
-  std::cout << magenta << std::endl;
+  std::cout << f0 << " - " << f1 << " - " << f2 << " - " << "-" << f3 << std::endl;
 
   return EXIT_SUCCESS;
  }
+
+ 
+
+

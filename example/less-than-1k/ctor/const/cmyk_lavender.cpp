@@ -8,10 +8,10 @@ using namespace color;
 
 int main( int argc, char *argv[] )
  {
-  cmyk<std::uint8_t>    c1( constant::lavender_type{} );
-  cmyk<std::uint16_t>   c2( constant::lavender_type{} );
-  cmyk<std::uint32_t>   c3( constant::lavender_type{} );
-  cmyk<std::uint64_t>   c4( constant::lavender_type{} );
+  cmyk<uint8_t>    c1( constant::lavender_type{} );
+  cmyk<uint16_t>   c2( constant::lavender_type{} );
+  cmyk<uint32_t>   c3( constant::lavender_type{} );
+  cmyk<uint64_t>   c4( constant::lavender_type{} );
   cmyk<float>           c5( constant::lavender_type{} );
   cmyk<double>          c6( constant::lavender_type{} );
   cmyk<long double>     c7( constant::lavender_type{} );

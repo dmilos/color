@@ -1,3 +1,5 @@
+pwd
+
 cd ./const
 ./make.sh
 cd ..

@@ -8,10 +8,10 @@ using namespace color;
 
 int main( int argc, char *argv[] )
  {
-  hwb<std::uint8_t>    c1( constant::lavender_type{} );
-  hwb<std::uint16_t>   c2( constant::lavender_type{} );
-  hwb<std::uint32_t>   c3( constant::lavender_type{} );
-  hwb<std::uint64_t>   c4( constant::lavender_type{} );
+  hwb<uint8_t>    c1( constant::lavender_type{} );
+  hwb<uint16_t>   c2( constant::lavender_type{} );
+  hwb<uint32_t>   c3( constant::lavender_type{} );
+  hwb<uint64_t>   c4( constant::lavender_type{} );
   hwb<float>           c5( constant::lavender_type{} );
   hwb<double>          c6( constant::lavender_type{} );
   hwb<long double>     c7( constant::lavender_type{} );

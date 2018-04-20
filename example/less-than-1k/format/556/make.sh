@@ -5,5 +5,7 @@
 
 # TODO g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -o  akin
 
+pwd
+
 g++ -std=c++11 -g -I../../../../src  rgb.cpp          -o  rgb
 g++ -std=c++11 -g -I../../../../src  bgr.cpp          -o  bgr

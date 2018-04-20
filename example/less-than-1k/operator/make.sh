@@ -1,3 +1,5 @@
+pwd
+
 cd ./compare
 ./make.sh
 cd ..

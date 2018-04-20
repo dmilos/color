@@ -1,3 +1,5 @@
+pwd
+
 g++ -fexceptions -std=c++11 -g -I../../../../src YPbPr2cmy.cpp            -o YPbPr2cmy
 g++ -fexceptions -std=c++11 -g -I../../../../src YPbPr2cmyk.cpp           -o YPbPr2cmyk
 g++ -fexceptions -std=c++11 -g -I../../../../src YPbPr2gray.cpp           -o YPbPr2gray

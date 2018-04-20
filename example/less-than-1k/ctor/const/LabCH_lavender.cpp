@@ -8,10 +8,10 @@ using namespace color;
 
 int main( int argc, char *argv[] )
  {
-  LabCH<std::uint8_t>   c1( constant::lavender_type{} );
-  LabCH<std::uint16_t>  c2( constant::lavender_type{} );
-  LabCH<std::uint32_t>  c3( constant::lavender_type{} );
-  LabCH<std::uint64_t>  c4( constant::lavender_type{} );
+  LabCH<uint8_t>   c1( constant::lavender_type{} );
+  LabCH<uint16_t>  c2( constant::lavender_type{} );
+  LabCH<uint32_t>  c3( constant::lavender_type{} );
+  LabCH<uint64_t>  c4( constant::lavender_type{} );
   LabCH<float>          c5( constant::lavender_type{} );
   LabCH<double>         c6( constant::lavender_type{} );
   LabCH<long double>    c7( constant::lavender_type{} );

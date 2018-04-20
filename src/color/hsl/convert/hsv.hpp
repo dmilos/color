@@ -24,7 +24,7 @@ namespace color
          typedef ::color::category::hsv< hsv_tag_name > category_right_type;
 
          typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
-         typedef ::color::trait::scalar<category_left_type>     scalar_left_trait_type;
+         typedef ::color::trait::scalar<category_left_type>     scalar_trait_type;
 
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
@@ -45,12 +45,15 @@ namespace color
            scalar_type ss = normalize_type::template process<1>( container_right_trait_type::template get<1>( right ) );
            scalar_type v  = normalize_type::template process<2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type l = v * ( 2-ss ) / 2;
-           scalar_type s = 0 ;
-           // TODO if( ( l < -1e6 ) || ( 0.9999 < l ) )
+           scalar_type l = v * ( scalar_type(2) - ss ) / scalar_type(2);
+
+           scalar_type s = 0;
+
+           if(     ( false == scalar_trait_type::is_small( l ) )
+                && ( false == scalar_trait_type::is_small( scalar_type(1) - l ) )
+             )
             {
-             //h = 0;
-             s = v*ss/( 1- fabs( 2 * l - 1 ) );
+             s = v*ss/( scalar_type(1)- fabs( scalar_type(2) * l - scalar_type(1) ) );
             }
 
            container_left_trait_type::template set<0>( left, diverse_type::template process<0>( h ) );

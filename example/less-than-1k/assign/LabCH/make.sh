@@ -1,3 +1,5 @@
+pwd
+
 g++ -fexceptions -std=c++11 -g -I../../../../src LabCH2cmy.cpp            -o LabCH2cmy
 g++ -fexceptions -std=c++11 -g -I../../../../src LabCH2cmyk.cpp           -o LabCH2cmyk
 g++ -fexceptions -std=c++11 -g -I../../../../src LabCH2gray.cpp           -o LabCH2gray

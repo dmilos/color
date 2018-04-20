@@ -19,7 +19,7 @@ namespace color
        {
 
         template< typename index_name, typename scalar_name >
-         struct scalar // TODO
+         struct scalar
           {
            public:
              typedef scalar_name  scalar_type;

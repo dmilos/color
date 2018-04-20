@@ -1,4 +1,5 @@
 import os
+import platform
 import nucleotide
 
 
@@ -11,8 +12,14 @@ settings.set_custom( 'architecture', 'i386' )
 
 configuration = settings.get_custom( 'configuration' )
 
-directory_pdb = './out/bin-' + configuration + '/'
-directory_obj = './out/bin-' + configuration + '/'
+directory_pdb = './out/bin/' + configuration + '/'
+directory_obj = './out/bin/' + configuration + '/'
+
+
+if 'Windows' == platform.system() :
+    directory_pdb += settings.get_custom( 'compiler_version_msvc' ) + '/'
+    directory_obj += settings.get_custom( 'compiler_version_msvc' ) + '/'
+
 directory_exe = './out/'
 
 # Accumulate Atoms
@@ -24,7 +31,7 @@ settings.accumulate( 'RTTI', { 'enable': 'false' } )
 settings.accumulate( 'compiler:configuration', { 'name'          : configuration  } )
 settings.accumulate( 'compiler:optimisation',  { 'configuration' : configuration  } )
 settings.accumulate( 'compiler:version',  { 'msvc' : [ settings.get_custom( 'compiler_version_msvc' ) ] } )
-settings.accumulate( 'compiler:warning', { 'return-address-of-local-variable': 'enable'  } ) 
+settings.accumulate( 'compiler:warning', { 'return-address-of-local-variable': 'enable'  } )
 
 settings.accumulate( 'PDB', { 'configuration': configuration , 'synchronous' : 'false', 'file-name': os.path.join( directory_pdb, name_full + '.pdb' ) } )
 settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.get_custom( 'RTL' ) } )
@@ -35,7 +42,7 @@ if 'true' == settings.get_custom( 'pp2f' ):
 # Accumulate source
 envObject = nucleotide.Environment( settings ).native()
 #envObject.Append( CPPFLAGS = [ '/Wall' ] )
-#envObject.Append( CPPFLAGS = [ '/wd4464' ] ) 
+#envObject.Append( CPPFLAGS = [ '/wd4464' ] )
 #envObject.Append( CPPFLAGS   = [ '/we4800', '/we4244', '/we4365', '/we4365' ] )
 
 

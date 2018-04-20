@@ -1,3 +1,5 @@
+pwd
+
 cd ./2222
 ./make.sh
 cd ..

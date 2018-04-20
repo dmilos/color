@@ -64,7 +64,7 @@ namespace color
              return  cbrt( t );
             }
 
-           return ( k*t + 16 )/116;
+           return ( k*t + scalar_type(16) )/scalar_type(116);
           }
 
          static void process
@@ -85,9 +85,9 @@ namespace color
            scalar_type fy = f( y );
            scalar_type fz = f( z );
 
-           scalar_type l = 116 * fy -  16;   //[ 0, 100 ]
-           scalar_type a = 500*( fx - fy );  //[ -431.03448275862064, 431.03448275862064 ]
-           scalar_type b = 200*( fy - fz );  //[ -172.41379310344826, 172.41379310344826 ]
+           scalar_type l = scalar_type(116) * fy -  scalar_type(16);   //[ 0, 100 ]
+           scalar_type a = scalar_type(500) *( fx - fy );  //[ -431.03448275862064, 431.03448275862064 ]
+           scalar_type b = scalar_type(200) *( fy - fz );  //[ -172.41379310344826, 172.41379310344826 ]
 
            container_left_trait_type::template set<0>( left, reformatLAB_type::template process< 0, 0>( l ) );
            container_left_trait_type::template set<1>( left, reformatLAB_type::template process< 1, 1>( a ) );

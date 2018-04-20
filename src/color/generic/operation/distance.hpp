@@ -56,7 +56,7 @@
             typedef typename ::color::trait::scalar< category_left_type >::instance_type   scalar_type;
 
 
-            typedef color::operation::_internal::distance< category_left_type, category_right_type, ::color::constant::distance::error_entity > this_type;
+            typedef ::color::operation::_internal::distance< category_left_type, category_right_type, ::color::constant::distance::error_entity > this_type;
 
             static scalar_type process( model_left_type const& left, model_right_type const& right )
              {
@@ -75,7 +75,7 @@
             typedef typename ::color::trait::scalar< category_type >::instance_type   scalar_type;
             typedef typename ::color::trait::index< category_type >::instance_type     index_type;
 
-            typedef color::operation::_internal::distance< category_name, category_name, ::color::constant::distance::euclid_entity> this_type;
+            typedef ::color::operation::_internal::distance< category_name, category_name, ::color::constant::distance::euclid_entity> this_type;
 
             static   scalar_type square( scalar_type const& s )
              {
@@ -152,7 +152,7 @@
             typedef typename ::color::trait::scalar< category_left_name >::instance_type  scalar_type;
             typedef ::color::lab<scalar_type>  lab_type;
 
-            typedef color::operation::_internal::distance< category_left_name, category_right_name, ::color::constant::distance::CIE94__base_entity > this_type;
+            typedef ::color::operation::_internal::distance< category_left_name, category_right_name, ::color::constant::distance::CIE94__base_entity > this_type;
 
 
             static   scalar_type square( scalar_type const& s ){ return s * s; }
@@ -248,7 +248,7 @@
 
             typedef ::color::lab<scalar_type>  lab_type;
             
-            typedef color::operation::_internal::distance< category_left_name, category_right_name, ::color::constant::distance::CIEDE2000_entity > this_type;
+            typedef ::color::operation::_internal::distance< category_left_name, category_right_name, ::color::constant::distance::CIEDE2000_entity > this_type;
 
             static   scalar_type square( scalar_type const& s ){ return s * s; }
 

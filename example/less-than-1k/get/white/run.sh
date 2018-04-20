@@ -6,3 +6,4 @@
 ./rgb.exe
 ./yiq.exe
 ./yuv.exe
+./hwb.exe

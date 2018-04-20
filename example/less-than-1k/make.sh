@@ -1,3 +1,5 @@
+pwd
+
 # Make all examples.
 # No Scons, no CMake, no Make or any other make tool
 
@@ -53,6 +55,10 @@ cd ..
 #cd ./place
 #./make.sh
 #cd ..
+
+cd ./reference
+./make.sh
+cd ..
 
 cd ./set
 ./make.sh

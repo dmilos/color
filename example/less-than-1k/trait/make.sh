@@ -1,3 +1,4 @@
+pwd
 
 cd ./bound
 ./make.sh

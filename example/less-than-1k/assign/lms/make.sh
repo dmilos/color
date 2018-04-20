@@ -1,3 +1,5 @@
+pwd
+
 g++ -fexceptions -std=c++11 -g -I../../../../src lms2cmy.cpp            -o lms2cmy
 g++ -fexceptions -std=c++11 -g -I../../../../src lms2cmyk.cpp           -o lms2cmyk
 g++ -fexceptions -std=c++11 -g -I../../../../src lms2gray.cpp           -o lms2gray

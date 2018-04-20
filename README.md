@@ -1,10 +1,10 @@
 # Yet another c++ library that implements color.
 
 ### Status:
+- Ready for use
 - Documentation
   - Examples coverage: ~90%
   - HTML coverage: ~90%
-- Ready for use
 
 ### Description
  - Yet another c++ library that implements color conversion and manipulation.
@@ -28,14 +28,29 @@
   - YIQ, YUV(BT.601, BT.709), YCgCo, YPbPr(BT.601, BT.709, BT.2020),
   - XYZ( sRGB, D65, 2° ), LAB, LUV, LMS( von Kries D65, von Kries E, BFD, MCAT02 ), xyY, LabCH, LuvCH
 
-### Code sample Conversion:
-```c++
-color::rgb<::color::type::split655_t>   r;                //!< One std::uint16_t in memory. 6 bits for red, 5 bits for green and 5 bits for blue.
-color::bgr<std::uint8_t>  b( ::color::constant::aqua_t{} ); //!< Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
-color::yiq<std::uint8_t>  y( { 192, 64, 92 } );           //!< Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
-color::hsv<double>        h( { 90.0, 50.0, 60.0 } );      //!< This will pack ONLY three consecutive doubles in memory
-color::lab<float>         l( { 50.0, 0, 0 } );            //!< This will pack ONLY three consecutive floats in memory
 
+### Code sample - Initialization:
+```c++
+
+// Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
+// Initialize to some predefined and well known color.
+color::bgr<std::uint8_t>  b( ::color::constant::aqua_t{} );
+
+// Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
+// Use intuitive and natural values for initialization. All goes from 0 to 255.
+color::yiq<std::uint8_t>  y( { 192, 64, 92 } );
+
+// This will pack ONLY three consecutive doubles in memory. First hue, then saturation and the last is value.
+// Use intuitive/natural values for initialization. hue goes from 0 to 360, saturation and value from 0 to 100.
+color::hsv<double>        h( { 90.0, 50.0, 60.0 } );
+
+// This will pack ONLY three consecutive floats in memory.
+// Lightens will goes from 0 to 100. a and b from -128 to 128. and may goes beyond those values.
+color::lab<float>         l( { 50.0, 0, 0 } );
+```
+
+### Code sample - Conversion:
+```c++
 y = ::color::constant::turquoise_t{};  //!< Set 'y' to be turquoise.
 
 // any model/format to any model/format by use of operator=
@@ -46,31 +61,37 @@ h = y; //!< Reformat and convert from YIQ to HSV
 l = y; //!< Reformat and convert from YIQ to LAB
 ```
 
-### Code sample Feature Extraction:
+### Code sample - Feature Extraction:
 ```c++
 color::rgb<std::uint8_t>  r = ::color::constant::aqua_t{};
 ::color::get::red( r ); //!< Extract red
 
-color::yiq<std::uint8_t>  y = ::color::constant::brown_t{};
+color::yiq<std::uint8_t>  y = ::color::constant::orange_t{};
 ::color::get::red( y ); //!< Extract red
 ```
 
-### Code sample Distance:
+### Code sample - Distance:
 ```c++
-color::rgb<std::uint8_t>  r0 = ::color::constant::aqua_t{};
-color::rgb<std::uint8_t>  r1 = ::color::constant::turquoise_t{};
-color::yiq<std::uint8_t>  y  = ::color::constant::orang_t{};
+using namespace std;
+using namespace color;
+using namespace color::operation;
+using namespace color::constant;
+using namespace color::constant::distance;
 
-std::cout << ::color::operation::distance< ::color::constant::distance::euclid_entity  >( r0, r1 ) << std::endl;
-std::cout << ::color::operation::distance< ::color::constant::distance::CIE76_entity >( r0, y ) << std::endl;
-std::cout << ::color::operation::distance< ::color::constant::distance::CIE94_graphics_entity >( r0, y ) << std::endl;
-std::cout << ::color::operation::distance< ::color::constant::distance::CIE94_textile_entity >( r0, y ) << std::endl;
-std::cout << ::color::operation::distance< ::color::constant::distance::CIEDE2000_entity >( r0, y ) << std::endl;
-std::cout << ::color::operation::distance< ::color::constant::distance::CMC1984_entity >( r0, y, 1, 2 ) << std::endl;
-std::cout << ::color::operation::distance< ::color::constant::distance::delta_gray_entity >( r0, r1 ) << std::endl;
+rgb<uint8_t>  r0 = aqua_t{};
+rgb<uint8_t>  r1 = turquoise_t{};
+yiq<uint8_t>  y  = orange_t{};
+
+cout << distance< euclid_entity  >( r0, r1 ) << endl;
+cout << distance< CIE76_entity >( r0, y ) << endl;
+cout << distance< CIE94_graphics_entity >( r0, y ) << endl;
+cout << distance< CIE94_textile_entity >( r0, y ) << endl;
+cout << distance< CIEDE2000_entity >( r0, y ) << endl;
+cout << distance< CMC1984_entity >( r0, y, 1, 2 ) << endl;
+cout << distance< delta_gray_entity >( r0, r1 ) << endl;
 ```
 
-### Code sample Blending:
+### Code sample - Blending:
 ```c++
 color::yiq<std::uint8_t>  y1 = ::color::constant::turquoise_t{};
 color::yiq<std::uint8_t>  y2 = ::color::constant::orange_t{};

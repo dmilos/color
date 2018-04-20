@@ -1,3 +1,5 @@
+pwd
+
 g++ -fexceptions -std=c++11 -g -I../../../src brighter_rgb.cpp      -o  brighter_rgb
 g++ -fexceptions -std=c++11 -g -I../../../src darker_rgb.cpp        -o  darker_rgb
 g++ -fexceptions -std=c++11 -g -I../../../src different_rgb.cpp     -o  different_rgb

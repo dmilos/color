@@ -4250,5 +4250,8 @@
     <ClCompile Include="operation\distance.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
+    <ClCompile Include="ec.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

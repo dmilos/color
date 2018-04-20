@@ -1,3 +1,5 @@
+pwd
+
 cd ./cmy
 ./make.sh
 cd ..

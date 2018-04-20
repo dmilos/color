@@ -1,3 +1,5 @@
+pwd
+
 g++ -fexceptions -std=c++11 -g -I../../../../src  ./cmy_lavender.cpp            -o  cmy_lavender
 g++ -fexceptions -std=c++11 -g -I../../../../src  ./cmyk_lavender.cpp           -o  cmyk_lavender
 g++ -fexceptions -std=c++11 -g -I../../../../src  ./gray_lavender.cpp           -o  gray_lavender

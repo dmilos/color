@@ -113,23 +113,26 @@ extract_yellow( bgr_image_type const& image, std::string const& name, std::size_
 void
 extract_gray( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
  {
-  gray_image_type  component_average; component_average.reserve( image.size() );
-  gray_image_type  component_yuv709;  component_yuv709.reserve(image.size());
-  gray_image_type  component_middle;  component_middle.reserve(image.size());
-  gray_image_type  component_star;    component_star.reserve(image.size());
+  gray_image_type  component_average;    component_average.reserve( image.size() );
+  gray_image_type  component_yuv709;     component_yuv709.reserve(image.size());
+  gray_image_type  component_middle;     component_middle.reserve(image.size());
+  gray_image_type  component_star;       component_star.reserve(image.size());
+  gray_image_type  component_lightness;  component_lightness.reserve(image.size());
 
   for( auto & pixel : image )
    {
-    component_average.push_back( gray_color_type( ::color::get::gray< ::color::get::constant::rgb::gray::average_entity  >( pixel ) ) );
-    component_middle.push_back(  gray_color_type( ::color::get::gray< ::color::get::constant::rgb::gray::middle_entity   >( pixel ) ) );
-    component_yuv709.push_back(gray_color_type(   ::color::get::gray< ::color::get::constant::rgb::gray::yuv709_entity   >( pixel ) ) );
-    component_star.push_back(    gray_color_type( ::color::get::gray< ::color::get::constant::rgb::gray::hsl_star_entity >( pixel ) ) );
+    component_average.push_back(      gray_color_type( ::color::get::gray< ::color::get::constant::rgb::gray::average_entity   >( pixel ) ) );
+    component_middle.push_back(       gray_color_type( ::color::get::gray< ::color::get::constant::rgb::gray::middle_entity    >( pixel ) ) );
+    component_yuv709.push_back(       gray_color_type(   ::color::get::gray< ::color::get::constant::rgb::gray::yuv709_entity    >( pixel ) ) );
+    component_star.push_back(         gray_color_type( ::color::get::gray< ::color::get::constant::rgb::gray::hsl_star_entity  >( pixel ) ) );
+    component_lightness.push_back(    gray_color_type( ::color::get::gray< ::color::get::constant::rgb::gray::lightness_entity >( pixel ) ) );
    }
 
-  save_image_gray( name + "-average.tga",  component_average, width, height );
-  save_image_gray( name + "-middle.tga",   component_middle, width, height );
-  save_image_gray( name + "-yuv709.tga",   component_yuv709,  width, height );
-  save_image_gray( name + "-star.tga",     component_star,    width, height );
+  save_image_gray( name + "-average.tga",  component_average,    width, height );
+  save_image_gray( name + "-middle.tga",   component_middle,     width, height );
+  save_image_gray( name + "-yuv709.tga",   component_yuv709,     width, height );
+  save_image_gray( name + "-star.tga",     component_star,       width, height );
+  save_image_gray( name + "-lightness.tga",component_lightness,  width, height );
  }
 
 void

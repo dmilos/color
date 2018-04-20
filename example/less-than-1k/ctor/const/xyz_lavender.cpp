@@ -8,10 +8,10 @@ using namespace color;
 
 int main( int argc, char *argv[] )
  {
-  xyz<std::uint8_t>    c1( constant::lavender_type{} );
-  xyz<std::uint16_t>   c2( constant::lavender_type{} );
-  xyz<std::uint32_t>   c3( constant::lavender_type{} );
-  xyz<std::uint64_t>   c4( constant::lavender_type{} );
+  xyz<uint8_t>    c1( constant::lavender_type{} );
+  xyz<uint16_t>   c2( constant::lavender_type{} );
+  xyz<uint32_t>   c3( constant::lavender_type{} );
+  xyz<uint64_t>   c4( constant::lavender_type{} );
   xyz<float>           c5( constant::lavender_type{} );
   xyz<double>          c6( constant::lavender_type{} );
   xyz<long double>     c7( constant::lavender_type{} );

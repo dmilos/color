@@ -1,8 +1,7 @@
 #ifndef color_contant_xyz_matrix
 #define color_contant_xyz_matrix
 
-// ::color::constant::xyz< typename ::color::akin::xyz< category_name >::akin_type >::()
-// ::color::constant::xyz< category_name >::q_max()
+// ::color::constant::xyz::transformation::matrix< category_name >::q_max()
 
 #include "./space.hpp"
 #include "./illuminant.hpp"
@@ -22,8 +21,8 @@ namespace color
           <
            typename scalar_name
            , ::color::constant::xyz::space::name_enum    space_number  = ::color::constant::xyz::space::sRGB_entity
-           , ::color::constant::xyz::illuminant::name_enum      illuminant_number  = static_cast< color::constant::xyz::illuminant::name_enum   >( ::color::constant::xyz::space::illuminant< space_number >::name_entity   )
-           , ::color::constant::xyz::illuminant::observer_enum    observer_number  = static_cast< color::constant::xyz::illuminant::observer_enum >( ::color::constant::xyz::space::illuminant< space_number >::observer_entity )
+           , ::color::constant::xyz::illuminant::name_enum      illuminant_number  = static_cast< ::color::constant::xyz::illuminant::name_enum     >( ::color::constant::xyz::space::illuminant< space_number >::name_entity   )
+           , ::color::constant::xyz::illuminant::observer_enum    observer_number  = static_cast< ::color::constant::xyz::illuminant::observer_enum >( ::color::constant::xyz::space::illuminant< space_number >::observer_entity )
            >
           struct matrix
            {

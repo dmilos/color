@@ -13,10 +13,10 @@ int main( int argc, char *argv[] )
   c = color::constant::turquoise_t{};
 
   // Here is how to get black component or what is left. Cause this is gray.
-  auto black = color::get::black( c );
+  auto f0 = color::get::black( c );
 
   // Now do whatever you wan to do
-  std::cout << black << std::endl;
+  std::cout << f0 << std::endl;
 
   return EXIT_SUCCESS;
  }

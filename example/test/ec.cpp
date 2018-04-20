@@ -14,17 +14,9 @@ int main( int argc, char *argv[] )
   // }
 
   bgr_image_type  left_data;
-  bgr_image_type right_data;
-
   targa_header_struct  header_left;
-  targa_header_struct  header_right;
 
-  //std::string name_left  = argv[1];
-  //std::string name_right = argv[2];
-
-
-  std::string name_left  = "z:\\work\\code\\cpp\\prj\\github\\color\\work\\example\\test\\data\\Barns_grand_tetons.tga";
-  std::string name_right = "z:\\work\\code\\cpp\\prj\\github\\color\\work\\example\\test\\data\\aaaa.tga";
+  std::string name_left  = argv[1];
 
   if( false == targa_image_load( header_left,   left_data, name_left ) )
    {
@@ -36,18 +28,37 @@ int main( int argc, char *argv[] )
   const int width       = targa_get_width(  header_left ); 
   const int height      = targa_get_height( header_left ); 
 
-  right_data.resize( width * height );
+  gray_image_type right_red     ; right_red    .resize( width * height );
+  gray_image_type right_green   ; right_green  .resize( width * height );
+  gray_image_type right_blue    ; right_blue   .resize( width * height );
+  gray_image_type right_cyan    ; right_cyan   .resize( width * height );
+  gray_image_type right_yellow  ; right_yellow .resize( width * height );
+  gray_image_type right_magenta ; right_magenta.resize( width * height );
+  gray_image_type right_black   ; right_black  .resize( width * height );
+  gray_image_type right_white   ; right_white  .resize( width * height );
 
   std::uint64_t equal = 0;
   for(int y=0; y< height; y++)
    for(int x=0; x< width; x++)
     {
-     right_data[ y*width+x ][ 2 ] = ::color::get::cyan<     ::color::get::constant::rgb::cyan::hsl_star_entity   >( left_data[ y*width+x ] );
-     right_data[ y*width+x ][ 1 ] = ::color::get::yellow<   ::color::get::constant::rgb::yellow::hsl_star_entity >( left_data[ y*width+x ] );
-     right_data[ y*width+x ][ 0 ] = ::color::get::magenta<  ::color::get::constant::rgb::magenta::hsl_star_entity  >( left_data[ y*width+x ] );
+     right_red    [ y*width+x ][ 0 ] = ::color::get::red<    ::color::get::constant::rgb::red::hsl_star_entity    >( left_data[ y*width+x ] );
+     right_green  [ y*width+x ][ 0 ] = ::color::get::green<  ::color::get::constant::rgb::green::hsl_star_entity  >( left_data[ y*width+x ] );
+     right_blue   [ y*width+x ][ 0 ] = ::color::get::blue<   ::color::get::constant::rgb::blue::hsl_star_entity   >( left_data[ y*width+x ] );
+     right_cyan   [ y*width+x ][ 0 ] = ::color::get::cyan<     ::color::get::constant::rgb::cyan::hsl_star_entity   >( left_data[ y*width+x ] );
+     right_yellow [ y*width+x ][ 0 ] = ::color::get::yellow<   ::color::get::constant::rgb::yellow::hsl_star_entity >( left_data[ y*width+x ] );
+     right_magenta[ y*width+x ][ 0 ] = ::color::get::magenta<  ::color::get::constant::rgb::magenta::hsl_star_entity  >( left_data[ y*width+x ] );
+     right_black  [ y*width+x ][ 0 ] = ::color::get::black<  ::color::get::constant::rgb::black::hsl_star_entity  >( left_data[ y*width+x ] );
+     right_white  [ y*width+x ][ 0 ] = ::color::get::white<  ::color::get::constant::rgb::white::hsl_star_entity  >( left_data[ y*width+x ] );
     }
 
-  save_image24( name_right, right_data, width, height );
+  save_image_gray( "e-0-cyan.tga", right_cyan   , width, height );
+  save_image_gray( "e-1-yellow.tga", right_yellow , width, height );
+  save_image_gray( "e-2-magenta.tga", right_magenta, width, height );
+  save_image_gray( "e-3-red.tga", right_red    , width, height );
+  save_image_gray( "e-4-green.tga", right_green  , width, height );
+  save_image_gray( "e-5-blue.tga", right_blue   , width, height );
+  save_image_gray( "e-6-black.tga", right_black  , width, height );
+  save_image_gray( "e-7-white.tga", right_white  , width, height );
 
   return EXIT_SUCCESS;
  }

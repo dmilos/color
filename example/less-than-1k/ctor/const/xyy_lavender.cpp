@@ -6,12 +6,13 @@
 using namespace std;
 using namespace color;
 
+
 int main( int argc, char *argv[] )
  {
-  xyy<std::uint8_t>    c1( constant::lavender_type{} );
-  xyy<std::uint16_t>   c2( constant::lavender_type{} );
-  xyy<std::uint32_t>   c3( constant::lavender_type{} );
-  xyy<std::uint64_t>   c4( constant::lavender_type{} );
+  xyy<uint8_t>    c1( constant::lavender_type{} );
+  xyy<uint16_t>   c2( constant::lavender_type{} );
+  xyy<uint32_t>   c3( constant::lavender_type{} );
+  xyy<uint64_t>   c4( constant::lavender_type{} );
   xyy<float>           c5( constant::lavender_type{} );
   xyy<double>          c6( constant::lavender_type{} );
   xyy<long double>     c7( constant::lavender_type{} );

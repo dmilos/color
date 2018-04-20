@@ -1,3 +1,5 @@
+pwd
+
 g++ -fexceptions -std=c++11 -g -I../../../../src hsv2cmy.cpp            -o hsv2cmy
 g++ -fexceptions -std=c++11 -g -I../../../../src hsv2cmyk.cpp           -o hsv2cmyk
 g++ -fexceptions -std=c++11 -g -I../../../../src hsv2gray.cpp           -o hsv2gray

@@ -1,3 +1,5 @@
+pwd
+
 cd ./black
 ./make.sh
 cd ..

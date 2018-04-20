@@ -13,7 +13,7 @@ int main( int argc, char *argv[] )
   rgb<float> c;
 
   // initialize c before get.
-  c = constant::turquoise_t{};
+  c = constant::aqua_t{};
 
   // Here is how to get gray component using default algorithm. Default is yuv709_entity.
   auto g0 = get::gray( c );
@@ -26,6 +26,9 @@ int main( int argc, char *argv[] )
 
   // Here is how to get gray component by calculating y from YUV
   auto g3 = get::gray< get::constant::rgb::gray::yuv709_entity >( c );
+
+  // Here is how to get gray component by calculating y from YUV
+  auto g3 = get::gray< get::constant::rgb::gray::lightness_entity >( c );
 
   // Now do whatever you wan to do
   cout << g0 << ", " << g1 << ", " << g2 << ", " << g3 << endl;

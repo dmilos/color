@@ -8,10 +8,10 @@ using namespace color;
 
 int main( int argc, char *argv[] )
  {
-  yiq<std::uint8_t>    c1( constant::lavender_type{} );
-  yiq<std::uint16_t>   c2( constant::lavender_type{} );
-  yiq<std::uint32_t>   c3( constant::lavender_type{} );
-  yiq<std::uint64_t>   c4( constant::lavender_type{} );
+  yiq<uint8_t>    c1( constant::lavender_type{} );
+  yiq<uint16_t>   c2( constant::lavender_type{} );
+  yiq<uint32_t>   c3( constant::lavender_type{} );
+  yiq<uint64_t>   c4( constant::lavender_type{} );
   yiq<float>           c5( constant::lavender_type{} );
   yiq<double>          c6( constant::lavender_type{} );
   yiq<long double>     c7( constant::lavender_type{} );

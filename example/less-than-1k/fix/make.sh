@@ -1,3 +1,5 @@
+pwd
+
 g++ -fexceptions -std=c++11 -g -I../../../src integrity_cmyk.cpp   -o  integrity_cmyk
 g++ -fexceptions -std=c++11 -g -I../../../src integrity_hsl.cpp    -o  integrity_hsl
 g++ -fexceptions -std=c++11 -g -I../../../src integrity_hsv.cpp    -o  integrity_hsv

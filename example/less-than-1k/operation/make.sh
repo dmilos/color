@@ -1,3 +1,5 @@
+pwd
+
 cd ./invert
 ./make.sh
 cd ..
