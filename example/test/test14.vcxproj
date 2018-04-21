@@ -1322,9 +1322,9 @@
     <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) configuration=debug</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=debug</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=debug</NMakeCleanCommandLine>
-    <OutDir>$(SolutionDir)\out\bin-debug</OutDir>
-    <IntDir>$(SolutionDir)\out\bin-debug</IntDir>
-    <NMakeOutput>$(SolutionDir)out\ec.exe</NMakeOutput>
+    <OutDir>$(SolutionDir)\out\bin\debug\14.0</OutDir>
+    <IntDir>$(SolutionDir)\out\bin\debug\14.0</IntDir>
+    <NMakeOutput>$(SolutionDir)out\test.exe</NMakeOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

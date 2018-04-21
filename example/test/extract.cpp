@@ -236,8 +236,8 @@ void main_extract()
    load_image(image, width, height, "./palette/hsl-1-000.tga"); extract_gray( image, "./extract/gray-hsl-1-000", width, height);
    load_image(image, width, height, "./palette/hsl-1-025.tga"); extract_gray( image, "./extract/gray-hsl-1-025", width, height);
    load_image(image, width, height, "./palette/hsl-1-050.tga"); extract_gray( image, "./extract/gray-hsl-1-050", width, height);
-   load_image(image, width, height, "./palette/hsl-1-100.tga"); extract_gray( image, "./extract/gray-hsl-1-100", width, height);
    load_image(image, width, height, "./palette/hsl-1-075.tga"); extract_gray( image, "./extract/gray-hsl-1-075", width, height);
+   load_image(image, width, height, "./palette/hsl-1-100.tga"); extract_gray( image, "./extract/gray-hsl-1-100", width, height);
 
    load_image( image, width, height, "./palette/hsl-1-000.tga" );  extract_black(  image,"./extract/black-hsl-1-000", width, height );
    load_image( image, width, height, "./palette/hsl-1-025.tga" );  extract_black(  image,"./extract/black-hsl-1-025", width, height );

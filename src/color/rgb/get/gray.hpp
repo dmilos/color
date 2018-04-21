@@ -275,7 +275,9 @@
               scalar_type fy = f( y );
               scalar_type l = scalar_type(116) * fy -  scalar_type(16);   //[ 0, 100 ]
 
-              return diverse_type::template process<0>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */l /* ) */);
+              l /= scalar_type( 100 );
+
+              return diverse_type::template process<0>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */ l /* ) */);
              }
            };
 

@@ -81,8 +81,13 @@ void sandbox_test4()
  {
   ::color::hwb<double> h= color::constant::turquoise_t{};
   ::color::rgb<double> r= color::constant::turquoise_t{};
+  ::color::lab<double> l;
    
   h = r;
+
+ l = r;
+ std::cout << ::color::get::gray< ::color::get::constant::rgb::gray::lightness_entity >( r ) << std::endl;
+ 
  }
 
 void luv_bound()
