@@ -36,7 +36,7 @@ void test_operation_distance_from
 
     if( 1 < d ) d = 1;
 
-    distance.push_back( gray_color_type( 255 * ( 1 - d ) ) );
+    distance.push_back( gray_color_type( std::uint8_t( 255 * ( 1 - d ) ) ) );
    }
 
    save_image_gray( output, distance, width, height );

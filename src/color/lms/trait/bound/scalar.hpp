@@ -38,17 +38,17 @@ namespace color
 
              typedef ::color::_internal::lms::bound::scalar< index_type, scalar_type, reference_number > this_type;
 
-             static scalar_type max( scalar_type const& s ) { return ( 0 < s ) ? s : 0 ; }
-             static scalar_type min( scalar_type const& s ) { return ( s < 0 ) ? s : 0 ; }
+             static scalar_type max( scalar_type const& s ) { return ( scalar_type(0) <              s ) ? s : scalar_type(0); }
+             static scalar_type min( scalar_type const& s ) { return ( s              < scalar_type(0) ) ? s : scalar_type(0); }
 
-             static scalar_type l_max() { return 100 * ( this_type::max( matrix_type::a11() ) + this_type::max( matrix_type::a12() ) + this_type::max( matrix_type::a13() ) ); }
-             static scalar_type l_min() { return 100 * ( this_type::min( matrix_type::a11() ) + this_type::min( matrix_type::a12() ) + this_type::min( matrix_type::a13() ) ); }
+             static scalar_type l_max() { return scalar_type(100) * ( this_type::max( matrix_type::a11() ) + this_type::max( matrix_type::a12() ) + this_type::max( matrix_type::a13() ) ); }
+             static scalar_type l_min() { return scalar_type(100) * ( this_type::min( matrix_type::a11() ) + this_type::min( matrix_type::a12() ) + this_type::min( matrix_type::a13() ) ); }
 
-             static scalar_type m_max() { return 100 * ( this_type::max( matrix_type::a21() ) + this_type::max( matrix_type::a22() ) + this_type::max( matrix_type::a23() ) ); }
-             static scalar_type m_min() { return 100 * ( this_type::min( matrix_type::a21() ) + this_type::min( matrix_type::a22() ) + this_type::min( matrix_type::a23() ) ); }
+             static scalar_type m_max() { return scalar_type(100) * ( this_type::max( matrix_type::a21() ) + this_type::max( matrix_type::a22() ) + this_type::max( matrix_type::a23() ) ); }
+             static scalar_type m_min() { return scalar_type(100) * ( this_type::min( matrix_type::a21() ) + this_type::min( matrix_type::a22() ) + this_type::min( matrix_type::a23() ) ); }
 
-             static scalar_type s_max() { return 100 * ( this_type::max( matrix_type::a31() ) + this_type::max( matrix_type::a32() ) + this_type::max( matrix_type::a33() ) ); }
-             static scalar_type s_min() { return 100 * ( this_type::min( matrix_type::a31() ) + this_type::min( matrix_type::a32() ) + this_type::min( matrix_type::a33() ) ); }
+             static scalar_type s_max() { return scalar_type(100) * ( this_type::max( matrix_type::a31() ) + this_type::max( matrix_type::a32() ) + this_type::max( matrix_type::a33() ) ); }
+             static scalar_type s_min() { return scalar_type(100) * ( this_type::min( matrix_type::a31() ) + this_type::min( matrix_type::a32() ) + this_type::min( matrix_type::a33() ) ); }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   maximum( )

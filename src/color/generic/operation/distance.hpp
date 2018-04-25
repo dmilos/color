@@ -40,10 +40,10 @@
       {
 
        template
-         < 
+         <
            typename category_left_name
           ,typename category_right_name
-          ,enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::error_entity 
+          ,enum ::color::constant::distance::reference_enum reference_number = ::color::constant::distance::error_entity
          >
         struct distance
          {
@@ -247,7 +247,7 @@
             typedef  ::color::constant::generic< category_left_type > constant_type;
 
             typedef ::color::lab<scalar_type>  lab_type;
-            
+
             typedef ::color::operation::_internal::distance< category_left_name, category_right_name, ::color::constant::distance::CIEDE2000_entity > this_type;
 
             static   scalar_type square( scalar_type const& s ){ return s * s; }
@@ -291,9 +291,9 @@
               scalar_type H_a_p = ( h_1_p +  h_2_p )/2; if( 180 < fabs( h_1_p - h_2_p ) ) H_a_p += 180;
 
               scalar_type T = + 1 
-                              - 0.17 * cos(   (   H_a_p - 30 )*constant_type::deg2rad() ) 
-                              + 0.24 * cos(   ( 2*H_a_p -  0 )*constant_type::deg2rad() ) 
-                              + 0.32 * cos(   ( 3*H_a_p +  6 )*constant_type::deg2rad() ) 
+                              - 0.17 * cos(   (   H_a_p - 30 )*constant_type::deg2rad() )
+                              + 0.24 * cos(   ( 2*H_a_p -  0 )*constant_type::deg2rad() )
+                              + 0.32 * cos(   ( 3*H_a_p +  6 )*constant_type::deg2rad() )
                               - 0.20 * cos(   ( 4*H_a_p - 63 )*constant_type::deg2rad() );
 
               scalar_type delta_h_p;
@@ -376,7 +376,7 @@
                scalar_type C_1 =  sqrt( a_1* a_1 +  b_1* b_1 );
                scalar_type C_2 =  sqrt( a_2 * a_2 + b_2 * b_2 );
                scalar_type delta_C =  C_1 - C_2;
-               
+
                scalar_type delta_a =  a_1 - a_2;
                scalar_type delta_b =  b_1 - b_2;
                delta_H = delta_a*delta_a + delta_b*delta_b - delta_C*delta_C;
@@ -413,7 +413,7 @@
 
               scalar_type delta_E_1  = ( L_1 - L_2 )/( l * S_L);
               scalar_type delta_E_2  = ( a_1 - a_2 )/( c * S_C);
-              scalar_type delta_E_3  = ( delta_H )/( S_H);
+              scalar_type delta_E_3  = ( delta_H )/( S_H );
 
               scalar_type delta_E_main = sqrt( delta_E_1*delta_E_1 +  delta_E_2*delta_E_2 + delta_E_3*delta_E_3  );
 

@@ -36,14 +36,14 @@ namespace color
            static /* constexpr*/ scalar_type const u_min()
             {
              static scalar_type l, u, v;
-             static bool dummy = xyz2luv( 0, 100, 0, l, u, v );
+             static bool dummy = xyz2luv( scalar_type(0), scalar_type(100), scalar_type(0), l, u, v );
              return  u;
             }
       
            static /* constexpr*/ scalar_type const u_max()
             {
              static scalar_type l, u, v;
-             static bool dummy = xyz2luv( 100, 5.8771597073058741145, 0, l, u, v );
+             static bool dummy = xyz2luv( scalar_type(100), scalar_type(5.8771597073058741145), scalar_type(0), l, u, v );
              return   u;
             }
            static /* constexpr*/ scalar_type const u_range()
@@ -54,14 +54,14 @@ namespace color
            static /* constexpr*/ scalar_type const v_min()
             {
              static scalar_type l, u, v;
-             static bool dummy = xyz2luv( 100, 12.20694118257431526330947, 100, l, u, v );
+             static bool dummy = xyz2luv( scalar_type(100), scalar_type(12.20694118257431526330947), scalar_type(100), l, u, v );
              return   v;
             }
       
            static /* constexpr*/ scalar_type const v_max()
             {
              static scalar_type l, u, v;
-             static bool dummy = xyz2luv( 0, 100, 0, l, u, v );
+             static bool dummy = xyz2luv( scalar_type(0), scalar_type(100), scalar_type(0), l, u, v );
              return v;
             }
            static /* constexpr*/ scalar_type const v_range()

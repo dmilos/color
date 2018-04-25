@@ -17,8 +17,9 @@ directory_obj = './out/bin/' + configuration + '/'
 
 
 if 'Windows' == platform.system() :
-    directory_pdb += settings.get_custom( 'compiler_version_msvc' ) + '/'
-    directory_obj += settings.get_custom( 'compiler_version_msvc' ) + '/'
+    if True == settings.exists_custom( 'compiler_version_msvc' ) :
+        directory_pdb += settings.get_custom( 'compiler_version_msvc' ) + '/'
+        directory_obj += settings.get_custom( 'compiler_version_msvc' ) + '/'
 
 directory_exe = './out/'
 

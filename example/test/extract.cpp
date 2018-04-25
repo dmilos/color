@@ -184,7 +184,7 @@ extract_color( bgr_image_type const& image, std::string const& name, std::size_t
     //auto g = ::color::gray<double>( { h * pow( e, 10 ) } ) ;
 
     //::color::fix::overburn( g );
-    component.push_back( gray_color_type( 255 - 255*h ) );
+    component.push_back( gray_color_type( std::uint8_t( 255 - 255*h ) ) );
    }
 
   save_image_gray( name+ "-hue-color.tga", component, width, height );

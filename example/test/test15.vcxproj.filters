@@ -78,5 +78,8 @@
     <ClCompile Include="operation\operation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="operation\distance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

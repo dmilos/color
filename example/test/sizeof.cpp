@@ -182,6 +182,8 @@ template< typename  type_type  > using lmsKriesE  = ::color::lms< type_type, ::c
 template< typename  type_type  > using lmsBFD     = ::color::lms< type_type, ::color::constant::lms::BFD_entity  >;
 template< typename  type_type  > using lmsMCAT02  = ::color::lms< type_type, ::color::constant::lms::MCAT02_entity  >;
 
+template< typename  type_type  > using labHunter  = ::color::lab< type_type/*, ::color::constant::lab::Hunter_entity */ >;
+template< typename  type_type  > using labCIE     = ::color::lab< type_type/*, ::color::constant::lab::CIE_entity    */ >;
 
 
 void check_sizeof()
@@ -247,7 +249,8 @@ void check_sizeof()
   ss << print_sizeof<::color::YCgCo  > ( "<code>YCgCo </code>" );  ss << std::endl;
   ss << print_sizeof<::color::YDbDr  > ( "<code>YDbDr </code>" );  ss << std::endl;
   ss << print_sizeof<::color::xyz    > ( "<code>xyz </code>"   );  ss << std::endl;
-  ss << print_sizeof<::color::lab    > ( "<code>lab </code>"   );  ss << std::endl;
+  ss << print_sizeof< labCIE    > ( "<code>labCIE </code>"   );  ss << std::endl;
+  ss << print_sizeof< labHunter > ( "<code>labHunter </code>"   );  ss << std::endl;
   ss << print_sizeof< lmsKries65 > ( "<code>lmsKries65 </code>"   );  ss << std::endl;
   ss << print_sizeof< lmsKriesE  > ( "<code>lmsKriesE  </code>"   );  ss << std::endl;
   ss << print_sizeof< lmsBFD     > ( "<code>lmsBFD     </code>"   );  ss << std::endl;

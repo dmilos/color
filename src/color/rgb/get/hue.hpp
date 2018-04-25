@@ -73,7 +73,7 @@
             typedef typename ::color::trait::component< category_type >::return_type return_type;
 
             typedef ::color::_internal::normalize< category_type > normalize_type;
-            typedef ::color::_internal::diverse< category_type >    diverse_type; //! Diverse to self
+            typedef ::color::_internal::diverse< category_type >     diverse_type; //! Diverse to self
 
             typedef ::color::trait::container<category_type>     container_trait_type;
 
@@ -104,11 +104,12 @@
 
               switch( m_hiIndex )
                {
-                case( 0 ): return (scalar_type(60)/scalar_type(360)) * (g - b) / m_delta + (g < b ? scalar_type(1) : scalar_type(0)); break;
-                case( 1 ): return (scalar_type(60)/scalar_type(360)) * (b - r) / m_delta + (scalar_type(120)/scalar_type(360));       break;
-                case( 2 ): return (scalar_type(60)/scalar_type(360)) * (r - g) / m_delta + (scalar_type(240)/scalar_type(360));       break;
+                case( 0 ): h = (scalar_type(60)/scalar_type(360)) * (g - b) / m_delta + (g < b ? scalar_type(1) : scalar_type(0)); break;
+                case( 1 ): h = (scalar_type(60)/scalar_type(360)) * (b - r) / m_delta + (scalar_type(120)/scalar_type(360));       break;
+                case( 2 ): h = (scalar_type(60)/scalar_type(360)) * (r - g) / m_delta + (scalar_type(240)/scalar_type(360));       break;
                }
-              return scalar_type( 0 );
+
+              return  diverse_type::template process< red_p >( h );
              }
 
             return_type process( model_type const& color_parameter )
@@ -117,7 +118,7 @@
               scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>() );
               scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p>()  );
 
-              return diverse_type::template process< red_p >( this->process( r, g, b ) );
+              return  this->process( r, g, b );
              }
 
             scalar_type m_loValue;

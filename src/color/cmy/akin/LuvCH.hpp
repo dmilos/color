@@ -1,7 +1,7 @@
 #ifndef color_cmy_akin_LuvCH
-#define color_LuvCH_akin_LuvCH
+#define color_cmy_akin_LuvCH
 
-#include "../../generic/akin/LuvCH.hpp"
+#include "../../generic/akin/cmy.hpp"
 #include "../category.hpp"
 #include "../../LuvCH/category.hpp"
 
@@ -11,10 +11,10 @@ namespace color
    {
 
     template< typename tag_name >
-     struct LuvCH< ::color::category::LuvCH< tag_name >  >
+     struct cmy< ::color::category::LuvCH< tag_name >  >
       {
        public:
-         typedef ::color::category::LuvCH< tag_name > akin_type;
+         typedef ::color::category::cmy< tag_name > akin_type;
       };
 
    }

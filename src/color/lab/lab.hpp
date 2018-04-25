@@ -4,18 +4,19 @@
 #include "../generic/type/type.hpp"
 
 #include "./category.hpp"
+
 #include "./akin/akin.hpp"
 #include "./trait/trait.hpp"
 
 #include "../generic/model.hpp"
-
+#include "./constant.hpp"
 
 
 namespace color
  {
 
-  template< typename type_name >
-   using lab = ::color::model< typename ::color::category::lab< type_name > >;
+  template< typename type_name/*, ::color::constant::lab::reference_enum reference_number = ::color::constant::lab::CIE_entity*/ >
+   using lab = ::color::model< typename ::color::category::lab< type_name/*, reference_number*/ > >;
 
  }
 

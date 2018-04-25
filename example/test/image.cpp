@@ -8,7 +8,7 @@ void save_image24( std::string const& name, bgr_image_type const& image, std::si
  {
   targa_header_struct header;
 
-  targa_make_header24( width, height, header );
+  targa_make_header24( int( width ), int(height), header );
 
    {
     std::ofstream of( name.c_str(), std::ios_base::binary);
@@ -21,7 +21,7 @@ void save_image_gray( std::string const& name, gray_image_type const& image, std
  {
   targa_header_struct header;
 
-  targa_make_gray_header( width, height, header );
+  targa_make_gray_header( int(width), int(height), header );
 
   std::ofstream of( name, std::ios_base::binary);
   of.write((const char *)header, 18);

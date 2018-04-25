@@ -120,7 +120,7 @@ yr = color::operation::mix( y2, 0.5, y2 ); //!< Blend two colors for given alpha
   - GCC 5.4.0 20160609
   - MSVC 2017 (15.3.2)
   - MSVC 2015 Update 3
-  - -MSVC 2013 Update 5-
+  - _MSVC 2013 Update 5_
 
 
 

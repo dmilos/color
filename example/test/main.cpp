@@ -82,13 +82,26 @@ void sandbox_test4()
   ::color::hwb<double> h= color::constant::turquoise_t{};
   ::color::rgb<double> r= color::constant::turquoise_t{};
   ::color::lab<double> l;
-   
+
   h = r;
 
- l = r;
- std::cout << ::color::get::gray< ::color::get::constant::rgb::gray::lightness_entity >( r ) << std::endl;
- 
+  l = r;
+  std::cout << ::color::get::gray< ::color::get::constant::rgb::gray::lightness_entity >( r ) << std::endl;
+
  }
+
+void sandbox_test5()
+ {
+  ::color::rgb< float > r = ::color::constant::aqua_t{};
+  ::color::xyz< float > x = ::color::constant::aqua_t{};
+  //::color::lab< float, ::color::constant::lab::CIE_entity  > l0 = ::color::constant::aqua_t{};
+  //::color::lab< float, ::color::constant::lab::Hunter_entity  > l1 = ::color::constant::aqua_t{};
+
+  //r = l0;
+  //r = l1;
+  //l0 = x;
+  //l1 = x;
+}
 
 void luv_bound()
  {
@@ -548,7 +561,7 @@ void test_yiq2yuv601_quick()
 
 int main(int argc, char const *argv[] )
  {
-  sandbox_test4( );
+  sandbox_test5();
 
   void test_get_invoke( double value );
   test_get_invoke( 0.5 );

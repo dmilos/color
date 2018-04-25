@@ -74,7 +74,7 @@
             typedef ::color::_internal::diverse< category_type >     diverse_type;
             typedef ::color::_internal::normalize< category_type > normalize_type;
 
-            typedef  ::color::operation::_internal::invert< ::color::category::rgb< scalar_type > > invert_type;
+            typedef  ::color::operation::_internal::invert< category_type > invert_type;
             enum
              {
                red_p  = ::color::place::_internal::red<category_type>::position_enum
@@ -84,9 +84,7 @@
 
             static return_type process( model_type const& color_parameter )
              {
-              scalar_type b = normalize_type::template process<red_p >( color_parameter.template get<red_p >(  ) );
-
-              return diverse_type::template process< red_p >( invert_type::template component< red_p >( b ) );
+              return invert_type::template component< red_p >( color_parameter.template get<red_p>() );
             }
           };
 

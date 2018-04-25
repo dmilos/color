@@ -177,9 +177,9 @@ template< typename category_name >
    {
     for( unsigned green = 0; green  < width; ++green )
      {
-      r[0] = red/(double)height;
-      r[1] = green/(double)width;
-      r[2] = blue;
+      r[0] = float( red/(double)height );
+      r[1] = float( green/(double)width );
+      r[2] = float( blue );
 
       hi = r;
       hv = r;
