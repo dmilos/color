@@ -10,13 +10,16 @@ namespace color
   namespace akin
    {
 
-    template< >struct gray< ::color::category::lab_uint8   >{ typedef ::color::category::gray_uint8   akin_type; };
-    template< >struct gray< ::color::category::lab_uint16  >{ typedef ::color::category::gray_uint16  akin_type; };
-    template< >struct gray< ::color::category::lab_uint32  >{ typedef ::color::category::gray_uint32  akin_type; };
-    template< >struct gray< ::color::category::lab_uint64  >{ typedef ::color::category::gray_uint64  akin_type; };
-    template< >struct gray< ::color::category::lab_float   >{ typedef ::color::category::gray_float   akin_type; };
-    template< >struct gray< ::color::category::lab_double  >{ typedef ::color::category::gray_double  akin_type; };
-    template< >struct gray< ::color::category::lab_ldouble >{ typedef ::color::category::gray_ldouble akin_type; };
+    template
+     <
+       typename tag_name
+      ,::color::constant::lab::reference_enum      lab_reference_number
+     >
+     struct gray< ::color::category::lab< tag_name, lab_reference_number > >
+      {
+       public:
+         typedef ::color::category::gray< tag_name > akin_type;
+      };
 
    }
  }

@@ -14,20 +14,24 @@ namespace color
   namespace _internal
    {
 
-    template< typename lab_tag_name, typename gray_tag_name >
+    template
+     <
+       typename lab_tag_name, ::color::constant::lab::reference_enum reference_number
+      ,typename gray_tag_name 
+     >
      struct convert
       <
-        ::color::category::lab< lab_tag_name >
+        ::color::category::lab< lab_tag_name, reference_number >
        ,::color::category::gray<   gray_tag_name >
       >
       {
        public:
-         typedef ::color::category::lab<   lab_tag_name > category_left_type;
+         typedef ::color::category::lab<   lab_tag_name, reference_number > category_left_type;
          typedef ::color::category::gray< gray_tag_name > category_right_type;
 
          typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
-         typedef ::color::category::lab< scalar_type > labSCALAR_category_type;
+         typedef ::color::category::lab< scalar_type, reference_number > labSCALAR_category_type;
 
          typedef ::color::trait::bound<category_left_type>         bound_left_trait_type;
          typedef ::color::trait::container<category_left_type>     container_left_trait_type;

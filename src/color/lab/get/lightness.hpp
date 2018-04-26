@@ -14,12 +14,12 @@
    namespace get
     {
 
-     template< typename tag_name >
+     template< typename tag_name, ::color::constant::lab::reference_enum reference_number >
       inline
-      typename ::color::model< ::color::category::lab< tag_name> >::component_const_type
-      lightness( ::color::model< ::color::category::lab<tag_name> > const& color_parameter )
+      typename ::color::model< ::color::category::lab< tag_name,reference_number> >::component_const_type
+      lightness( ::color::model< ::color::category::lab<tag_name,reference_number> > const& color_parameter )
        {
-        typedef ::color::category::lab< tag_name>  category_type;
+        typedef ::color::category::lab<tag_name,reference_number>  category_type;
         enum
          {
           lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum 

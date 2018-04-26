@@ -77,6 +77,8 @@
 
             typedef ::color::trait::container<category_type>     container_trait_type;
 
+            typedef usher< category_type, ::color::get::constant::rgb::hue::hexagon_entity >  this_type;
+
             enum
              {
                red_p   = ::color::place::_internal::red<category_type>::position_enum
@@ -112,13 +114,14 @@
               return  diverse_type::template process< red_p >( h );
              }
 
-            return_type process( model_type const& color_parameter )
+            static return_type process( model_type const& color_parameter )
              {
               scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p>()   );
               scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>() );
               scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p>()  );
 
-              return  this->process( r, g, b );
+              this_type t;
+              return  t.process( r, g, b );
              }
 
             scalar_type m_loValue;
@@ -131,9 +134,7 @@
             index_type  m_hiIndex;
 
             scalar_type  m_delta;
-
            };
-
 
          template< typename tag_name >
           struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::hue::polar_atan2_entity >
@@ -177,7 +178,6 @@
              }
 
            };
-
 
          template< typename tag_name >
           struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::hue::polar_acos_entity >
@@ -239,10 +239,8 @@
        )
        {
         typedef ::color::get::_internal::rgb::hue::usher< ::color::category::rgb< tag_name >, formula_number  > usher_type;
-        usher_type u;
-        return u.process( color_parameter );
+        return usher_type::process( color_parameter );
        }
-
 
     }
   }

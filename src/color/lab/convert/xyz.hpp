@@ -25,15 +25,15 @@ namespace color
      >
      struct convert
       <
-        ::color::category::lab<  lab_tag_name >
+        ::color::category::lab<  lab_tag_name, ::color::constant::lab::CIE_entity >
        ,::color::category::xyz<  xyz_tag_name >
       >
       {
        public:
-         typedef ::color::category::lab< lab_tag_name >    lab_category_type, category_left_type;
+         typedef ::color::category::lab< lab_tag_name, ::color::constant::lab::CIE_entity >    lab_category_type, category_left_type;
          typedef ::color::category::xyz< xyz_tag_name >    xyz_category_type, category_right_type;
          typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
-         typedef  ::color::category::lab< scalar_type >  labSCALAR_category_type;
+         typedef  ::color::category::lab< scalar_type, ::color::constant::lab::CIE_entity >  labSCALAR_category_type;
          typedef  ::color::category::xyz< scalar_type >  xyzSCALAR_category_type;
 
          typedef ::color::model< lab_category_type >  lab_model_type;
@@ -94,6 +94,77 @@ namespace color
            container_left_trait_type::template set<2>( left, reformatLAB_type::template process< 2, 2>( b ) );
           }
 
+        };
+
+    template
+     <
+       typename lab_tag_name
+      ,typename xyz_tag_name
+     >
+     struct convert
+      <
+        ::color::category::lab<  lab_tag_name, ::color::constant::lab::Hunter_entity >
+       ,::color::category::xyz<  xyz_tag_name >
+      >
+      {
+       public:
+         typedef ::color::category::lab< lab_tag_name, ::color::constant::lab::Hunter_entity >    lab_category_type, category_left_type;
+         typedef ::color::category::xyz< xyz_tag_name >    xyz_category_type, category_right_type;
+
+         typedef typename ::color::trait::scalar<category_left_type> scalar_trait_type;
+         typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
+
+         typedef  ::color::category::lab< scalar_type, ::color::constant::lab::Hunter_entity >  labSCALAR_category_type;
+         typedef  ::color::category::xyz< scalar_type >  xyzSCALAR_category_type;
+
+         typedef ::color::model< lab_category_type >  lab_model_type;
+         typedef ::color::model< xyz_category_type >  xyz_model_type;
+
+         typedef ::color::trait::container<category_left_type>     container_left_trait_type;
+         typedef ::color::trait::container<category_right_type>    container_right_trait_type;
+
+         typedef typename container_left_trait_type::input_type         container_left_input_type;
+         typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+
+         typedef ::color::_internal::reformat< lab_category_type, labSCALAR_category_type, scalar_type >     reformatLAB_type;
+         typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type >     reformatXYZ_type;
+
+         typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
+
+         enum
+          {
+            lightness_p       = ::color::place::_internal::lightness<category_left_type>::position_enum
+          };
+
+         static void process
+          (
+            container_left_input_type         left
+           ,container_right_const_input_type  right
+          )
+          {
+           static scalar_type Ka = (175/198.04) * ( white_point_type::X() + white_point_type::Y() );
+           static scalar_type Kb = ( 70/218.11) * ( white_point_type::Y() + white_point_type::Z() );
+
+           scalar_type x = reformatXYZ_type::template process<0,0>( container_right_trait_type::template get<0>( right ) );
+           scalar_type y = reformatXYZ_type::template process<1,1>( container_right_trait_type::template get<1>( right ) );
+           scalar_type z = reformatXYZ_type::template process<2,2>( container_right_trait_type::template get<2>( right ) );
+
+           scalar_type l = sqrt( y / white_point_type::Y() );
+           scalar_type a = 0;
+           scalar_type b = 0;
+
+           if( false == scalar_trait_type::is_small( l ) )
+            {
+             a = scalar_type( 100 ) * Ka * ( x/white_point_type::X() - y / white_point_type::Y() )/ l;
+             b = scalar_type( 100 ) * Kb * ( y/white_point_type::Y() - z / white_point_type::Z() )/ l;
+            }
+
+           //l *= scalar_type( 100 );
+
+           container_left_trait_type::template set<0>( left, reformatLAB_type::template process< 0, 0>( l ) );
+           container_left_trait_type::template set<1>( left, reformatLAB_type::template process< 1, 1>( a ) );
+           container_left_trait_type::template set<2>( left, reformatLAB_type::template process< 2, 2>( b ) );
+          }
 
         };
 

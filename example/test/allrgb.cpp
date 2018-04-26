@@ -334,15 +334,15 @@ void make_red( bgr_image_type &image, int const& width, int const& pos_x, int co
      {
       image[ y*width + x ][0] = 0;
       image[ y*width + x ][1] = 0;
-      image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][2] = std::uint8_t( 255 * ( (x-pos_x) )/double( len_x/2-1 ) );
      }
 
   for( int y = pos_y; y < pos_y + len_y; y++ )
    for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
-      image[ y*width + x ][0] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
-      image[ y*width + x ][1] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
-      image[ y*width + x ][2] = 255;
+      image[ y*width + x ][0] = std::uint8_t( 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) ) );
+      image[ y*width + x ][1] = std::uint8_t( 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) ) );
+      image[ y*width + x ][2] = std::uint8_t( 255 );
      }
  }
 
@@ -359,9 +359,9 @@ void make_green( bgr_image_type &image, int const& width, int const& pos_x, int 
   for( int y = pos_y; y < pos_y + len_y; y++ )
    for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
-      image[ y*width + x ][0] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
-      image[ y*width + x ][1] = 255;
-      image[ y*width + x ][2] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+      image[ y*width + x ][0] = std::uint8_t( 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) ) );
+      image[ y*width + x ][1] = std::uint8_t( 255 );
+      image[ y*width + x ][2] = std::uint8_t( 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) ) );
      }
  }
 
@@ -370,7 +370,7 @@ void make_blue( bgr_image_type &image, int const& width, int const& pos_x, int c
   for( int y = pos_y; y < pos_y + len_y; y++ )
    for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
-      image[ y*width + x ][0] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][0] = std::uint8_t( 255 * ( (x-pos_x) )/double( len_x/2-1 ) );
       image[ y*width + x ][1] = 0;
       image[ y*width + x ][2] = 0;
      }
@@ -379,8 +379,8 @@ void make_blue( bgr_image_type &image, int const& width, int const& pos_x, int c
    for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
       image[ y*width + x ][0] = 255;
-      image[ y*width + x ][1] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
-      image[ y*width + x ][2] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+      image[ y*width + x ][1] = std::uint8_t( 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) ) );
+      image[ y*width + x ][2] = std::uint8_t( 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) ) );
      }
  }
 
@@ -389,17 +389,17 @@ void make_cyan( bgr_image_type &image, int const& width, int const& pos_x, int c
   for( int y = pos_y; y < pos_y + len_y; y++ )
    for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
-      image[ y*width + x ][0] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
-      image[ y*width + x ][1] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
-      image[ y*width + x ][2] = 0;
+      image[ y*width + x ][0] = std::uint8_t( 255 * ( (x-pos_x) )/double( len_x/2-1 ) );
+      image[ y*width + x ][1] = std::uint8_t( 255 * ( (x-pos_x) )/double( len_x/2-1 ) );
+      image[ y*width + x ][2] = std::uint8_t( 0 );
      }
 
   for( int y = pos_y; y < pos_y + len_y; y++ )
    for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
-      image[ y*width + x ][0] = 255;
-      image[ y*width + x ][1] = 255;
-      image[ y*width + x ][2] = 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
+      image[ y*width + x ][0] = std::uint8_t( 255 );
+      image[ y*width + x ][1] = std::uint8_t( 255 );
+      image[ y*width + x ][2] = std::uint8_t( 255 * ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) ) );
      }
  }
 
@@ -408,17 +408,17 @@ void make_magenta( bgr_image_type &image, int const& width, int const& pos_x, in
   for( int y = pos_y; y < pos_y + len_y; y++ )
    for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
-      image[ y*width + x ][0] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
-      image[ y*width + x ][1] = 0;
-      image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][0] = std::uint8_t( 255 * ( (x-pos_x) )/double( len_x/2-1 ) );
+      image[ y*width + x ][1] = std::uint8_t( 0 );
+      image[ y*width + x ][2] = std::uint8_t( 255 * ( (x-pos_x) )/double( len_x/2-1 ) );
      }
 
   for( int y = pos_y; y < pos_y + len_y; y++ )
    for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
-      image[ y*width + x ][0] = 255;
-      image[ y*width + x ][1] = 255* ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
-      image[ y*width + x ][2] = 255 ;
+      image[ y*width + x ][0] = std::uint8_t( 255 );
+      image[ y*width + x ][1] = std::uint8_t( 255* ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) ) );
+      image[ y*width + x ][2] = std::uint8_t( 255 );
      }
  }
 
@@ -427,17 +427,17 @@ void make_yellow( bgr_image_type &image, int const& width, int const& pos_x, int
   for( int y = pos_y; y < pos_y + len_y; y++ )
    for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
-      image[ y*width + x ][0] = 0;
-      image[ y*width + x ][1] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
-      image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][0] = std::uint8_t( 0 );
+      image[ y*width + x ][1] = std::uint8_t( 255 * ( (x-pos_x) )/double( len_x/2-1 ) );
+      image[ y*width + x ][2] = std::uint8_t( 255 * ( (x-pos_x) )/double( len_x/2-1 ) );
      }
 
   for( int y = pos_y; y < pos_y + len_y; y++ )
    for( int x = pos_x+len_x/2; x < pos_x + len_x; x++ )
      {
-      image[ y*width + x ][0] = 255* ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) );
-      image[ y*width + x ][1] = 255;
-      image[ y*width + x ][2] = 255 ;
+      image[ y*width + x ][0] = std::uint8_t( 255* ( (x-(pos_x+len_x/2) )/double( len_x/2-1 ) ) );
+      image[ y*width + x ][1] = std::uint8_t( 255 );
+      image[ y*width + x ][2] = std::uint8_t( 255 );
      }
  }
 
@@ -464,7 +464,7 @@ void make_gray( bgr_image_type &image, int const& width, int const& pos_x, int c
   for( int y = pos_y; y < pos_y + len_y; y++ )
    for( int x = pos_x; x < pos_x + len_x; x++ )
      {
-      image[ y*width + x ][0] = image[ y*width + x ][1] = image[ y*width + x ][2] = 255 * ( (x-pos_x) )/double( len_x - 1 );
+      image[ y*width + x ][0] = image[ y*width + x ][1] = image[ y*width + x ][2] = std::uint8_t( 255 * ( (x-pos_x) )/double( len_x - 1 ) );
      }
  }
 

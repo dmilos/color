@@ -21,17 +21,17 @@ namespace color
     template
      <
        typename LuvCH_tag_name
-      ,typename lab_tag_name
+      ,typename lab_tag_name, ::color::constant::lab::reference_enum reference_number
      >
      struct convert
       <
         ::color::category::LuvCH< LuvCH_tag_name >
-       ,::color::category::lab<  lab_tag_name >
+       ,::color::category::lab<  lab_tag_name, reference_number >
       >
       {
        public:
          typedef ::color::category::LuvCH< LuvCH_tag_name >    LuvCH_category_type, category_left_type;
-         typedef ::color::category::lab< lab_tag_name >    lab_category_type, category_right_type;
+         typedef ::color::category::lab< lab_tag_name, reference_number >    lab_category_type, category_right_type;
 
          typedef typename ::color::trait::scalar< LuvCH_category_type >::instance_type scalar_type;
 

@@ -57,13 +57,13 @@ void test_get_invoke( double value )
   test_generic_get< luv_double  >();   test_generic_get< LuvCH_double  >();
   test_generic_get< luv_ldouble >();   test_generic_get< LuvCH_ldouble >();
 
-  test_generic_get< lab_uint8   >();  test_generic_get< LabCH_uint8   >();
-  test_generic_get< lab_uint16  >();  test_generic_get< LabCH_uint16  >();
-  test_generic_get< lab_uint32  >();  test_generic_get< LabCH_uint32  >();
-  test_generic_get< lab_uint64  >();  test_generic_get< LabCH_uint64  >();
-  test_generic_get< lab_float   >();  test_generic_get< LabCH_float   >();
-  test_generic_get< lab_double  >();  test_generic_get< LabCH_double  >();
-  test_generic_get< lab_ldouble >();  test_generic_get< LabCH_ldouble >();
+  test_generic_get< lab_uint8  <> >();  test_generic_get< LabCH_uint8   >();
+  test_generic_get< lab_uint16 <> >();  test_generic_get< LabCH_uint16  >();
+  test_generic_get< lab_uint32 <> >();  test_generic_get< LabCH_uint32  >();
+  test_generic_get< lab_uint64 <> >();  test_generic_get< LabCH_uint64  >();
+  test_generic_get< lab_float  <> >();  test_generic_get< LabCH_float   >();
+  test_generic_get< lab_double <> >();  test_generic_get< LabCH_double  >();
+  test_generic_get< lab_ldouble<> >();  test_generic_get< LabCH_ldouble >();
 
   test_generic_get< yuv_uint8  <::color::constant::yuv::BT_601_entity> >(); 
   test_generic_get< yuv_uint16 <::color::constant::yuv::BT_601_entity> >(); 

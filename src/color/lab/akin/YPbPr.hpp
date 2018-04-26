@@ -10,13 +10,17 @@ namespace color
   namespace akin
    {
 
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_uint8  <reference_number> >{ typedef ::color::category::lab_uint8   akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_uint16 <reference_number> >{ typedef ::color::category::lab_uint16  akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_uint32 <reference_number> >{ typedef ::color::category::lab_uint32  akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_uint64 <reference_number> >{ typedef ::color::category::lab_uint64  akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_float  <reference_number> >{ typedef ::color::category::lab_float   akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_double <reference_number> >{ typedef ::color::category::lab_double  akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct lab< ::color::category::YPbPr_ldouble<reference_number> >{ typedef ::color::category::lab_ldouble akin_type; };
+    template
+     <
+       typename tag_name
+      ,::color::constant::lab::reference_enum     lab_reference_number
+      ,::color::constant::YPbPr::reference_enum YPbPr_reference_number
+     >
+     struct lab< ::color::category::YPbPr< tag_name, YPbPr_reference_number >, lab_reference_number >
+      {
+       public:
+         typedef ::color::category::lab< tag_name, lab_reference_number > akin_type;
+      };
 
    }
  }

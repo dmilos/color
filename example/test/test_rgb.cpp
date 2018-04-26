@@ -9,7 +9,7 @@ using namespace color::operation::arithmetic;
 
 void test_rgb_float_only()
  {
-  color::rgb_float   f;
+  color::rgb<float>   f;
   f.get(0);
   f.get<0>();
   float ff = f[0];
@@ -35,10 +35,10 @@ void test_rgb_float_only()
 
 void test_rgb_uint32_only()
  {
-  color::rgb_uint32   u32;
-  color::rgb_uint32   u32a;
-  color::rgb_uint32   u32b;
-  color::rgb_uint32   u32c;
+  ::color::rgb<>   u32;
+  ::color::rgb<>   u32a;
+  ::color::rgb<>   u32b;
+  ::color::rgb<>   u32c;
 
   u32.get(0);
   u32.get<0>();

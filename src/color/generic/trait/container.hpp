@@ -5,6 +5,7 @@
 
 #include "./index.hpp"
 #include "./component.hpp"
+// TODO #include "./size.hpp"
 
 namespace color
  {
@@ -28,7 +29,6 @@ namespace color
          typedef instance_type      &   output_type,      param_output_type;
 
          typedef ::color::trait::index< category_name >   index_trait_type;
-
          typedef typename index_trait_type::instance_type     index_instance_type;
          typedef typename index_trait_type::const_type        index_const_type;
          typedef typename index_trait_type::input_const_type  index_input_const_type;
@@ -40,9 +40,14 @@ namespace color
          typedef typename component_trait_type::input_const_type     component_input_const_type;
          typedef typename component_trait_type::instance_type        component_type;
 
+         // TODO typedef ::color::trait::size< category_name >                size_trait_type;
+         // TODO typedef typename size_trait_type::return_image_type   size_return_image_type;
+         // TODO typedef typename size_trait_type::instance_type          size_instance_type;
+
+
          typedef void set_return_type;
 
-         enum { size_entity = 4 }; 
+         enum { size_entity = 4 };
 
          static component_return_const_type get( input_const_type container, index_input_const_type index )
           {

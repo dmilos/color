@@ -176,7 +176,7 @@ template< ::color::constant::YPbPr::reference_enum reference_number >
 template< typename category_type >
 void make_gray__generic( gray_image_type & gray, bgr_image_type const& image )
  {
-  for( int index=0; index < image.size(); ++index )
+  for( int index=0; index < (int)image.size(); ++index )
    {
     gray[index] = ::color::model< category_type >( image[index] );
    }

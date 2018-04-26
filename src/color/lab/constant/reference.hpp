@@ -15,7 +15,7 @@ namespace color
       enum reference_enum
        {
          error_entity
-        ,CIE_entityCIE_entity
+        ,CIE_entity
         ,Hunter_entity
        };
 

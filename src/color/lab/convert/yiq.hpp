@@ -18,17 +18,17 @@ namespace color
 
     template
      <
-       typename lab_tag_name
+       typename lab_tag_name, ::color::constant::lab::reference_enum reference_number
       ,typename yiq_tag_name 
      >
      struct convert
       <
-        ::color::category::lab< lab_tag_name >
+        ::color::category::lab< lab_tag_name, reference_number >
        ,::color::category::yiq<  yiq_tag_name >
       >
       {
        public:
-         typedef ::color::category::lab< lab_tag_name >    lab_category_type,  category_left_type;
+         typedef ::color::category::lab< lab_tag_name, reference_number >    lab_category_type,  category_left_type;
          typedef ::color::category::yiq< yiq_tag_name >    yiq_category_type, category_right_type;
 
          typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;

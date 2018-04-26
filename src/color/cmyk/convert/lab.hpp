@@ -18,17 +18,17 @@ namespace color
     template
      <
        typename  cmyk_tag_name
-      ,typename   lab_tag_name
+      ,typename   lab_tag_name, ::color::constant::lab::reference_enum lab_reference_number
      >
      struct convert
       <
         ::color::category::cmyk< cmyk_tag_name >
-       ,::color::category::lab< lab_tag_name >
+       ,::color::category::lab< lab_tag_name, lab_reference_number >
       >
       {
        public:
          typedef ::color::category::cmyk< cmyk_tag_name >    cmyk_category_type, category_left_type;
-         typedef ::color::category::lab< lab_tag_name >       lab_category_type, category_right_type;
+         typedef ::color::category::lab< lab_tag_name, lab_reference_number >       lab_category_type, category_right_type;
 
          typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 

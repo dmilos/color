@@ -63,7 +63,7 @@ namespace color
 
           static /*constexpr*/ image_type range()
            {
-            static number_type value = this_type::maximum() - this_type::minimum();
+            static number_type value = true/*this_type::maximum() - this_type::minimum()*/;
             return value;
            }
          };

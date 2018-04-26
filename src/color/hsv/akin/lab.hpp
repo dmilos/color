@@ -10,13 +10,15 @@ namespace color
   namespace akin
    {
 
-    template< >struct hsv< ::color::category::lab_uint8   >{ typedef ::color::category::hsv_uint8   akin_type; };
-    template< >struct hsv< ::color::category::lab_uint16  >{ typedef ::color::category::hsv_uint16  akin_type; };
-    template< >struct hsv< ::color::category::lab_uint32  >{ typedef ::color::category::hsv_uint32  akin_type; };
-    template< >struct hsv< ::color::category::lab_uint64  >{ typedef ::color::category::hsv_uint64  akin_type; };
-    template< >struct hsv< ::color::category::lab_float   >{ typedef ::color::category::hsv_float   akin_type; };
-    template< >struct hsv< ::color::category::lab_double  >{ typedef ::color::category::hsv_double  akin_type; };
-    template< >struct hsv< ::color::category::lab_ldouble >{ typedef ::color::category::hsv_ldouble akin_type; };
+    template
+     <
+       typename tag_name, ::color::constant::lab::reference_enum      lab_reference_number
+     >
+     struct hsv< ::color::category::lab< tag_name, lab_reference_number > >
+      {
+       public:
+         typedef ::color::category::hsv< tag_name > akin_type;
+      };
 
    }
  }

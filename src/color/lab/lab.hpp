@@ -15,8 +15,8 @@
 namespace color
  {
 
-  template< typename type_name/*, ::color::constant::lab::reference_enum reference_number = ::color::constant::lab::CIE_entity*/ >
-   using lab = ::color::model< typename ::color::category::lab< type_name/*, reference_number*/ > >;
+  template< typename type_name, ::color::constant::lab::reference_enum reference_number = ::color::constant::lab::CIE_entity >
+   using lab = ::color::model< typename ::color::category::lab< type_name, reference_number > >;
 
  }
 

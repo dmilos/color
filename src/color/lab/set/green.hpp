@@ -14,16 +14,16 @@
    namespace set
     {
 
-     template< typename tag_name >
+     template< typename tag_name, ::color::constant::lab::reference_enum reference_number >
       inline
       void
       green
        (
-                  ::color::model< ::color::category::lab< tag_name > >                                   & color_parameter
-        ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name > >::akin_type >::input_const_type         component_parameter
+                  ::color::model< ::color::category::lab< tag_name, reference_number > >                                   & color_parameter
+        ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name, reference_number > >::akin_type >::input_const_type         component_parameter
        )
        {
-        typedef ::color::category::lab< tag_name >    category_type;
+        typedef ::color::category::lab< tag_name, reference_number >    category_type;
         typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
         enum { green_p  = ::color::place::_internal::green<akin_type>::position_enum };
 

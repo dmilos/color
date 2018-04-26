@@ -12,8 +12,9 @@ namespace color
 
     template
      <
-       typename tag_name , typename ::color::constant::YPbPr::reference_enum      YPbPr_reference_number
-                         , typename ::color::constant::yuv::reference_enum          yuv_reference_number
+       typename tag_name 
+      ,typename ::color::constant::YPbPr::reference_enum      YPbPr_reference_number
+      ,typename ::color::constant::yuv::reference_enum          yuv_reference_number
      >
      struct YPbPr< ::color::category::yuv< tag_name, yuv_reference_number >, YPbPr_reference_number  >
       {

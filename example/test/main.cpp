@@ -93,14 +93,19 @@ void sandbox_test4()
 void sandbox_test5()
  {
   ::color::rgb< float > r = ::color::constant::aqua_t{};
-  ::color::xyz< float > x = ::color::constant::aqua_t{};
-  //::color::lab< float, ::color::constant::lab::CIE_entity  > l0 = ::color::constant::aqua_t{};
-  //::color::lab< float, ::color::constant::lab::Hunter_entity  > l1 = ::color::constant::aqua_t{};
+  ::color::xyz< float > x { {50,50,50} };
+  ::color::lab< float, ::color::constant::lab::CIE_entity  > l0 = ::color::constant::aqua_t{};
+  ::color::lab< float, ::color::constant::lab::Hunter_entity  > l1 = ::color::constant::aqua_t{};
 
-  //r = l0;
-  //r = l1;
-  //l0 = x;
-  //l1 = x;
+  r = l0;
+  r = l1;
+  l0 = x;
+  l1 = x;
+
+  x = l0;
+  x = l1;
+
+  l0 = l1;
 }
 
 void luv_bound()
