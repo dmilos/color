@@ -125,6 +125,11 @@ namespace color
 
       typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity  > white_point_type;
 
+      static scalar_type squre( scalar_type const & v )
+       {
+        return v*v;
+       }
+
       static void process
       (
         container_left_input_type         left
@@ -134,37 +139,26 @@ namespace color
         static const scalar_type  epsilon = scalar_type(216)/scalar_type(24389);
         static const scalar_type  k = scalar_type(24389)/scalar_type(27);
 
+        static scalar_type X = scalar_type( 100 ) * white_point_type::X();
+        static scalar_type Y = scalar_type( 100 ) * white_point_type::Y();
+        static scalar_type Z = scalar_type( 100 ) * white_point_type::Z();
+
+        static scalar_type Ka = scalar_type( 175.0 / 198.04 ) * ( Y + X );
+        static scalar_type Kb = scalar_type(  70.0 / 218.11 ) * ( Y + Z );
+
         scalar_type l = reformatLAB_type::template process< 0, 0>( container_right_trait_type::template get<0>( right ) );
         scalar_type a = reformatLAB_type::template process< 1, 1>( container_right_trait_type::template get<1>( right ) );
         scalar_type b = reformatLAB_type::template process< 2, 2>( container_right_trait_type::template get<2>( right ) );
 
-        scalar_type fy = (l +16)/116;
-        scalar_type fz = fy - b/200;
-        scalar_type fx = a/500 + fy;
-
-        scalar_type fx3 = fx * fx * fx;
-        scalar_type fy3 = fy * fy * fy;
-        scalar_type fz3 = fz * fz * fz;
-
-        scalar_type x = fx3;
-        scalar_type y = fy3;
-        scalar_type z = fz3;
-
-        if( z < epsilon      ) { z = ( 116*fz-16)/k; }
-        if( l  < epsilon * k ) { y = l/k; }
-        if( x < epsilon      ) { x = ( 116*fx-16)/k; }
-
-        x *= scalar_type( 100 ) * white_point_type::X();
-        y *= scalar_type( 100 ) * white_point_type::Y();
-        z *= scalar_type( 100 ) * white_point_type::Z();
+        scalar_type  y = ( squre( l / Y )  ) * scalar_type( 100 );
+        scalar_type  x =   ( ( a / Ka ) * sqrt( y / Y ) + ( y / Y ) ) * X;
+        scalar_type  z = - ( ( b / Kb ) * sqrt( y / Y ) - ( y / Y ) ) * Z;
 
         container_left_trait_type::template set<0>( left, reformatXYZ_type::template process< 0, 0 >( x ) );
         container_left_trait_type::template set<1>( left, reformatXYZ_type::template process< 1, 1 >( y ) );
         container_left_trait_type::template set<2>( left, reformatXYZ_type::template process< 2, 2 >( z ) );
       }
     };
-
-
 
    }
  }

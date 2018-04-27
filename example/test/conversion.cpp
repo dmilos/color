@@ -183,7 +183,8 @@ void check_conversion()
   color::YPbPr<long double >  ypbpr;
   color::YDbDr<long double >  ydbdr;
   color::YCgCo<long double >  ycgco;
-  color::lab<long double >      lab;
+  color::lab<long double, ::color::constant::lab::CIE_entity >      labCIE;
+  color::lab<long double, ::color::constant::lab::Hunter_entity >   labHunter;
 
   color::lms<long double, ::color::constant::lms::von_Kries_D65_entity >      lms;
   color::luv<long double >      luv;
@@ -206,7 +207,7 @@ void check_conversion()
   check_conversion_back_and_forth( c, ypbpr  );  check_conversion_back_and_forth( ck, ypbpr  );
   check_conversion_back_and_forth( c, ydbdr  );  check_conversion_back_and_forth( ck, ydbdr  );
   check_conversion_back_and_forth( c, ycgco  );  check_conversion_back_and_forth( ck, ycgco  );
-  check_conversion_back_and_forth( c, lab    );  check_conversion_back_and_forth( ck,   lab  );
+  check_conversion_back_and_forth( c, labCIE    );  check_conversion_back_and_forth( ck,   labCIE  );
 
   check_conversion_back_and_forth( r, c  );
   check_conversion_back_and_forth( r, ck );
@@ -219,7 +220,7 @@ void check_conversion()
   check_conversion_back_and_forth( r, ypbpr  );
   check_conversion_back_and_forth( r, ydbdr  );
   check_conversion_back_and_forth( r, ycgco  );
-  check_conversion_back_and_forth( r, lab    );
+  check_conversion_back_and_forth( r, labCIE    );
 
 
   check_conversion_back_and_forth( hl,     c  );  check_conversion_back_and_forth( hv,     c  );
@@ -233,7 +234,7 @@ void check_conversion()
   check_conversion_back_and_forth( hl, ypbpr  );  check_conversion_back_and_forth( hv, ypbpr  );
   check_conversion_back_and_forth( hl, ydbdr  );  check_conversion_back_and_forth( hv, ydbdr  );
   check_conversion_back_and_forth( hl, ycgco  );  check_conversion_back_and_forth( hv, ycgco  );
-  check_conversion_back_and_forth( hl, lab    );  check_conversion_back_and_forth( hv,   lab  );
+  check_conversion_back_and_forth( hl, labCIE    );  check_conversion_back_and_forth( hv,   labCIE  );
 
   check_conversion_back_and_forth( yi,     c  );  check_conversion_back_and_forth( yu601,     c  );
   check_conversion_back_and_forth( yi,     ck );  check_conversion_back_and_forth( yu601,     ck );
@@ -246,7 +247,7 @@ void check_conversion()
   check_conversion_back_and_forth( yi, ypbpr  );  check_conversion_back_and_forth( yu601, ypbpr  );
   check_conversion_back_and_forth( yi, ydbdr  );  check_conversion_back_and_forth( yu601, ydbdr  );
   check_conversion_back_and_forth( yi, ycgco  );  check_conversion_back_and_forth( yu601, ycgco  );
-  check_conversion_back_and_forth( yi,   lab  );  check_conversion_back_and_forth( yu601,   lab  );
+  check_conversion_back_and_forth( yi,   labCIE  );  check_conversion_back_and_forth( yu601,   labCIE  );
 
 
   check_conversion_back_and_forth( ypbpr, c  );  check_conversion_back_and_forth( ydbdr, c  );  check_conversion_back_and_forth( ycgco, c  );
@@ -258,13 +259,13 @@ void check_conversion()
   check_conversion_back_and_forth( ypbpr, yi );  check_conversion_back_and_forth( ydbdr, yi );  check_conversion_back_and_forth( ycgco, yi );
   check_conversion_back_and_forth( ypbpr, yu601 );  check_conversion_back_and_forth( ydbdr, yu601 );  check_conversion_back_and_forth( ycgco, yu601 );
 
-  check_conversion_back_and_forth( ypbpr, lab );  check_conversion_back_and_forth( ydbdr, lab  );  check_conversion_back_and_forth( ycgco, lab  );
+  check_conversion_back_and_forth( ypbpr, labCIE );  check_conversion_back_and_forth( ydbdr, labCIE  );  check_conversion_back_and_forth( ycgco, labCIE  );
 
   check_conversion_back_and_forth( ypbpr, ypbpr  );  check_conversion_back_and_forth( ydbdr, ypbpr  );  check_conversion_back_and_forth( ycgco, ypbpr  );
   check_conversion_back_and_forth( ypbpr, ydbdr  );  check_conversion_back_and_forth( ydbdr, ydbdr  );  check_conversion_back_and_forth( ycgco, ydbdr  );
   check_conversion_back_and_forth( ypbpr, ycgco  );  check_conversion_back_and_forth( ydbdr, ycgco  );  check_conversion_back_and_forth( ycgco, ycgco  );
 
-  check_conversion_back_and_forth( ypbpr,  lab   );  check_conversion_back_and_forth( ydbdr,   lab  );  check_conversion_back_and_forth( ycgco,    lab );
+  check_conversion_back_and_forth( ypbpr,  labCIE   );  check_conversion_back_and_forth( ydbdr,   labCIE  );  check_conversion_back_and_forth( ycgco,    labCIE );
 
   //check_conversion_pass( c,  ck,  r ); check_conversion_pass(  c, ck, hl ); check_conversion_pass(  c, ck, hv );
   //check_conversion_pass( ck, ck,  r ); check_conversion_pass(  c, ck, hl ); check_conversion_pass(  c, ck, hv );

@@ -142,24 +142,27 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-           static scalar_type Ka = (175/198.04) * ( white_point_type::X() + white_point_type::Y() );
-           static scalar_type Kb = ( 70/218.11) * ( white_point_type::Y() + white_point_type::Z() );
+           static scalar_type X = scalar_type( 100 ) * white_point_type::X();
+           static scalar_type Y = scalar_type( 100 ) * white_point_type::Y();
+           static scalar_type Z = scalar_type( 100 ) * white_point_type::Z();
+
+           static scalar_type Ka = scalar_type(175.0/198.04) * ( X + Y );
+           static scalar_type Kb = scalar_type( 70.0/218.11) * ( Y + Z );
 
            scalar_type x = reformatXYZ_type::template process<0,0>( container_right_trait_type::template get<0>( right ) );
            scalar_type y = reformatXYZ_type::template process<1,1>( container_right_trait_type::template get<1>( right ) );
            scalar_type z = reformatXYZ_type::template process<2,2>( container_right_trait_type::template get<2>( right ) );
 
-           scalar_type l = sqrt( y / white_point_type::Y() );
-           scalar_type a = 0;
-           scalar_type b = 0;
+           scalar_type l = sqrt( y / Y );
+           scalar_type a = scalar_type( 0 );
+           scalar_type b = scalar_type( 0 );
 
            if( false == scalar_trait_type::is_small( l ) )
             {
-             a = scalar_type( 100 ) * Ka * ( x/white_point_type::X() - y / white_point_type::Y() )/ l;
-             b = scalar_type( 100 ) * Kb * ( y/white_point_type::Y() - z / white_point_type::Z() )/ l;
+             a = Ka * ( x/X - y / Y )/ l;
+             b = Kb * ( y/Y - z / Z )/ l;
+             l *= scalar_type( 100 );
             }
-
-           //l *= scalar_type( 100 );
 
            container_left_trait_type::template set<0>( left, reformatLAB_type::template process< 0, 0>( l ) );
            container_left_trait_type::template set<1>( left, reformatLAB_type::template process< 1, 1>( a ) );

@@ -1328,8 +1328,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\out\bin-release</OutDir>
-    <IntDir>$(SolutionDir)\out\bin-release</IntDir>
+    <OutDir>$(SolutionDir)\out\bin\release\14.0</OutDir>
+    <IntDir>$(SolutionDir)\out\bin\release\14.0</IntDir>
     <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) configuration=release </NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=release</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=release</NMakeCleanCommandLine>

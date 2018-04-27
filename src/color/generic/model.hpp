@@ -105,13 +105,6 @@ namespace color
          }
 
 
-       // TODO model &  operator=( std::initializer_list<component_type> const& ilist )
-       // TODO  {
-       // TODO   //TODO C++14 static_assert( container_trait_type::size_entity != ilist.size(), "Initializer list size do not match model/format length." );
-       // TODO   ::color::_internal::init<category_name>( this->m_container, ilist );
-       // TODO   return *this;
-       // TODO  }
-
        template< typename tag_name >
         model &  operator=( ::color::constant::base< tag_name > const& )
          {
