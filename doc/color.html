@@ -132,12 +132,17 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="lab" />lab</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using lab = ::color::model&lt; ::color::category::lab&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
-							<dt>Decription</dt><dd>Implements LAB( CIELAB ) color model.</dd>
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name, ::color::constant::lab::reference_enum reference_number = ::color::constant::lab::CIE_entity &gt;
+												<br>&nbsp; using lab = ::color::model&lt; ::color::category::lab&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
+							<dt>Decription</dt><dd>Implements LAB( CIE and Hunter ) color model.</dd>
 							<dt>Example:</dt><dd><code>::color::lab&lt; double &gt; c;</code></dd>
-							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Lab_color_space">Wikipedia LAB</a></dd>
-						</dl><hr width="%20">
+							<dt>See also</dt>
+							<dd>
+								<a href="https://en.wikipedia.org/wiki/Lab_color_space">Wikipedia LAB</a><br>
+								<a href="./ns/constant.html#lab">Specify reference of LAB.</a>
+							</dd>
 
+						</dl><hr width="%20">
 						<dl>
 							<dt>Name</dt><dd><a name="labCH" />LabCH</dd>
 							<dt>Declaration</dt><dd><code>template&lt; typename type_name &gt; using LabCH = ::color::model&lt; ::color::category::LabCH&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
@@ -145,7 +150,6 @@
 							<dt>Example:</dt><dd><code>::color::LabCH&lt; double &gt; c;</code></dd>
 							<dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Lab_color_space#Cylindrical_representation:_CIELCh_or_CIEHLC">Wikipedia LAB</a></dd>
 						</dl><hr width="%20">
-
 
 						<dl>
 							<dt>Name</dt><dd><a name="lms" />lms</dd>
@@ -247,7 +251,7 @@
 
 						<dl>
 							<dt>Name</dt><dd><a name="YPbPr" />YPbPr</dd>
-							<dt>Declaration</dt><dd><code>template&lt; typename type_name, ::color::constant::YPbPr::reference_enum reference_number = ::color::constant::YPbPr::BT_709_entity &gt; 
+							<dt>Declaration</dt><dd><code>template&lt; typename type_name, ::color::constant::YPbPr::reference_enum reference_number = ::color::constant::YPbPr::BT_709_entity &gt;
 												<br>&nbsp; using YPbPr = ::color::model&lt; ::color::category::YPbPr&lt; <i>unspecified</i> &gt; &gt;;</code></dd>
 							<dt>Decription</dt><dd>Implements YPbPr color model.</dd>
 							<dt>Example:</dt><dd><code>::color::YPbPr&lt; double &gt; c;</code></dd>

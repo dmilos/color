@@ -35,8 +35,8 @@ namespace color
 
          typedef typename ::color::trait::scalar< LabCH_category_type >::instance_type scalar_type;
 
-         typedef ::color::model<   yuv_category_type >      yuv_model_type;
          typedef ::color::model<   LabCH_category_type >      LabCH_model_type;
+         typedef ::color::model<   yuv_category_type >      yuv_model_type;
 
          typedef ::color::lab< scalar_type >  lab_model_type;
          typedef ::color::xyz< scalar_type >  xyz_model_type;

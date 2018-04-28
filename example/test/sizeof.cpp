@@ -249,7 +249,7 @@ void check_sizeof()
   ss << print_sizeof<::color::YCgCo  > ( "<code>YCgCo </code>" );  ss << std::endl;
   ss << print_sizeof<::color::YDbDr  > ( "<code>YDbDr </code>" );  ss << std::endl;
   ss << print_sizeof<::color::xyz    > ( "<code>xyz </code>"   );  ss << std::endl;
-  ss << print_sizeof< labCIE    > ( "<code>labCIE </code>"   );  ss << std::endl;
+  ss << print_sizeof< labCIE    > ( "<code>labCIE</code>"   );  ss << std::endl;
   ss << print_sizeof< labHunter > ( "<code>labHunter </code>"   );  ss << std::endl;
   ss << print_sizeof< lmsKries65 > ( "<code>lmsKries65 </code>"   );  ss << std::endl;
   ss << print_sizeof< lmsKriesE  > ( "<code>lmsKriesE  </code>"   );  ss << std::endl;

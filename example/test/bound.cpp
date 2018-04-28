@@ -362,13 +362,24 @@ void print_bound()
   ss << print_bound< color::xyz<long double   > >( "color::xyz", "long double   " ) << std::endl;
 
   ss << print_semi_title( "L","a","b" );
-  ss << print_bound< color::lab<std::uint8_t  > >( "color::lab", "std::uint8_t  " ) << std::endl;
-  ss << print_bound< color::lab<std::uint16_t > >( "color::lab", "std::uint16_t " ) << std::endl;
-  ss << print_bound< color::lab<std::uint32_t > >( "color::lab", "std::uint32_t " ) << std::endl;
-  ss << print_bound< color::lab<std::uint64_t > >( "color::lab", "std::uint64_t " ) << std::endl;
-  ss << print_bound< color::lab<float         > >( "color::lab", "float         " ) << std::endl;
-  ss << print_bound< color::lab<double        > >( "color::lab", "double        " ) << std::endl;
-  ss << print_bound< color::lab<long double   > >( "color::lab", "long double   " ) << std::endl;
+  ss << print_bound< color::lab<std::uint8_t , ::color::constant::lab::CIE_entity > >( "color::labCIE", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::lab<std::uint16_t, ::color::constant::lab::CIE_entity > >( "color::labCIE", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::lab<std::uint32_t, ::color::constant::lab::CIE_entity > >( "color::labCIE", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::lab<std::uint64_t, ::color::constant::lab::CIE_entity > >( "color::labCIE", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::lab<float        , ::color::constant::lab::CIE_entity > >( "color::labCIE", "float         " ) << std::endl;
+  ss << print_bound< color::lab<double       , ::color::constant::lab::CIE_entity > >( "color::labCIE", "double        " ) << std::endl;
+  ss << print_bound< color::lab<long double  , ::color::constant::lab::CIE_entity > >( "color::labCIE", "long double   " ) << std::endl;
+
+
+  ss << print_semi_title( "L","a","b" );
+  ss << print_bound< color::lab<std::uint8_t , ::color::constant::lab::Hunter_entity > >( "color::labHunter", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::lab<std::uint16_t, ::color::constant::lab::Hunter_entity > >( "color::labHunter", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::lab<std::uint32_t, ::color::constant::lab::Hunter_entity > >( "color::labHunter", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::lab<std::uint64_t, ::color::constant::lab::Hunter_entity > >( "color::labHunter", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::lab<float        , ::color::constant::lab::Hunter_entity > >( "color::labHunter", "float         " ) << std::endl;
+  ss << print_bound< color::lab<double       , ::color::constant::lab::Hunter_entity > >( "color::labHunter", "double        " ) << std::endl;
+  ss << print_bound< color::lab<long double  , ::color::constant::lab::Hunter_entity > >( "color::labHunter", "long double   " ) << std::endl;
+
 
   ss << print_semi_title( "L","m","s" );
   ss << print_bound< color::lms<std::uint8_t , ::color::constant::lms::von_Kries_D65_entity > >( "color::lmsKriesD65", "std::uint8_t  " ) << std::endl;

@@ -26,7 +26,7 @@
   - RGB, CMY, CMYK,
   - HSI, HSL, HSV, HWB,
   - YIQ, YUV(BT.601, BT.709), YCgCo, YPbPr(BT.601, BT.709, BT.2020),
-  - XYZ( sRGB, D65, 2° ), LAB, LUV, LMS( von Kries D65, von Kries E, BFD, MCAT02 ), xyY, LabCH, LuvCH
+  - XYZ( sRGB, D65, 2° ), LAB( CIE, Hunter), LUV, LMS( von Kries D65, von Kries E, BFD, MCAT02 ), xyY, LabCH, LuvCH
 
 
 ### Code sample - Initialization:

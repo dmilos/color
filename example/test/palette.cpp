@@ -35,7 +35,7 @@ void make_image(std::string const& name, double plane = 0.5, int side = 1 )
            check = m;
            if( true == ::color::check::overburn( check ) )
             {
-             ::color::fix::overburn( check ); 
+             ::color::fix::overburn( check );
              if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
              if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
             }
@@ -51,7 +51,7 @@ void make_image(std::string const& name, double plane = 0.5, int side = 1 )
            check = m;
            if( true == ::color::check::overburn( check ) )
             {
-             ::color::fix::overburn( check ); 
+             ::color::fix::overburn( check );
              if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
              if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
             }
@@ -66,7 +66,7 @@ void make_image(std::string const& name, double plane = 0.5, int side = 1 )
            check = m;
            if( true == ::color::check::overburn( check ) )
             {
-             ::color::fix::overburn( check ); 
+             ::color::fix::overburn( check );
              if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
              if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
             }
@@ -93,8 +93,8 @@ void palette( std::string const& name, int planes )
     number[0] =  int(layer*1)%10 + '0';
     number[1] =  int(layer*10)%10 + '0';
     number[2] = (int(layer*100))%10 + '0';
-    make_image< color::model<category_name> >( "./palette/"+name+"-0-"+number+".tga" , layer, 0 ); 
-    make_image< color::model<category_name> >( "./palette/"+name+"-1-"+number+".tga" , layer, 1 ); 
+    make_image< color::model<category_name> >( "./palette/"+name+"-0-"+number+".tga" , layer, 0 );
+    make_image< color::model<category_name> >( "./palette/"+name+"-1-"+number+".tga" , layer, 1 );
     make_image< color::model<category_name> >( "./palette/"+name+"-2-"+number+".tga" , layer, 2 );
    }
  }
@@ -114,7 +114,9 @@ void test_palette()
   palette< color::yuv<double>::category_type  >( "yuv-709",  5 );
   palette< color::xyz<double>::category_type  >( "xyz",      5 );
   palette< color::luv<double>::category_type  >( "luv",      5 );
-  palette< color::lab<double>::category_type  >( "lab",      5 );
+  palette< color::lab<double, ::color::constant::lab::CIE_entity   >::category_type  >( "labCIE",         5 );
+  palette< color::lab<double, ::color::constant::lab::Hunter_entity>::category_type  >( "labHunter",      5 );
+
   palette< color::lms<double>::category_type  >( "lms",      5 );
   palette< color::xyy<double>::category_type  >( "xyy",      5 );
 
@@ -127,7 +129,7 @@ void test_palette()
     number[0] =  layer/10 + '0';
     number[1] =  layer%10 + '0';
     number[2] = (layer/10)%10 + '0';
-    make_image<color::hwb<double> >( "./palette/hwb-0-"+number+".tga" , layer/12.0, 0 ); 
+    make_image<color::hwb<double> >( "./palette/hwb-0-"+number+".tga" , layer/12.0, 0 );
    }
 
   for( int layer= 0; layer <= 10; layer += 1 )
@@ -135,13 +137,11 @@ void test_palette()
     number[0] = layer/10 + '0';
     number[1] = layer%10 + '0';
     number[2] = '0';
-    make_image<color::hwb<double> >( "./palette/hwb-1-"+number+".tga" , layer/10.0, 1 ); 
+    make_image<color::hwb<double> >( "./palette/hwb-1-"+number+".tga" , layer/10.0, 1 );
     make_image<color::hwb<double> >( "./palette/hwb-2-"+number+".tga" , layer/10.0, 2 );
    }
 
  }
-
-
 
 void make_image_RGB2LAB(std::string const& name )
  {
