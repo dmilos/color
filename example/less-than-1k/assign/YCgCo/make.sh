@@ -8,6 +8,7 @@ g++ -fexceptions -std=c++11 -g -I../../../../src YCgCo2hsl.cpp            -o YCg
 g++ -fexceptions -std=c++11 -g -I../../../../src YCgCo2hsv.cpp            -o YCgCo2hsv
 g++ -fexceptions -std=c++11 -g -I../../../../src YCgCo2hwb.cpp            -o YCgCo2hwb
 g++ -fexceptions -std=c++11 -g -I../../../../src YCgCo2lab_CIE.cpp        -o YCgCo2lab_CIE
+g++ -fexceptions -std=c++11 -g -I../../../../src YCgCo2lab.cpp            -o YCgCo2lab
 g++ -fexceptions -std=c++11 -g -I../../../../src YCgCo2lab_Hunter.cpp     -o YCgCo2lab_Hunter
 g++ -fexceptions -std=c++11 -g -I../../../../src YCgCo2LabCH.cpp          -o YCgCo2LabCH
 g++ -fexceptions -std=c++11 -g -I../../../../src YCgCo2lms.cpp            -o YCgCo2lms

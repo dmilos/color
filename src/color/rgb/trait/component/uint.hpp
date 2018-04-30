@@ -1,4 +1,4 @@
-    #ifndef color_rgb_trait_component_uint
+#ifndef color_rgb_trait_component_uint
 #define color_rgb_trait_component_uint
 
 #include "../../category.hpp"

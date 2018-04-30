@@ -1,5 +1,5 @@
-#ifndef color_xyz_akin_xyz
-#define color_xyz_akin_xyz
+#ifndef color_LabCH_akin_xyz
+#define color_LabCH_akin_xyz
 
 #include "../../generic/akin/xyz.hpp"
 #include "../category.hpp"

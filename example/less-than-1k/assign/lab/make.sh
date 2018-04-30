@@ -7,6 +7,7 @@ g++ -fexceptions -std=c++11 -g -I../../../../src lab2hsi.cpp            -o lab2h
 g++ -fexceptions -std=c++11 -g -I../../../../src lab2hsl.cpp            -o lab2hsl
 g++ -fexceptions -std=c++11 -g -I../../../../src lab2hsv.cpp            -o lab2hsv
 g++ -fexceptions -std=c++11 -g -I../../../../src lab2hwb.cpp            -o lab2hwb
+g++ -fexceptions -std=c++11 -g -I../../../../src lab2lab.cpp            -o lab2lab
 g++ -fexceptions -std=c++11 -g -I../../../../src lab2lab_CIE.cpp        -o lab2lab_CIE
 g++ -fexceptions -std=c++11 -g -I../../../../src lab2lab_Hunter.cpp     -o lab2lab_Hunter
 g++ -fexceptions -std=c++11 -g -I../../../../src lab2LabCH.cpp          -o lab2LabCH

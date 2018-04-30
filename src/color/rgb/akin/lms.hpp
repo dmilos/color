@@ -1,9 +1,9 @@
-#ifndef color_rgb_akin_luv
-#define color_rgb_akin_luv
+#ifndef color_rgb_akin_lms
+#define color_rgb_akin_lms
 
 #include "../../generic/akin/rgb.hpp"
 #include "../category.hpp"
-#include "../../luv/category.hpp"
+#include "../../lms/category.hpp"
 
 namespace color
  {

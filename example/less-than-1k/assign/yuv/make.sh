@@ -7,6 +7,7 @@ g++ -fexceptions -std=c++11 -g -I../../../../src yuv2hsi.cpp            -o yuv2h
 g++ -fexceptions -std=c++11 -g -I../../../../src yuv2hsl.cpp            -o yuv2hsl
 g++ -fexceptions -std=c++11 -g -I../../../../src yuv2hsv.cpp            -o yuv2hsv
 g++ -fexceptions -std=c++11 -g -I../../../../src yuv2hwb.cpp            -o yuv2hwb
+g++ -fexceptions -std=c++11 -g -I../../../../src yuv2lab.cpp            -o yuv2lab
 g++ -fexceptions -std=c++11 -g -I../../../../src yuv2lab_CIE.cpp        -o yuv2lab_CIE
 g++ -fexceptions -std=c++11 -g -I../../../../src yuv2lab_Hunter.cpp     -o yuv2lab_Hunter
 g++ -fexceptions -std=c++11 -g -I../../../../src yuv2LabCH.cpp          -o yuv2LabCH

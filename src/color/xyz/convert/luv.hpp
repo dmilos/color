@@ -56,7 +56,7 @@ namespace color
           {
            static const scalar_type  epsilon = scalar_type(216)/scalar_type(24389);
            static const scalar_type  k = scalar_type(24389)/scalar_type(27);
-           // TODO static const scalar_type   = k  * e;
+           // TODO static const scalar_type   = k  * epsilon;
 
            static scalar_type u0 = scalar_type(4)* white_point_type::X()/( white_point_type::X() +  scalar_type(15)*white_point_type::Y() + scalar_type(3)*white_point_type::Z() );
            static scalar_type v0 = scalar_type(9)* white_point_type::Y()/( white_point_type::X() +  scalar_type(15)*white_point_type::Y() + scalar_type(3)*white_point_type::Z() );

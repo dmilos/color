@@ -1,5 +1,5 @@
-#ifndef color__internal_utility_container_scramble5
-#define color__internal_utility_container_scramble5
+#ifndef color__internal_utility_container_scramble4
+#define color__internal_utility_container_scramble4
 
 // ::color::_internal::utility::container::scramble4<value_name, first_position, second_position, third_position,fourth_position>
 

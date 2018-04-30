@@ -7,6 +7,7 @@ g++ -fexceptions -std=c++11 -g -I../../../../src gray2hsi.cpp            -o gray
 g++ -fexceptions -std=c++11 -g -I../../../../src gray2hsl.cpp            -o gray2hsl
 g++ -fexceptions -std=c++11 -g -I../../../../src gray2hsv.cpp            -o gray2hsv
 g++ -fexceptions -std=c++11 -g -I../../../../src gray2hwb.cpp            -o gray2hwb
+g++ -fexceptions -std=c++11 -g -I../../../../src gray2lab.cpp            -o gray2lab
 g++ -fexceptions -std=c++11 -g -I../../../../src gray2lab_CIE.cpp        -o gray2lab_CIE
 g++ -fexceptions -std=c++11 -g -I../../../../src gray2lab_Hunter.cpp     -o gray2lab_Hunter
 g++ -fexceptions -std=c++11 -g -I../../../../src gray2LabCH.cpp          -o gray2LabCH

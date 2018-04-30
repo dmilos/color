@@ -1,5 +1,5 @@
-#ifndef color_LabCH_place_chroma
-#define color_LabCH_place_chroma
+#ifndef color_LuvCH_place_chroma
+#define color_LuvCH_place_chroma
 
 // ::color::place::chroma<category_name>()
 
@@ -15,10 +15,10 @@
       {
 
        template< typename tag_name >
-        struct chroma< ::color::category::LabCH< tag_name > >
+        struct chroma< ::color::category::LuvCH< tag_name > >
          {
           public:
-           typedef ::color::category::LabCH< tag_name > category_type;
+           typedef ::color::category::LuvCH< tag_name > category_type;
            typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
            enum { position_enum = 1 };

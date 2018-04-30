@@ -32,7 +32,10 @@ namespace color
        public:
          typedef ::color::category::xyy< xyy_tag_name >    xyy_category_type, category_left_type;
          typedef ::color::category::xyz< xyz_tag_name >    xyz_category_type, category_right_type;
+
+         typedef typename ::color::trait::scalar<category_left_type>                scalar_trait_type;
          typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
+
          typedef  ::color::category::xyy< scalar_type >  xyySCALAR_category_type;
          typedef  ::color::category::xyz< scalar_type >  xyzSCALAR_category_type;
 
@@ -66,7 +69,7 @@ namespace color
                  scalar_type small_y = 0;
            const scalar_type big_Y   = y;
 
-           if( 0 != s ) // TODO is epsilon
+           if( false == scalar_trait_type::is_small( s ) )
             {
              small_x = x / s;
              small_y = y / s;

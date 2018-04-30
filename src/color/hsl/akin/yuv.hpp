@@ -1,5 +1,5 @@
-#ifndef color_hsl_akin_hsl
-#define color_hsl_akin_hsl
+#ifndef color_hsl_akin_yuv
+#define color_hsl_akin_yuv
 
 #include "../../generic/akin/hsl.hpp"
 #include "../category.hpp"
@@ -10,13 +10,17 @@ namespace color
   namespace akin
    {
 
-    template< >struct hsl< ::color::category::hsl_uint8   >{ typedef ::color::category::hsl_uint8   akin_type; };
-    template< >struct hsl< ::color::category::hsl_uint16  >{ typedef ::color::category::hsl_uint16  akin_type; };
-    template< >struct hsl< ::color::category::hsl_uint32  >{ typedef ::color::category::hsl_uint32  akin_type; };
-    template< >struct hsl< ::color::category::hsl_uint64  >{ typedef ::color::category::hsl_uint64  akin_type; };
-    template< >struct hsl< ::color::category::hsl_float   >{ typedef ::color::category::hsl_float   akin_type; };
-    template< >struct hsl< ::color::category::hsl_double  >{ typedef ::color::category::hsl_double  akin_type; };
-    template< >struct hsl< ::color::category::hsl_ldouble >{ typedef ::color::category::hsl_ldouble akin_type; };
+    template
+     <
+       typename tag_name
+      ,::color::constant::yuv::reference_enum reference_number 
+
+     >
+     struct hsl< ::color::category::yuv< tag_name, reference_number >  >
+      {
+       public:
+         typedef ::color::category::hsl< tag_name > akin_type;
+      };
 
    }
  }

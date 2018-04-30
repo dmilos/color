@@ -35,7 +35,7 @@
 
         enum
          {
-           white_p  = 2 // TODO
+           white_p  =  ::color::place::_internal::white<category_type>::position_entity
          };
 
         enum
