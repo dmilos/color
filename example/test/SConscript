@@ -32,7 +32,9 @@ settings.accumulate( 'RTTI', { 'enable': 'false' } )
 settings.accumulate( 'compiler:configuration', { 'name'          : configuration  } )
 settings.accumulate( 'compiler:optimisation',  { 'configuration' : configuration  } )
 settings.accumulate( 'compiler:version',  { 'msvc' : [ settings.get_custom( 'compiler_version_msvc' ) ] } )
+
 settings.accumulate( 'compiler:warning', { 'return-address-of-local-variable': 'enable'  } )
+settings.accumulate( 'compiler:warning', { 'unused-variable': 'disable'  } )
 
 settings.accumulate( 'PDB', { 'configuration': configuration , 'synchronous' : 'false', 'file-name': os.path.join( directory_pdb, name_full + '.pdb' ) } )
 settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.get_custom( 'RTL' ) } )
@@ -42,9 +44,14 @@ if 'true' == settings.get_custom( 'pp2f' ):
 
 # Accumulate source
 envObject = nucleotide.Environment( settings ).native()
-#envObject.Append( CPPFLAGS = [ '/Wall' ] )
-#envObject.Append( CPPFLAGS = [ '/wd4464' ] )
-#envObject.Append( CPPFLAGS   = [ '/we4800', '/we4244', '/we4365', '/we4365' ] )
+##if 'Linux' == platform.system() :
+#envObject.Append( CPPFLAGS = [ '-Wall' ] )
+#envObject.Append( CPPFLAGS = [ '-Wunused-local-typedefs' ] )
+#envObject.Append( CPPFLAGS = [ '-Wmaybe-uninitialized' ] )
+
+#if 'Windows' == platform.system() :
+#    envObject.Append( CPPFLAGS = [ '/wd4464' ] )
+#    envObject.Append( CPPFLAGS   = [ '/we4800', '/we4244', '/we4365', '/we4365' ] )
 
 
 source = []

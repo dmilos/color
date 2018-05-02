@@ -18,7 +18,7 @@
       typename ::color::trait::component< category_name >::return_image_type
       alpha( ::color::model< category_name > const& color_parameter )
        {
-        typedef ::color::model< category_name > model_type;
+        //typedef ::color::model< category_name > model_type;
         typedef ::color::trait::bound< category_name > bound_type;
 
         //return bound_type::template maximum< ::color::place::alpha<category_name>() >();

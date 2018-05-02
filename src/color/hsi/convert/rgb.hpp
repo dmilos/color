@@ -85,6 +85,12 @@ namespace color
 
             h /= constant_type::two_pi();
 
+            {// TODO
+             // typedef ::color::category::rgb< scalar_type > rgb_scalar_type;
+             //typedef ::color::get::_internal::rgb::hue::usher< rgb_scalar_type, ::color::get::constant::rgb::hue::polar_atan2_entity > hue_type;
+             //h = hue_type::process( r, g, b ) / ( 2 * pi );
+            }
+
            container_left_trait_type::template set<       hue_p>( left, diverse_type::template process<       hue_p>( h ) );
            container_left_trait_type::template set<saturation_p>( left, diverse_type::template process<saturation_p>( s ) );
            container_left_trait_type::template set< intensity_p>( left, diverse_type::template process< intensity_p>( i ) );

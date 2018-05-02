@@ -13,8 +13,8 @@
       void
       alpha
        ( 
-                 ::color::model< category_name >                                   & color_parameter, 
-        typename ::color::model< category_name >::component_input_const_type         component_parameter
+                 ::color::model< category_name >                                   & , 
+        typename ::color::model< category_name >::component_input_const_type         
        )
        {
         // Do nothing!!!

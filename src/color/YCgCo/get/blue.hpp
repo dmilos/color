@@ -29,7 +29,7 @@
 
         typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
 
-        typedef typename ::color::trait::container<category_type>          container_trait_type;
+        //typedef typename ::color::trait::container<category_type>          container_trait_type;
 
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_type;
 

@@ -117,6 +117,10 @@ std::string print_sizeof( std::string const& name )
   ss << "<td>" << print_sizeof_one<typename  split556_type   ::category_type>() << "</td>";
   ss << "<td>" << print_sizeof_one<typename  split565_type   ::category_type>() << "</td>";
   ss << "<td>" << print_sizeof_one<typename  split655_type   ::category_type>() << "</td>";
+
+  ss << "<td>" << print_sizeof_one<typename  split5551_type   ::category_type>() << "</td>";
+  ss << "<td>" << print_sizeof_one<typename  split1555_type   ::category_type>() << "</td>";
+
   ss << "<td>" << print_sizeof_one<typename  split2222_type  ::category_type>() << "</td>";
   ss << "<td>" << print_sizeof_one<typename  split4444_type  ::category_type>() << "</td>";
   ss << "<td>" << print_sizeof_one<typename  split8888_type  ::category_type>() << "</td>";
@@ -215,6 +219,9 @@ void check_sizeof()
   ss << "<td>"       << "<code>split565</code>        </td>" ;
   ss << "<td>"       << "<code>split655</code>        </td>" ;
 
+  ss << "<td>"       << "<code>split5551</code>       </td>" ;
+  ss << "<td>"       << "<code>split1555</code>       </td>" ;
+
   ss << "<td>"       << "<code>split2222</code>       </td>" ;
   ss << "<td>"       << "<code>split4444</code>       </td>" ;
   ss << "<td>"       << "<code>split8888</code>       </td>" ;
@@ -264,6 +271,52 @@ void check_sizeof()
   ss << "<br />";
 
   ss << print_system_sizeof();
+
+  ss << "<br />";
+
+
+  ss << "<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" >" << std::endl;
+  {
+   #ifdef _MSVC_LANG
+   ss << "<tr><td>    _MSVC_LANG </td> <td>" <<  _MSVC_LANG << " </td></tr>" << std::endl;
+   #endif
+
+   #if defined ( _MSC_BUILD )
+   ss << "<tr><td>  _MSC_BUILD   </td> <td>" <<  _MSC_BUILD << " </td></tr>" << std::endl;
+   #endif
+
+   #if defined ( _MSC_VER )
+   ss << "<tr><td>   _MSC_VER  </td> <td>" <<  _MSC_VER << " </td></tr>" << std::endl;
+   #endif
+
+   #if defined ( _MSC_FULL_VER )
+   ss << "<tr><td>  _MSC_FULL_VER   </td> <td>" <<  _MSC_FULL_VER << " </td></tr>" << std::endl;
+   #endif
+  }
+  {
+   #if defined ( __GNUC__ )
+   ss << "<tr><td>   __GNUC__  </td> <td>" <<  __GNUC__ << " </td></tr>" << std::endl;
+   #endif
+
+   #if defined ( __GNUC_MINOR__ )
+   ss << "<tr><td>  __GNUC_MINOR__   </td> <td>" <<  __GNUC_MINOR__ << " </td></tr>" << std::endl;
+   #endif
+
+   #if defined ( __GNUC_PATCHLEVEL__ )
+   ss << "<tr><td>   __GNUC_PATCHLEVEL__  </td> <td>" <<  __GNUC_PATCHLEVEL__ << " </td></tr>" << std::endl;
+   #endif
+
+   #if defined ( __STRICT_ANSI__ )
+   ss << "<tr><td>  __STRICT_ANSI__   </td> <td>" <<  __STRICT_ANSI__ << " </td></tr>" << std::endl;
+   #endif
+
+   #if defined ( __VERSION__ )
+   ss << "<tr><td>   __VERSION__  </td> <td>" <<  __VERSION__ << " </td></tr>" << std::endl;
+   #endif
+
+  }
+
+  ss << "</table>" << std::endl;
 
    {
     std::ofstream ofs( std::string( "./mc.html" ).c_str() );

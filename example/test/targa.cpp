@@ -33,10 +33,10 @@ void targa_make_gray_header( int width, int height, targa_header_struct header )
    header[10] = 0;
    header[11] = 0;
 
-   header[12] =  (width & 0x00FF);
-   header[13] =  (width & 0xFF00) / 256;
-   header[14] =  (height & 0x00FF);
-   header[15] =  (height & 0xFF00) / 256;
+   header[12] = (unsigned char) (width & 0x00FF);
+   header[13] = (unsigned char) ((width & 0xFF00) / 256);
+   header[14] = (unsigned char) (height & 0x00FF);
+   header[15] = (unsigned char) ((height & 0xFF00) / 256);
 
    header[16] = 8;
    header[17] = 32;
@@ -59,10 +59,10 @@ void targa_make_header( int width, int height, targa_header_struct header )
    header[10] = 0;
    header[11] = 0;
 
-   header[12] =  (width & 0x00FF);
-   header[13] =  (width & 0xFF00) / 256;
-   header[14] =  (height & 0x00FF);
-   header[15] =  (height & 0xFF00) / 256;
+   header[12] =  (unsigned char)(width & 0x00FF);
+   header[13] =  (unsigned char)((width & 0xFF00) / 256);
+   header[14] =  (unsigned char)(height & 0x00FF);
+   header[15] =  (unsigned char)((height & 0xFF00) / 256);
 
    header[16] = 32;
    header[17] = 0;
@@ -84,10 +84,10 @@ void targa_make_header( int width, int height, targa_header_struct header )
    header[10] = 0;
    header[11] = 0;
 
-   header[12] =  (width & 0x00FF);
-   header[13] =  (width & 0xFF00) / 256;
-   header[14] =  (height & 0x00FF);
-   header[15] =  (height & 0xFF00) / 256;
+   header[12] =  (unsigned char)(width & 0x00FF);
+   header[13] =  (unsigned char)((width & 0xFF00) / 256);
+   header[14] =  (unsigned char)(height & 0x00FF);
+   header[15] =  (unsigned char)((height & 0xFF00) / 256);
 
    header[16] = 24;
    header[17] = 32;

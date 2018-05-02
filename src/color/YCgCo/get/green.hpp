@@ -31,7 +31,7 @@
 
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_type;
 
-        typedef typename ::color::trait::container<category_type>          container_trait_type;
+        //typedef typename ::color::trait::container<category_type>          container_trait_type;
 
         typedef ::color::_internal::diverse< akin_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;

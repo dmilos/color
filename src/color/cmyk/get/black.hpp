@@ -21,7 +21,7 @@
        {
         typedef ::color::category::cmyk< tag_name > category_type;
 
-        typedef  ::color::operation::_internal::invert< category_type > invert_type;
+        //typedef  ::color::operation::_internal::invert< category_type > invert_type;
 
         enum { black_p      = ::color::place::_internal::black< category_type >::position_enum };
 

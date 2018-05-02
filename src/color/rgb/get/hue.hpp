@@ -76,6 +76,8 @@
             typedef ::color::_internal::diverse< category_type >     diverse_type; //! Diverse to self
 
             typedef ::color::trait::container<category_type>     container_trait_type;
+            typedef ::color::constant::generic< category_type > generic_constant_type;
+
 
             typedef usher< category_type, ::color::get::constant::rgb::hue::hexagon_entity >  this_type;
 
@@ -86,7 +88,7 @@
               ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
              };
 
-            return_type process( scalar_type const& r, scalar_type const& g, scalar_type const& b )
+            scalar_type process( scalar_type const& r, scalar_type const& g, scalar_type const& b )
              {
               m_loValue = r;  m_midValue = g;  m_hiValue = b;
               m_loIndex = 0;  m_midIndex = 1;  m_hiIndex = 2;
@@ -101,7 +103,7 @@
 
               if( true == scalar_trait_type::is_small( m_delta ) )
                {
-                return diverse_type::template process< red_p >( h );
+                return h;
                }
 
               switch( m_hiIndex )
@@ -111,7 +113,7 @@
                 case( 2 ): h = (scalar_type(60)/scalar_type(360)) * (r - g) / m_delta + (scalar_type(240)/scalar_type(360));       break;
                }
 
-              return  diverse_type::template process< red_p >( h );
+              return  h * generic_constant_type::two_pi();
              }
 
             static return_type process( model_type const& color_parameter )
@@ -121,7 +123,7 @@
               scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p>()  );
 
               this_type t;
-              return  t.process( r, g, b );
+              return  diverse_type::template process< red_p >( t.process( r, g, b ) / generic_constant_type::two_pi() );
              }
 
             scalar_type m_loValue;
@@ -158,12 +160,8 @@
               ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
              };
 
-            static return_type process( model_type const& color_parameter )
+            static scalar_type process( scalar_type const& r, scalar_type const& g, scalar_type const& b )
              {
-              scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p>()   );
-              scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>() );
-              scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p>()  );
-
               scalar_type h = 0;
 
               scalar_type c1 = scalar_type(2) * r - g - b ;
@@ -172,9 +170,16 @@
               if (thetaX < 0) { thetaX += generic_constant_type::two_pi(); }
               h = thetaX;
 
-              h /= generic_constant_type::two_pi();
+              return h;
+             }
 
-              return diverse_type::template process< red_p >(h);
+            static return_type process( model_type const& color_parameter )
+             {
+              scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p>()   );
+              scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>() );
+              scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p>()  );
+
+              return diverse_type::template process< red_p >( process( r, g, b ) / generic_constant_type::two_pi() );
              }
 
            };
@@ -201,12 +206,8 @@
               ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
              };
 
-            static return_type process( model_type const& color_parameter )
+            static scalar_type process( scalar_type const& r, scalar_type const& g, scalar_type const& b )
              {
-              scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p>()   );
-              scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>() );
-              scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p>()  );
-
               scalar_type h = 0;
 
               scalar_type alpha = ( (r-g) + ( r- b) ) * scalar_type( 0.5 );
@@ -216,10 +217,18 @@
               if( b > g ) { thetaA = generic_constant_type::two_pi() - thetaA; }
               h = thetaA;
 
-              h /= generic_constant_type::two_pi();
-
-              return diverse_type::template process< red_p >(h);
+              return h;
              }
+
+            static return_type process( model_type const& color_parameter )
+             {
+              scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p>()   );
+              scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>() );
+              scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p>()  );
+
+              return diverse_type::template process< red_p >( process( r, g, b ) / generic_constant_type::two_pi());
+             }
+
 
            };
 
@@ -241,6 +250,25 @@
         typedef ::color::get::_internal::rgb::hue::usher< ::color::category::rgb< tag_name >, formula_number  > usher_type;
         return usher_type::process( color_parameter );
        }
+
+     /*template
+      <
+        enum ::color::get::constant::rgb::hue::formula_enum formula_number = ::color::get::constant::rgb::hue::polar_entity
+       ,typename category_name = ::color::category::rgb< double >
+      >
+      inline
+      typename ::color::trait::scalar<category_name>::return_type
+       hue
+       (
+          typename ::color::trait::scalar<category_name>::input_const_type r
+         ,typename ::color::trait::scalar<category_name>::input_const_type g
+         ,typename ::color::trait::scalar<category_name>::input_const_type b
+       )
+       {
+        typedef ::color::get::_internal::rgb::hue::usher< category_name, formula_number  > usher_type;
+        return usher_type::process( r, g, b );
+       }
+       */
 
     }
   }
