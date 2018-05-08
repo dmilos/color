@@ -136,11 +136,12 @@
 					<dt>Main Page</dt>
 					<dd><a href="./get.html"><code>get</code> Main Page</a></dd>
 					<dt>Description</dt>
-					<dd>Get some property of color by the name. Depend of used color <a href="glossary.html#model">model</a> this operation might be instant like getting red from RGB or require some calculation, get red from HSV <a href="glossary.html#model">model</a>..</dd>
+					<dd>Get some property of color by the name. Depend of used color <a href="glossary.html#model">model</a> this operation might be instant like getting <i>red channel</i> from RGB or require some calculation like get <i>red</i> from HSV <a href="glossary.html#model">model</a>.</dd>
 					<dt>Example</dt>
 					<dd>
 						<code>
-							TODO <br>
+							::color::rgb&lt;float&gt; c;<br>
+							auto hue = color::get::hue&lt; ::color::get::constant::rgb::hue::polar_acos_entity &gt;( c );
 						</code>
 					</dd>
 				</dl>

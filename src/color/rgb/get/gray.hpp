@@ -38,6 +38,7 @@
             ,   middle_entity
             ,   yuv709_entity
             , hsl_star_entity //!< still under construction
+            ,   radius_entity
             ,lightness_entity //!< TODO NYI
           };
 
@@ -212,10 +213,50 @@
               scalar_type delta = std::max( { r,g,b } ) - std::min( {r,g,b} );
               scalar_type value = ( scalar_type(1) - delta ) * ( scalar_type(1) - delta );
 
-              return diverse_type::template process<0>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */value /* ) */);
+              return diverse_type::template process<0>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */ value /* ) */);
              }
            };
 
+         template< typename tag_name >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::gray::radius_entity >
+           {
+            typedef ::color::category::rgb< tag_name > category_type;
+            typedef ::color::model< category_type > model_type;
+
+            typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
+
+            typedef typename ::color::akin::gray< category_type >::akin_type  akin_type;
+
+            typedef typename ::color::trait::component< akin_type >::return_type return_type;
+
+            typedef ::color::_internal::diverse< akin_type >       diverse_type;
+            typedef ::color::_internal::normalize< category_type > normalize_type;
+
+            typedef ::color::constant::gray::rgb< akin_type > gray_const_type;
+
+            enum
+             {
+                red_p   = ::color::place::_internal::red<category_type>::position_enum
+              , green_p = ::color::place::_internal::green<category_type>::position_enum
+              , blue_p  = ::color::place::_internal::blue<category_type>::position_enum
+             };
+
+            static scalar_type square( scalar_type const& v ){ return v*v; }
+
+            static return_type process( model_type const& color_parameter )
+             {
+              scalar_type r =  normalize_type::template process<red_p   >( color_parameter.template get<red_p   >() );
+              scalar_type g =  normalize_type::template process<green_p >( color_parameter.template get<green_p >() );
+              scalar_type b =  normalize_type::template process<blue_p  >( color_parameter.template get<blue_p  >() );
+
+              scalar_type value = square( r ) + square( g ) + square( b ) - square( r + g + b )/ scalar_type(3);
+              value = fabs( value );
+              value *= scalar_type(3)/scalar_type(2);
+              value = scalar_type(1) - value;
+
+              return diverse_type::template process<0>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */ value /* ) */);
+             }
+           };
 
          template< typename tag_name >
           struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::gray::lightness_entity >

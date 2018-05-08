@@ -23,8 +23,8 @@ namespace color
              typedef scalar_left_name scalar_type;
 
 
-             typedef typename ::color::lab<  scalar_left_type >::category_type category_left_type;
-             typedef typename ::color::lab< scalar_right_type >::category_type category_right_type;
+             typedef typename ::color::lab<  scalar_left_type, ::color::constant::lab::CIE_entity >::category_type category_left_type;
+             typedef typename ::color::lab< scalar_right_type, ::color::constant::lab::CIE_entity >::category_type category_right_type;
 
              typedef ::color::model< category_left_type  >   model_left_type;
              typedef ::color::model< category_right_type  >  model_right_type;
@@ -32,6 +32,7 @@ namespace color
              static scalar_type process( model_left_type const& left, model_right_type const& right )
               {
                typedef ::color::operation::_internal::distance< category_left_type, category_right_type,::color::constant::distance::euclid_entity> distance_type;
+
                return distance_type::process( left, right );
               }
           };
@@ -42,7 +43,7 @@ namespace color
            public:
              typedef scalar_name   scalar_type;
 
-             typedef typename ::color::lab< scalar_type >::category_type category_type;
+             typedef typename ::color::lab< scalar_type, ::color::constant::lab::CIE_entity >::category_type category_type;
 
              typedef ::color::model< category_type  >   model_type;
 
@@ -59,8 +60,8 @@ namespace color
       template<>\
        struct distance \
         < \
-           typename ::color::lab< DP_left >::category_type \
-          ,typename ::color::lab< DP_right >::category_type \
+           typename ::color::lab< DP_left,  ::color::constant::lab::CIE_entity >::category_type \
+          ,typename ::color::lab< DP_right, ::color::constant::lab::CIE_entity >::category_type \
           ,::color::constant::distance::CIE76_entity     \
         >   \
         : public ::color::operation::_internal::lab::distance< DP_left, DP_right > \
