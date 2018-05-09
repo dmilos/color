@@ -5,3 +5,4 @@
 #include "./gray.hpp"
 
 #include "./hue.hpp"
+#include "./saturation.hpp"
