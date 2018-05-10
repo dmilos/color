@@ -68,7 +68,11 @@ namespace color
 
            scalar_type h = 0;
            scalar_type i = ( r + g + b ) / scalar_type(3);
-           scalar_type s = scalar_type(1) - lo / i; if( true == scalar_trait_type::is_small( lo ) ){ s = scalar_type(1); }
+           scalar_type s = scalar_type(1);
+           if( false == scalar_trait_type::is_small( i ) )
+            {
+             s = scalar_type(1) - lo / i;
+            }
 
            scalar_type c1 = r - g* scalar_type( 0.5 ) - b * scalar_type( 0.5 );
            scalar_type c2 = ( g - b ) * constant_type::sqrt_3() * scalar_type( 0.5 );

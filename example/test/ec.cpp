@@ -34,23 +34,23 @@ int main( int argc, char *argv[] )
   gray_image_type right_cyan    ; right_cyan   .resize( width * height );
   gray_image_type right_yellow  ; right_yellow .resize( width * height );
   gray_image_type right_magenta ; right_magenta.resize( width * height );
-  gray_image_type right_gray    ; right_gray   .resize( width * height );
   gray_image_type right_satur   ; right_satur  .resize( width * height );
+  gray_image_type right_gray    ; right_gray   .resize( width * height );
 
   std::uint64_t equal = 0;
   for(int y=0; y< height; y++)
    for(int x=0; x< width; x++)
     {
-     right_red    [ y*width+x ][ 0 ] = ::color::get::red<      ::color::get::constant::rgb::red::hsl_star_entity    >( left_data[ y*width+x ] );
-     right_green  [ y*width+x ][ 0 ] = ::color::get::green<    ::color::get::constant::rgb::green::hsl_star_entity  >( left_data[ y*width+x ] );
-     right_blue   [ y*width+x ][ 0 ] = ::color::get::blue<     ::color::get::constant::rgb::blue::hsl_star_entity   >( left_data[ y*width+x ] );
-     right_cyan   [ y*width+x ][ 0 ] = ::color::get::cyan<     ::color::get::constant::rgb::cyan::hsl_star_entity   >( left_data[ y*width+x ] );
-     right_yellow [ y*width+x ][ 0 ] = ::color::get::yellow<   ::color::get::constant::rgb::yellow::hsl_star_entity >( left_data[ y*width+x ] );
-     right_magenta[ y*width+x ][ 0 ] = ::color::get::magenta<  ::color::get::constant::rgb::magenta::hsl_star_entity>( left_data[ y*width+x ] );
-     right_gray   [ y*width+x ][ 0 ] = ::color::get::gray<     ::color::get::constant::rgb::gray::yuv709_entity     >( left_data[ y*width+x ] );
-     right_gray   [ y*width+x ][ 0 ] = right_gray   [ y*width+x ][ 0 ] / 16; right_gray   [ y*width+x ][ 0 ] *= 16;
+     auto l = left_data[ y*width+x ];
 
-     ::color::lab<float>  l{ left_data[ y*width+x ] };     right_satur   [ y*width+x ][ 0 ] = 255 - 4*sqrt( l[1]*l[1] + l[2]*l[2]);
+     right_red    [ y*width+x ][ 0 ] = ::color::get::red<      ::color::get::constant::rgb::red::hsl_star_entity      >( l );
+     right_green  [ y*width+x ][ 0 ] = ::color::get::green<    ::color::get::constant::rgb::green::hsl_star_entity    >( l );
+     right_blue   [ y*width+x ][ 0 ] = ::color::get::blue<     ::color::get::constant::rgb::blue::hsl_star_entity     >( l );
+     right_cyan   [ y*width+x ][ 0 ] = ::color::get::cyan<     ::color::get::constant::rgb::cyan::hsl_star_entity     >( l );
+     right_yellow [ y*width+x ][ 0 ] = ::color::get::yellow<   ::color::get::constant::rgb::yellow::hsl_star_entity   >( l );
+     right_magenta[ y*width+x ][ 0 ] = ::color::get::magenta<  ::color::get::constant::rgb::magenta::hsl_star_entity  >( l );
+     right_satur  [ y*width+x ][ 0 ] = 255-(  std::max( { l[0], l[1], l[2] } ) - std::min( { l[0], l[1], l[2] } ) );
+     right_gray   [ y*width+x ][ 0 ] = ::color::get::gray<     ::color::get::constant::rgb::gray::yuv709_entity       >( l );
     }
 
   save_image_gray( "e-0-cyan.tga",    right_cyan   , width, height );

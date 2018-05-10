@@ -14,7 +14,7 @@ namespace color
       namespace space
        {
 
-        enum name_enum
+        enum name_entity
          {
           none_entity,
           LabGamut_entity,
@@ -37,7 +37,7 @@ namespace color
           //BT2020_entity,
          };
 
-        template< typename scalar_name, ::color::constant::xyz::space::name_enum name_number >
+        template< typename scalar_name, ::color::constant::xyz::space::name_entity name_number >
          struct primary
           {
            public:
@@ -89,7 +89,7 @@ namespace color
 
 #undef COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE
 
-        template< typename scalar_name, ::color::constant::xyz::space::name_enum name_number = ::color::constant::xyz::space::none_entity >
+        template< typename scalar_name, ::color::constant::xyz::space::name_entity name_number = ::color::constant::xyz::space::none_entity >
          struct gamma
           {
            typedef scalar_name scalar_type;
@@ -172,11 +172,11 @@ namespace color
 
 #undef COLOR_CONTATNT_XYZ_SPACE_GAMMA_PURE_SPECIALIZE
 
-        template<  ::color::constant::xyz::space::name_enum name_number >
+        template<  ::color::constant::xyz::space::name_entity name_number >
          struct illuminant
           {
-           typedef ::color::constant::xyz::illuminant::name_enum         name_type;
-           typedef ::color::constant::xyz::illuminant::observer_enum observer_type;
+           typedef ::color::constant::xyz::illuminant::name_entity         name_type;
+           typedef ::color::constant::xyz::illuminant::observer_entity observer_type;
 
            static name_type         name() { return ::color::constant::xyz::illuminant::D65_entity; }
            static observer_type observer() { return ::color::constant::xyz::illuminant::two_entity ; }
@@ -186,8 +186,8 @@ namespace color
         template<>                                                                         \
          struct illuminant< DP_space >                                                     \
           {                                                                                \
-           typedef ::color::constant::xyz::illuminant::name_enum         name_type;        \
-           typedef ::color::constant::xyz::illuminant::observer_enum observer_type;        \
+           typedef ::color::constant::xyz::illuminant::name_entity         name_type;        \
+           typedef ::color::constant::xyz::illuminant::observer_entity observer_type;        \
                                                                                            \
            enum { name_entity   = DP_name };                                               \
            enum { observer_entity = DP_observer };                                         \

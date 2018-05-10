@@ -10,11 +10,11 @@ namespace color
          
       template
        <
-         ::color::constant::xyz::space::name_enum           space_number
-        ,::color::constant::xyz::illuminant::observer_enum  observer_number
-        ,::color::constant::xyz::illuminant::name_enum      source_number
-        ,::color::constant::xyz::illuminant::name_enum      target_number
-        ,::color::constant::xyz::adaptation::scaling_enum   adaptation_number
+         ::color::constant::xyz::space::name_entity           space_number
+        ,::color::constant::xyz::illuminant::observer_entity  observer_number
+        ,::color::constant::xyz::illuminant::name_entity      source_number
+        ,::color::constant::xyz::illuminant::name_entity      target_number
+        ,::color::constant::xyz::adaptation::scaling_entity   adaptation_number
        >
        struct profile
         {

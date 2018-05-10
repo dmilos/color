@@ -21,6 +21,9 @@
        {
         typedef ::color::category::LabCH< tag_name>  category_type;
 
+        typedef typename ::color::trait::scalar<category_type>     scalar_trait_type;
+        typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
+
         enum
          {
            lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
@@ -30,7 +33,10 @@
          auto const& C = c.template get< 1 >();
          auto const& H = c.template get< 2 >();
 
-        // if( 0 == L ) TODO
+        if( false == scalar_trait_type::is_small( scalar_type(L) ) )
+         {
+          return 0;
+         }
 
         return C / L;
        }

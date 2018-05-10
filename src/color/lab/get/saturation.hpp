@@ -21,18 +21,24 @@
        {
         typedef ::color::category::lab< tag_name, reference_number >  category_type;
 
+        typedef typename ::color::trait::scalar<category_type>     scalar_trait_type;
+        typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
+
         enum
          {
            lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
          };
 
-         auto const& l = c.template get< lightness_p>();
-         auto const& a = c.template get< 1 >();
-         auto const& b = c.template get< 2 >();
+        auto const& L = c.template get< lightness_p>();
+        auto const& A = c.template get< 1 >();
+        auto const& B = c.template get< 2 >();
 
-        // if( 0 == L ) TODO
+        if( false == scalar_trait_type::is_small( scalar_type(L) ) )
+         {
+          return 0;
+         }
 
-        return sqrt(  a*a + b*b  )/ l;
+        return sqrt(  A*A + B*B  ) / L;
        }
 
     }

@@ -169,6 +169,34 @@ extract_white( bgr_image_type const& image, std::string const& name, std::size_t
 
 
 void
+extract_saturation( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
+ {
+  gray_image_type  component_h0;  component_h0.reserve( image.size() );
+  gray_image_type  component_h1;  component_h1.reserve(image.size());
+  gray_image_type  component_h2;  component_h2.reserve(image.size());
+  gray_image_type  component_l0;  component_l0.reserve( image.size() );
+  gray_image_type  component_l1;  component_l1.reserve(image.size());
+  gray_image_type  component_l2;  component_l2.reserve(image.size());
+
+  for( auto & pixel : image )
+   {
+    component_h0.push_back(  gray_color_type( ::color::get::saturation< ::color::get::constant::rgb::saturation::hsv_entity >( pixel ) ) );
+    component_h1.push_back(  gray_color_type( ::color::get::saturation< ::color::get::constant::rgb::saturation::hsl_entity >( pixel ) ) );
+    component_h2.push_back(  gray_color_type( ::color::get::saturation< ::color::get::constant::rgb::saturation::hsi_entity >( pixel ) ) );
+    component_l0.push_back(  gray_color_type( ::color::get::saturation( color::lab<  float >( pixel ) ) ) );
+    component_l1.push_back(  gray_color_type( ::color::get::saturation( color::luv<  float >( pixel ) ) ) );
+    component_l2.push_back(  gray_color_type( ::color::get::saturation( color::LabCH<float >( pixel ) ) ) );
+   }
+
+  save_image_gray( name + "-cmy.tga",    component_h0,  width, height );
+  save_image_gray( name + "-cmyk.tga",   component_h1,  width, height );
+  save_image_gray( name + "-star.tga",   component_h2,  width, height );
+  save_image_gray( name + "-lab.tga",    component_l0,  width, height );
+  save_image_gray( name + "-luv.tga",    component_l1,  width, height );
+  save_image_gray( name + "-LabCH.tga",  component_l2,  width, height );
+ }
+
+void
 extract_color( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height, bgr_color_type const& origin )
  {
   gray_image_type  component; component.reserve( image.size() );
@@ -250,6 +278,13 @@ void main_extract()
    load_image( image, width, height, "./palette/hsl-1-050.tga" );  extract_white(  image,"./extract/white-hsl-1-050", width, height );
    load_image( image, width, height, "./palette/hsl-1-075.tga" );  extract_white(  image,"./extract/white-hsl-1-075", width, height );
    load_image( image, width, height, "./palette/hsl-1-100.tga" );  extract_white(  image,"./extract/white-hsl-1-100", width, height );
+
+   load_image( image, width, height, "./palette/hsl-1-000.tga" );  extract_saturation( image,"./extract/saturation-hsl-1-000", width, height );
+   load_image( image, width, height, "./palette/hsl-1-025.tga" );  extract_saturation( image,"./extract/saturation-hsl-1-025", width, height );
+   load_image( image, width, height, "./palette/hsl-1-050.tga" );  extract_saturation( image,"./extract/saturation-hsl-1-050", width, height );
+   load_image( image, width, height, "./palette/hsl-1-075.tga" );  extract_saturation( image,"./extract/saturation-hsl-1-075", width, height );
+   load_image( image, width, height, "./palette/hsl-1-100.tga" );  extract_saturation( image,"./extract/saturation-hsl-1-100", width, height );
+
 
   if( false == load_image( image, width, height, "./palette/hsl-1-100.tga" ) )
    {

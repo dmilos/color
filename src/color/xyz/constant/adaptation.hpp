@@ -2,7 +2,7 @@
 #define color_contant_xyz_adaptation
 
 // ::color::constant::xyz::adaptation::matrix< scalar_name,  >::process()
-// ::color::constant::xyz::adaptation::scaling_enum
+// ::color::constant::xyz::adaptation::scaling_entity
 
 #include "./illuminant.hpp"
 
@@ -15,7 +15,7 @@ namespace color
       namespace adaptation
        {
 
-        enum scaling_enum
+        enum scaling_entity
          {
            XYZ_entity
           ,Bradford_entity
@@ -25,7 +25,7 @@ namespace color
         template
          <
           typename scalar_name
-          ,::color::constant::xyz::adaptation::scaling_enum scaling_number = ::color::constant::xyz::adaptation::XYZ_entity
+          ,::color::constant::xyz::adaptation::scaling_entity scaling_number = ::color::constant::xyz::adaptation::XYZ_entity
          >
          struct method
           {
@@ -127,9 +127,9 @@ COLOR_CONTATNT_XYZ_ADAPTATION_METHOD_PRIMARY_SPECIALIZE(  ::color::constant::xyz
         template
          <
            typename scalar_name
-          ,::color::constant::xyz::illuminant::name_enum            left_number = ::color::constant::xyz::illuminant::D50_entity
-          ,::color::constant::xyz::illuminant::name_enum           right_number = ::color::constant::xyz::illuminant::D65_entity
-          ,::color::constant::xyz::adaptation::scaling_enum scaling_number      = ::color::constant::xyz::adaptation::XYZ_entity
+          ,::color::constant::xyz::illuminant::name_entity            left_number = ::color::constant::xyz::illuminant::D50_entity
+          ,::color::constant::xyz::illuminant::name_entity           right_number = ::color::constant::xyz::illuminant::D65_entity
+          ,::color::constant::xyz::adaptation::scaling_entity scaling_number      = ::color::constant::xyz::adaptation::XYZ_entity
          >
          struct matrix
           {
@@ -200,8 +200,8 @@ COLOR_CONTATNT_XYZ_ADAPTATION_METHOD_PRIMARY_SPECIALIZE(  ::color::constant::xyz
         template
          <
            typename scalar_name
-          ,::color::constant::xyz::illuminant::name_enum            both_number
-          ,::color::constant::xyz::adaptation::scaling_enum scaling_number
+          ,::color::constant::xyz::illuminant::name_entity            both_number
+          ,::color::constant::xyz::adaptation::scaling_entity scaling_number
          >
          struct matrix< scalar_name, both_number, both_number, scaling_number >
           {

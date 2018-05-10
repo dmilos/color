@@ -22,10 +22,18 @@ set  program_TC=..\out\tc.exe
 %program_TC% %left_folder%\hsv-0.tga         %right_folder%\hsv-0.tga           %target_folder%\hsv-0.tga
 %program_TC% %left_folder%\hsv-1.tga         %right_folder%\hsv-1.tga           %target_folder%\hsv-1.tga
 %program_TC% %left_folder%\hsv-2.tga         %right_folder%\hsv-2.tga           %target_folder%\hsv-2.tga
-%program_TC% %left_folder%\lab-0.tga         %right_folder%\lab-0.tga           %target_folder%\lab-0.tga
-%program_TC% %left_folder%\lab-1.tga         %right_folder%\lab-1.tga           %target_folder%\lab-1.tga
-%program_TC% %left_folder%\lab-2.tga         %right_folder%\lab-2.tga           %target_folder%\lab-2.tga
-
+%program_TC% %left_folder%\hwb-0.tga                        %right_folder%\hwb-0.tga                                      %target_folder%\hwb-0.tga
+%program_TC% %left_folder%\hwb-1.tga                        %right_folder%\hwb-1.tga                                      %target_folder%\hwb-1.tga
+%program_TC% %left_folder%\hwb-2.tga                        %right_folder%\hwb-2.tga                                      %target_folder%\hwb-2.tga
+%program_TC% %left_folder%\labCIE-0.tga                     %right_folder%\labCIE-0.tga                                   %target_folder%\labCIE-0.tga
+%program_TC% %left_folder%\labCIE-1.tga                     %right_folder%\labCIE-1.tga                                   %target_folder%\labCIE-1.tga
+%program_TC% %left_folder%\labCIE-2.tga                     %right_folder%\labCIE-2.tga                                   %target_folder%\labCIE-2.tga
+%program_TC% %left_folder%\LabHC-0.tga                      %right_folder%\LabHC-0.tga                                    %target_folder%\LabHC-0.tga
+%program_TC% %left_folder%\LabHC-1.tga                      %right_folder%\LabHC-1.tga                                    %target_folder%\LabHC-1.tga
+%program_TC% %left_folder%\LabHC-2.tga                      %right_folder%\LabHC-2.tga                                    %target_folder%\LabHC-2.tga
+%program_TC% %left_folder%\labHunter-0.tga                  %right_folder%\labHunter-0.tga                                %target_folder%\labHunter-0.tga
+%program_TC% %left_folder%\labHunter-1.tga                  %right_folder%\labHunter-1.tga                                %target_folder%\labHunter-1.tga
+%program_TC% %left_folder%\labHunter-2.tga                  %right_folder%\labHunter-2.tga                                %target_folder%\labHunter-2.tga
 
 %program_TC% %left_folder%\lmsBFD-0.tga       %right_folder%\lmsBFD-0.tga          %target_folder%\lmsBFD-0.tga
 %program_TC% %left_folder%\lmsBFD-1.tga       %right_folder%\lmsBFD-1.tga          %target_folder%\lmsBFD-1.tga
@@ -56,6 +64,9 @@ set  program_TC=..\out\tc.exe
 %program_TC% %left_folder%\luv-0.tga         %right_folder%\luv-0.tga           %target_folder%\luv-0.tga
 %program_TC% %left_folder%\luv-1.tga         %right_folder%\luv-1.tga           %target_folder%\luv-1.tga
 %program_TC% %left_folder%\luv-2.tga         %right_folder%\luv-2.tga           %target_folder%\luv-2.tga
+%program_TC% %left_folder%\LuvHC-0.tga                      %right_folder%\LuvHC-0.tga                                    %target_folder%\LuvHC-0.tga
+%program_TC% %left_folder%\LuvHC-1.tga                      %right_folder%\LuvHC-1.tga                                    %target_folder%\LuvHC-1.tga
+%program_TC% %left_folder%\LuvHC-2.tga                      %right_folder%\LuvHC-2.tga                                    %target_folder%\LuvHC-2.tga
 %program_TC% %left_folder%\rgb-0.tga         %right_folder%\rgb-0.tga           %target_folder%\rgb-0.tga
 %program_TC% %left_folder%\rgb-1.tga         %right_folder%\rgb-1.tga           %target_folder%\rgb-1.tga
 %program_TC% %left_folder%\rgb-2.tga         %right_folder%\rgb-2.tga           %target_folder%\rgb-2.tga

@@ -1,9 +1,9 @@
 #ifndef color_contant_xyz_wp
 #define color_contant_xyz_wp
 
-// ::color::constant::xyz::illuminant::point< scalar_name,::color::constant::xyz::illuminant::name_enum name_number, ::color::constant::xyz::illuminant::observer_enum observer_number >::X()
-// ::color::constant::xyz::illuminant::name_enum
-// ::color::constant::xyz::illuminant::observer_enum
+// ::color::constant::xyz::illuminant::point< scalar_name,::color::constant::xyz::illuminant::name_entity name_number, ::color::constant::xyz::illuminant::observer_entity observer_number >::X()
+// ::color::constant::xyz::illuminant::name_entity
+// ::color::constant::xyz::illuminant::observer_entity
 
 
 namespace color
@@ -15,8 +15,8 @@ namespace color
       namespace illuminant
        {
 
-        enum  observer_enum { two_entity, ten_entity };
-        enum  name_enum
+        enum  observer_entity { two_entity, ten_entity };
+        enum  name_entity
          {
           A_entity,
           B_entity,
@@ -46,8 +46,8 @@ namespace color
         template
          <
             typename scalar_name
-           ,::color::constant::xyz::illuminant::name_enum      name_number
-           ,::color::constant::xyz::illuminant::observer_enum  observer_number
+           ,::color::constant::xyz::illuminant::name_entity      name_number
+           ,::color::constant::xyz::illuminant::observer_entity  observer_number
          >
          struct base
           {
@@ -110,8 +110,8 @@ namespace color
       template
        <
           typename                                            scalar_name
-         ,::color::constant::xyz::illuminant::name_enum         name_number
-         ,::color::constant::xyz::illuminant::observer_enum observer_number
+         ,::color::constant::xyz::illuminant::name_entity         name_number
+         ,::color::constant::xyz::illuminant::observer_entity observer_number
        >
        struct point
         : private ::color::constant::xyz::illuminant::_intrnal::base<scalar_name, name_number, observer_number >
