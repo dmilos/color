@@ -196,13 +196,13 @@ extract_saturation( bgr_image_type const& image, std::string const& name, std::s
     component_l2.push_back(  gray_color_type( ::color::get::saturation( color::LabCH<float >( pixel ) ) ) );
    }
 
-  save_image_gray( name + "-hsv-rgb.tga",   component_h0r,  width, height );
-  save_image_gray( name + "-hsl-rgb.tga",   component_h1r,  width, height );
-  save_image_gray( name + "-hsi-rgb.tga",   component_h2r,  width, height );
+  save_image_gray( name + "-hsv-ref.tga",   component_h0r,  width, height );
+  save_image_gray( name + "-hsl-ref.tga",   component_h1r,  width, height );
+  save_image_gray( name + "-hsi-ref.tga",   component_h2r,  width, height );
 
-  save_image_gray( name + "-hsv-ref.tga",   component_h0h,  width, height );
-  save_image_gray( name + "-hsl-ref.tga",   component_h1h,  width, height );
-  save_image_gray( name + "-hsi-ref.tga",   component_h2h,  width, height );
+  save_image_gray( name + "-hsv-rgb.tga",   component_h0h,  width, height );
+  save_image_gray( name + "-hsl-rgb.tga",   component_h1h,  width, height );
+  save_image_gray( name + "-hsi-rgb.tga",   component_h2h,  width, height );
 
   save_image_gray( name + "-lab.tga",    component_l0,  width, height );
   save_image_gray( name + "-luv.tga",    component_l1,  width, height );
