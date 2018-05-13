@@ -94,7 +94,7 @@ void sandbox_test5()
  {
   ::color::rgb< float > r = ::color::constant::aqua_t{};
   ::color::xyz< float > x { {50,50,50} };
-  ::color::lab< float, ::color::constant::lab::CIE_entity  > l0 = ::color::constant::aqua_t{};
+  ::color::lab< float, ::color::constant::lab::CIE_entity  >    l0 = ::color::constant::aqua_t{};
   ::color::lab< float, ::color::constant::lab::Hunter_entity  > l1 = ::color::constant::aqua_t{};
 
   //r = l0;
@@ -566,8 +566,47 @@ void test_yiq2yuv601_quick()
   yuv = ::color::constant::magenta_t{};  yiq = yuv; std::cout << "magenta  "; print( yiq ); std::cout << std::endl;
  }
 
+
+template< typename source_name, typename category_name >
+ void ranger_rgb()
+  {
+   std::cout << "--------------" << std::endl;
+   std::cout << "Source category: " << typeid( source_name ).name() << std::endl;
+   std::cout << "Target category: " << typeid( category_name ).name() << std::endl;
+   typedef ::color::model<source_name> source_type;
+
+   ::color::model<source_name> r;
+   ::color::model<category_name> mx = color::constant::black_t{};
+   ::color::model<category_name> mn = color::constant::white_t{};
+
+   for( r[0] = source_type::bound_type::template minimum<0>(); r[0] <= source_type::bound_type::template maximum<0>(); r[0] += source_type::bound_type::template range<0>() * 0.01 )
+    for( r[1] = source_type::bound_type::template minimum<1>(); r[1] <= source_type::bound_type::template maximum<1>(); r[1] += source_type::bound_type::template range<1>() * 0.01 )
+     for( r[2] = source_type::bound_type::template minimum<2>(); r[2] <= source_type::bound_type::template maximum<2>(); r[2] += source_type::bound_type::template range<2>() * 0.01 )
+     {
+      ::color::model<category_name> c;
+      c = r;
+      if( c[0] < mn[0] ) mn[0] = c[0];
+      if( c[1] < mn[1] ) mn[1] = c[1];
+      if( c[2] < mn[2] ) mn[2] = c[2];
+
+      if( mx[0] < c[0] ) mx[0] = c[0];
+      if( mx[1] < c[1] ) mx[1] = c[1];
+      if( mx[2] < c[2] ) mx[2] = c[2];
+     }
+
+   std::cout << "min[0] = "<< mn[0]<< "; " << "min[1] = " << (double)mn[1]  <<"; "<< "min[2] = "<< (double)mn[2] << " - ";
+   std::cout << "max[0] = "<< mx[0]<< "; " << "max[1] = " << (double)mx[1]  <<"; "<< "max[2] = "<< (double)mx[2] << " - ";
+   std::cout << std::endl;
+  }
+
 int main(int argc, char const *argv[] )
  {
+  //ranger_rgb< color::rgb<double>::category_type, ::color::LabCH<double>::category_type   >();
+  //ranger_rgb< color::rgb<double>::category_type, ::color::lab<double, ::color::constant::lab::Hunter_entity>::category_type >();
+  //
+  //ranger_rgb< color::xyz<double>::category_type,  ::color::LabCH<double>::category_type   >();
+  //ranger_rgb< color::xyz<double>::category_type, ::color::lab<double, ::color::constant::lab::Hunter_entity>::category_type >();
+
   sandbox_test5();
 
   void test_get_invoke( double value );

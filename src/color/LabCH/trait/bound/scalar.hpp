@@ -25,7 +25,7 @@ namespace color
              typedef scalar_name  scalar_type;
              typedef index_name  index_type;
 
-             typedef ::color::_internal::lab::bound::scalar< index_type, scalar_name > lab_bound_type;
+             typedef ::color::_internal::lab::bound::scalar< index_type, scalar_name, ::color::constant::lab::CIE_entity > lab_bound_type;
 
              typedef ::color::_internal::utility::type::traitC< scalar_type >   scalar_trait_type;
              typedef ::color::_internal::utility::type::index< index_type >    index_trait_type;

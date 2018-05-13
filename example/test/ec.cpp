@@ -16,6 +16,12 @@ int main( int argc, char *argv[] )
   bgr_image_type  left_data;
   targa_header_struct  header_left;
 
+  std::string prefix;
+  if( 2 < argc )
+   {
+    prefix = argv[2];
+   }
+
   std::string name_left  = argv[1];
 
   if( false == targa_image_load( header_left,   left_data, name_left ) )
@@ -53,14 +59,14 @@ int main( int argc, char *argv[] )
      right_gray   [ y*width+x ][ 0 ] = ::color::get::gray<     ::color::get::constant::rgb::gray::yuv709_entity       >( l );
     }
 
-  save_image_gray( "e-0-cyan.tga",    right_cyan   , width, height );
-  save_image_gray( "e-1-yellow.tga",  right_yellow , width, height );
-  save_image_gray( "e-2-magenta.tga", right_magenta, width, height );
-  save_image_gray( "e-3-red.tga",     right_red    , width, height );
-  save_image_gray( "e-4-green.tga",   right_green  , width, height );
-  save_image_gray( "e-5-blue.tga",    right_blue   , width, height );
-  save_image_gray( "e-6-satur.tga",   right_satur  , width, height );
-  save_image_gray( "e-7-gray.tga",    right_gray   , width, height );
+  save_image_gray( prefix + "e-0-cyan.tga",    right_cyan   , width, height );
+  save_image_gray( prefix + "e-1-yellow.tga",  right_yellow , width, height );
+  save_image_gray( prefix + "e-2-magenta.tga", right_magenta, width, height );
+  save_image_gray( prefix + "e-3-red.tga",     right_red    , width, height );
+  save_image_gray( prefix + "e-4-green.tga",   right_green  , width, height );
+  save_image_gray( prefix + "e-5-blue.tga",    right_blue   , width, height );
+  save_image_gray( prefix + "e-6-satur.tga",   right_satur  , width, height );
+  save_image_gray( prefix + "e-7-gray.tga",    right_gray   , width, height );
   return EXIT_SUCCESS;
  }
 

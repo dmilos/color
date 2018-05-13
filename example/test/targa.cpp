@@ -39,7 +39,7 @@ void targa_make_gray_header( int width, int height, targa_header_struct header )
    header[15] = (unsigned char) ((height & 0xFF00) / 256);
 
    header[16] = 8;
-   header[17] = 32;
+   header[17] = 32/* + ( 1 << 5 )*/;
  }
 
 

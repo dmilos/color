@@ -47,20 +47,6 @@ set  program_TC=..\out\tc.exe
 %program_TC% %left_folder%\lmsMCAT02-0.tga    %right_folder%\lmsMCAT02-0.tga       %target_folder%\lmsMCAT02-0.tga
 %program_TC% %left_folder%\lmsMCAT02-1.tga    %right_folder%\lmsMCAT02-1.tga       %target_folder%\lmsMCAT02-1.tga
 %program_TC% %left_folder%\lmsMCAT02-2.tga    %right_folder%\lmsMCAT02-2.tga       %target_folder%\lmsMCAT02-2.tga
-
-
-%program_TC% %left_folder%\lmsBFD-0.tga      %right_folder%\lmsBFD-0.tga        %target_folder%\lmsBFD-0.tga
-%program_TC% %left_folder%\lmsBFD-1.tga      %right_folder%\lmsBFD-1.tga        %target_folder%\lmsBFD-1.tga
-%program_TC% %left_folder%\lmsBFD-2.tga      %right_folder%\lmsBFD-2.tga        %target_folder%\lmsBFD-2.tga
-%program_TC% %left_folder%\lmsK65-0.tga      %right_folder%\lmsK65-0.tga        %target_folder%\lmsK65-0.tga
-%program_TC% %left_folder%\lmsK65-1.tga      %right_folder%\lmsK65-1.tga        %target_folder%\lmsK65-1.tga
-%program_TC% %left_folder%\lmsK65-2.tga      %right_folder%\lmsK65-2.tga        %target_folder%\lmsK65-2.tga
-%program_TC% %left_folder%\lmsKE-0.tga       %right_folder%\lmsKE-0.tga         %target_folder%\lmsKE-0.tga
-%program_TC% %left_folder%\lmsKE-1.tga       %right_folder%\lmsKE-1.tga         %target_folder%\lmsKE-1.tga
-%program_TC% %left_folder%\lmsKE-2.tga       %right_folder%\lmsKE-2.tga         %target_folder%\lmsKE-2.tga
-%program_TC% %left_folder%\lmsMCAT02-0.tga   %right_folder%\lmsMCAT02-0.tga     %target_folder%\lmsMCAT02-0.tga
-%program_TC% %left_folder%\lmsMCAT02-1.tga   %right_folder%\lmsMCAT02-1.tga     %target_folder%\lmsMCAT02-1.tga
-%program_TC% %left_folder%\lmsMCAT02-2.tga   %right_folder%\lmsMCAT02-2.tga     %target_folder%\lmsMCAT02-2.tga
 %program_TC% %left_folder%\luv-0.tga         %right_folder%\luv-0.tga           %target_folder%\luv-0.tga
 %program_TC% %left_folder%\luv-1.tga         %right_folder%\luv-1.tga           %target_folder%\luv-1.tga
 %program_TC% %left_folder%\luv-2.tga         %right_folder%\luv-2.tga           %target_folder%\luv-2.tga

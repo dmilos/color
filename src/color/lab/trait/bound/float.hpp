@@ -14,19 +14,19 @@ namespace color
 
     template< ::color::constant::lab::reference_enum reference_number >
      struct bound< ::color::category::lab_float<reference_number> >
-      : public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_float<reference_number> >::instance_type, float >
+      : public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_float<reference_number> >::instance_type, float, reference_number >
       {
       };
 
     template< ::color::constant::lab::reference_enum reference_number >
      struct bound< ::color::category::lab_double<reference_number> >
-      : public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_double<reference_number> >::instance_type, double >
+      : public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_double<reference_number> >::instance_type, double, reference_number >
       {
       };
 
     template< ::color::constant::lab::reference_enum reference_number >
      struct bound< ::color::category::lab_ldouble<reference_number> >
-      : public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_ldouble<reference_number> >::instance_type, long double >
+      : public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_ldouble<reference_number> >::instance_type, long double, reference_number >
       {
       };
 
