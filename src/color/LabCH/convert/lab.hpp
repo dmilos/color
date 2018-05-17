@@ -56,6 +56,11 @@ namespace color
            ,hue_p        = ::color::place::_internal::hue<category_left_type>::position_enum
           };
 
+         // TODFO enum
+         // TODFO  {
+         // TODFO    lightness_r_p  = ::color::place::_internal::lightness<category_right_type>::position_enum
+         // TODFO  };
+
          static void process
           (
             container_left_input_type         left

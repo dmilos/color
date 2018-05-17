@@ -55,7 +55,7 @@ int main( int argc, char *argv[] )
      right_cyan   [ y*width+x ][ 0 ] = ::color::get::cyan<     ::color::get::constant::rgb::cyan::hsl_star_entity     >( l );
      right_yellow [ y*width+x ][ 0 ] = ::color::get::yellow<   ::color::get::constant::rgb::yellow::hsl_star_entity   >( l );
      right_magenta[ y*width+x ][ 0 ] = ::color::get::magenta<  ::color::get::constant::rgb::magenta::hsl_star_entity  >( l );
-     right_satur  [ y*width+x ][ 0 ] = 255-(  std::max( { l[0], l[1], l[2] } ) - std::min( { l[0], l[1], l[2] } ) );
+     right_satur  [ y*width+x ][ 0 ] = ::color::get::chroma<   ::color::get::constant::rgb::chroma::distance2gray_entity  >( l );
      right_gray   [ y*width+x ][ 0 ] = ::color::get::gray<     ::color::get::constant::rgb::gray::yuv709_entity       >( l );
     }
 

@@ -8,6 +8,11 @@ cd ./blue
 ./make.sh
 cd ..
 
+cd ./chroma
+./make.sh
+cd ..
+
+
 cd ./cyan
 ./make.sh
 cd ..
@@ -31,6 +36,11 @@ cd ..
 cd ./red
 ./make.sh
 cd ..
+
+cd ./saturation
+./make.sh
+cd ..
+
 
 cd ./white
 ./make.sh

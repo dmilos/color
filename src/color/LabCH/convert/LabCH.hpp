@@ -43,6 +43,21 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
+         // TODO enum
+         // TODO  {
+         // TODO    lightness_p  = ::color::place::_internal::lightness<category_left_type>::position_enum
+         // TODO   ,chroma_p     = ::color::place::_internal::chroma<category_left_type>::position_enum
+         // TODO   ,hue_p        = ::color::place::_internal::hue<category_left_type>::position_enum
+         // TODO  };
+         // TODO
+         // TODO enum
+         // TODO  {
+         // TODO    lightness_p  = ::color::place::_internal::lightness<category_right_type>::position_enum
+         // TODO   ,chroma_p     = ::color::place::_internal::chroma<category_right_type>::position_enum
+         // TODO   ,hue_p        = ::color::place::_internal::hue<category_right_type>::position_enum
+         // TODO  };
+
+
          static void process
           (
             container_left_input_type         left

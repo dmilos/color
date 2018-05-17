@@ -191,9 +191,9 @@ extract_saturation( bgr_image_type const& image, std::string const& name, std::s
     component_h1r.push_back(  gray_color_type( ::color::hsl<std::uint8_t>(pixel)[1] ) );
     component_h2r.push_back(  gray_color_type( ::color::hsi<std::uint8_t>(pixel)[1] ) );
 
-    component_l0.push_back(  gray_color_type( ::color::get::saturation( color::lab<  float >( pixel ) ) ) );
-    component_l1.push_back(  gray_color_type( ::color::get::saturation( color::luv<  float >( pixel ) ) / 9.0 ) );
-    component_l2.push_back(  gray_color_type( ::color::get::saturation( color::LabCH<float >( pixel ) ) ) );
+    component_l0.push_back(  gray_color_type( (std::uint8_t)::color::get::saturation( color::lab<  float >( pixel ) ) ) );
+    component_l1.push_back(  gray_color_type( (std::uint8_t)(::color::get::saturation( color::luv<  float >( pixel ) ) / 9.0 ) ) );
+    component_l2.push_back(  gray_color_type( (std::uint8_t)::color::get::saturation( color::LabCH<float >( pixel ) ) ) );
    }
 
   save_image_gray( name + "-hsv-ref.tga",   component_h0r,  width, height );
@@ -208,6 +208,43 @@ extract_saturation( bgr_image_type const& image, std::string const& name, std::s
   save_image_gray( name + "-luv.tga",    component_l1,  width, height );
   save_image_gray( name + "-LabCH.tga",  component_l2,  width, height );
  }
+
+
+void
+extract_chroma( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
+ {
+  gray_image_type  component_lab;     component_lab    .reserve( image.size() );
+  gray_image_type  component_LabCH;   component_LabCH  .reserve(image.size());
+  gray_image_type  component_LuvCH;   component_LuvCH  .reserve(image.size());
+  gray_image_type  component_rgbMMM;  component_rgbMMM .reserve(image.size());
+  gray_image_type  component_RGBd2g;  component_RGBd2g .reserve(image.size());
+  gray_image_type  component_hsi;     component_hsi .reserve(image.size());
+  gray_image_type  component_hsl;     component_hsl .reserve(image.size());
+  gray_image_type  component_hsv;     component_hsv .reserve(image.size());
+
+  for( auto & pixel : image )
+   {
+    component_lab   .push_back(  gray_color_type( (std::uint8_t)::color::get::chroma( ::color::lab<float>( pixel ) ) ) );
+    component_LabCH .push_back(  gray_color_type( (std::uint8_t)::color::get::chroma( ::color::LabCH<float>( pixel ) ) ) );
+    component_LuvCH .push_back(  gray_color_type( (std::uint8_t)::color::get::chroma( ::color::LuvCH<float>( pixel ) ) ) );
+    component_rgbMMM.push_back(  gray_color_type( ::color::get::chroma< ::color::get::constant::rgb::chroma::max_minus_min_entity>( pixel ) ) );
+    component_RGBd2g.push_back(  gray_color_type( ::color::get::chroma< ::color::get::constant::rgb::chroma::distance2gray_entity>( pixel ) ) );
+
+    component_hsi .push_back(  gray_color_type( (std::uint8_t)::color::get::chroma( ::color::hsi<std::uint8_t>( pixel ) ) ) );
+    component_hsl .push_back(  gray_color_type( (std::uint8_t)::color::get::chroma( ::color::hsl<std::uint8_t>( pixel ) ) ) );
+    component_hsv .push_back(  gray_color_type( (std::uint8_t)::color::get::chroma( ::color::hsv<std::uint8_t>( pixel ) ) ) );
+   }
+
+  save_image_gray( name + "-lab.tga",     component_lab   ,  width, height );
+  save_image_gray( name + "-LabCH.tga",   component_LabCH ,  width, height );
+  save_image_gray( name + "-LuvCH.tga",   component_LuvCH ,  width, height );
+  save_image_gray( name + "-rgbMMM.tga",  component_rgbMMM,  width, height );
+  save_image_gray( name + "-RGBd2g.tga",  component_RGBd2g,  width, height );
+  save_image_gray( name + "-hsi.tga",     component_hsi,  width, height );
+  save_image_gray( name + "-hsl.tga",     component_hsl,  width, height );
+  save_image_gray( name + "-hsv.tga",     component_hsv,  width, height );
+ }
+
 
 void
 extract_color( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height, bgr_color_type const& origin )
@@ -298,6 +335,11 @@ void main_extract()
    load_image( image, width, height, "./palette/hsl-1-075.tga" );  extract_saturation( image,"./extract/saturation-hsl-1-075", width, height );
    load_image( image, width, height, "./palette/hsl-1-100.tga" );  extract_saturation( image,"./extract/saturation-hsl-1-100", width, height );
 
+   load_image( image, width, height, "./palette/hsl-1-000.tga" );  extract_chroma( image,"./extract/chroma-hsl-1-000", width, height );
+   load_image( image, width, height, "./palette/hsl-1-025.tga" );  extract_chroma( image,"./extract/chroma-hsl-1-025", width, height );
+   load_image( image, width, height, "./palette/hsl-1-050.tga" );  extract_chroma( image,"./extract/chroma-hsl-1-050", width, height );
+   load_image( image, width, height, "./palette/hsl-1-075.tga" );  extract_chroma( image,"./extract/chroma-hsl-1-075", width, height );
+   load_image( image, width, height, "./palette/hsl-1-100.tga" );  extract_chroma( image,"./extract/chroma-hsl-1-100", width, height );
 
   if( false == load_image( image, width, height, "./palette/hsl-1-100.tga" ) )
    {

@@ -22,3 +22,5 @@
 
 #include "./inphase.hpp"
 #include "./quadrature.hpp"
+
+#include "./chroma.hpp"

@@ -19,6 +19,7 @@
 							<li><a href="#alpha">alpha</a></li>
 							<li><a href="#blue">blue</a></li>
 							<li><a href="#black">black</a></li>
+							<li><a href="#chroma">chroma</a></li>
 							<li><a href="#gray">gray</a></li>
 							<li><a href="#green">green</a></li>
 							<li><a href="#hue">hue</a></li>
@@ -27,6 +28,7 @@
 							<li><a href="#luma">luma</a></li>
 							<li><a href="#luminance">luminance</a></li>
 							<li><a href="#quadrature">quadrature</a></li>
+							<li><a href="#saturation">saturation</a></li>
 							<li><a href="#red">red</a></li>
 							<li><a href="#white">white</a></li>
 						</ul>
@@ -100,11 +102,12 @@
 					<dd>Get black <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::yiq &lt; double &gt; h;<br>
-							::color::aqua( h );<br>
+						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::black( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
+				</dl><hr width="%20">
 
+				<dl>
 				<dl>
 					<dt>Name</dt>
 					<dd><a name="#blue"/><i>blue</i></dd>
@@ -118,6 +121,28 @@
 							std::cout &lt;&lt; ::color::get::blue( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">
+
+					<dt>Name</dt>
+					<dd><a name="#chroma"/><i>chroma</i></dd>
+					<dt>Declaration</dt>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dt>Description</dt>
+					<dd>Get chroma <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
+					<dt>Note</dt>
+					<dt>Getting chroma from different model may result different values.</dt>
+					<dt>Example</dt>
+					<dd>
+						<code>::color::rgb &lt; double &gt; c { ::color::constant::aqua_t{}; }<br>
+							std::cout &lt;&lt; ::color::get::chroma&lt; ::color::get::constant::rgb::chroma::distance2gray_entity &gt;( c ) &lt;&lt; std::cout;<br>
+							std::cout &lt;&lt; ::color::get::chroma&lt; ::color::get::constant::rgb::chroma::max_minus_min_entity &gt;( c ) &lt;&lt; std::cout;<br>
+							<br>
+							::color::LuvCH&lt; double &gt; c1;<br>
+							std::cout &lt;&lt; color::get::chroma( c1 ) &lt;&lt; std::cout;<br>
+						</code>
+
+					</dd>
+				</dl><hr width="%20">
+
 
 				<dl>
 					<dt>Name</dt>
@@ -163,8 +188,7 @@
 					<dd>Get green <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::yiq &lt; double &gt; h;<br>
-							::color::aqua( h );<br>
+						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::green( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">
@@ -211,8 +235,7 @@
 					<dd>Get inphase <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::yiq &lt; double &gt; h;<br>
-							::color::aqua( h );<br>
+						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::inphase( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">
@@ -228,8 +251,7 @@
 					<dd>Key is fourth <a href="glossary.html#component">component</a> of CMYK <a href="glossary.html#model">model</a>.</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::yiq &lt; double &gt; h;<br>
-							::color::aqua( h );<br>
+						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::key( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">
@@ -242,8 +264,7 @@
 					<dd>Get luma <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::yiq &lt; double &gt; h;<br>
-							::color::aqua( h );<br>
+						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::luma( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">
@@ -257,8 +278,7 @@
 					<dd>Get luminance <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::yiq &lt; double &gt; h;<br>
-							::color::aqua( h );<br>
+						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::luminance( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 					</dl><hr width="%20">
@@ -271,11 +291,36 @@
 					<dd>Get quadrature <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::yiq &lt; double &gt; h;<br>
-							::color::aqua( h );<br>
+						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::quadrature( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">
+
+
+					<dt>Name</dt>
+					<dd><a name="#saturation"/><i>saturation</i></dd>
+					<dt>Declaration</dt>
+					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dt>Description</dt>
+					<dd>Get saturation <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>::color::rgb &lt; double &gt; c { ::color::constant::aqua_t{}; }<br>
+							std::cout &lt;&lt; ::color::get::saturation&lt; ::color::get::constant::rgb::saturation::hsv_entity &gt;( c ) &lt;&lt; std::cout;<br>
+							std::cout &lt;&lt; ::color::get::saturation&lt; ::color::get::constant::rgb::saturation::hsl_entity &gt;( c ) &lt;&lt; std::cout;<br>
+							std::cout &lt;&lt; ::color::get::saturation&lt; ::color::get::constant::rgb::saturation::hsi_entity &gt;( c ) &lt;&lt; std::cout;<br>
+							<br>
+
+							::color::hsi&lt; double &gt; c1;<br>
+							std::cout &lt;&lt; color::get::saturation( c1 ) &lt;&lt; std::cout;<br>
+							::color::hsl&lt; double &gt; c2;<br>
+							std::cout &lt;&lt; color::get::saturation( c2 ) &lt;&lt; std::cout;<br>
+							::color::hsv&lt; double &gt; c3;<br>
+							std::cout &lt;&lt; color::get::saturation( c3 ) &lt;&lt; std::cout;<br>
+						</code>
+					</dd>
+				</dl><hr width="%20">
+
 
 				<dl>
 					<dt>Name</dt>
@@ -286,10 +331,10 @@
 					<dd>Get red <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::yiq &lt; double &gt; h;<br>
-							::color::aqua( h );<br>
+						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::red( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
+				</dl><hr width="%20">
 
 				<dl>
 					<dt>Name</dt>
@@ -300,8 +345,7 @@
 					<dd>Get white <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
 					<dd>
-						<code>::color::yiq &lt; double &gt; h;<br>
-							::color::aqua( h );<br>
+						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::white( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 

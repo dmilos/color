@@ -26,12 +26,12 @@
 
         enum
          {
-           lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
+            lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
+          ,    chroma_p  = ::color::place::_internal::chroma<category_type>::position_enum
          };
 
          auto const& L = c.template get< lightness_p>();
-         auto const& C = c.template get< 1 >();
-         auto const& H = c.template get< 2 >();
+         auto const& C = c.template get<    chroma_p>();
 
         if( false == scalar_trait_type::is_small( scalar_type(L) ) )
          {
