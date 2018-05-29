@@ -6,3 +6,5 @@
 #include "./green.hpp"
 #include "./blue.hpp"
 
+#include "./chroma.hpp"
+

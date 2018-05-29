@@ -9,8 +9,8 @@
 
 #include "../../xyz/xyz.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+
+#include "../../_internal/reformat.hpp"
 
 
 namespace color

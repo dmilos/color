@@ -61,7 +61,7 @@
            };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::green::hsl_star_entity >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::green::hsl_star_entity >
            {
             typedef ::color::category::rgb< tag_name>  category_type;
             typedef ::color::model< category_type > model_type;
@@ -93,12 +93,14 @@
                 if( g < b ) { result = 0; break; }
                 if( r < b )
                  {
-                  result = ( g - b )* ( 1- ( b - r ) );
+                  result = ( g - b )* ( scalar_type(1) - ( b - r ) );
                   break;
                  }
 
-                result = ( g - r )* ( 1- ( r - b ) );
-                break;
+                {
+                 result = ( g - r )* ( scalar_type(1) - ( r - b ) );
+                 break;
+                }
                }
 
               return diverse_type::template process<green_p >( result );

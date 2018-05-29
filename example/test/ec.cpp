@@ -34,14 +34,23 @@ int main( int argc, char *argv[] )
   const int width       = targa_get_width(  header_left );
   const int height      = targa_get_height( header_left );
 
-  gray_image_type right_red     ; right_red    .resize( width * height );
-  gray_image_type right_green   ; right_green  .resize( width * height );
-  gray_image_type right_blue    ; right_blue   .resize( width * height );
+  gray_image_type right_redCh   ; right_redCh  .resize( width * height );
+  gray_image_type right_greenCh ; right_greenCh.resize( width * height );
+  gray_image_type right_blueCh  ; right_blueCh .resize( width * height );
+
+  gray_image_type right_redHS   ; right_redHS  .resize( width * height );
+  gray_image_type right_greenHS ; right_greenHS.resize( width * height );
+  gray_image_type right_blueHS  ; right_blueHS .resize( width * height );
+
   gray_image_type right_cyan    ; right_cyan   .resize( width * height );
   gray_image_type right_yellow  ; right_yellow .resize( width * height );
   gray_image_type right_magenta ; right_magenta.resize( width * height );
-  gray_image_type right_satur   ; right_satur  .resize( width * height );
+
+  gray_image_type right_chroma  ; right_chroma .resize( width * height );
+
   gray_image_type right_gray    ; right_gray   .resize( width * height );
+  gray_image_type right_black   ; right_black  .resize( width * height );
+  gray_image_type right_white   ; right_white  .resize( width * height );
 
   std::uint64_t equal = 0;
   for(int y=0; y< height; y++)
@@ -49,24 +58,46 @@ int main( int argc, char *argv[] )
     {
      auto l = left_data[ y*width+x ];
 
-     right_red    [ y*width+x ][ 0 ] = ::color::get::red<      ::color::get::constant::rgb::red::hsl_star_entity      >( l );
-     right_green  [ y*width+x ][ 0 ] = ::color::get::green<    ::color::get::constant::rgb::green::hsl_star_entity    >( l );
-     right_blue   [ y*width+x ][ 0 ] = ::color::get::blue<     ::color::get::constant::rgb::blue::hsl_star_entity     >( l );
-     right_cyan   [ y*width+x ][ 0 ] = ::color::get::cyan<     ::color::get::constant::rgb::cyan::hsl_star_entity     >( l );
-     right_yellow [ y*width+x ][ 0 ] = ::color::get::yellow<   ::color::get::constant::rgb::yellow::hsl_star_entity   >( l );
-     right_magenta[ y*width+x ][ 0 ] = ::color::get::magenta<  ::color::get::constant::rgb::magenta::hsl_star_entity  >( l );
-     right_satur  [ y*width+x ][ 0 ] = ::color::get::chroma<   ::color::get::constant::rgb::chroma::distance2gray_entity  >( l );
-     right_gray   [ y*width+x ][ 0 ] = ::color::get::gray<     ::color::get::constant::rgb::gray::yuv709_entity       >( l );
+     right_redCh   [ y*width+x ][ 0 ] = ::color::get::red  <   ::color::get::constant::rgb::red::channel_entity      >( l );
+     right_greenCh [ y*width+x ][ 0 ] = ::color::get::green<   ::color::get::constant::rgb::green::channel_entity    >( l );
+     right_blueCh  [ y*width+x ][ 0 ] = ::color::get::blue <   ::color::get::constant::rgb::blue::channel_entity     >( l );
+
+     right_redHS   [ y*width+x ][ 0 ] = ::color::get::red<     ::color::get::constant::rgb::red::hsl_star_entity     >( l );
+     right_greenHS [ y*width+x ][ 0 ] = ::color::get::green<   ::color::get::constant::rgb::green::hsl_star_entity   >( l );
+     right_blueHS  [ y*width+x ][ 0 ] = ::color::get::blue<    ::color::get::constant::rgb::blue::hsl_star_entity    >( l );
+
+     right_cyan    [ y*width+x ][ 0 ] = ::color::get::cyan<     ::color::get::constant::rgb::cyan::hsl_star_entity     >( l );
+     right_yellow  [ y*width+x ][ 0 ] = ::color::get::yellow<   ::color::get::constant::rgb::yellow::hsl_star_entity   >( l );
+     right_magenta [ y*width+x ][ 0 ] = ::color::get::magenta<  ::color::get::constant::rgb::magenta::hsl_star_entity  >( l );
+
+     right_chroma  [ y*width+x ][ 0 ] = ::color::get::chroma<   ::color::get::constant::rgb::chroma::distance2gray_entity  >( l );
+
+     right_gray    [ y*width+x ][ 0 ] = ::color::get::gray<     ::color::get::constant::rgb::gray::yuv709_entity>( l );
+     right_black   [ y*width+x ][ 0 ] = ::color::get::black<    ::color::get::constant::rgb::black::hsl_star_entity >( l );
+     right_black   [ y*width+x ][ 0 ] = 255 * pow( right_black   [ y*width+x ][ 0 ]/255.0, 4 );
+     right_white   [ y*width+x ][ 0 ] = ::color::get::white<    ::color::get::constant::rgb::white::hsl_star_entity >( l );
+     right_white   [ y*width+x ][ 0 ] = 255 * pow( right_white   [ y*width+x ][ 0 ]/255.0, 4 );
+
     }
 
-  save_image_gray( prefix + "e-0-cyan.tga",    right_cyan   , width, height );
-  save_image_gray( prefix + "e-1-yellow.tga",  right_yellow , width, height );
-  save_image_gray( prefix + "e-2-magenta.tga", right_magenta, width, height );
-  save_image_gray( prefix + "e-3-red.tga",     right_red    , width, height );
-  save_image_gray( prefix + "e-4-green.tga",   right_green  , width, height );
-  save_image_gray( prefix + "e-5-blue.tga",    right_blue   , width, height );
-  save_image_gray( prefix + "e-6-satur.tga",   right_satur  , width, height );
-  save_image_gray( prefix + "e-7-gray.tga",    right_gray   , width, height );
+  save_image_gray( prefix + "e-0-redCh.tga",   right_redCh  , width, height );
+  save_image_gray( prefix + "e-1-greenCh.tga", right_greenCh, width, height );
+  save_image_gray( prefix + "e-2-blueCh.tga",  right_blueCh , width, height );
+
+  save_image_gray( prefix + "e-3-redHS.tga",   right_redHS  , width, height );
+  save_image_gray( prefix + "e-4-greenHS.tga", right_greenHS, width, height );
+  save_image_gray( prefix + "e-5-blueHS.tga",  right_blueHS , width, height );
+
+  save_image_gray( prefix + "e-6-cyan.tga",    right_cyan   , width, height );
+  save_image_gray( prefix + "e-7-yellow.tga",  right_yellow , width, height );
+  save_image_gray( prefix + "e-8-magenta.tga", right_magenta, width, height );
+
+  save_image_gray( prefix + "e-9-chroma.tga",  right_chroma , width, height );
+
+  save_image_gray( prefix + "e-A-gray.tga",   right_gray   , width, height );
+  save_image_gray( prefix + "e-B-black.tga",  right_black  , width, height );
+  save_image_gray( prefix + "e-C-white.tga",  right_white  , width, height );
+
   return EXIT_SUCCESS;
  }
 

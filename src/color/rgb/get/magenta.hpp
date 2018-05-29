@@ -132,7 +132,7 @@
           };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::magenta::hsl_star_entity >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::magenta::hsl_star_entity >
            {
             typedef ::color::category::rgb< tag_name>  category_type;
             typedef ::color::model< category_type > model_type;

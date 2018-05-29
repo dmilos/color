@@ -14,7 +14,7 @@
 				<ul>
 					<li><a href="#Description">Description</a></li>
 					<li><a href="#Note">Note</a></li>
-					<li><a href="#List">List</a>
+					<li><a href="#Functions">Functions</a>
 						<ul>
 							<li><a href="#alpha">alpha</a></li>
 							<li><a href="#blue">blue</a></li>
@@ -70,11 +70,28 @@
 					</code>
 
 					</dd>
-				</dl>
+				</dl><hr width="%20">
 
 
 			</dd>
-			<dt><a name="#List"/><h3>List</h3></dt>
+			<dt><a name="#namespace"/><h3>namespaces</h3></dt>
+			<dd>
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#alpha"/><i>::color::get::constant::rgb</i></dd>
+					<dt>Description</dt>
+					<dd>Contain constant to retrieve various feature from rgb model with different algorithm.</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>
+							color::rgb<float> c{ color::constant::turquoise_t{} };<br>
+							auto hue = color::get::hue&lt; ::color::get::constant::rgb::hue::polar_entity &gt;( c );<br>
+						</code>
+					</dd>
+				</dl><hr width="%20">
+			</dd>
+
+			<dt><a name="#Functions"/><h3>Functions</h3></dt>
 			<dd>
 				<dl>
 					<dt>Name</dt>
@@ -91,7 +108,6 @@
 							std::cout &lt;&lt; ::color::get::alpha( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">
-
 
 				<dl>
 					<dt>Name</dt>

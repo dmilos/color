@@ -56,7 +56,7 @@
            };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::black::alvy_entity >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::black::alvy_entity >
            {
             typedef ::color::category::rgb< tag_name > category_type;
             typedef ::color::model< category_type > model_type;
@@ -89,7 +89,7 @@
            };
 
          template< typename tag_name >
-          struct usher< ::color::category::rgb< tag_name >, color::get::constant::rgb::black::hsl_star_entity >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::black::hsl_star_entity >
            {
             typedef ::color::category::rgb< tag_name > category_type;
             typedef ::color::model< category_type > model_type;
@@ -119,7 +119,7 @@
               scalar_type lightnes   = std::max( {r,g,b} );
               scalar_type saturation = std::max( {r,g,b} ) - std::min( {r,g,b} );
             
-              return diverse_type::template process<red_p >( ( scalar_type(1) - lightnes )* ( scalar_type(1) - saturation ) );
+              return diverse_type::template process<red_p >( ( scalar_type(1) - lightnes ) * ( scalar_type(1) - saturation ) );
              }
            };
 
