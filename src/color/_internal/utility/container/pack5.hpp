@@ -4,7 +4,9 @@
 // ::color::_internal::utility::container::pack5< index_name >
 
 #include "../type/index.hpp"
+#include "../type/size.hpp"
 #include "../type/traitp.hpp"
+
 
 
 namespace color
@@ -52,6 +54,11 @@ namespace color
              typedef typename component_trait_type::return_image_type    component_return_const_type;
              typedef typename component_trait_type::input_const_type     component_input_const_type;
 
+             typedef ::color::_internal::utility::type::size< std::size_t >   size_trait_type;
+
+             typedef typename size_trait_type::return_image_type        size_return_image_type;
+             typedef typename size_trait_type::instance_type            size_instance_type;
+
              typedef void set_return_type;
 
              enum { size_entity = 4 };
@@ -72,6 +79,7 @@ namespace color
                fourth_mask = ( 1 << fourth_size )-1
                 fifth_mask = ( 1 <<  fifth_size )-1
               };
+
 
              static component_return_const_type get( input_const_type container, index_input_const_type index )
               {
@@ -129,9 +137,9 @@ namespace color
                  }
                }
 
-             static index_return_image_type size()
+             static /*constexpr*/ size_return_image_type size()
               {
-               static const index_instance_type local_length = size_entity;
+               static const size_instance_type local_length = size_entity;
                return local_length;
               }
           };

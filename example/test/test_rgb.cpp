@@ -35,10 +35,10 @@ void test_rgb_float_only()
 
 void test_rgb_uint32_only()
  {
-  ::color::rgb<>   u32;
-  ::color::rgb<>   u32a;
-  ::color::rgb<>   u32b;
-  ::color::rgb<>   u32c;
+  ::color::rgb<double>   u32;
+  ::color::rgb<double>   u32a;
+  ::color::rgb<double>   u32b;
+  ::color::rgb<double>   u32c;
 
   u32.get(0);
   u32.get<0>();

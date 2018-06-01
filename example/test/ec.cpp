@@ -80,23 +80,19 @@ int main( int argc, char *argv[] )
 
     }
 
-  save_image_gray( prefix + "e-0-redCh.tga",   right_redCh  , width, height );
-  save_image_gray( prefix + "e-1-greenCh.tga", right_greenCh, width, height );
-  save_image_gray( prefix + "e-2-blueCh.tga",  right_blueCh , width, height );
-
-  save_image_gray( prefix + "e-3-redHS.tga",   right_redHS  , width, height );
-  save_image_gray( prefix + "e-4-greenHS.tga", right_greenHS, width, height );
-  save_image_gray( prefix + "e-5-blueHS.tga",  right_blueHS , width, height );
-
-  save_image_gray( prefix + "e-6-cyan.tga",    right_cyan   , width, height );
-  save_image_gray( prefix + "e-7-yellow.tga",  right_yellow , width, height );
-  save_image_gray( prefix + "e-8-magenta.tga", right_magenta, width, height );
-
-  save_image_gray( prefix + "e-9-chroma.tga",  right_chroma , width, height );
-
-  save_image_gray( prefix + "e-A-gray.tga",   right_gray   , width, height );
-  save_image_gray( prefix + "e-B-black.tga",  right_black  , width, height );
-  save_image_gray( prefix + "e-C-white.tga",  right_white  , width, height );
+  save_image_gray( prefix + "e-0-redCh.tga"   , right_redCh  , width, height );
+  save_image_gray( prefix + "e-1-greenCh.tga" , right_greenCh, width, height );
+  save_image_gray( prefix + "e-2-blueCh.tga"  , right_blueCh , width, height );
+  save_image_gray( prefix + "e-3-redHS.tga"   , right_redHS  , width, height );
+  save_image_gray( prefix + "e-4-greenHS.tga" , right_greenHS, width, height );
+  save_image_gray( prefix + "e-5-blueHS.tga"  , right_blueHS , width, height );
+  save_image_gray( prefix + "e-6-cyan.tga"    , right_cyan   , width, height );
+  save_image_gray( prefix + "e-7-yellow.tga"  , right_yellow , width, height );
+  save_image_gray( prefix + "e-8-magenta.tga" , right_magenta, width, height );
+  save_image_gray( prefix + "e-9-chroma.tga"  , right_chroma , width, height );
+  save_image_gray( prefix + "e-A-gray.tga"    , right_gray   , width, height );
+  save_image_gray( prefix + "e-B-black.tga"   , right_black  , width, height );
+  save_image_gray( prefix + "e-C-white.tga"   , right_white  , width, height );
 
   return EXIT_SUCCESS;
  }

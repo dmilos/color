@@ -21,14 +21,25 @@ template< typename category_name >
    c  = color::constant::black_t{};
    c =  color::constant::gray50_t{};
 
-   color::get::alpha( c ) ;
-   color::get::gray( c )  ;
-   color::get::red( c )   ;
-   color::get::green( c ) ;
-   color::get::blue( c )  ;
-   color::get::hue( c )   ;
-   color::get::black( c ) ;
-   color::get::white( c ) ;
+   color::get::alpha     ( c ) ;
+   color::get::black     ( c ) ;
+   color::get::blue      ( c ) ;
+   color::get::chroma    ( c ) ;
+   color::get::cyan      ( c ) ;
+   color::get::gray      ( c ) ;
+   color::get::green     ( c ) ;
+   color::get::hue       ( c ) ;
+   color::get::inphase   ( c ) ;
+
+   color::get::lightness ( c ) ;
+   color::get::luma      ( c ) ;
+   color::get::luminance ( c ) ;
+   color::get::magenta   ( c ) ;
+   color::get::quadrature( c ) ;
+   color::get::red       ( c ) ;
+   color::get::saturation( c ) ;
+   color::get::white     ( c ) ;
+   color::get::yellow    ( c ) ;
 
    std::cout << std::endl;
    std::cout << "end - " << __FUNCTION__ ;

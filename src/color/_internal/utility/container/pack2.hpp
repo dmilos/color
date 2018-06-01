@@ -4,7 +4,9 @@
 // ::color::_internal::utility::container::pack2< index_name >
 
 #include "../type/index.hpp"
+#include "../type/size.hpp"
 #include "../type/traitp.hpp"
+
 
 
 namespace color
@@ -52,14 +54,20 @@ namespace color
              typedef typename component_trait_type::return_image_type    component_return_const_type;
              typedef typename component_trait_type::input_const_type     component_input_const_type;
 
+             typedef ::color::_internal::utility::type::size< std::size_t >   size_trait_type;
+
+             typedef typename size_trait_type::return_image_type        size_return_image_type;
+             typedef typename size_trait_type::instance_type            size_instance_type;
+
              typedef void set_return_type;
 
              enum { size_entity = 2 };
-             enum 
+             enum
               {
                 first_position = 0,
                second_position = first_size,
               };
+
 
              static component_return_const_type get( input_const_type container, index_input_const_type index )
               {
@@ -97,7 +105,7 @@ namespace color
              template< index_instance_type index >
               static set_return_type set( input_type container, component_input_const_type value )
                {
-                //TODO C++14 static_assert( index < size_entity, "Index is out of range." );   
+                //TODO C++14 static_assert( index < size_entity, "Index is out of range." );
                 switch( index )
                  {
                   case( 0 ) : container = ( container & ~(  ( ( 1 <<  first_size )-1 ) << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
@@ -105,9 +113,9 @@ namespace color
                  }
                }
 
-             static /*constexpr*/ index_return_image_type size()
+             static /*constexpr*/ size_return_image_type size()
               {
-               static const index_instance_type local_length = size_entity;
+               static const size_instance_type local_length = size_entity;
                return local_length;
               }
           };

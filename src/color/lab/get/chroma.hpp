@@ -24,10 +24,12 @@
         typedef typename ::color::trait::scalar<category_type>     scalar_trait_type;
         typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
 
+        typedef typename ::color::trait::component<category_type>::instance_type     component_type;
+
         auto const& A = c.template get< 1 >();
         auto const& B = c.template get< 2 >();
 
-        return sqrt(  A*A + B*B  );
+        return component_type( sqrt(A*A + B*B) );
        }
 
     }

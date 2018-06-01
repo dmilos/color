@@ -4,7 +4,10 @@
 // ::color::_internal::utility::container::empty<value_name, length>
 
 #include "../type/index.hpp"
+#include "../type/size.hpp"
 #include "../../generic/type/nothing_type.hpp"
+
+
 
 namespace color
  {
@@ -46,6 +49,11 @@ namespace color
              typedef typename component_trait_type::return_image_type    component_return_const_type;
              typedef typename component_trait_type::input_const_type     component_input_const_type;
 
+             typedef ::color::_internal::utility::type::size< std::size_t >   size_trait_type;
+
+             typedef typename size_trait_type::return_image_type        size_return_image_type;
+             typedef typename size_trait_type::instance_type            size_instance_type;
+
              typedef void set_return_type;
 
              enum { size_entity = length };
@@ -73,9 +81,9 @@ namespace color
                {
                }
 
-             static /*constexpr*/ index_return_image_type size()
+             static /*constexpr*/ size_return_image_type size()
               {
-               static const index_instance_type local_length = length;
+               static const size_instance_type local_length = size_entity;
                return local_length;
               }
           };

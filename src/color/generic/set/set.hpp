@@ -1,22 +1,20 @@
-#ifndef color_generic_set_get
-#define color_generic_set_get
-
+#include "./alpha.hpp"
 
 #include "./red.hpp"
-
 #include "./green.hpp"
-
 #include "./blue.hpp"
-#include "./alpha.hpp"
+
 #include "./gray.hpp"
 
 #include "./hue.hpp"
+#include "./saturation.hpp"
 
-#include "./inphase.hpp"
-#include "./key.hpp"
 #include "./luma.hpp"
 #include "./luminance.hpp"
+
+#include "./key.hpp"
+
+#include "./inphase.hpp"
 #include "./quadrature.hpp"
 
-
-#endif
+#include "./chroma.hpp"

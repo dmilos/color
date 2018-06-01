@@ -1,5 +1,6 @@
 
 #include "./hue.hpp"
+#include "./saturation.hpp"
 
 #include "./blue.hpp"
 #include "./green.hpp"

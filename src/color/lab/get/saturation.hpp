@@ -24,6 +24,8 @@
         typedef typename ::color::trait::scalar<category_type>     scalar_trait_type;
         typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
 
+        typedef typename ::color::trait::component<category_type>::instance_type     component_type;
+
         enum
          {
            lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
@@ -38,7 +40,7 @@
           return 0;
          }
 
-        return sqrt(  A*A + B*B  ) / L;
+		return component_type( sqrt(A*A + B*B) / L );
        }
 
     }

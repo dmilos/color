@@ -352,7 +352,7 @@ void make_green( bgr_image_type &image, int const& width, int const& pos_x, int 
    for( int x = pos_x; x < pos_x + len_x/2; x++ )
      {
       image[ y*width + x ][0] = 0;
-      image[ y*width + x ][1] = 255 * ( (x-pos_x) )/double( len_x/2-1 );
+      image[ y*width + x ][1] = (unsigned const)( 255 * ( (x-pos_x) )/double( len_x/2-1 ) );
       image[ y*width + x ][2] = 0;
      }
 
