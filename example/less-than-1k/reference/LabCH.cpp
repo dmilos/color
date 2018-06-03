@@ -5,8 +5,6 @@
 
 using namespace std;
 
-
-
 #define print(c) cout << c[0] << ", " << c[1] << ", " << c[2] << endl;
 
 int main( int argc, char *argv[] )

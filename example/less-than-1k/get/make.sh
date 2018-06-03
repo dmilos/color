@@ -18,7 +18,7 @@ cd ./cyan
 cd ..
 
 cd ./gray
-# ./make.sh
+./make.sh
 cd ..
 
 cd ./green

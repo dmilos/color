@@ -4,18 +4,16 @@
 
 #include "color/color.hpp"
 
-using namespace std;
-using namespace color;
-using namespace color::constant;
-using namespace color::constant::lab;
-
 #define Print(index) \
- cout << "    " <<  index << ": [" << bound_name::minimum( index ) << ", " << bound_name::maximum( index ) << "] |" << bound_name::range( index ) << "|" << endl
+ std::cout << "    " \
+      <<  index << ": [" << bound_name::minimum( index ) << ", " \
+      << bound_name::maximum( index ) << "] |" \
+      << bound_name::range( index ) << "|" << std::endl
 
 template< typename bound_name >
  void print()
  {
-  cout << " Bounds for "<< typeid( bound_name ).name() << endl;
+  std::cout << " Bounds for "<< typeid( bound_name ).name() << std::endl;
   Print( 0 );
   Print( 1 );
   Print( 2 );
@@ -23,11 +21,11 @@ template< typename bound_name >
 
 int main( int argc, char *argv[] )
  {
-  print< lab<float>::bound_type   , CIE_entity >();
-  print< lab<double>::bound_type  , CIE_entity >();
-  print< lab<uint8_t>::bound_type , CIE_entity >();
-  print< lab<uint16_t>::bound_type, CIE_entity >();
-  print< lab<uint32_t>::bound_type, CIE_entity >();
+  print< color::lab<float    , color::constant::lab::CIE_entity>::bound_type >();
+  print< color::lab<double   , color::constant::lab::CIE_entity>::bound_type >();
+  print< color::lab<uint8_t  , color::constant::lab::CIE_entity>::bound_type >();
+  print< color::lab<uint16_t , color::constant::lab::CIE_entity>::bound_type >();
+  print< color::lab<uint32_t , color::constant::lab::CIE_entity>::bound_type >();
 
   return EXIT_SUCCESS;
  }
