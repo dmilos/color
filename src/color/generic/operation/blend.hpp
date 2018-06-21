@@ -37,8 +37,8 @@
             typedef ::color::trait::index< category_type >       index_trait_type;
             typedef typename index_trait_type::instance_type     index_type;
 
-			typedef ::color::trait::component< category_name >     component_trait_type;
-			typedef typename component_trait_type::instance_type   component_instance_type;
+            typedef ::color::trait::component< category_name >     component_trait_type;
+            typedef typename component_trait_type::instance_type   component_instance_type;
 
             typedef ::color::trait::container< category_type >   container_trait_type;
 

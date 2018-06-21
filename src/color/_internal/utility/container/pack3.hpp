@@ -32,6 +32,9 @@ namespace color
              typedef component_name     value_type;
              typedef index_name         index_type;
 
+             typedef ::color::_internal::utility::container::pack3< container_name, component_name, index_name, first_size, second_size, third_size > this_type;
+
+
              typedef instance_type const      const_type;
              typedef instance_type const&     return_image_type;
              typedef instance_type      &     return_type;
@@ -75,6 +78,18 @@ namespace color
                second_mask = ( 1 << second_size )-1 ,
                 third_mask = ( 1 <<  third_size )-1
               };
+
+
+             static set_return_type init( input_type container, index_input_const_type index, component_input_const_type value )
+              {
+               this_type::set( container, index, value );
+              }
+
+             template< index_instance_type index >
+              static set_return_type init( input_type container, component_input_const_type value )
+               {
+                this_type:: template set<index>( container, value );
+               }
 
 
              static component_return_const_type get( input_const_type container, index_input_const_type index )

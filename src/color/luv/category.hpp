@@ -13,7 +13,7 @@ namespace color
     template< typename tag_name >
      struct luv
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
     using luv_bool    = ::color::category::luv< bool    >;

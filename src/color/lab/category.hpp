@@ -19,7 +19,7 @@ namespace color
       >
      struct lab
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
     template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_uint8   = ::color::category::lab< std::uint8_t , reference_number >;

@@ -16,25 +16,25 @@ namespace color
 
     template< >
      struct component< ::color::category::hsv_uint8  >
-      : public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::hsv_uint8 >::instance_type >
+      : public ::color::_internal::utility::component::array< std::uint8_t >
       {
       };
 
     template< >
      struct component< ::color::category::hsv_uint16 >
-      : public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::hsv_uint16 >::instance_type >
+      : public ::color::_internal::utility::component::array< std::uint16_t >
       {
       };
 
     template< >
      struct component< ::color::category::hsv_uint32 >
-      : public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::hsv_uint32 >::instance_type >
+      : public ::color::_internal::utility::component::array< std::uint32_t >
       {
       };
 
     template< >
      struct component< ::color::category::hsv_uint64 >
-      : public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::hsv_uint64 >::instance_type >
+      : public ::color::_internal::utility::component::array< std::uint64_t >
       {
       };
 

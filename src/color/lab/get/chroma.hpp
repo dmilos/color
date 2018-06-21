@@ -26,8 +26,8 @@
 
         typedef typename ::color::trait::component<category_type>::instance_type     component_type;
 
-        auto const& A = c.template get< 1 >();
-        auto const& B = c.template get< 2 >();
+        scalar_type const A = static_cast<scalar_type>( c.template get< 1 >() );
+        scalar_type const B = static_cast<scalar_type>( c.template get< 2 >() );
 
         return component_type( sqrt(A*A + B*B) );
        }

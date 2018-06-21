@@ -15,13 +15,19 @@ namespace color
       namespace component
        {
 
-        template< typename index_name >
-         struct pack64
-          : public ::color::_internal::utility::component::Unsigned< std::uint32_t, index_name >
-          {
-          };
+        struct pack64
+         : public ::color::_internal::utility::component::Unsigned< std::uint32_t >
+         {
+         };
 
-        template< typename index_name > using splitGGGG_t = ::color::_internal::utility::component::pack64<index_name>;
+        typedef  ::color::_internal::utility::component::pack64  splitGGGG_t;
+
+        typedef  ::color::_internal::utility::component::pack64  splitIIIA_t;
+        typedef  ::color::_internal::utility::component::pack64  splitAIII_t;
+
+        typedef  ::color::_internal::utility::component::pack64  splitKKK6_t;
+        typedef  ::color::_internal::utility::component::pack64  split6KKK_t;
+
        }
      }
    }

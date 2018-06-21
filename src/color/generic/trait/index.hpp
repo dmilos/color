@@ -20,7 +20,7 @@ namespace color
 
          typedef typename utility_type::instance_type              instance_type;
 
-         typedef typename utility_type::const_type const_type;
+         typedef typename utility_type::const_type                    const_type, instance_const_type;
 
          typedef typename utility_type::return_image_type       return_image_type;
          typedef typename utility_type::return_original_type    return_original_type;

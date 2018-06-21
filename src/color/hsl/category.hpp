@@ -9,7 +9,7 @@ namespace color
     template< typename tag_name >
      struct hsl
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
     using hsl_bool    = ::color::category::hsl< bool    >;

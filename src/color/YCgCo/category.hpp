@@ -9,7 +9,7 @@ namespace color
     template< typename tag_name >
      struct YCgCo
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
     using YCgCo_uint8   = ::color::category::YCgCo< std::uint8_t  >;

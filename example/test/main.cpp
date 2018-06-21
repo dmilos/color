@@ -203,7 +203,7 @@ void LabCH_test( )
   ll = l0a;
   lr = r;
   r = lr;
-  
+
   //l1  = l0a;
   l0a = l0b;
   //l1  = l1;
@@ -220,35 +220,35 @@ void LabCH_test( )
   std::cout << "r[0]= " << r[0] <<" ; " ;     \
   std::cout << "r[1]= " << r[1] <<" ; " ;     \
   std::cout << "r[2]= " << r[2] <<" ; " ;  \
-  std::cout << std::endl ;       
+  std::cout << std::endl ;
 
   TEST( r[0]=1 );
 
-  TEST( r[0]= - r[0] ); 
-  TEST( r[0]= + r[0] ); 
+  TEST( r[0]= - r[0] );
+  TEST( r[0]= + r[0] );
 
-  TEST( r[0] += 1 );    
-  TEST( r[0] -= 1 );    
-  TEST( r[0] /= 1 );    
-  TEST( r[0] *= 1 );    
+  TEST( r[0] += 1 );
+  TEST( r[0] -= 1 );
+  TEST( r[0] /= 1 );
+  TEST( r[0] *= 1 );
 
-  TEST( r[0] += 1.0 );  
-  TEST( r[0] -= 1.0 );  
-  TEST( r[0] /= 1.0 );  
-  TEST( r[0] *= 1.0 );  
+  TEST( r[0] += 1.0 );
+  TEST( r[0] -= 1.0 );
+  TEST( r[0] /= 1.0 );
+  TEST( r[0] *= 1.0 );
 
-  TEST( r[0] = r[1] );    
+  TEST( r[0] = r[1] );
 
 
-  TEST( r[0] += r[1] );    
-  TEST( r[0] -= r[1] );    
-  TEST( r[0] /= r[1] );    
-  TEST( r[0] *= r[1] );    
+  TEST( r[0] += r[1] );
+  TEST( r[0] -= r[1] );
+  TEST( r[0] /= r[1] );
+  TEST( r[0] *= r[1] );
 
-  TEST( r[0]= r[1] + 1 );  
-  TEST( r[0]= r[1] - 1 );  
-  TEST( r[0]= r[1] * 1 );  
-  TEST( r[0]= r[1] / 1 );  
+  TEST( r[0]= r[1] + 1 );
+  TEST( r[0]= r[1] - 1 );
+  TEST( r[0]= r[1] * 1 );
+  TEST( r[0]= r[1] / 1 );
 
   TEST( r[0]=1 - r[1] );
   TEST( r[0]=1 + r[1] );
@@ -566,7 +566,6 @@ void test_yiq2yuv601_quick()
   yuv = ::color::constant::magenta_t{};  yiq = yuv; std::cout << "magenta  "; print( yiq ); std::cout << std::endl;
  }
 
-
 template< typename source_name, typename category_name >
  void ranger_rgb()
   {
@@ -601,6 +600,7 @@ template< typename source_name, typename category_name >
 
 int main(int argc, char const *argv[] )
  {
+
   //ranger_rgb< color::rgb<double>::category_type, ::color::LabCH<double>::category_type   >();
   //ranger_rgb< color::rgb<double>::category_type, ::color::lab<double, ::color::constant::lab::Hunter_entity>::category_type >();
   //

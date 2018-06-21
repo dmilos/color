@@ -24,6 +24,8 @@ namespace color
            public:
              typedef value_name                      value_type;
 
+             typedef ::color::_internal::utility::container::scramble3< value_name, first_position, second_position, third_position > this_type;
+
              typedef std::array< value_name, 3 > instance_type;
 
 
@@ -59,6 +61,18 @@ namespace color
              typedef void set_return_type;
 
              enum { size_entity = 3 };
+
+
+             static set_return_type init( input_type container, index_input_const_type index, component_input_const_type value )
+              {
+               this_type::set( container, index, value );
+              }
+
+             template< index_instance_type index >
+              static set_return_type init( input_type container, component_input_const_type value )
+               {
+                this_type:: template set<index>( container, value );
+               }
 
 
              static component_return_const_type get( input_const_type container, index_input_const_type index )

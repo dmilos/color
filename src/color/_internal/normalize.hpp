@@ -36,8 +36,8 @@ namespace color
           {
            scalar_type normal = scalar_type( divergent );
 
-           normal -= bound_trait_type::minimum( index );
-           normal /= bound_trait_type::range( index );
+           normal -= scalar_type( bound_trait_type::minimum( index ) );
+           normal /= scalar_type( bound_trait_type::range( index ) );
            return normal;
           }
 
@@ -48,8 +48,8 @@ namespace color
            {
             scalar_type normal = scalar_type( divergent );
 
-            normal -= bound_trait_type::template minimum<index_size>( );
-            normal /= bound_trait_type::template range<index_size>( );
+            normal -= scalar_type( bound_trait_type::template minimum<index_size>( ) );
+            normal /= scalar_type( bound_trait_type::template range<index_size>( ) );
 
             return normal;
            }

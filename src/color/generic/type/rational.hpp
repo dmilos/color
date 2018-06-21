@@ -72,64 +72,62 @@ namespace color
 
     template < typename underlying_name >
      inline
-     ::counter::number< underlying_name> operator+
+     rational< underlying_name> operator+
       (
-       ::counter::number< underlying_name> const& left
+       rational< underlying_name> const& left
       )
       {
-       return ::counter::number< underlying_name>( + left.get() );
+       return rational< underlying_name>( + left.get() );
       }
 
     template < typename underlying_name >
      inline
-     ::counter::number< underlying_name> operator+
+     rational< underlying_name> operator+
       (
-       ::counter::number< underlying_name> const& left, ::counter::number< underlying_name> const& right
+       rational< underlying_name> const& left, rational< underlying_name> const& right
       )
       {
-       return ::counter::number< underlying_name>( left.get() + right.get() );
+       return rational< underlying_name>( left.get() + right.get() );
       }
-
 
     template < typename underlying_name >
      inline
-     ::counter::number< underlying_name> & operator+=
+     rational< underlying_name> & operator+=
       (
-       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+       rational< underlying_name>      & left, rational< underlying_name> const& right
       )
       {
        left.get() += right.get();
        return left;
       }
 
-
     template < typename underlying_name >
      inline
-     ::counter::number< underlying_name> operator-
+     rational< underlying_name> operator-
       (
-       ::counter::number< underlying_name> const& left
+       rational< underlying_name> const& left
       )
       {
-       return ::counter::number< underlying_name>( - left.get() );
+       return rational< underlying_name>( - left.get() );
       }
 
 
     template < typename underlying_name >
      inline
-     ::counter::number< underlying_name> operator-
+     rational< underlying_name> operator-
       (
-       ::counter::number< underlying_name> const& left, ::counter::number< underlying_name> const& right
+       rational< underlying_name> const& left, rational< underlying_name> const& right
       )
       {
-       return ::counter::number< underlying_name>( left.get() - right.get() );
+       return rational< underlying_name>( left.get() - right.get() );
       }
 
 
     template < typename underlying_name >
      inline
-     ::counter::number< underlying_name> & operator-=
+     rational< underlying_name> & operator-=
       (
-       ::counter::number< underlying_name>     & left, ::counter::number< underlying_name> const& right
+       rational< underlying_name>     & left, rational< underlying_name> const& right
       )
       {
        left.get() -= right.get();
@@ -138,19 +136,19 @@ namespace color
 
     template < typename underlying_name >
      inline
-     ::counter::number< underlying_name> operator*
+     rational< underlying_name> operator*
       (
-       ::counter::number< underlying_name> const& left, ::counter::number< underlying_name> const& right
+       rational< underlying_name> const& left, rational< underlying_name> const& right
       )
       {
-       return ::counter::number< underlying_name>( left.get() * right.get() );
+       return rational< underlying_name>( left.get() * right.get() );
       }
 
     template < typename underlying_name >
      inline
-     ::counter::number< underlying_name> & operator *=
+     rational< underlying_name> & operator *=
       (
-       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+       rational< underlying_name>      & left, rational< underlying_name> const& right
       )
       {
        left.get() *= right.get();
@@ -159,20 +157,20 @@ namespace color
 
     template < typename underlying_name >
      inline
-     ::counter::number< underlying_name> operator/
+     rational< underlying_name> operator/
       (
-       ::counter::number< underlying_name> const& left, ::counter::number< underlying_name> const& right
+       rational< underlying_name> const& left, rational< underlying_name> const& right
       )
       {
-       return ::counter::number< underlying_name>( left.get() / right.get() );
+       return rational< underlying_name>( left.get() / right.get() );
       }
 
 
     template < typename underlying_name >
      inline
-     ::counter::number< underlying_name> & operator /=
+     rational< underlying_name> & operator /=
       (
-       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+       rational< underlying_name>      & left, rational< underlying_name> const& right
       )
       {
        left.get() /= right.get();
@@ -183,7 +181,7 @@ namespace color
      inline
      bool operator ==
       (
-       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+       rational< underlying_name>      & left, rational< underlying_name> const& right
       )
       {
        return left.get() == right.get();
@@ -193,7 +191,7 @@ namespace color
      inline
      bool operator !=
       (
-       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+       rational< underlying_name>      & left, rational< underlying_name> const& right
       )
       {
        return left.get() != right.get();
@@ -203,7 +201,7 @@ namespace color
      inline
      bool operator <
       (
-       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+       rational< underlying_name>      & left, rational< underlying_name> const& right
       )
       {
        return left.get() < right.get();
@@ -213,7 +211,7 @@ namespace color
      inline
      bool operator <=
       (
-       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+       rational< underlying_name>      & left, rational< underlying_name> const& right
       )
       {
        return left.get() <= right.get();
@@ -223,7 +221,7 @@ namespace color
      inline
      bool operator >
       (
-       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+       rational< underlying_name>      & left, rational< underlying_name> const& right
       )
       {
        return left.get() > right.get();
@@ -233,7 +231,7 @@ namespace color
      inline
      bool operator >=
       (
-       ::counter::number< underlying_name>      & left, ::counter::number< underlying_name> const& right
+       rational< underlying_name>      & left, rational< underlying_name> const& right
       )
       {
        return left.get() >= right.get();

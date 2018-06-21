@@ -16,25 +16,25 @@ namespace color
 
     template< >
      struct component< ::color::category::gray_uint8  >
-      : public ::color::_internal::utility::component::Unsigned< std::uint8_t, typename ::color::trait::index< ::color::category::gray_uint8 >::instance_type >
+      : public ::color::_internal::utility::component::Unsigned< std::uint8_t >
       {
       };
 
     template< >
      struct component< ::color::category::gray_uint16 >
-      : public ::color::_internal::utility::component::Unsigned< std::uint16_t, typename ::color::trait::index< ::color::category::gray_uint16 >::instance_type >
+      : public ::color::_internal::utility::component::Unsigned< std::uint16_t >
       {
       };
 
     template< >
      struct component< ::color::category::gray_uint32 >
-      : public ::color::_internal::utility::component::Unsigned< std::uint32_t, typename ::color::trait::index< ::color::category::gray_uint32 >::instance_type >
+      : public ::color::_internal::utility::component::Unsigned< std::uint32_t >
       {
       };
 
     template< >
      struct component< ::color::category::gray_uint64 >
-      : public ::color::_internal::utility::component::Unsigned< std::uint64_t, typename ::color::trait::index< ::color::category::gray_uint64 >::instance_type >
+      : public ::color::_internal::utility::component::Unsigned< std::uint64_t >
       {
       };
 

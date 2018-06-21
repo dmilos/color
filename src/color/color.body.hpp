@@ -30,7 +30,6 @@
 
 
 #include "./generic/operation/operation.hpp"
-//#include "./gray/operation/operation.hpp"
 
 #include "./generic/compare/compare.hpp"
 #include "./generic/make/make.hpp"

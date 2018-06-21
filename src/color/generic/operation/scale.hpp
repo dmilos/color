@@ -22,8 +22,8 @@
 
             typedef ::color::trait::index<category_type>         index_trait_type;
 
-			typedef ::color::trait::component< category_type >     component_trait_type;
-			typedef typename component_trait_type::instance_type   component_instance_type;
+            typedef ::color::trait::component< category_type >     component_trait_type;
+            typedef typename component_trait_type::instance_type   component_instance_type;
 
             typedef typename ::color::model<category_type>  model_type;
 

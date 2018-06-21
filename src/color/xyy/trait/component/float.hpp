@@ -16,19 +16,19 @@ namespace color
 
     template< >
      struct component< ::color::category::xyy_float >
-      : public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::xyy_float >::instance_type >
+      : public ::color::_internal::utility::component::array< float >
       {
       };
 
     template< >
      struct component< ::color::category::xyy_double >
-      : public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::xyy_double >::instance_type >
+      : public ::color::_internal::utility::component::array< double >
       {
       };
 
     template< >
      struct component< ::color::category::xyy_ldouble >
-      : public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::xyy_ldouble >::instance_type>
+      : public ::color::_internal::utility::component::array< long double >
       {
       };
 

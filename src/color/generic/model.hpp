@@ -93,6 +93,13 @@ namespace color
          ::color::_internal::init<category_name>( this->m_container, ilist );
         }
 
+       /*template < typename that_component_type >
+        explicit model( std::initializer_list<that_component_type> const& ilist )
+         {
+          //TODO C++14 static_assert( container_trait_type::size_entity != ilist.size(), "Initializer list size do not match model/format length." );
+          ::color::_internal::init<category_name,that_component_type>( this->m_container, ilist );
+         }*/
+
        model( ::color::model<category_type> const& that )
         {
          this->m_container = that.container();

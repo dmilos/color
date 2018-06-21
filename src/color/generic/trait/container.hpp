@@ -5,7 +5,7 @@
 
 #include "./index.hpp"
 #include "./component.hpp"
-// TODO #include "./size.hpp"
+#include "./size.hpp"
 
 namespace color
  {
@@ -17,6 +17,8 @@ namespace color
       {
        public:
          typedef unsigned int/*uint32_t*/           instance_type;
+
+         typedef ::color::trait::container< category_name >  this_type;
 
          typedef instance_type const    const_type;
 
@@ -40,14 +42,25 @@ namespace color
          typedef typename component_trait_type::input_const_type     component_input_const_type;
          typedef typename component_trait_type::instance_type        component_type;
 
-         // TODO typedef ::color::trait::size< category_name >                size_trait_type;
-         // TODO typedef typename size_trait_type::return_image_type   size_return_image_type;
-         // TODO typedef typename size_trait_type::instance_type          size_instance_type;
+         typedef ::color::trait::size< category_name >                size_trait_type;
+         typedef typename size_trait_type::return_image_type   size_return_image_type;
+         typedef typename size_trait_type::instance_type          size_instance_type;
 
 
          typedef void set_return_type;
 
          enum { size_entity = 4 };
+
+         static set_return_type init( input_type container, index_input_const_type index, component_input_const_type value )
+          {
+           this_type::set( container, index, value );
+          }
+
+         template< index_instance_type index >
+          static set_return_type init( input_type container, component_input_const_type value )
+           {
+            this_type:: template set<index>( container, value );
+           }
 
          static component_return_const_type get( input_const_type container, index_input_const_type index )
           {
@@ -71,9 +84,9 @@ namespace color
             container = ( container & ~(  0xFF << ( index << 3 ) ) )  |  ( ((instance_type)value) << ( index << 3) );
            }
 
-         static  /*constexpr*/  index_return_image_type size()
+         static  /*constexpr*/  size_return_image_type size()
           {
-           static index_instance_type length = 4;
+           static size_instance_type length = 4;
            return length;
           }
       };

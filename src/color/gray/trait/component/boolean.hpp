@@ -16,7 +16,7 @@ namespace color
 
     template< >
      struct component< ::color::category::gray_bool >
-      : public ::color::_internal::utility::component::array< bool, typename ::color::trait::index< ::color::category::gray_bool >::instance_type >
+      : public ::color::_internal::utility::component::array< bool >
       {
       };
 

@@ -9,7 +9,7 @@ namespace color
     template< typename tag_name >
      struct YDbDr
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
     using YDbDr_bool    = ::color::category::YDbDr< bool    >;

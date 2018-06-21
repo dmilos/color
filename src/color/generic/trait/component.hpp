@@ -3,7 +3,7 @@
 
 // ::color::trait::component< category >
 
-#include "./index.hpp"
+#include "./index.hpp" //!< non-homogen formats
 
 namespace color
  {
@@ -23,6 +23,9 @@ namespace color
 
          typedef instance_type const&   input_const_type;
          typedef instance_type      &   input_type;
+
+         typedef instance_type const*   pointer_const_type;
+         typedef instance_type      *   pointer_type;
 
          // typedef ::color::trait::index< category_name >      index_trait_type;
          // typedef typename index_trait_type::instance_type    index_instance_type;

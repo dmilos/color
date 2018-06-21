@@ -44,7 +44,6 @@ namespace color
            ,container_right_const_input_type  right
           )
           {
-
            static const index_type min_common_size = std::min< index_type >( container_left_trait_type::size(), container_right_trait_type::size() );
 
            component_left_type value;

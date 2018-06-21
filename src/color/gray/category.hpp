@@ -11,7 +11,7 @@ namespace color
     template< typename tag_name >
      struct gray
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
     using gray_bool    = ::color::category::gray< bool    >;

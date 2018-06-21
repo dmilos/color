@@ -32,33 +32,25 @@ namespace color
         template<>
          struct pick_component4<8>
           {
-           typedef ::color::_internal::utility::type::index< unsigned >::instance_type  index_type;
-
-           typedef ::color::_internal::utility::component::pack8< index_type > component_type;
+           typedef ::color::_internal::utility::component::pack8 component_type;
           };
 
         template<>
          struct pick_component4<16>
           {
-           typedef ::color::_internal::utility::type::index< unsigned >::instance_type  index_type;
-
-           typedef ::color::_internal::utility::component::pack16< index_type > component_type;
+           typedef ::color::_internal::utility::component::pack16 component_type;
           };
 
         template<>
          struct pick_component4<32>
           {
-           typedef ::color::_internal::utility::type::index< unsigned >::instance_type  index_type;
-
-           typedef ::color::_internal::utility::component::pack32< index_type > component_type;
+           typedef ::color::_internal::utility::component::pack32 component_type;
           };
 
         template<>
          struct pick_component4<64>
           {
-           typedef ::color::_internal::utility::type::index< unsigned >::instance_type  index_type;
-
-           typedef ::color::_internal::utility::component::pack64< index_type > component_type;
+           typedef ::color::_internal::utility::component::pack64 component_type;
           };
 
        }

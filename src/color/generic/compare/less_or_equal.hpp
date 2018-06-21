@@ -6,6 +6,9 @@
 #include "../../generic/model.hpp"
 
 
+
+
+
  namespace color
   {
    namespace compare

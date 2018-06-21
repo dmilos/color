@@ -25,6 +25,8 @@ namespace color
              typedef index_name     index_type;
              typedef bool           value_type;
 
+             typedef ::color::_internal::utility::container::boolean< index_name > this_type;
+
              typedef bool  instance_type;
 
 
@@ -53,14 +55,25 @@ namespace color
 
              typedef ::color::_internal::utility::type::size< std::size_t >   size_trait_type;
 
-			 typedef typename size_trait_type::return_image_type        size_return_image_type;
-			 typedef typename size_trait_type::instance_type            size_instance_type;
+             typedef typename size_trait_type::return_image_type        size_return_image_type;
+             typedef typename size_trait_type::instance_type            size_instance_type;
 
 
              typedef void set_return_type;
 
              enum { size_entity = 1 };
 
+
+             static set_return_type init( input_type container, index_input_const_type index, component_input_const_type value )
+              {
+               this_type::set( container, index, value );
+              }
+
+             template< index_instance_type index >
+              static set_return_type init( input_type container, component_input_const_type value )
+               {
+                this_type:: template set<index>( container, value );
+               }
 
              static component_return_const_type get( input_const_type container, index_input_const_type index )
               {

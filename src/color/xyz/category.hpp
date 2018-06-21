@@ -13,7 +13,7 @@ namespace color
     template< typename tag_name/*, reference_name */ >
      struct xyz
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
     using xyz_bool    = ::color::category::xyz< bool    >;

@@ -15,7 +15,7 @@ namespace color
     template< typename tag_name, ::color::constant::lms::reference_enum lms_reference_number >
      struct lms
       {
-       typedef tag_name category_name;
+       typedef tag_name tag_type;
       };
 
     template< ::color::constant::lms::reference_enum reference_number > using lms_uint8   = ::color::category::lms< std::uint8_t , reference_number >;

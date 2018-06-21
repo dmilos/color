@@ -15,17 +15,15 @@ namespace color
       namespace component
        {
 
-        template< typename index_name >
-         struct pack32
-          : public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name >
-          {
-          };
+        struct pack32
+         : public ::color::_internal::utility::component::Unsigned< std::uint16_t >
+         {
+         };
 
+        typedef  ::color::_internal::utility::component::pack32  split8888_t;
 
-        template< typename index_name > using split8888_t = ::color::_internal::utility::component::pack32<index_name>;
-
-        template< typename index_name > using splitAAA2_t = ::color::_internal::utility::component::pack32<index_name>;
-        template< typename index_name > using split2AAA_t = ::color::_internal::utility::component::pack32<index_name>;
+        typedef  ::color::_internal::utility::component::pack32  splitAAA2_t;
+        typedef  ::color::_internal::utility::component::pack32  split2AAA_t;
 
        }
      }

@@ -13,7 +13,7 @@ namespace color
     template< typename tag_name >
      struct yiq
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
     using yiq_bool    = ::color::category::yiq< bool    >;

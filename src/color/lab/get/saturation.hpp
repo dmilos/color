@@ -31,16 +31,16 @@
            lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
          };
 
-        auto const& L = c.template get< lightness_p>();
-        auto const& A = c.template get< 1 >();
-        auto const& B = c.template get< 2 >();
+        scalar_type const L = static_cast<scalar_type>( c.template get< lightness_p>() );
+        scalar_type const A = static_cast<scalar_type>( c.template get< 1 >()) ;
+        scalar_type const B = static_cast<scalar_type>( c.template get< 2 >() );
 
         if( false == scalar_trait_type::is_small( scalar_type(L) ) )
          {
           return 0;
          }
 
-		return component_type( sqrt(A*A + B*B) / L );
+        return component_type( sqrt(A*A + B*B) / L );
        }
 
     }

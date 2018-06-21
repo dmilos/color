@@ -12,7 +12,7 @@ namespace color
     template< typename tag_name, ::color::constant::YPbPr::reference_enum reference_number  >
      struct YPbPr
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
     template< ::color::constant::YPbPr::reference_enum reference_number > using YPbPr_uint8   = ::color::category::YPbPr< std::uint8_t  , reference_number >;

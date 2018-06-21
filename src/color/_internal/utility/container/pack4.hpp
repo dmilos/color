@@ -32,6 +32,9 @@ namespace color
              typedef component_name     value_type;
              typedef index_name         index_type;
 
+             typedef ::color::_internal::utility::container::pack4< container_name, component_name, index_name, first_size, second_size, third_size, fourth_size > this_type;
+
+
              typedef instance_type const      const_type;
              typedef instance_type const&     return_image_type;
              typedef instance_type      &     return_type;
@@ -78,6 +81,17 @@ namespace color
                fourth_mask = ( 1 << fourth_size )-1
               };
 
+
+             static set_return_type init( input_type container, index_input_const_type index, component_input_const_type value )
+              {
+               this_type::set( container, index, value );
+              }
+
+             template< index_instance_type index >
+              static set_return_type init( input_type container, component_input_const_type value )
+               {
+                this_type:: template set<index>( container, value );
+               }
 
              static component_return_const_type get( input_const_type container, index_input_const_type index )
               {
@@ -159,18 +173,23 @@ namespace color
         template<  unsigned first_size, unsigned second_size, unsigned third_size, unsigned fourth_size >
          using pack4_64_32_t = ::color::_internal::utility::container::pack4_N_N_t< std::uint64_t,  std::uint32_t, first_size, second_size, third_size, fourth_size >;
 
-        using split2222_t = ::color::_internal::utility::container::pack4_8_8_t<   2,   2,  2,  2 >;
-        using split4444_t = ::color::_internal::utility::container::pack4_16_8_t<  4,   4,  4,  4 >;
+        using split2222_t = ::color::_internal::utility::container::pack4_8_8_t<     2,   2,  2,    2 >;
+        using split4444_t = ::color::_internal::utility::container::pack4_16_8_t<    4,   4,  4,    4 >;
 
-        using split1555_t = ::color::_internal::utility::container::pack4_16_8_t< 1,   5,  5,  5 >;
-        using split5551_t = ::color::_internal::utility::container::pack4_16_8_t< 5,   5,  5,  1 >;
+        using split1555_t = ::color::_internal::utility::container::pack4_16_8_t<    1,   5,  5,    5 >;
+        using split5551_t = ::color::_internal::utility::container::pack4_16_8_t<    5,   5,  5,    1 >;
 
-        using split8888_t = ::color::_internal::utility::container::pack4_32_8_t<  8,   8,  8,  8 >;
+        using split8888_t = ::color::_internal::utility::container::pack4_32_8_t<    8,   8,  8,    8 >;
 
-        using split2AAA_t = ::color::_internal::utility::container::pack4_32_16_t<  2, 10, 10, 10 >;
-        using splitAAA2_t = ::color::_internal::utility::container::pack4_32_16_t< 10, 10, 10,  2 >;
+        using split2AAA_t = ::color::_internal::utility::container::pack4_32_16_t<   2,  10,  10,  10 >;
+        using splitAAA2_t = ::color::_internal::utility::container::pack4_32_16_t<  10,  10,  10 ,  2 >;
 
-        using splitGGGG_t = ::color::_internal::utility::container::pack4_64_16_t< 16, 16, 16,  16 >;
+        using splitGGGG_t = ::color::_internal::utility::container::pack4_64_16_t<  16,  16,  16,  16 >;
+        using splitIIIA_t = ::color::_internal::utility::container::pack4_64_16_t<  18,  18,  18,  10 >;
+        using splitKKK6_t = ::color::_internal::utility::container::pack4_64_16_t<  20,  20,  20,   6 >;
+
+        using splitAIII_t = ::color::_internal::utility::container::pack4_64_16_t<  10,  18,  18,  18 >;
+        using split6KKK_t = ::color::_internal::utility::container::pack4_64_16_t<   6,  20,  20,  20 >;
 
        }
      }

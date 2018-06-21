@@ -13,7 +13,7 @@ namespace color
     template< typename tag_name >
      struct hwb
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
   //using hwb_bool    = ::color::category::hwb< bool    >;

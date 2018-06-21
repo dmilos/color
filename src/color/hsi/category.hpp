@@ -9,7 +9,7 @@ namespace color
     template< typename tag_name >
      struct hsi
       {
-       typedef void category_name;
+       typedef void tag_type;
       };
 
   //using hsi_bool    = ::color::category::hsi< bool    >;
