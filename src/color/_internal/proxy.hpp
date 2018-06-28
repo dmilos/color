@@ -109,7 +109,7 @@ namespace color
 
        private:
          constainer_type & m_container;
-         index_type const& m_index;
+         index_type        m_index;
       };
 
    }
