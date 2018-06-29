@@ -29,9 +29,8 @@
        {
         typedef ::color::category::gray<tag_name >    category_type;
         typedef typename ::color::akin::rgb< category_type >::akin_type     akin_type;
-        typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
 
-        typedef  ::color::_internal::reformat<category_type, akin_type, scalar_type > reformat_type;
+        typedef  ::color::_internal::reformat<category_type, akin_type > reformat_type;
 
         enum{ red_p   = ::color::place::_internal::red<akin_type>::position_enum };
         enum{ gray_p  = ::color::place::_internal::gray<category_type>::position_enum };

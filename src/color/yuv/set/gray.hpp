@@ -27,9 +27,8 @@
        {
         typedef ::color::category::yuv< tag_name, reference_number >     category_type;
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
-        typedef typename ::color::trait::scalar<category_type>::instance_type  scalar_type;
 
-        typedef ::color::_internal::reformat< category_type, akin_type, scalar_type >    reformat_type;
+        typedef ::color::_internal::reformat< category_type, akin_type >    reformat_type;
         color_parameter.template set<0>( reformat_type::template process<0,0>( component_parameter ) );
        }
 

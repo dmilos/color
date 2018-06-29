@@ -27,11 +27,9 @@
        {
         typedef ::color::category::xyy< tag_name > category_type;
 
-        typedef typename ::color::trait::scalar< category_type > ::instance_type   scalar_type;
-
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_category_type;
 
-        typedef ::color::_internal::reformat< akin_category_type, category_type, scalar_type >  reformat_type;
+        typedef ::color::_internal::reformat< akin_category_type, category_type >  reformat_type;
 
         enum
          {

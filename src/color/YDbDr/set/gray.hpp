@@ -27,9 +27,8 @@
        {
         typedef ::color::category::YDbDr< tag_name >    category_type;
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
-        typedef double  scalar_type;
 
-        typedef ::color::_internal::reformat< category_type, akin_type, scalar_type >    reformat_type;
+        typedef ::color::_internal::reformat< category_type, akin_type >    reformat_type;
         color_parameter.template set<0>( reformat_type::template process<0,0>( component_parameter ) );
        }
 

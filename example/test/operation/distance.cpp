@@ -144,7 +144,11 @@ void test_operation_distance_zero()
        }
      }
    }
-  std::cout << __FUNCTION__<< " max error: " << dmax << std::endl;
+
+  std::cout <<  __FUNCTION__<< std::endl;
+  std::cout << "    "<< typeid(reference_number).name() << std::endl;
+  std::cout << "    "<< reference_number << std::endl;
+  std::cout << "     max error: " << dmax << std::endl;
  }
 
 

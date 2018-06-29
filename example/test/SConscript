@@ -7,20 +7,20 @@ Import('settings')
 
 name_full = 'test'
 
-settings.set_custom( 'RTL', 'dynamic' )
-settings.set_custom( 'architecture', 'i386' )
 
 configuration = settings.get_custom( 'configuration' )
 
-directory_pdb = './out/bin/' + configuration + '/'
-directory_obj = './out/bin/' + configuration + '/'
+directory_pdb = './out/bin/' + configuration + '-'
+directory_obj = './out/bin/' + configuration + '-'
 
 
 if 'Windows' == platform.system() :
     if True == settings.exists_custom( 'compiler_version_msvc' ) :
-        directory_pdb += settings.get_custom( 'compiler_version_msvc' ) + '/'
-        directory_obj += settings.get_custom( 'compiler_version_msvc' ) + '/'
+        directory_pdb += settings.get_custom( 'compiler_version_msvc' ) + '-'
+        directory_obj += settings.get_custom( 'compiler_version_msvc' ) + '-'
 
+directory_pdb += settings.get_custom( 'architecture' )
+directory_obj += settings.get_custom( 'architecture' )
 directory_exe = './out/'
 
 # Accumulate Atoms
@@ -36,7 +36,7 @@ settings.accumulate( 'compiler:version',  { 'msvc' : [ settings.get_custom( 'com
 settings.accumulate( 'compiler:warning', { 'return-address-of-local-variable': 'enable'  } )
 settings.accumulate( 'compiler:warning', { 'unused-variable': 'disable'  } )
 
-settings.accumulate( 'PDB', { 'configuration': configuration , 'synchronous' : 'false', 'file-name': os.path.join( directory_pdb, name_full + '.pdb' ) } )
+settings.accumulate( 'PDB', { 'configuration' : configuration , 'synchronous' : 'false', 'file-name': os.path.join( directory_pdb, name_full + '.pdb' ) } )
 settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.get_custom( 'RTL' ) } )
 
 if 'true' == settings.get_custom( 'pp2f' ):

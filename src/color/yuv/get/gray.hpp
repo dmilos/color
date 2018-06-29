@@ -27,10 +27,8 @@
        {
         typedef ::color::category::yuv< tag_name, reference_number > category_type;
 
-        typedef typename ::color::trait::scalar< category_type >::instance_type   scalar_type;
-
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_type;
-        typedef ::color::_internal::reformat< akin_type, category_type, scalar_type >  reformat_type;
+        typedef ::color::_internal::reformat< akin_type, category_type >  reformat_type;
 
         enum { luma_p  = ::color::place::_internal::luma<category_type>::position_enum };
 

@@ -1,6 +1,6 @@
 #ifndef color_generic_set_key
 #define color_generic_set_key
-
+// TODO OBSOLETE. Use black instead.
 // ::color::set::key( c, val )
 
  namespace color

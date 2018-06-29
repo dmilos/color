@@ -45,8 +45,8 @@ namespace color
          typedef typename ::color::LuvCH< scalar_type >::category_type LuvCHscalar_category_type;
          typedef typename ::color::luv<   scalar_type >::category_type LUVscalar_category_type;
 
-         typedef ::color::_internal::reformat< category_left_type, LuvCHscalar_category_type, scalar_type >   reformatCH_type;
-         typedef ::color::_internal::reformat< LUVscalar_category_type, category_right_type, scalar_type >    reformatUV_type;
+         typedef ::color::_internal::reformat< category_left_type, LuvCHscalar_category_type >   reformatCH_type;
+         typedef ::color::_internal::reformat< LUVscalar_category_type, category_right_type >    reformatUV_type;
 
          typedef ::color::constant::generic< LUVscalar_category_type > generic_costant_type;
 

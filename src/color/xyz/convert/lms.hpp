@@ -47,8 +47,8 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef ::color::_internal::reformat< lmsSCALAR_category_type, lms_category_type, scalar_type >     reformatLMS_type;
-         typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type >     reformatXYZ_type;
+         typedef ::color::_internal::reformat< lmsSCALAR_category_type, lms_category_type >     reformatLMS_type;
+         typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type >     reformatXYZ_type;
 
          typedef ::color::constant::lms::matrix< scalar_type, lms_reference_number >     matrix_type;
 

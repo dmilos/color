@@ -44,8 +44,8 @@ namespace color
          typedef typename ::color::LabCH< scalar_type >::category_type LabCHscalar_category_type;
          typedef typename ::color::lab<   scalar_type >::category_type LABscalar_category_type;
 
-         typedef ::color::_internal::reformat< category_left_type, LabCHscalar_category_type, scalar_type >  reformatCH_type;
-         typedef ::color::_internal::reformat< LABscalar_category_type, category_right_type, scalar_type >    reformatAB_type;
+         typedef ::color::_internal::reformat< category_left_type, LabCHscalar_category_type >  reformatCH_type;
+         typedef ::color::_internal::reformat< LABscalar_category_type, category_right_type >    reformatAB_type;
 
          typedef ::color::constant::generic< LABscalar_category_type > generic_costant_type;
 

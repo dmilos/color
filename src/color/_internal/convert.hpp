@@ -20,7 +20,6 @@ namespace color
        public:
          typedef category_left_name category_left_type;
          typedef category_right_name category_right_type;
-         typedef typename ::color::trait::scalar<category_left_name>::instance_type scalar_type;
 
          typedef ::color::trait::index<category_left_type>          index_trait_type;
          typedef typename index_trait_type::instance_type               index_type;
@@ -34,7 +33,7 @@ namespace color
          typedef typename container_left_trait_type::input_type         container_left_input_type;
          typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
 
-         typedef  ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+         typedef  ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
          static
          void

@@ -18,14 +18,12 @@ namespace color
      <
        typename category_left_name
       ,typename category_right_name
-      ,typename scalar_name
      >
      struct reformat
       {
        public:
          typedef category_left_name   category_left_type;
          typedef category_right_name  category_right_type;
-         typedef scalar_name            scalar_type;
 
          typedef ::color::_internal::diverse< category_left_type >   diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -106,7 +104,7 @@ namespace color
      <
        typename category_name
      >
-     struct reformat< category_name, category_name, typename ::color::trait::scalar<category_name>::instance_type >
+     struct reformat< category_name, category_name >
       {
        public:
          typedef category_name   category_type;

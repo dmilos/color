@@ -29,9 +29,8 @@
        {
         typedef ::color::category::luv< tag_name >    category_type;
         typedef typename ::color::akin::gray< category_type >::akin_type     akin_category_type;
-        typedef double  scalar_type;
 
-        typedef ::color::_internal::reformat< category_type, akin_category_type, scalar_type >    reformat_type;
+        typedef ::color::_internal::reformat< category_type, akin_category_type >    reformat_type;
 
         enum
          {

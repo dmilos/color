@@ -1,4 +1,4 @@
-./cmy.cpp
-./cmyk.cpp
-./gray.cpp
-./rgb.cpp
+./cmy.exe
+./cmyk.exe
+./gray.exe
+./rgb.exe

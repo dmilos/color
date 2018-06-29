@@ -29,14 +29,12 @@
        {
         typedef ::color::category::cmy<tag_name> category_type;
 
-        typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
-
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_type;
         enum { green_p  = ::color::place::_internal::green<akin_type>::position_enum };
         enum { yellow_p = ::color::place::_internal::yellow<category_type>::position_enum };
 
         typedef  ::color::operation::_internal::invert< category_type > invert_type;
-        typedef  ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+        typedef  ::color::_internal::reformat< akin_type, category_type > reformat_type;
 
         return reformat_type::template process<green_p,yellow_p>( invert_type::template component<yellow_p>( color_parameter.template get<yellow_p>() ) );
        }

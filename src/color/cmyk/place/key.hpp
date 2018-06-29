@@ -1,6 +1,6 @@
 #ifndef color_cmyk_place_key
 #define color_cmyk_place_key
-
+// TODO OBSOLETE. Use balck instead.
 // ::color::place::key<category_name>()
 
 #include "../../generic/place/key.hpp"

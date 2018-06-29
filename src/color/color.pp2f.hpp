@@ -1092,7 +1092,7 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	static
 	void
@@ -5554,7 +5554,7 @@ red(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) {
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
 	enum { cyan_p = ::color::place::_internal::cyan<category_type>::position_enum };
 	typedef ::color::operation::_internal::invert< category_type > invert_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<red_p,cyan_p>(invert_type::template component<cyan_p>(color_parameter.template get<cyan_p>()));
 }
 
@@ -5574,7 +5574,7 @@ green(::color::model< ::color::category::cmy<tag_name> > const& color_parameter)
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
 	enum { yellow_p = ::color::place::_internal::yellow<category_type>::position_enum };
 	typedef ::color::operation::_internal::invert< category_type > invert_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<green_p,yellow_p>(invert_type::template component<yellow_p>(color_parameter.template get<yellow_p>()));
 }
 
@@ -5594,7 +5594,7 @@ blue(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) 
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
 	enum { magenta_p = ::color::place::_internal::magenta<category_type>::position_enum };
 	typedef ::color::operation::_internal::invert< category_type > invert_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<blue_p,magenta_p>(invert_type::template component<magenta_p>(color_parameter.template get<magenta_p>()));
 }
 
@@ -7179,7 +7179,7 @@ red(::color::model< ::color::category::gray<tag_name> > const& color_parameter) 
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<red_p,0>(color_parameter.template get<0>());
 }
 
@@ -7197,7 +7197,7 @@ green(::color::model< ::color::category::gray<tag_name> > const& color_parameter
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<green_p,0>(color_parameter.template get<0>());
 }
 
@@ -7215,7 +7215,7 @@ blue(::color::model< ::color::category::gray<tag_name> > const& color_parameter)
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<blue_p,0>(color_parameter.template get<0>());
 }
 
@@ -7364,7 +7364,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -14687,7 +14687,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -14736,7 +14736,7 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
 
 	enum {
@@ -16004,7 +16004,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -16157,7 +16157,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -17564,7 +17564,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -17775,7 +17775,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -19127,7 +19127,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -19325,7 +19325,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -20430,7 +20430,7 @@ public:
 
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 	typedef ::color::_internal::reformat< category_left_type, hwbSCALAR_category_type, scalar_type > reformatHWB_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
@@ -20704,7 +20704,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -21584,7 +21584,7 @@ gray(::color::model< ::color::category::yiq<tag_name> > const& color_parameter) 
 	typedef ::color::category::yiq< tag_name > category_type;
 	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
 }
 
@@ -22072,7 +22072,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -22824,7 +22824,7 @@ gray(::color::model< ::color::category::yuv<tag_name, reference_number> > const&
 	typedef ::color::category::yuv< tag_name, reference_number > category_type;
 	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	enum { luma_p = ::color::place::_internal::luma<category_type>::position_enum };
 	return reformat_type::template process<0,luma_p>(color_parameter.template get<luma_p>());
 }
@@ -23543,7 +23543,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -24385,7 +24385,7 @@ gray(::color::model< ::color::category::YCgCo<tag_name> > const& color_parameter
 	typedef ::color::category::YCgCo< tag_name > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_type>::akin_type akin_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
 }
 
@@ -25019,7 +25019,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -25879,7 +25879,7 @@ gray(::color::model< ::color::category::YDbDr<tag_name> > const& color_parameter
 	typedef ::color::category::YDbDr< tag_name > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_type>::akin_type akin_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
 }
 
@@ -26517,7 +26517,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -27502,7 +27502,7 @@ gray(::color::model< ::color::category::YPbPr<tag_name,reference_number> > const
 	typedef ::color::category::YPbPr< tag_name, reference_number > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_type>::akin_type akin_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
 }
 
@@ -28242,7 +28242,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -29134,7 +29134,7 @@ gray(::color::model< ::color::category::xyz<tag_name> > const& color_parameter) 
 	typedef ::color::category::xyz< tag_name > category_type;
 	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
 }
 
@@ -29797,7 +29797,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -30746,7 +30746,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 	typedef ::color::_internal::reformat< category_left_type, labSCALAR_category_type, scalar_type > reformatLAB_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
@@ -31489,7 +31489,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -33114,7 +33114,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -34994,7 +34994,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -36814,7 +36814,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -37884,7 +37884,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 	typedef ::color::_internal::reformat< category_left_type, LabCHSCALAR_category_type, scalar_type > reformatLabCH_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
@@ -38734,7 +38734,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -39843,7 +39843,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 	typedef ::color::_internal::reformat< category_left_type, LuvCHSCALAR_category_type, scalar_type > reformatLuvCH_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
@@ -40696,7 +40696,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -47180,7 +47180,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -47854,7 +47854,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -47964,7 +47964,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -48814,7 +48814,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -48856,7 +48856,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -48894,7 +48894,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -48936,7 +48936,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
@@ -49021,7 +49021,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49063,7 +49063,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49101,7 +49101,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49139,7 +49139,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49181,7 +49181,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49263,7 +49263,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49342,7 +49342,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49376,7 +49376,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49410,7 +49410,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49444,7 +49444,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49671,7 +49671,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -49714,7 +49714,7 @@ public:
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
@@ -50106,7 +50106,7 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< category_left_type, category_right_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
 
 	enum {

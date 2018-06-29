@@ -222,6 +222,10 @@ void LabCH_test( )
   std::cout << "r[2]= " << r[2] <<" ; " ;  \
   std::cout << std::endl ;
 
+  r[0]=1;
+  r[0]=1;
+  r[0]=1;
+
   TEST( r[0]=1 );
 
   TEST( r[0]= - r[0] );

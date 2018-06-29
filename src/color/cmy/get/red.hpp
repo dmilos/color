@@ -36,7 +36,7 @@
         enum { cyan_p = ::color::place::_internal::cyan<category_type>::position_enum };
 
         typedef  ::color::operation::_internal::invert< category_type > invert_type;
-        typedef  ::color::_internal::reformat< akin_type, category_type, scalar_type > reformat_type;
+        typedef  ::color::_internal::reformat< akin_type, category_type > reformat_type;
 
         return reformat_type::template process<red_p,cyan_p>( invert_type::template component<cyan_p>( color_parameter.template get<cyan_p>() ) );
        }

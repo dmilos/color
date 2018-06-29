@@ -1,6 +1,8 @@
 #ifndef color_lab_category
 #define color_lab_category
+
 // ::color::category::lab<tag,reference>
+// ::color::category::lab_uint8<tag>
 
 
 #include "./constant/reference.hpp"
@@ -15,7 +17,7 @@ namespace color
     template
       <
         typename tag_name
-       ,::color::constant::lab::reference_enum reference_number/* = ::color::constant::lab::CIE_entity*/
+       ,::color::constant::lab::reference_enum reference_number
       >
      struct lab
       {

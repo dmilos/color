@@ -29,8 +29,7 @@
 
         enum { green_p  = ::color::place::_internal::green<akin_type>::position_enum };
 
-        typedef typename ::color::trait::scalar<category_type>::instance_type           scalar_type; 
-        typedef ::color::_internal::reformat< akin_type, category_type, scalar_type >  reformat_type;
+        typedef ::color::_internal::reformat< akin_type, category_type >  reformat_type;
 
         return reformat_type::template process<green_p,0>( color_parameter.template get<0>()  );
        }

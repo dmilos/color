@@ -1,6 +1,6 @@
 #ifndef color_generic_place_key
 #define color_generic_place_key
-
+// TODO OBSOLETE. Use black instead.
 // ::color::place::key<category_name>()
 // ::color::place::_internal::key<category_name>::position_enum
 
