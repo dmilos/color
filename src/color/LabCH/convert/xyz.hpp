@@ -8,9 +8,10 @@
 
 
 #include "../../xyz/xyz.hpp"
+#include "../../lab/lab.hpp"
 
-#include "../../_internal/normalize.hpp"
-#include "../../_internal/diverse.hpp"
+
+
 
 
 namespace color

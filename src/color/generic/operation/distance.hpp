@@ -428,7 +428,13 @@
             typedef ::color::lab<scalar_type>  lab_type;
             typedef  ::color::constant::generic< category_left_type > constant_type;
 
-            static scalar_type process( model_left_type const& left, model_right_type const& right, scalar_type const& l, scalar_type const& c )
+            static scalar_type process
+             (
+               model_left_type const& left
+              ,model_right_type const& right
+              ,scalar_type const& l = scalar_type( 2 )
+              ,scalar_type const& c = scalar_type( 1 )
+             )
              {
               lab_type lab_left(   left );
               lab_type lab_right( right );

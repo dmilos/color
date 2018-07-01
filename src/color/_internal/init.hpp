@@ -23,7 +23,7 @@
         typedef ::color::trait::container< category_name >                      container_trait_type;
 
         typedef typename ::color::trait::index< category_name >::instance_type     index_type;
-        typedef typename ::color::trait::component< category_name >::instance_type     component_type;
+        //typedef typename ::color::trait::component< category_name >::instance_type     component_type;
 
         //TODO C++14 static_assert( ilist.size() < container_trait_type::size_entity, "Initializer list size do not match model/format length." );
 

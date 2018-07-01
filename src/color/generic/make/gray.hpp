@@ -19,9 +19,9 @@
        )
        {
         typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
-        typedef ::color::gray<scalar_type>                     gray_type;  
+        typedef ::color::gray<scalar_type>                     gray_type;
 
-        color_parameter =   gray_type{ percent_param / scalar_type(100) };
+        color_parameter = gray_type( { static_cast<scalar_type>( percent_param / scalar_type(100) ) } );
        }
 
      template< typename category_name >
@@ -61,9 +61,9 @@
         {
          typedef category_name                         category_type;
          typedef ::color::model<category_type>            model_type;
-         typedef ::color::gray<double>                     gray_type;
 
-         typedef typename ::color::trait::scalar< category_name >::instance_type    scalar_type;
+         typedef typename ::color::trait::scalar< typename model_type::category_type >::instance_type    scalar_type;
+         typedef ::color::gray<scalar_type>                     gray_type;
 
          typedef ::color::constant::gray_t<black_number,white_number>       constant_type;
 

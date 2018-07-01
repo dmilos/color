@@ -13,10 +13,10 @@ namespace color
 
     template< typename category_name >
      struct scalar
-      : public ::color::_internal::utility::type::traitC< double >
+      : public ::color::_internal::utility::type::traitC< long double >
       {
        public:
-        typedef double instance_type;
+        typedef long double instance_type;
 
         static bool is_small( instance_type const& value )
          {

@@ -5,10 +5,8 @@
 
 #include "../../_internal/convert.hpp"
 
+
 #include "../../_internal/reformat.hpp"
-
-
-
 
 
 namespace color

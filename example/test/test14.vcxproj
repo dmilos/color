@@ -1319,21 +1319,21 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) configuration=debug</NMakeBuildCommandLine>
+    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) configuration=Debug</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=debug</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=debug</NMakeCleanCommandLine>
-    <OutDir>$(SolutionDir)\out\bin\debug\14.0</OutDir>
-    <IntDir>$(SolutionDir)\out\bin\debug\14.0</IntDir>
+    <OutDir>$(SolutionDir)\out\bin\msvc$(MSBuildToolsVersion)-$(Configuration)-$(PROCESSOR_ARCHITECTURE)</OutDir>
+    <IntDir>$(SolutionDir)\out\bin\msvc$(MSBuildToolsVersion)-$(Configuration)-$(PROCESSOR_ARCHITECTURE)</IntDir>
     <NMakeOutput>$(SolutionDir)out\test.exe</NMakeOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)\out\bin\release\14.0</OutDir>
-    <IntDir>$(SolutionDir)\out\bin\release\14.0</IntDir>
-    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) configuration=release </NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=release</NMakeReBuildCommandLine>
+    <OutDir>$(SolutionDir)\out\bin\msvc$(MSBuildToolsVersion)-$(Configuration)-$(PROCESSOR_ARCHITECTURE)</OutDir>
+    <IntDir>$(SolutionDir)\out\bin\msvc$(MSBuildToolsVersion)-$(Configuration)-$(PROCESSOR_ARCHITECTURE)</IntDir>
+    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) configuration=Release </NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=Release</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=release</NMakeCleanCommandLine>
-    <NMakeOutput>$(SolutionDir)\out\test.exe</NMakeOutput>
+    <NMakeOutput>$(SolutionDir)\out\msvc$(MSBuildToolsVersion)-$(Configuration)-$(PROCESSOR_ARCHITECTURE)\test.exe</NMakeOutput>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

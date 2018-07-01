@@ -80,9 +80,9 @@ int main( int argc, char *argv[] )
             << "=% " << std::setw( 7 ) << std::fixed << std::setprecision(2)<< 100 * equal /((double)width*height)<< "; "
             << "=# " << std::setw( 7 ) << equal << "; "
             << "## " << std::setw( 7 ) << (width*height)<< "; "
-            << "l: " << std::setw( 40 ) << argv[1] << "; "
-            << "r: " << std::setw( 40 ) << argv[2] << "; "
-            << "t: " << std::setw( 40 ) << argv[3] << "; "
+            << "l: " << std::setw( 32 ) << argv[1] << "; "
+            << "r: " << std::setw( 44 ) << argv[2] << "; "
+            << "t: " << std::setw( 32 ) << argv[3] << "; "
             << std::endl;
 
   if( 0 == max[0] )  max[0] = 255;

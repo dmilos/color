@@ -25,7 +25,6 @@
 
         typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
 
-        typedef ::color::hsv< scalar_type >  model_scalar_type;
         typedef ::color::_internal::diverse< category_type >       diverse_type;
         typedef ::color::_internal::normalize<category_type>   normalize_type;
         

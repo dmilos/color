@@ -110,6 +110,71 @@ void sandbox_test5()
 
 }
 
+void sandbox_test6()
+ {
+  ::color::lab< std::uint8_t >    l8 = ::color::constant::orange_t{};  print(    l8 );  std::cout << std::endl;
+  ::color::lab< std::uint16_t >  l16 = ::color::constant::orange_t{};  print(   l16 );  std::cout << std::endl;
+  ::color::lab< std::uint32_t >  l32 = ::color::constant::orange_t{};  print(   l32 );  std::cout << std::endl;
+  ::color::lab< std::uint64_t >  l64 = ::color::constant::orange_t{};  print(   l64 );  std::cout << std::endl;
+  ::color::lab< std::int8_t >    li8 = ::color::constant::orange_t{};  print(   li8 );  std::cout << std::endl;
+  ::color::lab< std::int16_t >  li16 = ::color::constant::orange_t{};  print(  li16 );  std::cout << std::endl;
+  ::color::lab< std::int32_t >  li32 = ::color::constant::orange_t{};  print(  li32 );  std::cout << std::endl;
+  ::color::lab< double >          ld = ::color::constant::orange_t{};  print(    ld );  std::cout << std::endl;
+  ::color::xyz< double >           x = ::color::constant::orange_t{};  print(     x );  std::cout << std::endl;
+
+  std::cout << (int)::color::get::chroma(    l8 ) << std::endl;
+  std::cout <<      ::color::get::chroma(   l16 ) << std::endl;
+  std::cout <<      ::color::get::chroma(   l32 ) << std::endl;
+  std::cout <<      ::color::get::chroma(   l64 ) << std::endl;
+  std::cout << (int)::color::get::chroma(   li8 ) << std::endl;
+  std::cout <<      ::color::get::chroma(  li16 ) << std::endl;
+  std::cout <<      ::color::get::chroma(    ld ) << std::endl;
+  std::cout <<      ::color::get::chroma(     x ) << std::endl;
+
+  l8  =  l8;
+  l8  = l16;
+  l8  = li8;
+  l8 = li16;
+  l8 =   ld;
+  l8 =    x;
+
+  l16  =  l8;
+  l16  = l16;
+  l16  = li8;
+  l16 = li16;
+  l16 =   ld;
+  l16 =    x;
+
+  li8  =  l8;
+  li8  = l16;
+  li8  = li8;
+  li8 = li16;
+  li8 =   ld;
+  li8 =    x;
+
+  li16 =  l8;
+  li16 = l16;
+  li16 = li8;
+  li16= li16;
+  li16=   ld;
+  li16=    x;
+
+  ld   =  l8;
+  ld   = l16;
+  ld   = li8;
+  ld  = li16;
+  ld  =   ld;
+  ld  =    x;
+
+   x   =  l8;
+   x   = l16;
+   x   = li8;
+   x  = li16;
+   x  =   ld;
+   x  =    x;
+
+ }
+
 void luv_bound()
  {
   typedef long double scalar_type;
@@ -604,7 +669,7 @@ template< typename source_name, typename category_name >
 
 int main(int argc, char const *argv[] )
  {
-
+  sandbox_test6();
   //ranger_rgb< color::rgb<double>::category_type, ::color::LabCH<double>::category_type   >();
   //ranger_rgb< color::rgb<double>::category_type, ::color::lab<double, ::color::constant::lab::Hunter_entity>::category_type >();
   //
@@ -612,11 +677,8 @@ int main(int argc, char const *argv[] )
   //ranger_rgb< color::xyz<double>::category_type, ::color::lab<double, ::color::constant::lab::Hunter_entity>::category_type >();
 
   sandbox_test5();
-
-  void test_get_invoke( double value );
-  test_get_invoke( 0.5 );
-
-  LabCH_test();
+  extern void print_bound( );
+  print_bound();
 
   extern void test_constant();
   test_constant();
@@ -624,8 +686,20 @@ int main(int argc, char const *argv[] )
   extern void check_sizeof();
   check_sizeof();
 
-  extern void print_bound( );
-  print_bound();
+  void make_test_gray_scale();
+  make_test_gray_scale();
+
+
+  invoke();
+
+  extern int gray_test( int argc, char const *argv[]  );
+  gray_test( argc, argv );
+
+  void test_get_invoke( double value );
+  test_get_invoke( 0.5 );
+
+  LabCH_test();
+
 
   void test_palette();
   test_palette();
@@ -635,9 +709,6 @@ int main(int argc, char const *argv[] )
 
   void main_extract();
   main_extract();
-
-  extern int gray_test( int argc, char const *argv[]  );
-  gray_test( argc, argv );
 
   sandbox_test3();
   //luv_bound ();
@@ -650,8 +721,6 @@ int main(int argc, char const *argv[] )
 
   test_yiq2yuv601_quick();
   test_xyz_quick();
-  void make_test_gray_scale();
-  make_test_gray_scale();
 
   print< ::color::rgb< ::color::type::split422_t >::category_type  >();
   print< ::color::rgb< ::color::type::split242_t >::category_type  >();
@@ -681,8 +750,6 @@ int main(int argc, char const *argv[] )
   main_place();
 
   make_blue();
-
-  invoke();
 
   extern void check_conversion();
   check_conversion();

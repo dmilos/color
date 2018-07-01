@@ -29,8 +29,6 @@
        {
         typedef ::color::category::cmy<tag_name> category_type;
 
-        typedef typename ::color::trait::scalar<category_type>::instance_type   scalar_type;
-
         typedef typename ::color::akin::rgb<category_type>::akin_type     akin_type;
         enum { red_p  = ::color::place::_internal::red<akin_type>::position_enum };
         enum { cyan_p = ::color::place::_internal::cyan<category_type>::position_enum };

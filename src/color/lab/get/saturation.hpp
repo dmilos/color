@@ -26,14 +26,16 @@
 
         typedef typename ::color::trait::component<category_type>::instance_type     component_type;
 
+        typedef ::color::_internal::normalize< category_type > normalize_type;
+
         enum
          {
            lightness_p  = ::color::place::_internal::lightness<category_type>::position_enum
          };
 
-        scalar_type const L = static_cast<scalar_type>( c.template get< lightness_p>() );
-        scalar_type const A = static_cast<scalar_type>( c.template get< 1 >()) ;
-        scalar_type const B = static_cast<scalar_type>( c.template get< 2 >() );
+        scalar_type const L = static_cast<scalar_type>( normalize_type::template process<lightness_p>( c.template get< lightness_p>() ) );
+        scalar_type const A = static_cast<scalar_type>( normalize_type::template process<1>(           c.template get< 1 >() ) ) ;
+        scalar_type const B = static_cast<scalar_type>( normalize_type::template process<2>(           c.template get< 2 >() ) );
 
         if( false == scalar_trait_type::is_small( scalar_type(L) ) )
          {

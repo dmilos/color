@@ -10,17 +10,28 @@ name_full = 'test'
 
 configuration = settings.get_custom( 'configuration' )
 
-directory_pdb = './out/bin/' + configuration + '-'
-directory_obj = './out/bin/' + configuration + '-'
+directory_pdb = './out/bin/'
+directory_obj = './out/bin/'
+
+
+if 'CYGWIN' in platform.system() :
+    directory_pdb += 'gcc-'
+    directory_obj += 'gcc-'
 
 
 if 'Windows' == platform.system() :
+    directory_pdb += 'msvc'
+    directory_obj += 'msvc'
     if True == settings.exists_custom( 'compiler_version_msvc' ) :
         directory_pdb += settings.get_custom( 'compiler_version_msvc' ) + '-'
         directory_obj += settings.get_custom( 'compiler_version_msvc' ) + '-'
 
+directory_pdb += settings.get_custom( 'configuration' ) + '-'
+directory_obj += settings.get_custom( 'configuration' ) + '-'
+
 directory_pdb += settings.get_custom( 'architecture' )
 directory_obj += settings.get_custom( 'architecture' )
+
 directory_exe = './out/'
 
 # Accumulate Atoms
@@ -33,8 +44,9 @@ settings.accumulate( 'compiler:configuration', { 'name'          : configuration
 settings.accumulate( 'compiler:optimisation',  { 'configuration' : configuration  } )
 settings.accumulate( 'compiler:version',  { 'msvc' : [ settings.get_custom( 'compiler_version_msvc' ) ] } )
 
-settings.accumulate( 'compiler:warning', { 'return-address-of-local-variable': 'enable'  } )
-settings.accumulate( 'compiler:warning', { 'unused-variable': 'disable'  } )
+settings.accumulate( 'compiler:warning', { 'return-address-of-local-variable': 'enable'   } )
+settings.accumulate( 'compiler:warning', { 'unused-variable'                 : 'disable'   } )
+#settings.accumulate( 'compiler:warning', { 'unused-local-typedefs'           : 'enable'  } )
 
 settings.accumulate( 'PDB', { 'configuration' : configuration , 'synchronous' : 'false', 'file-name': os.path.join( directory_pdb, name_full + '.pdb' ) } )
 settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.get_custom( 'RTL' ) } )

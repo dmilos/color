@@ -15,7 +15,7 @@
        {
         return color_parameter.template get<0>();
        }
- 
+
     }
   }
 

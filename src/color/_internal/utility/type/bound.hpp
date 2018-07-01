@@ -19,9 +19,6 @@ namespace color
            typedef number_name      number_type;
            typedef image_name       image_type;
 
-           // Having this typedef is bad idea
-           typedef bound<number_type,image_type> this_type;
-
            static /*constexpr*/ image_type  maximum()
             { // Purposely set to ZERO to force specialization
              static number_type value=0;
@@ -35,8 +32,8 @@ namespace color
             }
 
            static /*constexpr*/ image_type range()
-            {
-             static number_type value =  this_type::maximum() - this_type::minimum();
+            { // Purposely set to ZERO to force specialization
+             static number_type value =  0;
              return value;
             }
           };
@@ -67,6 +64,120 @@ namespace color
             return value;
            }
          };
+
+
+        template <>
+         struct bound< std::int8_t, std::int8_t const& >
+         {
+          typedef std::int8_t           number_type;
+          typedef std::int8_t const&    image_type;
+          typedef std::uint8_t          range_type;
+
+          typedef bound<number_type,image_type> this_type;
+
+          static /*constexpr*/ image_type  maximum()
+           {
+            static number_type value = std::numeric_limits< number_type >::max();
+            return value; // ==  0 plus 127
+           }
+
+          static /*constexpr*/ image_type  minimum()
+           {
+            static number_type value = std::numeric_limits< number_type >::min();
+            return value; // == 0 minus 128
+           }
+
+          static /*constexpr*/ range_type range()
+           {
+            static number_type value = this_type::maximum() - this_type::minimum();
+            return value;  // == 255
+           }
+         };
+
+        template <>
+         struct bound<std::int16_t, std::int16_t const& >
+         {
+          typedef std::int16_t           number_type;
+          typedef std::int16_t const&    image_type;
+          typedef std::uint16_t           range_type;
+
+          typedef bound<number_type,image_type> this_type;
+
+          static /*constexpr*/ image_type  maximum()
+           {
+            static number_type value = std::numeric_limits< number_type >::max();
+            return value;
+           }
+
+          static /*constexpr*/ image_type  minimum()
+           {
+            static number_type value = std::numeric_limits< number_type >::min();
+            return value;
+           }
+
+          static /*constexpr*/ image_type range()
+           {
+            static number_type value = number_type( this_type::maximum() ) - number_type( this_type::minimum() );
+            return value;
+           }
+         };
+
+        template <>
+         struct bound<std::int32_t, std::int32_t const& >
+         {
+          typedef std::int32_t           number_type;
+          typedef std::int32_t const&    image_type;
+          typedef std::uint32_t          range_type;
+
+          typedef bound<number_type,image_type> this_type;
+
+          static /*constexpr*/ image_type  maximum()
+           {
+            static number_type value = std::numeric_limits< number_type >::max();
+            return value;
+           }
+
+          static /*constexpr*/ image_type  minimum()
+           {
+            static number_type value = std::numeric_limits< number_type>::min();
+            return value;
+           }
+
+          static /*constexpr*/ range_type range()
+           {
+            static range_type value = number_type( this_type::maximum() ) - number_type( this_type::minimum() );
+            return value;
+           }
+         };
+
+        template <>
+         struct bound<std::int64_t, std::int64_t const& >
+         {
+          typedef std::int64_t           number_type;
+          typedef std::int64_t const&    image_type;
+          typedef std::uint64_t          range_type;
+
+          typedef bound<number_type,image_type> this_type;
+
+          static /*constexpr*/ image_type  maximum()
+           {
+            static number_type value = std::numeric_limits< number_type >::max();
+            return value;
+           }
+
+          static /*constexpr*/ image_type  minimum()
+           {
+            static number_type value = std::numeric_limits< number_type >::min();
+            return value;
+           }
+
+          static /*constexpr*/ range_type range()
+           {
+            static range_type value = number_type( this_type::maximum() ) - number_type( this_type::minimum() );
+            return value;
+           }
+         };
+
 
         template <>
          struct bound< std::uint8_t, std::uint8_t const& >
@@ -176,6 +287,7 @@ namespace color
            }
          };
 
+
         template <>
          struct bound<float, float const& >
          {
@@ -264,3 +376,6 @@ namespace color
  }
 
 #endif
+
+
+

@@ -27,7 +27,7 @@
         typedef ::color::_internal::normalize< category_scalar_type > normalize_type;
 
         auto const& A = normalize_type::template process<1>( c.template get< 1 >() );
-        auto const& B = normalize_type::template process<1>( c.template get< 2 >() );
+        auto const& B = normalize_type::template process<2>( c.template get< 2 >() );
 
         auto chroma = sqrt( A*A + B*B  );
 

@@ -28,7 +28,6 @@
        {
         typedef ::color::category::luv< tag_name>  category_type;
 
-        typedef typename ::color::trait::scalar<category_type>     scalar_trait_type;
         typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
 
 

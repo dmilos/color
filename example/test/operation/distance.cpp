@@ -4,7 +4,7 @@
 
 #include <string>
 #include <vector>
-
+#include <typeinfo>
 
 #include "color/color.hpp"
 
@@ -135,7 +135,7 @@ void test_operation_distance_zero()
      {
       for( auto c2 = bound_type::minimum(0); c2 < bound_type::maximum(0); c2 += (bound_type::maximum(2) - bound_type::minimum(2))/255)
        {
-        auto m = model_type{ c0,c1, c2 };
+        auto m = model_type{ c0, c1, c2 };
         auto d = ::color::operation::distance< reference_number >( m, m );
         if( dmax < d )
          {
@@ -161,6 +161,7 @@ void test_operation_zero_main()
   test_operation_distance_zero< ::color::constant::distance::CIE94_graphics_entity, rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::CIE94_textile_entity,  rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::CIEDE2000_entity,      rgb_t >();
+  test_operation_distance_zero< ::color::constant::distance::CMC1984_entity,        rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::delta_gray_entity,     rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::hsl_special_entity,    rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::rgb_special_entity,    rgb_t >();
