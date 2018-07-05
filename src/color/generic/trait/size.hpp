@@ -25,7 +25,7 @@ namespace color
          typedef typename utility_type::return_image_type       return_image_type;
          typedef typename utility_type::return_original_type    return_original_type;
 
-         typedef typename utility_type::input_const_type      input_const_type;
+         typedef typename utility_type::model_type      model_type;
          typedef typename utility_type::input_type            input_type;
          typedef typename utility_type::output_type           output_type;
       };

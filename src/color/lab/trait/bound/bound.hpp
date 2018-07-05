@@ -5,3 +5,4 @@
 
 // internal #include "./scalar.hpp"
 // internal #include "./positive.hpp"
+// internal #include "./natural.hpp"

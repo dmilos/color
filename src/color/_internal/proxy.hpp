@@ -24,8 +24,8 @@ namespace color
          typedef typename ::color::trait::index< category_name >::instance_type          index_type;
 
          typedef typename component_trait_type::instance_type       component_type;
-         typedef typename component_trait_type::input_const_type    component_input_const_type;
-         typedef typename scalar_trait_type::input_const_type          scalar_input_const_type;
+         typedef typename component_trait_type::model_type    component_input_const_type;
+         typedef typename scalar_trait_type::model_type          scalar_input_const_type;
 
          typedef ::color::_internal::proxy<category_name> this_type;
 

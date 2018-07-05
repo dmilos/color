@@ -8,6 +8,8 @@
 
 #include "./uint24.hpp"
 #include "./uint48.hpp"
+#include "./int24.hpp"
+#include "./int48.hpp"
 
 #include "./scramble.hpp"
 

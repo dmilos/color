@@ -76,9 +76,9 @@
       combine
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::input_const_type                   a0
+        ,typename ::color::trait::scalar<category_name>::model_type                   a0
         ,::color::model<category_name> const& c0
-        ,typename ::color::trait::scalar<category_name>::input_const_type                   a1
+        ,typename ::color::trait::scalar<category_name>::model_type                   a1
         ,::color::model<category_name> const& c1
        )
        {
@@ -90,11 +90,11 @@
       combine
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::input_const_type a0
+        ,typename ::color::trait::scalar<category_name>::model_type a0
         ,::color::model<category_name> const& c0
-        ,typename ::color::trait::scalar<category_name>::input_const_type a1
+        ,typename ::color::trait::scalar<category_name>::model_type a1
         ,::color::model<category_name> const& c1
-        ,typename ::color::trait::scalar<category_name>::input_const_type a2
+        ,typename ::color::trait::scalar<category_name>::model_type a2
         ,::color::model<category_name> const& c2
        )
        {

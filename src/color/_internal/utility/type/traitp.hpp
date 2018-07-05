@@ -25,7 +25,7 @@ namespace color
              typedef  instance_type           return_type;
            //typedef  instance_type       &   return_original_type;
 
-             typedef  instance_type  const&   input_const_type;
+             typedef  instance_type  const&   model_type;
              typedef  instance_type           input_type;
            //typedef  instance_type       &   output_type;
 

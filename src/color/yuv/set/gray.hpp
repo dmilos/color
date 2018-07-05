@@ -22,7 +22,7 @@
       gray
        (
                   ::color::model< ::color::category::yuv< tag_name, reference_number > >                               & color_parameter
-        ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yuv< tag_name, reference_number > >::akin_type >::input_const_type         component_parameter
+        ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yuv< tag_name, reference_number > >::akin_type >::model_type         component_parameter
        )
        {
         typedef ::color::category::yuv< tag_name, reference_number >     category_type;

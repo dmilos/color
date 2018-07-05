@@ -39,7 +39,6 @@ namespace color
     template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_int64  = ::color::category::lab< std::int64_t, reference_number >;
 
 
-
     template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_float   = ::color::category::lab< float        , reference_number >;
     template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_double  = ::color::category::lab< double       , reference_number >;
     template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_ldouble = ::color::category::lab< long double  , reference_number >;

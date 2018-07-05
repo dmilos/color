@@ -14,27 +14,27 @@ namespace color
   namespace trait
    {
 
-    template< ::color::constant::lab::reference_enum     reference_number>
+    template< ::color::constant::lab::reference_enum  reference_number>
      struct bound< ::color::category::lab_uint8<reference_number>  >
-      : public ::color::_internal::lab::bound::positive< typename ::color::trait::index< ::color::category::lab_uint8<reference_number> >::instance_type, std::uint8_t, reference_number >
+      : public ::color::_internal::lab::bound::positive< std::uint8_t, typename ::color::trait::index< ::color::category::lab_uint8<reference_number> >::instance_type, reference_number >
       {
       };
 
-    template< ::color::constant::lab::reference_enum     reference_number>
+    template< ::color::constant::lab::reference_enum  reference_number>
      struct bound< ::color::category::lab_uint16<reference_number> >
-      : public ::color::_internal::lab::bound::positive<  typename ::color::trait::index< ::color::category::lab_uint16<reference_number> >::instance_type, std::uint16_t, reference_number >
+      : public ::color::_internal::lab::bound::positive<  std::uint16_t, typename ::color::trait::index< ::color::category::lab_uint16<reference_number> >::instance_type,  reference_number >
       {
       };
 
-    template< ::color::constant::lab::reference_enum     reference_number>
+    template< ::color::constant::lab::reference_enum  reference_number>
      struct bound< ::color::category::lab_uint32<reference_number> >
-      : public ::color::_internal::lab::bound::positive< typename ::color::trait::index< ::color::category::lab_uint32<reference_number> >::instance_type, std::uint32_t, reference_number >
+      : public ::color::_internal::lab::bound::positive< std::uint32_t, typename ::color::trait::index< ::color::category::lab_uint32<reference_number> >::instance_type,  reference_number >
       {
       };
 
-    template< ::color::constant::lab::reference_enum     reference_number>
+    template< ::color::constant::lab::reference_enum  reference_number>
      struct bound< ::color::category::lab_uint64<reference_number> >
-      : public ::color::_internal::lab::bound::positive< typename ::color::trait::index< ::color::category::lab_uint64<reference_number> >::instance_type, std::uint64_t, reference_number >
+      : public ::color::_internal::lab::bound::positive< std::uint64_t, typename ::color::trait::index< ::color::category::lab_uint64<reference_number> >::instance_type,  reference_number >
       {
       };
 

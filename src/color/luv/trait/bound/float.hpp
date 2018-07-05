@@ -3,7 +3,7 @@
 
 #include "../../../generic/trait/bound.hpp"
 #include "../../category.hpp"
-#include "./scalar.hpp"
+#include "./constrain.hpp"
 
 
 
@@ -14,19 +14,19 @@ namespace color
 
     template< >
      struct bound< ::color::category::luv_float >
-      : public ::color::_internal::luv::bound::scalar< typename ::color::trait::index< ::color::category::luv_float >::instance_type, float >
+      : public ::color::_internal::luv::bound::constrain< float,       typename ::color::trait::index< ::color::category::luv_float >::instance_type >
       {
       };
 
     template< >
      struct bound< ::color::category::luv_double >
-      : public ::color::_internal::luv::bound::scalar< typename ::color::trait::index< ::color::category::luv_double >::instance_type, double >
+      : public ::color::_internal::luv::bound::constrain< double,      typename ::color::trait::index< ::color::category::luv_double >::instance_type >
       {
       };
 
     template< >
      struct bound< ::color::category::luv_ldouble >
-      : public ::color::_internal::luv::bound::scalar< typename ::color::trait::index< ::color::category::luv_ldouble >::instance_type, long double >
+      : public ::color::_internal::luv::bound::constrain< long double, typename ::color::trait::index< ::color::category::luv_ldouble >::instance_type >
       {
       };
 

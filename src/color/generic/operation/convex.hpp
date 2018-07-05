@@ -61,7 +61,7 @@
       convex
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::input_const_type                      scalar
+        ,typename ::color::trait::scalar<category_name>::model_type                      scalar
         ,color::model<category_name> const& right
        )
        {
@@ -74,7 +74,7 @@
        (
          ::color::model<category_name>      & result
         ,color::model<category_name> const& left
-        ,typename ::color::trait::scalar<category_name>::input_const_type                      scalar
+        ,typename ::color::trait::scalar<category_name>::model_type                      scalar
         ,color::model<category_name> const& right
        )
        {

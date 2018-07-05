@@ -345,7 +345,7 @@ public:
 	typedef instance_type return_type, pretender_type;
 	typedef instance_type & return_original_type, original_type;
 
-	typedef instance_type const& input_const_type, param_const_input_type, model_type;
+	typedef instance_type const& model_type, param_const_input_type, model_type;
 	typedef instance_type input_type, param_input_type;
 	typedef instance_type & output_type, param_output_type;
 	typedef instance_type & transmit_type, param_transmit_type;
@@ -388,7 +388,7 @@ public:
 	typedef typename utility_type::return_image_type return_image_type;
 	typedef typename utility_type::return_original_type return_original_type;
 
-	typedef typename utility_type::input_const_type input_const_type;
+	typedef typename utility_type::model_type model_type;
 	typedef typename utility_type::input_type input_type;
 	typedef typename utility_type::output_type output_type;
 };
@@ -428,7 +428,7 @@ public:
 	typedef typename utility_type::return_image_type return_image_type;
 	typedef typename utility_type::return_original_type return_original_type;
 
-	typedef typename utility_type::input_const_type input_const_type;
+	typedef typename utility_type::model_type model_type;
 	typedef typename utility_type::input_type input_type;
 	typedef typename utility_type::output_type output_type;
 };
@@ -449,7 +449,7 @@ public:
 	typedef instance_type return_type;
 	typedef instance_type return_original_type;
 
-	typedef instance_type const& input_const_type;
+	typedef instance_type const& model_type;
 	typedef instance_type & input_type;
 
 };
@@ -471,32 +471,32 @@ public:
 	typedef instance_type & return_type;
 	typedef instance_type & return_original_type;
 
-	typedef instance_type const& input_const_type;
+	typedef instance_type const& model_type;
 	typedef instance_type & input_type;
 	typedef instance_type & output_type, param_output_type;
 
 	typedef ::color::trait::index< category_name > index_trait_type;
 	typedef typename index_trait_type::instance_type index_instance_type;
 	typedef typename index_trait_type::const_type index_const_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
 	typedef ::color::trait::component< category_name > component_trait_type;
 	typedef typename component_trait_type::const_type component_const_type;
 	typedef typename component_trait_type::return_image_type component_return_const_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::model_type component_input_const_type;
 	typedef typename component_trait_type::instance_type component_type;
 
 	typedef void set_return_type;
 
 	enum { size_entity = 4 };
 
-	static component_return_const_type get(input_const_type container, index_input_const_type index) {
+	static component_return_const_type get(model_type container, index_input_const_type index) {
 		return (component_type)((container >> (index << 3)) & 0xFF);
 	}
 
 	template< index_instance_type index >
-	static component_return_const_type get(input_const_type container) {
+	static component_return_const_type get(model_type container) {
 		return (component_type)((container >> (index << 3)) & 0xFF);
 	}
 
@@ -755,7 +755,7 @@ public:
 	typedef typename component_trait_type::return_image_type component_return_const_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	typedef ::color::_internal::utility::type::bound< component_instance_type, component_return_const_type > bound_type;
 
@@ -859,7 +859,7 @@ public:
 	typedef typename component_trait_type::return_type component_return_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	static
 	component_return_type
@@ -895,10 +895,10 @@ public:
 	typedef ::color::trait::index< category_name > index_trait_type;
 
 	typedef typename component_trait_type::instance_type component_instance_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::model_type component_input_const_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	static
 	scalar_type
@@ -943,11 +943,11 @@ public:
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
 	typedef typename ::color::trait::component< category_left_name >::return_type left_component_return_type;
-	typedef typename ::color::trait::index< category_left_name >::input_const_type left_index_const_input_type;
+	typedef typename ::color::trait::index< category_left_name >::model_type left_index_const_input_type;
 	typedef typename ::color::trait::index< category_left_name >::instance_type left_index_instance_type;
 
-	typedef typename ::color::trait::component< category_right_name >::input_const_type right_component_const_input_type;
-	typedef typename ::color::trait::index< category_right_name >::input_const_type right_index_const_input_type;
+	typedef typename ::color::trait::component< category_right_name >::model_type right_component_const_input_type;
+	typedef typename ::color::trait::index< category_right_name >::model_type right_index_const_input_type;
 	typedef typename ::color::trait::index< category_right_name >::instance_type right_index_instance_type;
 
 	static
@@ -1022,10 +1022,10 @@ public:
 	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 
 	typedef typename ::color::trait::component< category_type >::return_type component_return_type;
-	typedef typename ::color::trait::index< category_type >::input_const_type index_const_input_type;
+	typedef typename ::color::trait::index< category_type >::model_type index_const_input_type;
 	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
-	typedef typename ::color::trait::component< category_type >::input_const_type component_const_input_type;
+	typedef typename ::color::trait::component< category_type >::model_type component_const_input_type;
 
 	static
 	component_return_type
@@ -1090,7 +1090,7 @@ public:
 	typedef typename component_trait_type::instance_type component_left_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
@@ -1117,7 +1117,7 @@ public:
 	typedef ::color::trait::container< category_name > container_trait_type;
 
 	typedef typename container_trait_type::input_type container_input_type;
-	typedef typename container_trait_type::input_const_type container_const_input_type;
+	typedef typename container_trait_type::model_type container_const_input_type;
 
 	static
 	void
@@ -1167,8 +1167,8 @@ public:
 	typedef typename ::color::trait::index< category_name >::instance_type index_type;
 
 	typedef typename component_trait_type::instance_type component_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
-	typedef typename scalar_trait_type::input_const_type scalar_input_const_type;
+	typedef typename component_trait_type::model_type component_input_const_type;
+	typedef typename scalar_trait_type::model_type scalar_input_const_type;
 
 	typedef ::color::_internal::proxy<category_name> this_type;
 
@@ -1290,7 +1290,7 @@ public:
 
 	typedef typename index_trait_type::instance_type index_type;
 	typedef typename index_trait_type::const_type index_const_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
 	typedef typename size_trait_type::instance_type size_type;
@@ -1300,19 +1300,19 @@ public:
 	typedef typename component_trait_type::const_type component_const_type;
 	typedef typename component_trait_type::return_image_type component_return_const_type;
 	typedef typename component_trait_type::return_type component_return_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::model_type component_input_const_type;
 	typedef typename component_trait_type::input_type component_input_type;
 
 	typedef typename container_trait_type::instance_type container_type;
 	typedef typename container_trait_type::const_type container_const_type;
 	typedef typename container_trait_type::return_image_type container_return_const_type;
 	typedef typename container_trait_type::return_original_type container_return_original_type;
-	typedef typename container_trait_type::input_const_type container_input_const_type;
+	typedef typename container_trait_type::model_type container_input_const_type;
 	typedef typename container_trait_type::input_type container_input_type;
 
 	typedef typename container_trait_type::set_return_type set_return_type;
 
-	typedef typename scalar_trait_type::input_const_type scalar_input_const_type;
+	typedef typename scalar_trait_type::model_type scalar_input_const_type;
 
 	model() {
 	}
@@ -4682,13 +4682,13 @@ public:
 	typedef typename utility_trait_type::const_type const_type;
 	typedef typename utility_trait_type::return_image_type return_image_type;
 	typedef typename utility_trait_type::return_type return_type;
-	typedef typename utility_trait_type::input_const_type input_const_type;
+	typedef typename utility_trait_type::model_type model_type;
 	typedef typename utility_trait_type::input_type input_type;
 
 	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 };
 
 }
@@ -4759,7 +4759,7 @@ public:
 	typedef instance_type const& return_image_type;
 	typedef instance_type & return_type;
 	typedef instance_type & return_original_type;
-	typedef instance_type const& input_const_type;
+	typedef instance_type const& model_type;
 	typedef instance_type & input_type;
 	typedef instance_type & output_type;
 
@@ -4767,7 +4767,7 @@ public:
 
 	typedef typename index_trait_type::instance_type index_instance_type;
 	typedef typename index_trait_type::const_type index_const_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
 	typedef ::color::_internal::utility::type::traitC< value_name > component_trait_type;
@@ -4775,7 +4775,7 @@ public:
 	typedef typename component_trait_type::instance_type component_type;
 	typedef typename component_trait_type::const_type component_const_type;
 	typedef typename component_trait_type::return_image_type component_return_const_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::model_type component_input_const_type;
 
 	typedef ::color::_internal::utility::type::size< typename instance_type::size_type > size_trait_type;
 
@@ -4786,12 +4786,12 @@ public:
 
 	enum { size_entity = length };
 
-	static component_return_const_type get(input_const_type container, index_input_const_type index) {
+	static component_return_const_type get(model_type container, index_input_const_type index) {
 		return container[index];
 	}
 
 	template< index_instance_type index >
-	static component_return_const_type get(input_const_type container) {
+	static component_return_const_type get(model_type container) {
 		return container[index];
 	}
 
@@ -5229,7 +5229,7 @@ public:
 	typedef instance_type const return_image_type;
 	typedef instance_type return_type;
 
-	typedef instance_type const& input_const_type;
+	typedef instance_type const& model_type;
 	typedef instance_type input_type;
 
 };
@@ -5256,13 +5256,13 @@ public:
 	typedef typename utility_trait_type::const_type const_type;
 	typedef typename utility_trait_type::return_image_type return_image_type;
 	typedef typename utility_trait_type::return_type return_type;
-	typedef typename utility_trait_type::input_const_type input_const_type;
+	typedef typename utility_trait_type::model_type model_type;
 	typedef typename utility_trait_type::input_type input_type;
 
 	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 };
 
 }
@@ -5480,11 +5480,11 @@ public:
 
 	typedef typename ::color::model<category_type> model_type;
 
-	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::model_type component_input_const_type;
 	typedef typename component_trait_type::return_type component_return_type;
 
 	typedef typename index_trait_type::instance_type index_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	static component_return_type
 	component
@@ -6173,7 +6173,7 @@ void
 red
 (
 	::color::model< ::color::category::cmy< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -6196,7 +6196,7 @@ void
 green
 (
 	::color::model< ::color::category::cmy< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -6219,7 +6219,7 @@ void
 blue
 (
 	::color::model< ::color::category::cmy< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -6240,7 +6240,7 @@ template< typename category_name >
 struct scale {
 public:
 	typedef category_name category_type;
-	typedef typename ::color::trait::scalar<category_name>::input_const_type scalar_const_input_type;
+	typedef typename ::color::trait::scalar<category_name>::model_type scalar_const_input_type;
 
 	typedef ::color::trait::container< category_type > container_trait_type;
 
@@ -6277,7 +6277,7 @@ template< typename category_name >
 ::color::model<category_name> & scale
 (
 	::color::model<category_name> & result
-	,typename ::color::trait::scalar<category_name>::input_const_type scalar
+	,typename ::color::trait::scalar<category_name>::model_type scalar
 ) {
 	return ::color::operation::_internal::scale<category_name>::process(result, scalar);
 }
@@ -6286,7 +6286,7 @@ template< typename category_name >
 ::color::model<category_name> & scale
 (
 	::color::model<category_name> & result
-	,typename ::color::trait::scalar<category_name>::input_const_type scalar
+	,typename ::color::trait::scalar<category_name>::model_type scalar
 	,::color::model<category_name> const& right
 ) {
 	return ::color::operation::_internal::scale<category_name>::process(result, scalar, right);
@@ -6332,7 +6332,7 @@ void
 gray
 (
 	::color::model< ::color::category::cmy<tag_name> > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::cmy<tag_name> >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::cmy<tag_name> >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
 	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
@@ -6918,7 +6918,7 @@ public:
 	typedef instance_type const& return_image_type;
 	typedef instance_type & return_type;
 	typedef instance_type & return_original_type;
-	typedef instance_type const& input_const_type;
+	typedef instance_type const& model_type;
 	typedef instance_type & input_type;
 	typedef instance_type & output_type;
 
@@ -6926,7 +6926,7 @@ public:
 
 	typedef typename index_trait_type::instance_type index_instance_type;
 
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
 	typedef ::color::_internal::utility::type::traitC< value_type > component_trait_type;
@@ -6934,7 +6934,7 @@ public:
 	typedef typename component_trait_type::instance_type component_type;
 
 	typedef typename component_trait_type::return_image_type component_return_const_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::model_type component_input_const_type;
 
 	typedef ::color::_internal::utility::type::size< std::size_t > size_trait_type;
 
@@ -6945,12 +6945,12 @@ public:
 
 	enum { size_entity = 1 };
 
-	static component_return_const_type get(input_const_type container, index_input_const_type index) {
+	static component_return_const_type get(model_type container, index_input_const_type index) {
 		return container;
 	}
 
 	template< index_instance_type index >
-	static component_return_const_type get(input_const_type container) {
+	static component_return_const_type get(model_type container) {
 		return container;
 	}
 
@@ -7024,14 +7024,14 @@ public:
 	typedef instance_type const& return_image_type;
 	typedef instance_type & return_type;
 	typedef instance_type & return_original_type;
-	typedef instance_type const& input_const_type;
+	typedef instance_type const& model_type;
 	typedef instance_type & input_type;
 	typedef instance_type & output_type;
 
 	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
@@ -7040,7 +7040,7 @@ public:
 	typedef typename component_trait_type::instance_type component_type;
 	typedef typename component_trait_type::const_type component_const_type;
 	typedef typename component_trait_type::return_image_type component_return_const_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::model_type component_input_const_type;
 
 	typedef ::color::_internal::utility::type::size< std::size_t > size_trait_type;
 
@@ -7051,12 +7051,12 @@ public:
 
 	enum { size_entity = length };
 
-	static component_return_const_type get(input_const_type container, index_input_const_type index) {
+	static component_return_const_type get(model_type container, index_input_const_type index) {
 		return (component_type)((container >> (index * width)) & mask());
 	}
 
 	template< index_instance_type index >
-	static component_return_const_type get(input_const_type container) {
+	static component_return_const_type get(model_type container) {
 		return (component_type)((container >> (index * width)) & mask());
 	}
 
@@ -7269,7 +7269,7 @@ void
 red
 (
 	::color::model< ::color::category::gray< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::gray<tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -7292,7 +7292,7 @@ void
 green
 (
 	::color::model< ::color::category::gray< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::gray<tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -7315,7 +7315,7 @@ void
 blue
 (
 	::color::model< ::color::category::gray< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::gray< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::gray<tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -7367,7 +7367,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		gl = ::color::place::_internal::gray<category_left_type>::position_enum
@@ -7407,7 +7407,7 @@ public:
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::gray::rgb< category_left_type > gray_const_type;
 
@@ -8413,7 +8413,7 @@ typename ::color::trait::scalar< category_name >::instance_type
 normalize
 (
 	::color::model<category_name> const& m
-	,typename ::color::trait::index<category_name>::input_const_type index
+	,typename ::color::trait::index<category_name>::model_type index
 ) {
 	return ::color::_internal::normalize<category_name>::process(m.get(index), index) ;
 }
@@ -8850,7 +8850,7 @@ void
 red
 (
 	::color::model< ::color::category::cmyk< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::cmyk< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -8872,7 +8872,7 @@ void
 green
 (
 	::color::model< ::color::category::cmyk< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::cmyk< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -8894,7 +8894,7 @@ void
 blue
 (
 	::color::model< ::color::category::cmyk< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::cmyk< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -9753,7 +9753,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	enum {
 		first_max = (1 << first_size) - 1,
@@ -9901,7 +9901,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	enum {
 		first_max = (1 << first_size) - 1,
@@ -10123,7 +10123,7 @@ public:
 	typedef instance_type const& return_image_type;
 	typedef instance_type & return_type;
 	typedef instance_type & return_original_type;
-	typedef instance_type const& input_const_type;
+	typedef instance_type const& model_type;
 	typedef instance_type & input_type;
 	typedef instance_type & output_type;
 
@@ -10131,7 +10131,7 @@ public:
 
 	typedef typename index_trait_type::instance_type index_instance_type;
 
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
 	typedef ::color::_internal::utility::type::traitP< value_type > component_trait_type;
@@ -10139,7 +10139,7 @@ public:
 	typedef typename component_trait_type::instance_type component_type;
 	typedef typename component_trait_type::const_type component_const_type;
 	typedef typename component_trait_type::return_image_type component_return_const_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::model_type component_input_const_type;
 
 	typedef ::color::_internal::utility::type::size< std::size_t > size_trait_type;
 
@@ -10161,7 +10161,7 @@ public:
 		third_mask = (1 << third_size)-1
 	};
 
-	static component_return_const_type get(input_const_type container, index_input_const_type index) {
+	static component_return_const_type get(model_type container, index_input_const_type index) {
 		switch(index) {
 		default:
 		case(0):
@@ -10175,7 +10175,7 @@ public:
 	}
 
 	template< index_instance_type index >
-	static component_return_const_type get(input_const_type container) {
+	static component_return_const_type get(model_type container) {
 		switch(index) {
 		case(0):
 			return ((container >> (first_position)) & first_mask);
@@ -10330,7 +10330,7 @@ public:
 	typedef instance_type const& return_image_type;
 	typedef instance_type & return_type;
 	typedef instance_type & return_original_type;
-	typedef instance_type const& input_const_type;
+	typedef instance_type const& model_type;
 	typedef instance_type & input_type;
 	typedef instance_type & output_type;
 
@@ -10338,7 +10338,7 @@ public:
 
 	typedef typename index_trait_type::instance_type index_instance_type;
 
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 	typedef typename index_trait_type::return_image_type index_return_image_type;
 
 	typedef ::color::_internal::utility::type::traitP< value_type > component_trait_type;
@@ -10346,7 +10346,7 @@ public:
 	typedef typename component_trait_type::instance_type component_type;
 	typedef typename component_trait_type::const_type component_const_type;
 	typedef typename component_trait_type::return_image_type component_return_const_type;
-	typedef typename component_trait_type::input_const_type component_input_const_type;
+	typedef typename component_trait_type::model_type component_input_const_type;
 
 	typedef ::color::_internal::utility::type::size< std::size_t > size_trait_type;
 
@@ -10370,7 +10370,7 @@ public:
 		fourth_mask = (1 << fourth_size)-1
 	};
 
-	static component_return_const_type get(input_const_type container, index_input_const_type index) {
+	static component_return_const_type get(model_type container, index_input_const_type index) {
 		switch(index) {
 		default:
 		case(0):
@@ -10386,7 +10386,7 @@ public:
 	}
 
 	template< index_instance_type index >
-	static component_return_const_type get(input_const_type container) {
+	static component_return_const_type get(model_type container) {
 		switch(index) {
 		case(0):
 			return ((container >> (first_position)) & first_mask);
@@ -14626,7 +14626,7 @@ void
 gray
 (
 	::color::model< ::color::category::rgb<tag_name> > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::rgb<tag_name> >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::rgb<tag_name> >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::rgb<tag_name> category_type;
 	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
@@ -14690,7 +14690,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -14734,7 +14734,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
@@ -14784,7 +14784,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -15341,7 +15341,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -15905,7 +15905,7 @@ void
 blue
 (
 	::color::model< ::color::category::hsl< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -15927,7 +15927,7 @@ void
 green
 (
 	::color::model< ::color::category::hsl< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -15949,7 +15949,7 @@ void
 red
 (
 	::color::model< ::color::category::hsl< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsl< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -15971,7 +15971,7 @@ void
 gray
 (
 	::color::model< ::color::category::hsl<tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsl< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsl< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -16007,7 +16007,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		hue_p = ::color::place::_internal::hue<category_left_type>::position_enum
@@ -16049,7 +16049,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -16125,7 +16125,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -16160,7 +16160,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -16706,7 +16706,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -17465,7 +17465,7 @@ void
 blue
 (
 	::color::model< ::color::category::hsv< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -17487,7 +17487,7 @@ void
 green
 (
 	::color::model< ::color::category::hsv< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -17509,7 +17509,7 @@ void
 red
 (
 	::color::model< ::color::category::hsv< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsv< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -17531,7 +17531,7 @@ void
 gray
 (
 	::color::model< ::color::category::hsv< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsv< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -17567,7 +17567,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		gray_p = ::color::place::_internal::gray<category_right_type>::position_enum
@@ -17614,7 +17614,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -17690,7 +17690,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -17722,7 +17722,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -17778,7 +17778,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		hl_p = ::color::place::_internal::hue<category_left_type>::position_enum
@@ -18337,7 +18337,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -19028,7 +19028,7 @@ void
 blue
 (
 	::color::model< ::color::category::hsi< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsi< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsi< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsi< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -19050,7 +19050,7 @@ void
 green
 (
 	::color::model< ::color::category::hsi< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsi< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsi< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsi< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -19072,7 +19072,7 @@ void
 red
 (
 	::color::model< ::color::category::hsi< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsi< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hsi< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsi< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -19094,7 +19094,7 @@ void
 gray
 (
 	::color::model< ::color::category::hsi< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsi< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsi< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hsi< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -19130,7 +19130,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		gray_p = ::color::place::_internal::gray<category_right_type>::position_enum
@@ -19180,7 +19180,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -19218,7 +19218,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -19256,7 +19256,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -19294,7 +19294,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -19328,7 +19328,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		hr_p = ::color::place::_internal::hue<category_left_type>::position_enum
@@ -19887,7 +19887,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -20299,7 +20299,7 @@ void
 gray
 (
 	::color::model< ::color::category::hwb< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hwb< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hwb< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hwb< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
@@ -20346,7 +20346,7 @@ void
 red
 (
 	::color::model< ::color::category::hwb< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hwb< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hwb< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hwb< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -20368,7 +20368,7 @@ void
 green
 (
 	::color::model< ::color::category::hwb< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hwb< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hwb< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hwb< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -20390,7 +20390,7 @@ void
 blue
 (
 	::color::model< ::color::category::hwb< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hwb< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::hwb< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::hwb< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -20434,7 +20434,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, hwbSCALAR_category_type, scalar_type > reformatHWB_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -20479,7 +20479,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -20522,7 +20522,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -20565,7 +20565,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -20605,7 +20605,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -20669,7 +20669,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -20707,7 +20707,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -20750,7 +20750,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -21300,7 +21300,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -21600,7 +21600,7 @@ void
 red
 (
 	::color::model< ::color::category::yiq< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::yiq< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -21622,7 +21622,7 @@ void
 green
 (
 	::color::model< ::color::category::yiq< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::yiq< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -21644,7 +21644,7 @@ void
 blue
 (
 	::color::model< ::color::category::yiq< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yiq< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::yiq< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -21666,7 +21666,7 @@ void
 gray
 (
 	::color::model< ::color::category::yiq< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yiq< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yiq< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::yiq< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -21700,7 +21700,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -21753,7 +21753,7 @@ public:
 	typedef ::color::constant::yiq< category_left_type > yiq_const_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -21820,7 +21820,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -21858,7 +21858,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -21896,7 +21896,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -21934,7 +21934,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -21977,7 +21977,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -22011,7 +22011,7 @@ public:
 	typedef ::color::constant::yiq< category_left_type > yiq_const_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -22075,7 +22075,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		ll_p = ::color::place::_internal::luma<category_left_type>::position_enum
@@ -22483,7 +22483,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -22927,7 +22927,7 @@ void
 blue
 (
 	::color::model< ::color::category::yuv< tag_name, reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yuv< tag_name,reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yuv< tag_name,reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::yuv< tag_name, reference_number > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -22949,7 +22949,7 @@ void
 green
 (
 	::color::model< ::color::category::yuv< tag_name, reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yuv< tag_name, reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yuv< tag_name, reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::yuv< tag_name, reference_number > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -22971,7 +22971,7 @@ void
 red
 (
 	::color::model< ::color::category::yuv< tag_name,reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yuv< tag_name,reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::yuv< tag_name,reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::yuv< tag_name,reference_number > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -22993,7 +22993,7 @@ void
 gray
 (
 	::color::model< ::color::category::yuv< tag_name, reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yuv< tag_name, reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yuv< tag_name, reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::yuv< tag_name, reference_number > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -23028,7 +23028,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -23073,7 +23073,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -23139,7 +23139,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -23181,7 +23181,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -23223,7 +23223,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -23265,7 +23265,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -23308,7 +23308,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -23343,7 +23343,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -23408,7 +23408,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -23450,7 +23450,7 @@ public:
 	typedef ::color::trait::component<category_right_type> component_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< category_left_type, yuv_scalar_category_type, scalar_type > reformat_yuv_type;
 	typedef ::color::_internal::reformat< yiq_scalar_category_type, category_right_type, scalar_type > reformat_yiq_type;
@@ -23512,7 +23512,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -23546,7 +23546,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -24106,7 +24106,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -24479,7 +24479,7 @@ void
 blue
 (
 	::color::model< ::color::category::YCgCo< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YCgCo< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YCgCo< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YCgCo< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -24501,7 +24501,7 @@ void
 green
 (
 	::color::model< ::color::category::YCgCo< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YCgCo< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YCgCo< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YCgCo< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -24523,7 +24523,7 @@ void
 red
 (
 	::color::model< ::color::category::YCgCo< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YCgCo< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YCgCo< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YCgCo< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -24545,7 +24545,7 @@ void
 gray
 (
 	::color::model< ::color::category::YCgCo< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YCgCo< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YCgCo< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YCgCo< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -24577,7 +24577,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -24619,7 +24619,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -24682,7 +24682,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -24724,7 +24724,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -24765,7 +24765,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -24807,7 +24807,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -24850,7 +24850,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -24883,7 +24883,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -24946,7 +24946,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -24987,7 +24987,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -25022,7 +25022,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -25581,7 +25581,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -25943,7 +25943,7 @@ void
 blue
 (
 	::color::model< ::color::category::YDbDr< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YDbDr< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YDbDr< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YDbDr< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -25965,7 +25965,7 @@ void
 green
 (
 	::color::model< ::color::category::YDbDr< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YDbDr< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YDbDr< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YDbDr< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -25987,7 +25987,7 @@ void
 red
 (
 	::color::model< ::color::category::YDbDr< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YDbDr< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YDbDr< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YDbDr< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -26009,7 +26009,7 @@ void
 gray
 (
 	::color::model< ::color::category::YDbDr< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YDbDr< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YDbDr< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YDbDr< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -26041,7 +26041,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -26083,7 +26083,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -26149,7 +26149,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -26187,7 +26187,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -26225,7 +26225,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -26263,7 +26263,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -26306,7 +26306,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -26339,7 +26339,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -26405,7 +26405,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -26447,7 +26447,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -26485,7 +26485,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -26520,7 +26520,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -27106,7 +27106,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -27566,7 +27566,7 @@ void
 blue
 (
 	::color::model< ::color::category::YPbPr<tag_name,reference_number> > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YPbPr<tag_name,reference_number> category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -27588,7 +27588,7 @@ void
 green
 (
 	::color::model< ::color::category::YPbPr<tag_name,reference_number> > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YPbPr<tag_name,reference_number> category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -27610,7 +27610,7 @@ void
 red
 (
 	::color::model< ::color::category::YPbPr<tag_name,reference_number> > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YPbPr<tag_name,reference_number> category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -27632,7 +27632,7 @@ void
 gray
 (
 	::color::model< ::color::category::YPbPr<tag_name,reference_number> > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::YPbPr<tag_name,reference_number> category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -27667,7 +27667,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -27712,7 +27712,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -27775,7 +27775,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -27817,7 +27817,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -27859,7 +27859,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -27901,7 +27901,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -27944,7 +27944,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -27980,7 +27980,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -28043,7 +28043,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -28085,7 +28085,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -28127,7 +28127,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -28169,7 +28169,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -28211,7 +28211,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -28245,7 +28245,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -28818,7 +28818,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -29150,7 +29150,7 @@ void
 red
 (
 	::color::model< ::color::category::xyz< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyz< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyz< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::xyz< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -29172,7 +29172,7 @@ void
 green
 (
 	::color::model< ::color::category::xyz< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyz< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyz< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::xyz< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -29194,7 +29194,7 @@ void
 blue
 (
 	::color::model< ::color::category::xyz< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyz< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyz< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::xyz< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -29216,7 +29216,7 @@ void
 gray
 (
 	::color::model< ::color::category::xyz< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::xyz< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::xyz< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::xyz< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
@@ -29254,7 +29254,7 @@ public:
 	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -29304,7 +29304,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29342,7 +29342,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29380,7 +29380,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29418,7 +29418,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29456,7 +29456,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29499,7 +29499,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29540,7 +29540,7 @@ public:
 	typedef ::color::constant::xyz::adaptation::matrix< scalar_type > xyz_adaptation_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -29605,7 +29605,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29647,7 +29647,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29685,7 +29685,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29723,7 +29723,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29765,7 +29765,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -29800,7 +29800,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -30231,7 +30231,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -30280,7 +30280,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	static instance_type magic() {
 		return instance_type(1)-instance_type(16)/instance_type(116);
@@ -30333,7 +30333,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	typedef scalar< index_name, scalar_name, ::color::constant::lab::Hunter_entity > this_type;
 
@@ -30617,7 +30617,7 @@ void
 gray
 (
 	::color::model< ::color::category::lab< tag_name,reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::lab< tag_name, reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::lab< tag_name, reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::lab< tag_name, reference_number > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
@@ -30664,7 +30664,7 @@ void
 red
 (
 	::color::model< ::color::category::lab< tag_name,reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name, reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name, reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::lab< tag_name, reference_number > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -30686,7 +30686,7 @@ void
 green
 (
 	::color::model< ::color::category::lab< tag_name, reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name, reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name, reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::lab< tag_name, reference_number > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -30708,7 +30708,7 @@ void
 blue
 (
 	::color::model< ::color::category::lab< tag_name, reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name, reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lab< tag_name, reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::lab< tag_name, reference_number > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -30750,7 +30750,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, labSCALAR_category_type, scalar_type > reformatLAB_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
@@ -30803,7 +30803,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -30846,7 +30846,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -30889,7 +30889,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -30932,7 +30932,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -30975,7 +30975,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -31019,7 +31019,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -31061,7 +31061,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -31104,7 +31104,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -31147,7 +31147,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -31190,7 +31190,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -31233,7 +31233,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -31276,7 +31276,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -31317,7 +31317,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< lab_category_type, labSCALAR_category_type, scalar_type > reformatLAB_type;
 	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
@@ -31388,7 +31388,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< lab_category_type, labSCALAR_category_type, scalar_type > reformatLAB_type;
 	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
@@ -31458,7 +31458,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -31492,7 +31492,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32091,7 +32091,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -32325,7 +32325,7 @@ void
 gray
 (
 	::color::model< ::color::category::xyy< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::xyy< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::xyy< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::xyy< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
@@ -32372,7 +32372,7 @@ void
 red
 (
 	::color::model< ::color::category::xyy< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyy< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyy< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::xyy< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -32394,7 +32394,7 @@ void
 green
 (
 	::color::model< ::color::category::xyy< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyy< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyy< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::xyy< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -32416,7 +32416,7 @@ void
 blue
 (
 	::color::model< ::color::category::xyy< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyy< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::xyy< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::xyy< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -32457,7 +32457,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32500,7 +32500,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32543,7 +32543,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32586,7 +32586,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32629,7 +32629,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32672,7 +32672,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32716,7 +32716,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32758,7 +32758,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32801,7 +32801,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32844,7 +32844,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32887,7 +32887,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32930,7 +32930,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -32973,7 +32973,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -33017,7 +33017,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< xyy_category_type, xyySCALAR_category_type, scalar_type > reformatXYY_type;
 	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
@@ -33078,7 +33078,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -33117,7 +33117,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -33905,7 +33905,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	typedef ::color::_internal::lms::bound::scalar< index_type, scalar_type, reference_number > this_type;
 
@@ -34169,7 +34169,7 @@ void
 gray
 (
 	::color::model< ::color::category::lms< tag_name, lms_reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::lms< tag_name, lms_reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::lms< tag_name, lms_reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::lms< tag_name, lms_reference_number > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
@@ -34216,7 +34216,7 @@ void
 red
 (
 	::color::model< ::color::category::lms< tag_name, lms_reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lms< tag_name, lms_reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lms< tag_name, lms_reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::lms< tag_name, lms_reference_number > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -34238,7 +34238,7 @@ void
 green
 (
 	::color::model< ::color::category::lms< tag_name, lms_reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lms< tag_name, lms_reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lms< tag_name, lms_reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::lms< tag_name, lms_reference_number > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -34260,7 +34260,7 @@ void
 blue
 (
 	::color::model< ::color::category::lms< tag_name, reference_number > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lms< tag_name, reference_number > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::lms< tag_name, reference_number > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::lms< tag_name, reference_number > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -34301,7 +34301,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34344,7 +34344,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34387,7 +34387,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34430,7 +34430,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34473,7 +34473,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34516,7 +34516,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34560,7 +34560,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34602,7 +34602,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34645,7 +34645,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34688,7 +34688,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34731,7 +34731,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34774,7 +34774,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34817,7 +34817,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34860,7 +34860,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< lms_category_type, lmsSCALAR_category_type, scalar_type > reformatLMS_type;
 	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
@@ -34918,7 +34918,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34959,7 +34959,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -34997,7 +34997,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -35690,7 +35690,7 @@ public:
 	typedef typename trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
@@ -35949,7 +35949,7 @@ void
 gray
 (
 	::color::model< ::color::category::luv< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::luv< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::luv< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::luv< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
@@ -35996,7 +35996,7 @@ void
 red
 (
 	::color::model< ::color::category::luv< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::luv< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::luv< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::luv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -36018,7 +36018,7 @@ void
 green
 (
 	::color::model< ::color::category::luv< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::luv< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::luv< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::luv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -36040,7 +36040,7 @@ void
 blue
 (
 	::color::model< ::color::category::luv< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::luv< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::luv< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::luv< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -36081,7 +36081,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36124,7 +36124,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36167,7 +36167,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36210,7 +36210,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36253,7 +36253,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36296,7 +36296,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36339,7 +36339,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36380,7 +36380,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36423,7 +36423,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36466,7 +36466,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36509,7 +36509,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36552,7 +36552,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36595,7 +36595,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36638,7 +36638,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< luv_category_type, luvSCALAR_category_type, scalar_type > reformatLUV_type;
 	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
@@ -36696,7 +36696,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36737,7 +36737,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36779,7 +36779,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -36817,7 +36817,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -37362,7 +37362,7 @@ public:
 	typedef typename scalar_trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	typedef ::color::_internal::LabCH::bound::scalar< index_type, scalar_name > this_type;
 
@@ -37755,7 +37755,7 @@ void
 gray
 (
 	::color::model< ::color::category::LabCH< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::LabCH< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::LabCH< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::LabCH< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
@@ -37802,7 +37802,7 @@ void
 red
 (
 	::color::model< ::color::category::LabCH< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LabCH< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LabCH< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::LabCH< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -37824,7 +37824,7 @@ void
 green
 (
 	::color::model< ::color::category::LabCH< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LabCH< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LabCH< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::LabCH< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -37846,7 +37846,7 @@ void
 blue
 (
 	::color::model< ::color::category::LabCH< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LabCH< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LabCH< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::LabCH< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -37888,7 +37888,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, LabCHSCALAR_category_type, scalar_type > reformatLabCH_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
@@ -37944,7 +37944,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -37988,7 +37988,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38032,7 +38032,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38076,7 +38076,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38120,7 +38120,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38164,7 +38164,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38207,7 +38207,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38251,7 +38251,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38295,7 +38295,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38339,7 +38339,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38383,7 +38383,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38427,7 +38427,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38470,7 +38470,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38508,7 +38508,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef typename ::color::LabCH< scalar_type >::category_type LabCHscalar_category_type;
 	typedef typename ::color::lab< scalar_type >::category_type LABscalar_category_type;
@@ -38568,7 +38568,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38611,7 +38611,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38655,7 +38655,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38698,7 +38698,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -38737,7 +38737,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 	static void process
 	(
 		container_left_input_type left
@@ -39281,7 +39281,7 @@ public:
 	typedef typename scalar_trait_type::return_image_type return_image_type;
 
 	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::input_const_type index_input_const_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
 
 	typedef ::color::_internal::LuvCH::bound::scalar< index_type, scalar_name > this_type;
 
@@ -39674,7 +39674,7 @@ void
 red
 (
 	::color::model< ::color::category::LuvCH< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LuvCH< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LuvCH< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::LuvCH< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -39696,7 +39696,7 @@ void
 green
 (
 	::color::model< ::color::category::LuvCH< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LuvCH< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LuvCH< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::LuvCH< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -39718,7 +39718,7 @@ void
 blue
 (
 	::color::model< ::color::category::LuvCH< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LuvCH< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LuvCH< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::LuvCH< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
@@ -39740,7 +39740,7 @@ void
 gray
 (
 	::color::model< ::color::category::LuvCH< tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::LuvCH< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::LuvCH< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef ::color::category::LuvCH< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
@@ -39847,7 +39847,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, LuvCHSCALAR_category_type, scalar_type > reformatLuvCH_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_left_type>::position_enum
@@ -39903,7 +39903,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -39947,7 +39947,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -39991,7 +39991,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40035,7 +40035,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40079,7 +40079,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40123,7 +40123,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40166,7 +40166,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40210,7 +40210,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40254,7 +40254,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40298,7 +40298,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40342,7 +40342,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40386,7 +40386,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40429,7 +40429,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40473,7 +40473,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40516,7 +40516,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40560,7 +40560,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40597,7 +40597,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef typename ::color::LuvCH< scalar_type >::category_type LuvCHscalar_category_type;
 	typedef typename ::color::luv< scalar_type >::category_type LUVscalar_category_type;
@@ -40665,7 +40665,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40699,7 +40699,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40745,7 +40745,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40788,7 +40788,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40825,7 +40825,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef typename ::color::luv< scalar_type >::category_type LUVscalar_category_type;
 	typedef typename ::color::LuvCH< scalar_type >::category_type LuvCHscalar_category_type;
@@ -40882,7 +40882,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40925,7 +40925,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -40968,7 +40968,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -41010,7 +41010,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -41052,7 +41052,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -41095,7 +41095,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -41138,7 +41138,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -41180,7 +41180,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -41222,7 +41222,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -41264,7 +41264,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -41301,7 +41301,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef typename ::color::lab< scalar_type >::category_type LABscalar_category_type;
 	typedef typename ::color::LabCH< scalar_type >::category_type LabCHscalar_category_type;
@@ -41352,7 +41352,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -41395,7 +41395,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42017,7 +42017,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< labSCALAR_category_type, lab_category_type, scalar_type > reformatLAB_type;
 	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
@@ -42087,7 +42087,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< labSCALAR_category_type, lab_category_type, scalar_type > reformatLAB_type;
 	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
@@ -42150,7 +42150,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< xyySCALAR_category_type, xyy_category_type, scalar_type > reformatXYY_type;
 	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
@@ -42210,7 +42210,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< lmsSCALAR_category_type, lms_category_type, scalar_type > reformatLMS_type;
 	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
@@ -42265,7 +42265,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< luvSCALAR_category_type, luv_category_type, scalar_type > reformatLUV_type;
 	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
@@ -42335,7 +42335,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42377,7 +42377,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42419,7 +42419,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42462,7 +42462,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42505,7 +42505,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42548,7 +42548,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42591,7 +42591,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42635,7 +42635,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42679,7 +42679,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42721,7 +42721,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42759,7 +42759,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42802,7 +42802,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42845,7 +42845,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42888,7 +42888,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42931,7 +42931,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -42975,7 +42975,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43019,7 +43019,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43060,7 +43060,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43101,7 +43101,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43143,7 +43143,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43186,7 +43186,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43229,7 +43229,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43272,7 +43272,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43315,7 +43315,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43359,7 +43359,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43403,7 +43403,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43445,7 +43445,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43487,7 +43487,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43529,7 +43529,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43571,7 +43571,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43614,7 +43614,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43657,7 +43657,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43700,7 +43700,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43743,7 +43743,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43787,7 +43787,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43831,7 +43831,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43873,7 +43873,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -43916,7 +43916,7 @@ public:
 	typedef ::color::trait::component<category_right_type> component_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< category_left_type, yiq_scalar_category_type, scalar_type > reformat_yiq_type;
 	typedef ::color::_internal::reformat< yuv_scalar_category_type, category_right_type, scalar_type > reformat_yuv_type;
@@ -43975,7 +43975,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44013,7 +44013,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44056,7 +44056,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44094,7 +44094,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44137,7 +44137,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44180,7 +44180,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44223,7 +44223,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44266,7 +44266,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44310,7 +44310,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44354,7 +44354,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44397,7 +44397,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44440,7 +44440,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44483,7 +44483,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44526,7 +44526,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44569,7 +44569,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44613,7 +44613,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44658,7 +44658,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44702,7 +44702,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44746,7 +44746,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44790,7 +44790,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44835,7 +44835,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44880,7 +44880,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44923,7 +44923,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -44958,7 +44958,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -45035,7 +45035,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45077,7 +45077,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45115,7 +45115,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45153,7 +45153,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45195,7 +45195,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45233,7 +45233,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45276,7 +45276,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45319,7 +45319,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45362,7 +45362,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45405,7 +45405,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45449,7 +45449,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45493,7 +45493,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45535,7 +45535,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45569,7 +45569,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -45620,7 +45620,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -45697,7 +45697,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45739,7 +45739,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45777,7 +45777,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45815,7 +45815,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45857,7 +45857,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45895,7 +45895,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45938,7 +45938,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -45981,7 +45981,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46024,7 +46024,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46067,7 +46067,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46111,7 +46111,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46155,7 +46155,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46189,7 +46189,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -46246,7 +46246,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46289,7 +46289,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46328,7 +46328,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -46408,7 +46408,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46450,7 +46450,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46488,7 +46488,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46526,7 +46526,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46568,7 +46568,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46606,7 +46606,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46649,7 +46649,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46692,7 +46692,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46735,7 +46735,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46778,7 +46778,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46822,7 +46822,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46866,7 +46866,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -46899,7 +46899,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -46982,7 +46982,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -47063,7 +47063,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -47148,7 +47148,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -47183,7 +47183,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -47225,7 +47225,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::yiq< category_right_type > yiq_const_type;
 
@@ -47292,7 +47292,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::yuv::parameter< yuv_tag_name, yuv_reference_number > yuv_parameter_type;
 
@@ -47354,7 +47354,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::YCgCo< category_right_type > YCgCo_const_type;
 
@@ -47408,7 +47408,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::YDbDr< category_right_type > YDbDr_const_type;
 
@@ -47474,7 +47474,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::YPbPr::parameter< YPbPr_tag_name, YPbPr_reference_number > YPbPr_parameter_type;
 
@@ -47528,7 +47528,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::xyz::transformation::matrix< scalar_type > xyz_matrix_type;
 	typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
@@ -47597,7 +47597,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -47635,7 +47635,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -47677,7 +47677,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -47715,7 +47715,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -47758,7 +47758,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -47801,7 +47801,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -47824,7 +47824,7 @@ void
 gray
 (
 	::color::model< ::color::category::cmyk<tag_name > > & color_parameter
-	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::cmyk< tag_name > >::akin_type >::input_const_type component_parameter
+	,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::cmyk< tag_name > >::akin_type >::model_type component_parameter
 ) {
 	typedef typename ::color::akin::rgb< ::color::category::cmyk< tag_name > >::akin_type rgb_category_type;
 	::color::model< rgb_category_type > rgb(color_parameter);
@@ -47857,7 +47857,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
@@ -47901,7 +47901,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -47967,7 +47967,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		cl_p = ::color::place::_internal::cyan<category_left_type>::position_enum
@@ -48026,7 +48026,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48068,7 +48068,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48110,7 +48110,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48153,7 +48153,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48187,7 +48187,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -48261,7 +48261,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48303,7 +48303,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48345,7 +48345,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48387,7 +48387,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48429,7 +48429,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48471,7 +48471,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48514,7 +48514,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48557,7 +48557,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48600,7 +48600,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48643,7 +48643,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48687,7 +48687,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48731,7 +48731,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48766,7 +48766,7 @@ public:
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::gray::rgb< category_left_type > gray_const_type;
 
@@ -48817,7 +48817,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_right_type>::position_enum
@@ -48859,7 +48859,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		value_p = ::color::place::_internal::value<category_right_type>::position_enum
@@ -48897,7 +48897,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		intensity_p = ::color::place::_internal::intensity<category_right_type>::position_enum
@@ -48940,7 +48940,7 @@ public:
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -48975,7 +48975,7 @@ public:
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::gray::rgb< category_left_type > gray_const_type;
 
@@ -49024,7 +49024,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
@@ -49066,7 +49066,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
@@ -49104,7 +49104,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
@@ -49142,7 +49142,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
@@ -49184,7 +49184,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		luma_p = ::color::place::_internal::luma<category_right_type>::position_enum
@@ -49227,7 +49227,7 @@ public:
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -49266,7 +49266,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -49305,7 +49305,7 @@ public:
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -49345,7 +49345,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -49379,7 +49379,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -49413,7 +49413,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -49447,7 +49447,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -49471,7 +49471,7 @@ public:
 	typedef category_name category_type;
 
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef typename ::color::trait::scalar<category_type>::input_const_type scalar_const_input_type;
+	typedef typename ::color::trait::scalar<category_type>::model_type scalar_const_input_type;
 
 	typedef typename ::color::trait::index<category_type>::instance_type index_type;
 
@@ -49674,7 +49674,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		cyan_p = ::color::place::_internal::cyan<category_left_type>::position_enum
@@ -49717,7 +49717,7 @@ public:
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	enum {
 		cl_p = ::color::place::_internal::cyan<category_left_type>::position_enum
@@ -49762,7 +49762,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -49819,7 +49819,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -49901,7 +49901,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -49982,7 +49982,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -50072,7 +50072,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -50104,7 +50104,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
@@ -50153,7 +50153,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::yiq< category_right_type > yiq_const_type;
 
@@ -50219,7 +50219,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::yuv::parameter< yuv_tag_name, yuv_reference_number > yuv_parameter_type;
 
@@ -50280,7 +50280,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::YCgCo< category_right_type > YCgCo_const_type;
 
@@ -50333,7 +50333,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::YDbDr< category_right_type > YDbDr_const_type;
 
@@ -50398,7 +50398,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	typedef ::color::constant::YPbPr::parameter< YPbPr_tag_name, YPbPr_reference_number > YPbPr_parameter_type;
 
@@ -50461,7 +50461,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -50504,7 +50504,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -50547,7 +50547,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -50590,7 +50590,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -50633,7 +50633,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -50677,7 +50677,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -50721,7 +50721,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
-	typedef typename container_right_trait_type::input_const_type container_right_const_input_type;
+	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
 	static void process
 	(
@@ -50991,7 +50991,7 @@ template< typename category_name >
 convex
 (
 	::color::model<category_name> & result
-	,typename ::color::trait::scalar<category_name>::input_const_type scalar
+	,typename ::color::trait::scalar<category_name>::model_type scalar
 	,color::model<category_name> const& right
 ) {
 	return ::color::operation::_internal::convex<category_name>::process(result, scalar, right);
@@ -51003,7 +51003,7 @@ convex
 (
 	::color::model<category_name> & result
 	,color::model<category_name> const& left
-	,typename ::color::trait::scalar<category_name>::input_const_type scalar
+	,typename ::color::trait::scalar<category_name>::model_type scalar
 	,color::model<category_name> const& right
 ) {
 	return ::color::operation::_internal::convex<category_name>::process(result, left, scalar, right);
@@ -51025,7 +51025,7 @@ public:
 	typedef category_name category_type;
 
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef typename ::color::trait::scalar<category_type>::input_const_type scalar_const_input_type;
+	typedef typename ::color::trait::scalar<category_type>::model_type scalar_const_input_type;
 
 	typedef ::color::trait::index< category_type > index_trait_type;
 	typedef typename index_trait_type::instance_type index_type;
@@ -51133,7 +51133,7 @@ inline
 blend
 (
 	::color::model<category_name> & result
-	,typename ::color::trait::scalar<category_name>::input_const_type alpha
+	,typename ::color::trait::scalar<category_name>::model_type alpha
 	,::color::model<category_name> const& upper
 ) {
 	return ::color::operation::_internal::blend<category_name>::accumulate(result, alpha, upper);
@@ -51146,7 +51146,7 @@ blend
 (
 	::color::model<category_name> & result
 	,::color::model<category_name> const& lower
-	,typename ::color::trait::scalar<category_name>::input_const_type alpha
+	,typename ::color::trait::scalar<category_name>::model_type alpha
 	,::color::model<category_name> const& upper
 ) {
 	return ::color::operation::_internal::blend<category_name>::accumulate(result, lower, alpha, upper);
@@ -51157,7 +51157,7 @@ template< typename category_name >
 mix
 (
 	::color::model<category_name> const& lower
-	,typename ::color::trait::scalar<category_name>::input_const_type alpha
+	,typename ::color::trait::scalar<category_name>::model_type alpha
 	,::color::model<category_name> const& upper
 ) {
 	return ::color::operation::_internal::blend<category_name>::mix(lower, alpha, upper);
@@ -51225,9 +51225,9 @@ template< typename category_name >
 combine
 (
 	::color::model<category_name> & result
-	,typename ::color::trait::scalar<category_name>::input_const_type a0
+	,typename ::color::trait::scalar<category_name>::model_type a0
 	,::color::model<category_name> const& c0
-	,typename ::color::trait::scalar<category_name>::input_const_type a1
+	,typename ::color::trait::scalar<category_name>::model_type a1
 	,::color::model<category_name> const& c1
 ) {
 	return ::color::operation::_internal::combine<category_name>::process(result, a0, c0, a1, c1);
@@ -51238,11 +51238,11 @@ template< typename category_name >
 combine
 (
 	::color::model<category_name> & result
-	,typename ::color::trait::scalar<category_name>::input_const_type a0
+	,typename ::color::trait::scalar<category_name>::model_type a0
 	,::color::model<category_name> const& c0
-	,typename ::color::trait::scalar<category_name>::input_const_type a1
+	,typename ::color::trait::scalar<category_name>::model_type a1
 	,::color::model<category_name> const& c1
-	,typename ::color::trait::scalar<category_name>::input_const_type a2
+	,typename ::color::trait::scalar<category_name>::model_type a2
 	,::color::model<category_name> const& c2
 ) {
 	return ::color::operation::_internal::combine<category_name>::process(result, a0, c0, a1, c1, a2, c2);
@@ -51261,7 +51261,7 @@ public:
 	typedef category_name category_type;
 
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef typename ::color::trait::scalar<category_type>::input_const_type scalar_const_input_type;
+	typedef typename ::color::trait::scalar<category_type>::model_type scalar_const_input_type;
 
 	typedef ::color::trait::index<category_type> index_trait_type;
 	typedef typename index_trait_type::instance_type index_type;
@@ -51309,7 +51309,7 @@ template< typename category_name >
 bias
 (
 	::color::model<category_name> & result
-	,typename ::color::trait::scalar<category_name>::input_const_type const& scalar
+	,typename ::color::trait::scalar<category_name>::model_type const& scalar
 ) {
 	return ::color::operation::_internal::bias<category_name>::process(result, scalar);
 }
@@ -51320,7 +51320,7 @@ bias
 (
 	::color::model<category_name> & result
 	,color::model<category_name> const& left
-	,typename ::color::trait::scalar<category_name>::input_const_type const& scalar
+	,typename ::color::trait::scalar<category_name>::model_type const& scalar
 ) {
 	return ::color::operation::_internal::bias<category_name>::process(result, left, scalar);
 }
@@ -51338,7 +51338,7 @@ public:
 	typedef category_name category_type;
 
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef typename ::color::trait::scalar<category_type>::input_const_type scalar_const_input_type;
+	typedef typename ::color::trait::scalar<category_type>::model_type scalar_const_input_type;
 
 	typedef ::color::trait::index<category_type> index_trait_type;
 	typedef typename index_trait_type::instance_type index_type;
@@ -51392,7 +51392,7 @@ template< typename category_name >
 gain
 (
 	::color::model<category_name> & result
-	,typename ::color::trait::scalar<category_name>::input_const_type const& scalar
+	,typename ::color::trait::scalar<category_name>::model_type const& scalar
 ) {
 	return ::color::operation::_internal::gain<category_name>::process(result, scalar);
 }
@@ -51403,7 +51403,7 @@ gain
 (
 	::color::model<category_name> & result
 	,::color::model<category_name> const& left
-	,typename ::color::trait::scalar<category_name>::input_const_type const& scalar
+	,typename ::color::trait::scalar<category_name>::model_type const& scalar
 ) {
 	return ::color::operation::_internal::gain<category_name>::process(result, left, scalar);
 }
@@ -51675,7 +51675,7 @@ template< typename category_name >
 void gray
 (
 	::color::model< category_name > & color_parameter
-	,typename ::color::trait::scalar< category_name >::input_const_type percent_param
+	,typename ::color::trait::scalar< category_name >::model_type percent_param
 ) {
 	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 	typedef ::color::gray<scalar_type> gray_type;
@@ -51686,7 +51686,7 @@ template< typename category_name >
 ::color::model< category_name >
 gray
 (
-	typename ::color::trait::scalar< category_name >::input_const_type percent_param
+	typename ::color::trait::scalar< category_name >::model_type percent_param
 ) {
 	typedef ::color::model< category_name > model_type;
 	model_type color_return;
@@ -51698,7 +51698,7 @@ template< typename category_name >
 ::color::model< category_name >
 gray
 (
-	typename ::color::trait::scalar< category_name >::input_const_type percent_param
+	typename ::color::trait::scalar< category_name >::model_type percent_param
 	, category_name category_param
 ) {
 	typedef ::color::model< category_name > model_type;

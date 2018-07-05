@@ -19,6 +19,11 @@ namespace color
     template <> struct info< ::color::category::lab_double <> >  {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
     template <> struct info< ::color::category::lab_ldouble<> >  {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
 
+    template <> struct info< ::color::category::lab_int8  <> >  {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template <> struct info< ::color::category::lab_int16 <> >  {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template <> struct info< ::color::category::lab_int32 <> >  {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+    template <> struct info< ::color::category::lab_int64 <> >  {  public: enum { implemented_entity = true }; enum {  meaningful_entity = true }; };
+
     // template
     //  <
     //    typename tag_name
@@ -27,7 +32,7 @@ namespace color
     //  struct info< ::color::category::lab< tag_name, lab_reference_number > >
     //   {
     //    public:
-    //       enum { implemented_entity = true }; 
+    //       enum { implemented_entity = true };
     //       enum {  meaningful_entity = true };
     //   };
 

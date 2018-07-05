@@ -31,7 +31,7 @@ namespace color
              typedef typename component_trait_type::return_image_type  component_return_const_type;
              
              typedef typename index_trait_type::instance_type    index_instance_type;
-             typedef typename index_trait_type::input_const_type index_input_const_type;
+             typedef typename index_trait_type::model_type index_input_const_type;
              
              typedef ::color::_internal::utility::bound::intrinsic< container_name, width_size, index_name > this_type;
 

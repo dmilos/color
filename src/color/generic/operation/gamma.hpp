@@ -23,7 +23,7 @@
             typedef category_name  category_type;
 
             typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
-            typedef typename ::color::trait::scalar<category_type>::input_const_type  scalar_const_input_type;
+            typedef typename ::color::trait::scalar<category_type>::model_type  scalar_const_input_type;
 
             typedef typename ::color::trait::index<category_type>::instance_type     index_type;
 

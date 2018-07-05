@@ -16,7 +16,7 @@
          {
           public:
             typedef category_name  category_type;
-            typedef typename ::color::trait::scalar<category_name>::input_const_type  scalar_const_input_type;
+            typedef typename ::color::trait::scalar<category_name>::model_type  scalar_const_input_type;
 
             typedef ::color::trait::container< category_type >   container_trait_type;
 
@@ -57,7 +57,7 @@
       ::color::model<category_name>      & scale
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::input_const_type scalar
+        ,typename ::color::trait::scalar<category_name>::model_type scalar
        )
        {
         return ::color::operation::_internal::scale<category_name>::process( result, scalar );
@@ -67,7 +67,7 @@
       ::color::model<category_name>      & scale
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::input_const_type  scalar
+        ,typename ::color::trait::scalar<category_name>::model_type  scalar
         ,::color::model<category_name> const& right
        )
        {

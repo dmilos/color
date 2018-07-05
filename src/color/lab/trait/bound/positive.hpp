@@ -20,7 +20,7 @@ namespace color
       namespace bound
        {
 
-        template< typename index_name, typename number_name, ::color::constant::lab::reference_enum reference_number >
+        template< typename number_name, typename index_name, ::color::constant::lab::reference_enum reference_number >
          struct positive
           {
            public:
@@ -34,18 +34,23 @@ namespace color
              typedef typename trait_type::return_image_type      return_image_type;
 
              typedef typename index_trait_type::instance_type    index_instance_type;
-             typedef typename index_trait_type::input_const_type index_input_const_type;
+             typedef typename index_trait_type::model_type index_input_const_type;
 
-             typedef ::color::_internal::lab::bound::positive< index_name, number_type, reference_number  > this_type;
+             typedef ::color::_internal::lab::bound::positive< number_type, index_name, reference_number  > this_type;
 
              static instance_type lower100()
               {
-               return std::numeric_limits<number_type>::max()/2 - 0;
+               return 0;
               }
 
              static instance_type higher100()
               {
-               return std::numeric_limits<number_type>::max()/2 + 100;
+               return std::numeric_limits<number_type>::max();
+              }
+
+             static instance_type span100()
+              {
+               return this_type::higher100() - this_type::lower100();
               }
 
              static instance_type higher()
@@ -92,13 +97,13 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   range()
                {
-                static instance_type range_list[] = { this_type::span(), this_type::span(), this_type::span() };
+                static instance_type range_list[] = { this_type::span100(), this_type::span(), this_type::span() };
                 return range_list[index];
                }
 
              static /*constexpr*/ return_image_type   range(   index_input_const_type  index )
               {
-                static instance_type range_list[] = { this_type::span(), this_type::span(), this_type::span() };
+                static instance_type range_list[] = { this_type::span100(), this_type::span(), this_type::span() };
                 return range_list[index];
               }
           };

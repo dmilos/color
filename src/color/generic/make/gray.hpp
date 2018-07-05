@@ -1,6 +1,6 @@
 #ifndef color_generic_make_gray50
 #define color_generic_make_gray50
-// ::color::make::gray< category_name > (      ,typename ::color::trait::scalar< category_name >::input_const_type    percent       )
+// ::color::make::gray< category_name > (      ,typename ::color::trait::scalar< category_name >::model_type    percent       )
 // ::color::make::gray50( c )
 
 // TODO #include "model.hpp"
@@ -15,7 +15,7 @@
       void gray
        (
                   ::color::model< category_name >                            & color_parameter
-        ,typename ::color::trait::scalar< category_name >::input_const_type    percent_param
+        ,typename ::color::trait::scalar< category_name >::model_type    percent_param
        )
        {
         typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
@@ -28,7 +28,7 @@
       ::color::model< category_name >
        gray
        (
-        typename ::color::trait::scalar< category_name >::input_const_type    percent_param
+        typename ::color::trait::scalar< category_name >::model_type    percent_param
        )
        {
         typedef ::color::model< category_name > model_type;
@@ -41,7 +41,7 @@
       ::color::model< category_name >
        gray
        (
-        typename ::color::trait::scalar< category_name >::input_const_type    percent_param
+        typename ::color::trait::scalar< category_name >::model_type    percent_param
        , category_name                                                        category_param
        )
        {

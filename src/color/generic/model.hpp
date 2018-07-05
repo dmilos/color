@@ -45,7 +45,7 @@ namespace color
 
        typedef typename index_trait_type::instance_type          index_type;
        typedef typename index_trait_type::const_type             index_const_type;
-       typedef typename index_trait_type::input_const_type       index_input_const_type;
+       typedef typename index_trait_type::model_type       index_input_const_type;
        typedef typename index_trait_type::return_image_type      index_return_image_type;
 
        typedef typename size_trait_type::instance_type          size_type;
@@ -55,19 +55,19 @@ namespace color
        typedef typename component_trait_type::const_type          component_const_type;
        typedef typename component_trait_type::return_image_type   component_return_const_type;
        typedef typename component_trait_type::return_type         component_return_type;
-       typedef typename component_trait_type::input_const_type    component_input_const_type;
+       typedef typename component_trait_type::model_type    component_input_const_type;
        typedef typename component_trait_type::input_type          component_input_type;
 
        typedef typename container_trait_type::instance_type          container_type;
        typedef typename container_trait_type::const_type             container_const_type;
        typedef typename container_trait_type::return_image_type      container_return_const_type;
        typedef typename container_trait_type::return_original_type   container_return_original_type;
-       typedef typename container_trait_type::input_const_type       container_input_const_type;
+       typedef typename container_trait_type::model_type       container_input_const_type;
        typedef typename container_trait_type::input_type             container_input_type;
 
        typedef typename container_trait_type::set_return_type        set_return_type;
 
-       typedef typename scalar_trait_type::input_const_type          scalar_input_const_type;
+       typedef typename scalar_trait_type::model_type          scalar_input_const_type;
 
                model( )
                {

@@ -8,7 +8,7 @@ int main( int argc, char *argv[] )
   //Instead of double you may put std::uint8_t, ..., std::uint64_t, float, double, long double
   typedef ::color::hsl<double>::category_type  category_type;
 
-  std::cout << "---bgr"
+  std::cout << "---hsl"
     << "  black      " << ::color::place::black       <category_type>() << std::endl
     << "  blue       " << ::color::place::blue        <category_type>() << std::endl
     << "  chroma     " << ::color::place::chroma      <category_type>() << std::endl

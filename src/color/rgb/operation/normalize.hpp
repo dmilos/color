@@ -17,7 +17,7 @@ namespace color
      normalize
       (
         ::color::model< ::color::category::rgb_float >         const& m
-       ,::color::trait::index< ::color::category::rgb_float >::input_const_type index
+       ,::color::trait::index< ::color::category::rgb_float >::model_type index
       )
       { return m.get(index); }
 
@@ -27,7 +27,7 @@ namespace color
      normalize
       (
         ::color::model< ::color::category::rgb_double >         const& m
-       ,::color::trait::index< ::color::category::rgb_double >::input_const_type index
+       ,::color::trait::index< ::color::category::rgb_double >::model_type index
       )
       { return m.get(index); }
 
@@ -36,7 +36,7 @@ namespace color
      normalize
       (
         ::color::model< ::color::category::rgb_ldouble >         const& m
-       ,::color::trait::index< ::color::category::rgb_ldouble >::input_const_type index
+       ,::color::trait::index< ::color::category::rgb_ldouble >::model_type index
       )
       { return m.get(index); }
 

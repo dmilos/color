@@ -25,10 +25,10 @@ namespace color
          typedef ::color::trait::index< category_name >      index_trait_type;
 
          typedef typename component_trait_type::instance_type      component_instance_type;
-         typedef typename component_trait_type::input_const_type   component_input_const_type;
+         typedef typename component_trait_type::model_type   component_input_const_type;
 
          typedef typename index_trait_type::instance_type       index_instance_type;
-         typedef typename index_trait_type::input_const_type    index_input_const_type;
+         typedef typename index_trait_type::model_type    index_input_const_type;
 
          static
          scalar_type

@@ -1,6 +1,6 @@
 echo off
 set  left_folder=..\out\extract
-set  right_folder=x:\data\color-data-this\win32\extract
+set  right_folder=..\..\..\..\mirror\example\test\out\extract
 set  target_folder=..\out\check
 set  program_TC=..\out\tc.exe
 

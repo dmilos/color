@@ -3,7 +3,7 @@
 
 #include "../../../generic/trait/bound.hpp"
 #include "../../category.hpp"
-#include "./scalar.hpp"
+#include "./constrain.hpp"
 
 
 
@@ -16,19 +16,19 @@ namespace color
 
     template< ::color::constant::lab::reference_enum reference_number >
      struct bound< ::color::category::lab_float<reference_number> >
-      : public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_float<reference_number> >::instance_type, float, reference_number >
+      : public ::color::_internal::lab::bound::constrain<  float,      typename ::color::trait::index< ::color::category::lab_float<reference_number> >::instance_type,reference_number >
       {
       };
 
-    template< ::color::constant::lab::reference_enum reference_number >
+    template< ::color::constant::lab::reference_enum  reference_number >
      struct bound< ::color::category::lab_double<reference_number> >
-      : public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_double<reference_number> >::instance_type, double, reference_number >
+      : public ::color::_internal::lab::bound::constrain< double,      typename ::color::trait::index< ::color::category::lab_double<reference_number> >::instance_type,  reference_number >
       {
       };
 
-    template< ::color::constant::lab::reference_enum reference_number >
+    template< ::color::constant::lab::reference_enum  reference_number >
      struct bound< ::color::category::lab_ldouble<reference_number> >
-      : public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_ldouble<reference_number> >::instance_type, long double, reference_number >
+      : public ::color::_internal::lab::bound::constrain< long double, typename ::color::trait::index< ::color::category::lab_ldouble<reference_number> >::instance_type, reference_number >
       {
       };
 

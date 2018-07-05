@@ -28,5 +28,6 @@ int main( int argc, char *argv[] )
     << "  value      " << ::color::place::value       <category_type>() << std::endl
     << "  white      " << ::color::place::white       <category_type>() << std::endl
     << "  yellow     " << ::color::place::yellow      <category_type>() << std::endl;
+
   return EXIT_SUCCESS;
  }

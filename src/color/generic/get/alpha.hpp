@@ -15,7 +15,7 @@
 
      template< typename category_name >
       inline
-      typename ::color::trait::component< category_name >::return_image_type
+      typename ::color::trait::component< category_name >::return_type
       alpha( ::color::model< category_name > const& color_parameter )
        {
         //typedef ::color::model< category_name > model_type;

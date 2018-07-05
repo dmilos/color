@@ -8,7 +8,7 @@ int main( int argc, char *argv[] )
   //Instead of double you may put std::uint8_t, ..., std::uint64_t, float, double, long double
   typedef ::color::LabCH<double>::category_type  category_type;
 
-  std::cout << "---bgr"
+  std::cout << "---LabCH"
     << "  black      " << ::color::place::black       <category_type>() << std::endl
     << "  blue       " << ::color::place::blue        <category_type>() << std::endl
     << "  chroma     " << ::color::place::chroma      <category_type>() << std::endl
@@ -28,5 +28,6 @@ int main( int argc, char *argv[] )
     << "  value      " << ::color::place::value       <category_type>() << std::endl
     << "  white      " << ::color::place::white       <category_type>() << std::endl
     << "  yellow     " << ::color::place::yellow      <category_type>() << std::endl;
+
   return EXIT_SUCCESS;
  }

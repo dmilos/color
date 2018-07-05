@@ -48,6 +48,14 @@ std::string print_sizeof( std::string const& name )
   typedef color_name< std::uint32_t         > u32_type;
   typedef color_name< color::type::uint48_t > u48_type;
   typedef color_name< std::uint64_t         > u64_type;
+  
+  typedef color_name< std::int8_t          > i8_type;
+  typedef color_name< std::int16_t         > i16_type;
+  typedef color_name< color::type::int24_t > i24_type;
+  typedef color_name< std::int32_t         > i32_type;
+  typedef color_name< color::type::int48_t > i48_type;
+  typedef color_name< std::int64_t         > i64_type;
+
 
   typedef color_name< float                 > f_type;
   typedef color_name< double                > d_type;

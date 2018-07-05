@@ -46,10 +46,10 @@
 					<dd>
 						<code>
 							&nbsp;template&lt; typename category_name &gt;           <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; bias( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar &nbsp; );                                                     <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; bias( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::model_type scalar &nbsp; );                                                     <br>
 							&nbsp;                                                                   <br>
 							&nbsp;template&lt; typename category_name &gt;           <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; bias( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar );
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; bias( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::model_type scalar );
 						</code>
 					</dd>
 					<dt>Example</dt>
@@ -78,9 +78,9 @@
 						&nbsp;combine<br>
 						&nbsp;&nbsp;(<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;::color::model&lt;category_name&gt;      & result<br>
-						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type  a0<br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::model_type  a0<br>
 						&nbsp;&nbsp;&nbsp;,::color::model&lt;category_name&gt; const& c0<br>
-						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type  a1<br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::model_type  a1<br>
 						&nbsp;&nbsp;&nbsp;,::color::model&lt;category_name&gt; const& c1<br>
 						&nbsp;&nbsp;);<br><br>
 
@@ -89,11 +89,11 @@
 						&nbsp;combine<br>
 						&nbsp;&nbsp;(<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;::color::model&lt;category_name&gt;      & result<br>
-						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type a0<br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::model_type a0<br>
 						&nbsp;&nbsp;&nbsp;,::color::model&lt;category_name&gt; const& c0<br>
-						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type a1<br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::model_type a1<br>
 						&nbsp;&nbsp;&nbsp;,::color::model&lt;category_name&gt; const& c1<br>
-						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type a2<br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::model_type a2<br>
 						&nbsp;&nbsp;&nbsp;,::color::model&lt;category_name&gt; const& c2<br>
 						&nbsp;&nbsp;);<br>
 						</code>
@@ -126,7 +126,7 @@
 						&nbsp;::color::model&lt;category_name&gt; &amp; convex                         <br>
 						&nbsp;(                                                                              <br>
 						&nbsp;&nbsp; ::color::model&lt;category_name&gt;      &amp; result                   <br>
-						&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar                 <br>
+						&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::model_type scalar                 <br>
 						&nbsp;&nbsp;,color::model&lt;category_name&gt; const&amp;right                       <br>
 						&nbsp;);                                                                             <br>
                                                                                                              <br>
@@ -135,7 +135,7 @@
 						&nbsp;&nbsp;(                                                                        <br>
 						&nbsp;&nbsp;&nbsp; ::color::model&lt;category_name&gt;      &amp;result              <br>
 						&nbsp;&nbsp;&nbsp;,color::model&lt;category_name&gt; const&amp;left                  <br>
-						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar           <br>
+						&nbsp;&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::model_type scalar           <br>
 						&nbsp;&nbsp;&nbsp;,color::model&lt;category_name&gt; const&amp;right                 <br>
 						&nbsp;&nbsp;);                                                                       <br>
 						</code>
@@ -224,10 +224,10 @@
 					<dd>
 						<code>
 							&nbsp;template&lt; typename category_name &gt;           <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gain( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar );                                                     <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gain( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::model_type scalar );                                                     <br>
 							&nbsp;                                                                   <br>
 							&nbsp;template&lt; typename category_name &gt;           <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gain( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar );
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gain( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::model_type scalar );
 						</code>
 					</dd>
 					<dt>Example</dt>
@@ -249,10 +249,10 @@
 					<dd>
 						<code>
 							&nbsp;template&lt; typename category_name &gt;           <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gamma( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type &nbsp; );                                                     <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gamma( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::model_type &nbsp; );                                                     <br>
 							&nbsp;                                                                   <br>
 							&nbsp;template&lt; typename category_name &gt;           <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gamma( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar );
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; gamma( ::color::model&lt;category_name&gt;      &amp;result, ::color::model&lt;category_name&gt; const&amp; right, typename ::color::trait::scalar&lt;category_name&gt;::model_type scalar );
 						</code>
 					</dd>
 					<dt>Example</dt>
@@ -300,7 +300,7 @@
 							template&lt; unsigned alpha_index, typename category_name &gt; <br>
 							&nbsp;&nbsp;::color::model&lt;category_name&gt; mix( ::color::model&lt;category_name&gt; const&amp; lower, ::color::model&lt;category_name&gt; const&amp; upper ); <br>
 							template&lt; typename category_name &gt; <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; mix( ::color::model&lt;category_name&gt; const&amp; lower, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type alpha, ::color::model&lt;category_name&gt; const&amp; upper ); <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; mix( ::color::model&lt;category_name&gt; const&amp; lower, typename ::color::trait::scalar&lt;category_name&gt;::model_type alpha, ::color::model&lt;category_name&gt; const&amp; upper ); <br>
 						</code>
 					</dd>
 					<dt>Example</dt>
@@ -342,7 +342,7 @@
      &nbsp;::color::model&lt;category_name&gt; &amp; blend              <br>
      &nbsp;&nbsp;(                                                                <br>
      &nbsp;&nbsp;  ::color::model&lt;category_name&gt;      &amp; result                    <br>
-     &nbsp;&nbsp; ,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type alpha                     <br>
+     &nbsp;&nbsp; ,typename ::color::trait::scalar&lt;category_name&gt;::model_type alpha                     <br>
      &nbsp;&nbsp; ,::color::model&lt;category_name&gt; const&amp; upper                     <br>
      &nbsp;&nbsp;);                                                               <br>
 
@@ -351,7 +351,7 @@
      &nbsp;&nbsp;(                                                                <br>
      &nbsp;&nbsp;  ::color::model&lt;category_name&gt;      &amp; result                    <br>
      &nbsp;&nbsp; ,::color::model&lt;category_name&gt; const&amp; lower                     <br>
-     &nbsp;&nbsp; ,typename ::color::trait::scalar&lt;category_name&gt;::input_const_type alpha                     <br>
+     &nbsp;&nbsp; ,typename ::color::trait::scalar&lt;category_name&gt;::model_type alpha                     <br>
      &nbsp;&nbsp; ,::color::model&lt;category_name&gt; const&amp; upper                     <br>
      &nbsp;&nbsp;);                                                               <br>
 </code>
@@ -402,10 +402,10 @@
 					<dd>
 						<code>
 							&nbsp;template&lt; typename category_name &gt;           <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; scale( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar &nbsp; );                                                     <br>
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; scale( ::color::model&lt;category_name&gt; &amp; result, typename ::color::trait::scalar&lt;category_name&gt;::model_type scalar &nbsp; );                                                     <br>
 							&nbsp;                                                                   <br>
 							&nbsp;template&lt; typename category_name &gt;           <br>
-							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; scale( ::color::model&lt;category_name&gt;      &amp;result, typename ::color::trait::scalar&lt;category_name&gt;::input_const_type scalar, ::color::model&lt;category_name&gt; const&amp; right );
+							&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; scale( ::color::model&lt;category_name&gt;      &amp;result, typename ::color::trait::scalar&lt;category_name&gt;::model_type scalar, ::color::model&lt;category_name&gt; const&amp; right );
 						</code>
 					</dd>
 					<dt>Example</dt>

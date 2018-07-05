@@ -20,7 +20,7 @@
       red
        (
                   ::color::model< ::color::category::LuvCH< tag_name > >                                   & color_parameter
-        ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LuvCH< tag_name > >::akin_type >::input_const_type         component_parameter
+        ,typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::LuvCH< tag_name > >::akin_type >::model_type         component_parameter
        )
        {
         typedef ::color::category::LuvCH< tag_name >    category_type;

@@ -260,9 +260,9 @@
       typename ::color::trait::scalar<category_name>::return_type
        hue
        (
-          typename ::color::trait::scalar<category_name>::input_const_type r
-         ,typename ::color::trait::scalar<category_name>::input_const_type g
-         ,typename ::color::trait::scalar<category_name>::input_const_type b
+          typename ::color::trait::scalar<category_name>::model_type r
+         ,typename ::color::trait::scalar<category_name>::model_type g
+         ,typename ::color::trait::scalar<category_name>::model_type b
        )
        {
         typedef ::color::get::_internal::rgb::hue::usher< category_name, formula_number  > usher_type;

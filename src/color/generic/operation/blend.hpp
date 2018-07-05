@@ -32,7 +32,7 @@
             typedef category_name  category_type;
 
             typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
-            typedef typename ::color::trait::scalar<category_type>::input_const_type  scalar_const_input_type;
+            typedef typename ::color::trait::scalar<category_type>::model_type  scalar_const_input_type;
 
             typedef ::color::trait::index< category_type >       index_trait_type;
             typedef typename index_trait_type::instance_type     index_type;
@@ -160,7 +160,7 @@
       blend
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::input_const_type alpha
+        ,typename ::color::trait::scalar<category_name>::model_type alpha
         ,::color::model<category_name> const& upper
        )
        {
@@ -174,7 +174,7 @@
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& lower
-        ,typename ::color::trait::scalar<category_name>::input_const_type alpha
+        ,typename ::color::trait::scalar<category_name>::model_type alpha
         ,::color::model<category_name> const& upper
        )
        {
@@ -186,7 +186,7 @@
       mix
        (
          ::color::model<category_name> const& lower
-        ,typename ::color::trait::scalar<category_name>::input_const_type alpha
+        ,typename ::color::trait::scalar<category_name>::model_type alpha
         ,::color::model<category_name> const& upper
        )
        {

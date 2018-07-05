@@ -18,7 +18,7 @@
             typedef category_name  category_type;
 
             typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
-            typedef typename ::color::trait::scalar<category_type>::input_const_type  scalar_const_input_type;
+            typedef typename ::color::trait::scalar<category_type>::model_type  scalar_const_input_type;
 
             typedef ::color::trait::index<category_type>         index_trait_type;
             typedef typename index_trait_type::instance_type  index_type;
@@ -75,7 +75,7 @@
       bias
        (
          ::color::model<category_name>        & result
-        ,typename ::color::trait::scalar<category_name>::input_const_type                     const& scalar
+        ,typename ::color::trait::scalar<category_name>::model_type                     const& scalar
        )
        {
         return ::color::operation::_internal::bias<category_name>::process( result, scalar );
@@ -87,7 +87,7 @@
        (
          ::color::model<category_name>        & result
         ,color::model<category_name>     const& left
-        ,typename ::color::trait::scalar<category_name>::input_const_type                     const& scalar
+        ,typename ::color::trait::scalar<category_name>::model_type                     const& scalar
        )
        {
         return ::color::operation::_internal::bias<category_name>::process( result, left, scalar );

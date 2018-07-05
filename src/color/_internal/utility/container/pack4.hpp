@@ -39,7 +39,7 @@ namespace color
              typedef instance_type const&     return_image_type;
              typedef instance_type      &     return_type;
              typedef instance_type      &     return_original_type;
-             typedef instance_type const&     input_const_type;
+             typedef instance_type const&     model_type;
              typedef instance_type      &     input_type;
              typedef instance_type      &     output_type;
 
@@ -47,7 +47,7 @@ namespace color
 
              typedef typename index_trait_type::instance_type     index_instance_type;
 
-             typedef typename index_trait_type::input_const_type  index_input_const_type;
+             typedef typename index_trait_type::model_type  index_input_const_type;
              typedef typename index_trait_type::return_image_type index_return_image_type;
 
              typedef ::color::_internal::utility::type::traitP< value_type >         component_trait_type;
@@ -55,7 +55,7 @@ namespace color
              typedef typename component_trait_type::instance_type        component_type;
              typedef typename component_trait_type::const_type           component_const_type;
              typedef typename component_trait_type::return_image_type    component_return_const_type;
-             typedef typename component_trait_type::input_const_type     component_input_const_type;
+             typedef typename component_trait_type::model_type     component_input_const_type;
 
              typedef ::color::_internal::utility::type::size< std::size_t >   size_trait_type;
 
@@ -93,7 +93,7 @@ namespace color
                 this_type:: template set<index>( container, value );
                }
 
-             static component_return_const_type get( input_const_type container, index_input_const_type index )
+             static component_return_const_type get( model_type container, index_input_const_type index )
               {
                switch( index )
                 {
@@ -107,7 +107,7 @@ namespace color
               }
 
              template< index_instance_type index >
-              static component_return_const_type get( input_const_type container )
+              static component_return_const_type get( model_type container )
                {
                 //TODO C++14 static_assert( index < size_entity, "Index is out of range." );
                 switch( index )

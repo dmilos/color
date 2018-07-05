@@ -42,7 +42,7 @@ namespace color
          typedef ::color::constant::xyz::space::gamma< scalar_type, ::color::constant::xyz::space::sRGB_entity > xyz_gamma_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
-         typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+         typedef typename container_right_trait_type::model_type  container_right_const_input_type;
 
          typedef ::color::_internal::diverse< category_left_type >    diverse_type;
          typedef ::color::_internal::normalize< category_right_type > normalize_type;

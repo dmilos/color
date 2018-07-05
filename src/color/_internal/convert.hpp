@@ -31,7 +31,7 @@ namespace color
          typedef typename component_trait_type::instance_type           component_left_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
-         typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+         typedef typename container_right_trait_type::model_type  container_right_const_input_type;
 
          typedef  ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
 
@@ -64,7 +64,7 @@ namespace color
          typedef ::color::trait::container< category_name >    container_trait_type;
 
          typedef typename container_trait_type::input_type        container_input_type;
-         typedef typename container_trait_type::input_const_type  container_const_input_type;
+         typedef typename container_trait_type::model_type  container_const_input_type;
 
          static
          void

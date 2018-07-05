@@ -7,7 +7,8 @@
 #include "../../../_internal/utility/type/traitc.hpp"
 #include "../../../_internal/utility/type/index.hpp"
 
-
+#include "../../../lab/trait/bound/natural.hpp"
+#include "../../../lab/constant/reference.hpp"
 
 namespace color
  {
@@ -25,7 +26,7 @@ namespace color
              typedef scalar_name  scalar_type;
              typedef index_name  index_type;
 
-             typedef ::color::_internal::lab::bound::scalar< index_type, scalar_name, ::color::constant::lab::CIE_entity > lab_bound_type;
+             typedef ::color::_internal::lab::bound::natural< scalar_name, index_type, ::color::constant::lab::CIE_entity > lab_bound_type;
 
              typedef ::color::_internal::utility::type::traitC< scalar_type >   scalar_trait_type;
              typedef ::color::_internal::utility::type::index< index_type >    index_trait_type;
@@ -34,7 +35,7 @@ namespace color
              typedef typename scalar_trait_type::return_image_type      return_image_type;
 
              typedef typename index_trait_type::instance_type    index_instance_type;
-             typedef typename index_trait_type::input_const_type index_input_const_type;
+             typedef typename index_trait_type::model_type index_input_const_type;
 
              typedef ::color::_internal::LabCH::bound::scalar< index_type, scalar_name > this_type;
 

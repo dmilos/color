@@ -14,9 +14,10 @@ namespace color
       {
        public:
 
-        enum { implemented_entity = false };
-        enum {  meaningful_entity = false };
-        enum {  size_entity = -1 };
+        enum { implemented_entity  = false };
+        enum {  meaningful_entity  = false };
+        enum {    overburn_entity  = false };
+        enum {        size_entity  =    -1 };
 
       };
 

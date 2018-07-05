@@ -53,6 +53,7 @@ void test_get_invoke( double value )
   test_generic_get< luv_uint16  >();   test_generic_get< LuvCH_uint16  >();
   test_generic_get< luv_uint32  >();   test_generic_get< LuvCH_uint32  >();
   test_generic_get< luv_uint64  >();   test_generic_get< LuvCH_uint64  >();
+
   test_generic_get< luv_float   >();   test_generic_get< LuvCH_float   >();
   test_generic_get< luv_double  >();   test_generic_get< LuvCH_double  >();
   test_generic_get< luv_ldouble >();   test_generic_get< LuvCH_ldouble >();

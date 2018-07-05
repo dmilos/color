@@ -22,7 +22,7 @@
       gray
        (
                   ::color::model< ::color::category::hsv< tag_name > >                               & color_parameter
-        ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::input_const_type         component_parameter
+        ,typename ::color::trait::component< typename ::color::akin::gray< ::color::category::hsv< tag_name > >::akin_type >::model_type         component_parameter
        )
        {
         typedef ::color::category::hsv< tag_name >    category_type;

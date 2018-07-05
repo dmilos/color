@@ -23,7 +23,7 @@ namespace color
      normalize
       (
        ::color::model<category_name>                     const& m
-       ,typename ::color::trait::index<category_name>::input_const_type index
+       ,typename ::color::trait::index<category_name>::model_type index
       )
       {
        return ::color::_internal::normalize<category_name>::process( m.get( index ), index ) ;

@@ -42,7 +42,7 @@ namespace color
          typedef ::color::trait::container<category_right_type>    container_right_trait_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
-         typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+         typedef typename container_right_trait_type::model_type  container_right_const_input_type;
 
          static void process
           (
@@ -88,7 +88,7 @@ namespace color
          typedef ::color::trait::component<category_right_type>    component_right_trait_type;
 
          typedef typename container_left_trait_type::input_type         container_left_input_type;
-         typedef typename container_right_trait_type::input_const_type  container_right_const_input_type;
+         typedef typename container_right_trait_type::model_type  container_right_const_input_type;
 
          typedef ::color::_internal::reformat< category_left_type, yiq_scalar_category_type >    reformat_yiq_type;
          typedef ::color::_internal::reformat< yuv_scalar_category_type, category_right_type >    reformat_yuv_type;
