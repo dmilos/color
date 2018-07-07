@@ -380,9 +380,9 @@ void sandbox_test()
 
 void ctor_test()
  {
-  ::color::rgb<double> r{ ::color::constant::aqua_type{} };
-  ::color::rgb<double> x{ ::color::constant::turquoise_type{} };
-  ::color::rgb<double>{ ::color::constant::black_type{} };
+  ::color::rgb<double> r{ ::color::constant::aqua_t{} };
+  ::color::rgb<double> x{ ::color::constant::turquoise_t{} };
+  ::color::rgb<double>{ ::color::constant::black_t{} };
   ::color::rgb<double>( {1,2,3} );
 
   r = ::color::constant::turquoise_type{};

@@ -15,8 +15,9 @@ namespace color
       struct aquamarine_type{};
      }
 
-    using  aquamarine_type = ::color::constant::base< ::color::constant::_internal::aquamarine_type >;
-    using  aquamarine_t    = ::color::constant::aquamarine_type;
+    using  aquamarine_t       = ::color::constant::base< ::color::constant::_internal::aquamarine_type >;
+    using  aquamarine_type    = ::color::constant::aquamarine_t;
+
 
    }
  }

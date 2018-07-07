@@ -172,7 +172,7 @@ void test_constant()
 //  ss << print( ::color::constant::vga::navy_type{},     "navy"     );
 //  ss << print( ::color::constant::vga::blue_type{},     "blue"     );
 //  ss << print( ::color::constant::vga::teal_type{},     "teal"     );
-//  ss << print( ::color::constant::vga::aqua_type{},     "aqua"     );
+//  ss << print( ::color::constant::vga::aqua_t{},     "aqua"     );
 
   ss << print( ::color::constant::gray_t<1,1>{},    "gray"       );
   ss << print( ::color::constant::x11::gray_t{},     "#BEBEBE"  );

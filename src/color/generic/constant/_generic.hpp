@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_$[![name]!]
 #define color_generic_constant_$[![name]!]
 
-// ::color::constant::$[![name]!]( c )
+// ::color::constant::::$[![name]!]( c )
 
 #include "./base.hpp"
 
@@ -12,45 +12,47 @@ namespace color
 
     namespace _internal
      {
-      struct $[![name]!]_w3c_type{};
+      namespace w3c
+       {
+        struct $[![name]!]_t{};
+       }
      }
 
     namespace w3c
      {
-      typedef  ::color::constant::base< ::color::constant::_internal::$[![name]!]_w3c_type > $[![name]!]_type;
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::$[![name]!]_t > $[![name]!]_t;
      }
 
     namespace _internal
      {
-      struct $[![name]!]_x11_type{};
+      namespace x11
+       {
+        struct $[![name]!]_t{};
+       }
      }
 
-    namespace x11
+    namespace vga
+     {// Distinctively different
+      typedef  ::color::constant::base< ::color::constant::_internal::vga::$[![name]!]_t >  $[![name]!]_t;
+     }
+
+    namespace _internal
      {
-      // Same as w3c
-      //typedef  ::color::constant::w3c::$[![name]!]_type  $[![name]!]_type;
-
-     // Distinctively different
-      typedef  ::color::constant::base< ::color::constant::_internal::$[![name]!]_x11_type >  $[![name]!]_type;
+      namespace vga
+       {
+        struct $[![name]!]_t{};
+       }
      }
 
-    //namespace _internal
-    // {
-    //  struct $[![name]!]_vga_type{};
-    // }
-    //
-    //namespace vga
-    // {
-    //  // Same as w3c
-    //  //typedef  ::color::constant::w3c::$[![name]!]_type  $[![name]!]_type;
-    //
-    // // Distinctively different
-    //  typedef  ::color::constant::base< ::color::constant::_internal::$[![name]!]_x11_type >  $[![name]!]_type;
-    // }
+    namespace vga
+     {// Distinctively different
+      typedef  ::color::constant::base< ::color::constant::_internal::vga::$[![name]!]_t >  $[![name]!]_t;
+     }
 
-    typedef ::color::constant::w3c::$[![name]!]_type $[![name]!]_t, $[![name]!]_type;
+     // Primary value is w3c
+    typedef ::color::constant::w3c::$[![name]!]_t $[![name]!]_t;
 
    }
  }
 
-#endif
+#endif 

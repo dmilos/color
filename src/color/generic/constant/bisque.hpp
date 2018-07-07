@@ -12,11 +12,11 @@ namespace color
 
     namespace _internal
      {
-      struct bisque_type{};
+      struct bisque_t{};
      }
 
-    using  bisque_type = ::color::constant::base< ::color::constant::_internal::bisque_type >;
-    using  bisque_t    = ::color::constant::bisque_type;
+    using  bisque_t = ::color::constant::base< ::color::constant::_internal::bisque_t >;
+    using  bisque_type    = ::color::constant::bisque_t;
 
    }
  }

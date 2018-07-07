@@ -339,16 +339,27 @@ struct traitC {
 public:
 	typedef type_name instance_type;
 
-	typedef instance_type const const_type;
+	typedef type_name const const_type, instance_const_type;
+
+	typedef instance_type & original_type;
+
+	typedef instance_type * pointer_type;
+	typedef instance_type const* pointer_const_type;
 
 	typedef instance_type const& return_image_type, image_type;
 	typedef instance_type return_type, pretender_type;
-	typedef instance_type & return_original_type, original_type;
+	typedef original_type return_original_type;
 
-	typedef instance_type const& model_type, param_const_input_type, model_type;
-	typedef instance_type input_type, param_input_type;
-	typedef instance_type & output_type, param_output_type;
-	typedef instance_type & transmit_type, param_transmit_type;
+	typedef instance_type const& model_type;
+	typedef instance_type input_type;
+	typedef instance_type & output_type;
+	typedef instance_type & transmit_type;
+
+	typedef model_type param_model_type;
+	typedef instance_type param_input_type;
+	typedef output_type param_output_type;
+	typedef transmit_type param_transmit_type;
+	typedef original_type param_original_type;
 };
 
 }
@@ -383,7 +394,7 @@ public:
 
 	typedef typename utility_type::instance_type instance_type;
 
-	typedef typename utility_type::const_type const_type;
+	typedef typename utility_type::const_type const_type, instance_const_type;
 
 	typedef typename utility_type::return_image_type return_image_type;
 	typedef typename utility_type::return_original_type return_original_type;
@@ -447,10 +458,13 @@ public:
 
 	typedef instance_type const return_image_type;
 	typedef instance_type return_type;
-	typedef instance_type return_original_type;
+	typedef instance_type const& return_original_type;
 
 	typedef instance_type const& model_type;
 	typedef instance_type & input_type;
+
+	typedef instance_type const* pointer_const_type;
+	typedef instance_type * pointer_type;
 
 };
 
@@ -464,6 +478,8 @@ template< typename category_name >
 struct container {
 public:
 	typedef unsigned int instance_type;
+
+	typedef ::color::trait::container< category_name > this_type;
 
 	typedef instance_type const const_type;
 
@@ -487,9 +503,22 @@ public:
 	typedef typename component_trait_type::model_type component_input_const_type;
 	typedef typename component_trait_type::instance_type component_type;
 
+	typedef ::color::trait::size< category_name > size_trait_type;
+	typedef typename size_trait_type::return_image_type size_return_image_type;
+	typedef typename size_trait_type::instance_type size_instance_type;
+
 	typedef void set_return_type;
 
 	enum { size_entity = 4 };
+
+	static set_return_type init(input_type container, index_input_const_type index, component_input_const_type value) {
+		this_type::set(container, index, value);
+	}
+
+	template< index_instance_type index >
+	static set_return_type init(input_type container, component_input_const_type value) {
+		this_type:: template set<index>(container, value);
+	}
 
 	static component_return_const_type get(model_type container, index_input_const_type index) {
 		return (component_type)((container >> (index << 3)) & 0xFF);
@@ -509,8 +538,8 @@ public:
 		container = (container & ~(0xFF << (index << 3))) | (((instance_type)value) << (index << 3));
 	}
 
-	static index_return_image_type size() {
-		static index_instance_type length = 4;
+	static size_return_image_type size() {
+		static size_instance_type length = 4;
 		return length;
 	}
 };
@@ -529,8 +558,6 @@ public:
 	typedef number_name number_type;
 	typedef image_name image_type;
 
-	typedef bound<number_type,image_type> this_type;
-
 	static image_type maximum() {
 		static number_type value=0;
 		return value;
@@ -542,7 +569,7 @@ public:
 	}
 
 	static image_type range() {
-		static number_type value = this_type::maximum() - this_type::minimum();
+		static number_type value = 0;
 		return value;
 	}
 };
@@ -566,6 +593,102 @@ struct bound<bool, bool const& > {
 
 	static image_type range() {
 		static number_type value = true ;
+		return value;
+	}
+};
+
+template <>
+struct bound< std::int8_t, std::int8_t const& > {
+	typedef std::int8_t number_type;
+	typedef std::int8_t const& image_type;
+	typedef std::uint8_t range_type;
+
+	typedef bound<number_type,image_type> this_type;
+
+	static image_type maximum() {
+		static number_type value = std::numeric_limits< number_type >::max();
+		return value;
+	}
+
+	static image_type minimum() {
+		static number_type value = std::numeric_limits< number_type >::min();
+		return value;
+	}
+
+	static range_type range() {
+		static number_type value = this_type::maximum() - this_type::minimum();
+		return value;
+	}
+};
+
+template <>
+struct bound<std::int16_t, std::int16_t const& > {
+	typedef std::int16_t number_type;
+	typedef std::int16_t const& image_type;
+	typedef std::uint16_t range_type;
+
+	typedef bound<number_type,image_type> this_type;
+
+	static image_type maximum() {
+		static number_type value = std::numeric_limits< number_type >::max();
+		return value;
+	}
+
+	static image_type minimum() {
+		static number_type value = std::numeric_limits< number_type >::min();
+		return value;
+	}
+
+	static image_type range() {
+		static number_type value = number_type(this_type::maximum()) - number_type(this_type::minimum());
+		return value;
+	}
+};
+
+template <>
+struct bound<std::int32_t, std::int32_t const& > {
+	typedef std::int32_t number_type;
+	typedef std::int32_t const& image_type;
+	typedef std::uint32_t range_type;
+
+	typedef bound<number_type,image_type> this_type;
+
+	static image_type maximum() {
+		static number_type value = std::numeric_limits< number_type >::max();
+		return value;
+	}
+
+	static image_type minimum() {
+		static number_type value = std::numeric_limits< number_type>::min();
+		return value;
+	}
+
+	static range_type range() {
+		static range_type value = number_type(this_type::maximum()) - number_type(this_type::minimum());
+		return value;
+	}
+};
+
+template <>
+struct bound<std::int64_t, std::int64_t const& > {
+	typedef std::int64_t number_type;
+	typedef std::int64_t const& image_type;
+	typedef std::uint64_t range_type;
+
+	typedef bound<number_type,image_type> this_type;
+
+	static image_type maximum() {
+		static number_type value = std::numeric_limits< number_type >::max();
+		return value;
+	}
+
+	static image_type minimum() {
+		static number_type value = std::numeric_limits< number_type >::min();
+		return value;
+	}
+
+	static range_type range() {
+		static range_type value = number_type(this_type::maximum()) - number_type(this_type::minimum());
 		return value;
 	}
 };
@@ -832,9 +955,9 @@ namespace trait {
 
 template< typename category_name >
 struct scalar
-	: public ::color::_internal::utility::type::traitC< double > {
+	: public ::color::_internal::utility::type::traitC< long double > {
 public:
-	typedef double instance_type;
+	typedef long double instance_type;
 
 	static bool is_small(instance_type const& value) {
 		return (-1e-6 < value) && (value < 1e-6);
@@ -865,8 +988,8 @@ public:
 	component_return_type
 	process(scalar_type const& normal, index_input_const_type index) {
 		scalar_type divergent = normal;
-		divergent *= bound_trait_type::range(index);
-		divergent += bound_trait_type::minimum(index);
+		divergent *= scalar_type(bound_trait_type::range(index));
+		divergent += scalar_type(bound_trait_type::minimum(index));
 		return component_instance_type(divergent);
 	}
 
@@ -875,8 +998,8 @@ public:
 	component_return_type
 	process(scalar_type const& normal) {
 		scalar_type divergent = normal;
-		divergent *= bound_trait_type::template range<index_size>();
-		divergent += bound_trait_type::template minimum<index_size>();
+		divergent *= scalar_type(bound_trait_type::template range<index_size>());
+		divergent += scalar_type(bound_trait_type::template minimum<index_size>());
 		return component_instance_type(divergent);
 	}
 };
@@ -904,8 +1027,8 @@ public:
 	scalar_type
 	process(component_input_const_type divergent, index_input_const_type index) {
 		scalar_type normal = scalar_type(divergent);
-		normal -= bound_trait_type::minimum(index);
-		normal /= bound_trait_type::range(index);
+		normal -= scalar_type(bound_trait_type::minimum(index));
+		normal /= scalar_type(bound_trait_type::range(index));
 		return normal;
 	}
 
@@ -914,8 +1037,8 @@ public:
 	scalar_type
 	process(component_input_const_type divergent) {
 		scalar_type normal = scalar_type(divergent);
-		normal -= bound_trait_type::template minimum<index_size>();
-		normal /= bound_trait_type::template range<index_size>();
+		normal -= scalar_type(bound_trait_type::template minimum<index_size>());
+		normal /= scalar_type(bound_trait_type::template range<index_size>());
 		return normal;
 	}
 
@@ -931,13 +1054,11 @@ template
 <
 	typename category_left_name
 	,typename category_right_name
-	,typename scalar_name
 	>
 struct reformat {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef scalar_name scalar_type;
 
 	typedef ::color::_internal::diverse< category_left_type > diverse_type;
 	typedef ::color::_internal::normalize< category_right_type > normalize_type;
@@ -1015,7 +1136,7 @@ template
 <
 	typename category_name
 	>
-struct reformat< category_name, category_name, typename ::color::trait::scalar<category_name>::instance_type > {
+struct reformat< category_name, category_name > {
 public:
 	typedef category_name category_type;
 
@@ -1078,7 +1199,6 @@ struct convert {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
-	typedef typename ::color::trait::scalar<category_left_name>::instance_type scalar_type;
 
 	typedef ::color::trait::index<category_left_type> index_trait_type;
 	typedef typename index_trait_type::instance_type index_type;
@@ -1144,13 +1264,13 @@ void init
 ) {
 	typedef ::color::trait::container< category_name > container_trait_type;
 	typedef typename ::color::trait::index< category_name >::instance_type index_type;
-	auto ili = ilist.begin();
+	const index_type min_common_size = std::min<index_type>(container_trait_type::size(), ilist.size());
 	index_type index=0;
-	for(; index < std::min<index_type>(container_trait_type::size(), ilist.size()) ; ++index, ++ili) {
-		container_trait_type::set(container, index, *ili);
+	auto iterator = ilist.begin();
+	for(; index < min_common_size; ++index, ++iterator) {
+		container_trait_type::init(container, index, *iterator);
 	}
 };
-
 }
 }
 namespace color {
@@ -1239,7 +1359,7 @@ public:
 
 private:
 	constainer_type & m_container;
-	index_type const& m_index;
+	index_type m_index;
 };
 
 }
@@ -1329,7 +1449,6 @@ public:
 	explicit model(std::initializer_list<component_type> const& ilist) {
 		::color::_internal::init<category_name>(this->m_container, ilist);
 	}
-
 	model(::color::model<category_type> const& that) {
 		this->m_container = that.container();
 	}
@@ -1483,13 +1602,46 @@ overburn(::color::model<category_name> const& m) {
 }
 
 namespace color {
+namespace check {
+namespace _internal {
+
+template< typename category_name >
+struct unique {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::model<category_type> model_type;
+
+	static bool process(model_type const&) {
+		return true;
+	}
+
+};
+}
+
+template< typename category_name >
+inline
+bool unique(::color::model<category_name> const& m) {
+	return ::color::check::_internal::unique<category_name>::process(m);
+}
+
+}
+}
+
+namespace color {
 namespace constant {
 
 namespace _internal {
-struct aqua_type {};
+namespace w3c {
+struct aqua_t {};
+}
 }
 
-typedef ::color::constant::base< ::color::constant::_internal::aqua_type > aqua_t, aqua_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::aqua_t > aqua_t;
+}
+
+typedef ::color::constant::w3c::aqua_t aqua_t;
 
 }
 }
@@ -1501,8 +1653,8 @@ namespace _internal {
 struct aquamarine_type {};
 }
 
-using aquamarine_type = ::color::constant::base< ::color::constant::_internal::aquamarine_type >;
-using aquamarine_t = ::color::constant::aquamarine_type;
+using aquamarine_t = ::color::constant::base< ::color::constant::_internal::aquamarine_type >;
+using aquamarine_type = ::color::constant::aquamarine_t;
 
 }
 }
@@ -1537,11 +1689,11 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct bisque_type {};
+struct bisque_t {};
 }
 
-using bisque_type = ::color::constant::base< ::color::constant::_internal::bisque_type >;
-using bisque_t = ::color::constant::bisque_type;
+using bisque_t = ::color::constant::base< ::color::constant::_internal::bisque_t >;
+using bisque_type = ::color::constant::bisque_t;
 
 }
 }
@@ -1942,21 +2094,24 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct purple_w3c_t {};
+namespace w3c {
+struct purple_t {};
+}
 }
 
 namespace w3c {
-typedef ::color::constant::base< ::color::constant::_internal::purple_w3c_t > purple_t;
+typedef ::color::constant::base< ::color::constant::_internal::w3c::purple_t > purple_t;
 }
 
 namespace _internal {
-struct purple_x11_t {};
+namespace x11 {
+struct purple_t {};
+}
 }
 
 namespace x11 {
-typedef ::color::constant::base< ::color::constant::_internal::purple_x11_t > purple_t;
+typedef ::color::constant::base< ::color::constant::_internal::x11::purple_t > purple_t;
 }
-
 typedef ::color::constant::w3c::purple_t purple_t;
 
 }
@@ -2239,6 +2394,24 @@ namespace type {
 typedef std::array< std::uint8_t, 6 > uint48_t, uint48c_t;
 
 typedef std::array< std::uint16_t, 3 > uint48s_t;
+
+}
+}
+
+namespace color {
+namespace type {
+
+typedef std::array< std::int8_t, 3 > int24_t;
+
+}
+}
+
+namespace color {
+namespace type {
+
+typedef std::array< std::uint8_t, 6 > int48_t, int48c_t;
+
+typedef std::array< std::uint16_t, 3 > int48s_t;
 
 }
 }
@@ -2900,7 +3073,7 @@ namespace get {
 
 template< typename category_name >
 inline
-typename ::color::trait::component< category_name >::return_image_type
+typename ::color::trait::component< category_name >::return_type
 alpha(::color::model< category_name > const& color_parameter) {
 	typedef ::color::trait::bound< category_name > bound_type;
 	return bound_type::template maximum< 0 >();
@@ -3371,6 +3544,7 @@ public:
 
 	enum { implemented_entity = false };
 	enum { meaningful_entity = false };
+	enum { overburn_entity = false };
 	enum { size_entity = -1 };
 
 };
@@ -3667,7 +3841,7 @@ namespace category {
 
 template< typename tag_name >
 struct gray {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using gray_bool = ::color::category::gray< bool >;
@@ -3762,7 +3936,7 @@ namespace category {
 
 template< typename tag_name >
 struct hsl {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using hsl_bool = ::color::category::hsl< bool >;
@@ -3796,7 +3970,7 @@ namespace category {
 
 template< typename tag_name >
 struct hsv {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using hsv_uint8 = ::color::category::hsv< std::uint8_t >;
@@ -3829,7 +4003,7 @@ namespace category {
 
 template< typename tag_name >
 struct hsi {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using hsi_uint8 = ::color::category::hsi< std::uint8_t >;
@@ -3862,7 +4036,7 @@ namespace category {
 
 template< typename tag_name >
 struct hwb {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using hwb_uint8 = ::color::category::hwb< std::uint8_t >;
@@ -4127,7 +4301,7 @@ namespace category {
 
 template< typename tag_name >
 struct yiq {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using yiq_bool = ::color::category::yiq< bool >;
@@ -4210,7 +4384,7 @@ namespace category {
 
 template< typename tag_name >
 struct YCgCo {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using YCgCo_uint8 = ::color::category::YCgCo< std::uint8_t >;
@@ -4243,7 +4417,7 @@ namespace category {
 
 template< typename tag_name >
 struct YDbDr {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using YDbDr_bool = ::color::category::YDbDr< bool >;
@@ -4277,7 +4451,7 @@ namespace category {
 
 template< typename tag_name, ::color::constant::YPbPr::reference_enum reference_number >
 struct YPbPr {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 template< ::color::constant::YPbPr::reference_enum reference_number > using YPbPr_uint8 = ::color::category::YPbPr< std::uint8_t, reference_number >;
@@ -4326,7 +4500,7 @@ namespace category {
 
 template< typename tag_name >
 struct xyz {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using xyz_bool = ::color::category::xyz< bool >;
@@ -4364,7 +4538,7 @@ template
 	,::color::constant::lab::reference_enum reference_number
 	>
 struct lab {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_uint8 = ::color::category::lab< std::uint8_t, reference_number >;
@@ -4373,6 +4547,14 @@ template< ::color::constant::lab::reference_enum reference_number= ::color::cons
 template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_uint32 = ::color::category::lab< std::uint32_t, reference_number >;
 
 template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_uint64 = ::color::category::lab< std::uint64_t, reference_number >;
+
+template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_int8 = ::color::category::lab< std::int8_t, reference_number >;
+template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_int16 = ::color::category::lab< std::int16_t, reference_number >;
+
+template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_int32 = ::color::category::lab< std::int32_t, reference_number >;
+
+template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_int64 = ::color::category::lab< std::int64_t, reference_number >;
+
 template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_float = ::color::category::lab< float, reference_number >;
 template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_double = ::color::category::lab< double, reference_number >;
 template< ::color::constant::lab::reference_enum reference_number= ::color::constant::lab::CIE_entity > using lab_ldouble = ::color::category::lab< long double, reference_number >;
@@ -4401,7 +4583,7 @@ namespace category {
 
 template< typename tag_name >
 struct xyy {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using xyy_bool = ::color::category::xyy< bool >;
@@ -4435,7 +4617,7 @@ namespace category {
 
 template< typename tag_name, ::color::constant::lms::reference_enum lms_reference_number >
 struct lms {
-	typedef tag_name category_name;
+	typedef tag_name tag_type;
 };
 
 template< ::color::constant::lms::reference_enum reference_number > using lms_uint8 = ::color::category::lms< std::uint8_t, reference_number >;
@@ -4473,16 +4655,23 @@ namespace category {
 
 template< typename tag_name >
 struct luv {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
-using luv_bool = ::color::category::luv< bool >;
 using luv_uint8 = ::color::category::luv< std::uint8_t >;
 using luv_uint16 = ::color::category::luv< std::uint16_t >;
 
 using luv_uint32 = ::color::category::luv< std::uint32_t >;
 
 using luv_uint64 = ::color::category::luv< std::uint64_t >;
+
+using luv_int8 = ::color::category::luv< std::int8_t >;
+using luv_int16 = ::color::category::luv< std::int16_t >;
+
+using luv_int32 = ::color::category::luv< std::int32_t >;
+
+using luv_int64 = ::color::category::luv< std::int64_t >;
+
 using luv_float = ::color::category::luv< float >;
 using luv_double = ::color::category::luv< double >;
 using luv_ldouble = ::color::category::luv< long double >;
@@ -4507,7 +4696,7 @@ namespace category {
 
 template< typename tag_name >
 struct LabCH {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using LabCH_uint8 = ::color::category::LabCH< std::uint8_t >;
@@ -4540,7 +4729,7 @@ namespace category {
 
 template< typename tag_name >
 struct LuvCH {
-	typedef void category_name;
+	typedef void tag_type;
 };
 
 using LuvCH_uint8 = ::color::category::LuvCH< std::uint8_t >;
@@ -4670,11 +4859,10 @@ namespace _internal {
 namespace utility {
 namespace component {
 
-template< typename value_name, typename index_name >
+template< typename value_name >
 struct array {
 public:
 	typedef value_name value_type;
-	typedef index_name index_type;
 
 	typedef ::color::_internal::utility::type::traitC< value_name > utility_trait_type;
 
@@ -4684,11 +4872,6 @@ public:
 	typedef typename utility_trait_type::return_type return_type;
 	typedef typename utility_trait_type::model_type model_type;
 	typedef typename utility_trait_type::input_type input_type;
-
-	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
-
-	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::model_type index_input_const_type;
 };
 
 }
@@ -4701,17 +4884,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::cmy_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::cmy_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::cmy_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::cmy_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::cmy_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -4722,22 +4905,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmy_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::cmy_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::cmy_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::cmy_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::cmy_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::cmy_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::cmy_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::cmy_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -4752,6 +4935,7 @@ template< typename value_name, unsigned length >
 struct array {
 public:
 	typedef value_name value_type;
+	typedef ::color::_internal::utility::container::array< value_name, length > this_type;
 
 	typedef std::array< value_name, length> instance_type;
 
@@ -4785,6 +4969,15 @@ public:
 	typedef void set_return_type;
 
 	enum { size_entity = length };
+
+	static set_return_type init(input_type container, index_input_const_type index, component_input_const_type value) {
+		this_type::set(container, index, value);
+	}
+
+	template< index_instance_type index >
+	static set_return_type init(input_type container, component_input_const_type value) {
+		this_type:: template set<index>(container, value);
+	}
 
 	static component_return_const_type get(model_type container, index_input_const_type index) {
 		return container[index];
@@ -5151,17 +5344,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::rgb_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::rgb_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::rgb_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::rgb_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::rgb_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -5172,22 +5365,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::rgb_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::rgb_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::rgb_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::rgb_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::rgb_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::rgb_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::rgb_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::rgb_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -5198,7 +5391,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, first_position, second_position, third_position > > >
-	: public ::color::_internal::utility::component::array< value_name, typename ::color::trait::index< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, first_position, second_position, third_position > > >::instance_type > {
+	: public ::color::_internal::utility::component::array< value_name > {
 };
 
 }
@@ -5208,7 +5401,7 @@ namespace trait {
 
 template< typename value_name, unsigned first_position, unsigned second_position, unsigned third_position, unsigned forth_position >
 struct component< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, first_position, second_position, third_position, forth_position > > >
-	: public ::color::_internal::utility::component::array< value_name, typename ::color::trait::index< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, first_position, second_position, third_position, forth_position > > >::instance_type > {
+	: public ::color::_internal::utility::component::array< value_name > {
 };
 
 }
@@ -5244,11 +5437,10 @@ namespace _internal {
 namespace utility {
 namespace component {
 
-template< typename unsigned_name, typename index_name >
+template< typename unsigned_name >
 struct Unsigned {
 public:
 	typedef unsigned_name unsigned_type;
-	typedef index_name index_type;
 
 	typedef ::color::_internal::utility::type::traitP< unsigned_type > utility_trait_type;
 
@@ -5258,11 +5450,6 @@ public:
 	typedef typename utility_trait_type::return_type return_type;
 	typedef typename utility_trait_type::model_type model_type;
 	typedef typename utility_trait_type::input_type input_type;
-
-	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
-
-	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::model_type index_input_const_type;
 };
 
 }
@@ -5275,20 +5462,19 @@ namespace _internal {
 namespace utility {
 namespace component {
 
-template< typename index_name >
 struct pack8
-	: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint8_t > {
 };
 
-template< typename index_name > using split2222_t = ::color::_internal::utility::component::pack8<index_name>;
+typedef ::color::_internal::utility::component::pack8 split2222_t;
 
-template< typename index_name > using split233_t = ::color::_internal::utility::component::pack8<index_name>;
-template< typename index_name > using split323_t = ::color::_internal::utility::component::pack8<index_name>;
-template< typename index_name > using split332_t = ::color::_internal::utility::component::pack8<index_name>;
+typedef ::color::_internal::utility::component::pack8 split233_t ;
+typedef ::color::_internal::utility::component::pack8 split323_t ;
+typedef ::color::_internal::utility::component::pack8 split332_t ;
 
-template< typename index_name > using split224_t = ::color::_internal::utility::component::pack8<index_name>;
-template< typename index_name > using split242_t = ::color::_internal::utility::component::pack8<index_name>;
-template< typename index_name > using split422_t = ::color::_internal::utility::component::pack8<index_name>;
+typedef ::color::_internal::utility::component::pack8 split224_t ;
+typedef ::color::_internal::utility::component::pack8 split242_t ;
+typedef ::color::_internal::utility::component::pack8 split422_t ;
 
 }
 }
@@ -5299,23 +5485,22 @@ namespace _internal {
 namespace utility {
 namespace component {
 
-template< typename index_name >
 struct pack16
-	: public ::color::_internal::utility::component::Unsigned< std::uint8_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint8_t > {
 };
 
-template< typename index_name > using split556_t = ::color::_internal::utility::component::pack16<index_name>;
-template< typename index_name > using split565_t = ::color::_internal::utility::component::pack16<index_name>;
-template< typename index_name > using split655_t = ::color::_internal::utility::component::pack16<index_name>;
+typedef ::color::_internal::utility::component::pack16 split556_t ;
+typedef ::color::_internal::utility::component::pack16 split565_t ;
+typedef ::color::_internal::utility::component::pack16 split655_t ;
 
-template< typename index_name > using split772_t = ::color::_internal::utility::component::pack16<index_name>;
-template< typename index_name > using split727_t = ::color::_internal::utility::component::pack16<index_name>;
-template< typename index_name > using split277_t = ::color::_internal::utility::component::pack16<index_name>;
+typedef ::color::_internal::utility::component::pack16 split772_t ;
+typedef ::color::_internal::utility::component::pack16 split727_t ;
+typedef ::color::_internal::utility::component::pack16 split277_t ;
 
-template< typename index_name > using split4444_t = ::color::_internal::utility::component::pack16<index_name>;
+typedef ::color::_internal::utility::component::pack16 split4444_t;
 
-template< typename index_name > using split5551_t = ::color::_internal::utility::component::pack16<index_name>;
-template< typename index_name > using split1555_t = ::color::_internal::utility::component::pack16<index_name>;
+typedef ::color::_internal::utility::component::pack16 split5551_t;
+typedef ::color::_internal::utility::component::pack16 split1555_t;
 
 }
 }
@@ -5326,15 +5511,14 @@ namespace _internal {
 namespace utility {
 namespace component {
 
-template< typename index_name >
 struct pack32
-	: public ::color::_internal::utility::component::Unsigned< std::uint16_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint16_t > {
 };
 
-template< typename index_name > using split8888_t = ::color::_internal::utility::component::pack32<index_name>;
+typedef ::color::_internal::utility::component::pack32 split8888_t;
 
-template< typename index_name > using splitAAA2_t = ::color::_internal::utility::component::pack32<index_name>;
-template< typename index_name > using split2AAA_t = ::color::_internal::utility::component::pack32<index_name>;
+typedef ::color::_internal::utility::component::pack32 splitAAA2_t;
+typedef ::color::_internal::utility::component::pack32 split2AAA_t;
 
 }
 }
@@ -5345,12 +5529,18 @@ namespace _internal {
 namespace utility {
 namespace component {
 
-template< typename index_name >
 struct pack64
-	: public ::color::_internal::utility::component::Unsigned< std::uint32_t, index_name > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint32_t > {
 };
 
-template< typename index_name > using splitGGGG_t = ::color::_internal::utility::component::pack64<index_name>;
+typedef ::color::_internal::utility::component::pack64 splitGGGG_t;
+
+typedef ::color::_internal::utility::component::pack64 splitIIIA_t;
+typedef ::color::_internal::utility::component::pack64 splitAIII_t;
+
+typedef ::color::_internal::utility::component::pack64 splitKKK6_t;
+typedef ::color::_internal::utility::component::pack64 split6KKK_t;
+
 }
 }
 }
@@ -5369,27 +5559,22 @@ struct pick_component3 {
 
 template<>
 struct pick_component3<8> {
-	typedef unsigned index_type;
-	typedef ::color::_internal::utility::component::pack8< index_type > component_type;
+	typedef ::color::_internal::utility::component::pack8 component_type;
 };
 
 template<>
 struct pick_component3<16> {
-	typedef unsigned index_type;
-
-	typedef ::color::_internal::utility::component::pack16< index_type > component_type;
+	typedef ::color::_internal::utility::component::pack16 component_type;
 };
 
 template<>
 struct pick_component3<32> {
-	typedef unsigned index_type;
-	typedef ::color::_internal::utility::component::pack32< index_type > component_type;
+	typedef ::color::_internal::utility::component::pack32 component_type;
 };
 
 template<>
 struct pick_component3<64> {
-	typedef unsigned index_type;
-	typedef ::color::_internal::utility::component::pack64< index_type > component_type;
+	typedef ::color::_internal::utility::component::pack64 component_type;
 };
 
 }
@@ -5421,30 +5606,22 @@ struct pick_component4 {
 
 template<>
 struct pick_component4<8> {
-	typedef ::color::_internal::utility::type::index< unsigned >::instance_type index_type;
-
-	typedef ::color::_internal::utility::component::pack8< index_type > component_type;
+	typedef ::color::_internal::utility::component::pack8 component_type;
 };
 
 template<>
 struct pick_component4<16> {
-	typedef ::color::_internal::utility::type::index< unsigned >::instance_type index_type;
-
-	typedef ::color::_internal::utility::component::pack16< index_type > component_type;
+	typedef ::color::_internal::utility::component::pack16 component_type;
 };
 
 template<>
 struct pick_component4<32> {
-	typedef ::color::_internal::utility::type::index< unsigned >::instance_type index_type;
-
-	typedef ::color::_internal::utility::component::pack32< index_type > component_type;
+	typedef ::color::_internal::utility::component::pack32 component_type;
 };
 
 template<>
 struct pick_component4<64> {
-	typedef ::color::_internal::utility::type::index< unsigned >::instance_type index_type;
-
-	typedef ::color::_internal::utility::component::pack64< index_type > component_type;
+	typedef ::color::_internal::utility::component::pack64 component_type;
 };
 
 }
@@ -5549,7 +5726,6 @@ inline
 typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::return_type
 red(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) {
 	typedef ::color::category::cmy<tag_name> category_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
 	enum { cyan_p = ::color::place::_internal::cyan<category_type>::position_enum };
@@ -5569,7 +5745,6 @@ inline
 typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::return_type
 green(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) {
 	typedef ::color::category::cmy<tag_name> category_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
 	enum { yellow_p = ::color::place::_internal::yellow<category_type>::position_enum };
@@ -5589,7 +5764,6 @@ inline
 typename ::color::trait::component< typename ::color::akin::rgb< ::color::category::cmy< tag_name > >::akin_type >::return_type
 blue(::color::model< ::color::category::cmy<tag_name> > const& color_parameter) {
 	typedef ::color::category::cmy<tag_name> category_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
 	enum { magenta_p = ::color::place::_internal::magenta<category_type>::position_enum };
@@ -5634,7 +5808,7 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_bool >
-	: public ::color::_internal::utility::component::array< bool, typename ::color::trait::index< ::color::category::gray_bool >::instance_type > {
+	: public ::color::_internal::utility::component::array< bool > {
 };
 
 }
@@ -5645,17 +5819,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::gray_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::gray_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::gray_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::gray_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::gray_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -5666,22 +5840,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::gray_uint8 >
-	: public ::color::_internal::utility::component::Unsigned< std::uint8_t, typename ::color::trait::index< ::color::category::gray_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::gray_uint16 >
-	: public ::color::_internal::utility::component::Unsigned< std::uint16_t, typename ::color::trait::index< ::color::category::gray_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::gray_uint32 >
-	: public ::color::_internal::utility::component::Unsigned< std::uint32_t, typename ::color::trait::index< ::color::category::gray_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::gray_uint64 >
-	: public ::color::_internal::utility::component::Unsigned< std::uint64_t, typename ::color::trait::index< ::color::category::gray_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::Unsigned< std::uint64_t > {
 };
 
 }
@@ -5956,17 +6130,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::yiq_float >::instance_type> {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::yiq_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::yiq_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::yiq_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::yiq_ldouble >::instance_type> {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -5977,22 +6151,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::yiq_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::yiq_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::yiq_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::yiq_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::yiq_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::yiq_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::yiq_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::yiq_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -6177,9 +6351,8 @@ red
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
-	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 	typedef ::color::operation::_internal::invert< akin_type > invert_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	enum { cyan_p = ::color::place::_internal::cyan<category_type>::position_enum };
 	color_parameter.template set<cyan_p>(reformat_type::template process<cyan_p,cyan_p>(invert_type::template component<cyan_p>(component_parameter)));
 }
@@ -6200,9 +6373,8 @@ green
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
-	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 	typedef ::color::operation::_internal::invert< akin_type > invert_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	enum { yellow_p = ::color::place::_internal::yellow<category_type>::position_enum };
 	color_parameter.template set<yellow_p>(reformat_type::template process<yellow_p,yellow_p>(invert_type::template component<yellow_p>(component_parameter)));
 }
@@ -6223,9 +6395,8 @@ blue
 ) {
 	typedef ::color::category::cmy< tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
-	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 	typedef ::color::operation::_internal::invert< akin_type > invert_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	enum { magenta_p = ::color::place::_internal::magenta<category_type>::position_enum };
 	color_parameter.template set<magenta_p>(reformat_type::template process<magenta_p,magenta_p>(invert_type::template component<magenta_p>(component_parameter)));
 }
@@ -6912,6 +7083,8 @@ public:
 	typedef index_name index_type;
 	typedef bool value_type;
 
+	typedef ::color::_internal::utility::container::boolean< index_name > this_type;
+
 	typedef bool instance_type;
 
 	typedef instance_type const const_type;
@@ -6944,6 +7117,15 @@ public:
 	typedef void set_return_type;
 
 	enum { size_entity = 1 };
+
+	static set_return_type init(input_type container, index_input_const_type index, component_input_const_type value) {
+		this_type::set(container, index, value);
+	}
+
+	template< index_instance_type index >
+	static set_return_type init(input_type container, component_input_const_type value) {
+		this_type:: template set<index>(container, value);
+	}
 
 	static component_return_const_type get(model_type container, index_input_const_type index) {
 		return container;
@@ -7050,6 +7232,15 @@ public:
 	typedef void set_return_type;
 
 	enum { size_entity = length };
+
+	static set_return_type init(input_type container, index_input_const_type index, component_input_const_type value) {
+		this_type::set(container, index, value);
+	}
+
+	template< index_instance_type index >
+	static set_return_type init(input_type container, component_input_const_type value) {
+		this_type:: template set<index>(container, value);
+	}
 
 	static component_return_const_type get(model_type container, index_input_const_type index) {
 		return (component_type)((container >> (index * width)) & mask());
@@ -7178,7 +7369,6 @@ red(::color::model< ::color::category::gray<tag_name> > const& color_parameter) 
 	typedef ::color::category::gray<tag_name> category_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<red_p,0>(color_parameter.template get<0>());
 }
@@ -7196,7 +7386,6 @@ green(::color::model< ::color::category::gray<tag_name> > const& color_parameter
 	typedef ::color::category::gray<tag_name> category_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<green_p,0>(color_parameter.template get<0>());
 }
@@ -7214,7 +7403,6 @@ blue(::color::model< ::color::category::gray<tag_name> > const& color_parameter)
 	typedef ::color::category::gray<tag_name> category_type;
 	typedef typename ::color::akin::rgb<category_type>::akin_type akin_type;
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<blue_p,0>(color_parameter.template get<0>());
 }
@@ -7273,8 +7461,7 @@ red
 ) {
 	typedef ::color::category::gray<tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::_internal::reformat<category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat<category_type, akin_type > reformat_type;
 	enum { red_p = ::color::place::_internal::red<akin_type>::position_enum };
 	enum { gray_p = ::color::place::_internal::gray<category_type>::position_enum };
 	color_parameter.template set<gray_p>(reformat_type::template process<gray_p,red_p>(component_parameter));
@@ -7296,8 +7483,7 @@ green
 ) {
 	typedef ::color::category::gray<tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::_internal::reformat<category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat<category_type, akin_type > reformat_type;
 	enum { green_p = ::color::place::_internal::green<akin_type>::position_enum };
 	enum { gray_p = ::color::place::_internal::gray<category_type>::position_enum };
 	color_parameter.template set<gray_p>(reformat_type::template process<gray_p,green_p>(component_parameter));
@@ -7319,8 +7505,7 @@ blue
 ) {
 	typedef ::color::category::gray<tag_name > category_type;
 	typedef typename ::color::akin::rgb< category_type >::akin_type akin_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::_internal::reformat<category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat<category_type, akin_type > reformat_type;
 	enum { blue_p = ::color::place::_internal::blue<akin_type>::position_enum };
 	enum { gray_p = ::color::place::_internal::gray<category_type>::position_enum };
 	color_parameter.template set<gray_p>(reformat_type::template process<gray_p,blue_p>(component_parameter));
@@ -7359,7 +7544,6 @@ struct convert
 public:
 	typedef ::color::category::gray< tag_left_name > category_left_type;
 	typedef ::color::category::gray< tag_right_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -8019,17 +8203,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmyk_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::cmyk_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::cmyk_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::cmyk_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::cmyk_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::cmyk_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -8040,22 +8224,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::cmyk_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::cmyk_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::cmyk_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::cmyk_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::cmyk_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::cmyk_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::cmyk_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::cmyk_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -10119,6 +10303,8 @@ public:
 	typedef component_name value_type;
 	typedef index_name index_type;
 
+	typedef ::color::_internal::utility::container::pack3< container_name, component_name, index_name, first_size, second_size, third_size > this_type;
+
 	typedef instance_type const const_type;
 	typedef instance_type const& return_image_type;
 	typedef instance_type & return_type;
@@ -10160,6 +10346,15 @@ public:
 		second_mask = (1 << second_size)-1,
 		third_mask = (1 << third_size)-1
 	};
+
+	static set_return_type init(input_type container, index_input_const_type index, component_input_const_type value) {
+		this_type::set(container, index, value);
+	}
+
+	template< index_instance_type index >
+	static set_return_type init(input_type container, component_input_const_type value) {
+		this_type:: template set<index>(container, value);
+	}
 
 	static component_return_const_type get(model_type container, index_input_const_type index) {
 		switch(index) {
@@ -10326,6 +10521,8 @@ public:
 	typedef component_name value_type;
 	typedef index_name index_type;
 
+	typedef ::color::_internal::utility::container::pack4< container_name, component_name, index_name, first_size, second_size, third_size, fourth_size > this_type;
+
 	typedef instance_type const const_type;
 	typedef instance_type const& return_image_type;
 	typedef instance_type & return_type;
@@ -10369,6 +10566,15 @@ public:
 		third_mask = (1 << third_size)-1,
 		fourth_mask = (1 << fourth_size)-1
 	};
+
+	static set_return_type init(input_type container, index_input_const_type index, component_input_const_type value) {
+		this_type::set(container, index, value);
+	}
+
+	template< index_instance_type index >
+	static set_return_type init(input_type container, component_input_const_type value) {
+		this_type:: template set<index>(container, value);
+	}
 
 	static component_return_const_type get(model_type container, index_input_const_type index) {
 		switch(index) {
@@ -10475,6 +10681,11 @@ using split2AAA_t = ::color::_internal::utility::container::pack4_32_16_t< 2, 10
 using splitAAA2_t = ::color::_internal::utility::container::pack4_32_16_t< 10, 10, 10, 2 >;
 
 using splitGGGG_t = ::color::_internal::utility::container::pack4_64_16_t< 16, 16, 16, 16 >;
+using splitIIIA_t = ::color::_internal::utility::container::pack4_64_16_t< 18, 18, 18, 10 >;
+using splitKKK6_t = ::color::_internal::utility::container::pack4_64_16_t< 20, 20, 20, 6 >;
+
+using splitAIII_t = ::color::_internal::utility::container::pack4_64_16_t< 10, 18, 18, 18 >;
+using split6KKK_t = ::color::_internal::utility::container::pack4_64_16_t< 6, 20, 20, 20 >;
 
 }
 }
@@ -14682,8 +14893,6 @@ public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::gray<gray_tag_name> category_right_type;
 
-	typedef typename ::color::trait::scalar< category_left_type >::instance_type scalar_type;
-
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
@@ -14727,8 +14936,6 @@ struct convert
 public:
 	typedef ::color::category::rgb< rgb_tag_name > category_left_type;
 	typedef ::color::category::cmy< cmy_tag_name > category_right_type;
-
-	typedef typename ::color::trait::scalar< category_left_type >::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -15434,17 +15641,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsl_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::hsl_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::hsl_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::hsl_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::hsl_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::hsl_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -15455,22 +15662,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsl_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::hsl_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::hsl_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::hsl_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::hsl_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::hsl_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::hsl_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::hsl_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -15677,33 +15884,6 @@ namespace color {
 namespace check {
 namespace _internal {
 
-template< typename category_name >
-struct unique {
-public:
-	typedef category_name category_type;
-
-	typedef ::color::model<category_type> model_type;
-
-	static bool process(model_type const&) {
-		return true;
-	}
-
-};
-}
-
-template< typename category_name >
-inline
-bool unique(::color::model<category_name> const& m) {
-	return ::color::check::_internal::unique<category_name>::process(m);
-}
-
-}
-}
-
-namespace color {
-namespace check {
-namespace _internal {
-
 template< typename tag_name >
 struct unique< ::color::category::hsl< tag_name> > {
 public:
@@ -15843,7 +16023,6 @@ typename ::color::model< ::color::category::hsl< tag_name> >::component_const_ty
 chroma(::color::model< ::color::category::hsl< tag_name> > const& color_parameter) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::hsl< scalar_type > model_scalar_type;
 	typedef ::color::_internal::diverse< category_type > diverse_type;
 	typedef ::color::_internal::normalize<category_type> normalize_type;
 	enum {
@@ -15975,8 +16154,7 @@ gray
 ) {
 	typedef ::color::category::hsl< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -15998,7 +16176,6 @@ struct convert
 public:
 	typedef ::color::category::hsl< hsl_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
@@ -16151,8 +16328,6 @@ struct convert
 public:
 	typedef ::color::category::hsl< tag_left_name > category_left_type;
 	typedef ::color::category::hsl< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -16799,17 +16974,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsv_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::hsv_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::hsv_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::hsv_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::hsv_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::hsv_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -16820,22 +16995,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsv_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::hsv_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::hsv_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::hsv_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::hsv_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::hsv_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::hsv_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::hsv_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -17403,7 +17578,6 @@ typename ::color::model< ::color::category::hsv< tag_name> >::component_const_ty
 chroma(::color::model< ::color::category::hsv< tag_name> > const& color_parameter) {
 	typedef ::color::category::hsv< tag_name > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::hsv< scalar_type > model_scalar_type;
 	typedef ::color::_internal::diverse< category_type > diverse_type;
 	typedef ::color::_internal::normalize<category_type> normalize_type;
 	enum {
@@ -17535,8 +17709,7 @@ gray
 ) {
 	typedef ::color::category::hsv< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	enum {
 		value_p = ::color::place::_internal::value<category_type>::position_enum
 	};
@@ -17558,7 +17731,6 @@ struct convert
 public:
 	typedef ::color::category::hsv< hsv_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
@@ -17769,8 +17941,6 @@ struct convert
 public:
 	typedef ::color::category::hsv< tag_left_name > category_left_type;
 	typedef ::color::category::hsv< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -18430,17 +18600,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsi_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::hsi_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::hsi_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::hsi_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::hsi_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::hsi_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -18451,22 +18621,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hsi_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::hsi_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::hsi_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::hsi_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::hsi_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::hsi_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::hsi_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::hsi_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -18966,7 +19136,6 @@ typename ::color::model< ::color::category::hsi< tag_name> >::component_const_ty
 chroma(::color::model< ::color::category::hsi< tag_name> > const& color_parameter) {
 	typedef ::color::category::hsi< tag_name > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::hsi< scalar_type > model_scalar_type;
 	typedef ::color::_internal::diverse< category_type > diverse_type;
 	typedef ::color::_internal::normalize<category_type> normalize_type;
 	enum {
@@ -19098,8 +19267,7 @@ gray
 ) {
 	typedef ::color::category::hsi< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	enum {
 		intensity_p = ::color::place::_internal::intensity<category_type>::position_enum
 	};
@@ -19121,7 +19289,6 @@ struct convert
 public:
 	typedef ::color::category::hsi< hsi_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
@@ -19319,8 +19486,6 @@ struct convert
 public:
 	typedef ::color::category::hsi< tag_left_name > category_left_type;
 	typedef ::color::category::hsi< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -19954,17 +20119,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hwb_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::hwb_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::hwb_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::hwb_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::hwb_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::hwb_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -19975,22 +20140,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::hwb_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::hwb_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::hwb_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::hwb_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::hwb_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::hwb_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::hwb_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::hwb_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -20303,8 +20468,7 @@ gray
 ) {
 	typedef ::color::category::hwb< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -20431,7 +20595,7 @@ public:
 	typedef ::color::operation::_internal::invert< category_right_type > invert_type;
 
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
-	typedef ::color::_internal::reformat< category_left_type, hwbSCALAR_category_type, scalar_type > reformatHWB_type;
+	typedef ::color::_internal::reformat< category_left_type, hwbSCALAR_category_type > reformatHWB_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
@@ -20698,8 +20862,6 @@ struct convert
 public:
 	typedef ::color::category::hwb< tag_left_name > category_left_type;
 	typedef ::color::category::hwb< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar< tag_left_name >::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -21582,7 +21744,6 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yiq<tag_name> >::akin_type >::return_type
 gray(::color::model< ::color::category::yiq<tag_name> > const& color_parameter) {
 	typedef ::color::category::yiq< tag_name > category_type;
-	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
 	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
@@ -21670,8 +21831,7 @@ gray
 ) {
 	typedef ::color::category::yiq< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	enum {
 		luma_p = ::color::place::_internal::luma<category_type>::position_enum
 	};
@@ -22066,8 +22226,6 @@ struct convert
 public:
 	typedef ::color::category::yiq< tag_left_name > category_left_type;
 	typedef ::color::category::yiq< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -22576,17 +22734,17 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_float<reference_number> >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::yuv_float<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_double<reference_number> >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::yuv_double<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_ldouble<reference_number> >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::yuv_ldouble<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -22597,22 +22755,22 @@ namespace trait {
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_uint8< reference_number > >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::yuv_uint8<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_uint16<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::yuv_uint16<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_uint32<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::yuv_uint32<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< ::color::constant::yuv::reference_enum reference_number >
 struct component< ::color::category::yuv_uint64<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::yuv_uint64<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -22822,7 +22980,6 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::yuv<tag_name,reference_number> >::akin_type >::return_type
 gray(::color::model< ::color::category::yuv<tag_name, reference_number> > const& color_parameter) {
 	typedef ::color::category::yuv< tag_name, reference_number > category_type;
-	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
 	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	enum { luma_p = ::color::place::_internal::luma<category_type>::position_enum };
@@ -22997,8 +23154,7 @@ gray
 ) {
 	typedef ::color::category::yuv< tag_name, reference_number > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	color_parameter.template set<0>(reformat_type::template process<0,0>(component_parameter));
 }
 
@@ -23452,8 +23608,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< category_left_type, yuv_scalar_category_type, scalar_type > reformat_yuv_type;
-	typedef ::color::_internal::reformat< yiq_scalar_category_type, category_right_type, scalar_type > reformat_yiq_type;
+	typedef ::color::_internal::reformat< category_left_type, yuv_scalar_category_type > reformat_yuv_type;
+	typedef ::color::_internal::reformat< yiq_scalar_category_type, category_right_type > reformat_yiq_type;
 
 	typedef ::color::constant::generic< category_left_type > constant_type;
 
@@ -23537,8 +23693,6 @@ struct convert
 public:
 	typedef ::color::category::yuv< tag_left_name, reference_number > category_left_type;
 	typedef ::color::category::yuv< tag_right_name, reference_number > category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -24199,17 +24353,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YCgCo_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::YCgCo_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::YCgCo_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::YCgCo_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::YCgCo_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::YCgCo_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -24220,22 +24374,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YCgCo_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::YCgCo_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::YCgCo_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::YCgCo_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::YCgCo_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::YCgCo_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::YCgCo_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::YCgCo_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -24383,7 +24537,6 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YCgCo<tag_name> >::akin_type >::return_type
 gray(::color::model< ::color::category::YCgCo<tag_name> > const& color_parameter) {
 	typedef ::color::category::YCgCo< tag_name > category_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_type>::akin_type akin_type;
 	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
@@ -24549,8 +24702,7 @@ gray
 ) {
 	typedef ::color::category::YCgCo< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	color_parameter.template set<0>(reformat_type::template process<0,0>(component_parameter));
 }
 
@@ -25013,8 +25165,6 @@ struct convert
 public:
 	typedef ::color::category::YCgCo< tag_left_name > category_left_type;
 	typedef ::color::category::YCgCo< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -25674,17 +25824,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YDbDr_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::YDbDr_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::YDbDr_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::YDbDr_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::YDbDr_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::YDbDr_ldouble >::instance_type> {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -25695,22 +25845,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::YDbDr_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::YDbDr_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::YDbDr_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::YDbDr_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::YDbDr_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::YDbDr_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::YDbDr_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::YDbDr_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -25877,7 +26027,6 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YDbDr<tag_name> >::akin_type >::return_type
 gray(::color::model< ::color::category::YDbDr<tag_name> > const& color_parameter) {
 	typedef ::color::category::YDbDr< tag_name > category_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_type>::akin_type akin_type;
 	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
@@ -26013,8 +26162,7 @@ gray
 ) {
 	typedef ::color::category::YDbDr< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	color_parameter.template set<0>(reformat_type::template process<0,0>(component_parameter));
 }
 
@@ -26511,8 +26659,6 @@ struct convert
 public:
 	typedef ::color::category::YDbDr< tag_left_name > category_left_type;
 	typedef ::color::category::YDbDr< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -27199,17 +27345,17 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_float<reference_number> >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::YPbPr_float<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_double<reference_number> >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::YPbPr_double<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_ldouble<reference_number> >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::YPbPr_ldouble<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -27220,22 +27366,22 @@ namespace trait {
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_uint8<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::YPbPr_uint8<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_uint16<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::YPbPr_uint16<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_uint32<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::YPbPr_uint32<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< ::color::constant::YPbPr::reference_enum reference_number >
 struct component< ::color::category::YPbPr_uint64<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::YPbPr_uint64<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -27500,7 +27646,6 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::YPbPr<tag_name,reference_number> >::akin_type >::return_type
 gray(::color::model< ::color::category::YPbPr<tag_name,reference_number> > const& color_parameter) {
 	typedef ::color::category::YPbPr< tag_name, reference_number > category_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::akin::gray<category_type>::akin_type akin_type;
 	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
@@ -27636,8 +27781,7 @@ gray
 ) {
 	typedef ::color::category::YPbPr<tag_name,reference_number> category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	color_parameter.template set<0>(reformat_type::template process<0,0>(component_parameter));
 }
 
@@ -28236,8 +28380,6 @@ struct convert
 public:
 	typedef ::color::category::YPbPr< tag_left_name, reference_number > category_left_type;
 	typedef ::color::category::YPbPr< tag_right_name, reference_number > category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -28911,17 +29053,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::xyz_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::xyz_float >::instance_type> {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::xyz_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::xyz_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::xyz_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::xyz_ldouble >::instance_type> {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -28932,22 +29074,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::xyz_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::xyz_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::xyz_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::xyz_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::xyz_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::xyz_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::xyz_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::xyz_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -29005,36 +29147,6 @@ namespace color {
 template< typename type_name >
 using xyz = ::color::model< typename ::color::category::xyz< type_name > >;
 
-}
-
-namespace color {
-namespace get {
-
-template< typename tag_name >
-inline
-typename ::color::model< ::color::category::xyz< tag_name> >::component_const_type
-inphase(::color::model< ::color::category::xyz< tag_name> > const& color_parameter) {
-	typedef ::color::category::xyz< tag_name> category_type;
-	enum { inphase_p = ::color::place::_internal::inphase<category_type>::position_enum };
-	return color_parameter.template get<inphase_p>();
-}
-
-}
-}
-
-namespace color {
-namespace get {
-
-template< typename tag_name >
-inline
-typename ::color::model< ::color::category::xyz< tag_name> >::component_const_type
-quadrature(::color::model< ::color::category::xyz< tag_name> > const& color_parameter) {
-	typedef ::color::category::xyz< tag_name> category_type;
-	enum { quadrature_p = ::color::place::_internal::quadrature<category_type>::position_enum };
-	return color_parameter.template get<quadrature_p>();
-}
-
-}
 }
 
 namespace color {
@@ -29132,7 +29244,6 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::xyz<tag_name> >::akin_type >::return_type
 gray(::color::model< ::color::category::xyz<tag_name> > const& color_parameter) {
 	typedef ::color::category::xyz< tag_name > category_type;
-	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
 	typedef ::color::_internal::reformat< akin_type, category_type > reformat_type;
 	return reformat_type::template process<0,0>(color_parameter.template get<0>());
@@ -29220,8 +29331,7 @@ gray
 ) {
 	typedef ::color::category::xyz< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_type > reformat_type;
 	color_parameter.template set<0>(reformat_type::template process<0,0>(component_parameter));
 }
 
@@ -29792,8 +29902,6 @@ public:
 	typedef ::color::category::xyz< tag_left_name > category_left_type;
 	typedef ::color::category::xyz< tag_right_name> category_right_type;
 
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
-
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
@@ -30184,32 +30292,27 @@ public:
 	enum { implemented_entity = true };
 	enum { meaningful_entity = true };
 };
-}
-}
 
-namespace color {
-namespace trait {
-
-template< ::color::constant::lab::reference_enum reference_number>
-struct bound< ::color::category::lab_uint8<reference_number> >
-	: public ::color::_internal::utility::bound::general< std::uint8_t, typename ::color::trait::index< ::color::category::lab_uint8<reference_number> >::instance_type > {
+template <> struct info< ::color::category::lab_int8 <> > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
-
-template< ::color::constant::lab::reference_enum reference_number>
-struct bound< ::color::category::lab_uint16<reference_number> >
-	: public ::color::_internal::utility::bound::general< std::uint16_t, typename ::color::trait::index< ::color::category::lab_uint16<reference_number> >::instance_type > {
+template <> struct info< ::color::category::lab_int16 <> > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
-
-template< ::color::constant::lab::reference_enum reference_number>
-struct bound< ::color::category::lab_uint32<reference_number> >
-	: public ::color::_internal::utility::bound::general< std::uint32_t, typename ::color::trait::index< ::color::category::lab_uint32<reference_number> >::instance_type > {
+template <> struct info< ::color::category::lab_int32 <> > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
-
-template< ::color::constant::lab::reference_enum reference_number>
-struct bound< ::color::category::lab_uint64<reference_number> >
-	: public ::color::_internal::utility::bound::general< std::uint64_t, typename ::color::trait::index< ::color::category::lab_uint64<reference_number> >::instance_type > {
+template <> struct info< ::color::category::lab_int64 <> > {
+public:
+	enum { implemented_entity = true };
+	enum { meaningful_entity = true };
 };
-
 }
 }
 
@@ -30218,13 +30321,13 @@ namespace _internal {
 namespace lab {
 namespace bound {
 
-template< typename index_name, typename scalar_name, ::color::constant::lab::reference_enum reference_number >
-struct scalar {
+template< typename number_name, typename index_name, ::color::constant::lab::reference_enum reference_number >
+struct constrain {
 public:
-	typedef scalar_name scalar_type;
+	typedef number_name number_type;
 	typedef index_name index_type;
 
-	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::traitC< number_type > trait_type;
 	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 	typedef typename trait_type::instance_type instance_type;
@@ -30235,45 +30338,80 @@ public:
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
-		static instance_type max_list[] = { 100, 100, 100 };
+		static instance_type max_list[] = { 100, 127, 127 };
 		return max_list[index];
 	}
 
 	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { 100, 100, 100 };
+		static instance_type max_list[] = { 100, 127, 127 };
 		return max_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type minimum() {
-		static instance_type min_list[] = { 0, 0, 0 };
+		static instance_type min_list[] = { 0, -127, -127 };
 		return min_list[index];
 	}
 
 	static return_image_type minimum(index_input_const_type index) {
-		static instance_type min_list[] = { 0, 0, 0 };
+		static instance_type min_list[] = { 0, -127, -127 };
 		return min_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type range() {
-		static instance_type range_list[] = { 100, 100, 100 };
+		static instance_type range_list[] = { 100, 255, 255 };
 		return range_list[index];
 	}
 
 	static return_image_type range(index_input_const_type index) {
-		static instance_type range_list[] = { 100, 100, 100 };
+		static instance_type range_list[] = { 100, 255, 255 };
 		return range_list[index];
 	}
 };
 
-template< typename index_name, typename scalar_name >
-struct scalar< index_name, scalar_name, ::color::constant::lab::CIE_entity > {
+}
+}
+}
+}
+
+namespace color {
+namespace trait {
+
+template< ::color::constant::lab::reference_enum reference_number>
+struct bound< ::color::category::lab_int8<reference_number> >
+	: public ::color::_internal::lab::bound::constrain< std::int16_t, typename ::color::trait::index< ::color::category::lab_int8<reference_number> >::instance_type, reference_number > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number>
+struct bound< ::color::category::lab_int16<reference_number> >
+	: public ::color::_internal::lab::bound::constrain< std::int16_t, typename ::color::trait::index< ::color::category::lab_int16<reference_number> >::instance_type, reference_number > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number>
+struct bound< ::color::category::lab_int32<reference_number> >
+	: public ::color::_internal::lab::bound::constrain< std::int32_t, typename ::color::trait::index< ::color::category::lab_int32<reference_number> >::instance_type, reference_number > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number>
+struct bound< ::color::category::lab_int64<reference_number> >
+	: public ::color::_internal::lab::bound::constrain< std::int64_t, typename ::color::trait::index< ::color::category::lab_int64<reference_number> >::instance_type, reference_number > {
+};
+
+}
+}
+namespace color {
+namespace _internal {
+namespace lab {
+namespace bound {
+
+template< typename number_name, typename index_name, ::color::constant::lab::reference_enum reference_number >
+struct positive {
 public:
-	typedef scalar_name scalar_type;
+	typedef number_name number_type;
 	typedef index_name index_type;
 
-	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::traitC< number_type > trait_type;
 	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 	typedef typename trait_type::instance_type instance_type;
@@ -30282,91 +30420,62 @@ public:
 	typedef typename index_trait_type::instance_type index_instance_type;
 	typedef typename index_trait_type::model_type index_input_const_type;
 
-	static instance_type magic() {
-		return instance_type(1)-instance_type(16)/instance_type(116);
+	typedef ::color::_internal::lab::bound::positive< number_type, index_name, reference_number > this_type;
+
+	static instance_type lower100() {
+		return 0;
+	}
+
+	static instance_type higher100() {
+		return std::numeric_limits<number_type>::max();
+	}
+
+	static instance_type span100() {
+		return this_type::higher100() - this_type::lower100();
+	}
+
+	static instance_type higher() {
+		return std::numeric_limits<number_type>::max()/2 + 128;
+	}
+
+	static instance_type lower() {
+		return std::numeric_limits<number_type>::max()/2 - 127;
+	}
+
+	static instance_type span() {
+		return this_type::higher() - this_type::lower();
 	}
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
-		static instance_type max_list[] = { 100, 500*magic(), 200*magic() };
+		static instance_type max_list[] = { this_type::higher100(), this_type::higher(), this_type::higher() };
 		return max_list[index];
 	}
 
 	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { 100, 500*magic(), 200*magic() };
+		static instance_type max_list[] = { this_type::higher100(), this_type::higher(), this_type::higher() };
 		return max_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type minimum() {
-		static instance_type min_list[] = { 0, -500*magic(), -200*magic() };
+		static instance_type min_list[] = { this_type::lower100(), this_type::lower(), this_type::lower() };
 		return min_list[index];
 	}
 
 	static return_image_type minimum(index_input_const_type index) {
-		static instance_type min_list[] = { 0, -500*magic(), -200*magic() };
+		static instance_type min_list[] = { this_type::lower100(), this_type::lower(), this_type::lower() };
 		return min_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type range() {
-		static instance_type range_list[] = { 100, 1000*magic(), 400*magic() };
+		static instance_type range_list[] = { this_type::span100(), this_type::span(), this_type::span() };
 		return range_list[index];
 	}
 
 	static return_image_type range(index_input_const_type index) {
-		static instance_type range_list[] = { 100, 1000*magic(), 400*magic() };
-		return range_list[index];
-	}
-};
-
-template< typename index_name, typename scalar_name >
-struct scalar< index_name, scalar_name, ::color::constant::lab::Hunter_entity > {
-public:
-	typedef scalar_name scalar_type;
-	typedef index_name index_type;
-
-	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
-	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
-
-	typedef typename trait_type::instance_type instance_type;
-	typedef typename trait_type::return_image_type return_image_type;
-
-	typedef typename index_trait_type::instance_type index_instance_type;
-	typedef typename index_trait_type::model_type index_input_const_type;
-
-	typedef scalar< index_name, scalar_name, ::color::constant::lab::Hunter_entity > this_type;
-
-	template< index_instance_type index >
-	static return_image_type maximum() {
-		static instance_type max_list[] = { 100, scalar_type(2552.3), scalar_type(67.0387) };
-		return max_list[index];
-	}
-
-	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { 100, scalar_type(2552.3), scalar_type(67.0387) };
-		return max_list[index];
-	}
-
-	template< index_instance_type index >
-	static return_image_type minimum() {
-		static instance_type min_list[] = { 0, scalar_type(-172.355), scalar_type(-865.984) };
-		return min_list[index];
-	}
-
-	static return_image_type minimum(index_input_const_type index) {
-		static instance_type min_list[] = { 0, scalar_type(-172.355), scalar_type(-865.984) };
-		return min_list[index];
-	}
-
-	template< index_instance_type index >
-	static return_image_type range() {
-		static instance_type range_list[] = { 100, this_type::maximum(1)-this_type::minimum(1), this_type::maximum(2)-this_type::minimum(2) };
-		return range_list[index];
-	}
-
-	static return_image_type range(index_input_const_type index) {
-		static instance_type range_list[] = { 100, this_type::maximum(1)-this_type::minimum(1), this_type::maximum(2)-this_type::minimum(2) };
+		static instance_type range_list[] = { this_type::span100(), this_type::span(), this_type::span() };
 		return range_list[index];
 	}
 };
@@ -30376,22 +30485,47 @@ public:
 }
 }
 
+namespace color {
+namespace trait {
+
+template< ::color::constant::lab::reference_enum reference_number>
+struct bound< ::color::category::lab_uint8<reference_number> >
+	: public ::color::_internal::lab::bound::positive< std::uint8_t, typename ::color::trait::index< ::color::category::lab_uint8<reference_number> >::instance_type, reference_number > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number>
+struct bound< ::color::category::lab_uint16<reference_number> >
+	: public ::color::_internal::lab::bound::positive< std::uint16_t, typename ::color::trait::index< ::color::category::lab_uint16<reference_number> >::instance_type, reference_number > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number>
+struct bound< ::color::category::lab_uint32<reference_number> >
+	: public ::color::_internal::lab::bound::positive< std::uint32_t, typename ::color::trait::index< ::color::category::lab_uint32<reference_number> >::instance_type, reference_number > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number>
+struct bound< ::color::category::lab_uint64<reference_number> >
+	: public ::color::_internal::lab::bound::positive< std::uint64_t, typename ::color::trait::index< ::color::category::lab_uint64<reference_number> >::instance_type, reference_number > {
+};
+
+}
+}
 namespace color {
 namespace trait {
 
 template< ::color::constant::lab::reference_enum reference_number >
 struct bound< ::color::category::lab_float<reference_number> >
-	: public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_float<reference_number> >::instance_type, float, reference_number > {
+	: public ::color::_internal::lab::bound::constrain< float, typename ::color::trait::index< ::color::category::lab_float<reference_number> >::instance_type,reference_number > {
 };
 
 template< ::color::constant::lab::reference_enum reference_number >
 struct bound< ::color::category::lab_double<reference_number> >
-	: public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_double<reference_number> >::instance_type, double, reference_number > {
+	: public ::color::_internal::lab::bound::constrain< double, typename ::color::trait::index< ::color::category::lab_double<reference_number> >::instance_type, reference_number > {
 };
 
 template< ::color::constant::lab::reference_enum reference_number >
 struct bound< ::color::category::lab_ldouble<reference_number> >
-	: public ::color::_internal::lab::bound::scalar< typename ::color::trait::index< ::color::category::lab_ldouble<reference_number> >::instance_type, long double, reference_number > {
+	: public ::color::_internal::lab::bound::constrain< long double, typename ::color::trait::index< ::color::category::lab_ldouble<reference_number> >::instance_type, reference_number > {
 };
 
 }
@@ -30401,44 +30535,68 @@ namespace color {
 namespace trait {
 
 template< ::color::constant::lab::reference_enum reference_number >
-struct component< ::color::category::lab_float<reference_number> >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::lab_float<reference_number> >::instance_type > {
+struct component< ::color::category::lab_int8<reference_number> >
+	: public ::color::_internal::utility::component::array< std::int8_t > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number>
+struct component< ::color::category::lab_int16<reference_number> >
+	: public ::color::_internal::utility::component::array< std::int16_t > {
 };
 
 template< ::color::constant::lab::reference_enum reference_number >
-struct component< ::color::category::lab_double<reference_number> >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::lab_double<reference_number> >::instance_type > {
+struct component< ::color::category::lab_int32<reference_number> >
+	: public ::color::_internal::utility::component::array< std::int32_t > {
 };
 
 template< ::color::constant::lab::reference_enum reference_number >
-struct component< ::color::category::lab_ldouble<reference_number> >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::lab_ldouble<reference_number> >::instance_type > {
+struct component< ::color::category::lab_int64<reference_number> >
+	: public ::color::_internal::utility::component::array< std::int64_t > {
 };
 
 }
 }
-
 namespace color {
 namespace trait {
 
 template< ::color::constant::lab::reference_enum reference_number >
 struct component< ::color::category::lab_uint8<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::lab_uint8<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< ::color::constant::lab::reference_enum reference_number>
 struct component< ::color::category::lab_uint16<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::lab_uint16<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< ::color::constant::lab::reference_enum reference_number >
 struct component< ::color::category::lab_uint32<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::lab_uint32<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< ::color::constant::lab::reference_enum reference_number >
 struct component< ::color::category::lab_uint64<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::lab_uint64<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< ::color::constant::lab::reference_enum reference_number >
+struct component< ::color::category::lab_float<reference_number> >
+	: public ::color::_internal::utility::component::array< float > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number >
+struct component< ::color::category::lab_double<reference_number> >
+	: public ::color::_internal::utility::component::array< double > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number >
+struct component< ::color::category::lab_ldouble<reference_number> >
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -30448,23 +30606,27 @@ namespace color {
 namespace trait {
 
 template< ::color::constant::lab::reference_enum reference_number >
-struct container< ::color::category::lab_float<reference_number> >
-	: public ::color::_internal::utility::container::array< float, 3 > {
+struct container< ::color::category::lab_int8<reference_number> >
+	: public ::color::_internal::utility::container::array< std::int8_t, 3 > {
 };
 
 template< ::color::constant::lab::reference_enum reference_number >
-struct container< ::color::category::lab_double<reference_number> >
-	: public ::color::_internal::utility::container::array< double, 3 > {
+struct container< ::color::category::lab_int16<reference_number> >
+	: public ::color::_internal::utility::container::array< std::int16_t, 3 > {
 };
 
 template< ::color::constant::lab::reference_enum reference_number >
-struct container< ::color::category::lab_ldouble<reference_number> >
-	: public ::color::_internal::utility::container::array< long double, 3 > {
+struct container< ::color::category::lab_int32<reference_number> >
+	: public ::color::_internal::utility::container::array< std::int32_t, 3 > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number >
+struct container< ::color::category::lab_int64<reference_number> >
+	: public ::color::_internal::utility::container::array< std::int64_t, 3 > {
 };
 
 }
 }
-
 namespace color {
 namespace trait {
 
@@ -30486,6 +30648,26 @@ struct container< ::color::category::lab_uint32<reference_number> >
 template< ::color::constant::lab::reference_enum reference_number >
 struct container< ::color::category::lab_uint64<reference_number> >
 	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< ::color::constant::lab::reference_enum reference_number >
+struct container< ::color::category::lab_float<reference_number> >
+	: public ::color::_internal::utility::container::array< float, 3 > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number >
+struct container< ::color::category::lab_double<reference_number> >
+	: public ::color::_internal::utility::container::array< double, 3 > {
+};
+
+template< ::color::constant::lab::reference_enum reference_number >
+struct container< ::color::category::lab_ldouble<reference_number> >
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -30528,9 +30710,8 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::lab<tag_name, reference_number> >::akin_type >::return_type
 gray(::color::model< ::color::category::lab<tag_name,reference_number> > const& color_parameter) {
 	typedef ::color::category::lab< tag_name, reference_number > category_type;
-	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef ::color::_internal::reformat< akin_category_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_category_type, category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -30571,12 +30752,13 @@ saturation(::color::model< ::color::category::lab< tag_name, reference_number > 
 	typedef typename ::color::trait::scalar<category_type> scalar_trait_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::trait::component<category_type>::instance_type component_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
-	auto const& L = c.template get< lightness_p>();
-	auto const& A = c.template get< 1 >();
-	auto const& B = c.template get< 2 >();
+	scalar_type const L = static_cast<scalar_type>(normalize_type::template process<lightness_p>(c.template get< lightness_p>()));
+	scalar_type const A = static_cast<scalar_type>(normalize_type::template process<1>(c.template get< 1 >())) ;
+	scalar_type const B = static_cast<scalar_type>(normalize_type::template process<2>(c.template get< 2 >()));
 	if(false == scalar_trait_type::is_small(scalar_type(L))) {
 		return 0;
 	}
@@ -30589,19 +30771,65 @@ saturation(::color::model< ::color::category::lab< tag_name, reference_number > 
 namespace color {
 namespace get {
 
+namespace _internal {
+namespace lab {
+
+template< typename unsigned_name, ::color::constant::lab::reference_enum reference_number >
+inline
+typename ::color::model< ::color::category::lab< unsigned_name, reference_number > >::component_const_type
+chroma(::color::model< ::color::category::lab< unsigned_name, reference_number > > const& c) {
+	typedef unsigned_name unsigned_type;
+	typedef ::color::category::lab< unsigned_type, reference_number > category_type;
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+	typedef typename ::color::trait::component<category_type>::instance_type component_type;
+	scalar_type const A = static_cast<scalar_type>(c.template get< 1 >()) - std::numeric_limits<unsigned_type>::max()/2;
+	scalar_type const B = static_cast<scalar_type>(c.template get< 2 >()) - std::numeric_limits<unsigned_type>::max()/2;
+	return component_type(sqrt(A*A + B*B));
+}
+
+}
+}
+
+template<::color::constant::lab::reference_enum reference_number >
+inline
+typename ::color::model< ::color::category::lab< std::uint8_t, reference_number > >::component_const_type
+chroma(::color::model< ::color::category::lab< std::uint8_t, reference_number > > const& c) {
+	return ::color::get::_internal::lab::chroma(c);
+}
+
+template<::color::constant::lab::reference_enum reference_number >
+inline
+typename ::color::model< ::color::category::lab< std::uint16_t, reference_number > >::component_const_type
+chroma(::color::model< ::color::category::lab< std::uint16_t, reference_number > > const& c) {
+	return ::color::get::_internal::lab::chroma(c);
+}
+
+template<::color::constant::lab::reference_enum reference_number >
+inline
+typename ::color::model< ::color::category::lab< std::uint32_t, reference_number > >::component_const_type
+chroma(::color::model< ::color::category::lab< std::uint32_t, reference_number > > const& c) {
+	return ::color::get::_internal::lab::chroma(c);
+}
+
+template<::color::constant::lab::reference_enum reference_number >
+inline
+typename ::color::model< ::color::category::lab< std::uint64_t, reference_number > >::component_const_type
+chroma(::color::model< ::color::category::lab< std::uint64_t, reference_number > > const& c) {
+	return ::color::get::_internal::lab::chroma(c);
+}
+
 template< typename tag_name, ::color::constant::lab::reference_enum reference_number >
 inline
 typename ::color::model< ::color::category::lab< tag_name, reference_number > >::component_const_type
 chroma(::color::model< ::color::category::lab< tag_name, reference_number > > const& c) {
 	typedef ::color::category::lab< tag_name, reference_number > category_type;
-	typedef typename ::color::trait::scalar<category_type> scalar_trait_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::trait::component<category_type>::instance_type component_type;
-	auto const& A = c.template get< 1 >();
-	auto const& B = c.template get< 2 >();
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+	scalar_type const A = static_cast<scalar_type>(c.template get< 1 >());
+	scalar_type const B = static_cast<scalar_type>(c.template get< 2 >());
 	return component_type(sqrt(A*A + B*B));
 }
-
 }
 }
 
@@ -30621,8 +30849,7 @@ gray
 ) {
 	typedef ::color::category::lab< tag_name, reference_number > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -30747,7 +30974,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
-	typedef ::color::_internal::reformat< category_left_type, labSCALAR_category_type, scalar_type > reformatLAB_type;
+	typedef ::color::_internal::reformat< category_left_type, labSCALAR_category_type > reformatLAB_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
@@ -31319,8 +31546,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< lab_category_type, labSCALAR_category_type, scalar_type > reformatLAB_type;
-	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
+	typedef ::color::_internal::reformat< lab_category_type, labSCALAR_category_type > reformatLAB_type;
+	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type > reformatXYZ_type;
 
 	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
 
@@ -31390,8 +31617,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< lab_category_type, labSCALAR_category_type, scalar_type > reformatLAB_type;
-	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
+	typedef ::color::_internal::reformat< lab_category_type, labSCALAR_category_type > reformatLAB_type;
+	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type > reformatXYZ_type;
 
 	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
 
@@ -31483,8 +31710,6 @@ struct convert
 public:
 	typedef ::color::category::lab< tag_left_name, reference_number > category_left_type;
 	typedef ::color::category::lab< tag_right_name, reference_number > category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -32158,17 +32383,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::xyy_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::xyy_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::xyy_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::xyy_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::xyy_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::xyy_ldouble >::instance_type> {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -32179,22 +32404,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::xyy_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::xyy_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::xyy_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::xyy_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::xyy_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::xyy_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::xyy_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::xyy_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -32284,9 +32509,8 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::xyy<tag_name> >::akin_type >::return_type
 gray(::color::model< ::color::category::xyy<tag_name> > const& color_parameter) {
 	typedef ::color::category::xyy< tag_name > category_type;
-	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef ::color::_internal::reformat< akin_category_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_category_type, category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -32329,8 +32553,7 @@ gray
 ) {
 	typedef ::color::category::xyy< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -33019,8 +33242,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< xyy_category_type, xyySCALAR_category_type, scalar_type > reformatXYY_type;
-	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
+	typedef ::color::_internal::reformat< xyy_category_type, xyySCALAR_category_type > reformatXYY_type;
+	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type > reformatXYZ_type;
 
 	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
 
@@ -33108,8 +33331,6 @@ struct convert
 public:
 	typedef ::color::category::xyy< tag_left_name > category_left_type;
 	typedef ::color::category::xyy< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -34002,17 +34223,17 @@ namespace trait {
 
 template< ::color::constant::lms::reference_enum reference_number >
 struct component< ::color::category::lms_float<reference_number> >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::lms_float<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< ::color::constant::lms::reference_enum reference_number >
 struct component< ::color::category::lms_double<reference_number> >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::lms_double<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< ::color::constant::lms::reference_enum reference_number >
 struct component< ::color::category::lms_ldouble<reference_number> >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::lms_ldouble<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -34023,22 +34244,22 @@ namespace trait {
 
 template< ::color::constant::lms::reference_enum reference_number >
 struct component< ::color::category::lms_uint8<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::lms_uint8<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< ::color::constant::lms::reference_enum reference_number >
 struct component< ::color::category::lms_uint16<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::lms_uint16<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< ::color::constant::lms::reference_enum reference_number >
 struct component< ::color::category::lms_uint32<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::lms_uint32<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< ::color::constant::lms::reference_enum reference_number >
 struct component< ::color::category::lms_uint64<reference_number> >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::lms_uint64<reference_number> >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -34128,9 +34349,8 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::lms<tag_name,reference_number> >::akin_type >::return_type
 gray(::color::model< ::color::category::lms<tag_name,reference_number> > const& color_parameter) {
 	typedef ::color::category::lms< tag_name, reference_number > category_type;
-	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef ::color::_internal::reformat< akin_category_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_category_type, category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -34173,8 +34393,7 @@ gray
 ) {
 	typedef ::color::category::lms< tag_name, lms_reference_number > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -34862,8 +35081,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< lms_category_type, lmsSCALAR_category_type, scalar_type > reformatLMS_type;
-	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
+	typedef ::color::_internal::reformat< lms_category_type, lmsSCALAR_category_type > reformatLMS_type;
+	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type > reformatXYZ_type;
 
 	typedef ::color::constant::lms::matrix< scalar_type, lms_reference_number > matrix_type;
 
@@ -34988,8 +35207,6 @@ struct convert
 public:
 	typedef ::color::category::lms< tag_left_name, left_reference_number> category_left_type;
 	typedef ::color::category::lms< tag_right_name, right_reference_number> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -35542,148 +35759,17 @@ public:
 }
 
 namespace color {
-namespace trait {
-
-template< >
-struct bound< ::color::category::luv_uint8 >
-	: public ::color::_internal::utility::bound::general< std::uint8_t, typename ::color::trait::index< ::color::category::luv_uint8 >::instance_type > {
-};
-
-template< >
-struct bound< ::color::category::luv_uint16 >
-	: public ::color::_internal::utility::bound::general< std::uint16_t, typename ::color::trait::index< ::color::category::luv_uint16 >::instance_type > {
-};
-
-template< >
-struct bound< ::color::category::luv_uint32 >
-	: public ::color::_internal::utility::bound::general< std::uint32_t, typename ::color::trait::index< ::color::category::luv_uint32 >::instance_type > {
-};
-
-template< >
-struct bound< ::color::category::luv_uint64 >
-	: public ::color::_internal::utility::bound::general< std::uint64_t, typename ::color::trait::index< ::color::category::luv_uint64 >::instance_type > {
-};
-
-}
-}
-
-namespace color {
-namespace _internal {
-namespace constant {
-
-template< typename scalar_name >
-struct luv {
-public:
-	typedef scalar_name scalar_type;
-
-	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
-
-	static scalar_type u0() {
-		return scalar_type(4)* white_point_type::X()/(white_point_type::X() + scalar_type(15)*white_point_type::Y() + scalar_type(3)*white_point_type::Z());
-	}
-	static scalar_type v0() {
-		return scalar_type(9)* white_point_type::Y()/(white_point_type::X() + scalar_type(15)*white_point_type::Y() + scalar_type(3)*white_point_type::Z());
-	}
-
-	typedef ::color::_internal::constant::luv<scalar_type> this_type;
-
-	static scalar_type const l_min() {
-		return 0;
-	}
-	static scalar_type const l_max() {
-		return 100;
-	}
-	static scalar_type const l_range() {
-		return 100;
-	}
-
-	static scalar_type const u_min() {
-		static scalar_type l, u, v;
-		static bool dummy = xyz2luv(scalar_type(0), scalar_type(100), scalar_type(0), l, u, v);
-		return u;
-	}
-
-	static scalar_type const u_max() {
-		static scalar_type l, u, v;
-		static bool dummy = xyz2luv(scalar_type(100), scalar_type(5.8771597073058741145), scalar_type(0), l, u, v);
-		return u;
-	}
-	static scalar_type const u_range() {
-		return this_type::u_max() - this_type::u_min();
-	}
-
-	static scalar_type const v_min() {
-		static scalar_type l, u, v;
-		static bool dummy = xyz2luv(scalar_type(100), scalar_type(12.20694118257431526330947), scalar_type(100), l, u, v);
-		return v;
-	}
-
-	static scalar_type const v_max() {
-		static scalar_type l, u, v;
-		static bool dummy = xyz2luv(scalar_type(0), scalar_type(100), scalar_type(0), l, u, v);
-		return v;
-	}
-	static scalar_type const v_range() {
-		return this_type::v_max() - this_type::v_min();
-	}
-
-	static scalar_type u_diverse(scalar_type const& normal) {
-		return this_type::u_range() * normal + this_type::u_min();
-	}
-	static scalar_type u_normalize(scalar_type const& divert) {
-		return (divert - this_type::u_min()) /this_type::u_range();
-	}
-
-	static scalar_type v_diverse(scalar_type const& normal) {
-		return this_type::v_range() * normal + this_type::v_min();
-	}
-	static scalar_type v_normalize(scalar_type const& divert) {
-		return (divert - this_type::v_min()) /this_type::v_range();
-	}
-
-	static bool xyz2luv
-	(
-		scalar_type const& x, scalar_type const& y, scalar_type const& z
-		,scalar_type & l, scalar_type & u, scalar_type & v
-	) {
-		scalar_type yr = y / (white_point_type::Y() * scalar_type(100));
-		if(scalar_type(216)/scalar_type(24389) < yr) {
-			l = scalar_type(116)*cbrt(yr)-scalar_type(16);
-		} else {
-			l = scalar_type(24389)/scalar_type(27)* yr;
-		}
-		scalar_type up = scalar_type(4) * x/(x + scalar_type(15)*y + scalar_type(3)*z);
-		if(x < 1e-6) {
-			up=0;
-		}
-		scalar_type vp = scalar_type(9) * y/(x + scalar_type(15)*y + scalar_type(3)*z);
-		if(y < 1e-6) {
-			vp=0;
-		}
-		u = 13*l*(up - u0());
-		v = 13*l*(vp - v0());
-		return true;
-	}
-
-};
-
-}
-}
-}
-
-namespace color {
 namespace _internal {
 namespace luv {
 namespace bound {
 
-template< typename index_name, typename scalar_name >
-struct scalar {
+template< typename number_name, typename index_name >
+struct constrain {
 public:
-	typedef scalar_name scalar_type;
+	typedef number_name number_type;
 	typedef index_name index_type;
 
-	typedef ::color::_internal::constant::luv< scalar_type > constant_type;
-	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::traitC< number_type > trait_type;
 	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
 
 	typedef typename trait_type::instance_type instance_type;
@@ -35694,34 +35780,34 @@ public:
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
-		static instance_type max_list[] = { constant_type::l_max(), constant_type::u_max(), constant_type::v_max() };
+		static instance_type max_list[] = { 100, 127, 127 };
 		return max_list[index];
 	}
 
 	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { constant_type::l_max(), constant_type::u_max(), constant_type::v_max() };
+		static instance_type max_list[] = { 100, 127, 127 };
 		return max_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type minimum() {
-		static instance_type min_list[] = { constant_type::l_min(), constant_type::u_min(), constant_type::v_min() };
+		static instance_type min_list[] = { 0, -127, -127 };
 		return min_list[index];
 	}
 
 	static return_image_type minimum(index_input_const_type index) {
-		static instance_type min_list[] = { constant_type::l_min(), constant_type::u_min(), constant_type::v_min() };
+		static instance_type min_list[] = { 0, -127, -127 };
 		return min_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type range() {
-		static instance_type range_list[] = { constant_type::l_max() - constant_type::l_min(), constant_type::u_max() - constant_type::u_min(), constant_type::v_max() - constant_type::v_min() };
+		static instance_type range_list[] = { 100, 255, 255 };
 		return range_list[index];
 	}
 
 	static return_image_type range(index_input_const_type index) {
-		static instance_type range_list[] = { constant_type::l_max() - constant_type::l_min(), constant_type::u_max() - constant_type::u_min(), constant_type::v_max() - constant_type::v_min() };
+		static instance_type range_list[] = { 100, 255, 255 };
 		return range_list[index];
 	}
 };
@@ -35731,43 +35817,157 @@ public:
 }
 }
 
+namespace color {
+namespace trait {
+
+template<>
+struct bound< ::color::category::luv_int8 >
+	: public ::color::_internal::luv::bound::constrain< std::int16_t, typename ::color::trait::index< ::color::category::luv_int8 >::instance_type > {
+};
+
+template<>
+struct bound< ::color::category::luv_int16 >
+	: public ::color::_internal::luv::bound::constrain< std::int16_t, typename ::color::trait::index< ::color::category::luv_int16 >::instance_type > {
+};
+
+template<>
+struct bound< ::color::category::luv_int32 >
+	: public ::color::_internal::luv::bound::constrain< std::int32_t, typename ::color::trait::index< ::color::category::luv_int32 >::instance_type > {
+};
+
+template<>
+struct bound< ::color::category::luv_int64 >
+	: public ::color::_internal::luv::bound::constrain< std::int64_t, typename ::color::trait::index< ::color::category::luv_int64 >::instance_type > {
+};
+
+}
+}
+namespace color {
+namespace _internal {
+namespace luv {
+namespace bound {
+
+template< typename number_name, typename index_name >
+struct positive {
+public:
+	typedef number_name number_type;
+	typedef index_name index_type;
+
+	typedef ::color::_internal::utility::type::traitC< number_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
+
+	typedef ::color::_internal::luv::bound::positive< number_type, index_name > this_type;
+
+	static instance_type lower100() {
+		return 0;
+	}
+
+	static instance_type higher100() {
+		return std::numeric_limits<number_type>::max();
+	}
+
+	static instance_type span100() {
+		return this_type::higher100() - this_type::lower100();
+	}
+
+	static instance_type higher() {
+		return std::numeric_limits<number_type>::max()/2 + 128;
+	}
+
+	static instance_type lower() {
+		return std::numeric_limits<number_type>::max()/2 - 127;
+	}
+
+	static instance_type span() {
+		return this_type::higher() - this_type::lower();
+	}
+
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { this_type::higher100(), this_type::higher(), this_type::higher() };
+		return max_list[index];
+	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { this_type::higher100(), this_type::higher(), this_type::higher() };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { this_type::lower100(), this_type::lower(), this_type::lower() };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { this_type::lower100(), this_type::lower(), this_type::lower() };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { this_type::span100(), this_type::span(), this_type::span() };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { this_type::span100(), this_type::span(), this_type::span() };
+		return range_list[index];
+	}
+};
+
+}
+}
+}
+}
+
+namespace color {
+namespace trait {
+
+template<>
+struct bound< ::color::category::luv_uint8 >
+	: public ::color::_internal::luv::bound::positive< std::uint8_t, typename ::color::trait::index< ::color::category::luv_uint8 >::instance_type > {
+};
+
+template<>
+struct bound< ::color::category::luv_uint16 >
+	: public ::color::_internal::luv::bound::positive< std::uint16_t, typename ::color::trait::index< ::color::category::luv_uint16 >::instance_type > {
+};
+
+template<>
+struct bound< ::color::category::luv_uint32 >
+	: public ::color::_internal::luv::bound::positive< std::uint32_t, typename ::color::trait::index< ::color::category::luv_uint32 >::instance_type > {
+};
+
+template<>
+struct bound< ::color::category::luv_uint64 >
+	: public ::color::_internal::luv::bound::positive< std::uint64_t, typename ::color::trait::index< ::color::category::luv_uint64 >::instance_type > {
+};
+
+}
+}
 namespace color {
 namespace trait {
 
 template< >
 struct bound< ::color::category::luv_float >
-	: public ::color::_internal::luv::bound::scalar< typename ::color::trait::index< ::color::category::luv_float >::instance_type, float > {
+	: public ::color::_internal::luv::bound::constrain< float, typename ::color::trait::index< ::color::category::luv_float >::instance_type > {
 };
 
 template< >
 struct bound< ::color::category::luv_double >
-	: public ::color::_internal::luv::bound::scalar< typename ::color::trait::index< ::color::category::luv_double >::instance_type, double > {
+	: public ::color::_internal::luv::bound::constrain< double, typename ::color::trait::index< ::color::category::luv_double >::instance_type > {
 };
 
 template< >
 struct bound< ::color::category::luv_ldouble >
-	: public ::color::_internal::luv::bound::scalar< typename ::color::trait::index< ::color::category::luv_ldouble >::instance_type, long double > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< >
-struct component< ::color::category::luv_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::luv_float >::instance_type > {
-};
-
-template< >
-struct component< ::color::category::luv_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::luv_double >::instance_type > {
-};
-
-template< >
-struct component< ::color::category::luv_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::luv_ldouble >::instance_type > {
+	: public ::color::_internal::luv::bound::constrain< long double, typename ::color::trait::index< ::color::category::luv_ldouble >::instance_type > {
 };
 
 }
@@ -35778,22 +35978,42 @@ namespace trait {
 
 template< >
 struct component< ::color::category::luv_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::luv_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::luv_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::luv_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::luv_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::luv_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::luv_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::luv_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct component< ::color::category::luv_float >
+	: public ::color::_internal::utility::component::array< float > {
+};
+
+template< >
+struct component< ::color::category::luv_double >
+	: public ::color::_internal::utility::component::array< double > {
+};
+
+template< >
+struct component< ::color::category::luv_ldouble >
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -35802,24 +36022,28 @@ struct component< ::color::category::luv_uint64 >
 namespace color {
 namespace trait {
 
-template< >
-struct container< ::color::category::luv_float >
-	: public ::color::_internal::utility::container::array< float, 3 > {
+template<>
+struct container< ::color::category::luv_int8 >
+	: public ::color::_internal::utility::container::array< std::int8_t, 3 > {
 };
 
-template< >
-struct container< ::color::category::luv_double >
-	: public ::color::_internal::utility::container::array< double, 3 > {
+template<>
+struct container< ::color::category::luv_int16 >
+	: public ::color::_internal::utility::container::array< std::int16_t, 3 > {
 };
 
-template< >
-struct container< ::color::category::luv_ldouble >
-	: public ::color::_internal::utility::container::array< long double, 3 > {
+template<>
+struct container< ::color::category::luv_int32 >
+	: public ::color::_internal::utility::container::array< std::int32_t, 3 > {
+};
+
+template<>
+struct container< ::color::category::luv_int64 >
+	: public ::color::_internal::utility::container::array< std::int64_t, 3 > {
 };
 
 }
 }
-
 namespace color {
 namespace trait {
 
@@ -35841,6 +36065,26 @@ struct container< ::color::category::luv_uint32 >
 template< >
 struct container< ::color::category::luv_uint64 >
 	: public ::color::_internal::utility::container::array< std::uint64_t, 3 > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< >
+struct container< ::color::category::luv_float >
+	: public ::color::_internal::utility::container::array< float, 3 > {
+};
+
+template< >
+struct container< ::color::category::luv_double >
+	: public ::color::_internal::utility::container::array< double, 3 > {
+};
+
+template< >
+struct container< ::color::category::luv_ldouble >
+	: public ::color::_internal::utility::container::array< long double, 3 > {
 };
 
 }
@@ -35883,9 +36127,8 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::luv<tag_name> >::akin_type >::return_type
 gray(::color::model< ::color::category::luv<tag_name> > const& color_parameter) {
 	typedef ::color::category::luv< tag_name > category_type;
-	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef ::color::_internal::reformat< akin_category_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_category_type, category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -35927,7 +36170,6 @@ inline
 typename ::color::model< ::color::category::luv< tag_name> >::component_const_type
 saturation(::color::model< ::color::category::luv< tag_name> > const& c) {
 	typedef ::color::category::luv< tag_name> category_type;
-	typedef typename ::color::trait::scalar<category_type> scalar_trait_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
 	static scalar_type un = scalar_type(4)* white_point_type::X()/(white_point_type::X() + scalar_type(15)*white_point_type::Y() + scalar_type(3)*white_point_type::Z());
@@ -35953,8 +36195,7 @@ gray
 ) {
 	typedef ::color::category::luv< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -36611,6 +36852,110 @@ public:
 
 namespace color {
 namespace _internal {
+namespace constant {
+
+template< typename scalar_name >
+struct luv {
+public:
+	typedef scalar_name scalar_type;
+
+	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
+
+	static scalar_type u0() {
+		return scalar_type(4)* white_point_type::X()/(white_point_type::X() + scalar_type(15)*white_point_type::Y() + scalar_type(3)*white_point_type::Z());
+	}
+	static scalar_type v0() {
+		return scalar_type(9)* white_point_type::Y()/(white_point_type::X() + scalar_type(15)*white_point_type::Y() + scalar_type(3)*white_point_type::Z());
+	}
+
+	typedef ::color::_internal::constant::luv<scalar_type> this_type;
+
+	static scalar_type const l_min() {
+		return 0;
+	}
+	static scalar_type const l_max() {
+		return 100;
+	}
+	static scalar_type const l_range() {
+		return 100;
+	}
+
+	static scalar_type const u_min() {
+		static scalar_type l, u, v;
+		static bool dummy = xyz2luv(scalar_type(0), scalar_type(100), scalar_type(0), l, u, v);
+		return u;
+	}
+
+	static scalar_type const u_max() {
+		static scalar_type l, u, v;
+		static bool dummy = xyz2luv(scalar_type(100), scalar_type(5.8771597073058741145), scalar_type(0), l, u, v);
+		return u;
+	}
+	static scalar_type const u_range() {
+		return this_type::u_max() - this_type::u_min();
+	}
+
+	static scalar_type const v_min() {
+		static scalar_type l, u, v;
+		static bool dummy = xyz2luv(scalar_type(100), scalar_type(12.20694118257431526330947), scalar_type(100), l, u, v);
+		return v;
+	}
+
+	static scalar_type const v_max() {
+		static scalar_type l, u, v;
+		static bool dummy = xyz2luv(scalar_type(0), scalar_type(100), scalar_type(0), l, u, v);
+		return v;
+	}
+	static scalar_type const v_range() {
+		return this_type::v_max() - this_type::v_min();
+	}
+
+	static scalar_type u_diverse(scalar_type const& normal) {
+		return this_type::u_range() * normal + this_type::u_min();
+	}
+	static scalar_type u_normalize(scalar_type const& divert) {
+		return (divert - this_type::u_min()) /this_type::u_range();
+	}
+
+	static scalar_type v_diverse(scalar_type const& normal) {
+		return this_type::v_range() * normal + this_type::v_min();
+	}
+	static scalar_type v_normalize(scalar_type const& divert) {
+		return (divert - this_type::v_min()) /this_type::v_range();
+	}
+
+	static bool xyz2luv
+	(
+		scalar_type const& x, scalar_type const& y, scalar_type const& z
+		,scalar_type & l, scalar_type & u, scalar_type & v
+	) {
+		scalar_type yr = y / (white_point_type::Y() * scalar_type(100));
+		if(scalar_type(216)/scalar_type(24389) < yr) {
+			l = scalar_type(116)*cbrt(yr)-scalar_type(16);
+		} else {
+			l = scalar_type(24389)/scalar_type(27)* yr;
+		}
+		scalar_type up = scalar_type(4) * x/(x + scalar_type(15)*y + scalar_type(3)*z);
+		if(x < 1e-6) {
+			up=0;
+		}
+		scalar_type vp = scalar_type(9) * y/(x + scalar_type(15)*y + scalar_type(3)*z);
+		if(y < 1e-6) {
+			vp=0;
+		}
+		u = 13*l*(up - u0());
+		v = 13*l*(vp - v0());
+		return true;
+	}
+
+};
+
+}
+}
+}
+
+namespace color {
+namespace _internal {
 
 template
 <
@@ -36640,8 +36985,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< luv_category_type, luvSCALAR_category_type, scalar_type > reformatLUV_type;
-	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type, scalar_type > reformatXYZ_type;
+	typedef ::color::_internal::reformat< luv_category_type, luvSCALAR_category_type > reformatLUV_type;
+	typedef ::color::_internal::reformat< xyzSCALAR_category_type, xyz_category_type > reformatXYZ_type;
 
 	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
 
@@ -36808,8 +37153,6 @@ struct convert
 public:
 	typedef ::color::category::luv< tag_left_name > category_left_type;
 	typedef ::color::category::luv< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -37344,6 +37687,125 @@ struct bound< ::color::category::LabCH_uint64 >
 
 namespace color {
 namespace _internal {
+namespace lab {
+namespace bound {
+template< typename scalar_name, typename index_name, ::color::constant::lab::reference_enum = ::color::constant::lab::error_entity >
+struct natural {
+};
+
+template< typename scalar_name, typename index_name >
+struct natural< scalar_name, index_name, ::color::constant::lab::CIE_entity > {
+public:
+	typedef scalar_name scalar_type;
+	typedef index_name index_type;
+
+	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
+
+	typedef natural< scalar_name, index_name, ::color::constant::lab::CIE_entity > this_type;
+
+	static instance_type magic() {
+		return instance_type(1)-instance_type(16)/instance_type(116);
+	}
+
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 100, 500*this_type::magic(), 200*this_type::magic() };
+		return max_list[index];
+	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 100, 500*this_type::magic(), 200*this_type::magic() };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { 0, -500*this_type::magic(), -200*this_type::magic() };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { 0, -500*this_type::magic(), -200*this_type::magic() };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { 100, 1000*this_type::magic(), 400*this_type::magic() };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { 100, 1000*this_type::magic(), 400*this_type::magic() };
+		return range_list[index];
+	}
+};
+
+template< typename scalar_name, typename index_name >
+struct natural< scalar_name, index_name, ::color::constant::lab::Hunter_entity > {
+public:
+	typedef scalar_name scalar_type;
+	typedef index_name index_type;
+
+	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
+
+	typedef natural< scalar_name, index_name, ::color::constant::lab::Hunter_entity > this_type;
+
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { 100, scalar_type(2552.3), scalar_type(67.0387) };
+		return max_list[index];
+	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { 100, scalar_type(2552.3), scalar_type(67.0387) };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { 0, scalar_type(-172.355), scalar_type(-865.984) };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { 0, scalar_type(-172.355), scalar_type(-865.984) };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { 100, this_type::maximum(1)-this_type::minimum(1), this_type::maximum(2)-this_type::minimum(2) };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { 100, this_type::maximum(1)-this_type::minimum(1), this_type::maximum(2)-this_type::minimum(2) };
+		return range_list[index];
+	}
+};
+
+}
+}
+}
+}
+
+namespace color {
+namespace _internal {
 namespace LabCH {
 namespace bound {
 
@@ -37353,7 +37815,7 @@ public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
 
-	typedef ::color::_internal::lab::bound::scalar< index_type, scalar_name, ::color::constant::lab::CIE_entity > lab_bound_type;
+	typedef ::color::_internal::lab::bound::natural< scalar_name, index_type, ::color::constant::lab::CIE_entity > lab_bound_type;
 
 	typedef ::color::_internal::utility::type::traitC< scalar_type > scalar_trait_type;
 	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
@@ -37437,17 +37899,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::LabCH_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::LabCH_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::LabCH_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::LabCH_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::LabCH_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::LabCH_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -37458,22 +37920,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::LabCH_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::LabCH_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::LabCH_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::LabCH_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::LabCH_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::LabCH_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::LabCH_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::LabCH_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -37655,9 +38117,8 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::LabCH<tag_name> >::akin_type >::return_type
 gray(::color::model< ::color::category::LabCH<tag_name> > const& color_parameter) {
 	typedef ::color::category::LabCH< tag_name > category_type;
-	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef ::color::_internal::reformat< akin_category_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_category_type, category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -37759,8 +38220,7 @@ gray
 ) {
 	typedef ::color::category::LabCH< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -37885,7 +38345,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
-	typedef ::color::_internal::reformat< category_left_type, LabCHSCALAR_category_type, scalar_type > reformatLabCH_type;
+	typedef ::color::_internal::reformat< category_left_type, LabCHSCALAR_category_type > reformatLabCH_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
@@ -38513,8 +38973,8 @@ public:
 	typedef typename ::color::LabCH< scalar_type >::category_type LabCHscalar_category_type;
 	typedef typename ::color::lab< scalar_type >::category_type LABscalar_category_type;
 
-	typedef ::color::_internal::reformat< category_left_type, LabCHscalar_category_type, scalar_type > reformatCH_type;
-	typedef ::color::_internal::reformat< LABscalar_category_type, category_right_type, scalar_type > reformatAB_type;
+	typedef ::color::_internal::reformat< category_left_type, LabCHscalar_category_type > reformatCH_type;
+	typedef ::color::_internal::reformat< LABscalar_category_type, category_right_type > reformatAB_type;
 
 	typedef ::color::constant::generic< LABscalar_category_type > generic_costant_type;
 
@@ -38728,8 +39188,6 @@ struct convert
 public:
 	typedef ::color::category::LabCH< tag_left_name > category_left_type;
 	typedef ::color::category::LabCH< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar< tag_left_name >::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -39263,6 +39721,66 @@ struct bound< ::color::category::LuvCH_uint64 >
 
 namespace color {
 namespace _internal {
+namespace luv {
+namespace bound {
+
+template< typename scalar_name, typename index_name >
+struct natural {
+public:
+	typedef scalar_name scalar_type;
+	typedef index_name index_type;
+
+	typedef ::color::_internal::constant::luv< scalar_type > constant_type;
+	typedef ::color::_internal::utility::type::traitC< scalar_type > trait_type;
+	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
+
+	typedef typename trait_type::instance_type instance_type;
+	typedef typename trait_type::return_image_type return_image_type;
+
+	typedef typename index_trait_type::instance_type index_instance_type;
+	typedef typename index_trait_type::model_type index_input_const_type;
+
+	template< index_instance_type index >
+	static return_image_type maximum() {
+		static instance_type max_list[] = { constant_type::l_max(), constant_type::u_max(), constant_type::v_max() };
+		return max_list[index];
+	}
+
+	static return_image_type maximum(index_input_const_type index) {
+		static instance_type max_list[] = { constant_type::l_max(), constant_type::u_max(), constant_type::v_max() };
+		return max_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type minimum() {
+		static instance_type min_list[] = { constant_type::l_min(), constant_type::u_min(), constant_type::v_min() };
+		return min_list[index];
+	}
+
+	static return_image_type minimum(index_input_const_type index) {
+		static instance_type min_list[] = { constant_type::l_min(), constant_type::u_min(), constant_type::v_min() };
+		return min_list[index];
+	}
+
+	template< index_instance_type index >
+	static return_image_type range() {
+		static instance_type range_list[] = { constant_type::l_max() - constant_type::l_min(), constant_type::u_max() - constant_type::u_min(), constant_type::v_max() - constant_type::v_min() };
+		return range_list[index];
+	}
+
+	static return_image_type range(index_input_const_type index) {
+		static instance_type range_list[] = { constant_type::l_max() - constant_type::l_min(), constant_type::u_max() - constant_type::u_min(), constant_type::v_max() - constant_type::v_min() };
+		return range_list[index];
+	}
+};
+
+}
+}
+}
+}
+
+namespace color {
+namespace _internal {
 namespace LuvCH {
 namespace bound {
 
@@ -39272,7 +39790,7 @@ public:
 	typedef scalar_name scalar_type;
 	typedef index_name index_type;
 
-	typedef ::color::_internal::luv::bound::scalar< index_type, scalar_name > luv_bound_type;
+	typedef ::color::_internal::luv::bound::natural< scalar_name, index_type > luv_bound_type;
 
 	typedef ::color::_internal::utility::type::traitC< scalar_type > scalar_trait_type;
 	typedef ::color::_internal::utility::type::index< index_type > index_trait_type;
@@ -39356,17 +39874,17 @@ namespace trait {
 
 template< >
 struct component< ::color::category::LuvCH_float >
-	: public ::color::_internal::utility::component::array< float, typename ::color::trait::index< ::color::category::LuvCH_float >::instance_type > {
+	: public ::color::_internal::utility::component::array< float > {
 };
 
 template< >
 struct component< ::color::category::LuvCH_double >
-	: public ::color::_internal::utility::component::array< double, typename ::color::trait::index< ::color::category::LuvCH_double >::instance_type > {
+	: public ::color::_internal::utility::component::array< double > {
 };
 
 template< >
 struct component< ::color::category::LuvCH_ldouble >
-	: public ::color::_internal::utility::component::array< long double, typename ::color::trait::index< ::color::category::LuvCH_ldouble >::instance_type > {
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -39377,22 +39895,22 @@ namespace trait {
 
 template< >
 struct component< ::color::category::LuvCH_uint8 >
-	: public ::color::_internal::utility::component::array< std::uint8_t, typename ::color::trait::index< ::color::category::LuvCH_uint8 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
 
 template< >
 struct component< ::color::category::LuvCH_uint16 >
-	: public ::color::_internal::utility::component::array< std::uint16_t, typename ::color::trait::index< ::color::category::LuvCH_uint16 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint16_t > {
 };
 
 template< >
 struct component< ::color::category::LuvCH_uint32 >
-	: public ::color::_internal::utility::component::array< std::uint32_t, typename ::color::trait::index< ::color::category::LuvCH_uint32 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint32_t > {
 };
 
 template< >
 struct component< ::color::category::LuvCH_uint64 >
-	: public ::color::_internal::utility::component::array< std::uint64_t, typename ::color::trait::index< ::color::category::LuvCH_uint64 >::instance_type > {
+	: public ::color::_internal::utility::component::array< std::uint64_t > {
 };
 
 }
@@ -39574,9 +40092,8 @@ inline
 typename ::color::trait::component< typename ::color::akin::gray< ::color::category::LuvCH<tag_name> >::akin_type >::return_type
 gray(::color::model< ::color::category::LuvCH<tag_name> > const& color_parameter) {
 	typedef ::color::category::LuvCH< tag_name > category_type;
-	typedef typename ::color::trait::scalar< category_type > ::instance_type scalar_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef ::color::_internal::reformat< akin_category_type, category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< akin_category_type, category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -39744,8 +40261,7 @@ gray
 ) {
 	typedef ::color::category::LuvCH< tag_name > category_type;
 	typedef typename ::color::akin::gray< category_type >::akin_type akin_category_type;
-	typedef double scalar_type;
-	typedef ::color::_internal::reformat< category_type, akin_category_type, scalar_type > reformat_type;
+	typedef ::color::_internal::reformat< category_type, akin_category_type > reformat_type;
 	enum {
 		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
 	};
@@ -39844,7 +40360,7 @@ public:
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
 	typedef ::color::_internal::reformat< category_left_type, category_right_type > reformat_type;
-	typedef ::color::_internal::reformat< category_left_type, LuvCHSCALAR_category_type, scalar_type > reformatLuvCH_type;
+	typedef ::color::_internal::reformat< category_left_type, LuvCHSCALAR_category_type > reformatLuvCH_type;
 
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
@@ -40602,8 +41118,8 @@ public:
 	typedef typename ::color::LuvCH< scalar_type >::category_type LuvCHscalar_category_type;
 	typedef typename ::color::luv< scalar_type >::category_type LUVscalar_category_type;
 
-	typedef ::color::_internal::reformat< category_left_type, LuvCHscalar_category_type, scalar_type > reformatCH_type;
-	typedef ::color::_internal::reformat< LUVscalar_category_type, category_right_type, scalar_type > reformatUV_type;
+	typedef ::color::_internal::reformat< category_left_type, LuvCHscalar_category_type > reformatCH_type;
+	typedef ::color::_internal::reformat< LUVscalar_category_type, category_right_type > reformatUV_type;
 
 	typedef ::color::constant::generic< LUVscalar_category_type > generic_costant_type;
 
@@ -40690,8 +41206,6 @@ struct convert
 public:
 	typedef ::color::category::LuvCH< tag_left_name > category_left_type;
 	typedef ::color::category::LuvCH< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar< tag_left_name >::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -40830,8 +41344,8 @@ public:
 	typedef typename ::color::luv< scalar_type >::category_type LUVscalar_category_type;
 	typedef typename ::color::LuvCH< scalar_type >::category_type LuvCHscalar_category_type;
 
-	typedef ::color::_internal::reformat< category_left_type, LUVscalar_category_type, scalar_type > reformatUV_type;
-	typedef ::color::_internal::reformat< LuvCHscalar_category_type, category_right_type, scalar_type > reformatCH_type;
+	typedef ::color::_internal::reformat< category_left_type, LUVscalar_category_type > reformatUV_type;
+	typedef ::color::_internal::reformat< LuvCHscalar_category_type, category_right_type > reformatCH_type;
 
 	typedef ::color::constant::generic< LUVscalar_category_type > generic_costant_type;
 
@@ -41306,22 +41820,32 @@ public:
 	typedef typename ::color::lab< scalar_type >::category_type LABscalar_category_type;
 	typedef typename ::color::LabCH< scalar_type >::category_type LabCHscalar_category_type;
 
-	typedef ::color::_internal::reformat< category_left_type, LABscalar_category_type, scalar_type > reformatAB_type;
-	typedef ::color::_internal::reformat< LabCHscalar_category_type, category_right_type, scalar_type > reformatCH_type;
+	typedef ::color::_internal::reformat< category_left_type, LABscalar_category_type > reformatAB_type;
+	typedef ::color::_internal::reformat< LabCHscalar_category_type, category_right_type > reformatCH_type;
 
 	typedef ::color::constant::generic< LABscalar_category_type > generic_costant_type;
+
+	enum {
+		lightness_left_p = ::color::place::_internal::lightness<category_left_type>::position_enum
+	};
+
+	enum {
+		lightness_right_p = ::color::place::_internal::lightness<category_right_type>::position_enum
+		,chroma_right_p = ::color::place::_internal::chroma<category_right_type>::position_enum
+		,hue_right_p = ::color::place::_internal::hue<category_right_type>::position_enum
+	};
 
 	static void process
 	(
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		scalar_type l = reformatCH_type::template process< 0, 0 >(container_right_trait_type::template get<0>(right));
-		scalar_type c = reformatCH_type::template process< 1, 1 >(container_right_trait_type::template get<1>(right));
-		scalar_type h = reformatCH_type::template process< 2, 2 >(container_right_trait_type::template get<2>(right));
+		scalar_type l = reformatCH_type::template process< 0, lightness_right_p >(container_right_trait_type::template get<lightness_right_p >(right));
+		scalar_type c = reformatCH_type::template process< 1, chroma_right_p >(container_right_trait_type::template get<chroma_right_p >(right));
+		scalar_type h = reformatCH_type::template process< 2, hue_right_p >(container_right_trait_type::template get<hue_right_p >(right));
 		scalar_type a = c * cos(h * generic_costant_type::deg2rad());
 		scalar_type b = c * sin(h * generic_costant_type::deg2rad());
-		container_left_trait_type::template set<0>(left, reformatAB_type::template process< 0, 0 >(l));
+		container_left_trait_type::template set<lightness_left_p>(left, reformatAB_type::template process< lightness_left_p, 0 >(l));
 		container_left_trait_type::template set<1>(left, reformatAB_type::template process< 1, 1 >(a));
 		container_left_trait_type::template set<2>(left, reformatAB_type::template process< 2, 2 >(b));
 	}
@@ -41741,7 +42265,13 @@ public:
 	typedef ::color::lab<scalar_type> lab_type;
 	typedef ::color::constant::generic< category_left_type > constant_type;
 
-	static scalar_type process(model_left_type const& left, model_right_type const& right, scalar_type const& l, scalar_type const& c) {
+	static scalar_type process
+	(
+		model_left_type const& left
+		,model_right_type const& right
+		,scalar_type const& l = scalar_type(2)
+		,scalar_type const& c = scalar_type(1)
+	) {
 		lab_type lab_left(left);
 		lab_type lab_right(right);
 		scalar_type const& L_1 = lab_left.template get<0>();
@@ -42019,8 +42549,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< labSCALAR_category_type, lab_category_type, scalar_type > reformatLAB_type;
-	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
+	typedef ::color::_internal::reformat< labSCALAR_category_type, lab_category_type > reformatLAB_type;
+	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type > reformatXYZ_type;
 
 	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
 
@@ -42089,8 +42619,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< labSCALAR_category_type, lab_category_type, scalar_type > reformatLAB_type;
-	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
+	typedef ::color::_internal::reformat< labSCALAR_category_type, lab_category_type > reformatLAB_type;
+	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type > reformatXYZ_type;
 
 	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
 
@@ -42152,8 +42682,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< xyySCALAR_category_type, xyy_category_type, scalar_type > reformatXYY_type;
-	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
+	typedef ::color::_internal::reformat< xyySCALAR_category_type, xyy_category_type > reformatXYY_type;
+	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type > reformatXYZ_type;
 
 	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
 
@@ -42212,8 +42742,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< lmsSCALAR_category_type, lms_category_type, scalar_type > reformatLMS_type;
-	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
+	typedef ::color::_internal::reformat< lmsSCALAR_category_type, lms_category_type > reformatLMS_type;
+	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type > reformatXYZ_type;
 
 	typedef ::color::constant::lms::matrix< scalar_type, lms_reference_number > matrix_type;
 
@@ -42267,8 +42797,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< luvSCALAR_category_type, luv_category_type, scalar_type > reformatLUV_type;
-	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type, scalar_type > reformatXYZ_type;
+	typedef ::color::_internal::reformat< luvSCALAR_category_type, luv_category_type > reformatLUV_type;
+	typedef ::color::_internal::reformat< xyz_category_type, xyzSCALAR_category_type > reformatXYZ_type;
 
 	typedef ::color::constant::xyz::illuminant::point< scalar_type, ::color::constant::xyz::illuminant::D65_entity, ::color::constant::xyz::illuminant::two_entity > white_point_type;
 
@@ -43918,8 +44448,8 @@ public:
 	typedef typename container_left_trait_type::input_type container_left_input_type;
 	typedef typename container_right_trait_type::model_type container_right_const_input_type;
 
-	typedef ::color::_internal::reformat< category_left_type, yiq_scalar_category_type, scalar_type > reformat_yiq_type;
-	typedef ::color::_internal::reformat< yuv_scalar_category_type, category_right_type, scalar_type > reformat_yuv_type;
+	typedef ::color::_internal::reformat< category_left_type, yiq_scalar_category_type > reformat_yiq_type;
+	typedef ::color::_internal::reformat< yuv_scalar_category_type, category_right_type > reformat_yuv_type;
 
 	typedef ::color::constant::generic< category_left_type > constant_type;
 
@@ -47175,8 +47705,6 @@ public:
 	typedef ::color::category::rgb< tag_left_name > category_left_type;
 	typedef ::color::category::rgb< tag_right_name> category_right_type;
 
-	typedef typename ::color::trait::scalar< category_left_type >::instance_type scalar_type;
-
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
@@ -47847,7 +48375,6 @@ struct convert
 public:
 	typedef ::color::category::cmyk< cmyk_tag_name > category_left_type;
 	typedef ::color::category::gray< gray_tag_name > category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::bound<category_left_type> bound_left_trait_type;
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
@@ -47958,8 +48485,6 @@ struct convert
 public:
 	typedef ::color::category::cmyk< tag_left_name > category_left_type;
 	typedef ::color::category::cmyk< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -48809,7 +49334,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::hsl<hsl_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -48851,7 +49375,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::hsv<hsv_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -48889,7 +49412,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::hsi<hsi_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -48931,7 +49453,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > gray_category_type, category_left_type;
 	typedef ::color::category::hwb< hwb_tag_name > hwb_category_type, category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -49016,7 +49537,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::yiq<yiq_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -49096,7 +49616,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::YCgCo<YCgCo_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -49134,7 +49653,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::YDbDr<YDbDr_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -49176,7 +49694,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::YPbPr<YPbPr_tag_name, YPbPr_reference_number> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -49258,7 +49775,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::lab<lab_tag_name, lab_reference_number> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -49337,8 +49853,6 @@ public:
 	typedef ::color::category::gray< gray_tag_name > gray_category_type, category_left_type;
 	typedef ::color::category::lms< lms_tag_name, lms_reference_number > lms_category_type, category_right_type;
 
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
-
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
 
@@ -49371,7 +49885,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::luv<luv_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -49405,7 +49918,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::LabCH<LabCH_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -49439,7 +49951,6 @@ struct convert
 public:
 	typedef ::color::category::gray< gray_tag_name > category_left_type;
 	typedef ::color::category::LuvCH<LuvCH_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -49665,7 +50176,6 @@ struct convert
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::gray<gray_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -49708,8 +50218,6 @@ struct convert
 public:
 	typedef ::color::category::cmy< tag_left_name > category_left_type;
 	typedef ::color::category::cmy< tag_right_name> category_right_type;
-
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -50098,7 +50606,6 @@ struct convert
 public:
 	typedef ::color::category::cmy< cmy_tag_name > category_left_type;
 	typedef ::color::category::rgb<rgb_tag_name> category_right_type;
-	typedef typename ::color::trait::scalar<category_left_type>::instance_type scalar_type;
 
 	typedef ::color::trait::container<category_left_type> container_left_trait_type;
 	typedef ::color::trait::container<category_right_type> container_right_trait_type;
@@ -51624,21 +52131,26 @@ namespace color {
 namespace compare {
 
 template < typename category_name >
-bool darker(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
-	using namespace ::color::compare::operators;
+bool darker
+(
+	::color::model< category_name > const& left
+	,::color::model< category_name > const& right
+) {
 	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 	return ::color::gray<scalar_type>(left).container() < ::color::gray<scalar_type>(right).container();
 }
 
 }
 }
-
 namespace color {
 namespace compare {
 
 template < typename category_name >
-bool brighter(::color::model< category_name > const& left, ::color::model< category_name > const& right) {
-	using namespace ::color::compare::operators;
+bool brighter
+(
+	::color::model< category_name > const& left
+	,::color::model< category_name > const& right
+) {
 	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 	return ::color::gray<scalar_type>(left).container() > ::color::gray<scalar_type>(right).container();
 }
@@ -51679,7 +52191,7 @@ void gray
 ) {
 	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
 	typedef ::color::gray<scalar_type> gray_type;
-	color_parameter = gray_type{ percent_param / scalar_type(100) };
+	color_parameter = gray_type({ static_cast<scalar_type>(percent_param / scalar_type(100)) });
 }
 
 template< typename category_name >
@@ -51715,9 +52227,9 @@ template< typename category_name, std::uintmax_t black_number, std::uintmax_t wh
 struct make< ::color::constant::gray_t<black_number,white_number>, category_name > {
 	typedef category_name category_type;
 	typedef ::color::model<category_type> model_type;
-	typedef ::color::gray<double> gray_type;
 
-	typedef typename ::color::trait::scalar< category_name >::instance_type scalar_type;
+	typedef typename ::color::trait::scalar< typename model_type::category_type >::instance_type scalar_type;
+	typedef ::color::gray<scalar_type> gray_type;
 
 	typedef ::color::constant::gray_t<black_number,white_number> constant_type;
 
@@ -52402,6 +52914,7 @@ namespace constant {
 template< typename category_name >
 struct make< ::color::constant::gold_type, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::gold_t constant_type;
@@ -52617,13 +53130,13 @@ template< typename category_name >
 struct make< ::color::constant::pink_type, category_name > {
 	typedef category_name category_type;
 	typedef ::color::model<category_type> model_type;
-	typedef ::color::rgb<std::uint8_t> rgb_type;
+	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::pink_t constant_type;
 
 	typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
 	inline static void process(container_output_type & container) {
-		static model_type s_model{ rgb_type{ 0xFF, 0xC0, 0xCB } };
+		static model_type s_model{ rgb_type{ 1, 0.75, 0.8 } };
 		container = s_model.container();
 	}
 
@@ -52758,13 +53271,13 @@ template< typename category_name >
 struct make< ::color::constant::thistle_type, category_name > {
 	typedef category_name category_type;
 	typedef ::color::model<category_type> model_type;
-	typedef ::color::rgb<std::uint8_t> rgb_type;
+	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::thistle_t constant_type;
 
 	typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
 	inline static void process(container_output_type & container) {
-		static model_type s_model{ rgb_type{ 0xD8, 0xBF, 0xD8 } };
+		static model_type s_model{ rgb_type{ 0.85, 0.75, 0.85 } };
 		container = s_model.container();
 	}
 

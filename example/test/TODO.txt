@@ -1,1 +1,2 @@
-satur-hsl.tga on msvc give odd results.
+- satur-hsl.tga on msvc give odd results.
+- check, fix, unique

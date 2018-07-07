@@ -14,6 +14,7 @@
       struct make< ::color::constant::gold_type, category_name >
        {
         typedef category_name                         category_type;
+
         typedef ::color::model<category_type>            model_type;
         typedef ::color::rgb<std::uint8_t>                 rgb_type;
         typedef ::color::constant::gold_t             constant_type;
@@ -24,7 +25,7 @@
          {
           static model_type  s_model{ rgb_type{ 0xFF, 0xD7, 0x00 } }; //!< TODO hsl (50,100,50)
           container = s_model.container();
-         } 
+         }
 
        };
 

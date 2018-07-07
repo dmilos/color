@@ -1,7 +1,7 @@
 #ifndef color_rgb_get_saturation
 #define color_rgb_get_saturation
 
-// ::color::get::constant::saturation::TODO
+// ::color::get::constant::saturation::hsv_entity, hsl_entity, hsi_entity
 // ::color::get::constant::saturation::formula_enum
 // ::color::get::saturation( c )
 

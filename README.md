@@ -45,7 +45,7 @@ color::yiq<std::uint8_t>  y( { 192, 64, 92 } );
 color::hsv<double>        h( { 90.0, 50.0, 60.0 } );
 
 // This will pack ONLY three consecutive floats in memory.
-// Lightens will goes from 0 to 100. a and b from -128 to 128. and may goes beyond those values.
+// Lightens will goes from 0 to 100. a and b from -127 to 127. and may goes beyond those values.
 color::lab<float>         l( { 50.0, 0, 0 } );
 ```
 

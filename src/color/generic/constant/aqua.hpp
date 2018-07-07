@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_aqua
 #define color_generic_constant_aqua
 
-// ::color::constant::aqua( c )
+// ::color::constant::::aqua( c )
 
 #include "./base.hpp"
 
@@ -12,18 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct aqua_type{};
+      namespace w3c
+       {
+        struct aqua_t{};
+       }
      }
 
-    typedef ::color::constant::base< ::color::constant::_internal::aqua_type > aqua_t, aqua_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::aqua_t > aqua_t;
+     }
 
-
-    //namespace vga
-    // {// Same as w3c
-    //  typedef  ::color::constant::aqua_type  aqua_type;
-    // }
+     // Primary value is w3c
+    typedef ::color::constant::w3c::aqua_t aqua_t;
 
    }
  }
 
-#endif
+#endif 
