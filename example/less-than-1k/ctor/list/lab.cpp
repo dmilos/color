@@ -14,9 +14,9 @@ int main( int argc, char *argv[] )
   lab<uint16_t>    c2( { 280, 350 , 1000 } );
   lab<uint32_t>    c3( { 640, 127 , 192 } );
   lab<uint64_t>    c4( { 64000, 1270 , 1920 } );
-  lab<float>            c5( { 0.5, 0.6, 0.7} );
-  lab<double>           c6( { 0.5, 0.6, 0.7} );
-  lab<long double>      c7( { 0.5, 0.6, 0.7} );
+  lab<float>            c5( { 5,  -6, 7} );
+  lab<double>           c6( { 50, 100, -60} );
+  lab<long double>      c7( { 80, -70, 90} );
 
   cout << c1[0] << ", " << c1[1] << ", " << c1[2] << endl;
   cout << c2[0] << ", " << c2[1] << ", " << c2[2] << endl;

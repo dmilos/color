@@ -29,8 +29,24 @@ cd ./uint32
 ./make.sh
 cd ..
 
-
 cd ./uint64
+./make.sh
+cd ..
+
+
+cd ./int8
+./make.sh
+cd ..
+
+cd ./int16
+./make.sh
+cd ..
+
+cd ./int32
+./make.sh
+cd ..
+
+cd ./int64
 ./make.sh
 cd ..
 

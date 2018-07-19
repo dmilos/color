@@ -13,7 +13,7 @@
 			<dt>TOC</dt>
 			<dd>
 				<ul>
-					<li> There are too much files in project. How to reduce?</li>
+					<li> There are too much files in project. How to reduce file count?</li>
 					<li> <code>get</code> return only constant values. Where is <code>get</code> which return something modifiable like <code>operator[]</code> ?</li>
 					<li> How to reduce <code>namespace</code> path?</li>
 					<li> Inconsistent from/to gray conversion?</li>
@@ -25,7 +25,7 @@
 		</dl>
 
 		<dl>
-			<dt>&bull; <a name="too_much" /> There are too much files in project. How to reduce? </dt>
+			<dt>&bull; <a name="too_much" /> There are too much files in project. How to reduce file count? </dt>
 			<dd>
 				Easy!<br>
 				Steps are:
@@ -55,7 +55,8 @@
 			</dd>
 			<dt>&bull; <code>get</code> return only constant values. Where is <code>get</code> which return something modifiable like <code>operator[]</code> ?</dt>
 			<dd>
-				This is by design.<br> When you use <code>get</code> you will be always sure that object is intact even is it non constant.<br>
+				This is by design.<br> When you use <code>get</code> you will be always sure that object is intact even is it non constant. 
+                Idea is to have function like <code>vector::cbegin</code> or <code>vector::cend</code> <br>
 				Just separation of jurisdiction.<br>
 				&nbsp; &nbsp; <code><a href="./model.html#function_set">get</a></code>s only read,<br>
 				&nbsp; &nbsp; <code><a href="./model.html#function_set">set</a></code>s only modify,<br>
