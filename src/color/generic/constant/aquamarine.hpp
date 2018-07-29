@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_aquamarine
 #define color_generic_constant_aquamarine
 
-// ::color::constant::aquamarine( c )
+// ::color::constant::::aquamarine( c )
 
 #include "./base.hpp"
 
@@ -12,14 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct aquamarine_type{};
+      namespace w3c
+       {
+        struct aquamarine_t{};
+       }
      }
 
-    using  aquamarine_t       = ::color::constant::base< ::color::constant::_internal::aquamarine_type >;
-    using  aquamarine_type    = ::color::constant::aquamarine_t;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::aquamarine_t > aquamarine_t;
+     }
 
+    // Primary value is w3c
+    typedef ::color::constant::w3c::aquamarine_t aquamarine_t;
 
    }
  }
 
-#endif
+#endif 

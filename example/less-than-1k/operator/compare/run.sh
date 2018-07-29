@@ -1,3 +1,5 @@
+pwd
+
 ./eq.exe
 ./equal.exe
 ./great.exe

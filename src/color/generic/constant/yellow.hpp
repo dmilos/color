@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_yellow
 #define color_generic_constant_yellow
 
-// ::color::constant::yellow( c )
+// ::color::constant::::yellow( c )
 
 #include "./base.hpp"
 
@@ -12,17 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct yellow_type{};
+      namespace w3c
+       {
+        struct yellow_t{};
+       }
      }
 
-    typedef ::color::constant::base< ::color::constant::_internal::yellow_type > yellow_t, yellow_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::yellow_t > yellow_t;
+     }
 
-    //namespace vga
-    // {// Same as w3c
-    //  typedef  ::color::constant::w3c::yellow_type  yellow_type;
-    // }
+    // Primary value is w3c
+    typedef ::color::constant::w3c::yellow_t yellow_t;
 
    }
  }
 
-#endif
+#endif 

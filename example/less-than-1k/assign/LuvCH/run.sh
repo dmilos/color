@@ -1,3 +1,5 @@
+pwd
+
 ./LuvCH2cmy.exe
 ./LuvCH2cmyk.exe
 ./LuvCH2gray.exe

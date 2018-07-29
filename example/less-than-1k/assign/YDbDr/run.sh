@@ -1,3 +1,5 @@
+pwd
+
 ./YDbDr2cmy.exe
 ./YDbDr2cmyk.exe
 ./YDbDr2gray.exe

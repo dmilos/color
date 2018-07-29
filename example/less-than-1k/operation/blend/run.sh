@@ -1,3 +1,5 @@
+pwd
+
 ./alpha2.exe
 ./alpha3.exe
 ./noalpha2.exe

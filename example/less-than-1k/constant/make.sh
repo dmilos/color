@@ -15,3 +15,7 @@ cd ..
 cd ./lab
 ./make.sh
 cd ..
+
+cd ./x11
+./make.sh
+cd ..

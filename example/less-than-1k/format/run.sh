@@ -1,3 +1,5 @@
+pwd
+
 cd ./2222
 ./run.sh
 cd ..

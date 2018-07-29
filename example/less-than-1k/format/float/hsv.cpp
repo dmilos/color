@@ -7,7 +7,7 @@ int main( int argc, char *argv[] )
  {
   ::color::hsv< float > c; //!< Make an instance
 
-  c = ::color::constant::orange_type{}; //!< Fill with some useful information
+  c = ::color::constant::orange_t{}; //!< Fill with some useful information
 
   std::cout<< "Orange in color::hsv<float> = { ";
   std::cout<< std::setw(12) << std::right << c[0] << ","

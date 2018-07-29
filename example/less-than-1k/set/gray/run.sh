@@ -1,3 +1,5 @@
+pwd
+
 ./blue_cmy.exe
 ./blue_cmyk.exe
 ./blue_gray.exe

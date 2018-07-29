@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_silver
 #define color_generic_constant_silver
 
-// ::color::constant::silver( c )
+// ::color::constant::::silver( c )
 
 #include "./base.hpp"
 
@@ -12,18 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct silver_type{};
+      namespace w3c
+       {
+        struct silver_t{};
+       }
      }
 
-    typedef ::color::constant::base< ::color::constant::_internal::silver_type > silver_t, silver_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::silver_t > silver_t;
+     }
 
-    //namespace vga
-    // {// Same as w3c
-    //  typedef  ::color::constant::w3c::silver_type  silver_type;
-    // }
-
+    // Primary value is w3c
+    typedef ::color::constant::w3c::silver_t silver_t;
 
    }
  }
 
-#endif
+#endif 

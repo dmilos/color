@@ -385,8 +385,8 @@ void ctor_test()
   ::color::rgb<double>{ ::color::constant::black_t{} };
   ::color::rgb<double>( {1,2,3} );
 
-  r = ::color::constant::turquoise_type{};
-  x = ::color::constant::orange_type{};
+  r = ::color::constant::turquoise_t{};
+  x = ::color::constant::orange_t{};
   r[0] = 0.1;
   std::cout << r[0] << std::endl;
  }

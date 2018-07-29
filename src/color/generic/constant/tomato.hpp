@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_tomato
 #define color_generic_constant_tomato
 
-// ::color::constant::tomato( c )
+// ::color::constant::::tomato( c )
 
 #include "./base.hpp"
 
@@ -9,15 +9,24 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct tomato_type{};
+      namespace w3c
+       {
+        struct tomato_t{};
+       }
      }
 
-    using  tomato_type = ::color::constant::base< ::color::constant::_internal::tomato_type >;
-    using  tomato_t    = ::color::constant::tomato_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::tomato_t > tomato_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::tomato_t tomato_t;
 
    }
  }
 
-#endif
+#endif 

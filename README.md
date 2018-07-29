@@ -56,9 +56,9 @@ y = ::color::constant::turquoise_t{};  //!< Set 'y' to be turquoise.
 // any model/format to any model/format by use of operator=
 b = r; //!< Reformat and convert.
 r = b; //!< Reformat and convert in opposite direction.
-h = b; //!< Reformat and convert from BGR to HSV
-h = y; //!< Reformat and convert from YIQ to HSV
-l = y; //!< Reformat and convert from YIQ to LAB
+h = b; //!< Reformat and convert from bgr<std::uint8_t> to hsv<double>
+h = y; //!< Reformat and convert from yiq<std::uint8_t> to hsv<double>
+l = y; //!< Reformat and convert from yiq<std::uint8_t> to lab<float>
 ```
 
 ### Code sample - Feature Extraction:

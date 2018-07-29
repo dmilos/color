@@ -1,3 +1,5 @@
+pwd
+
 ./abgr.exe
 ./argb.exe
 ./bgra.exe

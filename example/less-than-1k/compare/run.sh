@@ -1,3 +1,5 @@
+pwd
+
 ./brighter_rgb.exe
 ./darker_rgb.exe
 ./different_rgb.exe

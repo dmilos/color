@@ -1,3 +1,5 @@
+pwd
+
 ./YCgCo2cmy.exe
 ./YCgCo2cmyk.exe
 ./YCgCo2gray.exe

@@ -1,3 +1,5 @@
+pwd 
+
 ./bgr.exe
 ./rgb.exe
 ./YPbPr.exe

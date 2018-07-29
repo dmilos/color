@@ -14,6 +14,11 @@
 				<ul>
 					<li><a href="#Description">Description</a></li>
 					<li><a href="#Note">Note</a></li>
+					<li><a href="#Namespaces">Namespaces</a>
+						<ul>
+							<li><a href="#constant__rgb">constant::rgb</a></li>
+						</ul>
+					</li>
 					<li><a href="#Functions">Functions</a>
 						<ul>
 							<li><a href="#alpha">alpha</a></li>
@@ -37,7 +42,7 @@
 			</dd>
 
 			<dt><a name="#Description"/><h3>Description</h3></dt>
-			<dd>Get color property. From each color we can uniquely <i>extract</i> some information. </dd>
+			<dd>Get color property. From each color we can uniquely <i>extract</i> some information.</dd>
 			<dt><a name="#Note"/><h3>Note</h3></dt>
 			<dd><a name="general"/>All functions has the same signature and they return akin values for akin type for given <a href="../glossary.html#model">model</a>.<br><br>
 				<dl>
@@ -45,9 +50,9 @@
 					<dd>
 						<code>
 						template&lt; typename  category_name &gt; <br>
-					    &nbsp; inline <br>
-					    &nbsp; typename ::color::trait::component&lt; category_name &gt;::return_image_type <br>
-					    &nbsp; blue( ::color::model&lt; category_name &gt; const&amp; color_parameter ); <br>
+						&nbsp; inline <br>
+						&nbsp; typename ::color::trait::component&lt; category_name &gt;::return_image_type <br>
+						&nbsp; blue( ::color::model&lt; category_name &gt; const&amp; color_parameter ); <br>
 					</code>
 
 				</dd>
@@ -63,22 +68,20 @@
 				<dt>Example:</dt>
 				<dd>
 					<code style="white-space: nowrap">
-					     template&lt; typename tag_name &gt;<br>
-					     &nbsp;  inline<br>
-					     &nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::hsv&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
-					     &nbsp;  blue( ::color::model&lt; ::color::category::hsv&lt; tag_name &gt; &gt; const&amp; color_parameter );
+						template&lt; typename tag_name &gt;<br>
+						&nbsp;  inline<br>
+						&nbsp;  typename ::color::trait::component&lt; typename ::color::akin::rgb&lt;::color::category::hsv&lt; tag_name &gt; &gt;::akin_type >::return_type<br>
+						&nbsp;  blue( ::color::model&lt; ::color::category::hsv&lt; tag_name &gt; &gt; const&amp; color_parameter );
 					</code>
-
 					</dd>
 				</dl><hr width="%20">
-
-
 			</dd>
-			<dt><a name="#namespace"/><h3>namespaces</h3></dt>
+
+			<dt><a name="#Namespaces"/><h3>Namespaces</h3></dt>
 			<dd>
 				<dl>
 					<dt>Name</dt>
-					<dd><a name="#alpha"/><i>::color::get::constant::rgb</i></dd>
+					<dd><a name="#constant__rgb"/><i>::color::get::constant::rgb</i></dd>
 					<dt>Description</dt>
 					<dd>Contain constant to retrieve various feature from rgb model with different algorithm.</dd>
 					<dt>Example</dt>
@@ -97,7 +100,7 @@
 					<dt>Name</dt>
 					<dd><a name="#alpha"/><i>alpha</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get alpha <a href="glossary.html#component">component</a>.</dd>
 					<dt>Note</dt>
@@ -113,7 +116,7 @@
 					<dt>Name</dt>
 					<dd><a name="#black"/><i>black</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get black <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
@@ -124,11 +127,10 @@
 				</dl><hr width="%20">
 
 				<dl>
-				<dl>
 					<dt>Name</dt>
 					<dd><a name="#blue"/><i>blue</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get blue <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
@@ -138,10 +140,11 @@
 					</dd>
 				</dl><hr width="%20">
 
+				<dl>
 					<dt>Name</dt>
 					<dd><a name="#chroma"/><i>chroma</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get chroma <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Note</dt>
@@ -155,16 +158,14 @@
 							::color::LuvCH&lt; double &gt; c1;<br>
 							std::cout &lt;&lt; color::get::chroma( c1 ) &lt;&lt; std::cout;<br>
 						</code>
-
 					</dd>
 				</dl><hr width="%20">
-
 
 				<dl>
 					<dt>Name</dt>
 					<dd><a name="#gray"/><i>gray</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get gray <a href="glossary.html#component">component</a> natively supported by <a href="glossary.html#model">model</a> or calculate if does not supported natively.</dd>
 					<dt>Note</dt>
@@ -177,7 +178,6 @@
 					<dt>Example </dt>
 					<dd>
 						<code>
-
 							color::rgb&lt;float&gt; c = color::constant::turquoise_t{};<br><br>
 
 							// Here is how to get gray <a href="glossary.html#component">component</a> using default algorithm. Default is yuv709_entity formula.<br>
@@ -199,7 +199,7 @@
 					<dt>Name</dt>
 					<dd><a name="#green"/><i>green</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get green <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
@@ -213,7 +213,7 @@
 					<dt>Name</dt>
 					<dd><a name="#hue"/><i>hue</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get hue <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Note</dt>
@@ -223,7 +223,9 @@
 						 - Return type is <code>::color::trait::component&lt; ::color::rgb&lt; <i>_type_</i> &gt; ::category_type >::component_type</code>. <br>
 						 - Range of return value mach to <code>::color::trait::bound&lt; ::color::rgb&lt; <i>_type_</i> &gt; ::category_type ></code>.
 					</dd>
+				</dl>
 
+				<dl>
 					<dt>Example</dt>
 					<dd>
 						<code>::color::yiq &lt; double &gt; y{ ::color::contant::aqua_t{} };<br>
@@ -246,7 +248,7 @@
 					<dt>Name</dt>
 					<dd><a name="#inphase"/><i>inphase</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get inphase <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
@@ -260,7 +262,7 @@
 					<dt>Name</dt>
 					<dd><a name="#key"/><i>key</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get key <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Note</dt>
@@ -276,7 +278,7 @@
 					<dt>Name</dt>
 					<dd><a name="#luma"/><i>luma</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dd>Get luma <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
 					<dd>
@@ -289,7 +291,7 @@
 					<dt>Name</dt>
 					<dd><a name="#luminance"/><i>luminance</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get luminance <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
@@ -297,12 +299,13 @@
 						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::luminance( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
-					</dl><hr width="%20">
+				</dl><hr width="%20">
+
 				<dl>
 					<dt>Name</dt>
 					<dd><a name="#quadrature"/><i>quadrature</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get quadrature <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
@@ -312,11 +315,11 @@
 					</dd>
 				</dl><hr width="%20">
 
-
+				<dl>
 					<dt>Name</dt>
 					<dd><a name="#saturation"/><i>saturation</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get saturation <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
@@ -326,7 +329,6 @@
 							std::cout &lt;&lt; ::color::get::saturation&lt; ::color::get::constant::rgb::saturation::hsl_entity &gt;( c ) &lt;&lt; std::cout;<br>
 							std::cout &lt;&lt; ::color::get::saturation&lt; ::color::get::constant::rgb::saturation::hsi_entity &gt;( c ) &lt;&lt; std::cout;<br>
 							<br>
-
 							::color::hsi&lt; double &gt; c1;<br>
 							std::cout &lt;&lt; color::get::saturation( c1 ) &lt;&lt; std::cout;<br>
 							::color::hsl&lt; double &gt; c2;<br>
@@ -337,12 +339,11 @@
 					</dd>
 				</dl><hr width="%20">
 
-
 				<dl>
 					<dt>Name</dt>
 					<dd><a name="#red"/><i>red</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get red <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
@@ -356,7 +357,7 @@
 					<dt>Name</dt>
 					<dd><a name="#white"/><i>white</i></dd>
 					<dt>Declaration</dt>
-					<dd>See <a href="#general">general Note<a> about general declaration.</dd>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
 					<dt>Description</dt>
 					<dd>Get white <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
 					<dt>Example</dt>
@@ -364,7 +365,6 @@
 						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::white( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
-
 				</dl><hr width="%20">
 
 			</dd>

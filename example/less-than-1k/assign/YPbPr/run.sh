@@ -1,3 +1,5 @@
+pwd
+
 ./YPbPr2cmy.exe
 ./YPbPr2cmyk.exe
 ./YPbPr2gray.exe

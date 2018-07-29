@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_lime
 #define color_generic_constant_lime
 
-// ::color::constant::lime( c )
+// ::color::constant::::lime( c )
 
 #include "./base.hpp"
 
@@ -12,17 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct lime_type{};
+      namespace w3c
+       {
+        struct lime_t{};
+       }
      }
 
-    typedef ::color::constant::base< ::color::constant::_internal::lime_type > lime_t, lime_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::lime_t > lime_t;
+     }
 
-    //namespace vga
-    // {// Same as w3c
-    //  typedef  ::color::constant::w3c::lime_type  lime_type;
-    // }
+    // Primary value is w3c
+    typedef ::color::constant::w3c::lime_t lime_t;
 
    }
  }
 
-#endif
+#endif 

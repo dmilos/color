@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_cyan
 #define color_generic_constant_cyan
 
-// ::color::constant::cyan( c )
+// ::color::constant::::cyan( c )
 
 #include "./base.hpp"
 
@@ -9,15 +9,24 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct cyan_type{};
+      namespace w3c
+       {
+        struct cyan_t{};
+       }
      }
 
-    using  cyan_type = ::color::constant::base< ::color::constant::_internal::cyan_type >;
-    using  cyan_t    = ::color::constant::cyan_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::cyan_t > cyan_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::cyan_t cyan_t;
 
    }
  }
 
-#endif
+#endif 

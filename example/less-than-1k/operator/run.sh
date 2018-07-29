@@ -1,3 +1,5 @@
+pwd
+
 cd ./compare
 ./run.sh
 cd ..

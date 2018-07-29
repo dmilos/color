@@ -13,11 +13,13 @@
 			<dd>
 				<ul>
 					<li><a href="#bound">bound</a></li>
-					<li><a href="#diagonal">diagonal</a></li>
 					<li><a href="#component">component</a></li>
 					<li><a href="#container">container</a></li>
+					<li><a href="#diagonal">diagonal</a></li>
 					<li><a href="#index">index</a></li>
+					<li><a href="#info">info</a></li>
 					<li><a href="#scalar">scalar</a></li>
+					<li><a href="#size">size</a></li>
 				</ul>
 			</dd>
 			<dt><h3>Description</h3></dt>
@@ -44,7 +46,7 @@
 											<dd>
 												<code>
 												//This will print 0.<br>
-												std::count &lt;&lt; ::color::rgb&lt;double&gt;::bound_type::minimum( 0 ) &lt;&lt; std::endl;
+												std::count &lt;&lt; ::color::rgb&lt;double&gt;::bound_type::minimum( 1 ) &lt;&lt; std::endl;
 												</code>
 											</dd>
 										</dl>
@@ -60,7 +62,7 @@
 											<dd>
 												<code>
 												//This will print 360.<br>
-												std::count &lt;&lt; ::color::hsl&lt;double&gt;::bound_type::maximum( 2 ) &lt;&lt; std::endl;
+												std::count &lt;&lt; ::color::hsl&lt;double&gt;::bound_type::maximum( 0 ) &lt;&lt; std::endl;
 												</code>
 											</dd>
 										</dl>
@@ -177,19 +179,38 @@
 							<dd>Type used to iterate trough color's components .</dd>
 							<dt>Members</dt>
 							<dd>
-								<dl> 
+								<dl>
 									<dt><code>instance_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make instance of index</dd><dt>Example</dt>         <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::instance_type;</code></dd></dl></dd>
 									<dt><code>const_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make constant instance of index</dd><dt>Example</dt>   <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::const_type;</code></dd></dl></dd>
 									<dt><code>return_image_type</code></dt><dd><dl><dt>Description</dt><dd>Returned index which can not be modified.</dd><dt>Example</dt> <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::return_image_type;</code></dd></dl></dd>
 									<dt><code>return_type</code></dt><dd><dl><dt>Description</dt><dd>Returned index without guaranteed properties</dd><dt>Example</dt>    <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::return_type;</code></dd></dl></dd>
 									<dt><code>return_original_type</code></dt><dd><dl><dt>Description</dt><dd>Returned index which can be modified.</dd><dt>Example</dt>  <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::return_original_type;</code></dd></dl></dd>
-									<dt><code>model_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd><dt>Example</dt>    <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::model_type;</code></dd></dl></dd>
+									<dt><code>model_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd><dt>Example</dt>          <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::model_type;</code></dd></dl></dd>
 									<dt><code>input_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which might be modifiable.</dd><dt>Example</dt>        <dd>TODO <code>::color::trait::index&lt;::color::rgb&lt;double&gt;&gt;::input_type; </code></dd></dl></dd>
 								</dl>
 							</dd>
 						</dl>
 					</dd>
 
+
+					<dt><a name="info" /><code>info</code></dt>
+					<dd>
+						<dl>
+							<dt>Description</dt>
+							<dd>Miscelaneus information about model/format.</dd>
+							<dt>Members</dt>
+							<dd>
+								<dl>
+									<dt><code>implemented_entity</code></dt><dd><dl><dt>Description</dt><dd>Is model/format implementes</dd>                 <dt>Example</dt> <dd>TODO <code>::color::trait::info&lt;::color::rgb&lt;double&gt;&gt;::implemented_entity;</code></dd></dl></dd>
+									<dt><code>meaningful_entity</code></dt><dd><dl><dt>Description</dt><dd>Is model/fomrat combination have meaning.</dd>    <dt>Example</dt> <dd>TODO <code>::color::trait::info&lt;::color::rgb&lt;double&gt;&gt;::meaningful_entity;</code></dd></dl></dd>
+									<dt><code>overburn_entity</code></dt><dd><dl><dt>Description</dt><dd>Is possible to overburn.</dd>                       <dt>Example</dt> <dd>TODO <code>::color::trait::info&lt;::color::rgb&lt;double&gt;&gt;::overburn_entity;</code></dd></dl></dd>
+									<dt><code>size_entity</code></dt><dd><dl><dt>Description</dt><dd>Number of components </dd>                              <dt>Example</dt> <dd>TODO <code>::color::trait::info&lt;::color::rgb&lt;double&gt;&gt;::size_entity;</code></dd></dl></dd>
+								</dl>
+							</dd>
+						</dl>
+					</dd>
+					
+					
 					<dt><a name="scalar" /><code>scalar</code></dt>
 					<dd>
 						<dl>
@@ -203,12 +224,33 @@
 									<dt><code>return_image_type</code></dt><dd><dl><dt>Description</dt><dd>Returned scalar which can not be modified.</dd><dt>Example</dt><dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::return_image_type;</code></dd></dl></dd>
 									<dt><code>return_type</code></dt><dd><dl><dt>Description</dt><dd>Returned scalar without guaranteed properties</dd><dt>Example</dt>   <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::return_type;</code></dd></dl></dd>
 									<dt><code>return_original_type</code></dt><dd><dl><dt>Description</dt><dd>Returned scalar which can be modified.</dd><dt>Example</dt> <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::return_original_type;</code></dd></dl></dd>
-									<dt><code>model_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd><dt>Example</dt>    <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::model_type;</code></dd></dl></dd>
+									<dt><code>model_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd><dt>Example</dt>          <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::model_type;</code></dd></dl></dd>
 									<dt><code>input_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which might be modifiable.</dd><dt>Example</dt>        <dd>TODO <code>::color::scalar::index&lt;::color::rgb&lt;double&gt;&gt;::input_type;</code></dd></dl></dd>
 								</dl>
 							</dd>
 						</dl>
 					</dd>
+
+					<dt><a name="size" /><code>size</code></dt>
+					<dd>
+						<dl>
+							<dt>Description</dt>
+							<dd>Type used to return size of container.</dd>
+							<dt>Members</dt>
+							<dd>
+								<dl>
+									<dt><code>instance_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make instance of size</dd><dt>Example</dt>         <dd>TODO <code>::color::trait::size&lt;::color::rgb&lt;double&gt;&gt;::instance_type;</code></dd></dl></dd>
+									<dt><code>const_type</code></dt><dd><dl><dt>Description</dt><dd>Type to use to make constant instance of size</dd><dt>Example</dt>   <dd>TODO <code>::color::trait::size&lt;::color::rgb&lt;double&gt;&gt;::const_type;</code></dd></dl></dd>
+									<dt><code>return_image_type</code></dt><dd><dl><dt>Description</dt><dd>Returned size which can not be modified.</dd><dt>Example</dt> <dd>TODO <code>::color::trait::size&lt;::color::rgb&lt;double&gt;&gt;::return_image_type;</code></dd></dl></dd>
+									<dt><code>return_type</code></dt><dd><dl><dt>Description</dt><dd>Returned size without guaranteed properties</dd><dt>Example</dt>    <dd>TODO <code>::color::trait::size&lt;::color::rgb&lt;double&gt;&gt;::return_type;</code></dd></dl></dd>
+									<dt><code>return_original_type</code></dt><dd><dl><dt>Description</dt><dd>Returned size which can be modified.</dd><dt>Example</dt>  <dd>TODO <code>::color::trait::size&lt;::color::rgb&lt;double&gt;&gt;::return_original_type;</code></dd></dl></dd>
+									<dt><code>model_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which is not modifiable.</dd><dt>Example</dt>         <dd>TODO <code>::color::trait::size&lt;::color::rgb&lt;double&gt;&gt;::model_type;</code></dd></dl></dd>
+									<dt><code>input_type</code></dt><dd><dl><dt>Description</dt><dd>Parameter type which might be modifiable.</dd><dt>Example</dt>       <dd>TODO <code>::color::trait::size&lt;::color::rgb&lt;double&gt;&gt;::input_type; </code></dd></dl></dd>
+								</dl>
+							</dd>
+						</dl>
+					</dd>
+
 				</dl>
 			</dd>
 		</dl>

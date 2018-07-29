@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
 
   // ---->>> In here we somehow fill image with useful RGB data <<<----
 
-  ::color::rgb<double> sample( ::color::constant::turquoise_type{} );
+  ::color::rgb<double> sample( ::color::constant::turquoise_t{} );
 
   // Guarantee by design of this library that ::color::ABC<double> is represented in memory only with std::array<double>
   // Guarantee by design of ISO C++ standard that std::array<double> will have only 3 consecutive doubles

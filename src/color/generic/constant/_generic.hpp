@@ -31,9 +31,9 @@ namespace color
        }
      }
 
-    namespace vga
+    namespace x11
      {// Distinctively different
-      typedef  ::color::constant::base< ::color::constant::_internal::vga::$[![name]!]_t >  $[![name]!]_t;
+      typedef  ::color::constant::base< ::color::constant::_internal::x11::$[![name]!]_t >  $[![name]!]_t;
      }
 
     namespace _internal
@@ -49,7 +49,7 @@ namespace color
       typedef  ::color::constant::base< ::color::constant::_internal::vga::$[![name]!]_t >  $[![name]!]_t;
      }
 
-     // Primary value is w3c
+    // Primary value is w3c
     typedef ::color::constant::w3c::$[![name]!]_t $[![name]!]_t;
 
    }

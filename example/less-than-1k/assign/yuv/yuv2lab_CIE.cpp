@@ -11,8 +11,8 @@ int main( int argc, char *argv[] )
   ::color::lab< std::uint8_t, ::color::constant::lab::CIE_entity >    c1;
 
 
-  c0 = ::color::constant::lavender_type{};
-  c1 = ::color::constant::orange_type{};
+  c0 = ::color::constant::lavender_t{};
+  c1 = ::color::constant::orange_t{};
 
   // Assign
   c0 = c1;

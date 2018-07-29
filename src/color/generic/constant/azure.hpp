@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_azure
 #define color_generic_constant_azure
 
-// ::color::constant::azure( c )
+// ::color::constant::::azure( c )
 
 #include "./base.hpp"
 
@@ -12,13 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct azure_type{};
+      namespace w3c
+       {
+        struct azure_t{};
+       }
      }
 
-    using  azure_type = ::color::constant::base< ::color::constant::_internal::azure_type >;
-    using  azure_t    = ::color::constant::azure_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::azure_t > azure_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::azure_t azure_t;
 
    }
  }
 
-#endif
+#endif 

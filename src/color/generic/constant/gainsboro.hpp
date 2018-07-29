@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_gainsboro
 #define color_generic_constant_gainsboro
 
-// ::color::constant::gainsboro( c )
+// ::color::constant::::gainsboro( c )
 
 #include "./base.hpp"
 
@@ -9,13 +9,22 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct gainsboro_type{};
+      namespace w3c
+       {
+        struct gainsboro_t{};
+       }
      }
 
-    using  gainsboro_type = ::color::constant::base< ::color::constant::_internal::gainsboro_type >;
-    using  gainsboro_t    = ::color::constant::gainsboro_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::gainsboro_t > gainsboro_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::gainsboro_t gainsboro_t;
 
    }
  }

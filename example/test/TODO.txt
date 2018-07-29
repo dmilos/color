@@ -1,6 +1,8 @@
 - satur-hsl.tga on msvc give odd results.
 - check, fix, unique
 - color::LabCH, chroma [0,255]
-- color::LuvCH, chroma [0,255] 
+- color::LuvCH, chroma [0,255]
 - color::lmsKriesE (-127, 127)
-- color:: lmsKriesD65 (-127, 127)
+- color::lmsKriesD65 (-127, 127)
+
+- rgb<double> r(  w3string2init_list("#7743CE") );

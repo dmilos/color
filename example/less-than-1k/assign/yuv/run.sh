@@ -1,3 +1,5 @@
+pwd
+
 ./yuv2cmy.exe
 ./yuv2cmyk.exe
 ./yuv2gray.exe

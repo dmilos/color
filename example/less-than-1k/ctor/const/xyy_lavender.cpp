@@ -9,13 +9,13 @@ using namespace color;
 
 int main( int argc, char *argv[] )
  {
-  xyy<uint8_t>    c1( constant::lavender_type{} );
-  xyy<uint16_t>   c2( constant::lavender_type{} );
-  xyy<uint32_t>   c3( constant::lavender_type{} );
-  xyy<uint64_t>   c4( constant::lavender_type{} );
-  xyy<float>           c5( constant::lavender_type{} );
-  xyy<double>          c6( constant::lavender_type{} );
-  xyy<long double>     c7( constant::lavender_type{} );
+  xyy<uint8_t>    c1( constant::lavender_t{} );
+  xyy<uint16_t>   c2( constant::lavender_t{} );
+  xyy<uint32_t>   c3( constant::lavender_t{} );
+  xyy<uint64_t>   c4( constant::lavender_t{} );
+  xyy<float>           c5( constant::lavender_t{} );
+  xyy<double>          c6( constant::lavender_t{} );
+  xyy<long double>     c7( constant::lavender_t{} );
 
   cout << c1[0] << ", " << c1[1] << ", " << c1[2] << endl;
   cout << c2[0] << ", " << c2[1] << ", " << c2[2] << endl;

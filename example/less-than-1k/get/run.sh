@@ -1,3 +1,5 @@
+pwd
+
 cd ./black
 ./run.sh
 cd ..

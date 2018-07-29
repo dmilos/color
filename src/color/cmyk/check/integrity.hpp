@@ -58,7 +58,7 @@ namespace color
 
 
       template<>
-       struct integrity< ::color::category::cmyk_float>
+       struct integrity< ::color::category::cmyk_float >
         {
          public:
           typedef ::color::category::cmyk_float category_type;

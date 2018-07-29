@@ -8,8 +8,8 @@ int main( int argc, char *argv[] )
   ::color::cmyk< float >           c0; //!< Instead of float        you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
   ::color::lms< std::uint8_t, ::color::constant::lms::MCAT02_entity >    c1; //!< Instead of std::uint8_t you may put std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
 
-  c0 = ::color::constant::lavender_type{};
-  c1 = ::color::constant::orange_type{};
+  c0 = ::color::constant::lavender_t{};
+  c1 = ::color::constant::orange_t{};
 
   // Assign
   c0 = c1;

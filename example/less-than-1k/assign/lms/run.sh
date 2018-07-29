@@ -1,3 +1,5 @@
+pwd
+
 ./lms2cmy.exe
 ./lms2cmyk.exe
 ./lms2gray.exe

@@ -1,3 +1,5 @@
+pwd
+
 ./CIE76.exe
 ./cie94g.exe
 ./cie94t.exe

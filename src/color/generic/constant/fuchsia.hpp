@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_fuchsia
 #define color_generic_constant_fuchsia
 
-// ::color::constant::fuchsia( c )
+// ::color::constant::::fuchsia( c )
 
 #include "./base.hpp"
 
@@ -12,17 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct fuchsia_type{};
+      namespace w3c
+       {
+        struct fuchsia_t{};
+       }
      }
 
-    typedef ::color::constant::base< ::color::constant::_internal::fuchsia_type > fuchsia_t, fuchsia_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::fuchsia_t > fuchsia_t;
+     }
 
-    //namespace vga
-    // {// Same as w3c
-    //  typedef  ::color::constant::w3c::fuchsia_type  fuchsia_type;
-    // }
+    // Primary value is w3c
+    typedef ::color::constant::w3c::fuchsia_t fuchsia_t;
 
    }
  }
 
-#endif
+#endif 

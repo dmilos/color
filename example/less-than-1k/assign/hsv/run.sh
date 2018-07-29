@@ -1,3 +1,5 @@
+pwd
+
 ./hsv2cmy.exe
 ./hsv2cmyk.exe
 ./hsv2gray.exe

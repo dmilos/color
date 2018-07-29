@@ -10,8 +10,8 @@ int main( int argc, char *argv[] )
   //!< Instead of std::uint8_t you may put std::uint16_t, std::uint32_t, std::uint64_t, float, double, long double
   ::color::lab< std::uint8_t, ::color::constant::lab::Hunter_entity >    c1;
 
-  c0 = ::color::constant::lavender_type{};
-  c1 = ::color::constant::orange_type{};
+  c0 = ::color::constant::lavender_t{};
+  c1 = ::color::constant::orange_t{};
 
   // Assign
   c0 = c1;

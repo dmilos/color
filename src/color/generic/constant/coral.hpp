@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_coral
 #define color_generic_constant_coral
 
-// ::color::constant::coral( c )
+// ::color::constant::::coral( c )
 
 #include "./base.hpp"
 
@@ -12,13 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct coral_type{};
+      namespace w3c
+       {
+        struct coral_t{};
+       }
      }
 
-    using  coral_type = ::color::constant::base< ::color::constant::_internal::coral_type >;
-    using  coral_t    = ::color::constant::coral_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::coral_t > coral_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::coral_t coral_t;
 
    }
  }
 
-#endif
+#endif 

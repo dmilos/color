@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_chocolate
 #define color_generic_constant_chocolate
 
-// ::color::constant::chocolate( c )
+// ::color::constant::::chocolate( c )
 
 #include "./base.hpp"
 
@@ -12,13 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct chocolate_type{};
+      namespace w3c
+       {
+        struct chocolate_t{};
+       }
      }
 
-    using  chocolate_type = ::color::constant::base< ::color::constant::_internal::chocolate_type >;
-    using  chocolate_t    = ::color::constant::chocolate_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::chocolate_t > chocolate_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::chocolate_t chocolate_t;
 
    }
  }
 
-#endif
+#endif 

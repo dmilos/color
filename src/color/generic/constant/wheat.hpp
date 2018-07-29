@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_wheat
 #define color_generic_constant_wheat
 
-// ::color::constant::wheat( c )
+// ::color::constant::::wheat( c )
 
 #include "./base.hpp"
 
@@ -9,15 +9,24 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct wheat_type{};
+      namespace w3c
+       {
+        struct wheat_t{};
+       }
      }
 
-    using  wheat_type = ::color::constant::base< ::color::constant::_internal::wheat_type >;
-    using  wheat_t    = ::color::constant::wheat_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::wheat_t > wheat_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::wheat_t wheat_t;
 
    }
  }
 
-#endif
+#endif 

@@ -1,3 +1,5 @@
+pwd
+
 ./LabCH2cmy.exe
 ./LabCH2cmyk.exe
 ./LabCH2gray.exe

@@ -1,3 +1,5 @@
+pwd
+
 ./xyy2cmy.exe
 ./xyy2cmyk.exe
 ./xyy2gray.exe

@@ -1,3 +1,5 @@
+pwd
+
 ./luv2cmy.exe
 ./luv2cmyk.exe
 ./luv2gray.exe

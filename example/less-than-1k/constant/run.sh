@@ -1,3 +1,5 @@
+pwd
+
 cd ./cmy
 ./run.sh
 cd ..

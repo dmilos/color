@@ -19,7 +19,7 @@ namespace color
      }
 
 
-    template< std::uintmax_t black_number, std::uintmax_t white_number >
+    template< std::uintmax_t black_number = 50, std::uintmax_t white_number = 50 >
      using  gray_t= ::color::constant::base< ::color::constant::_internal::gray< black_number, white_number > > ;
 
     typedef ::color::constant::gray_t< 99,  1  > gray01_t;

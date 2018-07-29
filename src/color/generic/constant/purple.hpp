@@ -50,7 +50,7 @@ namespace color
     //   }
     // }
     //
-    //namespace x11
+    //namespace vga
     // {// Same as w3c
     //  typedef  ::color::constant::base< ::color::constant::_internal::vga::purple_t >  purple_t;
     // }

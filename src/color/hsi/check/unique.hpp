@@ -34,9 +34,18 @@ namespace color
 
            static bool process( model_type const& m )
             {
-             // TODO
-             //if( m.template get<saturation_p>() == bound_type::template minimum<saturation_p>() ) { return false; }
-             //if( m.template get<intensity_p>() == bound_type::template minimum<intensity_p>() ) { return false; }
+
+             if( m.template get<saturation_p>() == bound_type::template minimum<saturation_p>() ) { return false; }
+
+             if( m.template get<intensity_p>() == bound_type::template minimum<intensity_p>() ) { return false; }
+
+             if( m.template get<intensity_p>() == bound_type::template maximum<intensity_p>() )
+              {
+               if( m.template get<saturation_p>() == bound_type::template minimum<saturation_p>() )
+                {
+                 return false;
+                }
+              }
 
              return true;
             }

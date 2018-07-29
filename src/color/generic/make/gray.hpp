@@ -1,5 +1,6 @@
 #ifndef color_generic_make_gray50
 #define color_generic_make_gray50
+
 // ::color::make::gray< category_name > (      ,typename ::color::trait::scalar< category_name >::model_type    percent       )
 // ::color::make::gray50( c )
 

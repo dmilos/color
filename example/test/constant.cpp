@@ -156,21 +156,21 @@ void test_constant()
   ss << print( ::color::constant::wheat_t{},        "wheat"      );
   ss << print( ::color::constant::yellow_t{},       "yellow"     );
 
-//  ss << print( ::color::constant::vga::black_type{},       "black"     );
-//  ss << print( ::color::constant::vga::silver_type{},      "silver"   );
-//  ss << print( ::color::constant::vga::gray_type{},        "gray"     );
-//  ss << print( ::color::constant::vga::white_type{},       "white"    );
-//  ss << print( ::color::constant::vga::maroon_type{},     "maroon "  );
-//  ss << print( ::color::constant::vga::red_type{},         "red"      );
-//  ss << print( ::color::constant::vga::purple_type{},      "purple"   );
-//  ss << print( ::color::constant::vga::fuchsia_type{},    "fuchsia" );
+//  ss << print( ::color::constant::vga::black_t{},       "black"     );
+//  ss << print( ::color::constant::vga::silver_t{},      "silver"   );
+//  ss << print( ::color::constant::vga::gray_t{},        "gray"     );
+//  ss << print( ::color::constant::vga::white_t{},       "white"    );
+//  ss << print( ::color::constant::vga::maroon_t{},     "maroon "  );
+//  ss << print( ::color::constant::vga::red_t{},         "red"      );
+//  ss << print( ::color::constant::vga::purple_t{},      "purple"   );
+//  ss << print( ::color::constant::vga::fuchsia_t{},    "fuchsia" );
 
-//  ss << print( ::color::constant::vga::green_type{},    "green"    );
-//  ss << print( ::color::constant::vga::lime_type{},     "lime"     );
-//  ss << print( ::color::constant::vga::olive_type{},    "olive"    );
-//  ss << print( ::color::constant::vga::yellow_type{},   "yellow"   );
-//  ss << print( ::color::constant::vga::navy_type{},     "navy"     );
-//  ss << print( ::color::constant::vga::blue_type{},     "blue"     );
+//  ss << print( ::color::constant::vga::green_t{},    "green"    );
+//  ss << print( ::color::constant::vga::lime_t{},     "lime"     );
+//  ss << print( ::color::constant::vga::olive_t{},    "olive"    );
+//  ss << print( ::color::constant::vga::yellow_t{},   "yellow"   );
+//  ss << print( ::color::constant::vga::navy_t{},     "navy"     );
+//  ss << print( ::color::constant::vga::blue_t{},     "blue"     );
 //  ss << print( ::color::constant::vga::teal_type{},     "teal"     );
 //  ss << print( ::color::constant::vga::aqua_t{},     "aqua"     );
 

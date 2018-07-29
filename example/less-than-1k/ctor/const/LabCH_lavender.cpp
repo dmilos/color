@@ -8,13 +8,13 @@ using namespace color;
 
 int main( int argc, char *argv[] )
  {
-  LabCH<uint8_t>   c1( constant::lavender_type{} );
-  LabCH<uint16_t>  c2( constant::lavender_type{} );
-  LabCH<uint32_t>  c3( constant::lavender_type{} );
-  LabCH<uint64_t>  c4( constant::lavender_type{} );
-  LabCH<float>          c5( constant::lavender_type{} );
-  LabCH<double>         c6( constant::lavender_type{} );
-  LabCH<long double>    c7( constant::lavender_type{} );
+  LabCH<uint8_t>   c1( constant::lavender_t{} );
+  LabCH<uint16_t>  c2( constant::lavender_t{} );
+  LabCH<uint32_t>  c3( constant::lavender_t{} );
+  LabCH<uint64_t>  c4( constant::lavender_t{} );
+  LabCH<float>          c5( constant::lavender_t{} );
+  LabCH<double>         c6( constant::lavender_t{} );
+  LabCH<long double>    c7( constant::lavender_t{} );
 
   cout << c1[0] << ", " << c1[1] << ", " << c1[2] << endl;
   cout << c2[0] << ", " << c2[1] << ", " << c2[2] << endl;

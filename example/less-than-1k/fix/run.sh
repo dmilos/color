@@ -1,6 +1,14 @@
-./integrity_cmyk.exe
-./integrity_hsl.exe
-./integrity_hsv.exe
-./overburn_rgb.exe
-./unique_hsl.exe
-./unique_hsv.exe
+pwd
+
+cd ./integrity
+./run.sh
+cd ..
+
+cd ./oveburn
+./run.sh
+cd ..
+
+cd ./unique
+./run.sh
+cd ..
+ 

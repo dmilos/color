@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_violet
 #define color_generic_constant_violet
 
-// ::color::constant::violet( c )
+// ::color::constant::::violet( c )
 
 #include "./base.hpp"
 
@@ -9,15 +9,24 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct violet_type{};
+      namespace w3c
+       {
+        struct violet_t{};
+       }
      }
 
-    using  violet_type = ::color::constant::base< ::color::constant::_internal::violet_type >;
-    using  violet_t    = ::color::constant::violet_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::violet_t > violet_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::violet_t violet_t;
 
    }
  }
 
-#endif
+#endif 

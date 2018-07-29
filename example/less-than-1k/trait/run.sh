@@ -1,3 +1,5 @@
+pwd
+
 cd ./bound
 ./run.sh
 cd .. 

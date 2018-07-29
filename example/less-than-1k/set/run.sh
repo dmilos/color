@@ -1,3 +1,5 @@
+pwd
+
 cd ./blue
 ./run.sh
 cd ..

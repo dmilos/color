@@ -23,7 +23,7 @@ namespace color
       typedef  ::color::constant::base< ::color::constant::_internal::w3c::aqua_t > aqua_t;
      }
 
-     // Primary value is w3c
+    // Primary value is w3c
     typedef ::color::constant::w3c::aqua_t aqua_t;
 
    }

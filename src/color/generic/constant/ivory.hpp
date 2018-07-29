@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_ivory
 #define color_generic_constant_ivory
 
-// ::color::constant::ivory( c )
+// ::color::constant::::ivory( c )
 
 #include "./base.hpp"
 
@@ -9,15 +9,24 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct ivory_type{};
+      namespace w3c
+       {
+        struct ivory_t{};
+       }
      }
 
-    using  ivory_type = ::color::constant::base< ::color::constant::_internal::ivory_type >;
-    using  ivory_t    = ::color::constant::ivory_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::ivory_t > ivory_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::ivory_t ivory_t;
 
    }
  }
 
-#endif
+#endif 

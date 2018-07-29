@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_sienna
 #define color_generic_constant_sienna
 
-// ::color::constant::sienna( c )
+// ::color::constant::::sienna( c )
 
 #include "./base.hpp"
 
@@ -9,15 +9,24 @@ namespace color
  {
   namespace constant
    {
+
     namespace _internal
      {
-      struct sienna_type{};
+      namespace w3c
+       {
+        struct sienna_t{};
+       }
      }
 
-    using  sienna_type = ::color::constant::base< ::color::constant::_internal::sienna_type >;
-    using  sienna_t    = ::color::constant::sienna_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::sienna_t > sienna_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::sienna_t sienna_t;
 
    }
  }
 
-#endif
+#endif 

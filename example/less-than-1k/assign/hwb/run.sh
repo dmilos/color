@@ -1,3 +1,5 @@
+pwd
+
 ./hwb2cmy.exe
 ./hwb2cmyk.exe
 ./hwb2gray.exe

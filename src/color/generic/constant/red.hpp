@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_red
 #define color_generic_constant_red
 
-// ::color::constant::red( c )
+// ::color::constant::::red( c )
 
 #include "./base.hpp"
 
@@ -12,17 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct red_type{};
+      namespace w3c
+       {
+        struct red_t{};
+       }
      }
 
-    typedef ::color::constant::base< ::color::constant::_internal::red_type > red_t, red_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::red_t > red_t;
+     }
 
-    //namespace vga
-    // {// Same as w3c
-    //  typedef  ::color::constant::w3c::red_type  red_type;
-    // }
+    // Primary value is w3c
+    typedef ::color::constant::w3c::red_t red_t;
 
    }
  }
 
-#endif
+#endif 

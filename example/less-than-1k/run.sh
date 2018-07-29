@@ -1,3 +1,5 @@
+pwd
+
 #cd ./akin
 #./run.sh
 #cd ..

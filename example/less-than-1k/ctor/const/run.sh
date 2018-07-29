@@ -1,3 +1,5 @@
+pwd
+
 ./cmy_lavender.exe
 ./cmyk_lavender.exe
 ./gray_lavender.exe

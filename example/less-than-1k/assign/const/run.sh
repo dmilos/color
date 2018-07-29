@@ -1,3 +1,5 @@
+pwd
+
 ./cmy.exe
 ./cmyk.exe
 ./gray.exe

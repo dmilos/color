@@ -8,7 +8,7 @@ int main( int argc, char *argv[] )
   ::color::LabCH< float >          c; //!< Instead of float you may put std::uint8_t,std::uint16_t, std::uint32_t, std::uint64_t, double, long double
 
   // Assign constant to instance
-  c = ::color::constant::lavender_type{};
+  c = ::color::constant::lavender_t{};
 
   //  now you may do whatever you want to do with c
   std::cout << c[0] << ", " << c[1] << ", " << c[2] << std::endl;

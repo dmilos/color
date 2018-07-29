@@ -1,3 +1,5 @@
+pwd
+
 ./rgb2cmy.exe
 ./rgb2cmyk.exe
 ./rgb2gray.exe

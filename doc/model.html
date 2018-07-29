@@ -47,18 +47,20 @@
        public:
         typedef category_name category_type;
 
-        typedef  <i>unspecified</i>     index_type;
+        typedef  typename ::color:trait::index&lt; category_type&gt;::instance_type     index_type;
         typedef  <i>unspecified</i>     index_return_image_type;
         typedef  <i>unspecified</i>     index_input_const_type
 
-        typedef  <i>unspecified</i>     component_type;
+        typedef  typename ::color:trait::component&lt; category_type&gt;::instance_type     component_type;
         typedef  <i>unspecified</i>     component_input_const_type;
         typedef  <i>unspecified</i>     component_return_const_type;
 
-        typedef  <i>unspecified</i>     container_type;
+        typedef  typename ::color:trait::container&lt; category_type&gt;::instance_type     container_type;
         typedef  <i>unspecified</i>     container_return_const_type;
         typedef  <i>unspecified</i>     container_return_original_type;
         typedef  <i>unspecified</i>     container_input_const_type;
+
+        typedef  typename ::color:trait::size&lt; category_type&gt;::instance_type     size_type;
 
         typedef  <i>unspecified</i>     set_return_type;
 
@@ -104,7 +106,7 @@
 
         void container( container_input_const_type container );
 
-        static index_return_image_type       size();
+        static size_type       size();
 
         private:
           container_type m_container;
@@ -229,6 +231,19 @@
 							</dl>
 						</dd>
 
+						<dt><code>size_type</code></dt>
+						<dd>
+							<dl>
+								<dt>Description</dt>
+								<dd>Return type of size function.</dd>
+								<dt>Definition</dt>
+								<dd><code>typedef typename ::color:trait::size&lt; category_type&gt;::instance_type        size_type;</code></dd>
+								<dt>Note</dt>
+								<dd>Usually same as std::size_t.</dd>
+							</dl>
+						</dd>
+
+
 						<dt><code>set_return_type</code></dt>
 						<dd>
 							<dl>
@@ -252,6 +267,7 @@
 							</dl>
 						</dd>
 					</dl>
+
 					<dt><h4><a name="Constructors">Constructors</a></h4></dt>
 					<dd>
 						<dl>
@@ -357,7 +373,7 @@
 									<dd>This is version of get is slower then template.</dd>
 								</dl>
 							</dd>
-							<dt>get&lt;index&gt;</dt>
+							<dt>get&lt;index&gt;()const</dt>
 							<dd>
 								<dl>
 									<dt>Description</dt>
@@ -447,7 +463,7 @@
 									<dt>Description</dt>
 									<dd>Number of components</dd>
 									<dt>Definition</dt>
-									<dd><code>static unsigned       size() </code></dd>
+									<dd><code>static size_type       size() </code></dd>
 								</dl>
 							</dd>
 

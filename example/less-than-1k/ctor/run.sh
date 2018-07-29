@@ -1,3 +1,5 @@
+pwd
+
 cd ./const
 ./run.sh
 cd ..

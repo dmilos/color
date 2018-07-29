@@ -1,3 +1,5 @@
+pwd
+
 ./hsi.exe
 ./hsl.exe
 ./hsv.exe

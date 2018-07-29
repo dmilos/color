@@ -1,3 +1,5 @@
+pwd
+
 cd ./blend
 ./run.sh
 cd ..

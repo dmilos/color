@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_brown
 #define color_generic_constant_brown
 
-// ::color::constant::brown( c )
+// ::color::constant::::brown( c )
 
 #include "./base.hpp"
 
@@ -12,13 +12,21 @@ namespace color
 
     namespace _internal
      {
-      struct brown_type{};
+      namespace w3c
+       {
+        struct brown_t{};
+       }
      }
 
-    using  brown_type = ::color::constant::base< ::color::constant::_internal::brown_type >;
-    using  brown_t    = ::color::constant::brown_type;
+    namespace w3c
+     {
+      typedef  ::color::constant::base< ::color::constant::_internal::w3c::brown_t > brown_t;
+     }
+
+    // Primary value is w3c
+    typedef ::color::constant::w3c::brown_t brown_t;
 
    }
  }
 
-#endif
+#endif 

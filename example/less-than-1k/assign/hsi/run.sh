@@ -1,3 +1,5 @@
+pwd
+
 ./hsi2cmy.exe
 ./hsi2cmyk.exe
 ./hsi2gray.exe

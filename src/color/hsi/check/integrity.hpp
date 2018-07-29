@@ -15,7 +15,7 @@ namespace color
      {
 
       template<>
-       struct integrity< ::color::category::hsi_float>
+       struct integrity< ::color::category::hsi_float >
         {
          public:
           typedef ::color::category::hsi_float category_type;
