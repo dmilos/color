@@ -1,5 +1,6 @@
 #ifndef color_LabCH_check_unique
 #define color_LabCH_check_unique
+
 // ::color::check::unique< category >( model )
 
 #include "../category.hpp"

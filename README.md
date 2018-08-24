@@ -1,11 +1,5 @@
 # Yet another c++ library that implements color.
 
-### Status:
-- Ready for use
-- Documentation
-  - Examples coverage: ~90%
-  - HTML coverage: ~90%
-
 ### Description
  - Yet another c++ library that implements color conversion and manipulation.
 
@@ -31,29 +25,24 @@
 
 ### Code sample - Initialization:
 ```c++
-
-// Three consecutive std::uint8_t. Ordered in memory: blue, green and red.
-// Initialize to some predefined and well known color.
+// Initialize with constant. 
 color::bgr<std::uint8_t>  b( ::color::constant::aqua_t{} );
 
-// Three consecutive std::uint8_t. Ordered in memory: luma, inphase and quadrature.
-// Use intuitive and natural values for initialization. All goes from 0 to 255.
-color::yiq<std::uint8_t>  y( { 192, 64, 92 } );
+/!< Use x11 green.
+color::yiq<std::uint8_t>  y( ::color::constant::x11::green_t{} );
 
-// This will pack ONLY three consecutive doubles in memory. First hue, then saturation and the last is value.
-// Use intuitive/natural values for initialization. hue goes from 0 to 360, saturation and value from 0 to 100.
-color::hsv<double>        h( { 90.0, 50.0, 60.0 } );
+// Use intuitive/natural values for initialization. 
+// hue goes from 0 to 360, saturation and value from 0 to 100.
+color::hsv<double>        h( { 120.0, 50.0, 60.0 } );
 
-// This will pack ONLY three consecutive floats in memory.
-// Lightens will goes from 0 to 100. a and b from -127 to 127. and may goes beyond those values.
-color::lab<float>         l( { 50.0, 0, 0 } );
+// Lightens will goes from 0 to 100. a and b from -127 to 127.
+color::lab<float>         l( { 50.0, -10, 90 } );
 ```
 
 ### Code sample - Conversion:
 ```c++
-y = ::color::constant::turquoise_t{};  //!< Set 'y' to be turquoise.
-
 // any model/format to any model/format by use of operator=
+
 b = r; //!< Reformat and convert.
 r = b; //!< Reformat and convert in opposite direction.
 h = b; //!< Reformat and convert from bgr<std::uint8_t> to hsv<double>

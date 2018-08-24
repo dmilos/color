@@ -111,7 +111,7 @@ namespace color
 
             if( true == scalar_trait_type::is_small( m.template get<   cyan_p>() - bound_type::template minimum<   cyan_p>() ) ) { return true; }
             if( true == scalar_trait_type::is_small( m.template get<magenta_p>() - bound_type::template minimum<magenta_p>() ) ) { return true; }
-            if( true == scalar_trait_type::is_small( m.template get<    key_p>() - bound_type::template minimum<    key_p>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get< yellow_p>() - bound_type::template minimum< yellow_p>() ) ) { return true; }
 
             return false;
            }
@@ -141,7 +141,7 @@ namespace color
 
             if( true == scalar_trait_type::is_small( m.template get<   cyan_p>() - bound_type::template minimum<   cyan_p>() ) ) { return true; }
             if( true == scalar_trait_type::is_small( m.template get<magenta_p>() - bound_type::template minimum<magenta_p>() ) ) { return true; }
-            if( true == scalar_trait_type::is_small( m.template get<    key_p>() - bound_type::template minimum<    key_p>() ) ) { return true; }
+            if( true == scalar_trait_type::is_small( m.template get< yellow_p>() - bound_type::template minimum< yellow_p>() ) ) { return true; }
 
             return false;
            }

@@ -15,13 +15,13 @@ namespace color
  {
 
   template< typename type_name >
-   using LabCH = ::color::model< typename ::color::category::LabCH< type_name> >;
+   using LabCH = ::color::model< typename ::color::category::LabCH< type_name > >;
 
  }
 
 
-
-
+#include "./check/check.hpp"
+#include "./fix/fix.hpp"
 
 #include "./place/place.hpp"
 

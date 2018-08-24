@@ -20,8 +20,8 @@ namespace color
  }
 
 
-
-
+#include "./check/check.hpp"
+#include "./fix/fix.hpp"
 
 #include "./place/place.hpp"
 

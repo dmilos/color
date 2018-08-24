@@ -4,3 +4,5 @@ pwd
 ./hsl.exe
 ./hsv.exe
 ./hwb.exe
+./LabCH.exe
+./LuvCH.exe

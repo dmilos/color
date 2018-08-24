@@ -18,10 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\less-than-1k\check\integrity\cmyk.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F31AD5ED-9D2A-4FC4-9EB6-3427896B25EA}</ProjectGuid>
+    <ProjectGuid>{A3ED98DB-FFC9-4CBC-BBF6-4AB240962603}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>test14vs</RootNamespace>
+    <RootNamespace>test14one</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -153,30 +156,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="bound.cpp" />
-    <ClCompile Include="constant.cpp" />
-    <ClCompile Include="conversion.cpp" />
-    <ClCompile Include="convsemi.cpp" />
-    <ClCompile Include="decompose.cpp" />
-    <ClCompile Include="extract.cpp" />
-    <ClCompile Include="get_invoke.cpp" />
-    <ClCompile Include="get_test.cpp" />
-    <ClCompile Include="gray_scale.cpp" />
-    <ClCompile Include="gray_test.cpp" />
-    <ClCompile Include="image.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="operation\bias.cpp" />
-    <ClCompile Include="operation\distance.cpp" />
-    <ClCompile Include="operation\gain.cpp" />
-    <ClCompile Include="operation\gamma.cpp" />
-    <ClCompile Include="operation\operation.cpp" />
-    <ClCompile Include="palette.cpp" />
-    <ClCompile Include="place.cpp" />
-    <ClCompile Include="set_invoke.cpp" />
-    <ClCompile Include="sizeof.cpp" />
-    <ClCompile Include="targa.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
