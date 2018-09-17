@@ -1,7 +1,7 @@
-#ifndef  color_generic_operation_scale_123
-#define color_generic_operation_scale_123
-// ::color::operation::scale( )
-// ::color::operation::scale( )
+#ifndef  color_generic_operation_divide_123
+#define color_generic_operation_divide_123
+// ::color::operation::divide( )
+// ::color::operation::divide( )
 
 #include "../../generic/model.hpp"
 
@@ -11,13 +11,12 @@
     {
      namespace _internal
       {
+
        template< typename category_name >
-        struct scale
+        struct divide
          {
           public:
             typedef category_name  category_type;
-            typedef typename ::color::trait::scalar<category_name>::model_type  scalar_const_input_type;
-
             typedef ::color::trait::container< category_type >   container_trait_type;
 
             typedef ::color::trait::index<category_type>         index_trait_type;
@@ -32,20 +31,20 @@
 
             typedef typename index_trait_type::instance_type  index_type;
 
-            static model_type & process( model_output_type  result, scalar_const_input_type const& scalar )
+            static model_type & process( model_output_type  result, model_const_input_type const& right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, component_instance_type( result.get( index ) * scalar ) );
+                result.set( index, result.get( index ) / right.get( index ) );
                }
               return result;
              }
 
-            static model_type & process(  model_output_type  result, scalar_const_input_type scalar, model_const_input_type right )
+            static model_type & process(  model_output_type  result, model_const_input_type left, model_const_input_type right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, component_instance_type( scalar * right.get( index ) ) );
+                result.set( index, left.get( index ) / right.get( index ) );
                }
               return result;
              }
@@ -54,24 +53,26 @@
       }
 
      template< typename category_name >
-      ::color::model<category_name>      & scale
+      ::color::model<category_name>      &
+      divide
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::model_type scalar
-       )
-       {
-        return ::color::operation::_internal::scale<category_name>::process( result, scalar );
-       }
-
-     template< typename category_name >
-      ::color::model<category_name>      & scale
-       (
-         ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::model_type  scalar
         ,::color::model<category_name> const& right
        )
        {
-        return ::color::operation::_internal::scale<category_name>::process( result, scalar, right );
+        return ::color::operation::_internal::divide<category_name>::process( result, right );
+       }
+
+     template< typename category_name >
+      ::color::model<category_name>      &
+      divide
+       (
+         ::color::model<category_name>      & result
+        ,::color::model<category_name> const&  left
+        ,::color::model<category_name> const& right
+       )
+       {
+        return ::color::operation::_internal::divide<category_name>::process( result, left, right );
        }
 
     }

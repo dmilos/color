@@ -30,7 +30,7 @@
             typedef ::color::trait::container< category_type >   container_trait_type;
 
             typedef ::color::model<category_type>     model_type;
-            typedef model_type &                      model_input_type;
+            typedef model_type &                      model_output_type;
             typedef model_type const&                 model_const_input_type;
 
             typedef ::color::_internal::diverse< category_type >   diverse_type;
@@ -39,7 +39,7 @@
             typedef ::color::operation::_internal::gamma< category_name > this_type;
 
 
-            static model_type & process( model_input_type result, scalar_const_input_type scalar )
+            static model_type & process( model_output_type result, scalar_const_input_type scalar )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
@@ -48,7 +48,7 @@
               return result;
              }
 
-            static model_type & process(  model_input_type result, model_const_input_type left, scalar_const_input_type value )
+            static model_type & process(  model_output_type result, model_const_input_type left, scalar_const_input_type value )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {

@@ -669,7 +669,7 @@ template< typename source_name, typename category_name >
 
 int main(int argc, char const *argv[] )
  {
-  sandbox_test6();
+  sandbox_test6( );
   //ranger_rgb< color::rgb<double>::category_type, ::color::LabCH<double>::category_type   >();
   //ranger_rgb< color::rgb<double>::category_type, ::color::lab<double, ::color::constant::lab::Hunter_entity>::category_type >();
   //
@@ -689,8 +689,10 @@ int main(int argc, char const *argv[] )
   void make_test_gray_scale();
   make_test_gray_scale();
 
-
   invoke();
+
+  void test_palette();
+  test_palette();
 
   extern int gray_test( int argc, char const *argv[]  );
   gray_test( argc, argv );
@@ -699,10 +701,6 @@ int main(int argc, char const *argv[] )
   test_get_invoke( 0.5 );
 
   LabCH_test();
-
-
-  void test_palette();
-  test_palette();
 
   void test_operation_distance__all( );
   test_operation_distance__all();
@@ -766,9 +764,9 @@ mkdir check
 mkdir conv
 mkdir conv-rgb
 mkdir dec
+mkdir extract
 mkdir gray
 mkdir hue
 mkdir operation
 mkdir palette
-mkdir extract
 */

@@ -15,22 +15,23 @@ directory_obj = './out/bin/'
 
 
 if 'CYGWIN' in platform.system() :
-    directory_pdb += 'gcc-'
-    directory_obj += 'gcc-'
+    directory_pdb += 'gcc'
+    directory_obj += 'gcc'
 
 
 if 'Windows' == platform.system() :
     directory_pdb += 'msvc'
     directory_obj += 'msvc'
     if True == settings.exists_custom( 'compiler_version_msvc' ) :
-        directory_pdb += settings.get_custom( 'compiler_version_msvc' ) + '-'
-        directory_obj += settings.get_custom( 'compiler_version_msvc' ) + '-'
+        directory_pdb += '-' + settings.get_custom( 'compiler_version_msvc' )
+        directory_obj += '-' + settings.get_custom( 'compiler_version_msvc' )
 
-directory_pdb += settings.get_custom( 'configuration' ) + '-'
-directory_obj += settings.get_custom( 'configuration' ) + '-'
+directory_pdb += '-' + settings.get_custom( 'configuration' ) 
+directory_obj += '-' + settings.get_custom( 'configuration' ) 
 
-directory_pdb += settings.get_custom( 'architecture' )
-directory_obj += settings.get_custom( 'architecture' )
+if True == settings.exists_custom( 'architecture' ) :
+    directory_pdb += '-' + settings.get_custom( 'architecture' )
+    directory_obj += '-' + settings.get_custom( 'architecture' )
 
 directory_exe = './out/'
 

@@ -18,3 +18,6 @@
 
 #include "./distance.hpp"
 #include "./delta.hpp"
+
+#include "./multiply.hpp"
+#include "./divide.hpp"

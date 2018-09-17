@@ -26,6 +26,13 @@ template< typename category_name >
    color::operation::scale( u32a, 0.5 );
    color::operation::scale( u32a, 0.5, u32b );
 
+   color::operation::multiply( u32a, u32b );
+   color::operation::multiply( u32a, u32b, u32c );
+   //u32b = ::color::constant::gray_t<1,1>{};
+   //color::operation::divide( u32a, u32b );
+   //u32c = ::color::constant::gray_t<1,1>{};
+   //color::operation::divide( u32a, u32b, u32c );
+
    color::operation::convex( u32a, 0.5, u32b );
    color::operation::convex( u32a, u32b, 0.5, u32c );
 
