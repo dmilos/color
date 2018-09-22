@@ -1,0 +1,154 @@
+import os
+import platform
+import nucleotide
+
+
+Import('settings')
+
+name_full = 'test'
+
+
+configuration = settings.get_custom( 'configuration' )
+architecture = ''
+
+if True == settings.exists_custom( 'architecture' ) :
+    architecture  = settings.get_custom( 'architecture' )
+
+
+directory_pdb = os.path.join( settings.get_custom( 'directory:test:temp' ), '' )
+directory_obj = os.path.join( settings.get_custom( 'directory:test:temp' ), '' )
+directory_src = settings.get_custom( 'directory:test:source' )
+directory_test_src = settings.get_custom( 'directory:test:source' )
+#directory_src=  settings.get_custom( 'directory:source' )
+
+directory_exe = settings.get_custom( 'directory:test:temp' )
+
+
+if 'CYGWIN' in platform.system() :
+    directory_pdb += 'gcc'
+    directory_obj += 'gcc'
+
+
+if 'Windows' == platform.system() :
+    directory_pdb += 'msvc'
+    directory_obj += 'msvc'
+    if True == settings.exists_custom( 'compiler_version_msvc' ) :
+        directory_pdb += '-' + settings.get_custom( 'compiler_version_msvc' )
+        directory_obj += '-' + settings.get_custom( 'compiler_version_msvc' )
+
+directory_pdb += '-' + settings.get_custom( 'configuration' )
+directory_obj += '-' + settings.get_custom( 'configuration' )
+
+if True == settings.exists_custom( 'architecture' ) :
+    directory_pdb += '-' + settings.get_custom( 'architecture' )
+    directory_obj += '-' + settings.get_custom( 'architecture' )
+
+
+# Accumulate Atoms
+settings.accumulate( 'include', { '0' : settings.get_custom( 'directory:source' ) } )
+settings.accumulate( 'architecture', { 'name' : settings.get_custom( 'architecture' ) } )
+settings.accumulate( 'exception' )
+settings.accumulate( 'source:c++', { 'dialect' : 'c++11' } )
+settings.accumulate( 'RTTI', { 'enable': 'true' } )
+settings.accumulate( 'compiler:configuration', { 'name'          : configuration  } )
+settings.accumulate( 'compiler:optimisation',  { 'configuration' : configuration  } )
+settings.accumulate( 'compiler:version',  { 'msvc' : [ settings.get_custom( 'compiler_version_msvc' ) ] } )
+
+settings.accumulate( 'compiler:warning', { 'return-address-of-local-variable': 'enable'   } )
+settings.accumulate( 'compiler:warning', { 'unused-variable'                 : 'disable'   } )
+#settings.accumulate( 'compiler:warning', { 'unused-local-typedefs'           : 'enable'  } )
+#settings.accumulate( 'compiler:warning', { 'conversion-force-to-bool'           : 'enable'  } )
+
+settings.accumulate( 'PDB', { 'configuration' : configuration , 'synchronous' : 'false', 'file-name': os.path.join( directory_pdb, name_full + '.pdb' ) } )
+settings.accumulate( 'RTL', { 'configuration' : configuration, 'type': settings.get_custom( 'RTL' ) } )
+
+if 'true' == settings.get_custom( 'pp2f' ):
+    settings.accumulate( 'macro',  { 'name' : 'COLOR_USE_PP2FILE' } )
+
+# Accumulate source
+envObject = nucleotide.Environment( settings ).native()
+
+##if 'Linux' == platform.system() :
+#envObject.Append( CPPFLAGS = [ '-Wall' ] )
+#envObject.Append( CPPFLAGS = [ '-Wmaybe-uninitialized' ] )
+
+#if 'Windows' == platform.system() :
+#    envObject.Append( CPPFLAGS = [ '/wd4464' ] )
+#    envObject.Append( CPPFLAGS   = [ '/we4244', '/we4365' ] )
+
+
+source = []
+source +=   [
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'main'                 ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'main.cpp'       )  )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'conversion'           ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'conversion.cpp' ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'                ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'targa.cpp'      ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'bound'                ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'bound.cpp'      ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'sizeof'               ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'sizeof.cpp'     ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'set_invoke'           ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'set_invoke.cpp' ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'get_invoke'           ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'get_invoke.cpp' ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'get_test'             ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'get_test.cpp'   ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'gray_test'            ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'gray_test.cpp'  ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'gray_scale'           ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'gray_scale.cpp' ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'decompose'            ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'decompose.cpp'  ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'place'                ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'place.cpp'      ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'convsemi'             ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'convsemi.cpp'   ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'image'                ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'image.cpp'      ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'constant'             ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'constant.cpp'   ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'palette'              ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'palette.cpp'    ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'extract'              ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'extract.cpp'    ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/gamma'      ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'operation/gamma.cpp'    )  )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/bias'       ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'operation/bias.cpp'     )  )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/gain'       ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'operation/gain.cpp'     )  )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/distance'   ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'operation/distance.cpp' )  )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'operation/operation'  ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'operation/operation.cpp')  )
+   ]
+
+source_ec = []
+source_ec +=   [
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'ec'      ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'ec.cpp'         ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'image'   ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'image.cpp'      ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'   ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'targa.cpp'      ) )
+    ]
+
+source_tc = []
+source_tc +=   [
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'tc'      ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'tc.cpp'         ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'image'   ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'image.cpp'      ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'   ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'targa.cpp'      ) )
+    ]
+
+source_allrgb = []
+source_allrgb +=   [
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'allrgb'  ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'allrgb.cpp'     ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'image'   ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'image.cpp'      ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'   ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'targa.cpp'      ) )
+    ]
+
+source_allgray = []
+source_allgray +=   [
+     envObject.StaticObject( target =  os.path.join( directory_obj, 'allgray' ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'allgray.cpp'    ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'image'   ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'image.cpp'      ) )
+   , envObject.StaticObject( target =  os.path.join( directory_obj, 'targa'   ) + envObject[ 'OBJSUFFIX' ],  source = os.path.join( directory_src, 'targa.cpp'      ) )
+    ]
+
+# Make native environment
+envProgram = nucleotide.Environment( settings ).native()
+
+
+# Create program
+program         = envProgram.Program( target = os.path.join( directory_exe , 'test'   ) + envProgram['PROGSUFFIX'], source = source )
+
+# Create program
+program_ec      = envProgram.Program( target = os.path.join( directory_exe, 'ec'      ) + envProgram['PROGSUFFIX'], source = source_ec )
+
+# Create program
+program_tc      = envProgram.Program( target = os.path.join( directory_exe, 'tc'      ) + envProgram['PROGSUFFIX'], source = source_tc )
+
+# Create program
+program_allrgb  = envProgram.Program( target = os.path.join( directory_exe, 'allrgb'  ) + envProgram['PROGSUFFIX'], source = source_allrgb )
+
+# Create program
+program_allgray = envProgram.Program( target = os.path.join( directory_exe, 'allgray' ) + envProgram['PROGSUFFIX'], source = source_allgray )
+
+# ... and return!
+Return(  'program_ec', 'program_tc', 'program', 'program_allrgb', 'program_allgray' )

@@ -78,11 +78,12 @@
         operator /
          (
            ::color::model< category_name > const & left
-          ,scalar_name                                const & right
+          ,scalar_name                     const & right
          )
          {
+          typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
           ::color::model< category_name > result;
-          ::color::operation::scale( result,  scalar_name(1) / right, left );
+          ::color::operation::scale( result,  scalar_type(1) / scalar_type(right), left );
           return result;
          }
 
@@ -109,7 +110,8 @@
        ::color::model< category_name > &
         operator /=( ::color::model< category_name > & result, scalar_name const&  scalar )
          {
-          ::color::operation::scale( result, scalar_name(1) / scalar );
+          typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+          ::color::operation::scale( result, scalar_type(1) / scalar_type( scalar ) );
           return result;
          }
 

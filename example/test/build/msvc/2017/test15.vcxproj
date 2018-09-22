@@ -19,28 +19,28 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bound.cpp" />
-    <ClCompile Include="constant.cpp" />
-    <ClCompile Include="conversion.cpp" />
-    <ClCompile Include="convsemi.cpp" />
-    <ClCompile Include="decompose.cpp" />
-    <ClCompile Include="extract.cpp" />
-    <ClCompile Include="get_invoke.cpp" />
-    <ClCompile Include="get_test.cpp" />
-    <ClCompile Include="gray_scale.cpp" />
-    <ClCompile Include="gray_test.cpp" />
-    <ClCompile Include="image.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="operation\bias.cpp" />
-    <ClCompile Include="operation\distance.cpp" />
-    <ClCompile Include="operation\gain.cpp" />
-    <ClCompile Include="operation\gamma.cpp" />
-    <ClCompile Include="operation\operation.cpp" />
-    <ClCompile Include="palette.cpp" />
-    <ClCompile Include="place.cpp" />
-    <ClCompile Include="set_invoke.cpp" />
-    <ClCompile Include="sizeof.cpp" />
-    <ClCompile Include="targa.cpp" />
+    <ClCompile Include="..\..\..\bound.cpp" />
+    <ClCompile Include="..\..\..\constant.cpp" />
+    <ClCompile Include="..\..\..\conversion.cpp" />
+    <ClCompile Include="..\..\..\convsemi.cpp" />
+    <ClCompile Include="..\..\..\decompose.cpp" />
+    <ClCompile Include="..\..\..\extract.cpp" />
+    <ClCompile Include="..\..\..\get_invoke.cpp" />
+    <ClCompile Include="..\..\..\get_test.cpp" />
+    <ClCompile Include="..\..\..\gray_scale.cpp" />
+    <ClCompile Include="..\..\..\gray_test.cpp" />
+    <ClCompile Include="..\..\..\image.cpp" />
+    <ClCompile Include="..\..\..\main.cpp" />
+    <ClCompile Include="..\..\..\operation\bias.cpp" />
+    <ClCompile Include="..\..\..\operation\distance.cpp" />
+    <ClCompile Include="..\..\..\operation\gain.cpp" />
+    <ClCompile Include="..\..\..\operation\gamma.cpp" />
+    <ClCompile Include="..\..\..\operation\operation.cpp" />
+    <ClCompile Include="..\..\..\palette.cpp" />
+    <ClCompile Include="..\..\..\place.cpp" />
+    <ClCompile Include="..\..\..\set_invoke.cpp" />
+    <ClCompile Include="..\..\..\sizeof.cpp" />
+    <ClCompile Include="..\..\..\targa.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -97,13 +97,13 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)out\bin\msvc15-$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)out\bin\msvc15-$(Configuration)-$(Platform)\</IntDir>
-    <IncludePath>..\..\src;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\..\..\..\src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)out\bin\msvc15-$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)out\bin\msvc15-$(Configuration)-$(Platform)\</IntDir>
-    <IncludePath>..\..\src;$(IncludePath)</IncludePath>
+    <IncludePath>..\..\..\..\..\src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

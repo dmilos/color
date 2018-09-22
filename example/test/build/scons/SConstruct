@@ -1,0 +1,31 @@
+import os
+import nucleotide
+
+#make setting
+settings = nucleotide.Settings( )
+
+settings.set_custom( 'RTL', 'dynamic' )
+#settings.set_custom( 'architecture', 'x86' )
+settings.set_custom( 'configuration', 'Release' )
+#settings.set_custom( 'compiler_version_msvc', '14.0' ) #11, 12, 14
+settings.set_custom( 'pp2f', 'false' )
+
+settings.set_custom( 'configuration',   ARGUMENTS.get( 'configuration', settings.get_custom( 'configuration' ) ) )
+settings.set_custom( 'pp2f',            ARGUMENTS.get( 'pp2f', settings.get_custom( 'pp2f' ) ) )
+
+settings.set_custom( 'directory:_root',         os.path.join(  '..','..','..','..' )  )
+settings.set_custom( 'directory:source',        os.path.join(  settings.get_custom( 'directory:_root'  ), 'src' ) )
+
+settings.set_custom( 'directory:test',          os.path.join( settings.get_custom( 'directory:_root' ) ,"example", "test"  ) )
+settings.set_custom( 'directory:test:source',        settings.get_custom( 'directory:test'  ) )
+settings.set_custom( 'directory:test:temp',          os.path.join( settings.get_custom( 'directory:test'  ) , "out"   ) )
+
+#Accumulate
+# Nothing to accumulate. This is minimal
+
+# Call
+product = SConscript('./SConscript', exports=[ 'settings' ] )
+
+#Make it default
+Default( product )
+
