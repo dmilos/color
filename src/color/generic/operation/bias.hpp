@@ -4,6 +4,17 @@
 #include "../../generic/model.hpp"
 #include "../../generic/trait/scalar.hpp"
 
+
+
+
+
+
+
+
+
+
+
+
  namespace color
   {
    namespace operation
@@ -17,13 +28,19 @@
           public:
             typedef category_name  category_type;
 
+            typedef ::color::trait::index<category_type>         index_trait_type;
+
+
+            typedef ::color::trait::container< category_type >   container_trait_type;
+            typedef ::color::trait::scalar<category_type>        scalar_trait_type;
+
+
+
             typedef typename ::color::trait::scalar<category_type>::instance_type    scalar_type;
             typedef typename ::color::trait::scalar<category_type>::model_type  scalar_const_input_type;
 
-            typedef ::color::trait::index<category_type>         index_trait_type;
             typedef typename index_trait_type::instance_type  index_type;
 
-            typedef ::color::trait::container< category_type >   container_trait_type;
 
             typedef ::color::model<category_type>     model_type;
             typedef model_type &                      model_output_type;
@@ -86,7 +103,7 @@
       bias
        (
          ::color::model<category_name>        & result
-        ,color::model<category_name>     const& left
+        ,::color::model<category_name>     const& left
         ,typename ::color::trait::scalar<category_name>::model_type                     const& scalar
        )
        {

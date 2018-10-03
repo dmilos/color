@@ -24,10 +24,10 @@
 
             typedef ::color::trait::index<category_type>         index_trait_type;
             typedef ::color::trait::bound<category_type>         bound_type;
-            typedef ::color::trait::component< category_name >   component_trait_type;
-            typedef ::color::trait::container< category_name >   container_trait_type;
+            typedef ::color::trait::component< category_type >   component_trait_type;
+            typedef ::color::trait::container< category_type >   container_trait_type;
 
-            typedef typename ::color::model<category_type>  model_type;
+            typedef ::color::model<category_type>  model_type;
 
 
             typedef typename component_trait_type::model_type component_input_const_type;
@@ -35,6 +35,8 @@
 
             typedef typename index_trait_type::instance_type     index_type;
             typedef typename index_trait_type::model_type  index_input_const_type;
+            
+            typedef ::color::operation::_internal::invert<category_type> this_type;
 
 
             static component_return_type
@@ -53,6 +55,12 @@
              component( component_input_const_type component )
              {
               return bound_type::template range<index_size>() - component;
+             }
+
+            model_type operator()( model_type const& right ) const
+             {
+              model_type result;
+              return this_type::process( result, right );
              }
 
             static model_type & process( model_type &result )
@@ -78,7 +86,7 @@
 
 
      template< typename category_name >
-      ::color::model<category_name>      & 
+      ::color::model<category_name>      &
       invert
        (
          ::color::model<category_name>      & result
@@ -88,7 +96,7 @@
        }
 
      template< typename category_name >
-      ::color::model<category_name>      & 
+      ::color::model<category_name>      &
       invert
        (
          ::color::model<category_name>      & result

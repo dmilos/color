@@ -7,6 +7,14 @@
 #include "../trait/scalar.hpp"
 
 
+
+
+
+
+
+
+
+
  namespace color
   {
    namespace operation
@@ -20,12 +28,18 @@
           public:
             typedef category_name  category_type;
 
-            typedef ::color::model<category_type>  model_type;
-            typedef typename ::color::trait::index< category_type >::instance_type          index_type;
-            typedef typename ::color::trait::scalar< category_type >::instance_type        scalar_type;
-            typedef typename ::color::trait::component< category_type >::instance_type  component_type;
-
+            typedef ::color::trait::index<category_type>             index_trait_type;
+            typedef ::color::trait::component< category_type >       component_trait_type;
             typedef ::color::trait::container< category_type >   container_trait_type;
+            typedef ::color::trait::scalar<category_type>            scalar_trait_type;
+
+
+            typedef typename index_trait_type::instance_type          index_type;
+            typedef typename component_trait_type::instance_type  component_type;
+            typedef typename scalar_trait_type::instance_type        scalar_type;
+
+            typedef ::color::model<category_type>  model_type;
+
 
             static model_type& process( model_type &result, model_type const& left, model_type const& right )
              { // Hint: Enable loop unroll, gcc:-funroll-loops

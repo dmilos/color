@@ -53,6 +53,7 @@
           public:
             typedef category_left_name   category_left_type;
             typedef category_right_name  category_right_type;
+
             typedef ::color::model< category_left_type  >  model_left_type;
             typedef ::color::model< category_right_type >  model_right_type;
 
@@ -360,7 +361,7 @@
 
               scalar_type H_a_p = ( h_1_p +  h_2_p )/2; if( 180 < fabs( h_1_p - h_2_p ) ) H_a_p += 180;
 
-              scalar_type T = + 1 
+              scalar_type T = + 1
                               - 0.17 * cos(   (   H_a_p - 30 )*constant_type::deg2rad() )
                               + 0.24 * cos(   ( 2*H_a_p -  0 )*constant_type::deg2rad() )
                               + 0.32 * cos(   ( 3*H_a_p +  6 )*constant_type::deg2rad() )
@@ -368,7 +369,7 @@
 
               scalar_type delta_h_p;
 
-              if( 180 < fabs( h_1_p - h_2_p ) ) 
+              if( 180 < fabs( h_1_p - h_2_p ) )
                {
                 if( h_2_p < h_1_p )
                  {

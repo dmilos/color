@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\less-than-1k\check\integrity\cmyk.cpp">
+    <ClCompile Include="..\..\..\..\less-than-1k\check\integrity\cmyk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

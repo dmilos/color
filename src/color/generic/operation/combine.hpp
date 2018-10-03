@@ -8,6 +8,13 @@
 #include "../../generic/trait/scalar.hpp"
 #include "../../generic/model.hpp"
 
+
+
+
+
+
+
+
  namespace color
   {
    namespace operation
@@ -24,11 +31,14 @@
           public:
             typedef category_name  category_type;
 
-            typedef typename ::color::trait::scalar< category_type >::instance_type    scalar_type;
-            typedef typename ::color::trait::index<category_type>::instance_type       index_type;
-
+            typedef ::color::trait::index< category_type >       index_trait_type;
+            typedef ::color::trait::component< category_name >     component_trait_type;
             typedef ::color::trait::container< category_type >   container_trait_type;
-            typedef typename ::color::trait::component< category_name >::instance_type component_type;
+            typedef ::color::trait::scalar<category_type>        scalar_trait_type;
+
+            typedef typename index_trait_type::instance_type       index_type;
+            typedef typename component_trait_type::instance_type component_type;
+            typedef typename scalar_trait_type::instance_type    scalar_type;
 
             typedef ::color::model<category_type>         model_type;
 
