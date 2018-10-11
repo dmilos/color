@@ -31,6 +31,7 @@
          ,CMC1984_entity
          ,delta_gray_entity
          ,hsl_special_entity
+       //,hue_entity // Rejected. Distance by only one coordinate
          ,rgb_special_entity
         };
 
@@ -614,9 +615,7 @@
         return ::color::operation::_internal::distance< category_left_name, category_right_name, reference_number >::process( left, right, K_L, K_1, K_2 );
        }
 
-
     }
-
   }
 
 #endif

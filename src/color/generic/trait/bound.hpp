@@ -26,6 +26,7 @@ namespace color
      * - bound::minimum
      * - bound::maximum
      * - bound::range
+   //* - bound::center
      */
     template< typename category_name >
      struct bound
@@ -51,6 +52,7 @@ namespace color
          using general_type::minimum;
          using general_type::maximum;
          using general_type::range;
+       //using general_type::center;
       };
 
    }

@@ -52,6 +52,12 @@ int main( int argc, char *argv[] )
   gray_image_type right_black   ; right_black  .resize( width * height );
   gray_image_type right_white   ; right_white  .resize( width * height );
 
+  gray_image_type right_satur ; right_satur  .resize( width * height );
+
+  //gray_image_type right_rhd   ; right_rhd  .resize( width * height );
+  //gray_image_type right_ghd   ; right_ghd  .resize( width * height );
+  //gray_image_type right_bhd   ; right_bhd  .resize( width * height );
+
   std::uint64_t equal = 0;
   for(int y=0; y< height; y++)
    for(int x=0; x< width; x++)
@@ -78,6 +84,11 @@ int main( int argc, char *argv[] )
      right_white   [ y*width+x ][ 0 ] = ::color::get::white<    ::color::get::constant::rgb::white::hsl_star_entity >( l );
      right_white   [ y*width+x ][ 0 ] = 255 * pow( right_white   [ y*width+x ][ 0 ]/255.0, 4 );
 
+     right_satur [ y*width+x ][ 0 ] = (std::uint8_t)(::color::get::saturation( color::luv<  float >( l ) ) / 9.1 );
+     //right_rhd   [ y*width+x ][ 0 ] = (255- 511.0 * ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::hexagon_entity >( bgr_color_type( ::color::constant::red_t{}  ), l ))*(right_satur [ y*width+x ][ 0 ]/255.0 );
+     //right_ghd   [ y*width+x ][ 0 ] = (255- 511.0 * ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::hexagon_entity >( bgr_color_type( ::color::constant::green_t{}), l ))*(right_satur [ y*width+x ][ 0 ]/255.0 );
+     //right_bhd   [ y*width+x ][ 0 ] = (255- 511.0 * ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::hexagon_entity >( bgr_color_type( ::color::constant::blue_t{} ), l ))*(right_satur [ y*width+x ][ 0 ]/255.0 );
+
     }
 
   save_image_gray( prefix + "e-0-redCh.tga"   , right_redCh  , width, height );
@@ -93,6 +104,12 @@ int main( int argc, char *argv[] )
   save_image_gray( prefix + "e-A-gray.tga"    , right_gray   , width, height );
   save_image_gray( prefix + "e-B-black.tga"   , right_black  , width, height );
   save_image_gray( prefix + "e-C-white.tga"   , right_white  , width, height );
+
+  save_image_gray( prefix + "e-D-satur.tga" , right_satur, width, height );
+  //save_image_gray( prefix + "e-E-rhd.tga"   , right_rhd  , width, height );
+  //save_image_gray( prefix + "e-F-ghd.tga"   , right_ghd  , width, height );
+  //save_image_gray( prefix + "e-G-bhd.tga"   , right_bhd  , width, height );
+
 
   return EXIT_SUCCESS;
  }

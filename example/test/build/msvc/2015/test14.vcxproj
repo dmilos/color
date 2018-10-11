@@ -1330,9 +1330,9 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)\out\bin\msvc-$(Configuration)</OutDir>
     <IntDir>$(SolutionDir)\out\bin\msvc-$(Configuration)</IntDir>
-    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) configuration=Release </NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=Release</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=Release</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir)..\..\scons configuration=Release</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir)..\..\scons -c configuration=Release</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir)..\..\scons -c configuration=Release</NMakeCleanCommandLine>
     <NMakeOutput>$(SolutionDir)out\test.exe</NMakeOutput>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

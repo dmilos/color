@@ -29,6 +29,7 @@
           {
             channel_entity
            ,hsl_star_entity
+         //,hue_entity equivalent with distance<hue_entity, ...>( red, c );
           };
 
         }

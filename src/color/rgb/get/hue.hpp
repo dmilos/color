@@ -1,7 +1,9 @@
 #ifndef color_rgb_get_hue
 #define color_rgb_get_hue
 
-// ::color::get::hue( c )
+// ::color::get::hue( c ) //!< return number between 0 and 360
+// ::color::get::constant::rgb::hue::formula_enum
+
 
 #include "../category.hpp"
 #include "../place/place.hpp"
@@ -226,10 +228,8 @@
               scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>() );
               scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p>()  );
 
-              return diverse_type::template process< red_p >( process( r, g, b ) / generic_constant_type::two_pi());
+              return diverse_type::template process< red_p >( process( r, g, b ) / generic_constant_type::two_pi() );
              }
-
-
            };
 
         }

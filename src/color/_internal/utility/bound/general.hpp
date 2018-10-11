@@ -25,7 +25,7 @@ namespace color
              typedef index_name      index_type;
 
              typedef ::color::_internal::utility::type::traitC< value_name >     component_trait_type;
-             typedef ::color::_internal::utility::type::index< index_type >   index_trait_type;
+             typedef ::color::_internal::utility::type::index< index_type >          index_trait_type;
 
              typedef typename component_trait_type::instance_type      component_instance_type;
              typedef typename component_trait_type::return_image_type  component_return_const_type;

@@ -49,8 +49,8 @@ void test_operation_any2any()
 
   typedef ::color::gray<double>          gray_t;            gray_t          gray;
 
-  typedef ::color::rgb<double>            rgb_t;             rgb_t           rgb;
-  typedef ::color::bgr<double>            bgr_t;             bgr_t           bgr;
+  typedef ::color::rgb<double>            rgb_t;             rgb_t           rgb = ::color::constant::aquamarine_t{};
+  typedef ::color::bgr<double>            bgr_t;             bgr_t           bgr = ::color::constant::orange_t{};
 
   typedef ::color::hsi<double>            hsi_t;             hsi_t           hsi;
   typedef ::color::hsl<double>            hsl_t;             hsl_t           hsl;
@@ -79,6 +79,20 @@ void test_operation_any2any()
   typedef ::color::xyy<double>         xyy_t;
   typedef ::color::xyz<double>         xyz_t;
 
+   rgb_t rgbA; rgbA.container( {1, 0.0, 0.0 } );
+   rgb_t rgbB; rgbB.container( {0, 1.0, 1.0 } );
+   rgb_t rgbC; rgbC.container( {0, 0.0, 1.0 } );
+   rgb_t rgbD; rgbD.container( {0, 1.0, 0.0 } );
+   rgb_t rgbE; rgbE.container( {1, 0.5, 0.0} );
+   rgb_t rgbF; rgbF.container( {1, 0.0 ,0.5} );
+
+  ::color::operation::distance< ::color::constant::distance::hue_entity >( rgbA, rgbA );
+  std::cout << "---" << std::endl;
+  std::cout << ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::hexagon_entity     >( rgbA, rgbA ) << std::endl;
+  std::cout << ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::hexagon_entity     >( rgbA, rgbB ) << std::endl;
+  std::cout << ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::polar_atan2_entity >( rgbA, rgbC ) << std::endl;
+  std::cout << ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::polar_acos_entity  >( rgbA, rgbD ) << std::endl;
+  std::cout << ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::polar_entity       >( rgbA, rgbE ) << std::endl;
 
   ::color::operation::distance< ::color::constant::distance::CMC1984_entity >( bgr, rgb, 1, 2 );
   ::color::operation::distance< ::color::constant::distance::CMC1984_entity >( bgr, rgb, 1, 2 );
@@ -91,25 +105,24 @@ void test_operation_any2any()
   ::color::operation::distance< ::color::constant::distance::CIE76_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIE76_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIE76_entity >( bgr, rgb );
-  
+
   ::color::operation::distance< ::color::constant::distance::CIE94__base_entity >( bgr, rgb, 1, 2, 3 );
   ::color::operation::distance< ::color::constant::distance::CIE94__base_entity >( bgr, rgb, 1, 2, 3 );
   ::color::operation::distance< ::color::constant::distance::CIE94__base_entity >( bgr, rgb, 1, 2, 3 );
   ::color::operation::distance< ::color::constant::distance::CIE94__base_entity >( bgr, rgb, 1, 2, 3 );
   ::color::operation::distance< ::color::constant::distance::CIE94__base_entity >( bgr, rgb, 1, 2, 3 );
-  
+
   ::color::operation::distance< ::color::constant::distance::CIE94_graphics_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIE94_graphics_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIE94_graphics_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIE94_graphics_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIE94_graphics_entity >( bgr, rgb );
-  
+
   ::color::operation::distance< ::color::constant::distance::CIE94_textile_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIE94_textile_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIE94_textile_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIE94_textile_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIE94_textile_entity >( bgr, rgb );
-  
 
   ::color::operation::distance< ::color::constant::distance::CIEDE2000_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIEDE2000_entity >( bgr, rgb );
@@ -120,15 +133,15 @@ void test_operation_any2any()
  }
 template
  <
-  enum ::color::constant::distance::reference_enum reference_number
-  , typename category_name
+   enum ::color::constant::distance::reference_enum reference_number
+  ,typename category_name
  >
 void test_operation_distance_zero()
- { 
+ {
   typedef ::color::model< category_name > model_type;
   typedef typename model_type::bound_type bound_type;
 
-  double dmax = -1e6; 
+  double dmax = -1e6;
   for( auto c0 = bound_type::minimum(0); c0 < bound_type::maximum(0); c0 += (bound_type::maximum(0) - bound_type::minimum(0))/255)
    {
     for( auto c1 = bound_type::minimum(1); c1 < bound_type::maximum(1); c1 += (bound_type::maximum(1) - bound_type::minimum(1))/255)
@@ -156,6 +169,7 @@ void test_operation_zero_main()
  {
   typedef ::color::rgb<double>::category_type            rgb_t;
 
+  test_operation_distance_zero< ::color::constant::distance::hue_entity,            rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::euclid_entity,         rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::CIE76_entity,          rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::CIE94_graphics_entity, rgb_t >();
@@ -164,13 +178,13 @@ void test_operation_zero_main()
   test_operation_distance_zero< ::color::constant::distance::CMC1984_entity,        rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::delta_gray_entity,     rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::hsl_special_entity,    rgb_t >();
+
   test_operation_distance_zero< ::color::constant::distance::rgb_special_entity,    rgb_t >();
  }
 
 void test_operation_distance__all()
  {
   test_operation_any2any();
-
 
   typedef ::color::rgb<double>::category_type            rgb_t;
   bgr_image_type image;
@@ -190,6 +204,7 @@ void test_operation_distance__all()
   test_operation_distance_from< ::color::constant::distance::delta_gray_entity,     rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 3.00,    "./operation/dist_deltaG_rgb2rgb.tga"     );
   test_operation_distance_from< ::color::constant::distance::hsl_special_entity,    rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 1119.00, "./operation/dist_hslS_rgb2rgb.tga"       );
   test_operation_distance_from< ::color::constant::distance::rgb_special_entity,    rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 1.00,    "./operation/dist_rgbS_rgb2rgb.tga"       );
+  test_operation_distance_from< ::color::constant::distance::hue_entity,            rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 1.00,    "./operation/dist_rgbS_rgb2rgb.tga"       );
 
   test_operation_zero_main();
 
