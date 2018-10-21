@@ -945,6 +945,7 @@ public:
 	using general_type::minimum;
 	using general_type::maximum;
 	using general_type::range;
+
 };
 
 }
@@ -1650,24 +1651,16 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct aquamarine_type {};
-}
-
-using aquamarine_t = ::color::constant::base< ::color::constant::_internal::aquamarine_type >;
-using aquamarine_type = ::color::constant::aquamarine_t;
-
+namespace w3c {
+struct aquamarine_t {};
 }
 }
 
-namespace color {
-namespace constant {
-
-namespace _internal {
-struct azure_type {};
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::aquamarine_t > aquamarine_t;
 }
 
-using azure_type = ::color::constant::base< ::color::constant::_internal::azure_type >;
-using azure_t = ::color::constant::azure_type;
+typedef ::color::constant::w3c::aquamarine_t aquamarine_t;
 
 }
 }
@@ -1676,11 +1669,16 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct beige_type {};
+namespace w3c {
+struct azure_t {};
+}
 }
 
-using beige_type = ::color::constant::base< ::color::constant::_internal::beige_type >;
-using beige_t = ::color::constant::beige_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::azure_t > azure_t;
+}
+
+typedef ::color::constant::w3c::azure_t azure_t;
 
 }
 }
@@ -1689,11 +1687,34 @@ namespace color {
 namespace constant {
 
 namespace _internal {
+namespace w3c {
+struct beige_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::beige_t > beige_t;
+}
+
+typedef ::color::constant::w3c::beige_t beige_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
 struct bisque_t {};
 }
+}
 
-using bisque_t = ::color::constant::base< ::color::constant::_internal::bisque_t >;
-using bisque_type = ::color::constant::bisque_t;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::bisque_t > bisque_t;
+}
+
+typedef ::color::constant::w3c::bisque_t bisque_t;
 
 }
 }
@@ -1702,22 +1723,16 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct black_type {};
-}
-
-typedef ::color::constant::base< ::color::constant::_internal::black_type > black_t, black_type;
-
+namespace w3c {
+struct black_t {};
 }
 }
 
-namespace color {
-namespace constant {
-
-namespace _internal {
-struct blue_type {};
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::black_t > black_t;
 }
 
-typedef ::color::constant::base< ::color::constant::_internal::blue_type > blue_t, blue_type;
+typedef ::color::constant::w3c::black_t black_t;
 
 }
 }
@@ -1726,24 +1741,16 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct brown_type {};
-}
-
-using brown_type = ::color::constant::base< ::color::constant::_internal::brown_type >;
-using brown_t = ::color::constant::brown_type;
-
+namespace w3c {
+struct blue_t {};
 }
 }
 
-namespace color {
-namespace constant {
-
-namespace _internal {
-struct chocolate_type {};
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::blue_t > blue_t;
 }
 
-using chocolate_type = ::color::constant::base< ::color::constant::_internal::chocolate_type >;
-using chocolate_t = ::color::constant::chocolate_type;
+typedef ::color::constant::w3c::blue_t blue_t;
 
 }
 }
@@ -1752,35 +1759,16 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct coral_type {};
-}
-
-using coral_type = ::color::constant::base< ::color::constant::_internal::coral_type >;
-using coral_t = ::color::constant::coral_type;
-
+namespace w3c {
+struct brown_t {};
 }
 }
 
-namespace color {
-namespace constant {
-namespace _internal {
-struct crimson_type {};
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::brown_t > brown_t;
 }
 
-using crimson_type = ::color::constant::base< ::color::constant::_internal::crimson_type >;
-using crimson_t = ::color::constant::crimson_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct cyan_type {};
-}
-
-using cyan_type = ::color::constant::base< ::color::constant::_internal::cyan_type >;
-using cyan_t = ::color::constant::cyan_type;
+typedef ::color::constant::w3c::brown_t brown_t;
 
 }
 }
@@ -1789,34 +1777,124 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct fuchsia_type {};
-}
-
-typedef ::color::constant::base< ::color::constant::_internal::fuchsia_type > fuchsia_t, fuchsia_type;
-
+namespace w3c {
+struct chocolate_t {};
 }
 }
 
-namespace color {
-namespace constant {
-namespace _internal {
-struct gainsboro_type {};
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::chocolate_t > chocolate_t;
 }
 
-using gainsboro_type = ::color::constant::base< ::color::constant::_internal::gainsboro_type >;
-using gainsboro_t = ::color::constant::gainsboro_type;
+typedef ::color::constant::w3c::chocolate_t chocolate_t;
 
 }
 }
 
 namespace color {
 namespace constant {
+
 namespace _internal {
-struct gold_type {};
+namespace w3c {
+struct coral_t {};
+}
 }
 
-using gold_type = ::color::constant::base< ::color::constant::_internal::gold_type >;
-using gold_t = ::color::constant::gold_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::coral_t > coral_t;
+}
+
+typedef ::color::constant::w3c::coral_t coral_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct crimson_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::crimson_t > crimson_t;
+}
+
+typedef ::color::constant::w3c::crimson_t crimson_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct cyan_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::cyan_t > cyan_t;
+}
+
+typedef ::color::constant::w3c::cyan_t cyan_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct fuchsia_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::fuchsia_t > fuchsia_t;
+}
+
+typedef ::color::constant::w3c::fuchsia_t fuchsia_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct gainsboro_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::gainsboro_t > gainsboro_t;
+}
+
+typedef ::color::constant::w3c::gainsboro_t gainsboro_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct gold_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::gold_t > gold_t;
+}
+
+typedef ::color::constant::w3c::gold_t gold_t;
 
 }
 }
@@ -1831,7 +1909,7 @@ struct gray {};
 
 }
 
-template< std::uintmax_t black_number, std::uintmax_t white_number >
+template< std::uintmax_t black_number = 50, std::uintmax_t white_number = 50 >
 using gray_t= ::color::constant::base< ::color::constant::_internal::gray< black_number, white_number > > ;
 
 typedef ::color::constant::gray_t< 99, 1 > gray01_t;
@@ -1867,69 +1945,26 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct green_w3c_t {};
+namespace w3c {
+struct green_t {};
+}
 }
 
 namespace w3c {
-typedef ::color::constant::base< ::color::constant::_internal::green_w3c_t > green_t;
+typedef ::color::constant::base< ::color::constant::_internal::w3c::green_t > green_t;
 }
 
 namespace _internal {
-struct green_x11_t {};
+namespace x11 {
+struct green_t {};
+}
 }
 
 namespace x11 {
-typedef ::color::constant::base< ::color::constant::_internal::green_x11_t > green_t;
+typedef ::color::constant::base< ::color::constant::_internal::x11::green_t > green_t;
 }
 
 typedef ::color::constant::w3c::green_t green_t;
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct indigo_type {};
-}
-
-using indigo_type = ::color::constant::base< ::color::constant::_internal::indigo_type >;
-using indigo_t = ::color::constant::indigo_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct ivory_type {};
-}
-
-using ivory_type = ::color::constant::base< ::color::constant::_internal::ivory_type >;
-using ivory_t = ::color::constant::ivory_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct khaki_type {};
-}
-
-using khaki_type = ::color::constant::base< ::color::constant::_internal::khaki_type >;
-using khaki_t = ::color::constant::khaki_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct lavender_type {};
-}
-
-using lavender_type = ::color::constant::base< ::color::constant::_internal::lavender_type >;
-using lavender_t = ::color::constant::lavender_type;
 
 }
 }
@@ -1938,55 +1973,149 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct lime_type {};
+namespace w3c {
+struct indigo_t {};
 }
-
-typedef ::color::constant::base< ::color::constant::_internal::lime_type > lime_t, lime_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct linen_type {};
-}
-
-using linen_type = ::color::constant::base< ::color::constant::_internal::linen_type >;
-using linen_t = ::color::constant::linen_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct magenta_type {};
-}
-
-using magenta_type = ::color::constant::base< ::color::constant::_internal::magenta_type >;
-using magenta_t = ::color::constant::magenta_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-
-namespace _internal {
-struct maroon_w3c_t {};
 }
 
 namespace w3c {
-typedef ::color::constant::base< ::color::constant::_internal::maroon_w3c_t > maroon_t;
+typedef ::color::constant::base< ::color::constant::_internal::w3c::indigo_t > indigo_t;
+}
+
+typedef ::color::constant::w3c::indigo_t indigo_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct ivory_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::ivory_t > ivory_t;
+}
+
+typedef ::color::constant::w3c::ivory_t ivory_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct khaki_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::khaki_t > khaki_t;
+}
+
+typedef ::color::constant::w3c::khaki_t khaki_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct lavender_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::lavender_t > lavender_t;
+}
+
+typedef ::color::constant::w3c::lavender_t lavender_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct lime_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::lime_t > lime_t;
+}
+
+typedef ::color::constant::w3c::lime_t lime_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct linen_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::linen_t > linen_t;
+}
+
+typedef ::color::constant::w3c::linen_t linen_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct magenta_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::magenta_t > magenta_t;
+}
+
+typedef ::color::constant::w3c::magenta_t magenta_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct maroon_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::maroon_t > maroon_t;
 }
 
 namespace _internal {
-struct maroon_x11_t {};
+namespace x11 {
+struct maroon_t {};
+}
 }
 
 namespace x11 {
-typedef ::color::constant::base< ::color::constant::_internal::maroon_x11_t > maroon_t;
+typedef ::color::constant::base< ::color::constant::_internal::x11::maroon_t > maroon_t;
 }
 
 typedef ::color::constant::w3c::maroon_t maroon_t;
@@ -1996,12 +2125,18 @@ typedef ::color::constant::w3c::maroon_t maroon_t;
 
 namespace color {
 namespace constant {
+
 namespace _internal {
-struct moccasin_type {};
+namespace w3c {
+struct moccasin_t {};
+}
 }
 
-using moccasin_type = ::color::constant::base< ::color::constant::_internal::moccasin_type >;
-using moccasin_t = ::color::constant::moccasin_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::moccasin_t > moccasin_t;
+}
+
+typedef ::color::constant::w3c::moccasin_t moccasin_t;
 
 }
 }
@@ -2010,10 +2145,16 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct navy_type {};
+namespace w3c {
+struct navy_t {};
+}
 }
 
-typedef ::color::constant::base< ::color::constant::_internal::navy_type > navy_t, navy_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::navy_t > navy_t;
+}
+
+typedef ::color::constant::w3c::navy_t navy_t;
 
 }
 }
@@ -2022,70 +2163,106 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct olive_type {};
-}
-
-typedef ::color::constant::base< ::color::constant::_internal::olive_type > olive_t, olive_type;
-
+namespace w3c {
+struct olive_t {};
 }
 }
 
-namespace color {
-namespace constant {
-namespace _internal {
-struct orange_type {};
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::olive_t > olive_t;
 }
 
-using orange_type = ::color::constant::base< ::color::constant::_internal::orange_type >;
-using orange_t = ::color::constant::orange_type;
+typedef ::color::constant::w3c::olive_t olive_t;
 
 }
 }
 
 namespace color {
 namespace constant {
+
 namespace _internal {
-struct orchid_type {};
+namespace w3c {
+struct orange_t {};
+}
 }
 
-using orchid_type = ::color::constant::base< ::color::constant::_internal::orchid_type >;
-using orchid_t = ::color::constant::orchid_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::orange_t > orange_t;
+}
+
+typedef ::color::constant::w3c::orange_t orange_t;
 
 }
 }
 
 namespace color {
 namespace constant {
+
 namespace _internal {
-struct peru_type {};
+namespace w3c {
+struct orchid_t {};
+}
 }
 
-using peru_type = ::color::constant::base< ::color::constant::_internal::peru_type >;
-using peru_t = ::color::constant::peru_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::orchid_t > orchid_t;
+}
+
+typedef ::color::constant::w3c::orchid_t orchid_t;
 
 }
 }
 
 namespace color {
 namespace constant {
+
 namespace _internal {
-struct pink_type {};
+namespace w3c {
+struct peru_t {};
+}
 }
 
-using pink_type = ::color::constant::base< ::color::constant::_internal::pink_type >;
-using pink_t = ::color::constant::pink_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::peru_t > peru_t;
+}
+
+typedef ::color::constant::w3c::peru_t peru_t;
 
 }
 }
 
 namespace color {
 namespace constant {
+
 namespace _internal {
-struct plum_type {};
+namespace w3c {
+struct pink_t {};
+}
 }
 
-using plum_type = ::color::constant::base< ::color::constant::_internal::plum_type >;
-using plum_t = ::color::constant::plum_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::pink_t > pink_t;
+}
+
+typedef ::color::constant::w3c::pink_t pink_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct plum_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::plum_t > plum_t;
+}
+
+typedef ::color::constant::w3c::plum_t plum_t;
 
 }
 }
@@ -2121,34 +2298,16 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct red_type {};
-}
-
-typedef ::color::constant::base< ::color::constant::_internal::red_type > red_t, red_type;
-
+namespace w3c {
+struct red_t {};
 }
 }
 
-namespace color {
-namespace constant {
-namespace _internal {
-struct salmon_type {};
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::red_t > red_t;
 }
 
-using salmon_type = ::color::constant::base< ::color::constant::_internal::salmon_type >;
-using salmon_t = ::color::constant::salmon_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct sienna_type {};
-}
-
-using sienna_type = ::color::constant::base< ::color::constant::_internal::sienna_type >;
-using sienna_t = ::color::constant::sienna_type;
+typedef ::color::constant::w3c::red_t red_t;
 
 }
 }
@@ -2157,34 +2316,16 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct silver_type {};
-}
-
-typedef ::color::constant::base< ::color::constant::_internal::silver_type > silver_t, silver_type;
-
+namespace w3c {
+struct salmon_t {};
 }
 }
 
-namespace color {
-namespace constant {
-namespace _internal {
-struct snow_type {};
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::salmon_t > salmon_t;
 }
 
-using snow_type = ::color::constant::base< ::color::constant::_internal::snow_type >;
-using snow_t = ::color::constant::snow_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct tan_type {};
-}
-
-using tan_type = ::color::constant::base< ::color::constant::_internal::tan_type >;
-using tan_t = ::color::constant::tan_type;
+typedef ::color::constant::w3c::salmon_t salmon_t;
 
 }
 }
@@ -2193,70 +2334,16 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct teal_type {};
-}
-
-typedef ::color::constant::base< ::color::constant::_internal::teal_type > teal_t, teal_type;
-
+namespace w3c {
+struct sienna_t {};
 }
 }
 
-namespace color {
-namespace constant {
-namespace _internal {
-struct thistle_type {};
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::sienna_t > sienna_t;
 }
 
-using thistle_type = ::color::constant::base< ::color::constant::_internal::thistle_type >;
-using thistle_t = ::color::constant::thistle_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct tomato_type {};
-}
-
-using tomato_type = ::color::constant::base< ::color::constant::_internal::tomato_type >;
-using tomato_t = ::color::constant::tomato_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct turquoise_type {};
-}
-
-using turquoise_type = ::color::constant::base< ::color::constant::_internal::turquoise_type >;
-using turquoise_t = ::color::constant::turquoise_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct violet_type {};
-}
-
-using violet_type = ::color::constant::base< ::color::constant::_internal::violet_type >;
-using violet_t = ::color::constant::violet_type;
-
-}
-}
-
-namespace color {
-namespace constant {
-namespace _internal {
-struct wheat_type {};
-}
-
-using wheat_type = ::color::constant::base< ::color::constant::_internal::wheat_type >;
-using wheat_t = ::color::constant::wheat_type;
+typedef ::color::constant::w3c::sienna_t sienna_t;
 
 }
 }
@@ -2265,10 +2352,16 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct white_type {};
+namespace w3c {
+struct silver_t {};
+}
 }
 
-typedef ::color::constant::base< ::color::constant::_internal::white_type > white_t, white_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::silver_t > silver_t;
+}
+
+typedef ::color::constant::w3c::silver_t silver_t;
 
 }
 }
@@ -2277,10 +2370,178 @@ namespace color {
 namespace constant {
 
 namespace _internal {
-struct yellow_type {};
+namespace w3c {
+struct snow_t {};
+}
 }
 
-typedef ::color::constant::base< ::color::constant::_internal::yellow_type > yellow_t, yellow_type;
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::snow_t > snow_t;
+}
+
+typedef ::color::constant::w3c::snow_t snow_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct tan_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::tan_t > tan_t;
+}
+
+typedef ::color::constant::w3c::tan_t tan_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct teal_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::teal_t > teal_t;
+}
+
+typedef ::color::constant::w3c::teal_t teal_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct thistle_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::thistle_t > thistle_t;
+}
+
+typedef ::color::constant::w3c::thistle_t thistle_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct tomato_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::tomato_t > tomato_t;
+}
+
+typedef ::color::constant::w3c::tomato_t tomato_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct turquoise_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::turquoise_t > turquoise_t;
+}
+
+typedef ::color::constant::w3c::turquoise_t turquoise_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct violet_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::violet_t > violet_t;
+}
+
+typedef ::color::constant::w3c::violet_t violet_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct wheat_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::wheat_t > wheat_t;
+}
+
+typedef ::color::constant::w3c::wheat_t wheat_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct white_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::white_t > white_t;
+}
+
+typedef ::color::constant::w3c::white_t white_t;
+
+}
+}
+
+namespace color {
+namespace constant {
+
+namespace _internal {
+namespace w3c {
+struct yellow_t {};
+}
+}
+
+namespace w3c {
+typedef ::color::constant::base< ::color::constant::_internal::w3c::yellow_t > yellow_t;
+}
+
+typedef ::color::constant::w3c::yellow_t yellow_t;
 
 }
 }
@@ -5652,16 +5913,18 @@ public:
 
 	typedef ::color::trait::index<category_type> index_trait_type;
 	typedef ::color::trait::bound<category_type> bound_type;
-	typedef ::color::trait::component< category_name > component_trait_type;
-	typedef ::color::trait::container< category_name > container_trait_type;
+	typedef ::color::trait::component< category_type > component_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
 
-	typedef typename ::color::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 
 	typedef typename component_trait_type::model_type component_input_const_type;
 	typedef typename component_trait_type::return_type component_return_type;
 
 	typedef typename index_trait_type::instance_type index_type;
 	typedef typename index_trait_type::model_type index_input_const_type;
+
+	typedef ::color::operation::_internal::invert<category_type> this_type;
 
 	static component_return_type
 	component
@@ -5677,6 +5940,11 @@ public:
 	component_return_type
 	component(component_input_const_type component) {
 		return bound_type::template range<index_size>() - component;
+	}
+
+	model_type operator()(model_type const& right) const {
+		model_type result;
+		return this_type::process(result, right);
 	}
 
 	static model_type & process(model_type &result) {
@@ -6407,45 +6675,50 @@ blue
 namespace color {
 namespace operation {
 namespace _internal {
+
 template< typename category_name >
 struct scale {
 public:
 	typedef category_name category_type;
-	typedef typename ::color::trait::scalar<category_name>::model_type scalar_const_input_type;
-
-	typedef ::color::trait::container< category_type > container_trait_type;
 
 	typedef ::color::trait::index<category_type> index_trait_type;
-
 	typedef ::color::trait::component< category_type > component_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+	typedef ::color::trait::scalar< category_name > scalar_trait_type;
+
+	typedef typename scalar_trait_type::model_type scalar_const_input_type;
+
 	typedef typename component_trait_type::instance_type component_instance_type;
 
-	typedef typename ::color::model<category_type> model_type;
+	typedef ::color::model<category_type> model_type;
 
-	typedef model_type & model_input_type;
+	typedef model_type & model_output_type;
 	typedef model_type const& model_const_input_type;
 
 	typedef typename index_trait_type::instance_type index_type;
 
-	static model_type & process(model_input_type result, scalar_const_input_type const& scalar) {
+	typedef ::color::operation::_internal::scale<category_type> this_type;
+
+	static model_type & process(model_output_type result, scalar_const_input_type const& scalar) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component_instance_type(result.get(index) * scalar));
 		}
 		return result;
 	}
 
-	static model_type & process(model_input_type result, scalar_const_input_type scalar, model_const_input_type right) {
+	static model_type & process(model_output_type result, scalar_const_input_type scalar, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component_instance_type(scalar * right.get(index)));
 		}
 		return result;
 	}
-
 };
+
 }
 
 template< typename category_name >
-::color::model<category_name> & scale
+::color::model<category_name> &
+scale
 (
 	::color::model<category_name> & result
 	,typename ::color::trait::scalar<category_name>::model_type scalar
@@ -6454,7 +6727,8 @@ template< typename category_name >
 }
 
 template< typename category_name >
-::color::model<category_name> & scale
+::color::model<category_name> &
+scale
 (
 	::color::model<category_name> & result
 	,typename ::color::trait::scalar<category_name>::model_type scalar
@@ -8455,7 +8729,7 @@ template< > struct integrity< ::color::category::cmyk_uint32 > : public ::color:
 template< > struct integrity< ::color::category::cmyk_uint64 > : public ::color::check::_internal::_privateCMYK::integrity< ::color::category::cmyk_uint64 > { };
 
 template<>
-struct integrity< ::color::category::cmyk_float> {
+struct integrity< ::color::category::cmyk_float > {
 public:
 	typedef ::color::category::cmyk_float category_type;
 
@@ -8513,7 +8787,7 @@ public:
 		if(true == scalar_trait_type::is_small(m.template get<magenta_p>() - bound_type::template minimum<magenta_p>())) {
 			return true;
 		}
-		if(true == scalar_trait_type::is_small(m.template get< key_p>() - bound_type::template minimum< key_p>())) {
+		if(true == scalar_trait_type::is_small(m.template get< yellow_p>() - bound_type::template minimum< yellow_p>())) {
 			return true;
 		}
 		return false;
@@ -8546,7 +8820,7 @@ public:
 		if(true == scalar_trait_type::is_small(m.template get<magenta_p>() - bound_type::template minimum<magenta_p>())) {
 			return true;
 		}
-		if(true == scalar_trait_type::is_small(m.template get< key_p>() - bound_type::template minimum< key_p>())) {
+		if(true == scalar_trait_type::is_small(m.template get< yellow_p>() - bound_type::template minimum< yellow_p>())) {
 			return true;
 		}
 		return false;
@@ -10971,6 +11245,7 @@ namespace red {
 enum formula_enum {
 	channel_entity
 	,hsl_star_entity
+
 };
 
 }
@@ -14471,7 +14746,6 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::h
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p>());
 		return diverse_type::template process< red_p >(process(r, g, b) / generic_constant_type::two_pi());
 	}
-
 };
 
 }
@@ -17238,6 +17512,11 @@ public:
 		if(m.template get<value_p>() == bound_type::template minimum<value_p>()) {
 			return false;
 		}
+		if(m.template get<value_p>() == bound_type::template maximum<value_p>()) {
+			if(m.template get<saturation_p>() == bound_type::template minimum<saturation_p>()) {
+				return false;
+			}
+		}
 		return true;
 	}
 };
@@ -18723,7 +19002,7 @@ namespace check {
 namespace _internal {
 
 template<>
-struct integrity< ::color::category::hsi_float> {
+struct integrity< ::color::category::hsi_float > {
 public:
 	typedef ::color::category::hsi_float category_type;
 
@@ -18858,6 +19137,17 @@ public:
 	};
 
 	static bool process(model_type const& m) {
+		if(m.template get<saturation_p>() == bound_type::template minimum<saturation_p>()) {
+			return false;
+		}
+		if(m.template get<intensity_p>() == bound_type::template minimum<intensity_p>()) {
+			return false;
+		}
+		if(m.template get<intensity_p>() == bound_type::template maximum<intensity_p>()) {
+			if(m.template get<saturation_p>() == bound_type::template minimum<saturation_p>()) {
+				return false;
+			}
+		}
 		return true;
 	}
 };
@@ -20315,6 +20605,87 @@ public:
 }
 
 namespace color {
+namespace place {
+namespace _internal {
+
+template< typename tag_name >
+struct black< ::color::category::hwb< tag_name > > {
+public:
+	typedef ::color::category::hwb< tag_name > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_entity = 2 };
+	enum { has_entity = true };
+
+	static index_instance_type position() {
+		return position_entity;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace place {
+namespace _internal {
+
+template< typename tag_name >
+struct white< ::color::category::hwb< tag_name > > {
+public:
+	typedef ::color::category::hwb< tag_name > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_entity = 1 };
+	enum { has_entity = true };
+
+	static index_instance_type position() {
+		return position_entity;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace check {
+namespace _internal {
+
+template< typename tag_name >
+struct unique< ::color::category::hwb< tag_name > > {
+public:
+	typedef ::color::category::hwb< tag_name > category_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	enum {
+		hue_p = ::color::place::_internal::hue<category_type>::position_enum
+		,white_p = ::color::place::_internal::white<category_type>::position_entity
+		,black_p = ::color::place::_internal::black<category_type>::position_entity
+	};
+
+	static bool process(model_type const& m) {
+		if(m.template get<white_p>() == bound_type::template minimum <white_p>()) {
+			if(m.template get<black_p>() == bound_type::template maximum<black_p>()) {
+				return false;
+			}
+		}
+		if(m.template get<white_p>() == bound_type::template maximum<white_p>()) {
+			if(m.template get<black_p>() == bound_type::template minimum<black_p>()) {
+				return false;
+			}
+		}
+		return true;
+	}
+};
+
+}
+}
+}
+
+namespace color {
 namespace fix {
 namespace _internal {
 namespace _privatehwb {
@@ -20361,50 +20732,6 @@ public:
 template<> struct integrity< ::color::category::hwb_float > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_float > { };
 template<> struct integrity< ::color::category::hwb_double > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_double > { };
 template<> struct integrity< ::color::category::hwb_ldouble > : public ::color::fix::_internal::_privatehwb::integrity< ::color::category::hwb_ldouble> { };
-
-}
-}
-}
-
-namespace color {
-namespace place {
-namespace _internal {
-
-template< typename tag_name >
-struct black< ::color::category::hwb< tag_name > > {
-public:
-	typedef ::color::category::hwb< tag_name > category_type;
-	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
-
-	enum { position_entity = 2 };
-	enum { has_entity = true };
-
-	static index_instance_type position() {
-		return position_entity;
-	}
-};
-
-}
-}
-}
-
-namespace color {
-namespace place {
-namespace _internal {
-
-template< typename tag_name >
-struct white< ::color::category::hwb< tag_name > > {
-public:
-	typedef ::color::category::hwb< tag_name > category_type;
-	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
-
-	enum { position_entity = 1 };
-	enum { has_entity = true };
-
-	static index_instance_type position() {
-		return position_entity;
-	}
-};
 
 }
 }
@@ -34222,27 +34549,6 @@ namespace color {
 namespace trait {
 
 template< ::color::constant::lms::reference_enum reference_number >
-struct component< ::color::category::lms_float<reference_number> >
-	: public ::color::_internal::utility::component::array< float > {
-};
-
-template< ::color::constant::lms::reference_enum reference_number >
-struct component< ::color::category::lms_double<reference_number> >
-	: public ::color::_internal::utility::component::array< double > {
-};
-
-template< ::color::constant::lms::reference_enum reference_number >
-struct component< ::color::category::lms_ldouble<reference_number> >
-	: public ::color::_internal::utility::component::array< long double > {
-};
-
-}
-}
-
-namespace color {
-namespace trait {
-
-template< ::color::constant::lms::reference_enum reference_number >
 struct component< ::color::category::lms_uint8<reference_number> >
 	: public ::color::_internal::utility::component::array< std::uint8_t > {
 };
@@ -34260,6 +34566,26 @@ struct component< ::color::category::lms_uint32<reference_number> >
 template< ::color::constant::lms::reference_enum reference_number >
 struct component< ::color::category::lms_uint64<reference_number> >
 	: public ::color::_internal::utility::component::array< std::uint64_t > {
+};
+
+}
+}
+namespace color {
+namespace trait {
+
+template< ::color::constant::lms::reference_enum reference_number >
+struct component< ::color::category::lms_float<reference_number> >
+	: public ::color::_internal::utility::component::array< float > {
+};
+
+template< ::color::constant::lms::reference_enum reference_number >
+struct component< ::color::category::lms_double<reference_number> >
+	: public ::color::_internal::utility::component::array< double > {
+};
+
+template< ::color::constant::lms::reference_enum reference_number >
+struct component< ::color::category::lms_ldouble<reference_number> >
+	: public ::color::_internal::utility::component::array< long double > {
 };
 
 }
@@ -37991,8 +38317,107 @@ struct container< ::color::category::LabCH_uint64 >
 namespace color {
 
 template< typename type_name >
-using LabCH = ::color::model< typename ::color::category::LabCH< type_name> >;
+using LabCH = ::color::model< typename ::color::category::LabCH< type_name > >;
 
+}
+
+namespace color {
+namespace place {
+namespace _internal {
+
+template< typename tag_name >
+struct hue< ::color::category::LabCH< tag_name > > {
+public:
+	typedef ::color::category::LabCH< tag_name > category_type;
+	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
+
+	enum { position_enum = 2 };
+	enum { has_enum = true };
+
+	static index_instance_type position() {
+		return position_enum;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace check {
+namespace _internal {
+
+template<>
+struct integrity< ::color::category::LabCH_float> {
+public:
+	typedef ::color::category::LabCH_float category_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	enum {
+		hue_p = ::color::place::_internal::hue<category_type>::position_enum
+	};
+
+	static bool process(model_type const& m) {
+		if(m.template get<hue_p>() < bound_type::template minimum<hue_p>()) {
+			return false;
+		}
+		if(bound_type::template maximum<hue_p>() < m.template get<hue_p>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+template<>
+struct integrity< ::color::category::LabCH_double > {
+public:
+	typedef ::color::category::LabCH_double category_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	enum {
+		hue_p = ::color::place::_internal::hue<category_type>::position_enum
+	};
+
+	static bool process(model_type const& m) {
+		if(m.template get<hue_p>() < bound_type::template minimum<hue_p>()) {
+			return false;
+		}
+		if(bound_type::template maximum<hue_p>() < m.template get<hue_p>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+template<>
+struct integrity< ::color::category::LabCH_ldouble > {
+public:
+	typedef ::color::category::LabCH_ldouble category_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	enum {
+		hue_p = ::color::place::_internal::hue<category_type>::position_enum
+	};
+
+	static bool process(model_type const& m) {
+		if(m.template get<hue_p>() < bound_type::template minimum<hue_p>()) {
+			return false;
+		}
+		if(bound_type::template maximum<hue_p>() < m.template get<hue_p>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+}
+}
 }
 
 namespace color {
@@ -38022,28 +38447,6 @@ namespace place {
 namespace _internal {
 
 template< typename tag_name >
-struct hue< ::color::category::LabCH< tag_name > > {
-public:
-	typedef ::color::category::LabCH< tag_name > category_type;
-	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
-
-	enum { position_enum = 2 };
-	enum { has_enum = true };
-
-	static index_instance_type position() {
-		return position_enum;
-	}
-};
-
-}
-}
-}
-
-namespace color {
-namespace place {
-namespace _internal {
-
-template< typename tag_name >
 struct lightness< ::color::category::LabCH< tag_name > > {
 public:
 	typedef ::color::category::LabCH< tag_name > category_type;
@@ -38056,6 +38459,96 @@ public:
 		return position_enum;
 	}
 };
+
+}
+}
+}
+
+namespace color {
+namespace check {
+namespace _internal {
+
+template< typename tag_name >
+struct unique< ::color::category::LabCH< tag_name > > {
+public:
+	typedef ::color::category::LabCH< tag_name > category_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	enum {
+		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
+		,chroma_p = ::color::place::_internal::chroma<category_type>::position_enum
+		,hue_p = ::color::place::_internal::hue<category_type>::position_enum
+	};
+
+	static bool process(model_type const& m) {
+		if(m.template get<chroma_p>() == bound_type::template minimum<chroma_p>()) {
+			return false;
+		}
+		if(m.template get<lightness_p>() == bound_type::template minimum<lightness_p>()) {
+			return false;
+		}
+		if(m.template get<lightness_p>() == bound_type::template maximum<lightness_p>()) {
+			if(m.template get<chroma_p>() == bound_type::template minimum<chroma_p>()) {
+				return false;
+			}
+		}
+		return true;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace fix {
+namespace _internal {
+namespace _privateLabCH {
+
+template< typename category_name >
+struct integrity {
+public:
+	typedef category_name category_type;
+
+	typedef typename ::color::model<category_type> model_type;
+	typedef typename ::color::trait::bound<category_type> bound_type;
+
+	enum {
+		hue_p = ::color::place::_internal::hue<category_type>::position_enum
+	};
+
+	static void process(model_type &result) {
+		if(result.template get<hue_p>() < bound_type::template minimum<hue_p>()) {
+			result.template set<hue_p>(bound_type::template minimum<hue_p>());
+			return;
+		}
+		if(bound_type::template maximum<hue_p>() < result.template get<hue_p>()) {
+			result.template set<hue_p>(bound_type::template maximum<hue_p>());
+			return;
+		}
+	}
+
+	static void process(model_type &result, model_type const& right) {
+		result = right;
+		if(result.template get<hue_p>() < bound_type::template minimum<hue_p>()) {
+			result.template set<hue_p>(bound_type::template minimum<hue_p>());
+			return;
+		}
+		if(bound_type::template maximum<hue_p>() < result.template get<hue_p>()) {
+			result.template set<hue_p>(bound_type::template maximum<hue_p>());
+			return;
+		}
+	}
+
+};
+
+}
+
+template<> struct integrity< ::color::category::LabCH_float > : public ::color::fix::_internal::_privateLabCH::integrity< ::color::category::LabCH_float > { };
+template<> struct integrity< ::color::category::LabCH_double > : public ::color::fix::_internal::_privateLabCH::integrity< ::color::category::LabCH_double > { };
+template<> struct integrity< ::color::category::LabCH_ldouble > : public ::color::fix::_internal::_privateLabCH::integrity< ::color::category::LabCH_ldouble> { };
 
 }
 }
@@ -39975,12 +40468,12 @@ namespace place {
 namespace _internal {
 
 template< typename tag_name >
-struct chroma< ::color::category::LuvCH< tag_name > > {
+struct hue< ::color::category::LuvCH< tag_name > > {
 public:
 	typedef ::color::category::LuvCH< tag_name > category_type;
 	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
-	enum { position_enum = 1 };
+	enum { position_enum = 2 };
 	enum { has_enum = true };
 
 	static index_instance_type position() {
@@ -39993,16 +40486,93 @@ public:
 }
 
 namespace color {
+namespace check {
+namespace _internal {
+
+template<>
+struct integrity< ::color::category::LuvCH_float> {
+public:
+	typedef ::color::category::LuvCH_float category_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	enum {
+		hue_p = ::color::place::_internal::hue<category_type>::position_enum
+	};
+
+	static bool process(model_type const& m) {
+		if(m.template get<hue_p>() < bound_type::template minimum<hue_p>()) {
+			return false;
+		}
+		if(bound_type::template maximum<hue_p>() < m.template get<hue_p>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+template<>
+struct integrity< ::color::category::LuvCH_double > {
+public:
+	typedef ::color::category::LuvCH_double category_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	enum {
+		hue_p = ::color::place::_internal::hue<category_type>::position_enum
+	};
+
+	static bool process(model_type const& m) {
+		if(m.template get<hue_p>() < bound_type::template minimum<hue_p>()) {
+			return false;
+		}
+		if(bound_type::template maximum<hue_p>() < m.template get<hue_p>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+template<>
+struct integrity< ::color::category::LuvCH_ldouble > {
+public:
+	typedef ::color::category::LuvCH_ldouble category_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	enum {
+		hue_p = ::color::place::_internal::hue<category_type>::position_enum
+	};
+
+	static bool process(model_type const& m) {
+		if(m.template get<hue_p>() < bound_type::template minimum<hue_p>()) {
+			return false;
+		}
+		if(bound_type::template maximum<hue_p>() < m.template get<hue_p>()) {
+			return false;
+		}
+		return true;
+	}
+};
+
+}
+}
+}
+
+namespace color {
 namespace place {
 namespace _internal {
 
 template< typename tag_name >
-struct hue< ::color::category::LuvCH< tag_name > > {
+struct chroma< ::color::category::LuvCH< tag_name > > {
 public:
 	typedef ::color::category::LuvCH< tag_name > category_type;
 	typedef typename ::color::trait::index< category_type >::instance_type index_instance_type;
 
-	enum { position_enum = 2 };
+	enum { position_enum = 1 };
 	enum { has_enum = true };
 
 	static index_instance_type position() {
@@ -40031,6 +40601,96 @@ public:
 		return position_enum;
 	}
 };
+
+}
+}
+}
+
+namespace color {
+namespace check {
+namespace _internal {
+
+template< typename tag_name >
+struct unique< ::color::category::LuvCH< tag_name > > {
+public:
+	typedef ::color::category::LuvCH< tag_name > category_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef ::color::trait::bound< category_type > bound_type;
+
+	enum {
+		lightness_p = ::color::place::_internal::lightness<category_type>::position_enum
+		,chroma_p = ::color::place::_internal::chroma<category_type>::position_enum
+		,hue_p = ::color::place::_internal::hue<category_type>::position_enum
+	};
+
+	static bool process(model_type const& m) {
+		if(m.template get<chroma_p>() == bound_type::template minimum<chroma_p>()) {
+			return false;
+		}
+		if(m.template get<lightness_p>() == bound_type::template minimum<lightness_p>()) {
+			return false;
+		}
+		if(m.template get<lightness_p>() == bound_type::template maximum<lightness_p>()) {
+			if(m.template get<chroma_p>() == bound_type::template minimum<chroma_p>()) {
+				return false;
+			}
+		}
+		return true;
+	}
+};
+
+}
+}
+}
+
+namespace color {
+namespace fix {
+namespace _internal {
+namespace _privateLuvCH {
+
+template< typename category_name >
+struct integrity {
+public:
+	typedef category_name category_type;
+
+	typedef typename ::color::model<category_type> model_type;
+	typedef typename ::color::trait::bound<category_type> bound_type;
+
+	enum {
+		hue_p = ::color::place::_internal::hue<category_type>::position_enum
+	};
+
+	static void process(model_type &result) {
+		if(result.template get<hue_p>() < bound_type::template minimum<hue_p>()) {
+			result.template set<hue_p>(bound_type::template minimum<hue_p>());
+			return;
+		}
+		if(bound_type::template maximum<hue_p>() < result.template get<hue_p>()) {
+			result.template set<hue_p>(bound_type::template maximum<hue_p>());
+			return;
+		}
+	}
+
+	static void process(model_type &result, model_type const& right) {
+		result = right;
+		if(result.template get<hue_p>() < bound_type::template minimum<hue_p>()) {
+			result.template set<hue_p>(bound_type::template minimum<hue_p>());
+			return;
+		}
+		if(bound_type::template maximum<hue_p>() < result.template get<hue_p>()) {
+			result.template set<hue_p>(bound_type::template maximum<hue_p>());
+			return;
+		}
+	}
+
+};
+
+}
+
+template<> struct integrity< ::color::category::LuvCH_float > : public ::color::fix::_internal::_privateLuvCH::integrity< ::color::category::LuvCH_float > { };
+template<> struct integrity< ::color::category::LuvCH_double > : public ::color::fix::_internal::_privateLuvCH::integrity< ::color::category::LuvCH_double > { };
+template<> struct integrity< ::color::category::LuvCH_ldouble > : public ::color::fix::_internal::_privateLuvCH::integrity< ::color::category::LuvCH_ldouble> { };
 
 }
 }
@@ -41942,12 +42602,16 @@ struct delta {
 public:
 	typedef category_name category_type;
 
-	typedef ::color::model<category_type> model_type;
-	typedef typename ::color::trait::index< category_type >::instance_type index_type;
-	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
-	typedef typename ::color::trait::component< category_type >::instance_type component_type;
-
+	typedef ::color::trait::index<category_type> index_trait_type;
+	typedef ::color::trait::component< category_type > component_trait_type;
 	typedef ::color::trait::container< category_type > container_trait_type;
+	typedef ::color::trait::scalar<category_type> scalar_trait_type;
+
+	typedef typename index_trait_type::instance_type index_type;
+	typedef typename component_trait_type::instance_type component_type;
+	typedef typename scalar_trait_type::instance_type scalar_type;
+
+	typedef ::color::model<category_type> model_type;
 
 	static model_type& process(model_type &result, model_type const& left, model_type const& right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
@@ -41994,6 +42658,7 @@ enum reference_enum {
 	,CMC1984_entity
 	,delta_gray_entity
 	,hsl_special_entity
+
 	,rgb_special_entity
 };
 
@@ -42013,6 +42678,7 @@ struct distance {
 public:
 	typedef category_left_name category_left_type;
 	typedef category_right_name category_right_type;
+
 	typedef ::color::model< category_left_type > model_left_type;
 	typedef ::color::model< category_right_type > model_right_type;
 
@@ -42430,7 +43096,6 @@ distance
 }
 
 }
-
 }
 
 namespace color {
@@ -49981,15 +50646,16 @@ struct gamma {
 public:
 	typedef category_name category_type;
 
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef typename ::color::trait::scalar<category_type>::model_type scalar_const_input_type;
-
-	typedef typename ::color::trait::index<category_type>::instance_type index_type;
-
+	typedef ::color::trait::index< category_name > index_trait_type;
 	typedef ::color::trait::container< category_type > container_trait_type;
+	typedef ::color::trait::scalar< category_name > scalar_trait_type;
+
+	typedef typename index_trait_type::instance_type index_type;
+	typedef typename scalar_trait_type::instance_type scalar_type;
+	typedef typename scalar_trait_type::model_type scalar_const_input_type;
 
 	typedef ::color::model<category_type> model_type;
-	typedef model_type & model_input_type;
+	typedef model_type & model_output_type;
 	typedef model_type const& model_const_input_type;
 
 	typedef ::color::_internal::diverse< category_type > diverse_type;
@@ -49997,14 +50663,14 @@ public:
 
 	typedef ::color::operation::_internal::gamma< category_name > this_type;
 
-	static model_type & process(model_input_type result, scalar_const_input_type scalar) {
+	static model_type & process(model_output_type result, scalar_const_input_type scalar) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, diverse_type::process(this_type::process(normalize_type::process(result.get(index), index), scalar), index));
 		}
 		return result;
 	}
 
-	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type value) {
+	static model_type & process(model_output_type result, model_const_input_type left, scalar_const_input_type value) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, diverse_type::process(this_type::process(normalize_type::process(left.get(index), index), value), index));
 		}
@@ -51251,11 +51917,19 @@ struct addition {
 public:
 	typedef category_name category_type;
 
-	typedef ::color::trait::container< category_type > container_trait_type;
 	typedef ::color::trait::index< category_type > index_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+
 	typedef ::color::model<category_type> model_type;
 
 	typedef typename index_trait_type::instance_type index_type;
+
+	typedef ::color::operation::_internal::addition<category_type> this_type;
+
+	model_type operator()(model_type const& left, model_type const& right) const {
+		model_type result;
+		return this_type::process(result, left, right);
+	}
 
 	static model_type & process(model_type &result, model_type const& right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
@@ -51297,10 +51971,10 @@ addition
 
 }
 }
-
 namespace color {
 namespace operation {
 namespace _internal {
+
 template< typename category_name >
 struct subtract {
 public:
@@ -51312,6 +51986,13 @@ public:
 	typedef ::color::model<category_type> model_type;
 
 	typedef typename index_trait_type::instance_type index_type;
+
+	typedef ::color::operation::_internal::subtract<category_type> this_type;
+
+	model_type operator()(model_type const& left, model_type const& right) const {
+		model_type result;
+		return this_type::process(result, left, right);
+	}
 
 	static model_type & process(model_type &result, model_type const& right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
@@ -51326,25 +52007,27 @@ public:
 		}
 		return result;
 	}
-
 };
+
 }
 
 template< typename category_name >
-::color::model<category_name> & subtract
+::color::model<category_name> &
+subtract
 (
 	::color::model<category_name> & result
-	,color::model<category_name> const& right
+	,::color::model<category_name> const& right
 ) {
 	return ::color::operation::_internal::subtract<category_name>::process(result, right);
 }
 
 template< typename category_name >
-::color::model<category_name> & subtract
+::color::model<category_name> &
+subtract
 (
 	::color::model<category_name> & result
-	,color::model<category_name> const& left
-	,color::model<category_name> const& right
+	,::color::model<category_name> const& left
+	,::color::model<category_name> const& right
 ) {
 	return ::color::operation::_internal::subtract<category_name>::process(result, left, right);
 }
@@ -51416,8 +52099,9 @@ operator /
 	::color::model< category_name > const & left
 	,scalar_name const & right
 ) {
+	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
 	::color::model< category_name > result;
-	::color::operation::scale(result, scalar_name(1) / right, left);
+	::color::operation::scale(result, scalar_type(1) / scalar_type(right), left);
 	return result;
 }
 
@@ -51441,7 +52125,8 @@ template< typename category_name, typename scalar_name >
 inline
 ::color::model< category_name > &
 operator /=(::color::model< category_name > & result, scalar_name const& scalar) {
-	::color::operation::scale(result, scalar_name(1) / scalar);
+	typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+	::color::operation::scale(result, scalar_type(1) / scalar_type(scalar));
 	return result;
 }
 
@@ -51459,31 +52144,30 @@ struct convex {
 public:
 	typedef category_name category_type;
 
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-
-	typedef scalar_type const& scalar_const_input_type;
-
 	typedef ::color::trait::index<category_type> index_trait_type;
-	typedef ::color::trait::container< category_type > container_trait_type;
-
 	typedef ::color::trait::component< category_type > component_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+	typedef ::color::trait::scalar<category_type> scalar_trait_type;
+
 	typedef typename component_trait_type::instance_type component_instance_type;
+	typedef typename scalar_trait_type::instance_type scalar_type;
+	typedef typename scalar_trait_type::instance_type scalar_const_input_type;
 
 	typedef ::color::model<category_type> model_type;
 
-	typedef model_type & model_input_type;
+	typedef model_type & model_output_type;
 	typedef model_type const& model_const_input_type;
 
 	typedef typename index_trait_type::instance_type index_type;
 
-	static model_type & process(model_input_type result, scalar_const_input_type scalar, model_const_input_type right) {
+	static model_type & process(model_output_type result, scalar_const_input_type scalar, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component_instance_type(scalar * result.get(index) +(scalar_type(1) - scalar) *right.get(index)));
 		}
 		return result;
 	}
 
-	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right) {
+	static model_type & process(model_output_type result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component_instance_type(scalar * left.get(index) +(scalar_type(1) - scalar) *right.get(index)));
 		}
@@ -51499,7 +52183,7 @@ convex
 (
 	::color::model<category_name> & result
 	,typename ::color::trait::scalar<category_name>::model_type scalar
-	,color::model<category_name> const& right
+	,::color::model<category_name> const& right
 ) {
 	return ::color::operation::_internal::convex<category_name>::process(result, scalar, right);
 }
@@ -51509,9 +52193,9 @@ template< typename category_name >
 convex
 (
 	::color::model<category_name> & result
-	,color::model<category_name> const& left
+	,::color::model<category_name> const& left
 	,typename ::color::trait::scalar<category_name>::model_type scalar
-	,color::model<category_name> const& right
+	,::color::model<category_name> const& right
 ) {
 	return ::color::operation::_internal::convex<category_name>::process(result, left, scalar, right);
 }
@@ -51531,16 +52215,17 @@ struct blend {
 public:
 	typedef category_name category_type;
 
-	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
-	typedef typename ::color::trait::scalar<category_type>::model_type scalar_const_input_type;
-
 	typedef ::color::trait::index< category_type > index_trait_type;
+	typedef ::color::trait::component< category_name > component_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+	typedef ::color::trait::scalar<category_type> scalar_trait_type;
+
 	typedef typename index_trait_type::instance_type index_type;
 
-	typedef ::color::trait::component< category_name > component_trait_type;
 	typedef typename component_trait_type::instance_type component_instance_type;
 
-	typedef ::color::trait::container< category_type > container_trait_type;
+	typedef typename scalar_trait_type::instance_type scalar_type;
+	typedef typename scalar_trait_type::model_type scalar_const_input_type;
 
 	typedef ::color::model<category_type> model_type;
 
@@ -51685,11 +52370,14 @@ struct combine {
 public:
 	typedef category_name category_type;
 
-	typedef typename ::color::trait::scalar< category_type >::instance_type scalar_type;
-	typedef typename ::color::trait::index<category_type>::instance_type index_type;
-
+	typedef ::color::trait::index< category_type > index_trait_type;
+	typedef ::color::trait::component< category_name > component_trait_type;
 	typedef ::color::trait::container< category_type > container_trait_type;
-	typedef typename ::color::trait::component< category_name >::instance_type component_type;
+	typedef ::color::trait::scalar<category_type> scalar_trait_type;
+
+	typedef typename index_trait_type::instance_type index_type;
+	typedef typename component_trait_type::instance_type component_type;
+	typedef typename scalar_trait_type::instance_type scalar_type;
 
 	typedef ::color::model<category_type> model_type;
 
@@ -51767,16 +52455,18 @@ struct bias {
 public:
 	typedef category_name category_type;
 
+	typedef ::color::trait::index<category_type> index_trait_type;
+
+	typedef ::color::trait::container< category_type > container_trait_type;
+	typedef ::color::trait::scalar<category_type> scalar_trait_type;
+
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::trait::scalar<category_type>::model_type scalar_const_input_type;
 
-	typedef ::color::trait::index<category_type> index_trait_type;
 	typedef typename index_trait_type::instance_type index_type;
 
-	typedef ::color::trait::container< category_type > container_trait_type;
-
 	typedef ::color::model<category_type> model_type;
-	typedef model_type & model_input_type;
+	typedef model_type & model_output_type;
 	typedef model_type const& model_const_input_type;
 
 	typedef ::color::_internal::diverse< category_type > diverse_type;
@@ -51784,14 +52474,14 @@ public:
 
 	typedef ::color::operation::_internal::bias< category_name > this_type;
 
-	static model_type & process(model_input_type result, scalar_const_input_type scalar) {
+	static model_type & process(model_output_type result, scalar_const_input_type scalar) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, diverse_type::process(this_type::process(normalize_type::process(result.get(index), index), scalar), index));
 		}
 		return result;
 	}
 
-	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type value) {
+	static model_type & process(model_output_type result, model_const_input_type left, scalar_const_input_type value) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, diverse_type::process(this_type::process(normalize_type::process(left.get(index), index), value), index));
 		}
@@ -51799,7 +52489,7 @@ public:
 	}
 
 	template< index_type index_number >
-	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type scalar) {
+	static model_type & process(model_output_type result, model_const_input_type left, scalar_const_input_type scalar) {
 		result.template set<index_number>(diverse_type::template process<index_number>(this_type::process(normalize_type::template process<index_number>(left.template get<index_number>()), scalar)));
 		return result;
 	}
@@ -51826,7 +52516,7 @@ template< typename category_name>
 bias
 (
 	::color::model<category_name> & result
-	,color::model<category_name> const& left
+	,::color::model<category_name> const& left
 	,typename ::color::trait::scalar<category_name>::model_type const& scalar
 ) {
 	return ::color::operation::_internal::bias<category_name>::process(result, left, scalar);
@@ -51844,16 +52534,16 @@ struct gain {
 public:
 	typedef category_name category_type;
 
+	typedef ::color::trait::index<category_type> index_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+	typedef ::color::trait::scalar< category_name > scalar_trait_type;
+
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::trait::scalar<category_type>::model_type scalar_const_input_type;
-
-	typedef ::color::trait::index<category_type> index_trait_type;
 	typedef typename index_trait_type::instance_type index_type;
 
-	typedef ::color::trait::container< category_type > container_trait_type;
-
 	typedef ::color::model<category_type> model_type;
-	typedef model_type & model_input_type;
+	typedef model_type & model_output_type;
 	typedef model_type const& model_const_input_type;
 
 	typedef ::color::_internal::diverse< category_type > diverse_type;
@@ -51863,14 +52553,14 @@ public:
 
 	typedef ::color::operation::_internal::gain< category_name > this_type;
 
-	static model_type & process(model_input_type result, scalar_const_input_type scalar) {
+	static model_type & process(model_output_type result, scalar_const_input_type scalar) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, diverse_type::process(this_type::process(normalize_type::process(result.get(index), index), scalar), index));
 		}
 		return result;
 	}
 
-	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type value) {
+	static model_type & process(model_output_type result, model_const_input_type left, scalar_const_input_type value) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, diverse_type::process(this_type::process(normalize_type::process(left.get(index), index), value), index));
 		}
@@ -51878,7 +52568,7 @@ public:
 	}
 
 	template< index_type index_number >
-	static model_type & process(model_input_type result, model_const_input_type left, scalar_const_input_type scalar) {
+	static model_type & process(model_output_type result, model_const_input_type left, scalar_const_input_type scalar) {
 		result.template set<index_number>(diverse_type::template process<index_number>(this_type::process(normalize_type::template process<index_number>(left.template get<index_number>()), scalar)));
 		return result;
 	}
@@ -51914,6 +52604,145 @@ gain
 ) {
 	return ::color::operation::_internal::gain<category_name>::process(result, left, scalar);
 }
+}
+}
+
+namespace color {
+namespace operation {
+namespace _internal {
+
+template< typename category_name >
+struct multiply {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::trait::index<category_type> index_trait_type;
+	typedef ::color::trait::component< category_type > component_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+
+	typedef typename component_trait_type::instance_type component_instance_type;
+
+	typedef ::color::model<category_type> model_type;
+
+	typedef model_type & model_output_type;
+	typedef model_type const& model_const_input_type;
+
+	typedef typename index_trait_type::instance_type index_type;
+
+	typedef ::color::operation::_internal::multiply<category_type> this_type;
+
+	model_type operator()(model_type const& left, model_type const& right) const {
+		model_type result;
+		return this_type::process(result, left, right);
+	}
+
+	static model_type & process(model_output_type result, model_const_input_type const& right) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, result.get(index) * right.get(index));
+		}
+		return result;
+	}
+
+	static model_type & process(model_output_type result, model_const_input_type left, model_const_input_type right) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, left.get(index) * right.get(index));
+		}
+		return result;
+	}
+};
+
+}
+
+template< typename category_name >
+::color::model<category_name> &
+multiply
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& right
+) {
+	return ::color::operation::_internal::multiply<category_name>::process(result, right);
+}
+
+template< typename category_name >
+::color::model<category_name> &
+multiply
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& left
+	,::color::model<category_name> const& right
+) {
+	return ::color::operation::_internal::multiply<category_name>::process(result, left, right);
+}
+
+}
+}
+namespace color {
+namespace operation {
+namespace _internal {
+
+template< typename category_name >
+struct divide {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::trait::index<category_type> index_trait_type;
+	typedef ::color::trait::component< category_type > component_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+
+	typedef typename component_trait_type::instance_type component_instance_type;
+
+	typedef ::color::model<category_type> model_type;
+
+	typedef model_type & model_output_type;
+	typedef model_type const& model_const_input_type;
+
+	typedef typename index_trait_type::instance_type index_type;
+
+	typedef ::color::operation::_internal::divide<category_type> this_type;
+
+	model_type operator()(model_type const& left, model_type const& right) const {
+		model_type result;
+		return this_type::process(result, left, right);
+	}
+
+	static model_type & process(model_output_type result, model_const_input_type const& right) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, result.get(index) / right.get(index));
+		}
+		return result;
+	}
+
+	static model_type & process(model_output_type result, model_const_input_type left, model_const_input_type right) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, left.get(index) / right.get(index));
+		}
+		return result;
+	}
+};
+
+}
+
+template< typename category_name >
+::color::model<category_name> &
+divide
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& right
+) {
+	return ::color::operation::_internal::divide<category_name>::process(result, right);
+}
+
+template< typename category_name >
+::color::model<category_name> &
+divide
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& left
+	,::color::model<category_name> const& right
+) {
+	return ::color::operation::_internal::divide<category_name>::process(result, left, right);
+}
+
 }
 }
 
@@ -52162,8 +52991,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::black_type, category_name > {
+struct make< ::color::constant::black_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::black_t constant_type;
@@ -52174,7 +53004,6 @@ struct make< ::color::constant::black_type, category_name > {
 		static model_type s_model{ rgb_type{ 0x00, 0x00, 0x00 } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52246,12 +53075,12 @@ struct make< ::color::constant::gray_t<black_number,white_number>, category_name
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::white_type, category_name > {
+struct make< ::color::constant::white_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::white_t constant_type;
@@ -52262,20 +53091,18 @@ struct make< ::color::constant::white_type, category_name > {
 		static model_type s_model{ rgb_type{ 1, 1, 1 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::red_type, category_name > {
+struct make< ::color::constant::red_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::red_t constant_type;
@@ -52286,15 +53113,12 @@ struct make< ::color::constant::red_type, category_name > {
 		static model_type s_model{ rgb_type{ 1, 0, 0 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
@@ -52310,7 +53134,6 @@ struct make< ::color::constant::green_t, category_name > {
 		static model_type s_model{ rgb_type{ 0, 0.5, 0 } };
 		container = s_model.container();
 	}
-
 };
 
 template< typename category_name >
@@ -52329,15 +53152,15 @@ struct make< ::color::constant::x11::green_t, category_name > {
 };
 
 }
-
 }
 
 namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::blue_type, category_name > {
+struct make< ::color::constant::blue_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::blue_t constant_type;
@@ -52348,7 +53171,6 @@ struct make< ::color::constant::blue_type, category_name > {
 		static model_type s_model{ rgb_type{ 0, 0, 1 } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52358,8 +53180,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::cyan_type, category_name > {
+struct make< ::color::constant::cyan_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::cyan_t constant_type;
@@ -52370,19 +53193,18 @@ struct make< ::color::constant::cyan_type, category_name > {
 		static model_type s_model{ rgb_type{ 0x00, 0xFF, 0xFF } };
 		container = s_model.container();
 	}
-
 };
 
 }
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::magenta_type, category_name > {
+struct make< ::color::constant::magenta_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::magenta_t constant_type;
@@ -52393,20 +53215,18 @@ struct make< ::color::constant::magenta_type, category_name > {
 		static model_type s_model{ rgb_type{ 1, 0, 1 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::yellow_type, category_name > {
+struct make< ::color::constant::yellow_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::yellow_t constant_type;
@@ -52417,11 +53237,9 @@ struct make< ::color::constant::yellow_type, category_name > {
 		static model_type s_model{ rgb_type{ 1, 1, 0 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
@@ -52430,6 +53248,7 @@ namespace constant {
 template< typename category_name >
 struct make< ::color::constant::aqua_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::aqua_t constant_type;
@@ -52449,8 +53268,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::fuchsia_type, category_name > {
+struct make< ::color::constant::fuchsia_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::fuchsia_t constant_type;
@@ -52461,19 +53281,18 @@ struct make< ::color::constant::fuchsia_type, category_name > {
 		static model_type s_model{ rgb_type{ 1, 0, 1 } };
 		container = s_model.container();
 	}
-
 };
 
 }
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::lime_type, category_name > {
+struct make< ::color::constant::lime_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::lime_t constant_type;
@@ -52484,15 +53303,12 @@ struct make< ::color::constant::lime_type, category_name > {
 		static model_type s_model{ rgb_type{ 0, 1, 0 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
@@ -52526,16 +53342,15 @@ struct make< ::color::constant::x11::maroon_t, category_name > {
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::navy_type, category_name > {
+struct make< ::color::constant::navy_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::navy_t constant_type;
@@ -52546,20 +53361,18 @@ struct make< ::color::constant::navy_type, category_name > {
 		static model_type s_model{ rgb_type{ 0, 0, 0.5 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::olive_type, category_name > {
+struct make< ::color::constant::olive_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::olive_t constant_type;
@@ -52570,20 +53383,18 @@ struct make< ::color::constant::olive_type, category_name > {
 		static model_type s_model{ rgb_type{ 0.5, 0.5, 0 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::orange_type, category_name > {
+struct make< ::color::constant::orange_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::orange_t constant_type;
@@ -52594,11 +53405,9 @@ struct make< ::color::constant::orange_type, category_name > {
 		static model_type s_model{ rgb_type{ 1, 0.65, 0 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
@@ -52639,12 +53448,12 @@ struct make< ::color::constant::x11::purple_t, category_name > {
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::silver_type, category_name > {
+struct make< ::color::constant::silver_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::silver_t constant_type;
@@ -52655,20 +53464,18 @@ struct make< ::color::constant::silver_type, category_name > {
 		static model_type s_model{ rgb_type{ 0.75, 0.75, 0.75 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::teal_type, category_name > {
+struct make< ::color::constant::teal_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::teal_t constant_type;
@@ -52679,20 +53486,18 @@ struct make< ::color::constant::teal_type, category_name > {
 		static model_type s_model{ rgb_type{ 0, 0.5, 0.5 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::violet_type, category_name > {
+struct make< ::color::constant::violet_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb< std::uint8_t > rgb_type;
 	typedef ::color::constant::violet_t constant_type;
@@ -52703,11 +53508,9 @@ struct make< ::color::constant::violet_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xEE, 0x82, 0xEE } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
@@ -52716,6 +53519,7 @@ namespace constant {
 template< typename category_name >
 struct make< ::color::constant::aquamarine_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::aquamarine_t constant_type;
@@ -52726,7 +53530,6 @@ struct make< ::color::constant::aquamarine_t, category_name > {
 		static model_type s_model{ rgb_type{ 0.5, 1, 212.0/255.0 } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52736,11 +53539,12 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::azure_type, category_name > {
+struct make< ::color::constant::azure_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
-	typedef ::color::constant::azure_type constant_type;
+	typedef ::color::constant::azure_t constant_type;
 
 	typedef typename ::color::trait::container<category_type>::output_type container_output_type;
 
@@ -52748,7 +53552,6 @@ struct make< ::color::constant::azure_type, category_name > {
 		static model_type s_model{ rgb_type{ 0.9375, 1, 1 } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52758,8 +53561,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::beige_type, category_name > {
+struct make< ::color::constant::beige_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::beige_t constant_type;
@@ -52770,7 +53574,6 @@ struct make< ::color::constant::beige_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xF5, 0xF5, 0xDC } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52780,8 +53583,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::bisque_type, category_name > {
+struct make< ::color::constant::bisque_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::bisque_t constant_type;
@@ -52792,7 +53596,6 @@ struct make< ::color::constant::bisque_type, category_name > {
 		static model_type s_model{ rgb_type{ 1, 0.875, 0.75 } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52802,8 +53605,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::brown_type, category_name > {
+struct make< ::color::constant::brown_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::brown_t constant_type;
@@ -52814,7 +53618,6 @@ struct make< ::color::constant::brown_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xA5, 0x2A, 0x2A } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52824,8 +53627,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::chocolate_type, category_name > {
+struct make< ::color::constant::chocolate_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::chocolate_t constant_type;
@@ -52836,7 +53640,6 @@ struct make< ::color::constant::chocolate_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xD2, 0x69, 0x1E } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52846,8 +53649,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::coral_type, category_name > {
+struct make< ::color::constant::coral_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::coral_t constant_type;
@@ -52858,7 +53662,6 @@ struct make< ::color::constant::coral_type, category_name > {
 		static model_type s_model{ rgb_type{ 1, 0.5, 0.31 } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52868,8 +53671,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::crimson_type, category_name > {
+struct make< ::color::constant::crimson_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::crimson_t constant_type;
@@ -52880,7 +53684,6 @@ struct make< ::color::constant::crimson_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xDC, 0x14, 0x3C } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52890,8 +53693,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::gainsboro_type, category_name > {
+struct make< ::color::constant::gainsboro_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::gainsboro_t constant_type;
@@ -52902,7 +53706,6 @@ struct make< ::color::constant::gainsboro_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xDC, 0xDC, 0xDC } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -52912,7 +53715,7 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::gold_type, category_name > {
+struct make< ::color::constant::gold_t, category_name > {
 	typedef category_name category_type;
 
 	typedef ::color::model<category_type> model_type;
@@ -52925,19 +53728,18 @@ struct make< ::color::constant::gold_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xFF, 0xD7, 0x00 } };
 		container = s_model.container();
 	}
-
 };
 
 }
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::indigo_type, category_name > {
+struct make< ::color::constant::indigo_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::indigo_t constant_type;
@@ -52948,20 +53750,18 @@ struct make< ::color::constant::indigo_type, category_name > {
 		static model_type s_model{ rgb_type{ 0x4B, 0x00, 0x82 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::ivory_type, category_name > {
+struct make< ::color::constant::ivory_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::ivory_t constant_type;
@@ -52972,20 +53772,18 @@ struct make< ::color::constant::ivory_type, category_name > {
 		static model_type s_model{ rgb_type{ 1, 1, 0.9375 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::khaki_type, category_name > {
+struct make< ::color::constant::khaki_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::khaki_t constant_type;
@@ -52996,20 +53794,18 @@ struct make< ::color::constant::khaki_type, category_name > {
 		static model_type s_model{ rgb_type{ 0.9375, 0.9, 0.55 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::lavender_type, category_name > {
+struct make< ::color::constant::lavender_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::lavender_t constant_type;
@@ -53020,20 +53816,18 @@ struct make< ::color::constant::lavender_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xE6, 0xE6, 0xFA } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::linen_type, category_name > {
+struct make< ::color::constant::linen_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::linen_t constant_type;
@@ -53044,20 +53838,18 @@ struct make< ::color::constant::linen_type, category_name > {
 		static model_type s_model{ rgb_type{ 250.0/255.0, 0.9375, 0.9 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::moccasin_type, category_name > {
+struct make< ::color::constant::moccasin_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::moccasin_t constant_type;
@@ -53068,20 +53860,18 @@ struct make< ::color::constant::moccasin_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xFF, 0xE4, 0xB5 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::orchid_type, category_name > {
+struct make< ::color::constant::orchid_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::orchid_t constant_type;
@@ -53092,20 +53882,18 @@ struct make< ::color::constant::orchid_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xDA, 0x70, 0xD6 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::peru_type, category_name > {
+struct make< ::color::constant::peru_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::peru_t constant_type;
@@ -53116,19 +53904,18 @@ struct make< ::color::constant::peru_type, category_name > {
 		static model_type s_model{ rgb_type{ 0.8, 0.52, 0.25 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::pink_type, category_name > {
+struct make< ::color::constant::pink_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::pink_t constant_type;
@@ -53139,7 +53926,6 @@ struct make< ::color::constant::pink_type, category_name > {
 		static model_type s_model{ rgb_type{ 1, 0.75, 0.8 } };
 		container = s_model.container();
 	}
-
 };
 
 }
@@ -53149,8 +53935,9 @@ namespace color {
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::plum_type, category_name > {
+struct make< ::color::constant::plum_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::plum_t constant_type;
@@ -53161,19 +53948,18 @@ struct make< ::color::constant::plum_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xDD, 0xA0, 0xDD } };
 		container = s_model.container();
 	}
-
 };
 
 }
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::salmon_type, category_name > {
+struct make< ::color::constant::salmon_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::salmon_t constant_type;
@@ -53184,20 +53970,18 @@ struct make< ::color::constant::salmon_type, category_name > {
 		static model_type s_model{ rgb_type{ 250/255.0, 0.5, 114/255.0 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::sienna_type, category_name > {
+struct make< ::color::constant::sienna_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::sienna_t constant_type;
@@ -53208,20 +53992,18 @@ struct make< ::color::constant::sienna_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xA0, 0x52, 0x2D } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::snow_type, category_name > {
+struct make< ::color::constant::snow_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::snow_t constant_type;
@@ -53232,20 +54014,18 @@ struct make< ::color::constant::snow_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xFF, 0xFA, 0xFA } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::tan_type, category_name > {
+struct make< ::color::constant::tan_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::tan_t constant_type;
@@ -53256,20 +54036,18 @@ struct make< ::color::constant::tan_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xD2, 0xB4, 0x8C } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::thistle_type, category_name > {
+struct make< ::color::constant::thistle_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::thistle_t constant_type;
@@ -53280,20 +54058,18 @@ struct make< ::color::constant::thistle_type, category_name > {
 		static model_type s_model{ rgb_type{ 0.85, 0.75, 0.85 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::tomato_type, category_name > {
+struct make< ::color::constant::tomato_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::tomato_t constant_type;
@@ -53304,20 +54080,18 @@ struct make< ::color::constant::tomato_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xFF, 0x63, 0x47 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::turquoise_type, category_name > {
+struct make< ::color::constant::turquoise_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<double> rgb_type;
 	typedef ::color::constant::turquoise_t constant_type;
@@ -53328,20 +54102,18 @@ struct make< ::color::constant::turquoise_type, category_name > {
 		static model_type s_model{ rgb_type{ 0.25, 0.875, 0.8125 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 namespace color {
-
 namespace constant {
 
 template< typename category_name >
-struct make< ::color::constant::wheat_type, category_name > {
+struct make< ::color::constant::wheat_t, category_name > {
 	typedef category_name category_type;
+
 	typedef ::color::model<category_type> model_type;
 	typedef ::color::rgb<std::uint8_t> rgb_type;
 	typedef ::color::constant::wheat_t constant_type;
@@ -53352,11 +54124,9 @@ struct make< ::color::constant::wheat_type, category_name > {
 		static model_type s_model{ rgb_type{ 0xF5, 0xDE, 0xB3 } };
 		container = s_model.container();
 	}
-
 };
 
 }
-
 }
 
 using namespace ::color::operation::arithmetic;

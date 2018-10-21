@@ -43,7 +43,7 @@ example/convert_rgb2hsl
 example/convert_rgb2hsv
 
 example/hello
-example/pp2f
+tmp/pp2f
 
 example/ctor_const
 example/ctor_list

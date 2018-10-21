@@ -86,14 +86,6 @@ void test_operation_any2any()
    rgb_t rgbE; rgbE.container( {1, 0.5, 0.0} );
    rgb_t rgbF; rgbF.container( {1, 0.0 ,0.5} );
 
-  ::color::operation::distance< ::color::constant::distance::hue_entity >( rgbA, rgbA );
-  std::cout << "---" << std::endl;
-  std::cout << ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::hexagon_entity     >( rgbA, rgbA ) << std::endl;
-  std::cout << ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::hexagon_entity     >( rgbA, rgbB ) << std::endl;
-  std::cout << ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::polar_atan2_entity >( rgbA, rgbC ) << std::endl;
-  std::cout << ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::polar_acos_entity  >( rgbA, rgbD ) << std::endl;
-  std::cout << ::color::operation::distance< ::color::constant::distance::hue_entity, ::color::get::constant::rgb::hue::polar_entity       >( rgbA, rgbE ) << std::endl;
-
   ::color::operation::distance< ::color::constant::distance::CMC1984_entity >( bgr, rgb, 1, 2 );
   ::color::operation::distance< ::color::constant::distance::CMC1984_entity >( bgr, rgb, 1, 2 );
   ::color::operation::distance< ::color::constant::distance::CMC1984_entity >( bgr, rgb, 1, 2 );
@@ -169,7 +161,6 @@ void test_operation_zero_main()
  {
   typedef ::color::rgb<double>::category_type            rgb_t;
 
-  test_operation_distance_zero< ::color::constant::distance::hue_entity,            rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::euclid_entity,         rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::CIE76_entity,          rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::CIE94_graphics_entity, rgb_t >();
@@ -204,7 +195,6 @@ void test_operation_distance__all()
   test_operation_distance_from< ::color::constant::distance::delta_gray_entity,     rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 3.00,    "./operation/dist_deltaG_rgb2rgb.tga"     );
   test_operation_distance_from< ::color::constant::distance::hsl_special_entity,    rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 1119.00, "./operation/dist_hslS_rgb2rgb.tga"       );
   test_operation_distance_from< ::color::constant::distance::rgb_special_entity,    rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 1.00,    "./operation/dist_rgbS_rgb2rgb.tga"       );
-  test_operation_distance_from< ::color::constant::distance::hue_entity,            rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 1.00,    "./operation/dist_rgbS_rgb2rgb.tga"       );
 
   test_operation_zero_main();
 
