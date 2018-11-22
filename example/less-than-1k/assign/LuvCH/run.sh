@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./LuvCH2cmy.exe

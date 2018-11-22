@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 g++ -fexceptions -std=c++11 -g -I../../../../src YCgCo2cmy.cpp            -o YCgCo2cmy

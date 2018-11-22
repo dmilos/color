@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 g++ -fexceptions -std=c++11 -g -I../../../../src YPbPr2cmy.cpp            -o YPbPr2cmy

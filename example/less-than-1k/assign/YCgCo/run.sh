@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./YCgCo2cmy.exe

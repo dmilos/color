@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./hwb2cmy.exe

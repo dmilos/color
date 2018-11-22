@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 g++ -fexceptions -std=c++11 -g -I../../../../src hsv2cmy.cpp            -o hsv2cmy

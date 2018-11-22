@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./blue_cmy.exe

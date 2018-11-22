@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./lms2cmy.exe

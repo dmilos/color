@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./hsi2cmy.exe

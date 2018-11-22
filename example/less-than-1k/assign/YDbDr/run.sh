@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./YDbDr2cmy.exe

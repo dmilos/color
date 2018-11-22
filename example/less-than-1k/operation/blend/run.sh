@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./alpha2.exe

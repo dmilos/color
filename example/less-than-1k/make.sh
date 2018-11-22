@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 # Make all examples.

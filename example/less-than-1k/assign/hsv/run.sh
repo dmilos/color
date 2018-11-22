@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./hsv2cmy.exe

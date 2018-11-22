@@ -1,3 +1,4 @@
+#!/bin/bash
 
 OUTPUT_FOLDER=../../../tmp/pp2f
 

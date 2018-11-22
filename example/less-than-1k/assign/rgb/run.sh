@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./rgb2cmy.exe

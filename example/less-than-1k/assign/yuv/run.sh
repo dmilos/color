@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pwd
 
 ./yuv2cmy.exe
