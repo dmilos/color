@@ -1,3 +1,7 @@
+#!/bin/bash
+
+pwd
+
 echo off
 
 set  program_TC=..\out\tc.exe
