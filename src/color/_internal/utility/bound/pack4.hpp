@@ -50,39 +50,39 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   maximum( )
                {
-                static instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
+                static const instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_image_type   maximum( index_input_const_type  index )
               {
-                static instance_type max_list[] = { first_max, second_max, third_max, fourth_max  };
+                static const instance_type max_list[] = { first_max, second_max, third_max, fourth_max  };
                 return max_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   minimum( )
                {
-                static instance_type value=0;
+                static const instance_type value=0;
                 return value;
                }
 
              static /*constexpr*/ return_image_type   minimum( index_input_const_type  index )
               {
-               static instance_type value=0;
+               static const instance_type value=0;
                return value;
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   range()
                {
-                static instance_type max_list[] = { first_max, second_max, third_max, fourth_max  };
+                static const instance_type max_list[] = { first_max, second_max, third_max, fourth_max  };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_image_type   range(   index_input_const_type  index )
               {
-                static instance_type max_list[] = { first_max, second_max, third_max, fourth_max  };
+                static const instance_type max_list[] = { first_max, second_max, third_max, fourth_max  };
                 return max_list[index];
               }
           };

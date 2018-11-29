@@ -21,19 +21,19 @@ namespace color
 
            static /*constexpr*/ image_type  maximum()
             { // Purposely set to ZERO to force specialization
-             static number_type value=0;
+             static const number_type value=0;
              return value;
             }
 
            static /*constexpr*/ image_type  minimum()
             { // Purposely set to ZERO to force specialization
-             static number_type value=0;
+             static const number_type value=0;
              return value;
             }
 
            static /*constexpr*/ image_type range()
             { // Purposely set to ZERO to force specialization
-             static number_type value =  0;
+             static const number_type value =  0;
              return value;
             }
           };
@@ -48,19 +48,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value = true;
+            static const number_type value = true;
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value = false;
+            static const number_type value = false;
             return value;
            }
 
           static /*constexpr*/ image_type range()
            {
-            static number_type value = true/*this_type::maximum() - this_type::minimum()*/;
+            static const number_type value = true/*this_type::maximum() - this_type::minimum()*/;
             return value;
            }
          };
@@ -77,19 +77,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value = std::numeric_limits< number_type >::max();
+            static const number_type value = std::numeric_limits< number_type >::max();
             return value; // ==  0 plus 127
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value = std::numeric_limits< number_type >::min();
+            static const number_type value = std::numeric_limits< number_type >::min();
             return value; // == 0 minus 128
            }
 
           static /*constexpr*/ range_type range()
            {
-            static number_type value = this_type::maximum() - this_type::minimum();
+            static const number_type value = this_type::maximum() - this_type::minimum();
             return value;  // == 255
            }
          };
@@ -105,19 +105,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value = std::numeric_limits< number_type >::max();
+            static const number_type value = std::numeric_limits< number_type >::max();
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value = std::numeric_limits< number_type >::min();
+            static const number_type value = std::numeric_limits< number_type >::min();
             return value;
            }
 
           static /*constexpr*/ image_type range()
            {
-            static number_type value = number_type( this_type::maximum() ) - number_type( this_type::minimum() );
+            static const number_type value = number_type( this_type::maximum() ) - number_type( this_type::minimum() );
             return value;
            }
          };
@@ -133,19 +133,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value = std::numeric_limits< number_type >::max();
+            static const number_type value = std::numeric_limits< number_type >::max();
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value = std::numeric_limits< number_type>::min();
+            static const number_type value = std::numeric_limits< number_type>::min();
             return value;
            }
 
           static /*constexpr*/ range_type range()
            {
-            static range_type value = number_type( this_type::maximum() ) - number_type( this_type::minimum() );
+            static const range_type value = number_type( this_type::maximum() ) - number_type( this_type::minimum() );
             return value;
            }
          };
@@ -161,19 +161,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value = std::numeric_limits< number_type >::max();
+            static const number_type value = std::numeric_limits< number_type >::max();
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value = std::numeric_limits< number_type >::min();
+            static const number_type value = std::numeric_limits< number_type >::min();
             return value;
            }
 
           static /*constexpr*/ range_type range()
            {
-            static range_type value = number_type( this_type::maximum() ) - number_type( this_type::minimum() );
+            static const range_type value = number_type( this_type::maximum() ) - number_type( this_type::minimum() );
             return value;
            }
          };
@@ -189,19 +189,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value = 255;
+            static const number_type value = 255;
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value = 0;
+            static const number_type value = 0;
             return value;
            }
 
           static /*constexpr*/ image_type range()
            {
-            static number_type value = this_type::maximum() - this_type::minimum();
+            static const number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
          };
@@ -216,19 +216,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value = 0xFFFF;
+            static const number_type value = 0xFFFF;
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value = 0;
+            static const number_type value = 0;
             return value;
            }
 
           static /*constexpr*/ image_type range()
            {
-            static number_type value = this_type::maximum() - this_type::minimum();
+            static const number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
          };
@@ -243,19 +243,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value = 0xFFFFFFFF;
+            static const number_type value = 0xFFFFFFFF;
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value = 0;
+            static const number_type value = 0;
             return value;
            }
 
           static /*constexpr*/ image_type range()
            {
-            static number_type value = this_type::maximum() - this_type::minimum();
+            static const number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
          };
@@ -270,19 +270,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value = 0xFFFFFFFFFFFFFFFFu;
+            static const number_type value = 0xFFFFFFFFFFFFFFFFu;
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value = 0;
+            static const number_type value = 0;
             return value;
            }
 
           static /*constexpr*/ image_type range()
            {
-            static number_type value = this_type::maximum() - this_type::minimum();
+            static const number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
          };
@@ -298,19 +298,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value=1;
+            static const number_type value=1;
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value=0;
+            static const number_type value=0;
             return value;
            }
 
           static /*constexpr*/ image_type range()
            {
-            static number_type value = this_type::maximum() - this_type::minimum();
+            static const number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
          };
@@ -325,19 +325,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value=1;
+            static const number_type value=1;
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value=0;
+            static const number_type value=0;
             return value;
            }
 
           static /*constexpr*/ image_type range()
            {
-            static number_type value = this_type::maximum() - this_type::minimum();
+            static const number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
          };
@@ -352,19 +352,19 @@ namespace color
 
           static /*constexpr*/ image_type  maximum()
            {
-            static number_type value = 1;
+            static const number_type value = 1;
             return value;
            }
 
           static /*constexpr*/ image_type  minimum()
            {
-            static number_type value = 0;
+            static const number_type value = 0;
             return value;
            }
 
           static /*constexpr*/ image_type range()
            {
-            static number_type value = this_type::maximum() - this_type::minimum();
+            static const number_type value = this_type::maximum() - this_type::minimum();
             return value;
            }
 

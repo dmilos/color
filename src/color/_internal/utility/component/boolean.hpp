@@ -3,7 +3,7 @@
 
 // ::color::_internal::utility::component::boolean< index_type>
 
-#include "../generic/type/traitp.hpp"
+#include "../type/traitp.hpp"
 
 
 

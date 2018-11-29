@@ -5,7 +5,7 @@
 
 #include "../type/index.hpp"
 #include "../type/size.hpp"
-#include "../../generic/type/nothing_type.hpp"
+#include "../../../generic/type/nothing.hpp"
 
 
 
@@ -74,14 +74,14 @@ namespace color
 
              static component_return_const_type get( model_type container, index_input_const_type index )
               {
-               static instance_type s_instance;
+               static const instance_type s_instance;
                return s_instance;
               }
 
              template< index_instance_type index >
               static component_return_const_type get( model_type container )
                {
-               static instance_type s_instance;
+               static const instance_type s_instance;
                return s_instance;
                }
 

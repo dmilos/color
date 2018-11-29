@@ -104,7 +104,7 @@ namespace color
             private:
               static /*constexpr*/ return_image_type mask()
                {
-                static instance_type local_mask = ((( instance_type(1) << (width-1)) - instance_type(1) )<< 1) + instance_type(1);
+                static const instance_type local_mask = ((( instance_type(1) << (width-1)) - instance_type(1) )<< 1) + instance_type(1);
                 return local_mask;
                }
           };

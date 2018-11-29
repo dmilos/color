@@ -559,17 +559,17 @@ public:
 	typedef image_name image_type;
 
 	static image_type maximum() {
-		static number_type value=0;
+		static const number_type value=0;
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value=0;
+		static const number_type value=0;
 		return value;
 	}
 
 	static image_type range() {
-		static number_type value = 0;
+		static const number_type value = 0;
 		return value;
 	}
 };
@@ -582,17 +582,17 @@ struct bound<bool, bool const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value = true;
+		static const number_type value = true;
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value = false;
+		static const number_type value = false;
 		return value;
 	}
 
 	static image_type range() {
-		static number_type value = true ;
+		static const number_type value = true ;
 		return value;
 	}
 };
@@ -606,17 +606,17 @@ struct bound< std::int8_t, std::int8_t const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value = std::numeric_limits< number_type >::max();
+		static const number_type value = std::numeric_limits< number_type >::max();
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value = std::numeric_limits< number_type >::min();
+		static const number_type value = std::numeric_limits< number_type >::min();
 		return value;
 	}
 
 	static range_type range() {
-		static number_type value = this_type::maximum() - this_type::minimum();
+		static const number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
 };
@@ -630,17 +630,17 @@ struct bound<std::int16_t, std::int16_t const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value = std::numeric_limits< number_type >::max();
+		static const number_type value = std::numeric_limits< number_type >::max();
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value = std::numeric_limits< number_type >::min();
+		static const number_type value = std::numeric_limits< number_type >::min();
 		return value;
 	}
 
 	static image_type range() {
-		static number_type value = number_type(this_type::maximum()) - number_type(this_type::minimum());
+		static const number_type value = number_type(this_type::maximum()) - number_type(this_type::minimum());
 		return value;
 	}
 };
@@ -654,17 +654,17 @@ struct bound<std::int32_t, std::int32_t const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value = std::numeric_limits< number_type >::max();
+		static const number_type value = std::numeric_limits< number_type >::max();
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value = std::numeric_limits< number_type>::min();
+		static const number_type value = std::numeric_limits< number_type>::min();
 		return value;
 	}
 
 	static range_type range() {
-		static range_type value = number_type(this_type::maximum()) - number_type(this_type::minimum());
+		static const range_type value = number_type(this_type::maximum()) - number_type(this_type::minimum());
 		return value;
 	}
 };
@@ -678,17 +678,17 @@ struct bound<std::int64_t, std::int64_t const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value = std::numeric_limits< number_type >::max();
+		static const number_type value = std::numeric_limits< number_type >::max();
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value = std::numeric_limits< number_type >::min();
+		static const number_type value = std::numeric_limits< number_type >::min();
 		return value;
 	}
 
 	static range_type range() {
-		static range_type value = number_type(this_type::maximum()) - number_type(this_type::minimum());
+		static const range_type value = number_type(this_type::maximum()) - number_type(this_type::minimum());
 		return value;
 	}
 };
@@ -701,17 +701,17 @@ struct bound< std::uint8_t, std::uint8_t const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value = 255;
+		static const number_type value = 255;
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value = 0;
+		static const number_type value = 0;
 		return value;
 	}
 
 	static image_type range() {
-		static number_type value = this_type::maximum() - this_type::minimum();
+		static const number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
 };
@@ -724,17 +724,17 @@ struct bound<std::uint16_t, std::uint16_t const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value = 0xFFFF;
+		static const number_type value = 0xFFFF;
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value = 0;
+		static const number_type value = 0;
 		return value;
 	}
 
 	static image_type range() {
-		static number_type value = this_type::maximum() - this_type::minimum();
+		static const number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
 };
@@ -747,17 +747,17 @@ struct bound<std::uint32_t, std::uint32_t const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value = 0xFFFFFFFF;
+		static const number_type value = 0xFFFFFFFF;
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value = 0;
+		static const number_type value = 0;
 		return value;
 	}
 
 	static image_type range() {
-		static number_type value = this_type::maximum() - this_type::minimum();
+		static const number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
 };
@@ -770,17 +770,17 @@ struct bound<std::uint64_t, std::uint64_t const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value = 0xFFFFFFFFFFFFFFFFu;
+		static const number_type value = 0xFFFFFFFFFFFFFFFFu;
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value = 0;
+		static const number_type value = 0;
 		return value;
 	}
 
 	static image_type range() {
-		static number_type value = this_type::maximum() - this_type::minimum();
+		static const number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
 };
@@ -793,17 +793,17 @@ struct bound<float, float const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value=1;
+		static const number_type value=1;
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value=0;
+		static const number_type value=0;
 		return value;
 	}
 
 	static image_type range() {
-		static number_type value = this_type::maximum() - this_type::minimum();
+		static const number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
 };
@@ -816,17 +816,17 @@ struct bound<double, double const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value=1;
+		static const number_type value=1;
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value=0;
+		static const number_type value=0;
 		return value;
 	}
 
 	static image_type range() {
-		static number_type value = this_type::maximum() - this_type::minimum();
+		static const number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
 };
@@ -839,17 +839,17 @@ struct bound<long double, long double const& > {
 	typedef bound<number_type,image_type> this_type;
 
 	static image_type maximum() {
-		static number_type value = 1;
+		static const number_type value = 1;
 		return value;
 	}
 
 	static image_type minimum() {
-		static number_type value = 0;
+		static const number_type value = 0;
 		return value;
 	}
 
 	static image_type range() {
-		static number_type value = this_type::maximum() - this_type::minimum();
+		static const number_type value = this_type::maximum() - this_type::minimum();
 		return value;
 	}
 
@@ -7540,7 +7540,7 @@ public:
 	}
 private:
 	static return_image_type mask() {
-		static instance_type local_mask = (((instance_type(1) << (width-1)) - instance_type(1))<< 1) + instance_type(1);
+		static const instance_type local_mask = (((instance_type(1) << (width-1)) - instance_type(1))<< 1) + instance_type(1);
 		return local_mask;
 	}
 };
@@ -10221,34 +10221,34 @@ public:
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
-		static instance_type max_list[] = { first_max, second_max, third_max };
+		static const instance_type max_list[] = { first_max, second_max, third_max };
 		return max_list[index];
 	}
 
 	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { first_max, second_max, third_max };
+		static const instance_type max_list[] = { first_max, second_max, third_max };
 		return max_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type minimum() {
-		static instance_type value=0;
+		static const instance_type value=0;
 		return value;
 	}
 
 	static return_image_type minimum(index_input_const_type index) {
-		static instance_type value=0;
+		static const instance_type value=0;
 		return value;
 	}
 
 	template< index_instance_type index >
 	static return_image_type range() {
-		static instance_type max_list[] = { first_max, second_max, third_max };
+		static const instance_type max_list[] = { first_max, second_max, third_max };
 		return max_list[index];
 	}
 
 	static return_image_type range(index_input_const_type index) {
-		static instance_type max_list[] = { first_max, second_max, third_max };
+		static const instance_type max_list[] = { first_max, second_max, third_max };
 		return max_list[index];
 	}
 };
@@ -10370,34 +10370,34 @@ public:
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
-		static instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
+		static const instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
 		return max_list[index];
 	}
 
 	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
+		static const instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
 		return max_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type minimum() {
-		static instance_type value=0;
+		static const instance_type value=0;
 		return value;
 	}
 
 	static return_image_type minimum(index_input_const_type index) {
-		static instance_type value=0;
+		static const instance_type value=0;
 		return value;
 	}
 
 	template< index_instance_type index >
 	static return_image_type range() {
-		static instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
+		static const instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
 		return max_list[index];
 	}
 
 	static return_image_type range(index_input_const_type index) {
-		static instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
+		static const instance_type max_list[] = { first_max, second_max, third_max, fourth_max };
 		return max_list[index];
 	}
 };
@@ -24591,34 +24591,34 @@ public:
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
-		static instance_type max_list[] = { 1, 0.5, 0.5 };
+		static const instance_type max_list[] = { 1, 0.5, 0.5 };
 		return max_list[index];
 	}
 
 	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { 1, 0.5, 0.5 };
+		static const instance_type max_list[] = { 1, 0.5, 0.5 };
 		return max_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type minimum() {
-		static instance_type min_list[] = { 0, -0.5, -0.5 };
+		static const instance_type min_list[] = { 0, -0.5, -0.5 };
 		return min_list[index];
 	}
 
 	static return_image_type minimum(index_input_const_type index) {
-		static instance_type min_list[] = { 0, -0.5, -0.5 };
+		static const instance_type min_list[] = { 0, -0.5, -0.5 };
 		return min_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type range() {
-		static instance_type range_list[] = { 1, 1, 1 };
+		static const instance_type range_list[] = { 1, 1, 1 };
 		return range_list[index];
 	}
 
 	static return_image_type range(index_input_const_type index) {
-		static instance_type range_list[] = { 1, 1, 1 };
+		static const instance_type range_list[] = { 1, 1, 1 };
 		return range_list[index];
 	}
 };
@@ -26062,34 +26062,34 @@ public:
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
-		static instance_type max_list[] = { 1, scalar_type(1.333), scalar_type(1.333) };
+		static const instance_type max_list[] = { 1, scalar_type(1.333), scalar_type(1.333) };
 		return max_list[index];
 	}
 
 	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { 1, scalar_type(1.333), scalar_type(1.333) };
+		static const instance_type max_list[] = { 1, scalar_type(1.333), scalar_type(1.333) };
 		return max_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type minimum() {
-		static instance_type min_list[] = { 0, scalar_type(-1.333), scalar_type(-1.333) };
+		static const instance_type min_list[] = { 0, scalar_type(-1.333), scalar_type(-1.333) };
 		return min_list[index];
 	}
 
 	static return_image_type minimum(index_input_const_type index) {
-		static instance_type min_list[] = { 0, scalar_type(-1.333), scalar_type(-1.333) };
+		static const instance_type min_list[] = { 0, scalar_type(-1.333), scalar_type(-1.333) };
 		return min_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type range() {
-		static instance_type range_list[] = { 1, scalar_type(2.666), scalar_type(2.666) };
+		static const instance_type range_list[] = { 1, scalar_type(2.666), scalar_type(2.666) };
 		return range_list[index];
 	}
 
 	static return_image_type range(index_input_const_type index) {
-		static instance_type range_list[] = { 1, scalar_type(2.666), scalar_type(2.666) };
+		static const instance_type range_list[] = { 1, scalar_type(2.666), scalar_type(2.666) };
 		return range_list[index];
 	}
 };
@@ -27583,34 +27583,34 @@ public:
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
-		static instance_type max_list[] = { 1, 0.5, 0.5 };
+		static const instance_type max_list[] = { 1, 0.5, 0.5 };
 		return max_list[index];
 	}
 
 	static return_image_type maximum(index_input_const_type index) {
-		static instance_type max_list[] = { 1, 0.5, 0.5 };
+		static const instance_type max_list[] = { 1, 0.5, 0.5 };
 		return max_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type minimum() {
-		static instance_type min_list[] = { 0, -0.5, -0.5 };
+		static const instance_type min_list[] = { 0, -0.5, -0.5 };
 		return min_list[index];
 	}
 
 	static return_image_type minimum(index_input_const_type index) {
-		static instance_type min_list[] = { 0, -0.5, -0.5 };
+		static const instance_type min_list[] = { 0, -0.5, -0.5 };
 		return min_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type range() {
-		static instance_type range_list[] = { 1, 1, 1 };
+		static const instance_type range_list[] = { 1, 1, 1 };
 		return range_list[index];
 	}
 
 	static return_image_type range(index_input_const_type index) {
-		static instance_type range_list[] = { 1, 1, 1 };
+		static const instance_type range_list[] = { 1, 1, 1 };
 		return range_list[index];
 	}
 };
@@ -38162,34 +38162,34 @@ public:
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
-		static scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
+		static const scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
 		return max_list[index];
 	}
 
 	static return_image_type maximum(index_input_const_type index) {
-		static scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
+		static const scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
 		return max_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type minimum() {
-		static scalar_instance_type min_list[] = { 0, 0, 0 };
+		static const scalar_instance_type min_list[] = { 0, 0, 0 };
 		return min_list[index];
 	}
 
 	static return_image_type minimum(index_input_const_type index) {
-		static scalar_instance_type min_list[] = { 0, 0, 0 };
+		static const scalar_instance_type min_list[] = { 0, 0, 0 };
 		return min_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type range() {
-		static scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
+		static const scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
 		return range_list[index];
 	}
 
 	static return_image_type range(index_input_const_type index) {
-		static scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
+		static const scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
 		return range_list[index];
 	}
 };
@@ -40304,34 +40304,34 @@ public:
 
 	template< index_instance_type index >
 	static return_image_type maximum() {
-		static scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
+		static const scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
 		return max_list[index];
 	}
 
 	static return_image_type maximum(index_input_const_type index) {
-		static scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
+		static const scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
 		return max_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type minimum() {
-		static scalar_instance_type min_list[] = { 0, 0, 0 };
+		static const scalar_instance_type min_list[] = { 0, 0, 0 };
 		return min_list[index];
 	}
 
 	static return_image_type minimum(index_input_const_type index) {
-		static scalar_instance_type min_list[] = { 0, 0, 0 };
+		static const scalar_instance_type min_list[] = { 0, 0, 0 };
 		return min_list[index];
 	}
 
 	template< index_instance_type index >
 	static return_image_type range() {
-		static scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
+		static const scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
 		return range_list[index];
 	}
 
 	static return_image_type range(index_input_const_type index) {
-		static scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
+		static const scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
 		return range_list[index];
 	}
 };
@@ -51350,9 +51350,9 @@ public:
 		container_left_input_type left
 		,container_right_const_input_type right
 	) {
-		static scalar_type a11 = yiq_const_type::a11(), a12 = yiq_const_type::a12(), a13 = yiq_const_type::a13();
-		static scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
-		static scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
+		static const scalar_type a11 = yiq_const_type::a11(), a12 = yiq_const_type::a12(), a13 = yiq_const_type::a13();
+		static const scalar_type a21 = yiq_const_type::a21(), a22 = yiq_const_type::a22(), a23 = yiq_const_type::a23();
+		static const scalar_type a31 = yiq_const_type::a31(), a32 = yiq_const_type::a32(), a33 = yiq_const_type::a33();
 		scalar_type y = normalize_type::template process< luma_p>(container_right_trait_type::template get< luma_p>(right));
 		scalar_type i = normalize_type::template process< inphase_p>(container_right_trait_type::template get< inphase_p>(right));
 		scalar_type q = normalize_type::template process<quadrature_p>(container_right_trait_type::template get<quadrature_p>(right));

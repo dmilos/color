@@ -10,12 +10,19 @@
 
 # TODO g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -o  akin
 
-g++ -std=c++11 -g -I../src  readme.cpp                        -o  readme
+reset
 
-g++ -std=c++11 -g -I../src  akin.cpp                          -o  akin
+pwd
+
+g++ -std=c++11 -g -I../src  readme.cpp                        -o  readme
 g++ -std=c++11 -g -I../src  get_alpha.cpp                     -o  get_alpha
-g++ -std=c++11 -g -I../src  place.cpp                         -o  place
-g++ -std=c++11 -g -I../src  set_gray.cpp                      -o  set_gray
 g++ -std=c++11 -g -I../src  set_green.cpp                     -o  set_green
 g++ -std=c++11 -g -I../src  set_red.cpp                       -o  set_red
-g++ -std=c++11 -g -I../src  memfill.cpp                       -o  memfill
+
+cd ./less-than-1k
+./make.sh
+cd ..
+
+cd ./less-than-2k
+./make.sh
+cd ..

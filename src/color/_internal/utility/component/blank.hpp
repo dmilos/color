@@ -3,7 +3,7 @@
 
 // ::color::_internal::utility::component::blank< index_type>
 
-#include "../../generic/type/nothing_type.hpp"
+#include "../../../generic/type/nothing.hpp"
 
 
 

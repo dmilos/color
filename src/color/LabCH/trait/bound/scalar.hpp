@@ -49,39 +49,39 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   maximum( )
                {
-                static scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
+                static const scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_image_type   maximum( index_input_const_type  index )
               {
-                static scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
+                static const scalar_instance_type max_list[] = { 100, this_type::c_max(), 360 };
                 return max_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   minimum( )
                {
-                static scalar_instance_type min_list[] = { 0, 0, 0 };
+                static const scalar_instance_type min_list[] = { 0, 0, 0 };
                 return min_list[index];
                }
 
              static /*constexpr*/ return_image_type   minimum( index_input_const_type  index )
               {
-                static scalar_instance_type min_list[] = { 0, 0, 0 };
+                static const scalar_instance_type min_list[] = { 0, 0, 0 };
                 return min_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   range()
                {
-                static scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
+                static const scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
                 return range_list[index];
                }
 
              static /*constexpr*/ return_image_type   range(   index_input_const_type  index )
               {
-                static scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
+                static const scalar_instance_type range_list[] = { 100, this_type::c_max(), 360 };
                 return range_list[index];
               }
           };

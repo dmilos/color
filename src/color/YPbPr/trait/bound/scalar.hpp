@@ -37,39 +37,39 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   maximum( )
                {
-                static instance_type max_list[] = { 1, 0.5, 0.5 };
+                static const instance_type max_list[] = { 1, 0.5, 0.5 };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_image_type   maximum( index_input_const_type  index )
               {
-                static instance_type max_list[] = { 1, 0.5, 0.5 };
+                static const instance_type max_list[] = { 1, 0.5, 0.5 };
                 return max_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   minimum( )
                {
-                static instance_type min_list[] = { 0, -0.5, -0.5 };
+                static const instance_type min_list[] = { 0, -0.5, -0.5 };
                 return min_list[index];
                }
 
              static /*constexpr*/ return_image_type   minimum( index_input_const_type  index )
               {
-                static instance_type min_list[] = { 0, -0.5, -0.5 };
+                static const instance_type min_list[] = { 0, -0.5, -0.5 };
                 return min_list[index];
               }
 
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   range()
                {
-                static instance_type range_list[] = { 1, 1, 1 };
+                static const instance_type range_list[] = { 1, 1, 1 };
                 return range_list[index];
                }
 
              static /*constexpr*/ return_image_type   range(   index_input_const_type  index )
               {
-                static instance_type range_list[] = { 1, 1, 1 };
+                static const instance_type range_list[] = { 1, 1, 1 };
                 return range_list[index];
               }
           };
