@@ -30,7 +30,7 @@ void init( gray_image_type &image )
      }
    }
 
-  //std::shuffle (image.begin()+1, image.end()-1, std::default_random_engine(6));     
+  //std::shuffle (image.begin()+1, image.end()-1, std::default_random_engine(6));
  }
 
 gray_color_type const& pixel( gray_image_type const& image, int x, int y )
@@ -132,7 +132,7 @@ void fix_dispersion( gray_image_type &image )
        int y1=rand()%(g_size);
        if( (0==x1)&&(0==y1) ) continue;
        if( ((g_size-1)==x1)&&((g_size-1)==y1) ) continue;
-       if( true == fix_pair( image, x, y, x1, y1 ) ) 
+       if( true == fix_pair( image, x, y, x1, y1 ) )
         {
          break;
         }
@@ -180,7 +180,7 @@ int main( int argc, char const *argv[] )
      {
       save_image_gray(  "allgray_"+std::to_string( iteration )+"-end.tga",  image, g_size, g_size );
 
-      unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+      // unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
       //std::shuffle (image.begin()+1, image.end()-1, std::default_random_engine(seed));
      }
 

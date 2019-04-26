@@ -12,7 +12,18 @@
 //#include <iostream>
 //#include <iomanip>
 
+#if defined( _MSC_VER  )
+#pragma warning(push, 0)
 //#pragma warning( disable: 4305 )
+#endif
+
+#if defined( __GNUC__  )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+//#pragma GCC diagnostic ignored "-Wcomment"
+#pragma GCC diagnostic ignored "-Wunused-variable"
+#pragma GCC diagnostic ignored "-Wunused-local-typedefs"
+#endif
 
 #if defined COLOR_USE_PP2FILE
 #include "./color.pp2f.hpp"
@@ -20,6 +31,12 @@
 #include "./color.body.hpp"
 #endif
 
-//#pragma warning( default: 4305 )
+#if defined( __GNUC__  )
+#pragma GCC diagnostic pop
+#endif
+
+#if defined( _MSC_VER  )
+#pragma warning(pop)
+#endif
 
 #endif

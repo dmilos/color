@@ -2,7 +2,9 @@
 
 pwd
 
-g++ -fexceptions -std=c++11 -g -I../../../../src  ./cmy_lavender.cpp            -o  cmy_lavender
+g++ -fexceptions -std=c++11 -g -I../../../../src  ./cmy_lavenderA.cpp            -o  cmy_lavenderA
+g++ -fexceptions -std=c++11 -g -I../../../../src  ./cmy_lavenderB.cpp            -o  cmy_lavenderB
+
 g++ -fexceptions -std=c++11 -g -I../../../../src  ./cmyk_lavender.cpp           -o  cmyk_lavender
 g++ -fexceptions -std=c++11 -g -I../../../../src  ./gray_lavender.cpp           -o  gray_lavender
 g++ -fexceptions -std=c++11 -g -I../../../../src  ./hsi_lavender.cpp            -o  hsi_lavender

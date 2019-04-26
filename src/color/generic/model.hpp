@@ -82,12 +82,12 @@ namespace color
         }
 
        template< typename tag_name >
-        /*explicit*/ model( ::color::constant::base< tag_name > const& constant )  //!< TODO Remove explicit?
+        model( ::color::constant::base< tag_name > const& constant )  //!< Constant is color too. No need for explicit
          {
           *this = constant;
          }
 
-       explicit model( std::initializer_list<component_type> const& ilist ) //!< TODO Remove or keep explicit?
+       explicit model( std::initializer_list<component_type> const& ilist ) //!< NO explicit. Type conversion!!!
         {
          //TODO C++14 static_assert( container_trait_type::size_entity != ilist.size(), "Initializer list size do not match model/format length." );
          ::color::_internal::init<category_name>( this->m_container, ilist );
