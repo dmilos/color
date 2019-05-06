@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_red
 #define color_generic_constant_red
 
-// ::color::constant::::red( c )
+// ::color::constant::red( c )
 
 #include "./base.hpp"
 

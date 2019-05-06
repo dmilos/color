@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_fuchsia
 #define color_generic_constant_fuchsia
 
-// ::color::constant::::fuchsia( c )
+// ::color::constant::fuchsia( c )
 
 #include "./base.hpp"
 

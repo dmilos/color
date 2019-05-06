@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_lime
 #define color_generic_constant_lime
 
-// ::color::constant::::lime( c )
+// ::color::constant::lime( c )
 
 #include "./base.hpp"
 

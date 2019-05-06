@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_moccasin
 #define color_generic_constant_moccasin
 
-// ::color::constant::::moccasin( c )
+// ::color::constant::moccasin( c )
 
 #include "./base.hpp"
 

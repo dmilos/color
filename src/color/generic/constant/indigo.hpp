@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_indigo
 #define color_generic_constant_indigo
 
-// ::color::constant::::indigo( c )
+// ::color::constant::indigo( c )
 
 #include "./base.hpp"
 

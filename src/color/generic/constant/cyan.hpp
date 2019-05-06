@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_cyan
 #define color_generic_constant_cyan
 
-// ::color::constant::::cyan( c )
+// ::color::constant::cyan( c )
 
 #include "./base.hpp"
 

@@ -25,7 +25,7 @@
             typedef ::color::trait::index<category_type>         index_trait_type;
             typedef ::color::trait::component< category_type >     component_trait_type;
             typedef ::color::trait::container< category_type >   container_trait_type;
-            typedef ::color::trait::scalar< category_name >     scalar_trait_type; 
+            typedef ::color::trait::scalar< category_name >     scalar_trait_type;
 
             typedef typename scalar_trait_type::model_type  scalar_const_input_type;
 
@@ -40,7 +40,19 @@
 
             typedef ::color::operation::_internal::scale<category_type> this_type;
 
-            static model_type & process( model_output_type  result, scalar_const_input_type const& scalar )
+          public:
+            model_type& operator()( model_output_type result, scalar_const_input_type scalar ) const
+             {
+              return this_type::accumulate( result, scalar );
+             }
+
+            model_type& operator()( model_output_type  result, scalar_const_input_type scalar, model_const_input_type right ) const
+             {
+              return this_type::procedure( result, scalar, right );
+             }
+
+          public:
+            static model_type & accumulate( model_output_type  result, scalar_const_input_type const& scalar )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
@@ -49,7 +61,7 @@
               return result;
              }
 
-            static model_type & process(  model_output_type  result, scalar_const_input_type scalar, model_const_input_type right )
+            static model_type & procedure( model_output_type result, scalar_const_input_type scalar, model_const_input_type right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
@@ -69,7 +81,7 @@
         ,typename ::color::trait::scalar<category_name>::model_type scalar
        )
        {
-        return ::color::operation::_internal::scale<category_name>::process( result, scalar );
+        return ::color::operation::_internal::scale<category_name>::accumulate( result, scalar );
        }
 
      template< typename category_name >
@@ -81,7 +93,7 @@
         ,::color::model<category_name> const& right
        )
        {
-        return ::color::operation::_internal::scale<category_name>::process( result, scalar, right );
+        return ::color::operation::_internal::scale<category_name>::procedure( result, scalar, right );
        }
 
     }

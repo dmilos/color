@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_chocolate
 #define color_generic_constant_chocolate
 
-// ::color::constant::::chocolate( c )
+// ::color::constant::chocolate( c )
 
 #include "./base.hpp"
 

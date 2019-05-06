@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_thistle
 #define color_generic_constant_thistle
 
-// ::color::constant::::thistle( c )
+// ::color::constant::thistle( c )
 
 #include "./base.hpp"
 

@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_yellow
 #define color_generic_constant_yellow
 
-// ::color::constant::::yellow( c )
+// ::color::constant::yellow( c )
 
 #include "./base.hpp"
 

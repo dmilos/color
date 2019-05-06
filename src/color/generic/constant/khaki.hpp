@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_khaki
 #define color_generic_constant_khaki
 
-// ::color::constant::::khaki( c )
+// ::color::constant::khaki( c )
 
 #include "./base.hpp"
 

@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_maroon
 #define color_generic_constant_maroon
 
-// ::color::constant::::maroon( c )
+// ::color::constant::maroon( c )
 
 #include "./base.hpp"
 

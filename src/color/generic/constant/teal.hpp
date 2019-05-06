@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_teal
 #define color_generic_constant_teal
 
-// ::color::constant::::teal( c )
+// ::color::constant::teal( c )
 
 #include "./base.hpp"
 

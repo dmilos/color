@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_navy
 #define color_generic_constant_navy
 
-// ::color::constant::::navy( c )
+// ::color::constant::navy( c )
 
 #include "./base.hpp"
 

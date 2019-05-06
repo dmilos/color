@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_sienna
 #define color_generic_constant_sienna
 
-// ::color::constant::::sienna( c )
+// ::color::constant::sienna( c )
 
 #include "./base.hpp"
 

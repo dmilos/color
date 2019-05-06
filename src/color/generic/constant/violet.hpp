@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_violet
 #define color_generic_constant_violet
 
-// ::color::constant::::violet( c )
+// ::color::constant::violet( c )
 
 #include "./base.hpp"
 

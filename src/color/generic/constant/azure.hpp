@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_azure
 #define color_generic_constant_azure
 
-// ::color::constant::::azure( c )
+// ::color::constant::azure( c )
 
 #include "./base.hpp"
 

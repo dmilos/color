@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_olive
 #define color_generic_constant_olive
 
-// ::color::constant::::olive( c )
+// ::color::constant::olive( c )
 
 #include "./base.hpp"
 

@@ -52,6 +52,7 @@
 
             typedef ::color::operation::_internal::blend<category_type> this_type;
 
+          public:
             static model_type & accumulate( model_type &result, scalar_type const& alpha, model_type const& upper )
              {
               return this_type::template accumulate( result, result, alpha, upper );

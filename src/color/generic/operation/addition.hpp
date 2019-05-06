@@ -5,13 +5,7 @@
 // ::color::operation::addition( result, left, right )
 
 
-#include "../../generic/model.hpp"
-
-
-
-
-
-
+#include "../model.hpp"
 
 
 
@@ -32,7 +26,15 @@
             typedef ::color::trait::container< category_type >   container_trait_type;
 
 
-            typedef ::color::model<category_type>         model_type;
+
+            typedef ::color::model<category_type>  model_type;
+
+            typedef model_type &       model_output_type;
+            typedef model_type const&  model_const_input_type;
+
+            typedef model_type  result_type;
+            typedef model_type  left_type, first_argument_type;
+            typedef model_type  right_type, second_argument_type;
 
             typedef typename index_trait_type::instance_type        index_type;
 
@@ -40,24 +42,39 @@
 
             model_type operator()( model_type const& left, model_type const& right ) const
              {
-              model_type result;
-              return this_type::process( result, left, right );
+              return this_type::function( left, right );
+             }
+             
+            model_type& operator()( model_output_type  result, model_const_input_type left, model_const_input_type right ) const
+             {
+              return this_type::procedure( result, left, right );
              }
 
-            static model_type & process( model_type &result, model_type const& right )
+          public:
+            static model_type & accumulate( model_output_type result, model_const_input_type right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, result.get( index ) +  right.get( index ) );
+                result.set( index, result.get( index ) + right.get( index ) );
                }
               return result;
              }
 
-            static model_type & process(  model_type &result, model_type const& left, model_type const& right )
+            static model_type function( model_const_input_type left, model_const_input_type right )
+             {
+              model_type result;
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
+               {
+                result.set( index, left.get( index ) + right.get( index ) );
+               }
+              return result;
+             }
+
+            static model_type & procedure( model_output_type result, model_const_input_type left, model_const_input_type right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
-                result.set( index, left.get( index ) +  right.get( index ) );
+                result.set( index, left.get( index ) + right.get( index ) );
                }
               return result;
              }
@@ -73,7 +90,7 @@
         ,::color::model<category_name> const& right
        )
        {
-        return ::color::operation::_internal::addition<category_name>::process( result, right );
+        return ::color::operation::_internal::addition<category_name>::accumulate( result, right );
        }
 
      template< typename category_name >
@@ -85,7 +102,7 @@
         ,::color::model<category_name> const& right
        )
        {
-        return ::color::operation::_internal::addition<category_name>::process( result, left, right );
+        return ::color::operation::_internal::addition<category_name>::procedure( result, left, right );
        }
 
     }

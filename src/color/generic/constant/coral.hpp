@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_coral
 #define color_generic_constant_coral
 
-// ::color::constant::::coral( c )
+// ::color::constant::coral( c )
 
 #include "./base.hpp"
 

@@ -1,36 +1,27 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(testCmake)
+project(testColor)
 
-#add_subdirectory( "c:/work/code/git/color/src/color" )
-#file( GLOB_RECURSE headers "${CMAKE_SOURCE_DIR}/../../src/color/*")
-#source_group( TREE ${CMAKE_SOURCE_DIR} FILES ${headers} )
+set( directory__root "${CMAKE_SOURCE_DIR}/../../../.." )
 
-include_directories( "${CMAKE_SOURCE_DIR}/../../../../src")
+set( directory_include          "${directory__root}/src" )
+set( directory_example_test     "${directory__root}/example/test" )
 
-set( SOURCE  allgray.cpp
-             allrgb.cpp
-             bound.cpp
-             constant.cpp
-             conversion.cpp
-             convsemi.cpp
-             decompose.cpp
-             extract.cpp
-             get_invoke.cpp
-             get_test.cpp
-             gray_scale.cpp
-             gray_test.cpp
-             image.cpp
-             main.cpp
-             palette.cpp
-             place.cpp
-             set_invoke.cpp
-             sizeof.cpp
-             targa.cpp
- )
+#Internal variables
+set( hpp_file_list    "./hpp.lst.txt" )
+set( cpp_file_list    "./cpp.lst.txt" )
 
-add_executable( testCmake ${SOURCE} )
+file( GLOB_RECURSE SOURCE_HPP "${directory_include}/color/*")
+source_group( TREE "${directory_include}/color/" PREFIX "Header Files\\color" FILES ${SOURCE_HPP} )
 
+set( cpp_file_list    "./cpp.lst.txt" ) 
+file( STRINGS ${cpp_file_list} FILE_LIST )
+foreach(file_item IN LISTS FILE_LIST )
+  list( APPEND SOURCE_CPP "${directory_example_test}/${file_item}")
+endforeach(file_item)
 
+source_group( TREE "${directory_example_test}" FILES ${SOURCE_CPP} )
 
+include_directories( "${directory_include}")
 
+add_executable( testCmake ${SOURCE_CPP} ${SOURCE_HPP} )

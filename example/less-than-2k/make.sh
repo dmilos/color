@@ -8,6 +8,10 @@ cd ./akin
 ./make.sh
 cd ..
 
+cd ./operation
+./make.sh
+cd ..
+
 cd ./place
 ./make.sh
 cd ..

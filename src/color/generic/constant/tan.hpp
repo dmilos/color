@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_tan
 #define color_generic_constant_tan
 
-// ::color::constant::::tan( c )
+// ::color::constant::tan( c )
 
 #include "./base.hpp"
 

@@ -5912,11 +5912,18 @@ public:
 	typedef category_name category_type;
 
 	typedef ::color::trait::index<category_type> index_trait_type;
-	typedef ::color::trait::bound<category_type> bound_type;
 	typedef ::color::trait::component< category_type > component_trait_type;
 	typedef ::color::trait::container< category_type > container_trait_type;
+	typedef ::color::trait::bound<category_type> bound_type;
 
 	typedef ::color::model<category_type> model_type;
+
+	typedef model_type & model_output_type;
+	typedef model_type const& model_const_input_type;
+
+	typedef model_type result_type;
+	typedef model_type left_type, first_argument_type;
+	typedef model_type right_type, second_argument_type;
 
 	typedef typename component_trait_type::model_type component_input_const_type;
 	typedef typename component_trait_type::return_type component_return_type;
@@ -5942,14 +5949,27 @@ public:
 		return bound_type::template range<index_size>() - component;
 	}
 
-	model_type operator()(model_type const& right) const {
-		model_type result;
+public:
+	model_type & operator()(model_type & result) const {
+		return this_type::accumulate(result);
+	}
+
+	model_type & operator()(model_type &result, model_type const& right) const {
 		return this_type::process(result, right);
 	}
 
-	static model_type & process(model_type &result) {
+public:
+	static model_type & accumulate(model_type &result) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component(result.get(index), index));
+		}
+		return result;
+	}
+
+	static model_type function(model_type const& right) {
+		model_type result;
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, component(right.get(index), index));
 		}
 		return result;
 	}
@@ -5970,9 +5990,8 @@ invert
 (
 	::color::model<category_name> & result
 ) {
-	return ::color::operation::_internal::invert<category_name>::process(result);
+	return ::color::operation::_internal::invert<category_name>::accumulate(result);
 }
-
 template< typename category_name >
 ::color::model<category_name> &
 invert
@@ -6699,14 +6718,24 @@ public:
 
 	typedef ::color::operation::_internal::scale<category_type> this_type;
 
-	static model_type & process(model_output_type result, scalar_const_input_type const& scalar) {
+public:
+	model_type& operator()(model_output_type result, scalar_const_input_type scalar) const {
+		return this_type::accumulate(result, scalar);
+	}
+
+	model_type& operator()(model_output_type result, scalar_const_input_type scalar, model_const_input_type right) const {
+		return this_type::procedure(result, scalar, right);
+	}
+
+public:
+	static model_type & accumulate(model_output_type result, scalar_const_input_type const& scalar) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component_instance_type(result.get(index) * scalar));
 		}
 		return result;
 	}
 
-	static model_type & process(model_output_type result, scalar_const_input_type scalar, model_const_input_type right) {
+	static model_type & procedure(model_output_type result, scalar_const_input_type scalar, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, component_instance_type(scalar * right.get(index)));
 		}
@@ -6723,7 +6752,7 @@ scale
 	::color::model<category_name> & result
 	,typename ::color::trait::scalar<category_name>::model_type scalar
 ) {
-	return ::color::operation::_internal::scale<category_name>::process(result, scalar);
+	return ::color::operation::_internal::scale<category_name>::accumulate(result, scalar);
 }
 
 template< typename category_name >
@@ -6734,7 +6763,7 @@ scale
 	,typename ::color::trait::scalar<category_name>::model_type scalar
 	,::color::model<category_name> const& right
 ) {
-	return ::color::operation::_internal::scale<category_name>::process(result, scalar, right);
+	return ::color::operation::_internal::scale<category_name>::procedure(result, scalar, right);
 }
 
 }
@@ -31152,7 +31181,6 @@ chroma(::color::model< ::color::category::lab< tag_name, reference_number > > co
 	typedef ::color::category::lab< tag_name, reference_number > category_type;
 	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::trait::component<category_type>::instance_type component_type;
-	typedef ::color::_internal::normalize< category_type > normalize_type;
 	scalar_type const A = static_cast<scalar_type>(c.template get< 1 >());
 	scalar_type const B = static_cast<scalar_type>(c.template get< 2 >());
 	return component_type(sqrt(A*A + B*B));
@@ -42613,7 +42641,37 @@ public:
 
 	typedef ::color::model<category_type> model_type;
 
-	static model_type& process(model_type &result, model_type const& left, model_type const& right) {
+	typedef model_type & model_output_type;
+	typedef model_type const& model_const_input_type;
+
+	typedef model_type result_type;
+	typedef model_type left_type, first_argument_type;
+	typedef model_type right_type, second_argument_type;
+
+	typedef ::color::operation::_internal::delta<category_type> this_type;
+public:
+	model_type& operator()(model_type & result, model_type const& right)const {
+		return this_type::accumulate(result, right);
+	}
+
+	model_type& operator()(model_type & result, model_type const& left, model_type const& right)const {
+		return this_type::process(result, left, right);
+	}
+
+public:
+	static model_type& accumulate(model_output_type result, model_const_input_type right) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(result.get(index) < right.get(index)) {
+				result.set(index, component_type(right.get(index) - result.get(index)));
+			} else {
+				result.set(index, component_type(result.get(index) - right.get(index)));
+			}
+		}
+		return result;
+	}
+
+	static model_type process(model_const_input_type left, model_const_input_type right) {
+		model_type result;
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			if(left.get(index) < right.get(index)) {
 				result.set(index, component_type(right.get(index) - left.get(index)));
@@ -42624,8 +42682,28 @@ public:
 		return result;
 	}
 
+	static model_type& process(model_output_type result, model_const_input_type left, model_const_input_type right) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(left.get(index) < right.get(index)) {
+				result.set(index, component_type(right.get(index) - left.get(index)));
+			} else {
+				result.set(index, component_type(left.get(index) - right.get(index)));
+			}
+		}
+		return result;
+	}
 };
 
+}
+
+template< typename category_name >
+::color::model<category_name> &
+delta
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& right
+) {
+	return ::color::operation::_internal::delta<category_name>::accumulate(result, right);
 }
 
 template< typename category_name >
@@ -42686,6 +42764,12 @@ public:
 
 	typedef ::color::operation::_internal::distance< category_left_type, category_right_type, ::color::constant::distance::error_entity > this_type;
 
+public:
+	scalar_type operator()(model_left_type const& left, model_right_type const& right)const {
+		return this_type::process(left, right);
+	}
+
+public:
 	static scalar_type process(model_left_type const& left, model_right_type const& right) {
 		return -1;
 	}
@@ -51922,23 +52006,42 @@ public:
 
 	typedef ::color::model<category_type> model_type;
 
+	typedef model_type & model_output_type;
+	typedef model_type const& model_const_input_type;
+
+	typedef model_type result_type;
+	typedef model_type left_type, first_argument_type;
+	typedef model_type right_type, second_argument_type;
+
 	typedef typename index_trait_type::instance_type index_type;
 
 	typedef ::color::operation::_internal::addition<category_type> this_type;
 
 	model_type operator()(model_type const& left, model_type const& right) const {
-		model_type result;
-		return this_type::process(result, left, right);
+		return this_type::function(left, right);
 	}
 
-	static model_type & process(model_type &result, model_type const& right) {
+	model_type& operator()(model_output_type result, model_const_input_type left, model_const_input_type right) const {
+		return this_type::procedure(result, left, right);
+	}
+
+public:
+	static model_type & accumulate(model_output_type result, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, result.get(index) + right.get(index));
 		}
 		return result;
 	}
 
-	static model_type & process(model_type &result, model_type const& left, model_type const& right) {
+	static model_type function(model_const_input_type left, model_const_input_type right) {
+		model_type result;
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, left.get(index) + right.get(index));
+		}
+		return result;
+	}
+
+	static model_type & procedure(model_output_type result, model_const_input_type left, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, left.get(index) + right.get(index));
 		}
@@ -51955,7 +52058,7 @@ addition
 	::color::model<category_name> & result
 	,::color::model<category_name> const& right
 ) {
-	return ::color::operation::_internal::addition<category_name>::process(result, right);
+	return ::color::operation::_internal::addition<category_name>::accumulate(result, right);
 }
 
 template< typename category_name >
@@ -51966,7 +52069,7 @@ addition
 	,::color::model<category_name> const& left
 	,::color::model<category_name> const& right
 ) {
-	return ::color::operation::_internal::addition<category_name>::process(result, left, right);
+	return ::color::operation::_internal::addition<category_name>::procedure(result, left, right);
 }
 
 }
@@ -51985,23 +52088,42 @@ public:
 
 	typedef ::color::model<category_type> model_type;
 
+	typedef model_type & model_output_type;
+	typedef model_type const& model_const_input_type;
+
+	typedef model_type result_type;
+	typedef model_type left_type, first_argument_type;
+	typedef model_type right_type, second_argument_type;
+
 	typedef typename index_trait_type::instance_type index_type;
 
 	typedef ::color::operation::_internal::subtract<category_type> this_type;
 
 	model_type operator()(model_type const& left, model_type const& right) const {
-		model_type result;
-		return this_type::process(result, left, right);
+		return this_type::function(left, right);
 	}
 
-	static model_type & process(model_type &result, model_type const& right) {
+	model_type& operator()(model_output_type result, model_const_input_type left, model_const_input_type right) const {
+		return this_type::procedure(result, left, right);
+	}
+
+public:
+	static model_type & accumulate(model_output_type result, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, result.get(index) - right.get(index));
 		}
 		return result;
 	}
 
-	static model_type & process(model_type &result, model_type const& left, model_type const& right) {
+	static model_type function(model_const_input_type left, model_const_input_type right) {
+		model_type result;
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, left.get(index) - right.get(index));
+		}
+		return result;
+	}
+
+	static model_type & procedure(model_output_type result, model_const_input_type left, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, left.get(index) - right.get(index));
 		}
@@ -52018,7 +52140,7 @@ subtract
 	::color::model<category_name> & result
 	,::color::model<category_name> const& right
 ) {
-	return ::color::operation::_internal::subtract<category_name>::process(result, right);
+	return ::color::operation::_internal::subtract<category_name>::accumulate(result, right);
 }
 
 template< typename category_name >
@@ -52029,7 +52151,7 @@ subtract
 	,::color::model<category_name> const& left
 	,::color::model<category_name> const& right
 ) {
-	return ::color::operation::_internal::subtract<category_name>::process(result, left, right);
+	return ::color::operation::_internal::subtract<category_name>::procedure(result, left, right);
 }
 
 }
@@ -52234,6 +52356,7 @@ public:
 
 	typedef ::color::operation::_internal::blend<category_type> this_type;
 
+public:
 	static model_type & accumulate(model_type &result, scalar_type const& alpha, model_type const& upper) {
 		return this_type::template accumulate(result, result, alpha, upper);
 	}
@@ -52627,23 +52750,40 @@ public:
 	typedef model_type & model_output_type;
 	typedef model_type const& model_const_input_type;
 
+	typedef model_type result_type;
+	typedef model_type left_type, first_argument_type;
+	typedef model_type right_type, second_argument_type;
+
 	typedef typename index_trait_type::instance_type index_type;
 
 	typedef ::color::operation::_internal::multiply<category_type> this_type;
 
-	model_type operator()(model_type const& left, model_type const& right) const {
-		model_type result;
-		return this_type::process(result, left, right);
+public:
+	model_type& operator()(model_output_type result, model_const_input_type right) const {
+		return this_type::accumulate(result, right);
 	}
 
-	static model_type & process(model_output_type result, model_const_input_type const& right) {
+	model_type& operator()(model_output_type result, model_const_input_type left, model_const_input_type right) const {
+		return this_type::procedure(result, left, right);
+	}
+
+public:
+	static model_type & accumulate(model_output_type result, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, result.get(index) * right.get(index));
 		}
 		return result;
 	}
 
-	static model_type & process(model_output_type result, model_const_input_type left, model_const_input_type right) {
+	static model_type function(model_const_input_type left, model_const_input_type right) {
+		model_type result;
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, left.get(index) * right.get(index));
+		}
+		return result;
+	}
+
+	static model_type & procedure(model_output_type result, model_const_input_type left, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, left.get(index) * right.get(index));
 		}
@@ -52660,7 +52800,7 @@ multiply
 	::color::model<category_name> & result
 	,::color::model<category_name> const& right
 ) {
-	return ::color::operation::_internal::multiply<category_name>::process(result, right);
+	return ::color::operation::_internal::multiply<category_name>::accumulate(result, right);
 }
 
 template< typename category_name >
@@ -52671,7 +52811,7 @@ multiply
 	,::color::model<category_name> const& left
 	,::color::model<category_name> const& right
 ) {
-	return ::color::operation::_internal::multiply<category_name>::process(result, left, right);
+	return ::color::operation::_internal::multiply<category_name>::procedure(result, left, right);
 }
 
 }
@@ -52696,23 +52836,40 @@ public:
 	typedef model_type & model_output_type;
 	typedef model_type const& model_const_input_type;
 
+	typedef model_type result_type;
+	typedef model_type left_type, first_argument_type;
+	typedef model_type right_type, second_argument_type;
+
 	typedef typename index_trait_type::instance_type index_type;
 
 	typedef ::color::operation::_internal::divide<category_type> this_type;
 
-	model_type operator()(model_type const& left, model_type const& right) const {
-		model_type result;
-		return this_type::process(result, left, right);
+public:
+	model_type& operator()(model_type const& left, model_type const& right)const {
+		return this_type::function(left, right);
 	}
 
-	static model_type & process(model_output_type result, model_const_input_type const& right) {
+	model_type& operator()(model_output_type result, model_const_input_type left, model_const_input_type right) const {
+		return this_type::procedure(result, left, right);
+	}
+
+public:
+	static model_type & accumulate(model_output_type result, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, result.get(index) / right.get(index));
 		}
 		return result;
 	}
 
-	static model_type & process(model_output_type result, model_const_input_type left, model_const_input_type right) {
+	static model_type function(model_const_input_type left, model_const_input_type right) {
+		model_type result;
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			result.set(index, left.get(index) / right.get(index));
+		}
+		return result;
+	}
+
+	static model_type & procedure(model_output_type result, model_const_input_type left, model_const_input_type right) {
 		for(index_type index = 0; index < container_trait_type::size(); index ++) {
 			result.set(index, left.get(index) / right.get(index));
 		}
@@ -52729,7 +52886,7 @@ divide
 	::color::model<category_name> & result
 	,::color::model<category_name> const& right
 ) {
-	return ::color::operation::_internal::divide<category_name>::process(result, right);
+	return ::color::operation::_internal::divide<category_name>::accumulate(result, right);
 }
 
 template< typename category_name >
@@ -52740,7 +52897,272 @@ divide
 	,::color::model<category_name> const& left
 	,::color::model<category_name> const& right
 ) {
-	return ::color::operation::_internal::divide<category_name>::process(result, left, right);
+	return ::color::operation::_internal::divide<category_name>::procedure(result, left, right);
+}
+
+}
+}
+
+namespace color {
+namespace operation {
+namespace _internal {
+
+template< typename category_name >
+struct ceil {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::trait::index<category_type> index_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef model_type & model_output_type;
+	typedef model_type const& model_const_input_type;
+
+	typedef model_type result_type;
+	typedef model_type left_type, first_argument_type;
+	typedef model_type right_type, second_argument_type;
+
+	typedef typename index_trait_type::instance_type index_type;
+
+	typedef ::color::operation::_internal::ceil<category_type> this_type;
+
+public:
+	model_type & operator()(model_type &result, model_type const& upper_bound) const {
+		return this_type::process(result, upper_bound);
+	}
+	model_type & operator()(model_type &result, model_type const& left, model_type const& upper_bound) const {
+		return this_type::process(result, left, upper_bound);
+	}
+
+public:
+	static model_type & accumulate(model_output_type result, model_const_input_type upper_bound) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(upper_bound.get(index) < result.get(index)) {
+				result.set(index, upper_bound.get(index));
+			}
+		}
+		return result;
+	}
+
+	static model_type function(model_const_input_type left, model_const_input_type upper_bound) {
+		model_type result;
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(upper_bound.get(index) < result.get(index)) {
+				result.set(index, upper_bound.get(index));
+			} else {
+				result.set(index, left.get(index));
+			}
+		}
+		return result;
+	}
+
+	static model_type & procedure(model_output_type result, model_const_input_type left, model_const_input_type upper_bound) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(upper_bound.get(index) < result.get(index)) {
+				result.set(index, upper_bound.get(index));
+			} else {
+				result.set(index, left.get(index));
+			}
+		}
+		return result;
+	}
+};
+
+}
+
+template< typename category_name >
+::color::model<category_name> &
+ceil
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& upper_bound
+) {
+	return ::color::operation::_internal::ceil<category_name>::accumulate(result, upper_bound);
+}
+
+template< typename category_name >
+::color::model<category_name> &
+ceil
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& left
+	,::color::model<category_name> const& upper_bound
+) {
+	return ::color::operation::_internal::ceil<category_name>::procedure(result, left, upper_bound);
+}
+
+}
+}
+namespace color {
+namespace operation {
+namespace _internal {
+
+template< typename category_name >
+struct clip {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::trait::index<category_type> index_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+
+	typedef ::color::model<category_type> model_type;
+
+	typedef typename index_trait_type::instance_type index_type;
+
+	typedef ::color::operation::_internal::clip<category_type> this_type;
+
+public:
+	model_type & operator()(model_type &result, model_type const& low_bound, model_type const& upper_bound) const {
+		return this_type::process(result, low_bound, upper_bound);
+	}
+	model_type & operator()(model_type &result, model_type const& left, model_type const& low_bound, model_type const& upper_bound) const {
+		return this_type::process(result, left, low_bound, upper_bound);
+	}
+
+public:
+	static model_type & accumulate(model_type &result, model_type const& low_bound, model_type const& upper_bound) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(result.get(index) < low_bound.get(index)) {
+				result.set(index, low_bound.get(index));
+				continue;
+			}
+			if(upper_bound.get(index) < result.get(index)) {
+				result.set(index, upper_bound.get(index));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	static model_type & process(model_type &result, model_type const& left, model_type const& low_bound, model_type const& upper_bound) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(left.get(index) < low_bound.get(index)) {
+				result.set(index, low_bound.get(index));
+				continue;
+			}
+			if(upper_bound.get(index) < left.get(index)) {
+				result.set(index, upper_bound.get(index));
+				continue;
+			}
+			result.set(index, left.get(index));
+		}
+		return result;
+	}
+};
+
+}
+
+template< typename category_name >
+::color::model<category_name> &
+clip
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& low_bound, ::color::model<category_name> const& upper_bound
+) {
+	return ::color::operation::_internal::clip<category_name>::accumulate(result, low_bound, upper_bound);
+}
+
+template< typename category_name >
+::color::model<category_name> &
+clip
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& left
+	,::color::model<category_name> const& low_bound, ::color::model<category_name> const& upper_bound
+) {
+	return ::color::operation::_internal::clip<category_name>::process(result, left, low_bound, upper_bound);
+}
+
+}
+}
+namespace color {
+namespace operation {
+namespace _internal {
+
+template< typename category_name >
+struct floor {
+public:
+	typedef category_name category_type;
+
+	typedef ::color::trait::index<category_type> index_trait_type;
+	typedef ::color::trait::container< category_type > container_trait_type;
+
+	typedef ::color::model<category_type> model_type;
+	typedef model_type & model_output_type;
+	typedef model_type const& model_const_input_type;
+
+	typedef model_type result_type;
+	typedef model_type left_type, first_argument_type;
+	typedef model_type right_type, second_argument_type;
+
+	typedef typename index_trait_type::instance_type index_type;
+
+	typedef ::color::operation::_internal::floor<category_type> this_type;
+
+public:
+	model_type & operator()(model_type &result, model_type const& low_bound) const {
+		return this_type::process(result, low_bound);
+	}
+	model_type & operator()(model_type &result, model_type const& left, model_type const& low_bound) const {
+		return this_type::process(result, left, low_bound);
+	}
+
+public:
+	static model_type & accumulate(model_output_type result, model_const_input_type low_bound) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(result.get(index) < low_bound.get(index)) {
+				result.set(index, low_bound.get(index));
+			}
+		}
+		return result;
+	}
+
+	static model_type function(model_const_input_type left, model_const_input_type low_bound) {
+		model_type result;
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(result.get(index) < low_bound.get(index)) {
+				result.set(index, low_bound.get(index));
+			} else {
+				result.set(index, left.get(index));
+			}
+		}
+		return result;
+	}
+
+	static model_type & procedure(model_output_type result, model_const_input_type left, model_const_input_type& low_bound) {
+		for(index_type index = 0; index < container_trait_type::size(); index ++) {
+			if(result.get(index) < low_bound.get(index)) {
+				result.set(index, low_bound.get(index));
+			} else {
+				result.set(index, left.get(index));
+			}
+		}
+		return result;
+	}
+};
+
+}
+
+template< typename category_name >
+::color::model<category_name> &
+floor
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& low_bound
+) {
+	return ::color::operation::_internal::floor<category_name>::accumulate(result, low_bound);
+}
+
+template< typename category_name >
+::color::model<category_name> &
+floor
+(
+	::color::model<category_name> & result
+	,::color::model<category_name> const& left
+	,::color::model<category_name> const& low_bound
+) {
+	return ::color::operation::_internal::floor<category_name>::procedure(result, left, low_bound);
 }
 
 }

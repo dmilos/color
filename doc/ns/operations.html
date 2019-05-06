@@ -28,6 +28,9 @@
 							<li><a href="#addition "><code>addition </code></a></li>
 							<li><a href="#scale "><code>scale </code></a></li>
 							<li><a href="#subtract "><code>subtract </code></a></li>
+							<li><a href="#floor"><code>floor</code></a></li>
+							<li><a href="#ceil"><code>ceil</code></a></li>
+							<li><a href="#clip"><code>clip </code></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -165,7 +168,7 @@
 							<dt>CIE94_graphics_entity</dt>   <dd>Compare two colors by using CIE94 with textile parameters algorithm. <br>Links:      <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia:&lt;   Color difference &gt;</a>, <a href="http://www.brucelindbloom.com/index.html?Eqn_DeltaE_CIE94.html">Bruce Lindbloom CIE94</a></dd>
 							<dt>CIE94_textile_entity</dt>    <dd>Compare two colors by using CIE94 with graphics parameters algorithm. <br>Links:     <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia:&lt; Color difference &gt;</a>, <a href="http://www.brucelindbloom.com/index.html?Eqn_DeltaE_CIE94.html">Bruce Lindbloom CIE94</a></dd>
 							<dt>CIEDE2000_entity</dt>        <dd>Compare two colors by using CIEDE2000 algorithm. <br>Links:                          <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia:&lt;  Color difference &gt;</a>, <a href="http://www.brucelindbloom.com/index.html?Eqn_DeltaE_CIE2000.html">Bruce Lindbloom CIE2000</a> </dd>
-							<dt>CMC1984_entity</dt>          <dd>Compare two colors by using CMC1984 algorithm. <br>Links:                            <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia:&lt;  Color difference &gt;</a></dd> 
+							<dt>CMC1984_entity</dt>          <dd>Compare two colors by using CMC1984 algorithm. <br>Links:                            <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia:&lt;  Color difference &gt;</a></dd>
 							<dt>delta_gray_entity</dt>       <dd>Calculate <a href="#delta"><code>delta</code></a> of two color that convert that delta to gray. <br>Links: <a href="https://en.wikipedia.org/wiki/Color_difference">Wikipedia:&lt;  Color difference &gt;</a></dd>
 						</dl>
 					</dd>
@@ -434,9 +437,82 @@
 					<dt>Example</dt>
 					<dd>
 						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
-						::color::rgb&lt; float &gt; a{ ::color::constant::lime_t{} };
+						::color::rgb&lt; float &gt; b{ ::color::constant::lime_t{} };<br>
 						r = color::operation::subtract( a, b );<br>
-						color::operation::subtract( r, a, b );</code>
+						::color::operation::subtract( r, a, b );</code>
+					</dd>
+				</dl><hr width="%20">
+
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#floor" /><i>floor</i></dd>
+					<dt>Description</dt>
+					<dd>Perform floor like operation per component.</dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						template&lt; typename category_name &gt;<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; floor( color::model&lt;category_name&gt; &amp; result, color::model&lt;category_name&gt; const&amp; low_bound );<br>
+						template&lt; typename category_name &gt;<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; floor( color::model&lt;category_name&gt; &amp; result, color::model&lt;category_name&gt; const&amp; value, color::model&lt;category_name&gt; const&amp; low_bound );<br>
+						</code>
+					</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+						::color::rgb&lt; float &gt; low_bound{ ::color::constant::lime_t{} };
+						::color::rgb&lt; float &gt; r;<br>
+						::color::operation::floor( r, low_bound );<br>
+						::color::operation::floor( r, a, low_bound );</code>
+					</dd>
+				</dl><hr width="%20">
+
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#ceil" /><i>ceil</i></dd>
+					<dt>Description</dt>
+					<dd>Perform ceil like operation per component.</dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						template&lt; typename category_name &gt;<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; ceil( color::model&lt;category_name&gt; &amp; result, color::model&lt;category_name&gt; const&amp; upper_bound );<br>
+						template&lt; typename category_name &gt;<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; ceil( color::model&lt;category_name&gt; &amp; result, color::model&lt;category_name&gt; const&amp; value, color::model&lt;category_name&gt; const&amp; upper_bound );<br>
+						</code>
+					</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+						::color::rgb&lt; float &gt; upper_bound{ ::color::constant::lime_t{} };<br>
+						::color::rgb&lt; float &gt; r;<br>
+						::color::operation::ceil( r, upper_bound );<br>
+						::color::operation::ceil( r, a, upper_bound );</code>
+					</dd>
+				</dl><hr width="%20">
+
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#clip" /><i>clip</i></dd>
+					<dt>Description</dt>
+					<dd>Perform clip like operation per component.</dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						template&lt; typename category_name &gt;<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; clip( color::model&lt;category_name&gt; &amp; result, color::model&lt;category_name&gt; const&amp; low_bound, color::model&lt;category_name&gt; const&amp; upper_bound );<br>
+						template&lt; typename category_name &gt;<br>
+						&nbsp;&nbsp;::color::model&lt;category_name&gt; &amp; clip( color::model&lt;category_name&gt; &amp; result,color::model&lt;category_name&gt; const &amp; value, color::model&lt;category_name&gt; const&amp; low_bound, color::model&lt;category_name&gt; const&amp; upper_bound );<br>
+						</code>
+					</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
+						::color::rgb&lt; float &gt; upper_bound{ ::color::constant::lime_t{} };<br>
+						::color::rgb&lt; float &gt; low_bound{ ::color::constant::chocolate_t{} };<br>
+						::color::rgb&lt; float &gt; r;<br>
+						::color::operation::clip( r, low_bound, upper_bound  );<br>
+						::color::operation::clip( r, a, low_bound, upper_bound );</code>
 					</dd>
 				</dl><hr width="%20">
 

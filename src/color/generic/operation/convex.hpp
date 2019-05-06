@@ -45,6 +45,8 @@
 
             typedef typename index_trait_type::instance_type  index_type;
 
+            // TODO operator()
+
             static model_type & process( model_output_type result, scalar_const_input_type scalar, model_const_input_type right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )

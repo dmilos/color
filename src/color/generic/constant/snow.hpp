@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_snow
 #define color_generic_constant_snow
 
-// ::color::constant::::snow( c )
+// ::color::constant::snow( c )
 
 #include "./base.hpp"
 

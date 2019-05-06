@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_aqua
 #define color_generic_constant_aqua
 
-// ::color::constant::::aqua( c )
+// ::color::constant::aqua( c )
 
 #include "./base.hpp"
 

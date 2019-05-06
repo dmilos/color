@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_orchid
 #define color_generic_constant_orchid
 
-// ::color::constant::::orchid( c )
+// ::color::constant::orchid( c )
 
 #include "./base.hpp"
 

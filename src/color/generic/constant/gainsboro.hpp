@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_gainsboro
 #define color_generic_constant_gainsboro
 
-// ::color::constant::::gainsboro( c )
+// ::color::constant::gainsboro( c )
 
 #include "./base.hpp"
 

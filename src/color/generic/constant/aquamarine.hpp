@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_aquamarine
 #define color_generic_constant_aquamarine
 
-// ::color::constant::::aquamarine( c )
+// ::color::constant::aquamarine( c )
 
 #include "./base.hpp"
 

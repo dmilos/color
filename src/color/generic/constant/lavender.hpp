@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_lavender
 #define color_generic_constant_lavender
 
-// ::color::constant::::lavender( c )
+// ::color::constant::lavender( c )
 
 #include "./base.hpp"
 

@@ -173,3 +173,5 @@ example/make_rgb_red
 /example/test/out-win
 /example/test/cmake
 /example/test/build/msvc/2015/out
+/example/test/build/cmake/output
+/example/test/build/cmake/CMakeFiles

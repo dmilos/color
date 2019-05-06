@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_wheat
 #define color_generic_constant_wheat
 
-// ::color::constant::::wheat( c )
+// ::color::constant::wheat( c )
 
 #include "./base.hpp"
 

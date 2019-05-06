@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_tomato
 #define color_generic_constant_tomato
 
-// ::color::constant::::tomato( c )
+// ::color::constant::tomato( c )
 
 #include "./base.hpp"
 

@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_black
 #define color_generic_constant_black
 
-// ::color::constant::::black( c )
+// ::color::constant::black( c )
 
 #include "./base.hpp"
 

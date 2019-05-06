@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_white
 #define color_generic_constant_white
 
-// ::color::constant::::white( c )
+// ::color::constant::white( c )
 
 #include "./base.hpp"
 

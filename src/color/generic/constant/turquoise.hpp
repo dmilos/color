@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_turquoise
 #define color_generic_constant_turquoise
 
-// ::color::constant::::turquoise( c )
+// ::color::constant::turquoise( c )
 
 #include "./base.hpp"
 

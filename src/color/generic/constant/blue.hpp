@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_blue
 #define color_generic_constant_blue
 
-// ::color::constant::::blue( c )
+// ::color::constant::blue( c )
 
 #include "./base.hpp"
 

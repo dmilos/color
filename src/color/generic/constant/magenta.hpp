@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_magenta
 #define color_generic_constant_magenta
 
-// ::color::constant::::magenta( c )
+// ::color::constant::magenta( c )
 
 #include "./base.hpp"
 

@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_silver
 #define color_generic_constant_silver
 
-// ::color::constant::::silver( c )
+// ::color::constant::silver( c )
 
 #include "./base.hpp"
 

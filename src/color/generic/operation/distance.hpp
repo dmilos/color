@@ -60,9 +60,15 @@
 
             typedef typename ::color::trait::scalar< category_left_type >::instance_type   scalar_type;
 
-
             typedef ::color::operation::_internal::distance< category_left_type, category_right_type, ::color::constant::distance::error_entity > this_type;
 
+          public:
+            scalar_type operator()( model_left_type const& left, model_right_type const& right )const
+             {
+              return this_type::process( left, right );
+             }
+
+          public:
             static scalar_type process( model_left_type const& left, model_right_type const& right )
              {
               return -1;

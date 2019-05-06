@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_ivory
 #define color_generic_constant_ivory
 
-// ::color::constant::::ivory( c )
+// ::color::constant::ivory( c )
 
 #include "./base.hpp"
 

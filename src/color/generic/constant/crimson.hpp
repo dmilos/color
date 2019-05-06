@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_crimson
 #define color_generic_constant_crimson
 
-// ::color::constant::::crimson( c )
+// ::color::constant::crimson( c )
 
 #include "./base.hpp"
 

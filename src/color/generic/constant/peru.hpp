@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_peru
 #define color_generic_constant_peru
 
-// ::color::constant::::peru( c )
+// ::color::constant::peru( c )
 
 #include "./base.hpp"
 

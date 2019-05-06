@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_salmon
 #define color_generic_constant_salmon
 
-// ::color::constant::::salmon( c )
+// ::color::constant::salmon( c )
 
 #include "./base.hpp"
 

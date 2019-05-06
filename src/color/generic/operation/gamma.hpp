@@ -40,6 +40,7 @@
 
             typedef ::color::operation::_internal::gamma< category_name > this_type;
 
+            // TODO operator()
 
             static model_type & process( model_output_type result, scalar_const_input_type scalar )
              {

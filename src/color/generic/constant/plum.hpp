@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_plum
 #define color_generic_constant_plum
 
-// ::color::constant::::plum( c )
+// ::color::constant::plum( c )
 
 #include "./base.hpp"
 

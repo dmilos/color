@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_$[![name]!]
 #define color_generic_constant_$[![name]!]
 
-// ::color::constant::::$[![name]!]( c )
+// ::color::constant::$[![name]!]( c )
 
 #include "./base.hpp"
 

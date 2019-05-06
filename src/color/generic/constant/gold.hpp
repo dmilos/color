@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_gold
 #define color_generic_constant_gold
 
-// ::color::constant::::gold( c )
+// ::color::constant::gold( c )
 
 #include "./base.hpp"
 

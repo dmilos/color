@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Dejan D. M. Milosavljevic">
+		<link rel="icon" href="../../favicon.ico" type="image/ico">
+		<title>Namespace ::color::operation::functor</title>
+	</head>
+	<body><s>
+		<h1 align="center">Namespace <code>::color::operation::functor</code></h1>
+		<dl>
+			<dt><h3>TOC</h3></dt>
+			<dd>
+				<ul>
+					<li><a href="#Description">Description</a></li>
+					<li><a href="#List">List</a>
+						<ul>
+							<li><a href="#addition">addition</a></li>
+							<li><a href="#divide">divide</a></li>
+							<li><a href="#invert">invert</a></li>
+							<li><a href="#multiply">multiply</a></li>
+							<li><a href="#scale">scale</a></li>
+							<li><a href="#subtract">subtract</a></li>
+						</ul>
+					</li>
+				</ul>
+			</dd>
+
+			<dt><a name="#Description" /><h3>Description</h3></dt>
+			<dd>Objects with operator().
+				<dl>
+					<dt><a name="generic_unary_functor" />Unary functions </dt>
+					<dd>
+						<dl>
+							<dt>Description</dt>
+							<dd>Common modole of all unary functions.</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code><pre>
+       template&lt; typename category_name &gt;
+        struct <i>generic_unary_functor</i>
+         {
+          public:
+            typedef category_name  category_type;
+
+            typedef ::color::trait::index&lt; category_type &gt;       index_trait_type;
+            typedef ::color::trait::container&lt; category_type &gt;   container_trait_type;
+
+            typedef ::color::model&lt; category_type &gt;  model_type;
+
+            typedef model_type  result_type;
+            typedef model_type  left_type, first_argument_type;
+            typedef model_type  right_type, second_argument_type;
+
+            typedef typename index_trait_type::instance_type        index_type;
+
+            typedef ::color::operation::functor::<i>generic_binary_functor</i>&lt; category_type &gt; this_type;
+
+          public:
+                   model_type   operator()( model_type const&amp; right )const;
+                   model_type &amp; operator()( model_type &amp; result, model_type const&amp; right )const;
+
+          public:
+            static model_type   process( model_type const& right );
+            static model_type &amp; process( model_type &amp; result, model_type const& right );
+         };
+							</pre></code>
+							</dd>
+						</dl>
+					</dd>
+					<dt><a name="generic_binary_functor" />Binary functions </dt>
+					<dd>
+						<dl>
+							<dt>Description</dt>
+							<dd>Common modole of all unary functions.</dd>
+							<dt>Declaration</dt>
+							<dd>
+								<code><pre>
+       template&lt; typename category_name &gt;
+        struct <i>generic_binary_functor</i>
+         {
+          public:
+            typedef category_name  category_type;
+
+            typedef ::color::trait::index&lt; category_type &gt;       index_trait_type;
+            typedef ::color::trait::container&lt; category_type &gt;   container_trait_type;
+
+            typedef ::color::model&lt; category_type &gt;  model_type;
+
+            typedef model_type  result_type;
+            typedef model_type  left_type, first_argument_type;
+            typedef model_type  right_type, second_argument_type;
+
+            typedef typename index_trait_type::instance_type        index_type;
+
+            typedef ::color::operation::functor::<i>generic_binary_functor</i>&lt; category_type &gt; this_type;
+
+          public:
+            model_type  operator()( model_type const&amp; left, model_type const&amp;right )const;
+            model_type&amp; operator()( model_type &amp; result, model_type const&amp; left, model_type const&amp;right )const;
+
+          public:
+            static model_type  accumulate( model_type &amp;result, model_type const&amp; right );
+
+            static model_type   process(    model_type const&amp; left, model_type const&amp; right );
+            static model_type &amp; process(   model_type &amp; result, model_type const&amp; left, model_type const&amp;right  );
+         };
+							</pre></code>
+							</dd>
+						</dl>
+					</dd>
+				</dl>
+			</dd>
+
+
+			</dd>
+			<dt><a name="#List" /><h3>List:</h3></dt>
+			<dd>
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#addition" /><i>addition</i></dd>
+					<dt>Declaration</dt>
+					<dd>Same as <a href="#generic_unary_functor" >generic_unary_functor</a></dd>
+					<dt>Description</dt>
+					<dd>Per coordinate addition of two colors.</dd>
+					<dt>Example:</dt>
+					<dd><code>
+                      typedef ::color::rgb&lt;double&gt; color_t;<br>
+                      color_t a{ constant::orange_t{} }, b{ constant::lime_t{} }, r{ constant::blue_t{}<br>
+                      ::color::operation::functor::addition&lt;color_t::category_type&gt;{}( r, a );<br>
+                      ::color::operation::functor::addition&lt;color_t::category_type&gt;{}( r, a, b );
+                       </code>
+					</dd>
+				</dl>
+				<hr width="%20">
+			</dd>
+
+
+			<dd>
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#divide" /><i>divide</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						TODO
+						</code>
+					</dd>
+					<dt>Description</dt>
+					<dd>TODO.</dd>
+					<dt>Example:</dt>
+					<dd>TODO
+					</dd>
+				</dl>
+				<hr width="%20">
+			</dd>
+
+			<dd>
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#invert" /><i>invert</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						TODO
+						</code>
+					</dd>
+					<dt>Description</dt>
+					<dd>TODO.</dd>
+					<dt>Example:</dt>
+					<dd>TODO
+					</dd>
+				</dl>
+				<hr width="%20">
+			</dd>
+
+			<dd>
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#multiply" /><i>multiply</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						TODO
+						</code>
+					</dd>
+					<dt>Description</dt>
+					<dd>TODO.</dd>
+					<dt>Example:</dt>
+					<dd>TODO
+					</dd>
+				</dl>
+				<hr width="%20">
+			</dd>
+
+			<dd>
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#scale" /><i>scale</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						TODO
+						</code>
+					</dd>
+					<dt>Description</dt>
+					<dd>TODO.</dd>
+					<dt>Example:</dt>
+					<dd>TODO
+					</dd>
+				</dl>
+				<hr width="%20">
+			</dd>
+
+			<dd>
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#subtract" /><i>subtract</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						TODO
+						</code>
+					</dd>
+					<dt>Description</dt>
+					<dd>TODO.</dd>
+					<dt>Example:</dt>
+					<dd>TODO
+					</dd>
+				</dl>
+				<hr width="%20">
+			</dd>
+			<dd>
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#TODO" /><i>TODO</i></dd>
+					<dt>Declaration</dt>
+					<dd>
+						<code>
+						TODO
+						</code>
+					</dd>
+					<dt>Description</dt>
+					<dd>TODO.</dd>
+					<dt>Example:</dt>
+					<dd>TODO
+					</dd>
+				</dl>
+				<hr width="%20">
+			</dd>
+
+
+		</dl>
+		<hr>
+	</s></body>
+</html>

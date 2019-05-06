@@ -83,7 +83,7 @@
 
         typedef typename ::color::trait::component<category_type>::instance_type     component_type;
 
-        typedef ::color::_internal::normalize< category_type > normalize_type;
+        //typedef ::color::_internal::normalize< category_type > normalize_type;
 
         scalar_type const A = static_cast<scalar_type>( c.template get< 1 >() );
         scalar_type const B = static_cast<scalar_type>( c.template get< 2 >() );

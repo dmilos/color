@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_brown
 #define color_generic_constant_brown
 
-// ::color::constant::::brown( c )
+// ::color::constant::brown( c )
 
 #include "./base.hpp"
 

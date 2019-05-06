@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_pink
 #define color_generic_constant_pink
 
-// ::color::constant::::pink( c )
+// ::color::constant::pink( c )
 
 #include "./base.hpp"
 

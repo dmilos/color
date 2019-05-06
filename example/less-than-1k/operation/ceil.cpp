@@ -9,13 +9,16 @@ int main( int argc, char *argv[] )
   ::color::rgb<double> b{ ::color::constant::lime_t{} };
   ::color::rgb<double> r{ ::color::constant::blue_t{} };
 
-  ::color::operation::addition( r, a );
-  std::cout<< " addition( r , orange  ) = ";
+  std::cout << r[0] << ", " << r[1] << ", " << r[2] << std::endl;
+
+  ::color::operation::ceil( r, a );
+  std::cout<< " ceil( r , orange  ) = ";
   std::cout << r[0] << ", " << r[1] << ", " << r[2] << std::endl;
   std::cout << std::endl;
 
-  ::color::operation::addition( r, a, b );
-  std::cout<< " addition( orange, lime ) = ";
+  r = ::color::constant::blue_t{};
+  ::color::operation::ceil( r, a, b );
+  std::cout<< " ceil( orange, lime ) = ";
   std::cout << r[0] << ", " << r[1] << ", " << r[2] << std::endl;
   std::cout << std::endl;
 

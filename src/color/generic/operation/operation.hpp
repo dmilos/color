@@ -21,3 +21,7 @@
 
 #include "./multiply.hpp"
 #include "./divide.hpp"
+
+#include "./ceil.hpp"
+#include "./clip.hpp"
+#include "./floor.hpp"

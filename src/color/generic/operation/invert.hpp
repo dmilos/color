@@ -23,19 +23,26 @@
             typedef category_name  category_type;
 
             typedef ::color::trait::index<category_type>         index_trait_type;
-            typedef ::color::trait::bound<category_type>         bound_type;
             typedef ::color::trait::component< category_type >   component_trait_type;
             typedef ::color::trait::container< category_type >   container_trait_type;
+            typedef ::color::trait::bound<category_type>         bound_type;
+
 
             typedef ::color::model<category_type>  model_type;
 
+            typedef model_type &       model_output_type;
+            typedef model_type const&  model_const_input_type;
+
+            typedef model_type  result_type;
+            typedef model_type  left_type, first_argument_type;
+            typedef model_type  right_type, second_argument_type;
 
             typedef typename component_trait_type::model_type component_input_const_type;
             typedef typename component_trait_type::return_type      component_return_type;
 
             typedef typename index_trait_type::instance_type     index_type;
             typedef typename index_trait_type::model_type  index_input_const_type;
-            
+
             typedef ::color::operation::_internal::invert<category_type> this_type;
 
 
@@ -57,13 +64,19 @@
               return bound_type::template range<index_size>() - component;
              }
 
-            model_type operator()( model_type const& right ) const
+          public:
+            model_type & operator()( model_type & result ) const
              {
-              model_type result;
+              return this_type::accumulate( result );
+             }
+
+            model_type & operator()( model_type &result, model_type const& right ) const
+             {
               return this_type::process( result, right );
              }
 
-            static model_type & process( model_type &result )
+          public:
+            static model_type & accumulate( model_type &result )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
@@ -71,8 +84,18 @@
                }
               return result;
              }
+             
+            static model_type  function( model_type const& right )
+             {
+              model_type result;
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
+               {
+                result.set( index, component( right.get( index ), index ) );
+               }
+              return result;
+             }
 
-            static model_type & process(  model_type &result, model_type const& right )
+            static model_type & process( model_type &result, model_type const& right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
@@ -92,8 +115,19 @@
          ::color::model<category_name>      & result
        )
        {
-        return ::color::operation::_internal::invert<category_name>::process( result );
+        return ::color::operation::_internal::invert<category_name>::accumulate( result );
        }
+
+     //template< typename category_name >
+     // ::color::model<category_name>
+     // invert
+     //  (
+     //    ::color::model<category_name>      const& input
+     //  )
+     //  { // rejected as confusing during the reading of code
+     //   ::color::model<category_name>      result;
+     //   return ::color::operation::_internal::invert<category_name>::process( result, input );
+     //  }
 
      template< typename category_name >
       ::color::model<category_name>      &

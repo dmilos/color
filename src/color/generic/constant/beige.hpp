@@ -1,7 +1,7 @@
 #ifndef color_generic_constant_beige
 #define color_generic_constant_beige
 
-// ::color::constant::::beige( c )
+// ::color::constant::beige( c )
 
 #include "./base.hpp"
 
