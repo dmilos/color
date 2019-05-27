@@ -5,7 +5,13 @@
 // ::color::operation::multiply( )
 
 
-#include "../../generic/model.hpp"
+
+
+#include "../model.hpp"
+
+
+
+
 
 
 

@@ -1,13 +1,13 @@
 #ifndef  color_generic_operation_bias
 #define  color_generic_operation_bias
 
-#include "../../generic/model.hpp"
-#include "../../generic/trait/scalar.hpp"
 
 
 
 
+#include "../trait/scalar.hpp"
 
+#include "../model.hpp"
 
 
 

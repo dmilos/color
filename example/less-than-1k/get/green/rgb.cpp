@@ -15,10 +15,10 @@ int main( int argc, char *argv[] )
   // Here is how to get green component. Default is: channel extraction
   auto f0 = color::get::green( c );
 
-  // Get green component by using Alvy Ray Smith algorithm.
+  // Get green component by channel extraction.
   auto f1 = color::get::green< ::color::get::constant::rgb::green::channel_entity >( c );
 
-  // Get green component by using Alvy Ray Smith algorithm.
+  // Get green component by using some my algorithm.
   auto f2 = color::get::green< ::color::get::constant::rgb::green::hsl_star_entity >( c );
 
   // Now do whatever you wan to do

@@ -7,6 +7,14 @@
 #include "../trait/scalar.hpp"
 #include "../trait/index.hpp"
 
+
+
+
+
+
+
+
+
 namespace color
  {
   namespace operation
@@ -34,9 +42,9 @@ namespace color
      >
      inline
      typename ::color::trait::component< category_name >::component_return_type
-     diverse( typename ::color::trait::scalar<category_name>::instance_type   const& scalar_type )
+     diverse( typename ::color::trait::scalar<category_name>::instance_type   const& scalar )
       {
-       return ::color::_internal::diverse< category_name >::template process< index > ( scalar_type );
+       return ::color::_internal::diverse< category_name >::template process< index > ( scalar );
       }
 
    }

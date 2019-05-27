@@ -6,8 +6,9 @@ namespace color
   namespace category
    {
 
-    // TODO make different default during template specialization
-    typedef ::color::type::error_t error_t;
+    struct error_t{};
+
+    typedef ::color::category::error_t error_t;
 
    }
  }

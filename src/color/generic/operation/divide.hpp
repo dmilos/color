@@ -5,7 +5,13 @@
 // ::color::operation::divide( )
 
 
-#include "../../generic/model.hpp"
+
+
+#include "../model.hpp"
+
+
+
+
 
 
 

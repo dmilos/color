@@ -15,6 +15,8 @@
 #if defined( _MSC_VER  )
 #pragma warning(push, 0)
 //#pragma warning( disable: 4305 )
+#pragma warning( disable: 4701 )
+//#pragma warning( disable: 4189 ) 
 #endif
 
 #if defined( __GNUC__  )

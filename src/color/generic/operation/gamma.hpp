@@ -1,13 +1,19 @@
 #ifndef  color_generic_operation_gamma
 #define color_generic_operation_gamma
 
-#include "../../generic/model.hpp"
+// ::color::operation::_internal::gamma<category_name>::process( )
+// ::color::operation::_internal::gamma<category_name>::process( )
+
 
 #include "./diverse.hpp"
 #include "./normalize.hpp"
 
-// ::color::operation::_internal::gamma<category_name>::process( )
-// ::color::operation::_internal::gamma<category_name>::process( )
+
+#include "../model.hpp"
+
+
+
+
 
  namespace color
   {

@@ -19,10 +19,10 @@ g++ -std=c++11 -g -I../src  get_alpha.cpp                     -o  get_alpha
 g++ -std=c++11 -g -I../src  set_green.cpp                     -o  set_green
 g++ -std=c++11 -g -I../src  set_red.cpp                       -o  set_red
 
-cd ./less-than-1k
+cd ./less-than-2k
 ./make.sh
 cd ..
 
-cd ./less-than-2k
+cd ./less-than-1k
 ./make.sh
 cd ..

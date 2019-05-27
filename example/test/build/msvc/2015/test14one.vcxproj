@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\less-than-1k\operation\addition.cpp" />
+    <ClCompile Include="..\..\..\..\less-than-1k\get\red\rgb.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A3ED98DB-FFC9-4CBC-BBF6-4AB240962603}</ProjectGuid>

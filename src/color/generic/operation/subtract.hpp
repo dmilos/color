@@ -9,6 +9,12 @@
 
 
 
+
+
+
+
+
+
  namespace color
   {
    namespace operation

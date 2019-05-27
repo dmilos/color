@@ -15,14 +15,17 @@ int main( int argc, char *argv[] )
   // Here is how to get red component. Default is: channel extraction
   auto f0 = color::get::red( c );
 
-  // Get red component by using Alvy Ray Smith algorithm.
+  // Get red component by channel extraction.
   auto f1 = color::get::red< ::color::get::constant::rgb::red::channel_entity >( c );
 
-  // Get red component by using Alvy Ray Smith algorithm.
+  // Get red component by using some my algorithm.
   auto f2 = color::get::red< ::color::get::constant::rgb::red::hsl_star_entity >( c );
 
+  // Get red component by using by finding angle distance in hue wheel.
+  auto f3 = color::get::red< ::color::get::constant::rgb::red::hue_angle_entity >( c );
+
   // Now do whatever you wan to do
-  std::cout << f0 << " - " << f1<< " - " << f2 << " - " << std::endl;
+  std::cout << f0 << " - " << f1<< " - " << f2 << " - " << f3 << " - " << std::endl;
 
   return EXIT_SUCCESS;
  }

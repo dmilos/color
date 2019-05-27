@@ -5,7 +5,13 @@
 // ::color::operation::clip( result, left, right )
 
 
-#include "../../generic/model.hpp"
+#include "../model.hpp"
+
+
+
+
+
+
 
 
 

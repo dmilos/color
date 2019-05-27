@@ -1,13 +1,19 @@
 #ifndef  color_generic_operation_invert_123
 #define  color_generic_operation_invert_123
 
-#include "../../generic/model.hpp"
-
 // ::color::operation::invert<category_name>( model<category_name> )
 
 // ::color::operation::_internal::invert<category_name>::component<>( )
 // ::color::operation::_internal::invert<category_name>::process( )
 // ::color::operation::_internal::invert<category_name>::process( )
+
+#include "../model.hpp"
+
+
+
+
+
+
 
  namespace color
   {
@@ -84,7 +90,7 @@
                }
               return result;
              }
-             
+
             static model_type  function( model_type const& right )
              {
               model_type result;

@@ -5,7 +5,13 @@
 // ::color::operation::addition( result, left, right )
 
 
+
+
 #include "../model.hpp"
+
+
+
+
 
 
 

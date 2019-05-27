@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\less-than-1k\operation\addition.cpp">
+    <ClCompile Include="..\..\..\..\less-than-1k\get\red\rgb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

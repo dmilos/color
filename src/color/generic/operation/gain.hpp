@@ -1,8 +1,19 @@
 #ifndef  color_generic_operation_gain
 #define  color_generic_operation_gain
 
-#include "../../generic/model.hpp"
-#include "../../generic/trait/scalar.hpp"
+
+
+
+
+
+
+#include "../trait/scalar.hpp"
+
+#include "../model.hpp"
+
+
+
+
 
  namespace color
   {

@@ -28,7 +28,7 @@
 // Initialize with constant.
 color::bgr<std::uint8_t>  b( ::color::constant::aqua_t{} );
 
-/!< Use x11 green.
+//!< Use x11 green.
 color::yiq<std::uint8_t>  y( ::color::constant::x11::green_t{} );
 
 // Use intuitive/natural values for initialization.
@@ -108,13 +108,11 @@ yr = color::operation::mix( y2, 0.5, y2 ); //!< Blend two colors for given alpha
   - [Wiki page](https://github.com/dmilos/color/wiki)
 
 ### Tested against:
-  - GCC 4.8.4
-  - GCC 5.4.0 20160609
+  - GCC 7.3.0
   - GCC 7.4.0
-  - MSVC 2017 (15.3.2)
   - MSVC 2015 Update 3
-  - _MSVC 2013 Update 5_
+  - MSVC 2017 15.9.14
+  - MSVC 2019 16.2.3
 
 ### License
 Licensed under an [Apache-2.0](https://github.com/dmilos/color/blob/master/license.txt) license.
- 

@@ -28,7 +28,7 @@
          enum formula_enum
           {
             error_entity
-           ,hexagon_entity                     //!< =  Preucil
+           ,hexagon_entity                     //!< = Preucil
            ,polar_atan2_entity                 //!< EHB(atan2) = Evans, Hanson, and Brewer
            ,polar_acos_entity                  //!< EHB(acos)  = Evans, Hanson, and Brewer
            ,polar_entity = polar_atan2_entity  //!< Default polar formula

@@ -5,8 +5,8 @@
 // ::color::operation::combine( result, a0, c0, a1, c1, a2, c2 )
 
 
-#include "../../generic/trait/scalar.hpp"
-#include "../../generic/model.hpp"
+#include "../trait/scalar.hpp"
+#include "../model.hpp"
 
 
 

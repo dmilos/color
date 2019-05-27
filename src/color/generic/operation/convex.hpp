@@ -1,13 +1,13 @@
 #ifndef  color_generic_operation_convex_123
 #define color_generic_operation_convex_123
 
-#include "../../generic/model.hpp"
-#include "../../generic/trait/scalar.hpp"
 
 
 
 
+#include "../trait/scalar.hpp"
 
+#include "../model.hpp"
 
 
 

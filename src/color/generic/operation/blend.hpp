@@ -5,14 +5,14 @@
 // ::color::operation::blend<alpha_index>( result, upper )
 
 
-#include "../../generic/trait/index.hpp"
-#include "../../generic/trait/container.hpp"
-#include "../../generic/trait/scalar.hpp"
-#include "../../generic/model.hpp"
-#include "../../generic/get/alpha.hpp"
-#include "../../generic/set/alpha.hpp"
+#include "../trait/index.hpp"
+#include "../trait/container.hpp"
+#include "../trait/scalar.hpp"
+#include "../model.hpp"
+#include "../get/alpha.hpp"
+#include "../set/alpha.hpp"
 
-#include "../../generic/place/alpha.hpp"
+#include "../place/alpha.hpp"
 
 
  namespace color
