@@ -88,7 +88,7 @@
               scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p  >(  ) );
               scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>(  ) );
               scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p >(  ) );
-              
+
               scalar_type result;
               while( true )
                {
@@ -99,7 +99,7 @@
                   result = ( b - g ) * ( scalar_type(1) - ( g - r ) );
                   break;
                  }
-              
+
                 result = ( b - r ) * ( scalar_type(1) - ( r - g ) );
                 break;
                }
@@ -107,6 +107,7 @@
               return diverse_type::template process<blue_p >( result );
             }
           };
+
          template< typename tag_name >
           struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::blue::hue_angle_entity >
            {
@@ -138,7 +139,7 @@
 
               if( result < scalar_type(0) )
                {
-                result += scalar_type(1); 
+                result += scalar_type(1);
                }
 
               if( result < scalar_type(0.5) )

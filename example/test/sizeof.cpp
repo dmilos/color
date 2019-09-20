@@ -26,7 +26,7 @@ template < typename category_name >
 
    if( false == ::color::trait::info< category_name >::implemented_entity )
     {
-    ss << "\"";
+     ss << "\"";
     }
 
   if( false == ::color::trait::info< category_name >::meaningful_entity )

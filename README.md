@@ -39,7 +39,7 @@ color::hsv<double>        h( { 120.0, 50.0, 60.0 } );
 color::lab<float>         l( { 50.0, -10, 90 } );
 
 // Well known rgb. Values are between 0 and 1.
-color::rgb<float>         l( { 0.5, 0, 0.9 } );
+color::rgb<float>         r( { 0.5, 0, 0.9 } );
 ```
 
 ### Code sample - Conversion:
@@ -112,7 +112,7 @@ yr = color::operation::mix( y2, 0.5, y2 ); //!< Blend two colors for given alpha
   - GCC 7.4.0
   - MSVC 2015 Update 3
   - MSVC 2017 15.9.14
-  - MSVC 2019 16.2.3
+  - MSVC 2019 16.3.3
 
 ### License
 Licensed under an [Apache-2.0](https://github.com/dmilos/color/blob/master/license.txt) license.

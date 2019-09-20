@@ -76,6 +76,27 @@
               return result;
              }
 
+
+            static model_type & process
+             (
+                model_type       & result
+               ,scalar_type const& a0
+               ,model_type  const& c0
+               ,scalar_type const& a1
+               ,model_type  const& c1
+               ,scalar_type const& a2
+               ,model_type  const& c2
+               ,scalar_type const& a3
+               ,model_type  const& c3
+              )
+             {
+              for( index_type index = 0; index < container_trait_type::size(); index ++ )
+               {
+                result.set( index, component_type( a0 * c0.get(index) + a1 * c1.get(index)  +  a2 * c2.get(index) +  a3 * c3.get(index) ) );
+               }
+              return result;
+             }
+
          };
 
       }
@@ -86,10 +107,10 @@
       combine
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::model_type                   a0
-        ,::color::model<category_name> const& c0
-        ,typename ::color::trait::scalar<category_name>::model_type                   a1
-        ,::color::model<category_name> const& c1
+        ,typename ::color::trait::scalar<category_name>::model_type     const& a0
+        ,::color::model<category_name>                                  const& c0
+        ,typename ::color::trait::scalar<category_name>::model_type     const& a1
+        ,::color::model<category_name>                                  const& c1
        )
        {
         return ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1 );
@@ -100,15 +121,33 @@
       combine
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::model_type a0
-        ,::color::model<category_name> const& c0
-        ,typename ::color::trait::scalar<category_name>::model_type a1
-        ,::color::model<category_name> const& c1
-        ,typename ::color::trait::scalar<category_name>::model_type a2
-        ,::color::model<category_name> const& c2
+        ,typename ::color::trait::scalar<category_name>::model_type const& a0
+        ,::color::model<category_name>                              const& c0
+        ,typename ::color::trait::scalar<category_name>::model_type const& a1
+        ,::color::model<category_name>                              const& c1
+        ,typename ::color::trait::scalar<category_name>::model_type const& a2
+        ,::color::model<category_name>                              const& c2
        )
        {
         return ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1, a2, c2 );
+       }
+
+     template< typename category_name >
+      ::color::model<category_name> &
+      combine
+       (
+         ::color::model<category_name>      & result
+        ,typename ::color::trait::scalar<category_name>::model_type const& a0
+        ,::color::model<category_name>                              const& c0
+        ,typename ::color::trait::scalar<category_name>::model_type const& a1
+        ,::color::model<category_name>                              const& c1
+        ,typename ::color::trait::scalar<category_name>::model_type const& a2
+        ,::color::model<category_name>                              const& c2
+        ,typename ::color::trait::scalar<category_name>::model_type const& a3
+        ,::color::model<category_name>                              const& c3
+       )
+       {
+        return ::color::operation::_internal::combine<category_name>::process( result, a0, c0, a1, c1, a2, c2, a3, c3 );
        }
 
     }

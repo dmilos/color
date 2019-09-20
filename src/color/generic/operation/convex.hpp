@@ -1,6 +1,7 @@
 #ifndef  color_generic_operation_convex_123
 #define color_generic_operation_convex_123
 
+// result = ::color::operation::convex( result, a0, x0, x1 );
 
 
 
@@ -8,10 +9,7 @@
 #include "../trait/scalar.hpp"
 
 #include "../model.hpp"
-
-
-
-
+#include "./combine.hpp"
 
 
 
@@ -19,66 +17,19 @@
   {
    namespace operation
     {
-     namespace _internal
-      {
-
-       template< typename category_name >
-        struct convex
-         {
-          public:
-            typedef category_name  category_type;
-
-            typedef ::color::trait::index<category_type>             index_trait_type;
-            typedef ::color::trait::component< category_type >       component_trait_type;
-            typedef ::color::trait::container< category_type >       container_trait_type;
-            typedef ::color::trait::scalar<category_type>            scalar_trait_type;
-
-            typedef typename component_trait_type::instance_type   component_instance_type;
-            typedef typename scalar_trait_type::instance_type    scalar_type;
-            typedef typename scalar_trait_type::instance_type scalar_const_input_type;
-
-
-            typedef ::color::model<category_type>     model_type;
-
-            typedef model_type &       model_output_type;
-            typedef model_type const&  model_const_input_type;
-
-            typedef typename index_trait_type::instance_type  index_type;
-
-            // TODO operator()
-
-            static model_type & process( model_output_type result, scalar_const_input_type scalar, model_const_input_type right )
-             {
-              for( index_type index = 0; index < container_trait_type::size(); index ++ )
-               {
-                result.set( index, component_instance_type( scalar * result.get( index ) +( scalar_type( 1 ) - scalar ) *right.get( index ) ) );
-               }
-              return result;
-             }
-
-            static model_type & process(  model_output_type  result, model_const_input_type left, scalar_const_input_type scalar, model_const_input_type right )
-             {
-              for( index_type index = 0; index < container_trait_type::size(); index ++ )
-               {
-                result.set( index, component_instance_type( scalar * left.get( index ) +( scalar_type( 1 ) - scalar ) *right.get( index ) ) );
-               }
-              return result;
-             }
-
-         };
-      }
-
 
      template< typename category_name >
       ::color::model<category_name>      &
       convex
        (
          ::color::model<category_name>      & result
-        ,typename ::color::trait::scalar<category_name>::model_type                      scalar
-        ,::color::model<category_name> const& right
+        ,typename ::color::trait::scalar<category_name>::model_type        a0
+        ,::color::model<category_name>                              const& x0
+        ,::color::model<category_name>                              const& x1
        )
        {
-        return ::color::operation::_internal::convex<category_name>::process( result, scalar, right );
+        typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+        return ::color::operation::_internal::combine<category_name>::process( result, a0, x0, scalar_type(1)- a0 , x1 );
        }
 
      template< typename category_name >
@@ -86,12 +37,54 @@
       convex
        (
          ::color::model<category_name>      & result
-        ,::color::model<category_name> const& left
-        ,typename ::color::trait::scalar<category_name>::model_type                      scalar
-        ,::color::model<category_name> const& right
+        ,typename ::color::trait::scalar<category_name>::model_type        a0
+        ,::color::model<category_name>                              const& x0
+        ,typename ::color::trait::scalar<category_name>::model_type        a1
+        ,::color::model<category_name>                              const& x1
+        ,::color::model<category_name>                              const& x2
        )
        {
-        return ::color::operation::_internal::convex<category_name>::process( result, left, scalar, right );
+        typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+        return ::color::operation::_internal::combine<category_name>::process( result, a0, x0, a1 , x1, scalar_type(1)-a0-a1, x2 );
+       }
+
+     template< typename category_name >
+      ::color::model<category_name>      &
+      convex
+       (
+         ::color::model<category_name>      & result
+        ,typename ::color::trait::scalar<category_name>::model_type const& a0
+        ,::color::model<category_name>                              const& x0
+        ,typename ::color::trait::scalar<category_name>::model_type const& a1
+        ,::color::model<category_name>                              const& x1
+        ,typename ::color::trait::scalar<category_name>::model_type const& a2
+        ,::color::model<category_name>                              const& x2
+        ,::color::model<category_name>                              const& x3
+       )
+       {
+        typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+        return ::color::operation::_internal::combine<category_name>::process( result, a0,x0, a1,x1, a2,x2, scalar_type(1)-a0-a1-a2, x3 );
+       }
+
+
+     template< typename category_name >
+      ::color::model<category_name>      &
+      convex
+       (
+         ::color::model<category_name>      & result
+        ,typename ::color::trait::scalar<category_name>::model_type const& a0
+        ,::color::model<category_name>                              const& x0
+        ,typename ::color::trait::scalar<category_name>::model_type const& a1
+        ,::color::model<category_name>                              const& x1
+        ,typename ::color::trait::scalar<category_name>::model_type const& a2
+        ,::color::model<category_name>                              const& x2
+        ,typename ::color::trait::scalar<category_name>::model_type const& a3
+        ,::color::model<category_name>                              const& x3
+        ,::color::model<category_name>                              const& x4
+       )
+       {
+        typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
+        return ::color::operation::_internal::combine<category_name>::process( result, a0,x0, a1,x1, a2,x2, a3,x3, scalar_type(1)-a0-a1-a2-a3, x4 );
        }
 
     }

@@ -126,17 +126,17 @@ void test_palette()
   std::string number="000";
   for( int layer= 0; layer < 12; layer += 1 )
    {
-    number[0] =  layer/10 + '0';
-    number[1] =  layer%10 + '0';
-    number[2] = (layer/10)%10 + '0';
+    number[0] = char(  layer/10 + '0' );
+    number[1] = char(  layer%10 + '0' );
+    number[2] = char( (layer/10)%10 + '0' );
     make_image<color::hwb<double> >( "./palette/hwb-0-"+number+".tga" , layer/12.0, 0 );
    }
 
   for( int layer= 0; layer <= 10; layer += 1 )
    {
-    number[0] = layer/10 + '0';
-    number[1] = layer%10 + '0';
-    number[2] = '0';
+    number[0] = char( layer/10 + '0' );
+    number[1] = char( layer%10 + '0' );
+    number[2] = char( '0' );
     make_image<color::hwb<double> >( "./palette/hwb-1-"+number+".tga" , layer/10.0, 1 );
     make_image<color::hwb<double> >( "./palette/hwb-2-"+number+".tga" , layer/10.0, 2 );
    }

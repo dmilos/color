@@ -15,6 +15,7 @@ template< typename category_name >
    model_type   u32a;
    model_type   u32b;
    model_type   u32c;
+   model_type   u32d;
 
    // long names discourage usage of it directly.
    color::operation::addition( u32a, u32b, u32c ); ::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b, u32c );
@@ -33,10 +34,13 @@ template< typename category_name >
    //u32b = ::color::constant::gray_t<1,1>{};
    //color::operation::divide( u32a, u32b );       ::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b );
 
-   color::operation::convex( u32a, 0.5, u32b );
-   color::operation::convex( u32a, u32b, 0.5, u32c );
+   color::operation::median( u32a, 0.5, u32b );
+   color::operation::median( u32a, u32b, 0.5, u32c );
+   color::operation::median( u32a, u32b, 0.5, u32c );
 
-   color::operation::convex( u32a, u32b, 0.5, u32c );
+   color::operation::convex( u32a, 0.5,u32b, u32c );
+   color::operation::convex( u32a, 0.5,u32b, 0.2,u32c, u32d );
+ //color::operation::convex( u32a, 0.5,u32b, 0.1,u32c, 0.1,u32d, u32e );
 
    color::operation::blend( u32b, 0.5, u32c );
    color::operation::blend( u32b, u32b, 0.5, u32c );
@@ -46,6 +50,7 @@ template< typename category_name >
 
    ::color::operation::combine( u32, 0.1, u32a, 0.2, u32b );
    ::color::operation::combine( u32, 0.1, u32a, 0.2, u32b, 0.3, u32c );
+   ::color::operation::combine( u32, 0.1, u32a, 0.2, u32b, 0.3, u32c, 0.3, u32d );
 
    color::operation::mix( u32b, 0.5, u32c );
    // TODO color::operation::mix( u32a, u32b );

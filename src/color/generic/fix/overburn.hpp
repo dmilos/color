@@ -31,7 +31,7 @@
 
             typedef typename index_trait_type::instance_type  index_type;
 
-            static void process( model_type &result )
+            static model_type & process( model_type &result )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
@@ -46,9 +46,10 @@
                   continue;
                  }
                }
+              return result;
              }
 
-            static void process(  model_type & result, model_type const& right )
+            static model_type & process(  model_type & result, model_type const& right )
              {
               for( index_type index = 0; index < container_trait_type::size(); index ++ )
                {
@@ -64,6 +65,7 @@
                  }
                 result.set( index, right.get( index ) );
                }
+              return result;
              }
 
          };
@@ -72,22 +74,22 @@
 
 
      template< typename category_name >
-      void overburn
+      ::color::model<category_name> & overburn
        (
          ::color::model<category_name>      & result
        )
        {
-        ::color::fix::_internal::overburn<category_name>::process( result );
+        return ::color::fix::_internal::overburn<category_name>::process( result );
        }
 
      template< typename category_name >
-      void overburn
+      ::color::model<category_name> & overburn
        (
          ::color::model<category_name>      & result
         ,::color::model<category_name> const& right
        )
        {
-        ::color::fix::_internal::overburn<category_name>::process( result, right );
+        return ::color::fix::_internal::overburn<category_name>::process( result, right );
        }
 
     }

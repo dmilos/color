@@ -4,6 +4,7 @@
 #include "./scale.hpp"
 #include "./operator.hpp"
 
+#include "./median.hpp"
 #include "./convex.hpp"
 #include "./blend.hpp"
 

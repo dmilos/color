@@ -2,7 +2,6 @@
 
 @echo %cd%
 
-cl /EHsc  -I../../../../src rgb.cpp
 cl /EHsc  -I../../../../src rgb_acos.cpp
 cl /EHsc  -I../../../../src rgb_atan2.cpp
 cl /EHsc  -I../../../../src rgb_hex.cpp

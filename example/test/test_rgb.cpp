@@ -23,8 +23,15 @@ void test_rgb_float_only()
   color::operation::invert( f);
   color::operation::scale( f , 0.5 );
   color::operation::scale( f , 0.5, f );
-  color::operation::convex( f , 0.5, f );
-  color::operation::convex( f , f, 0.5, f );
+  color::operation::median( f , 0.5, f );
+  color::operation::median( f , f, 0.5, f );
+
+
+  color::operation::convex( f , 0.5, f , f );
+  color::operation::convex( f , 0.5, f, 0.1 , f , f );
+  color::operation::convex( f , 0.5, f, 0.1 , f ,  0.1 , f, f );
+
+
   f = f + f;
   f = f - f;
   f += f;

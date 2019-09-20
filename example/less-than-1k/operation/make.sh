@@ -19,8 +19,8 @@ cd ./distance
 cd ..
 
 
-g++ -fexceptions -std=c++11 -g -I../../../src convex1.cpp           -o convex1
-g++ -fexceptions -std=c++11 -g -I../../../src convex2.cpp           -o convex2
+g++ -fexceptions -std=c++11 -g -I../../../src median1.cpp           -o median1
+g++ -fexceptions -std=c++11 -g -I../../../src median2.cpp           -o median2
 g++ -fexceptions -std=c++11 -g -I../../../src mix_alpha.cpp         -o mix_alpha
 g++ -fexceptions -std=c++11 -g -I../../../src mix_noalpha.cpp       -o mix_noalpha
 g++ -fexceptions -std=c++11 -g -I../../../src bias.cpp              -o bias

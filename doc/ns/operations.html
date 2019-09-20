@@ -17,7 +17,7 @@
 						<ul>
 							<li><a href="#bias"><code>bias</code></a></li>
 							<li><a href="#combine"><code>combine</code></a></li>
-							<li><a href="#convex"><code>convex</code></a></li>
+							<li><a href="#median"><code>median</code></a></li>
 							<li><a href="#distance"><code>distance</code></a></li>
 							<li><a href="#delta"><code>delta</code></a></li>
 							<li><a href="#gain"><code>gain</code></a></li>
@@ -117,16 +117,16 @@
 
 				<dl>
 					<dt>Name</dt>
-					<dd><a name="#convex" /><i>convex</i></dd>
+					<dd><a name="#median" /><i>median</i></dd>
 					<dt>Description</dt>
-					<dd>Calculate convex combination of two given color for given scalar.<br>
-						For color a and b, and scalar 0.3 convex combination is result = (1-0.3)a + 0.3 * b;
+					<dd>Calculate median color of two given color for given scalar.<br>
+						For color a and b, and scalar 0.3 median is result = (1-0.3)a + 0.3 * b;
 					</dd>
 					<dt>Declaration</dt>
 					<dd>
 						<code>
 						template&lt; typename category_name &gt;                       <br>
-						&nbsp;::color::model&lt;category_name&gt; &amp; convex                         <br>
+						&nbsp;::color::model&lt;category_name&gt; &amp; median                         <br>
 						&nbsp;(                                                                              <br>
 						&nbsp;&nbsp; ::color::model&lt;category_name&gt;      &amp; result                   <br>
 						&nbsp;&nbsp;,typename ::color::trait::scalar&lt;category_name&gt;::model_type scalar                 <br>
@@ -134,7 +134,7 @@
 						&nbsp;);                                                                             <br>
                                                                                                              <br>
 						template&lt; typename category_name &gt;                       <br>
-						&nbsp;::color::model&lt;category_name&gt; &amp; convex                               <br>
+						&nbsp;::color::model&lt;category_name&gt; &amp; median                               <br>
 						&nbsp;&nbsp;(                                                                        <br>
 						&nbsp;&nbsp;&nbsp; ::color::model&lt;category_name&gt;      &amp;result              <br>
 						&nbsp;&nbsp;&nbsp;,color::model&lt;category_name&gt; const&amp;left                  <br>
@@ -148,12 +148,10 @@
 						<code>::color::rgb&lt; float &gt; a{ ::color::constant::orange_t{} };<br>
 						::color::rgb&lt; float &gt; b{ ::color::constant::lime_t{} };<br>
 						::color::rgb&lt; float &gt; r{ ::color::constant::blue_t{} }; // result<br>
-						::color::operation::convex( r, 0.3, b );<br>
-						::color::operation::convex( r, a, 0.25, b );
+						::color::operation::median( r, 0.3, b );<br>
+						::color::operation::median( r, a, 0.25, b );
 						</code>
 					</dd>
-					<dt>Link</dt>
-					<dd> <a href="https://en.wikipedia.org/wiki/Convex_combination"> Wikipedia:&lt; Convex Combination &gt; </a> </dd>
 				</dl><hr width="%20">
 
 				<dl>
