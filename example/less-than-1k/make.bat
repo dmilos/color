@@ -73,7 +73,7 @@
 @call make.bat
 @cd ..
 @
-@cl /EHsc  -I../../src empty.cpp
-@cl /EHsc  -I../../src hello.cpp
-@cl /EHsc  -I../../src pp2f.cpp
+@cl /EHsc  -I../../src /D%PP2F% empty.cpp
+@cl /EHsc  -I../../src /D%PP2F% hello.cpp
+@cl /EHsc  -I../../src /D%PP2F% pp2f.cpp
 

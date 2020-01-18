@@ -2,5 +2,5 @@
 
 @echo %cd%
 
-cl /EHsc  -I../../../src inplace_conversion.cpp
-cl /EHsc  -I../../../src memset.cpp
+cl /EHsc  -I../../../src /D%PP2F% inplace_conversion.cpp
+cl /EHsc  -I../../../src /D%PP2F% memset.cpp

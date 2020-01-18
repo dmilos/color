@@ -5,8 +5,8 @@
 @rem  One line one example
 @rem  Designed for easy copy/paste
 
-@rem  TODO cl /EHsc  -I../src akin.cpp
+@rem  TODO cl /EHsc  -I../src /D%PP2F% akin.cpp
 
 @echo %cd%
 
-cl /EHsc  -I../../../../src  lab.cpp
+cl /EHsc  -I../../../../src /D%PP2F%  lab.cpp

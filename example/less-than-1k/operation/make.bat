@@ -19,18 +19,18 @@
 @cd ..
 @
 @
-@cl /EHsc  -I../../../src convex1.cpp
-@cl /EHsc  -I../../../src convex2.cpp
-@cl /EHsc  -I../../../src mix_alpha.cpp
-@cl /EHsc  -I../../../src mix_noalpha.cpp
-@cl /EHsc  -I../../../src bias.cpp
-@cl /EHsc  -I../../../src delta.cpp
-@cl /EHsc  -I../../../src gain.cpp
-@cl /EHsc  -I../../../src gamma.cpp
-@cl /EHsc  -I../../../src scale.cpp
-@cl /EHsc  -I../../../src subtract.cpp
-@cl /EHsc  -I../../../src divide.cpp
-@cl /EHsc  -I../../../src multiply.cpp
-@cl /EHsc  -I../../../src ceil.cpp
-@cl /EHsc  -I../../../src clip.cpp
-@cl /EHsc  -I../../../src floor.cpp
+@cl /EHsc  -I../../../src /D%PP2F% convex1.cpp
+@cl /EHsc  -I../../../src /D%PP2F% convex2.cpp
+@cl /EHsc  -I../../../src /D%PP2F% mix_alpha.cpp
+@cl /EHsc  -I../../../src /D%PP2F% mix_noalpha.cpp
+@cl /EHsc  -I../../../src /D%PP2F% bias.cpp
+@cl /EHsc  -I../../../src /D%PP2F% delta.cpp
+@cl /EHsc  -I../../../src /D%PP2F% gain.cpp
+@cl /EHsc  -I../../../src /D%PP2F% gamma.cpp
+@cl /EHsc  -I../../../src /D%PP2F% scale.cpp
+@cl /EHsc  -I../../../src /D%PP2F% subtract.cpp
+@cl /EHsc  -I../../../src /D%PP2F% divide.cpp
+@cl /EHsc  -I../../../src /D%PP2F% multiply.cpp
+@cl /EHsc  -I../../../src /D%PP2F% ceil.cpp
+@cl /EHsc  -I../../../src /D%PP2F% clip.cpp
+@cl /EHsc  -I../../../src /D%PP2F% floor.cpp

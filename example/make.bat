@@ -5,10 +5,6 @@
 @rem  One line one example
 @rem  Designed for easy copy/paste
 @
-@rem  TODO COLOR_USE_PP2FILE
-@
-@
-@rem  TODO g++ -fexceptions -std=c++11 -g -I../src akin.cpp
 @
 @cls
 @rem call "c:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\vcvars32.bat"
@@ -18,11 +14,13 @@
 @call "c:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat"
 @
 @echo %cd%
+@set PP2F=whatever
+@rem set PP2F=COLOR_USE_PP2FILE
 @
-@cl /EHsc /I../src  readme.cpp
-@cl /EHsc /I../src  get_alpha.cpp
-@cl /EHsc /I../src  set_green.cpp
-@cl /EHsc /I../src  set_red.cpp
+@cl /EHsc /I../src /D%PP2F% readme.cpp
+@cl /EHsc /I../src /D%PP2F% get_alpha.cpp
+@cl /EHsc /I../src /D%PP2F% set_green.cpp
+@cl /EHsc /I../src /D%PP2F% set_red.cpp
 @
 @cd ./less-than-1k
 @./make.bat

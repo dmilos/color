@@ -9,8 +9,8 @@
 
 @echo %cd%
 
-cl /EHsc  -I../../../../src  ./abgr.cpp
-cl /EHsc  -I../../../../src  ./argb.cpp
-cl /EHsc  -I../../../../src  ./bgra.cpp
-cl /EHsc  -I../../../../src  ./rgba.cpp
-cl /EHsc  -I../../../../src  ./cmyk.cpp
+cl /EHsc  -I../../../../src /D%PP2F%  ./abgr.cpp
+cl /EHsc  -I../../../../src /D%PP2F%  ./argb.cpp
+cl /EHsc  -I../../../../src /D%PP2F%  ./bgra.cpp
+cl /EHsc  -I../../../../src /D%PP2F%  ./rgba.cpp
+cl /EHsc  -I../../../../src /D%PP2F%  ./cmyk.cpp

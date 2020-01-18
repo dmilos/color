@@ -2,7 +2,7 @@
 
 @echo %cd%
 
-cl /EHsc  -I../../../../src gray.cpp
-cl /EHsc  -I../../../../src green.cpp
-cl /EHsc  -I../../../../src maroon.cpp
-cl /EHsc  -I../../../../src purple.cpp
+cl /EHsc  -I../../../../src /D%PP2F% gray.cpp
+cl /EHsc  -I../../../../src /D%PP2F% green.cpp
+cl /EHsc  -I../../../../src /D%PP2F% maroon.cpp
+cl /EHsc  -I../../../../src /D%PP2F% purple.cpp

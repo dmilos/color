@@ -2,13 +2,13 @@
 
 @echo %cd%
 
-cl /EHsc  -I../../../../src hsi.cpp
-cl /EHsc  -I../../../../src hsl.cpp
-cl /EHsc  -I../../../../src hsv.cpp
-cl /EHsc  -I../../../../src lab.cpp
-cl /EHsc  -I../../../../src LabCH.cpp
-cl /EHsc  -I../../../../src luv.cpp
-cl /EHsc  -I../../../../src LuvCH.cpp
-cl /EHsc  -I../../../../src rgb_hsi.cpp
-cl /EHsc  -I../../../../src rgb_hsl.cpp
-cl /EHsc  -I../../../../src rgb_hsv.cpp
+cl /EHsc  -I../../../../src /D%PP2F% hsi.cpp
+cl /EHsc  -I../../../../src /D%PP2F% hsl.cpp
+cl /EHsc  -I../../../../src /D%PP2F% hsv.cpp
+cl /EHsc  -I../../../../src /D%PP2F% lab.cpp
+cl /EHsc  -I../../../../src /D%PP2F% LabCH.cpp
+cl /EHsc  -I../../../../src /D%PP2F% luv.cpp
+cl /EHsc  -I../../../../src /D%PP2F% LuvCH.cpp
+cl /EHsc  -I../../../../src /D%PP2F% rgb_hsi.cpp
+cl /EHsc  -I../../../../src /D%PP2F% rgb_hsl.cpp
+cl /EHsc  -I../../../../src /D%PP2F% rgb_hsv.cpp

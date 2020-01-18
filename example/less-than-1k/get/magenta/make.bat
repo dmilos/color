@@ -2,11 +2,11 @@
 
 @echo %cd%
 
-cl /EHsc  -I../../../../src cmy.cpp
-cl /EHsc  -I../../../../src cmyk.cpp
-cl /EHsc  -I../../../../src gray.cpp
-cl /EHsc  -I../../../../src hsl.cpp
-cl /EHsc  -I../../../../src hsv.cpp
-cl /EHsc  -I../../../../src rgb.cpp
-cl /EHsc  -I../../../../src yiq.cpp
-cl /EHsc  -I../../../../src yuv.cpp
+cl /EHsc  -I../../../../src /D%PP2F% cmy.cpp
+cl /EHsc  -I../../../../src /D%PP2F% cmyk.cpp
+cl /EHsc  -I../../../../src /D%PP2F% gray.cpp
+cl /EHsc  -I../../../../src /D%PP2F% hsl.cpp
+cl /EHsc  -I../../../../src /D%PP2F% hsv.cpp
+cl /EHsc  -I../../../../src /D%PP2F% rgb.cpp
+cl /EHsc  -I../../../../src /D%PP2F% yiq.cpp
+cl /EHsc  -I../../../../src /D%PP2F% yuv.cpp
