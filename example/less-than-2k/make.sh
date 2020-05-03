@@ -6,7 +6,7 @@ cd ./get
 ./make.sh
 cd ..
 
-g++ -fexceptions -std=c++11 -g -I../../src memfill.cpp    -o  memfill
+g++ $gccBaseSwitch $gccExtraSwitch -I../../src memfill.cpp    -o  memfill
 
 cd ./akin
 ./make.sh

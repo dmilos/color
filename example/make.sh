@@ -8,16 +8,21 @@
 # TODO COLOR_USE_PP2FILE
 
 
-# TODO g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -o  akin
+# TODO g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -Wextra  -Wall  -Wpedantic -o  akin
 
 reset
 
-pwd
+gccBaseSwitch='-fexceptions -std=c++11 -g'
 
-g++ -std=c++11 -g -I../src  readme.cpp                        -o  readme
-g++ -std=c++11 -g -I../src  get_alpha.cpp                     -o  get_alpha
-g++ -std=c++11 -g -I../src  set_green.cpp                     -o  set_green
-g++ -std=c++11 -g -I../src  set_red.cpp                       -o  set_red
+gccExtraSwitch='-Wmisleading-indentation -Wmissing-braces -Wshadow=local -Winit-self -Wextra  -Wall  -Wpedantic -Wdouble-promotion -Wformat-signedness -Wnull-dereference'
+
+
+pwd
+# -
+g++ $gccBaseSwitch $gccExtraSwitch -I../src  readme.cpp     -o  readme
+g++ $gccBaseSwitch $gccExtraSwitch -I../src  get_alpha.cpp  -o  get_alpha
+g++ $gccBaseSwitch $gccExtraSwitch -I../src  set_green.cpp  -o  set_green
+g++ $gccBaseSwitch $gccExtraSwitch -I../src  set_red.cpp    -o  set_red
 
 cd ./less-than-2k
 ./make.sh

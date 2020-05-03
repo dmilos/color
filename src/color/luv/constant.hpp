@@ -81,19 +81,20 @@ namespace color
             ,scalar_type      & l, scalar_type      & u, scalar_type      & v
            )
            {
+            scalar_type epsilon = 1e-6;
             scalar_type yr = y / ( white_point_type::Y() * scalar_type( 100 ) );
 
             if( scalar_type(216)/scalar_type(24389) < yr )
              {
-              l = scalar_type(116)*cbrt(yr)-scalar_type(16);
+              l = scalar_type(116)*scalar_type(cbrt(yr))-scalar_type(16);
              }
             else
              {
               l = scalar_type(24389)/scalar_type(27)* yr;
              }
 
-            scalar_type up = scalar_type(4) * x/( x + scalar_type(15)*y + scalar_type(3)*z ); if( x < 1e-6 ) up=0;
-            scalar_type vp = scalar_type(9) * y/( x + scalar_type(15)*y + scalar_type(3)*z ); if( y < 1e-6 ) vp=0;
+            scalar_type up = scalar_type(4) * x/( x + scalar_type(15)*y + scalar_type(3)*z ); if( x < epsilon ) up=0;
+            scalar_type vp = scalar_type(9) * y/( x + scalar_type(15)*y + scalar_type(3)*z ); if( y < epsilon ) vp=0;
 
             u = 13*l*( up - u0() );
             v = 13*l*( vp - v0() );

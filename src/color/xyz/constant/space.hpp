@@ -62,9 +62,9 @@ namespace color
            private:                                                                   \
              typedef std::array<scalar_type,2> coord_type;                            \
            public:                                                                    \
-             static coord_type const& red()  { static coord_type value{ DP_red_x,   DP_red_y   }; return value; }  \
-             static coord_type const& green(){ static coord_type value{ DP_green_x, DP_green_y }; return value; }  \
-             static coord_type const& blue() { static coord_type value{ DP_blue_x,  DP_blue_y  }; return value; }  \
+             static coord_type const& red()  { static coord_type value{ { DP_red_x,   DP_red_y   } }; return value; }  \
+             static coord_type const& green(){ static coord_type value{ { DP_green_x, DP_green_y } }; return value; }  \
+             static coord_type const& blue() { static coord_type value{ { DP_blue_x,  DP_blue_y  } }; return value; }  \
           }
 
       //COLOR_CONTATNT_XYZ_SPACE_PRIMARY_SPECIALIZE( ::color::constant::xyz::LabGamut_entity,       )

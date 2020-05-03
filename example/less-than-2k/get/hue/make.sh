@@ -2,6 +2,6 @@
 
 pwd
 
-g++ -fexceptions -std=c++11 -g -I../../../../src rgb.cpp    -o  rgb
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src rgb.cpp    -o  rgb
  
 

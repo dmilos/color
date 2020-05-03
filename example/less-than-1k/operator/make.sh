@@ -6,7 +6,7 @@ cd ./compare
 ./make.sh
 cd ..
 
-g++ -fexceptions -std=c++11 -g -I../../../src addition.cpp        -o  addition
-g++ -fexceptions -std=c++11 -g -I../../../src divide.cpp          -o  divide
-g++ -fexceptions -std=c++11 -g -I../../../src scale.cpp           -o  scale
-g++ -fexceptions -std=c++11 -g -I../../../src subtraction.cpp     -o  subtraction
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../src addition.cpp        -o  addition
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../src divide.cpp          -o  divide
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../src scale.cpp           -o  scale
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../src subtraction.cpp     -o  subtraction

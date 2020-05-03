@@ -5,12 +5,12 @@
 # One line one example
 # Designed for easy copy/paste
 
-# TODO g++ -fexceptions -std=c++11 -g -I../src abgr.cpp                -o  akin
+# TODO g++ $gccBaseSwitch $gccExtraSwitch -I../src abgr.cpp                -o  akin
 
 pwd
 
-g++ -std=c++11 -g -I../../../../src  ./abgr.cpp   -o  abgr
-g++ -std=c++11 -g -I../../../../src  ./argb.cpp   -o  argb
-g++ -std=c++11 -g -I../../../../src  ./bgra.cpp   -o  bgra
-g++ -std=c++11 -g -I../../../../src  ./rgba.cpp   -o  rgba
-g++ -std=c++11 -g -I../../../../src  ./cmyk.cpp   -o  cmyk
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./abgr.cpp   -o  abgr
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./argb.cpp   -o  argb
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./bgra.cpp   -o  bgra
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./rgba.cpp   -o  rgba
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./cmyk.cpp   -o  cmyk

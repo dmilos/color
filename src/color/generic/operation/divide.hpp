@@ -48,7 +48,7 @@
             typedef ::color::operation::_internal::divide<category_type> this_type;
 
           public:
-            model_type& operator()( model_type const& left, model_type const& right )const
+            model_type operator()( model_type const& left, model_type const& right )const
              {
               return this_type::function( left, right );
              }

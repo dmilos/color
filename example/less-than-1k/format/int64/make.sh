@@ -5,8 +5,8 @@
 # One line one example
 # Designed for easy copy/paste
 
-# TODO g++ -fexceptions -std=c++11 -g -I../src akin.cpp                -o  akin
+# TODO g++ $gccBaseSwitch $gccExtraSwitch -I../src akin.cpp                -o  akin
 
 pwd
 
-g++ -std=c++11 -g -I../../../../src  lab.cpp          -o  lab
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  lab.cpp          -o  lab

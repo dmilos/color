@@ -34,7 +34,7 @@
          {
           container_trait_type::init( container, index, *iterator );
          }
-       };
+       }
 
      /*template< typename category_name, typename that_component_type >
       void init

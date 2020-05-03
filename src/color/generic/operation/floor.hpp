@@ -48,11 +48,11 @@
           public:
             model_type & operator()( model_type &result, model_type const& low_bound ) const
              {
-              return this_type::process( result, low_bound );
+              return this_type::procedure( result, low_bound );
              }
             model_type & operator()(  model_type &result, model_type const& left, model_type const& low_bound ) const
              {
-              return this_type::process( result, left, low_bound );
+              return this_type::procedure( result, left, low_bound );
              }
 
           public:

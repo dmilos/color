@@ -73,7 +73,7 @@ cd ./trait
 ./make.sh
 cd ..
 
-g++ -fexceptions -std=c++11 -g -I../../src empty.cpp        -o  empty
-g++ -fexceptions -std=c++11 -g -I../../src hello.cpp        -o  hello
-g++ -fexceptions -std=c++11 -g -I../../src pp2f.cpp         -o  pp2f
+g++ $gccBaseSwitch $gccExtraSwitch -I../../src empty.cpp        -o  empty
+g++ $gccBaseSwitch $gccExtraSwitch -I../../src hello.cpp        -o  hello
+g++ $gccBaseSwitch $gccExtraSwitch -I../../src pp2f.cpp         -o  pp2f
 
