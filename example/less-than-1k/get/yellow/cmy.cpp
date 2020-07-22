@@ -13,10 +13,13 @@ int main( int argc, char *argv[] )
   c = color::constant::turquoise_t{};
 
   // Here is how to get yellow component.
-  auto yellow = color::get::yellow( c );
+  auto yellow1 = color::get::yellow( c );
+  // Get yellow component with special algorithm.
+  auto yellow2 = color::get::yellow<color::get::constant::cmy::yellow::hsl_star_entity>( c );
 
   // Now do whatever you wan to do
-  std::cout << yellow << std::endl;
+  std::cout << yellow1 << std::endl;
+  std::cout << yellow2 << std::endl;
 
   return EXIT_SUCCESS;
  }

@@ -13,10 +13,13 @@ int main( int argc, char *argv[] )
   c = color::constant::turquoise_t{};
 
   // Here is how to get magenta component.
-  auto magenta = color::get::magenta( c );
+  auto magenta1 = color::get::magenta( c );
+  // Get magenta component with special algorithm.
+  auto magenta2 = color::get::magenta<color::get::constant::cmy::magenta::hsl_star_entity>( c );
 
   // Now do whatever you wan to do
-  std::cout << magenta << std::endl;
+  std::cout << magenta1 << std::endl;
+  std::cout << magenta2 << std::endl;
 
   return EXIT_SUCCESS;
  }

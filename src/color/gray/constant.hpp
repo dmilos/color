@@ -24,9 +24,9 @@ namespace color
 
            typedef ::color::constant::gray::rgb<category_type> this_type;
 
-           static /* constexpr*/ scalar_type const Rc() { return  0.2126729; } // TODO 2647777  / 12450000
-           static /* constexpr*/ scalar_type const Gc() { return  0.7151522; } // TODO
-           static /* constexpr*/ scalar_type const Bc() { return  0.0721750; } // TODO 336967  / 4668750
+           static /* constexpr*/ scalar_type const Rc() { return  scalar_type(  2647777 ) / scalar_type( 12450000 ); } //   ( 2^4 * 3    * 5^5 * 83 )
+           static /* constexpr*/ scalar_type const Gc() { return  scalar_type( 53421866 ) / scalar_type( 74700000 ); } //   ( 2^5 * 3^2  * 5^5 * 83 )
+           static /* constexpr*/ scalar_type const Bc() { return  scalar_type(   336967 ) / scalar_type(  4668750 ); } //   ( 2   * 3^2  * 5^5 * 83 )
        };
 
      }
