@@ -155,27 +155,27 @@
 
             static return_type process( model_type const& color_parameter )
              {
-              scalar_type r = normalize_type::template process<red_p  >( color_parameter.template get<red_p  >(  ) );
-              scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>(  ) );
-              scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p >(  ) );
+              scalar_type c = scalar_type( 1 ) - normalize_type::template process<red_p  >( color_parameter.template get<red_p  >(  ) );
+              scalar_type y = scalar_type( 1 ) - normalize_type::template process<green_p>( color_parameter.template get<green_p>(  ) );
+              scalar_type m = scalar_type( 1 ) - normalize_type::template process<blue_p >( color_parameter.template get<blue_p >(  ) );
 
               scalar_type result;
               while( true )
                {
-                if( g < r ) { result = 0; break; }
-                if( b < r ) { result = 0; break; }
-                if( g < b )
+                if( m < y )
                  {
-                  result = ( g - r )* ( 1- ( b - g ) );
+                  result = ( c - y ) * ( scalar_type(1) - ( y - m) );
                   break;
                  }
 
-                result = ( b - r )* ( 1- ( g - b ) );
-                break;
+                {
+                 result = ( c - m ) * ( scalar_type(1) - ( m - y) );
+                 break;
+                }
                }
 
-          return diverse_type::template process<red_p >( result );
-         }
+              return diverse_type::template process<red_p >( result );
+             }
        };
 
         }

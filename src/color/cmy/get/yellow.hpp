@@ -96,8 +96,10 @@
                   break;
                  }
 
-                result = ( y - c ) * ( scalar_type(1) - ( c - m ) );
-                break;
+                {
+                 result = ( y - c ) * ( scalar_type(1) - ( c - m ) );
+                 break;
+                }
                }
 
               return diverse_type::template process<cyan_p >( result );

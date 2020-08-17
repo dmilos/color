@@ -26,6 +26,7 @@ int main( int argc, char *argv[] )
   std::cout << b[0] << ", " << b[1] << ", " << b[2] << std::endl;
 
   std::cout << "color::compare::great_strict( a, b ) == " << color::compare::great_strict( a, b ) << std::endl;
+  std::cout << "a > b == " << ( a > b ) << std::endl;
 
   return EXIT_SUCCESS;
  }

@@ -94,12 +94,12 @@
                 if( m < y ) { result = 0; break; }
                 if( c < y )
                  {
-                  result = ( m - y )* ( scalar_type(1) - ( y - c ) );
+                  result = ( m - y ) * ( scalar_type(1) - ( y - c ) );
                   break;
                  }
 
                 {
-                 result = ( m - c )* ( scalar_type(1) - ( c - y ) );
+                 result = ( m - c ) * ( scalar_type(1) - ( c - y ) );
                  break;
                 }
                }

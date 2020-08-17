@@ -92,8 +92,6 @@
               scalar_type result;
               while( true )
                {
-                if( g < r ) { result = 0; break; }
-                if( g < b ) { result = 0; break; }
                 if( r < b )
                  {
                   result = ( g - b )* ( scalar_type(1) - ( b - r ) );

@@ -1,7 +1,7 @@
 #ifndef color_rgb_get_hue
 #define color_rgb_get_hue
 
-// ::color::get::hue( c ) //!< return number between 0 and 360
+// ::color::get::hue( c ) //!< WARNING return number match ::color::trait::bound< ::color::rgb< _type_ > ::category_type >( 1 )
 // ::color::get::constant::rgb::hue::formula_enum
 
 
@@ -91,7 +91,7 @@
              };
 
             scalar_type process( scalar_type const& r, scalar_type const& g, scalar_type const& b )
-             {
+             { // angle betwen 0 and 2*PI
               m_loValue = r;  m_midValue = g;  m_hiValue = b;
               m_loIndex = 0;  m_midIndex = 1;  m_hiIndex = 2;
 
@@ -163,7 +163,7 @@
              };
 
             static scalar_type process( scalar_type const& r, scalar_type const& g, scalar_type const& b )
-             {
+             {    // angle betwen 0 and 2*PI
               scalar_type h = 0;
 
               scalar_type c1 = scalar_type(2) * r - g - b ;
@@ -209,7 +209,7 @@
              };
 
             static scalar_type process( scalar_type const& r, scalar_type const& g, scalar_type const& b )
-             {
+             { // angle betwen 0 and 2*PI 
               scalar_type h = 0;
 
               scalar_type alpha = ( (r-g) + ( r- b) ) * scalar_type( 0.5 );

@@ -94,7 +94,7 @@
                 if( c < y ) { result = 0; break; }
                 if( m < y )
                  {
-                  result = ( c - y )* ( scalar_type(1) - ( y - m) );
+                  result = ( c - y ) * ( scalar_type(1) - ( y - m) );
                   break;
                  }
 

@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <initializer_list>
 #include <array>
+#include <functional>
 //#include <mutex>
 //#include <type_traits>
 
@@ -16,7 +17,7 @@
 #pragma warning(push, 0)
 //#pragma warning( disable: 4305 )
 #pragma warning( disable: 4701 )
-//#pragma warning( disable: 4189 ) 
+//#pragma warning( disable: 4189 )
 #endif
 
 #if defined( __GNUC__  )

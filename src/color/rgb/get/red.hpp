@@ -92,16 +92,14 @@
               scalar_type result;
               while( true )
                {
-                if( r < g ) { result = 0; break; }
-                if( r < b ) { result = 0; break; }
                 if( g < b )
                  {
-                  result = ( r - b )* ( scalar_type(1) - ( b - g) );
+                  result = ( r - b )* ( scalar_type(1) - ( b - g ) );
                   break;
                  }
 
                 {
-                 result = ( r - g ) * ( scalar_type(1) - ( g - b) );
+                 result = ( r - g ) * ( scalar_type(1) - ( g - b ) );
                  break;
                 }
                }

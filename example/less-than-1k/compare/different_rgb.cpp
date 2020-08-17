@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <map>
 
 #include "color/color.hpp"
 
@@ -18,6 +19,7 @@
 int main( int argc, char *argv[] )
  {
   color::rgb< double > a, b;
+  std::map< color::rgb< double >, color::rgb< double > > m;
 
   a = color::constant::red_t{};
   b = color::constant::orange_t{};
@@ -26,6 +28,7 @@ int main( int argc, char *argv[] )
   std::cout << b[0] << ", " << b[1] << ", " << b[2] << std::endl;
 
   std::cout << "color::compare::different( a, b ) == " << color::compare::different( a, b ) << std::endl;
+  std::cout << "a != b == " << ( a != b ) << std::endl;
 
   return EXIT_SUCCESS;
  }
