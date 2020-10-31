@@ -15,10 +15,11 @@ namespace color
  {
   namespace _internal
    {
+
     template
       <
          typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
-        ,typename rgb_tag_name 
+        ,typename rgb_tag_name
       >
      struct convert
       <

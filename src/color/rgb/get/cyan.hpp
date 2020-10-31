@@ -116,7 +116,7 @@
               scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>() );
               scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p >() );
 
-              scalar_type max = std::max( { r, g, b } );
+              scalar_type max = std::max<scalar_type>( { r, g, b } );
 
 
 

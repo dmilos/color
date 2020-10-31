@@ -29,4 +29,4 @@ namespace color
    }
  }
 
-#endif 
+#endif

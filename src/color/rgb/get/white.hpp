@@ -117,8 +117,8 @@
               scalar_type g = normalize_type::template process<green_p>( color_parameter.template get<green_p>(  ) );
               scalar_type b = normalize_type::template process<blue_p >( color_parameter.template get<blue_p >(  ) );
 
-              scalar_type lightnes   = std::min( {r,g,b} );
-              scalar_type saturation = std::max( {r,g,b} ) - std::min( {r,g,b} );
+              scalar_type lightnes   = std::min<scalar_type>( {r,g,b} );
+              scalar_type saturation = std::max<scalar_type>( {r,g,b} ) - std::min<scalar_type>( {r,g,b} );
 
               return diverse_type::template process<red_p >( ( lightnes )* ( scalar_type(1) - saturation ) );
              }

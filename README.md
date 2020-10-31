@@ -109,10 +109,10 @@ yr = color::operation::mix( y2, 0.5, y2 ); //!< Blend two colors for given alpha
 
 ### Tested against:
   - GCC 7.3.0
-  - GCC 7.4.0
+  - GCC 10.2.0
   - MSVC 2015 Update 3
-  - MSVC 2017 15.9.14
-  - MSVC 2019 16.3.3
+  - MSVC 2017 15.9.28
+  - MSVC 2019 16.8.3
 
 ### License
 Licensed under an [Apache-2.0](https://github.com/dmilos/color/blob/master/license.txt) license.

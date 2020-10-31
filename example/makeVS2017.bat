@@ -13,20 +13,6 @@
 @
 @echo %cd%
 @
-@set PP2F=whatever
-@rem set PP2F=COLOR_USE_PP2FILE
+@call ./make.bat
 @
-@cl /EHsc /I../src /D%PP2F% readme.cpp
-@cl /EHsc /I../src /D%PP2F% get_alpha.cpp
-@cl /EHsc /I../src /D%PP2F% set_green.cpp
-@cl /EHsc /I../src /D%PP2F% set_red.cpp
-@
-@cd ./less-than-1k
-@./make.bat
-@cd ..
-@
-@cd ./less-than-2k
-@./make.bat
-@cd ..
-
 pause

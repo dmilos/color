@@ -65,7 +65,7 @@ namespace color
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p>( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<blue_p >( right ) );
 
-           scalar_type max = std::max( { r, g, b } );
+           scalar_type max = std::max<scalar_type>( { r, g, b } );
            scalar_type k = scalar_type(1) - max;
            scalar_type c = scalar_type(0);
            scalar_type m = scalar_type(0);

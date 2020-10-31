@@ -208,13 +208,14 @@
 
             typedef ::color::lab<scalar_type>  lab_type;
             typedef typename lab_type::category_type  lab_category_type;
+            typedef ::color::operation::_internal::distance<lab_category_type, lab_category_type,::color::constant::distance::euclid_entity>  lab_distance_type;
 
             static scalar_type process( model_left_type const& left, model_right_type const& right )
              {
               lab_type lab_left(  left  );
               lab_type lab_right( right );
 
-              return::color::operation::_internal::distance<lab_category_type, lab_category_type,::color::constant::distance::euclid_entity>::process( lab_left, lab_right );
+              return lab_distance_type::process( lab_left, lab_right );
              }
          };
 
@@ -543,9 +544,9 @@
               rgb_type difference; ::color::operation::delta( difference, left_rgb, right_rgb );
 
               scalar_type  d = 1;
-               d *= fabs( std::max( left_rgb[0] - std::max( right_rgb[1], right_rgb[2] ), left_rgb[0] - std::min( right_rgb[1], right_rgb[2] ) ) );
-               d *= fabs( std::max( left_rgb[1] - std::max( right_rgb[0], right_rgb[2] ), left_rgb[1] - std::min( right_rgb[0], right_rgb[2] ) ) );
-               d *= fabs( std::max( left_rgb[2] - std::max( right_rgb[0], right_rgb[1] ), left_rgb[2] - std::min( right_rgb[0], right_rgb[1] ) ) );
+               d *= fabs( std::max<scalar_type>( left_rgb[0] - std::max<scalar_type>( right_rgb[1], right_rgb[2] ), left_rgb[0] - std::min<scalar_type>( right_rgb[1], right_rgb[2] ) ) );
+               d *= fabs( std::max<scalar_type>( left_rgb[1] - std::max<scalar_type>( right_rgb[0], right_rgb[2] ), left_rgb[1] - std::min<scalar_type>( right_rgb[0], right_rgb[2] ) ) );
+               d *= fabs( std::max<scalar_type>( left_rgb[2] - std::max<scalar_type>( right_rgb[0], right_rgb[1] ), left_rgb[2] - std::min<scalar_type>( right_rgb[0], right_rgb[1] ) ) );
               //scalar_type  d = difference[0]*difference[1]*difference[2]; // d * = d;
               return d;
              }

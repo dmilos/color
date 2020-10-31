@@ -1,6 +1,7 @@
 @rem !/bin/msdos
 @
 @echo %cd%
+@
 @cd addition
 @call make.bat
 @cd ..

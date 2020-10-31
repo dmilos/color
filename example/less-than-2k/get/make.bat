@@ -4,14 +4,11 @@
 @
 @cl /EHsc  -I../../src /D%PP2F% memfill.cpp
 @
-@cd akin
+@cd gray
 @call make.bat
 @cd ..
 @
-@cd operation
+@cd hue
 @call make.bat
 @cd ..
 @
-@cd place
-@call make.bat
-@cd ..

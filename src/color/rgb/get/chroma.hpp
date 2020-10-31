@@ -66,6 +66,7 @@
             typedef ::color::model< category_type > model_type;
 
 
+            typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
             typedef typename ::color::trait::component< category_type >::return_type component_return_type;
 
             enum
@@ -81,8 +82,8 @@
               auto g = color_parameter.template get<green_p>();
               auto b = color_parameter.template get<blue_p >();
 
-              auto max = std::max( { r, g, b } );
-              auto min = std::min( { r, g, b } );
+              auto max = std::max<scalar_type>( { r, g, b } );
+              auto min = std::min<scalar_type>( { r, g, b } );
 
               return max - min;
              }

@@ -135,7 +135,7 @@
               scalar_type g = normalize_type::template process<green_p >( color_parameter.template get<green_p >() );
               scalar_type b = normalize_type::template process<blue_p  >( color_parameter.template get<blue_p  >() );
 
-              scalar_type value = ( std::max( {r,g,b} ) + std::min( {r,g,b} ) ) / scalar_type( 2 );
+              scalar_type value = ( std::max<scalar_type>( {r,g,b} ) + std::min<scalar_type>( {r,g,b} ) ) / scalar_type( 2 );
 
               return diverse_type::template process<0>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */value /* ) */);
              }
@@ -209,7 +209,7 @@
               scalar_type g =  normalize_type::template process<green_p >( color_parameter.template get<green_p >() );
               scalar_type b =  normalize_type::template process<blue_p  >( color_parameter.template get<blue_p  >() );
 
-              scalar_type delta = std::max( { r,g,b } ) - std::min( {r,g,b} );
+              scalar_type delta = std::max<scalar_type>( { r,g,b } ) - std::min<scalar_type>( {r,g,b} );
               scalar_type value = ( scalar_type(1) - delta ) * ( scalar_type(1) - delta );
 
               return diverse_type::template process<0>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */ value /* ) */);

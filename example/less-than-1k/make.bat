@@ -6,7 +6,7 @@
 @rem  No Scons, no CMake, no Make or any other make tool
 @
 @rem cd akin
-@rem make.bat
+@rem call make.bat
 @rem @cd ..
 @
 @cd assign
@@ -54,7 +54,7 @@
 @cd ..
 @
 @rem cd place
-@rem make.bat
+@rem call make.bat
 @rem @cd ..
 @
 @cd reference

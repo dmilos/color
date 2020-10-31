@@ -23,11 +23,11 @@
 @cl /EHsc /I../src /D%PP2F% set_red.cpp
 @
 @cd ./less-than-1k
-@./make.bat
+@call ./make.bat
 @cd ..
 @
 @cd ./less-than-2k
-@./make.bat
+@call ./make.bat
 @cd ..
 
 pause
