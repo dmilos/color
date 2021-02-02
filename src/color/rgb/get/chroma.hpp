@@ -82,8 +82,8 @@
               auto g = color_parameter.template get<green_p>();
               auto b = color_parameter.template get<blue_p >();
 
-              auto max = std::max<scalar_type>( { r, g, b } );
-              auto min = std::min<scalar_type>( { r, g, b } );
+              auto max = std::max<component_return_type>( { r, g, b } );
+              auto min = std::min<component_return_type>( { r, g, b } );
 
               return max - min;
              }

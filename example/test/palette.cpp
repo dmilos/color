@@ -6,7 +6,7 @@
 #include "./targa.hpp"
 
 template < typename model_name >
-void make_image(std::string const& name, double plane = 0.5, int side = 1 )
+void make_image(std::string const& name, double plane = 0.5, int side = 1, double const& hyper = 0 )
  {
   int height = 1000;
   int width  = 1000;
@@ -30,49 +30,35 @@ void make_image(std::string const& name, double plane = 0.5, int side = 1 )
          {
            model_name m( { diverse_type::template process<0>( plane  ),
                            diverse_type::template process<1>( y / double(height) ),
-                           diverse_type::template process<2>( x / double(width) )
-                                                , 0 } );
-           check = m;
-           if( true == ::color::check::overburn( check ) )
-            {
-             ::color::fix::overburn( check );
-             if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
-             if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
-            }
-
-           image[y * width + x] = check;
+                           diverse_type::template process<2>( x / double(width)  )
+                                                , hyper } );
+          check = m;
          }break;
         case( 1 ):
           {
            model_name m( { diverse_type::template process<0>( y / double(height) ),
                            diverse_type::template process<1>( plane ),
-                           diverse_type::template process<2>( x / double(width) )
-                                               , 0 } );
-           check = m;
-           if( true == ::color::check::overburn( check ) )
-            {
-             ::color::fix::overburn( check );
-             if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
-             if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
-            }
-           image[y * width + x] = check;
+                           diverse_type::template process<2>( x / double(width)  )
+                                               , hyper } );
+          check = m;
           }break;
         case( 2 ):
          {
           model_name m( { diverse_type::template process<0>( y / double(height) ),
-                          diverse_type::template process<1>( x / double(width) ),
+                          diverse_type::template process<1>( x / double(width)  ),
                           diverse_type::template process<2>( plane )
-                                               , 0 } );
-           check = m;
-           if( true == ::color::check::overburn( check ) )
-            {
-             ::color::fix::overburn( check );
-             if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
-             if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
-            }
-           image[y * width + x] = check;
+                                               , hyper } );
+          check = m;
          }break;
        }
+      if( true == ::color::check::overburn( check ) )
+       {
+        ::color::fix::overburn( check );
+        if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
+        if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
+       }
+
+      image[ y * width + x] = check;
      }
    }
 
@@ -101,8 +87,29 @@ void palette( std::string const& name, int planes )
 
 void test_palette()
  {
+  make_image<color::cmyk<double> >("./palette/cmyk-0-000-000.tga", 0.00, 0, 0 );
+  make_image<color::cmyk<double> >("./palette/cmyk-1-000-000.tga", 0.00, 1, 0 );
+  make_image<color::cmyk<double> >("./palette/cmyk-2-000-000.tga", 0.00, 2, 0 );
 
-  make_image<color::cmyk<double> >("./palette/cmyk.tga", 3 );
+  make_image<color::cmyk<double> >("./palette/cmyk-0-000-025.tga", 0.00, 0, 0.25 );
+  make_image<color::cmyk<double> >("./palette/cmyk-1-000-025.tga", 0.00, 1, 0.25 );
+  make_image<color::cmyk<double> >("./palette/cmyk-2-000-025.tga", 0.00, 2, 0.25 );
+
+  make_image<color::cmyk<double> >("./palette/cmyk-0-000-050.tga", 0.00, 0, 0.5 );
+  make_image<color::cmyk<double> >("./palette/cmyk-1-000-050.tga", 0.00, 1, 0.5 );
+  make_image<color::cmyk<double> >("./palette/cmyk-2-000-050.tga", 0.00, 2, 0.5 );
+
+  make_image<color::cmyk<double> >("./palette/cmyk-0-000-075.tga", 0.00, 0, 0.75 );
+  make_image<color::cmyk<double> >("./palette/cmyk-1-000-075.tga", 0.00, 1, 0.75 );
+  make_image<color::cmyk<double> >("./palette/cmyk-2-000-075.tga", 0.00, 2, 0.75 );
+
+  make_image<color::cmyk<double> >("./palette/cmyk-0-050-000.tga", 0.50, 0, 0 );
+  make_image<color::cmyk<double> >("./palette/cmyk-1-050-000.tga", 0.50, 1, 0 );
+  make_image<color::cmyk<double> >("./palette/cmyk-2-050-000.tga", 0.50, 2, 0 );
+
+  make_image<color::cmyk<double> >("./palette/cmyk-0-075-000.tga", 0.75, 0, 0 );
+  make_image<color::cmyk<double> >("./palette/cmyk-1-075-000.tga", 0.75, 1, 0 );
+  make_image<color::cmyk<double> >("./palette/cmyk-2-075-000.tga", 0.75, 2, 0 );
 
   palette< color::hsi<double>::category_type  >( "hsi",      5 );
   palette< color::hsl<double>::category_type  >( "hsl",      5 );

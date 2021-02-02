@@ -138,6 +138,7 @@ enum reference_enum {
 	error_entity
 	,BT_601_entity
 	,BT_709_entity
+
 };
 
 }
@@ -1271,7 +1272,7 @@ void init
 	for(; index < min_common_size; ++index, ++iterator) {
 		container_trait_type::init(container, index, *iterator);
 	}
-};
+}
 }
 }
 namespace color {
@@ -3575,7 +3576,7 @@ alpha
 	::color::model< category_name > &,
 	typename ::color::model< category_name >::component_input_const_type
 ) {
-};
+}
 
 }
 }
@@ -3606,7 +3607,7 @@ green
 	::color::model< category_name > & color_parameter,
 	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
-};
+}
 
 }
 }
@@ -3622,7 +3623,7 @@ blue
 	::color::model< category_name > & color_parameter,
 	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
-};
+}
 
 }
 }
@@ -3638,7 +3639,7 @@ gray
 	::color::model< category_name > &,
 	typename ::color::model< category_name >::component_input_const_type
 ) {
-};
+}
 
 }
 }
@@ -3654,7 +3655,7 @@ hue
 	::color::model< category_name > & color_parameter,
 	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
-};
+}
 
 }
 }
@@ -3670,7 +3671,7 @@ saturation
 	::color::model< category_name > & color_parameter,
 	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
-};
+}
 
 }
 }
@@ -3686,7 +3687,7 @@ luma
 	::color::model< category_name > & color_parameter,
 	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
-};
+}
 
 }
 }
@@ -3702,7 +3703,7 @@ luminance
 	::color::model< category_name > & color_parameter,
 	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
-};
+}
 
 }
 }
@@ -3718,7 +3719,7 @@ key
 	::color::model< category_name > & color_parameter,
 	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
-};
+}
 
 }
 }
@@ -3734,7 +3735,7 @@ inphase
 	::color::model< category_name > & color_parameter,
 	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
-};
+}
 
 }
 }
@@ -3750,7 +3751,7 @@ quadrature
 	::color::model< category_name > & color_parameter,
 	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
-};
+}
 
 }
 }
@@ -3766,7 +3767,7 @@ chroma
 	::color::model< category_name > & color_parameter,
 	typename ::color::model< category_name >::component_input_const_type component_parameter
 ) {
-};
+}
 
 }
 }
@@ -6166,13 +6167,13 @@ public:
 	typedef ::color::constant::gray::rgb<category_type> this_type;
 
 	static scalar_type const Rc() {
-		return 0.2126729;
+		return scalar_type(2647777) / scalar_type(12450000);
 	}
 	static scalar_type const Gc() {
-		return 0.7151522;
+		return scalar_type(53421866) / scalar_type(74700000);
 	}
 	static scalar_type const Bc() {
-		return 0.0721750;
+		return scalar_type(336967) / scalar_type(4668750);
 	}
 };
 
@@ -6217,6 +6218,8 @@ namespace cyan {
 
 enum formula_enum {
 	channel_entity
+	,hsl_star_entity
+
 };
 
 }
@@ -6244,6 +6247,51 @@ struct usher {
 
 	static return_type process(model_type const& color_parameter) {
 		return color_parameter.template get<cyan_p>();
+	}
+};
+
+template< typename tag_name >
+struct usher< ::color::category::cmy< tag_name >, ::color::get::constant::cmy::cyan::hsl_star_entity > {
+	typedef ::color::category::cmy< tag_name> category_type;
+	typedef ::color::model< category_type > model_type;
+
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+
+	typedef typename ::color::trait::component< category_type >::return_type return_type;
+
+	typedef ::color::_internal::diverse< category_type > diverse_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+
+	enum {
+		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+	};
+
+	static return_type process(model_type const& color_parameter) {
+		scalar_type c = normalize_type::template process<cyan_p >(color_parameter.template get<cyan_p >());
+		scalar_type m = normalize_type::template process<magenta_p>(color_parameter.template get<magenta_p>());
+		scalar_type y = normalize_type::template process<yellow_p >(color_parameter.template get<yellow_p >());
+		scalar_type result;
+		while(true) {
+			if(c < m) {
+				result = 0;
+				break;
+			}
+			if(c < y) {
+				result = 0;
+				break;
+			}
+			if(m < y) {
+				result = (c - y) * (scalar_type(1) - (y - m));
+				break;
+			}
+			{
+				result = (c - m) * (scalar_type(1) - (m - y));
+				break;
+			}
+		}
+		return diverse_type::template process<cyan_p >(result);
 	}
 };
 
@@ -6277,6 +6325,8 @@ namespace magenta {
 
 enum formula_enum {
 	channel_entity
+	,hsl_star_entity
+
 };
 
 }
@@ -6304,6 +6354,51 @@ struct usher {
 
 	static return_type process(model_type const& color_parameter) {
 		return color_parameter.template get<magenta_p>();
+	}
+};
+
+template< typename tag_name >
+struct usher< ::color::category::cmy< tag_name >, ::color::get::constant::cmy::magenta::hsl_star_entity > {
+	typedef ::color::category::cmy< tag_name> category_type;
+	typedef ::color::model< category_type > model_type;
+
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+
+	typedef typename ::color::trait::component< category_type >::return_type return_type;
+
+	typedef ::color::_internal::diverse< category_type > diverse_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+
+	enum {
+		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+	};
+
+	static return_type process(model_type const& color_parameter) {
+		scalar_type c = normalize_type::template process<cyan_p >(color_parameter.template get<cyan_p >());
+		scalar_type m = normalize_type::template process<magenta_p>(color_parameter.template get<magenta_p>());
+		scalar_type y = normalize_type::template process<yellow_p >(color_parameter.template get<yellow_p >());
+		scalar_type result;
+		while(true) {
+			if(m < c) {
+				result = 0;
+				break;
+			}
+			if(m < y) {
+				result = 0;
+				break;
+			}
+			if(c < y) {
+				result = (m - y) * (scalar_type(1) - (y - c));
+				break;
+			}
+			{
+				result = (m - c) * (scalar_type(1) - (c - y));
+				break;
+			}
+		}
+		return diverse_type::template process<cyan_p >(result);
 	}
 };
 
@@ -6337,6 +6432,8 @@ namespace yellow {
 
 enum formula_enum {
 	channel_entity
+	,hsl_star_entity
+
 };
 
 }
@@ -6364,6 +6461,51 @@ struct usher {
 
 	static return_type process(model_type const& color_parameter) {
 		return color_parameter.template get<yellow_p>();
+	}
+};
+
+template< typename tag_name >
+struct usher< ::color::category::cmy< tag_name >, ::color::get::constant::cmy::yellow::hsl_star_entity > {
+	typedef ::color::category::cmy< tag_name> category_type;
+	typedef ::color::model< category_type > model_type;
+
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
+
+	typedef typename ::color::trait::component< category_type >::return_type return_type;
+
+	typedef ::color::_internal::diverse< category_type > diverse_type;
+	typedef ::color::_internal::normalize< category_type > normalize_type;
+
+	enum {
+		cyan_p = ::color::place::_internal::cyan<category_type>::position_enum
+		,magenta_p = ::color::place::_internal::magenta<category_type>::position_enum
+		,yellow_p = ::color::place::_internal::yellow<category_type>::position_enum
+	};
+
+	static return_type process(model_type const& color_parameter) {
+		scalar_type c = normalize_type::template process<cyan_p >(color_parameter.template get<cyan_p >());
+		scalar_type m = normalize_type::template process<magenta_p>(color_parameter.template get<magenta_p>());
+		scalar_type y = normalize_type::template process<yellow_p >(color_parameter.template get<yellow_p >());
+		scalar_type result;
+		while(true) {
+			if(y < m) {
+				result = 0;
+				break;
+			}
+			if(y < c) {
+				result = 0;
+				break;
+			}
+			if(c < m) {
+				result = (y - m) * (scalar_type(1) - (m - c));
+				break;
+			}
+			{
+				result = (y - c) * (scalar_type(1) - (c - m));
+				break;
+			}
+		}
+		return diverse_type::template process<cyan_p >(result);
 	}
 };
 
@@ -11558,14 +11700,6 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::r
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
 		scalar_type result;
 		while(true) {
-			if(r < g) {
-				result = 0;
-				break;
-			}
-			if(r < b) {
-				result = 0;
-				break;
-			}
 			if(g < b) {
 				result = (r - b)* (scalar_type(1) - (b - g));
 				break;
@@ -11694,14 +11828,6 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::g
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
 		scalar_type result;
 		while(true) {
-			if(g < r) {
-				result = 0;
-				break;
-			}
-			if(g < b) {
-				result = 0;
-				break;
-			}
 			if(r < b) {
 				result = (g - b)* (scalar_type(1) - (b - r));
 				break;
@@ -11835,14 +11961,6 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::b
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
 		scalar_type result;
 		while(true) {
-			if(b < g) {
-				result = 0;
-				break;
-			}
-			if(b < r) {
-				result = 0;
-				break;
-			}
 			if(r < g) {
 				result = (b - g) * (scalar_type(1) - (g - r));
 				break;
@@ -11993,7 +12111,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::c
 		scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p >());
 		scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
-		scalar_type max = std::max({ r, g, b });
+		scalar_type max = std::max<scalar_type>({ r, g, b });
 		scalar_type c = scalar_type(0);
 		if(false == scalar_trait_type::is_small(max)) {
 			c = scalar_type(1) - r / max;
@@ -12021,25 +12139,19 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::c
 	};
 
 	static return_type process(model_type const& color_parameter) {
-		scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p >());
-		scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
-		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
+		scalar_type c = scalar_type(1) - normalize_type::template process<red_p >(color_parameter.template get<red_p >());
+		scalar_type y = scalar_type(1) - normalize_type::template process<green_p>(color_parameter.template get<green_p>());
+		scalar_type m = scalar_type(1) - normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
 		scalar_type result;
 		while(true) {
-			if(g < r) {
-				result = 0;
+			if(m < y) {
+				result = (c - y) * (scalar_type(1) - (y - m));
 				break;
 			}
-			if(b < r) {
-				result = 0;
+			{
+				result = (c - m) * (scalar_type(1) - (m - y));
 				break;
 			}
-			if(g < b) {
-				result = (g - r)* (1- (b - g));
-				break;
-			}
-			result = (b - r)* (1- (g - b));
-			break;
 		}
 		return diverse_type::template process<red_p >(result);
 	}
@@ -12149,7 +12261,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::m
 		scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p >());
 		scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
-		scalar_type max = std::max({ r, g, b });
+		scalar_type max = std::max<scalar_type>({ r, g, b });
 		scalar_type m = scalar_type(0);
 		if(false == scalar_trait_type::is_small(max)) {
 			m = scalar_type(1) - g / max;
@@ -12177,25 +12289,19 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::m
 	};
 
 	static return_type process(model_type const& color_parameter) {
-		scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p >());
-		scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
-		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
+		scalar_type c = scalar_type(1) - normalize_type::template process<red_p >(color_parameter.template get<red_p >());
+		scalar_type m = scalar_type(1) - normalize_type::template process<green_p>(color_parameter.template get<green_p>());
+		scalar_type y = scalar_type(1) - normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
 		scalar_type result;
 		while(true) {
-			if(r < g) {
-				result = 0;
+			if(c < y) {
+				result = (m - y) * (scalar_type(1) - (y - c));
 				break;
 			}
-			if(b < g) {
-				result = 0;
+			{
+				result = (m - c) * (scalar_type(1) - (c - y));
 				break;
 			}
-			if(r < b) {
-				result = (r - g)* (1- (b - r));
-				break;
-			}
-			result = (b - g)* (1- (r - b));
-			break;
 		}
 		return diverse_type::template process<red_p >(result);
 	}
@@ -12305,7 +12411,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::y
 		scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p >());
 		scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
-		scalar_type max = std::max({ r, g, b });
+		scalar_type max = std::max<scalar_type>({ r, g, b });
 		scalar_type y = scalar_type(0);
 		if(false == scalar_trait_type::is_small(max)) {
 			y = scalar_type(1) - b / max;
@@ -12333,25 +12439,19 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::y
 	};
 
 	static return_type process(model_type const& color_parameter) {
-		scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p >());
-		scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
-		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
+		scalar_type c = scalar_type(1) - normalize_type::template process<red_p >(color_parameter.template get<red_p >());
+		scalar_type m = scalar_type(1) - normalize_type::template process<green_p>(color_parameter.template get<green_p>());
+		scalar_type y = scalar_type(1) - normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
 		scalar_type result;
 		while(true) {
-			if(r < b) {
-				result = 0;
+			if(c < m) {
+				result = (y - m) * (scalar_type(1) - (m - c));
 				break;
 			}
-			if(g < b) {
-				result = 0;
+			{
+				result = (y - c) * (scalar_type(1) - (c - m));
 				break;
 			}
-			if(r < g) {
-				result = (r - b)* (1- (g - r));
-				break;
-			}
-			result = (g - b)* (1- (r - g));
-			break;
 		}
 		return diverse_type::template process<red_p >(result);
 	}
@@ -12466,8 +12566,8 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::b
 		scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p >());
 		scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
-		scalar_type lightnes = std::max({r,g,b});
-		scalar_type saturation = std::max({r,g,b}) - std::min({r,g,b});
+		scalar_type lightnes = std::max<scalar_type>({r,g,b});
+		scalar_type saturation = std::max<scalar_type>({r,g,b}) - std::min<scalar_type>({r,g,b});
 		return diverse_type::template process<red_p >((scalar_type(1) - lightnes) * (scalar_type(1) - saturation));
 	}
 };
@@ -12581,8 +12681,8 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::w
 		scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p >());
 		scalar_type g = normalize_type::template process<green_p>(color_parameter.template get<green_p>());
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
-		scalar_type lightnes = std::min({r,g,b});
-		scalar_type saturation = std::max({r,g,b}) - std::min({r,g,b});
+		scalar_type lightnes = std::min<scalar_type>({r,g,b});
+		scalar_type saturation = std::max<scalar_type>({r,g,b}) - std::min<scalar_type>({r,g,b});
 		return diverse_type::template process<red_p >((lightnes)* (scalar_type(1) - saturation));
 	}
 };
@@ -13483,13 +13583,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6400, 0.3300 };
+		static coord_type value{ { 0.6400, 0.3300 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2100, 0.7100 };
+		static coord_type value{ { 0.2100, 0.7100 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1500, 0.0600 };
+		static coord_type value{ { 0.1500, 0.0600 } };
 		return value;
 	}
 };
@@ -13501,13 +13601,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6250, 0.3400 };
+		static coord_type value{ { 0.6250, 0.3400 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2800, 0.5950 };
+		static coord_type value{ { 0.2800, 0.5950 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1550, 0.0700 };
+		static coord_type value{ { 0.1550, 0.0700 } };
 		return value;
 	}
 };
@@ -13519,13 +13619,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.7347, 0.2653 };
+		static coord_type value{ { 0.7347, 0.2653 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2150, 0.7750 };
+		static coord_type value{ { 0.2150, 0.7750 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1300, 0.0350 };
+		static coord_type value{ { 0.1300, 0.0350 } };
 		return value;
 	}
 };
@@ -13537,13 +13637,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6888, 0.3112 };
+		static coord_type value{ { 0.6888, 0.3112 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.1986, 0.7551 };
+		static coord_type value{ { 0.1986, 0.7551 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1265, 0.0352 };
+		static coord_type value{ { 0.1265, 0.0352 } };
 		return value;
 	}
 };
@@ -13555,13 +13655,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6400, 0.3300 };
+		static coord_type value{ { 0.6400, 0.3300 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2800, 0.6500 };
+		static coord_type value{ { 0.2800, 0.6500 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1500, 0.0600 };
+		static coord_type value{ { 0.1500, 0.0600 } };
 		return value;
 	}
 };
@@ -13573,13 +13673,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.7350, 0.2650 };
+		static coord_type value{ { 0.7350, 0.2650 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2740, 0.7170 };
+		static coord_type value{ { 0.2740, 0.7170 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1670, 0.0090 };
+		static coord_type value{ { 0.1670, 0.0090 } };
 		return value;
 	}
 };
@@ -13591,13 +13691,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6300, 0.3400 };
+		static coord_type value{ { 0.6300, 0.3400 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2950, 0.6050 };
+		static coord_type value{ { 0.2950, 0.6050 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1500, 0.0750 };
+		static coord_type value{ { 0.1500, 0.0750 } };
 		return value;
 	}
 };
@@ -13609,13 +13709,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6960, 0.3000 };
+		static coord_type value{ { 0.6960, 0.3000 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2150, 0.7650 };
+		static coord_type value{ { 0.2150, 0.7650 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1300, 0.0350 };
+		static coord_type value{ { 0.1300, 0.0350 } };
 		return value;
 	}
 };
@@ -13627,13 +13727,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6700, 0.3300 };
+		static coord_type value{ { 0.6700, 0.3300 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2100, 0.7100 };
+		static coord_type value{ { 0.2100, 0.7100 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1400, 0.0800 };
+		static coord_type value{ { 0.1400, 0.0800 } };
 		return value;
 	}
 };
@@ -13645,13 +13745,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6950, 0.3050 };
+		static coord_type value{ { 0.6950, 0.3050 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2600, 0.7000 };
+		static coord_type value{ { 0.2600, 0.7000 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1100, 0.0050 };
+		static coord_type value{ { 0.1100, 0.0050 } };
 		return value;
 	}
 };
@@ -13663,13 +13763,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6700, 0.3300 };
+		static coord_type value{ { 0.6700, 0.3300 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2100, 0.7100 };
+		static coord_type value{ { 0.2100, 0.7100 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1400, 0.0800 };
+		static coord_type value{ { 0.1400, 0.0800 } };
 		return value;
 	}
 };
@@ -13681,13 +13781,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6400, 0.3300 };
+		static coord_type value{ { 0.6400, 0.3300 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.2900, 0.6000 };
+		static coord_type value{ { 0.2900, 0.6000 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1500, 0.0600 };
+		static coord_type value{ { 0.1500, 0.0600 } };
 		return value;
 	}
 };
@@ -13699,13 +13799,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.7347, 0.2653 };
+		static coord_type value{ { 0.7347, 0.2653 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.1596, 0.8404 };
+		static coord_type value{ { 0.1596, 0.8404 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.0366, 0.0001 };
+		static coord_type value{ { 0.0366, 0.0001 } };
 		return value;
 	}
 };
@@ -13717,13 +13817,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6300, 0.3400 };
+		static coord_type value{ { 0.6300, 0.3400 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.3100, 0.5950 };
+		static coord_type value{ { 0.3100, 0.5950 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1550, 0.0700 };
+		static coord_type value{ { 0.1550, 0.0700 } };
 		return value;
 	}
 };
@@ -13735,13 +13835,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.6400, 0.3300 };
+		static coord_type value{ { 0.6400, 0.3300 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.3000, 0.6000 };
+		static coord_type value{ { 0.3000, 0.6000 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1500, 0.0600 };
+		static coord_type value{ { 0.1500, 0.0600 } };
 		return value;
 	}
 };
@@ -13753,13 +13853,13 @@ private:
 	typedef std::array<scalar_type,2> coord_type;
 public:
 	static coord_type const& red() {
-		static coord_type value{ 0.7350, 0.2650 };
+		static coord_type value{ { 0.7350, 0.2650 } };
 		return value;
 	} static coord_type const& green() {
-		static coord_type value{ 0.1150, 0.8260 };
+		static coord_type value{ { 0.1150, 0.8260 } };
 		return value;
 	} static coord_type const& blue() {
-		static coord_type value{ 0.1570, 0.0180 };
+		static coord_type value{ { 0.1570, 0.0180 } };
 		return value;
 	}
 };
@@ -14759,7 +14859,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::g
 		scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p >());
 		scalar_type g = normalize_type::template process<green_p >(color_parameter.template get<green_p >());
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
-		scalar_type value = (std::max({r,g,b}) + std::min({r,g,b})) / scalar_type(2);
+		scalar_type value = (std::max<scalar_type>({r,g,b}) + std::min<scalar_type>({r,g,b})) / scalar_type(2);
 		return diverse_type::template process<0>(value);
 	}
 };
@@ -14822,7 +14922,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::g
 		scalar_type r = normalize_type::template process<red_p >(color_parameter.template get<red_p >());
 		scalar_type g = normalize_type::template process<green_p >(color_parameter.template get<green_p >());
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
-		scalar_type delta = std::max({ r,g,b }) - std::min({r,g,b});
+		scalar_type delta = std::max<scalar_type>({ r,g,b }) - std::min<scalar_type>({r,g,b});
 		scalar_type value = (scalar_type(1) - delta) * (scalar_type(1) - delta);
 		return diverse_type::template process<0>(value);
 	}
@@ -15109,6 +15209,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::c
 	typedef ::color::category::rgb< tag_name > category_type;
 	typedef ::color::model< category_type > model_type;
 
+	typedef typename ::color::trait::scalar<category_type>::instance_type scalar_type;
 	typedef typename ::color::trait::component< category_type >::return_type component_return_type;
 
 	enum {
@@ -15121,8 +15222,8 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::c
 		auto r = color_parameter.template get<red_p >();
 		auto g = color_parameter.template get<green_p>();
 		auto b = color_parameter.template get<blue_p >();
-		auto max = std::max({ r, g, b });
-		auto min = std::min({ r, g, b });
+		auto max = std::max<component_return_type>({ r, g, b });
+		auto min = std::min<component_return_type>({ r, g, b });
 		return max - min;
 	}
 };
@@ -23939,6 +24040,7 @@ public:
 
 namespace color {
 namespace _internal {
+
 template
 <
 	typename yuv_tag_name, ::color::constant::yuv::reference_enum yuv_reference_number
@@ -37386,18 +37488,19 @@ public:
 		scalar_type const& x, scalar_type const& y, scalar_type const& z
 		,scalar_type & l, scalar_type & u, scalar_type & v
 	) {
+		scalar_type epsilon = 1e-6;
 		scalar_type yr = y / (white_point_type::Y() * scalar_type(100));
 		if(scalar_type(216)/scalar_type(24389) < yr) {
-			l = scalar_type(116)*cbrt(yr)-scalar_type(16);
+			l = scalar_type(116)*scalar_type(cbrt(yr))-scalar_type(16);
 		} else {
 			l = scalar_type(24389)/scalar_type(27)* yr;
 		}
 		scalar_type up = scalar_type(4) * x/(x + scalar_type(15)*y + scalar_type(3)*z);
-		if(x < 1e-6) {
+		if(x < epsilon) {
 			up=0;
 		}
 		scalar_type vp = scalar_type(9) * y/(x + scalar_type(15)*y + scalar_type(3)*z);
-		if(y < 1e-6) {
+		if(y < epsilon) {
 			vp=0;
 		}
 		u = 13*l*(up - u0());
@@ -42931,11 +43034,12 @@ public:
 
 	typedef ::color::lab<scalar_type> lab_type;
 	typedef typename lab_type::category_type lab_category_type;
+	typedef ::color::operation::_internal::distance<lab_category_type, lab_category_type,::color::constant::distance::euclid_entity> lab_distance_type;
 
 	static scalar_type process(model_left_type const& left, model_right_type const& right) {
 		lab_type lab_left(left);
 		lab_type lab_right(right);
-		return::color::operation::_internal::distance<lab_category_type, lab_category_type,::color::constant::distance::euclid_entity>::process(lab_left, lab_right);
+		return lab_distance_type::process(lab_left, lab_right);
 	}
 };
 
@@ -43209,9 +43313,9 @@ public:
 		rgb_type difference;
 		::color::operation::delta(difference, left_rgb, right_rgb);
 		scalar_type d = 1;
-		d *= fabs(std::max(left_rgb[0] - std::max(right_rgb[1], right_rgb[2]), left_rgb[0] - std::min(right_rgb[1], right_rgb[2])));
-		d *= fabs(std::max(left_rgb[1] - std::max(right_rgb[0], right_rgb[2]), left_rgb[1] - std::min(right_rgb[0], right_rgb[2])));
-		d *= fabs(std::max(left_rgb[2] - std::max(right_rgb[0], right_rgb[1]), left_rgb[2] - std::min(right_rgb[0], right_rgb[1])));
+		d *= fabs(std::max<scalar_type>(left_rgb[0] - std::max<scalar_type>(right_rgb[1], right_rgb[2]), left_rgb[0] - std::min<scalar_type>(right_rgb[1], right_rgb[2])));
+		d *= fabs(std::max<scalar_type>(left_rgb[1] - std::max<scalar_type>(right_rgb[0], right_rgb[2]), left_rgb[1] - std::min<scalar_type>(right_rgb[0], right_rgb[2])));
+		d *= fabs(std::max<scalar_type>(left_rgb[2] - std::max<scalar_type>(right_rgb[0], right_rgb[1]), left_rgb[2] - std::min<scalar_type>(right_rgb[0], right_rgb[1])));
 		return d;
 	}
 };
@@ -49590,7 +49694,7 @@ public:
 		scalar_type r = normalize_type::template process<red_p >(container_right_trait_type::template get<red_p >(right));
 		scalar_type g = normalize_type::template process<green_p>(container_right_trait_type::template get<green_p>(right));
 		scalar_type b = normalize_type::template process<blue_p >(container_right_trait_type::template get<blue_p >(right));
-		scalar_type max = std::max({ r, g, b });
+		scalar_type max = std::max<scalar_type>({ r, g, b });
 		scalar_type k = scalar_type(1) - max;
 		scalar_type c = scalar_type(0);
 		scalar_type m = scalar_type(0);
@@ -53014,7 +53118,7 @@ public:
 	typedef ::color::operation::_internal::divide<category_type> this_type;
 
 public:
-	model_type& operator()(model_type const& left, model_type const& right)const {
+	model_type operator()(model_type const& left, model_type const& right)const {
 		return this_type::function(left, right);
 	}
 
@@ -53098,10 +53202,10 @@ public:
 
 public:
 	model_type & operator()(model_type &result, model_type const& upper_bound) const {
-		return this_type::process(result, upper_bound);
+		return this_type::procedure(result, upper_bound);
 	}
 	model_type & operator()(model_type &result, model_type const& left, model_type const& upper_bound) const {
-		return this_type::process(result, left, upper_bound);
+		return this_type::procedure(result, left, upper_bound);
 	}
 
 public:
@@ -53271,10 +53375,10 @@ public:
 
 public:
 	model_type & operator()(model_type &result, model_type const& low_bound) const {
-		return this_type::process(result, low_bound);
+		return this_type::procedure(result, low_bound);
 	}
 	model_type & operator()(model_type &result, model_type const& left, model_type const& low_bound) const {
-		return this_type::process(result, left, low_bound);
+		return this_type::procedure(result, left, low_bound);
 	}
 
 public:
@@ -53355,7 +53459,7 @@ bool equal
 	::color::constant::base< tag_name > const& left
 	,::color::model< category_name > const& right
 ) {
-	return ::color::model< category_name >(left).container() == right.container();
+	return ::color::compare::equal< category_name >(::color::model< category_name >(left), right);
 }
 
 template < typename category_name, typename tag_name >
@@ -53364,7 +53468,7 @@ bool equal
 	::color::model< category_name > const& left
 	,::color::constant::base< tag_name > const& right
 ) {
-	return left.container() == ::color::model< category_name >(right).container();
+	return ::color::compare::equal< category_name >(::color::model< category_name >(left), right);
 }
 
 namespace operators {
@@ -53391,7 +53495,35 @@ operator ==(::color::model< category_name > const& left, ::color::constant::base
 }
 
 }
+
+namespace functor {
+
+template< typename category_name >
+class equal {
+public:
+	typedef ::color::model< category_name > value_type;
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::equal(left, right);
+	}
+};
+
 }
+
+}
+}
+
+namespace std {
+
+template< typename category_name >
+struct equal_to< ::color::model< category_name > > {
+private:
+	typedef ::color::model< category_name > value_type;
+public:
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::equal(left, right);
+	}
+};
+
 }
 namespace color {
 namespace compare {
@@ -53411,7 +53543,7 @@ bool different
 	::color::constant::base< tag_name > const& left
 	,::color::model< category_name > const& right
 ) {
-	return ::color::model< category_name >(left).container() != right.container();
+	return ::color::compare::different< category_name >(::color::model< category_name >(left), right);
 }
 
 template < typename category_name, typename tag_name >
@@ -53420,7 +53552,7 @@ bool different
 	::color::model< category_name > const& left
 	,::color::constant::base< tag_name > const& right
 ) {
-	return left.container() != ::color::model< category_name >(right).container();
+	return ::color::compare::different< category_name >(::color::model< category_name >(left), right);
 }
 
 namespace operators {
@@ -53447,7 +53579,35 @@ operator !=(::color::model< category_name > const& left, ::color::constant::base
 }
 
 }
+
+namespace functor {
+
+template< typename category_name >
+class different {
+public:
+	typedef ::color::model< category_name > value_type;
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::different(left, right);
+	}
+};
+
 }
+
+}
+}
+
+namespace std {
+
+template< typename category_name >
+struct not_equal_to< ::color::model< category_name > > {
+private:
+	typedef ::color::model< category_name > value_type;
+public:
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::different(left, right);
+	}
+};
+
 }
 
 namespace color {
@@ -53462,6 +53622,24 @@ bool great_or_equal
 	return left.container() >= right.container();
 }
 
+template< typename tag_name, typename category_name >
+bool great_or_equal
+(
+	::color::constant::base< tag_name > const& left
+	,::color::model< category_name > const& right
+) {
+	return ::color::compare::great_or_equal< category_name >(::color::model< category_name >(left), right);
+}
+
+template < typename category_name, typename tag_name >
+bool great_or_equal
+(
+	::color::model< category_name > const& left
+	,::color::constant::base< tag_name > const& right
+) {
+	return ::color::compare::great_or_equal< category_name >(::color::model< category_name >(left), right);
+}
+
 namespace operators {
 
 template< typename category_name >
@@ -53471,19 +53649,79 @@ operator >=(::color::model< category_name > const& left, ::color::model< categor
 	return ::color::compare::great_or_equal(left, right);
 }
 
+template< typename tag_name, typename category_name >
+inline
+bool
+operator >=(::color::constant::base< tag_name > const& left, ::color::model< category_name > const& right) {
+	return ::color::compare::great_or_equal(left, right);
+}
+
+template< typename category_name, typename tag_name >
+inline
+bool
+operator >=(::color::model< category_name > const& left, ::color::constant::base< tag_name > const& right) {
+	return ::color::compare::great_or_equal(left, right);
+}
+
+}
+
+namespace functor {
+
+template< typename category_name >
+class great_or_equal {
+public:
+	typedef ::color::model< category_name > value_type;
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::great_or_equal(left, right);
+	}
+};
+
+}
+
 }
 }
+
+namespace std {
+
+template< typename category_name >
+struct greater_equal< ::color::model< category_name > > {
+private:
+	typedef ::color::model< category_name > value_type;
+public:
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::great_or_equal(left, right);
+	}
+};
+
 }
 namespace color {
 namespace compare {
 
 template < typename category_name >
-bool great_strict
+inline bool great_strict
 (
 	::color::model< category_name > const& left
 	,::color::model< category_name > const& right
 ) {
 	return left.container() > right.container();
+}
+
+template< typename tag_name, typename category_name >
+inline bool great_strict
+(
+	::color::constant::base< tag_name > const& left
+	,::color::model< category_name > const& right
+) {
+	return ::color::compare::great_strict< category_name >(::color::model< category_name >(left), right);
+}
+
+template < typename category_name, typename tag_name >
+inline bool great_strict
+(
+	::color::model< category_name > const& left
+	,::color::constant::base< tag_name > const& right
+) {
+	return ::color::compare::great_strict< category_name >(left, ::color::model< category_name >(right));
 }
 
 namespace operators {
@@ -53495,8 +53733,50 @@ operator > (::color::model< category_name > const& left, ::color::model< categor
 	return ::color::compare::great_strict(left, right);
 }
 
+template< typename tag_name, typename category_name >
+inline
+bool
+operator >(::color::constant::base< tag_name > const& left, ::color::model< category_name > const& right) {
+	return ::color::compare::great_strict(left, right);
+}
+
+template< typename category_name, typename tag_name >
+inline
+bool
+operator >(::color::model< category_name > const& left, ::color::constant::base< tag_name > const& right) {
+	return ::color::compare::great_strict(left, right);
+}
+
+}
+
+namespace functor {
+
+template< typename category_name >
+class great_strict {
+public:
+	typedef ::color::model< category_name > value_type;
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::great_strict(left,right);
+	}
+};
+
+}
+
 }
 }
+
+namespace std {
+
+template< typename category_name >
+struct greater< ::color::model< category_name > > {
+private:
+	typedef ::color::model< category_name > value_type;
+public:
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::great_strict(left, right);
+	}
+};
+
 }
 namespace color {
 namespace compare {
@@ -53510,6 +53790,24 @@ bool less_or_equal
 	return left.container() <= right.container();
 }
 
+template< typename tag_name, typename category_name >
+bool less_or_equal
+(
+	::color::constant::base< tag_name > const& left
+	,::color::model< category_name > const& right
+) {
+	return ::color::compare::less_or_equal< category_name >(::color::model< category_name >(left), right);
+}
+
+template < typename category_name, typename tag_name >
+bool less_or_equal
+(
+	::color::model< category_name > const& left
+	,::color::constant::base< tag_name > const& right
+) {
+	return ::color::compare::less_or_equal< category_name >(::color::model< category_name >(left), right);
+}
+
 namespace operators {
 
 template< typename category_name >
@@ -53519,8 +53817,50 @@ operator <=(::color::model< category_name > const& left, ::color::model< categor
 	return ::color::compare::less_or_equal(left, right);
 }
 
+template< typename tag_name, typename category_name >
+inline
+bool
+operator <=(::color::constant::base< tag_name > const& left, ::color::model< category_name > const& right) {
+	return ::color::compare::less_or_equal(left, right);
+}
+
+template< typename category_name, typename tag_name >
+inline
+bool
+operator <=(::color::model< category_name > const& left, ::color::constant::base< tag_name > const& right) {
+	return ::color::compare::less_or_equal(left, right);
+}
+
+}
+
+namespace functor {
+
+template< typename category_name >
+class less_or_equal {
+public:
+	typedef ::color::model< category_name > value_type;
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::less_or_equal(left, right);
+	}
+};
+
+}
+
 }
 }
+
+namespace std {
+
+template< typename category_name >
+struct less_equal< ::color::model< category_name > > {
+private:
+	typedef ::color::model< category_name > value_type;
+public:
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::less_or_equal(left, right);
+	}
+};
+
 }
 namespace color {
 namespace compare {
@@ -53534,6 +53874,24 @@ bool less_strict
 	return left.container() < right.container();
 }
 
+template< typename tag_name, typename category_name >
+bool less_strict
+(
+	::color::constant::base< tag_name > const& left
+	,::color::model< category_name > const& right
+) {
+	return ::color::compare::less_strict< category_name >(::color::model< category_name >(left), right);
+}
+
+template < typename category_name, typename tag_name >
+bool less_strict
+(
+	::color::model< category_name > const& left
+	,::color::constant::base< tag_name > const& right
+) {
+	return ::color::compare::less_strict< category_name >(left, ::color::model< category_name >(right));
+}
+
 namespace operators {
 
 template< typename category_name >
@@ -53543,8 +53901,50 @@ operator < (::color::model< category_name > const& left, ::color::model< categor
 	return ::color::compare::less_strict(left, right);
 }
 
+template< typename tag_name, typename category_name >
+inline
+bool
+operator <(::color::constant::base< tag_name > const& left, ::color::model< category_name > const& right) {
+	return ::color::compare::less_strict(left, right);
+}
+
+template< typename category_name, typename tag_name >
+inline
+bool
+operator <(::color::model< category_name > const& left, ::color::constant::base< tag_name > const& right) {
+	return ::color::compare::less_strict(left, right);
+}
+
+}
+
+namespace functor {
+
+template< typename category_name >
+class less_strict {
+public:
+	typedef ::color::model< category_name > value_type;
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::less_strict(left, right);
+	}
+};
+
+}
+
 }
 }
+
+namespace std {
+
+template< typename category_name >
+struct less< ::color::model< category_name > > {
+private:
+	typedef ::color::model< category_name > value_type;
+public:
+	bool operator()(value_type const& left, value_type const& right)const {
+		return ::color::compare::less_strict(left, right);
+	}
+};
+
 }
 
 namespace color {
