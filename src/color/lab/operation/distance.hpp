@@ -1,7 +1,7 @@
 #ifndef  color_lab_operation_distance
 #define  color_lab_operation_distance
 
-#include "../../generic/operation/distance.hpp"
+#include "../../generic/operation/distance/distance.hpp"
 
 namespace color
  {
@@ -14,7 +14,7 @@ namespace color
        {
 
         template< typename scalar_left_name, typename scalar_right_name >
-         struct distance
+         struct usher
           {
            public:
              typedef scalar_left_name   scalar_left_type;
@@ -31,14 +31,14 @@ namespace color
 
              static scalar_type process( model_left_type const& left, model_right_type const& right )
               {
-               typedef ::color::operation::_internal::distance< category_left_type, category_right_type,::color::constant::distance::euclid_entity> distance_type;
+               typedef ::color::operation::_internal::usher< category_left_type, category_right_type,::color::constant::distance::euclid_entity> usher_type;
 
-               return distance_type::process( left, right );
+               return usher_type::process( left, right );
               }
           };
 
         template< typename scalar_name >
-         struct distance< scalar_name, scalar_name >
+         struct usher< scalar_name, scalar_name >
           {
            public:
              typedef scalar_name   scalar_type;
@@ -49,8 +49,8 @@ namespace color
 
              static scalar_type process( model_type const& left, model_type const& right )
               {
-               typedef ::color::operation::_internal::distance< category_type, category_type,::color::constant::distance::euclid_entity> distance_type;
-               return distance_type::process( left, right );
+               typedef ::color::operation::_internal::usher< category_type, category_type,::color::constant::distance::euclid_entity> usher_type;
+               return usher_type::process( left, right );
               }
           };
 
@@ -58,15 +58,15 @@ namespace color
 
 #define  color_internal_lab_distance_specialization( DP_left, DP_right ) \
       template<>\
-       struct distance \
+       struct usher \
         < \
            typename ::color::lab< DP_left,  ::color::constant::lab::CIE_entity >::category_type \
           ,typename ::color::lab< DP_right, ::color::constant::lab::CIE_entity >::category_type \
           ,::color::constant::distance::CIE76_entity     \
         >   \
-        : public ::color::operation::_internal::lab::distance< DP_left, DP_right > \
+        : public ::color::operation::_internal::lab::usher< DP_left, DP_right > \
         { \
-         typedef ::color::operation::_internal::lab::distance< DP_left, DP_right > base_type; \
+         typedef ::color::operation::_internal::lab::usher< DP_left, DP_right > base_type; \
          using base_type::process; \
         }
 

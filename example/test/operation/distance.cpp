@@ -12,34 +12,156 @@
 
 #include "../image.hpp"
 
+
+void distance_check_hue_euclid(  )
+ {
+  typedef ::color::hsl<double> hsl_t;
+
+  std::cout << __FUNCTION__ << std::endl;
+  std::cout << "{ 60,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{ 60,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "{120,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{120,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{ 60,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{ 60,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "{180,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{180,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{ 60,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{ 60,50,50}, hsl_t{240,50,50} ) << std::endl;
+  std::cout << "{240,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{240,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{ 60,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{ 60,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{300,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{120,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{120,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "{180,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{180,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{120,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{120,50,50}, hsl_t{240,50,50} ) << std::endl;
+  std::cout << "{240,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{240,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{120,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{120,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{300,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{180,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{180,50,50}, hsl_t{240,50,50} ) << std::endl;
+  std::cout << "{240,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{240,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{180,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{180,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{300,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{240,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{240,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_euclid_entity >( hsl_t{300,50,50}, hsl_t{240,50,50} ) << std::endl;
+ }
+
+void distance_check_hue_helix(  )
+ {
+  typedef ::color::hsl<double> hsl_t;
+
+  std::cout << __FUNCTION__ << std::endl;
+  std::cout << "{ 60,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{ 60,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "{120,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{120,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{ 60,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{ 60,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "{180,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{180,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{ 60,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{ 60,50,50}, hsl_t{240,50,50} ) << std::endl;
+  std::cout << "{240,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{240,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{ 60,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{ 60,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{300,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{120,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{120,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "{180,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{180,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{120,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{120,50,50}, hsl_t{240,50,50} ) << std::endl;
+  std::cout << "{240,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{240,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{120,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{120,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{300,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{180,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{180,50,50}, hsl_t{240,50,50} ) << std::endl;
+  std::cout << "{240,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{240,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{180,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{180,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{300,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{240,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{240,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_entity >( hsl_t{300,50,50}, hsl_t{240,50,50} ) << std::endl;
+ }
+
+void distance_check_hue_rgb_helix()
+ {
+  typedef ::color::hsl<double> hsl_t;
+
+  std::cout << __FUNCTION__ << std::endl;
+  std::cout << "{ 60,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{ 60,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "{120,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{120,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{ 60,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{ 60,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "{180,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{180,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{ 60,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{ 60,50,50}, hsl_t{240,50,50} ) << std::endl;
+  std::cout << "{240,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{240,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{ 60,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{ 60,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, { 60,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{300,50,50}, hsl_t{ 60,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{120,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{120,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "{180,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{180,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{120,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{120,50,50}, hsl_t{240,50,50} ) << std::endl;
+  std::cout << "{240,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{240,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{120,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{120,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, {120,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{300,50,50}, hsl_t{120,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{180,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{180,50,50}, hsl_t{240,50,50} ) << std::endl;
+  std::cout << "{240,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{240,50,50}, hsl_t{180,50,50} ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{180,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{180,50,50}, hsl_t{300,50,50}, 0.001 ) << std::endl;
+  std::cout << "{300,50,50}, {180,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{300,50,50}, hsl_t{180,50,50}, 0.001 ) << std::endl;
+  std::cout << "-" << std::endl;
+  std::cout << "{240,50,50}, {300,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{240,50,50}, hsl_t{300,50,50} ) << std::endl;
+  std::cout << "{300,50,50}, {240,50,50}: "<<::color::operation::distance< ::color::constant::distance::hue_helix_rgb_entity >( hsl_t{300,50,50}, hsl_t{240,50,50} ) << std::endl;
+ }
+
 template
  <
    enum ::color::constant::distance::reference_enum reference_number
-  ,typename category_left_name
-  ,typename category_right_name
+  ,typename category_name
  >
 void test_operation_distance_from
  (
    bgr_image_type const& image, std::size_t const& width, std::size_t const& height
-  ,::color::model<category_right_name> const& right
+  ,::color::model<category_name> const& right
   , double const& scale
   ,std::string const& output
  )
  {
-  gray_image_type  distance; distance.reserve( image.size() );
-
+  bgr_image_type  distance; distance.reserve( image.size() );
+  double maximum = 0;
+  std::size_t count = 0;
   for( auto & pixel : image )
    {
-    auto d = ::color::operation::distance< reference_number >( ::color::model<category_left_name>( pixel ), right );
+    ++count;
+    auto dd = ::color::operation::distance< reference_number >( ::color::model<category_name>( pixel ), right );
+    auto dr = ::color::operation::distance< reference_number >( right, ::color::model<category_name>( pixel ) );
+    
+    //if( 0.01 < fabs( dd-dr ) ) 
+    // {
+    //  distance.push_back( ::color::constant::blue_t{} );
+    //  if( 0 == ( count % 4 )  )
+    //  continue;
+    // }
 
-    d *= scale;
+    maximum = std::max<double>( maximum, dd );
+    dd *= scale;
 
-    if( 1 < d ) d = 1;
+    if( 1 < dd ) dd = 1;
+    dd = pow( 1 - dd,  1.5 );
+    dd = dd * fabs( sin( 20 * dd * 3.14159265359 / 2.0 ) );
 
-    distance.push_back( gray_color_type( std::uint8_t( 255 * ( 1 - d ) ) ) );
+    distance.push_back( bgr_color_type( gray_color_type( std::uint8_t( 255 * dd ) ) ) );
    }
 
-   save_image_gray( output, distance, width, height );
+  std::cout << __FUNCTION__ << " - " << reference_number << " - " << output << "; MAX: " << maximum << std::endl;
+  save_image24( output, distance, width, height );
  }
 
 void test_operation_any2any()
@@ -156,7 +278,6 @@ void test_operation_distance_zero()
   std::cout << "     max error: " << dmax << std::endl;
  }
 
-
 void test_operation_zero_main()
  {
   typedef ::color::rgb<double>::category_type            rgb_t;
@@ -168,34 +289,67 @@ void test_operation_zero_main()
   test_operation_distance_zero< ::color::constant::distance::CIEDE2000_entity,      rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::CMC1984_entity,        rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::delta_gray_entity,     rgb_t >();
-  test_operation_distance_zero< ::color::constant::distance::hsl_special_entity,    rgb_t >();
-
+  test_operation_distance_zero< ::color::constant::distance::hue_euclid_entity,     rgb_t >();
+  test_operation_distance_zero< ::color::constant::distance::hue_helix_entity,      rgb_t >();
+  test_operation_distance_zero< ::color::constant::distance::hue_helix_rgb_entity,  rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::rgb_special_entity,    rgb_t >();
  }
 
 void test_operation_distance__all()
  {
-  test_operation_any2any();
-
   typedef ::color::rgb<double>::category_type            rgb_t;
+  typedef ::color::hsi<double>::category_type            hsi_t;
+  typedef ::color::hsl<double>::category_type            hsl_t;
+  typedef ::color::hsv<double>::category_type            hsv_t;
   bgr_image_type image;
   int width=1000;
   int height=1000;
 
-  if( false == load_image( image, width, height, "./palette/hsl-1-100.tga" ) )
+  distance_check_hue_euclid();
+  distance_check_hue_helix();
+  distance_check_hue_rgb_helix();
+
+  std::string root = "z:/work/code/cpp/prj/github/color/work/example/test/out";
+
+  if( false == load_image( image, width, height, root + "/palette/hsl-1-100.tga" ) )
    {
     std::cout << "Can not load" <<  "hsl-1-100.tga" << std::endl;
    }
 
-  test_operation_distance_from< ::color::constant::distance::euclid_entity,         rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 1.00,    "./operation/dist_euclid_rgb2rgb.tga"     );
-  test_operation_distance_from< ::color::constant::distance::CIE76_entity,          rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 0.015,   "./operation/dist_CIE76_rgb2rgb.tga"      );
-  test_operation_distance_from< ::color::constant::distance::CIE94_graphics_entity, rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 0.02,    "./operation/dist_CIE94g_rgb2rgb.tga"     );
-  test_operation_distance_from< ::color::constant::distance::CIE94_textile_entity,  rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 0.02,    "./operation/dist_CIE94t_rgb2rgb.tga"     );
-  test_operation_distance_from< ::color::constant::distance::CIEDE2000_entity,      rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 0.03,    "./operation/dist_CIEDE2000_rgb2rgb.tga"  );
-  test_operation_distance_from< ::color::constant::distance::delta_gray_entity,     rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 3.00,    "./operation/dist_deltaG_rgb2rgb.tga"     );
-  test_operation_distance_from< ::color::constant::distance::hsl_special_entity,    rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 1119.00, "./operation/dist_hslS_rgb2rgb.tga"       );
-  test_operation_distance_from< ::color::constant::distance::rgb_special_entity,    rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1}, 1.00,    "./operation/dist_rgbS_rgb2rgb.tga"       );
 
+
+
+
+  test_operation_distance_from< ::color::constant::distance::euclid_entity,         rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,0},  1.5/1.72979,              "./operation/dist_euclid_rgb2rgb.tga"     );
+
+  test_operation_distance_from< ::color::constant::distance::CIE76_entity,          rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,0},  1.5/258.683,       "./operation/dist_CIE76_rgb2rgb.tga"      );
+
+  test_operation_distance_from< ::color::constant::distance::CMC1984_entity,        rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,0},  1.5/206.433,   "./operation/dist_CMC1984_rgb2rgb.tga"     );
+
+  test_operation_distance_from< ::color::constant::distance::CIE94_graphics_entity, rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,0},  1.5/148.471,           "./operation/dist_CIE94g_rgb2rgb.tga"     );
+  test_operation_distance_from< ::color::constant::distance::CIE94_textile_entity,  rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,0},  1.5/127.556,           "./operation/dist_CIE94t_rgb2rgb.tga"     );
+  test_operation_distance_from< ::color::constant::distance::CIEDE2000_entity,      rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,0},  1.5/155.242,           "./operation/dist_CIEDE2000_rgb2rgb.tga"  );
+
+  test_operation_distance_from< ::color::constant::distance::delta_gray_entity,     rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,0},  1.00/0.999434,           "./operation/dist_deltaG_rgb2rgb.tga"     );
+
+  test_operation_distance_from< ::color::constant::distance::hue_euclid_entity,     hsi_t >( image, width, height, ::color::hsi<double>( ::color::rgb<double>{0,1,0} ),  1.5 / 3.36182,    "./operation/dist_hsiE.tga"      );
+
+  test_operation_distance_from< ::color::constant::distance::hue_euclid_entity,     hsl_t >( image, width, height, ::color::hsl<double>( ::color::rgb<double>{0,1,0} ),  1.5 / 3.24936,    "./operation/dist_hslE.tga"      );
+
+  test_operation_distance_from< ::color::constant::distance::hue_euclid_entity,     hsv_t >( image, width, height, ::color::hsv<double>( ::color::rgb<double>{0,1,0} ),  1.5 / 3.29572,    "./operation/dist_hsvE.tga"      );
+
+  test_operation_distance_from< ::color::constant::distance::hue_helix_entity,      hsi_t >( image, width, height, ::color::hsi<double>( ::color::rgb<double>{0,1,0} ),  1.5 / 360.0,  "./operation/dist_hsiH.tga"      );
+
+  test_operation_distance_from< ::color::constant::distance::hue_helix_entity,      hsl_t >( image, width, height, ::color::hsl<double>( ::color::rgb<double>{0,1,0} ),  1.5 / 360.0,  "./operation/dist_hslH.tga"      );
+
+  test_operation_distance_from< ::color::constant::distance::hue_helix_entity,      hsv_t >( image, width, height, ::color::hsv<double>( ::color::rgb<double>{0,1,0} ),  1.5 / 360.0,  "./operation/dist_hsvH.tga"      );
+
+  test_operation_distance_from< ::color::constant::distance::hue_helix_rgb_entity,  hsi_t >( image, width, height, ::color::hsi<double>( ::color::rgb<double>{0,1,0} ),  1.5 / 3.1415926,    "./operation/dist_hsiHr.tga"      );
+  test_operation_distance_from< ::color::constant::distance::hue_helix_rgb_entity,  hsl_t >( image, width, height, ::color::hsl<double>( ::color::rgb<double>{0,1,0} ),  1.5 / 3.1415926,    "./operation/dist_hslHr.tga"      );
+  test_operation_distance_from< ::color::constant::distance::hue_helix_rgb_entity,  hsv_t >( image, width, height, ::color::hsv<double>( ::color::rgb<double>{0,1,0} ),  1.5 / 3.1415926,    "./operation/dist_hsvHr.tga"      );
+
+  test_operation_distance_from< ::color::constant::distance::rgb_special_entity,    rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_rgbS_rgb2rgb.tga"       );
+
+  test_operation_any2any();
   test_operation_zero_main();
-
 }

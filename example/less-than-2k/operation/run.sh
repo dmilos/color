@@ -6,6 +6,10 @@ cd ./addition
 ./run.sh
 cd ..
 
+cd ./distance
+./run.sh
+cd ..
+
 cd ./invert
 ./run.sh
 cd ..

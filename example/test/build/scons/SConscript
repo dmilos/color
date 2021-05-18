@@ -76,6 +76,7 @@ envObject = nucleotide.Environment( settings ).native()
 #    envObject.Append( CPPFLAGS = [ '/wd4464' ] )
 #    envObject.Append( CPPFLAGS   = [ '/we4244', '/we4365' ] )
 
+envObject.Append( CPPFLAGS   = [ '/bigobj' ] )
 
 source = []
 source +=   [

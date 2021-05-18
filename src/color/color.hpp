@@ -8,7 +8,7 @@
 #include <array>
 #include <functional>
 //#include <mutex>
-//#include <type_traits>
+#include <type_traits>
 
 //#include <iostream>
 //#include <iomanip>

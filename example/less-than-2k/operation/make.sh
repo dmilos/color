@@ -1,14 +1,18 @@
 #!/bin/bash
 
 pwd
+
 cd ./addition
+./make.sh
+cd ..
+
+cd ./distance
 ./make.sh
 cd ..
 
 cd ./invert
 ./make.sh
 cd ..
-
 
 cd ./multiply
 ./make.sh

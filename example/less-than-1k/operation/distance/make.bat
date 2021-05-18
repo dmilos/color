@@ -9,3 +9,5 @@ cl /EHsc  -I../../../../src /D%PP2F% CIEDE2000.cpp
 cl /EHsc  -I../../../../src /D%PP2F% CMC1984.cpp
 cl /EHsc  -I../../../../src /D%PP2F% euclid.cpp
 cl /EHsc  -I../../../../src /D%PP2F% gray.cpp
+cl /EHsc  -I../../../../src /D%PP2F% delta_gray.cpp
+cl /EHsc  -I../../../../src /D%PP2F% hue_euclid.cpp

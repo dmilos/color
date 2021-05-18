@@ -30,7 +30,6 @@ template< typename category_left_name, typename category_right_name>
         {
          left.template set<3>( 0.5 );
         }
-
        if( false == color::check::integrity( left ) )
         {
          continue;

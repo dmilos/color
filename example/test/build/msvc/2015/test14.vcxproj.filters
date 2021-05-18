@@ -4184,73 +4184,79 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bound.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="conversion.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="decompose.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="get_invoke.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="get_test.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="gray_test.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="place.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="set_invoke.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="sizeof.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="targa.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="test_rgb.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
-    <ClCompile Include="convsemi.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
     <ClCompile Include="operation\gamma.cpp">
       <Filter>Source Files\main\operation</Filter>
     </ClCompile>
-    <ClCompile Include="image.cpp">
+    <ClCompile Include="..\..\..\allgray.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="constant.cpp">
+    <ClCompile Include="..\..\..\allrgb.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="gray_scale.cpp">
+    <ClCompile Include="..\..\..\bound.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="allgray.cpp">
+    <ClCompile Include="..\..\..\constant.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="allrgb.cpp">
+    <ClCompile Include="..\..\..\conversion.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="palette.cpp">
+    <ClCompile Include="..\..\..\convsemi.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="extract.cpp">
+    <ClCompile Include="..\..\..\decompose.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="operation\distance.cpp">
+    <ClCompile Include="..\..\..\ec.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="ec.cpp">
+    <ClCompile Include="..\..\..\extract.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\get_invoke.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\get_test.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gray_scale.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gray_test.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\image.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\main.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\mainX.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\palette.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\place.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\set_invoke.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sizeof.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\targa.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\tc.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\test_rgb.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\less-than-1k\operation\distance\hue_euclid.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
   </ItemGroup>

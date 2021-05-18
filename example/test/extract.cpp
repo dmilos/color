@@ -88,8 +88,6 @@ extract_magenta( bgr_image_type const& image, std::string const& name, std::size
   save_image_gray( name + "-star.tga",  component_star,  width, height );
  }
 
-
-
 void
 extract_yellow( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
  {
@@ -246,34 +244,106 @@ extract_chroma( bgr_image_type const& image, std::string const& name, std::size_
  }
 
 
+template< ::color::constant::distance::reference_enum reference_instance>
 void
-extract_color( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height, bgr_color_type const& origin )
+extract_color
+ (
+    bgr_image_type const& image
+   ,std::string     const& name
+   ,std::size_t     const& width
+   ,std::size_t     const& height
+   ,bgr_color_type  const& origin
+   ,double          const& scale = 1
+  )
  {
   gray_image_type  component; component.reserve( image.size() );
 
+  double maximum = 0;
   for( auto & pixel : image )
    {
-    auto e = 1 - ::color::operation::distance<::color::constant::distance::euclid_entity>(      origin, pixel );
-    auto h = 1 - ::color::operation::distance<::color::constant::distance::hsl_special_entity>( origin, pixel );
-    auto r = 1 - ::color::operation::distance<::color::constant::distance::rgb_special_entity>( origin, pixel );
-  //auto r = 1 - ::color::operation::distance<::color::constant::distance:: >( origin, pixel );
-    auto X =     ::color::operation::distance<::color::constant::distance::CMC1984_entity>( origin, pixel, 1, 2 );
-
-    //auto g = ::color::gray<double>( { h * pow( e, 10 ) } ) ;
-
-    //::color::fix::overburn( g );
-    component.push_back( gray_color_type( std::uint8_t( 255 - 255*h ) ) );
+    auto v =     ::color::operation::distance<reference_instance>( origin, pixel );
+    maximum = std::max<double>( maximum, fabs( v ) );
+    component.push_back( gray_color_type( std::uint8_t( 255 - 255*scale *v ) ) );
    }
 
+  std::cout << __FUNCTION__ << " _" << reference_instance << "_" << " maximum: " << maximum << std::endl;
   save_image_gray( name+ "-hue-color.tga", component, width, height );
  }
 
+ template< ::color::constant::distance::reference_enum reference_instance>
+void
+extract_color_hsl
+ (
+    bgr_image_type const& image
+   ,std::string     const& name
+   ,std::size_t     const& width
+   ,std::size_t     const& height
+   ,hsl_scalar_type  const& origin
+   ,double          const& scale = 1
+  )
+ {
+  gray_image_type  component; component.reserve( image.size() );
+
+  double maximum = 0;
+  for( auto & pixel : image )
+   {
+    auto v =     ::color::operation::distance<reference_instance>( origin, hsl_scalar_type( pixel ) );
+    maximum = std::max<double>( maximum, fabs( v ) );
+    component.push_back( gray_color_type( std::uint8_t( 255 - 255*scale *v ) ) );
+   }
+
+  std::cout << __FUNCTION__ << " _" << reference_instance << "_" << " maximum: " << maximum << std::endl;
+  save_image_gray( name+ "-hue-color.tga", component, width, height );
+ }
 
 void main_extract()
  {
   bgr_image_type image;
   int width=0;
   int height=0;
+
+  std::string root = "z:/work/code/cpp/prj/github/color/work/example/test/out";
+  if( false == load_image( image, width, height, root + "./palette/hsl-1-100.tga" ) )
+   {
+    std::cout << "Can not load" <<  "./palette/hsl-1-100.tga" << std::endl;
+    return;
+   }
+
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-red",        width, height, ::color::constant::red_t{}       , 1/( 255 * sqrt(3) )  );
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-lime",       width, height, ::color::constant::lime_t{}      , 1/( 255 * sqrt(3) )  );
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-blue",       width, height, ::color::constant::blue_t{}      , 1/( 255 * sqrt(3) )  );
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-magenta",    width, height, ::color::constant::magenta_t{}   , 1/( 255 * sqrt(3) )  );
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-gold",       width, height, ::color::constant::gold_t{}      , 1/( 255 * sqrt(3) )  );
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-aqua",       width, height, ::color::constant::aqua_t{}      , 1/( 255 * sqrt(3) )  );
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-aquamarine", width, height, ::color::constant::aquamarine_t{}, 1/( 255 * sqrt(3) )  );
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-azure",      width, height, ::color::constant::azure_t{}     , 1/( 255 * sqrt(3) )  );
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-beige",      width, height, ::color::constant::beige_t{}     , 1/( 255 * sqrt(3) )  );
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-bisque",     width, height, ::color::constant::bisque_t{}    , 1/( 255 * sqrt(3) )  );
+  extract_color<::color::constant::distance::euclid_entity>(  image,"./extract/color-euclid-gray",       width, height, ::color::constant::gray_t<1,1>{} , 1/( 255 * sqrt(3) )  );
+
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-red",        width, height, ::color::constant::red_t{}        , 1.0 / 255.0 );
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-lime",       width, height, ::color::constant::lime_t{}       , 1.0 / 255.0 );
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-blue",       width, height, ::color::constant::blue_t{}       , 1.0 / 255.0 );
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-magenta",    width, height, ::color::constant::magenta_t{}    , 1.0 / 255.0 );
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-gold",       width, height, ::color::constant::gold_t{}       , 1.0 / 255.0 );
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-aqua",       width, height, ::color::constant::aqua_t{}       , 1.0 / 255.0 );
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-aquamarine", width, height, ::color::constant::aquamarine_t{} , 1.0 / 255.0 );
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-azure",      width, height, ::color::constant::azure_t{}      , 1.0 / 255.0 );
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-beige",      width, height, ::color::constant::beige_t{}      , 1.0 / 255.0 );
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-bisque",     width, height, ::color::constant::bisque_t{}     , 1.0 / 255.0 );
+  extract_color<::color::constant::distance::CIE76_entity>(  image,"./extract/color-CIE76-gray",       width, height, ::color::constant::gray_t<1,1>{}  , 1.0 / 255.0 );
+
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-red",        width, height, ::color::constant::red_t{}        ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-lime",       width, height, ::color::constant::lime_t{}       ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-blue",       width, height, ::color::constant::blue_t{}       ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-magenta",    width, height, ::color::constant::magenta_t{}    ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-gold",       width, height, ::color::constant::gold_t{}       ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-aqua",       width, height, ::color::constant::aqua_t{}       ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-aquamarine", width, height, ::color::constant::aquamarine_t{} ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-azure",      width, height, ::color::constant::azure_t{}      ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-beige",      width, height, ::color::constant::beige_t{}      ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-bisque",     width, height, ::color::constant::bisque_t{}     ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
+  extract_color_hsl<::color::constant::distance::hue_euclid_entity>(  image,"./extract/color-hsl_euclid-gray",       width, height, ::color::constant::gray_t<1,1>{}  ,  0.1/ sqrt( 1 + 1 + 3.1415926 * 3.1415926 ) );
 
    load_image( image, width, height, "./palette/hsl-1-000.tga" ); extract_red(  image,"./extract/red-hsl-1-000", width, height );
    load_image( image, width, height, "./palette/hsl-1-025.tga" ); extract_red(  image,"./extract/red-hsl-1-025", width, height );
@@ -341,21 +411,4 @@ void main_extract()
    load_image( image, width, height, "./palette/hsl-1-075.tga" );  extract_chroma( image,"./extract/chroma-hsl-1-075", width, height );
    load_image( image, width, height, "./palette/hsl-1-100.tga" );  extract_chroma( image,"./extract/chroma-hsl-1-100", width, height );
 
-  if( false == load_image( image, width, height, "./palette/hsl-1-100.tga" ) )
-   {
-    std::cout << "Can not load" <<  "./palette/hsl-1-100.tga" << std::endl;
-    return;
-   }
-
-  extract_color(  image,"./extract/color-red",        width, height, ::color::constant::red_t{}         );
-  extract_color(  image,"./extract/color-lime",       width, height, ::color::constant::lime_t{}        );
-  extract_color(  image,"./extract/color-blue",       width, height, ::color::constant::blue_t{}        );
-  extract_color(  image,"./extract/color-magenta",    width, height, ::color::constant::magenta_t{}     );
-  extract_color(  image,"./extract/color-gold",       width, height, ::color::constant::gold_t{}        );
-  extract_color(  image,"./extract/color-aqua",       width, height, ::color::constant::aqua_t{}        );
-  extract_color(  image,"./extract/color-aquamarine", width, height, ::color::constant::aquamarine_t{}  );
-  extract_color(  image,"./extract/color-azure",      width, height, ::color::constant::azure_t{}       );
-  extract_color(  image,"./extract/color-beige",      width, height, ::color::constant::beige_t{}       );
-  extract_color(  image,"./extract/color-bisque",     width, height, ::color::constant::bisque_t{}      );
-  extract_color(  image,"./extract/color-gray",       width, height, ::color::constant::gray_t<1,1>{}   );
  }

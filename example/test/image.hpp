@@ -12,6 +12,7 @@
 
 typedef ::color::gray< std::uint8_t  > gray_color_type;
 typedef ::color::bgr< std::uint8_t  > bgr_color_type;
+typedef ::color::hsl< double  > hsl_scalar_type;
 
 typedef std::vector< bgr_color_type > bgr_image_type;
 typedef std::vector< gray_color_type > gray_image_type;

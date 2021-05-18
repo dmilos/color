@@ -30,7 +30,12 @@
     <ClCompile Include="..\..\..\gray_scale.cpp" />
     <ClCompile Include="..\..\..\gray_test.cpp" />
     <ClCompile Include="..\..\..\image.cpp" />
-    <ClCompile Include="..\..\..\main.cpp" />
+    <ClCompile Include="..\..\..\main.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\..\operation\bias.cpp" />
     <ClCompile Include="..\..\..\operation\distance.cpp" />
     <ClCompile Include="..\..\..\operation\gain.cpp" />

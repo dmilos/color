@@ -12,10 +12,13 @@
 
 reset
 
-gccBaseSwitch='-fexceptions -std=c++11 -g'
+#gccBaseSwitch='-fexceptions -std=c++11 -g -D COLOR_USE_PP2FILE'
+gccBaseSwitch='-fexceptions -std=c++11'
 
 gccExtraSwitch='-Wmisleading-indentation -Wmissing-braces -Wshadow=local -Winit-self -Wextra  -Wall  -Wpedantic -Wdouble-promotion -Wformat-signedness -Wnull-dereference'
 
+echo $gccBaseSwitch 
+echo $gccExtraSwitch
 
 pwd
 # -

@@ -31,7 +31,7 @@ template< typename category_name >
    //std::cout << std::endl;
    for( typename model_type::index_type index=0; index < model_type::size(); ++index )
     {
-     component_type  v = c.get( index );
+     //component_type  v = c.get( index );
      c.set( index, component_type(123 + index) );
      //std::cout << "  set( " << index << ", " << 123 + index << " ) == ";
      //print( c );

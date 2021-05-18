@@ -9,3 +9,5 @@ pwd
 ./CMC1984.exe
 ./euclid.exe
 ./gray.exe
+./delta_gray.exe
+./hue_euclid.exe

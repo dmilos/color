@@ -6,6 +6,11 @@
 @call make.bat
 @cd ..
 @
+@
+@cd distance
+@call make.bat
+@cd ..
+@
 @cd invert
 @call make.bat
 @cd ..

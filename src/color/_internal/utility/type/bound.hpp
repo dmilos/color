@@ -19,19 +19,19 @@ namespace color
            typedef number_name      number_type;
            typedef image_name       image_type;
 
-           static /*constexpr*/ image_type  maximum()
+           static /*constexpr*/ image_type  maximum() //!< maximal number that this component can have, Any over is over-burn.
             { // Purposely set to ZERO to force specialization
              static const number_type value=0;
              return value;
             }
 
-           static /*constexpr*/ image_type  minimum()
+           static /*constexpr*/ image_type  minimum() //!< minimal number that this component can have, Any under is over-burn.
             { // Purposely set to ZERO to force specialization
              static const number_type value=0;
              return value;
             }
 
-           static /*constexpr*/ image_type range()
+           static /*constexpr*/ image_type range() //!< maximum() - minimum()
             { // Purposely set to ZERO to force specialization
              static const number_type value =  0;
              return value;

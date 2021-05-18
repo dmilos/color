@@ -79,11 +79,11 @@
              {
               if( x < scalar_type(0.5) )
                {
-                return bias_type::process(scalar_type(1)-g, scalar_type(2)*x)/scalar_type(2);
+                return bias_type::process(scalar_type(2)*x, g )/scalar_type(2);
                }
               else
                {
-                return scalar_type(1) - bias_type::process(scalar_type(1)-g,scalar_type(2) - scalar_type(2)*x)/scalar_type(2);
+                return scalar_type(1) - bias_type::process( scalar_type(2) - scalar_type(2)*x, g)/scalar_type(2);
                }
              }
 

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iomanip>
 
+#define COLOR_USE_PP2FILE
 #include "color/color.hpp"
 
 #include "./model/invoke.hpp"
@@ -669,6 +670,18 @@ template< typename source_name, typename category_name >
 
 int main(int argc, char const *argv[] )
  {
+  void test_palette();
+  test_palette();
+
+  void test_operation_distance__all( );
+  test_operation_distance__all(); //!< must call test_palette before this.
+
+  void main_extract();
+  main_extract();
+
+  void test_operation();
+  test_operation();
+
   sandbox_test6( );
   //ranger_rgb< color::rgb<double>::category_type, ::color::LabCH<double>::category_type   >();
   //ranger_rgb< color::rgb<double>::category_type, ::color::lab<double, ::color::constant::lab::Hunter_entity>::category_type >();
@@ -691,9 +704,6 @@ int main(int argc, char const *argv[] )
 
   invoke();
 
-  void test_palette();
-  test_palette();
-
   extern int gray_test( int argc, char const *argv[]  );
   gray_test( argc, argv );
 
@@ -701,12 +711,6 @@ int main(int argc, char const *argv[] )
   test_get_invoke( 0.5 );
 
   LabCH_test();
-
-  void test_operation_distance__all( );
-  test_operation_distance__all();
-
-  void main_extract();
-  main_extract();
 
   sandbox_test3();
   //luv_bound ();
@@ -736,9 +740,6 @@ int main(int argc, char const *argv[] )
 
   sandbox_test();
 
-  void test_operation();
-  test_operation();
-
   void image_conversion();
   image_conversion();
 
@@ -754,7 +755,6 @@ int main(int argc, char const *argv[] )
 
   void test_set_invoke();
   test_set_invoke();
-
 
   return 0;
  }

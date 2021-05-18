@@ -19,7 +19,26 @@ call check_1palette.bat  cmy-2-025.tga
 call check_1palette.bat  cmy-2-050.tga
 call check_1palette.bat  cmy-2-075.tga
 call check_1palette.bat  cmy-2-100.tga
-call check_1palette.bat  cmyk.tga
+
+call check_1palette.bat  cmyk-0-000-000.tga
+call check_1palette.bat  cmyk-0-000-025.tga
+call check_1palette.bat  cmyk-0-000-050.tga
+call check_1palette.bat  cmyk-0-000-075.tga
+call check_1palette.bat  cmyk-0-050-000.tga
+call check_1palette.bat  cmyk-0-075-000.tga
+call check_1palette.bat  cmyk-1-000-000.tga
+call check_1palette.bat  cmyk-1-000-025.tga
+call check_1palette.bat  cmyk-1-000-050.tga
+call check_1palette.bat  cmyk-1-000-075.tga
+call check_1palette.bat  cmyk-1-050-000.tga
+call check_1palette.bat  cmyk-1-075-000.tga
+call check_1palette.bat  cmyk-2-000-000.tga
+call check_1palette.bat  cmyk-2-000-025.tga
+call check_1palette.bat  cmyk-2-000-050.tga
+call check_1palette.bat  cmyk-2-000-075.tga
+call check_1palette.bat  cmyk-2-050-000.tga
+call check_1palette.bat  cmyk-2-075-000.tga
+
 call check_1palette.bat  hsi-0-000.tga
 call check_1palette.bat  hsi-0-025.tga
 call check_1palette.bat  hsi-0-050.tga
