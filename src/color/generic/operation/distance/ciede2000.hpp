@@ -123,6 +123,8 @@
 
               scalar_type delta_E_main = sqrt( this_type::square( delta_E_1 ) + this_type::square( delta_E_2 ) + this_type::square( delta_E_3 ) + delta_E_4 );
 
+              std::cout << "TEEST" << std::endl;
+
               return delta_E_main;
              }
          };
