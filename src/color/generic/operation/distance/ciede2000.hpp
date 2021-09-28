@@ -125,6 +125,11 @@
 
               std::cout << "TEEST" << std::endl;
 
+              std::cout << "delta_E_1: " << delta_E_1 << std::endl;
+              std::cout << "delta_E_2: " << delta_E_2 << std::endl;
+              std::cout << "delta_E_3: " << delta_E_3 << std::endl;
+              std::cout << "delta_E_4: " << delta_E_4 << std::endl;
+
               return delta_E_main;
              }
          };
