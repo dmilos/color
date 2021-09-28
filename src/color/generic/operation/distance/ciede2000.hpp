@@ -132,6 +132,7 @@
               std::cout << "R_T: " << R_T << std::endl;
               std::cout << "R_C: " << R_C << std::endl;
               std::cout << "H_a_p: " << H_a_p << std::endl;
+              std::cout << "delta_theta: " << delta_theta << std::endl;
 
               return delta_E_main;
              }
