@@ -111,7 +111,6 @@
 
               scalar_type R_C =  2*sqrt( pow(C_p_a,7)/( pow(C_p_a,7) + pow(25,7) ) );
 
-              // fix conversion from deg to rad, not the other way round
               scalar_type R_T =  - R_C * sin( ( 2 * delta_theta) * constant_type::deg2rad() );
 
               scalar_type K_L = 1;
@@ -125,19 +124,9 @@
 
               scalar_type delta_E_main = sqrt( this_type::square( delta_E_1 ) + this_type::square( delta_E_2 ) + this_type::square( delta_E_3 ) + delta_E_4 );
 
-//              std::cout << "TEEST" << std::endl;
-//
-//              std::cout << "delta_E_1: " << delta_E_1 << std::endl;
-//              std::cout << "delta_E_2: " << delta_E_2 << std::endl;
-//              std::cout << "delta_E_3: " << delta_E_3 << std::endl;
-//              std::cout << "delta_E_4: " << delta_E_4 << std::endl;
-//              std::cout << "R_T: " << R_T << std::endl;
-//              std::cout << "R_C: " << R_C << std::endl;
-//              std::cout << "H_a_p: " << H_a_p << std::endl;
-//              std::cout << "delta_theta: " << delta_theta << std::endl;
-
               return delta_E_main;
-             }
+
+              }
          };
 
 
