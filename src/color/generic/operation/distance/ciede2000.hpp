@@ -110,7 +110,8 @@
               scalar_type delta_theta = 30 * exp( - this_type::square( ( H_a_p - 275)/25 ) );
 
               scalar_type R_C =  2*sqrt( pow(C_p_a,7)/( pow(C_p_a,7) + pow(25,7) ) );
-              scalar_type R_T =  - R_C * sin( ( 2 * delta_theta) * constant_type::rad2deg() );
+
+              scalar_type R_T =  - R_C * sin( ( 2 * delta_theta) * constant_type::deg2rad() );
 
               scalar_type K_L = 1;
               scalar_type K_C = 1;
@@ -124,7 +125,8 @@
               scalar_type delta_E_main = sqrt( this_type::square( delta_E_1 ) + this_type::square( delta_E_2 ) + this_type::square( delta_E_3 ) + delta_E_4 );
 
               return delta_E_main;
-             }
+
+              }
          };
 
 
