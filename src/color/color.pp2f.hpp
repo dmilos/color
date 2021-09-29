@@ -271,7 +271,8 @@ enum reference_enum {
 	,von_Kries_D65_entity
 	,von_Kries_E_entity
 	,BFD_entity
-	,MCAT02_entity
+	,CAT97_entity
+	,CAT02_entity
 };
 
 }
@@ -12539,7 +12540,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::b
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
 		scalar_type hi = std::max<scalar_type>({r,g,b});
 		scalar_type black = scalar_type(1) - hi;
-		return diverse_type::template process<red_p >(black);
+		return diverse_type::template process<0 >(black);
 	}
 };
 
@@ -12569,7 +12570,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::b
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
 		scalar_type lightnes = std::max<scalar_type>({r,g,b});
 		scalar_type saturation = std::max<scalar_type>({r,g,b}) - std::min<scalar_type>({r,g,b});
-		return diverse_type::template process<red_p >((scalar_type(1) - lightnes) * (scalar_type(1) - saturation));
+		return diverse_type::template process<0 >((scalar_type(1) - lightnes) * (scalar_type(1) - saturation));
 	}
 };
 
@@ -12654,7 +12655,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::w
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
 		scalar_type lo = std::min<scalar_type>({r,g,b});
 		scalar_type white = lo;
-		return diverse_type::template process<red_p >(white);
+		return diverse_type::template process<0>(white);
 	}
 };
 
@@ -12684,7 +12685,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::w
 		scalar_type b = normalize_type::template process<blue_p >(color_parameter.template get<blue_p >());
 		scalar_type lightnes = std::min<scalar_type>({r,g,b});
 		scalar_type saturation = std::max<scalar_type>({r,g,b}) - std::min<scalar_type>({r,g,b});
-		return diverse_type::template process<red_p >((lightnes)* (scalar_type(1) - saturation));
+		return diverse_type::template process<0>((lightnes)* (scalar_type(1) - saturation));
 	}
 };
 
@@ -15059,6 +15060,9 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::s
 		, green_p = ::color::place::_internal::green<category_type>::position_enum
 		, blue_p = ::color::place::_internal::blue<category_type>::position_enum
 	};
+	enum {
+		saturation_p = ::color::place::_internal::saturation< akin_type >::position_enum
+	};
 
 	static return_type process(model_type const& c) {
 		scalar_type r = normalize_type::template process<red_p >(c.template get<red_p >());
@@ -15071,7 +15075,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::s
 		if(false == scalar_trait_type::is_small(hi)) {
 			s = delta / hi;
 		}
-		return diverse_type::template process<0>(s);
+		return diverse_type::template process<saturation_p>(s);
 	}
 };
 
@@ -15095,6 +15099,9 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::s
 		, green_p = ::color::place::_internal::green<category_type>::position_enum
 		, blue_p = ::color::place::_internal::blue<category_type>::position_enum
 	};
+	enum {
+		saturation_p = ::color::place::_internal::saturation< akin_type >::position_enum
+	};
 
 	static return_type process(model_type const& c) {
 		scalar_type r = normalize_type::template process<red_p >(c.template get<red_p >());
@@ -15108,7 +15115,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::s
 		if(false == scalar_trait_type::is_small(delta)) {
 			s = delta / (scalar_type(1) - fabs(scalar_type(2)*l - scalar_type(1)));
 		}
-		return diverse_type::template process<0>(s);
+		return diverse_type::template process<saturation_p>(s);
 	}
 };
 
@@ -15132,6 +15139,9 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::s
 		, green_p = ::color::place::_internal::green<category_type>::position_enum
 		, blue_p = ::color::place::_internal::blue<category_type>::position_enum
 	};
+	enum {
+		saturation_p = ::color::place::_internal::saturation< akin_type >::position_enum
+	};
 
 	static return_type process(model_type const& c) {
 		scalar_type r = normalize_type::template process<red_p >(c.template get<red_p >());
@@ -15143,7 +15153,7 @@ struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::s
 		if(false == scalar_trait_type::is_small(i)) {
 			s = scalar_type(1) - lo / i;
 		}
-		return diverse_type::template process<0>(s);
+		return diverse_type::template process<saturation_p>(s);
 	}
 };
 
@@ -34599,7 +34609,7 @@ struct matrix< scalar_name, ::color::constant::lms::BFD_entity > {
 };
 
 template< typename scalar_name >
-struct matrix< scalar_name, ::color::constant::lms::MCAT02_entity > {
+struct matrix< scalar_name, ::color::constant::lms::CAT02_entity > {
 	typedef scalar_name scalar_type;
 
 	static scalar_type const a11() {
@@ -34660,6 +34670,71 @@ struct matrix< scalar_name, ::color::constant::lms::MCAT02_entity > {
 	}
 	static scalar_type const i33() {
 		return 1.015325639954540;
+	}
+};
+
+template< typename scalar_name >
+struct matrix< scalar_name, ::color::constant::lms::CAT97_entity > {
+	typedef scalar_name scalar_type;
+
+	static scalar_type const a11() {
+		return scalar_type(0.8562);
+	}
+	static scalar_type const a12() {
+		return scalar_type(0.3372);
+	}
+	static scalar_type const a13() {
+		return scalar_type(-0.1934);
+	}
+
+	static scalar_type const a21() {
+		return scalar_type(-0.8360);
+	}
+	static scalar_type const a22() {
+		return scalar_type(1.8327);
+	}
+	static scalar_type const a23() {
+		return scalar_type(0.0033);
+	}
+
+	static scalar_type const a31() {
+		return scalar_type(0.0357);
+	}
+	static scalar_type const a32() {
+		return scalar_type(-0.0469);
+	}
+	static scalar_type const a33() {
+		return scalar_type(1.0112);
+	}
+
+	static scalar_type const i11() {
+		return 1.0 ;
+	}
+	static scalar_type const i12() {
+		return -0.0;
+	}
+	static scalar_type const i13() {
+		return 0.0;
+	}
+
+	static scalar_type const i21() {
+		return 0.0 ;
+	}
+	static scalar_type const i22() {
+		return 0.0 ;
+	}
+	static scalar_type const i23() {
+		return 0.0;
+	}
+
+	static scalar_type const i31() {
+		return -0.0 ;
+	}
+	static scalar_type const i32() {
+		return -0.0 ;
+	}
+	static scalar_type const i33() {
+		return 1.0;
 	}
 };
 
@@ -43527,7 +43602,7 @@ public:
 		scalar_type S_H = 1 + 0.015 * C_p_a * T;
 		scalar_type delta_theta = 30 * exp(- this_type::square((H_a_p - 275)/25));
 		scalar_type R_C = 2*sqrt(pow(C_p_a,7)/(pow(C_p_a,7) + pow(25,7)));
-		scalar_type R_T = - R_C * sin((2 * delta_theta) * constant_type::rad2deg());
+		scalar_type R_T = - R_C * sin((2 * delta_theta) * constant_type::deg2rad());
 		scalar_type K_L = 1;
 		scalar_type K_C = 1;
 		scalar_type K_H = 1;

@@ -192,7 +192,8 @@ void test_operation_any2any()
   typedef ::color::lms<double, ::color::constant::lms::von_Kries_D65_entity>   lms_t;         lms_t          lms;
   typedef ::color::lms<double, ::color::constant::lms::von_Kries_E_entity  >   lmsKE_t;       lmsKE_t       lmsKE;
   typedef ::color::lms<double, ::color::constant::lms::BFD_entity          >   lmsBFD_t;      lmsBFD_t      lmsBFD;
-  typedef ::color::lms<double, ::color::constant::lms::MCAT02_entity       >   lmsMC2_t;      lmsMC2_t      lmsMC2;
+  typedef ::color::lms<double, ::color::constant::lms::CAT97_entity        >   lmsC97_t;      lmsC97_t      lmsC97;
+  typedef ::color::lms<double, ::color::constant::lms::CAT02_entity        >   lmsC20_t;      lmsC20_t      lmsC20;
 
   typedef ::color::luv<double>         luv_t;
   typedef ::color::LabCH<double>     LabCH_t;

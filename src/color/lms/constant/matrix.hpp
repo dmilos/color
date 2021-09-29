@@ -136,7 +136,7 @@ namespace color
           };
 
         template< typename scalar_name >
-         struct matrix< scalar_name, ::color::constant::lms::MCAT02_entity >
+         struct matrix< scalar_name, ::color::constant::lms::CAT02_entity >
           {
            typedef scalar_name scalar_type;
 
@@ -163,6 +163,36 @@ namespace color
            static /* constexpr*/ scalar_type const i31(){ return -0.009627608738429 ; }
            static /* constexpr*/ scalar_type const i32(){ return -0.005698031216113  ; }
            static /* constexpr*/ scalar_type const i33(){ return  1.015325639954540; }
+          };
+
+        template< typename scalar_name >
+         struct matrix< scalar_name, ::color::constant::lms::CAT97_entity >
+          {
+           typedef scalar_name scalar_type;
+
+           static /* constexpr*/ scalar_type const a11(){ return scalar_type(  0.8562 ); }
+           static /* constexpr*/ scalar_type const a12(){ return scalar_type(  0.3372 ); }
+           static /* constexpr*/ scalar_type const a13(){ return scalar_type( -0.1934 ); }
+
+           static /* constexpr*/ scalar_type const a21(){ return scalar_type( -0.8360 ); }
+           static /* constexpr*/ scalar_type const a22(){ return scalar_type(  1.8327 ); }
+           static /* constexpr*/ scalar_type const a23(){ return scalar_type(  0.0033 ); }
+
+           static /* constexpr*/ scalar_type const a31(){ return scalar_type(  0.0357 ); }
+           static /* constexpr*/ scalar_type const a32(){ return scalar_type( -0.0469 ); }
+           static /* constexpr*/ scalar_type const a33(){ return scalar_type(  1.0112 ); }
+
+           static /* constexpr*/ scalar_type const i11(){ return  1.0 ; }
+           static /* constexpr*/ scalar_type const i12(){ return -0.0; }
+           static /* constexpr*/ scalar_type const i13(){ return  0.0; }
+
+           static /* constexpr*/ scalar_type const i21(){ return  0.0  ; }
+           static /* constexpr*/ scalar_type const i22(){ return  0.0  ; }
+           static /* constexpr*/ scalar_type const i23(){ return  0.0; }
+
+           static /* constexpr*/ scalar_type const i31(){ return -0.0 ; }
+           static /* constexpr*/ scalar_type const i32(){ return -0.0  ; }
+           static /* constexpr*/ scalar_type const i33(){ return  1.0; }
           };
 
      }

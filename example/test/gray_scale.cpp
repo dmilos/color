@@ -157,7 +157,8 @@ void make_test_gray_scale()
   ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::von_Kries_D65_entity> >( "lmsK65" );
   ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::von_Kries_E_entity > >( "lmsE" );
   ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::BFD_entity > >( "lmsBFD" );
-  ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::MCAT02_entity > >( "lmsMCAT02" );
+  ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::CAT97_entity > >( "lmsCAT97" );
+  ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::CAT02_entity > >( "lmsCAT02" );
 
   ss <<  make_test_gray_single< ::color::luv< double> >( "luv" );
   ss <<  make_test_gray_single< ::color::xyy< double> >( "xyy" );

@@ -20,7 +20,7 @@ namespace color
         template
           <
            typename scalar_name
-           , ::color::constant::xyz::space::name_entity    space_number  = ::color::constant::xyz::space::sRGB_entity
+           , ::color::constant::xyz::space::name_entity                space_number  = ::color::constant::xyz::space::sRGB_entity
            , ::color::constant::xyz::illuminant::name_entity      illuminant_number  = static_cast< ::color::constant::xyz::illuminant::name_entity     >( ::color::constant::xyz::space::illuminant< space_number >::name_entity   )
            , ::color::constant::xyz::illuminant::observer_entity    observer_number  = static_cast< ::color::constant::xyz::illuminant::observer_entity >( ::color::constant::xyz::space::illuminant< space_number >::observer_entity )
            >

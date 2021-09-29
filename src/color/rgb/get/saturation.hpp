@@ -32,7 +32,7 @@
                          hsv_entity
             ,            hsl_entity
             ,            hsi_entity
-            //,  distance2gray_entity / maxdistance_from_gray_entity
+            //,  distance2gray_entity = ::distance( model<double>( this ), model<double>( gray<double>( this ) ) )
           };
 
         }
@@ -82,6 +82,10 @@
               , green_p = ::color::place::_internal::green<category_type>::position_enum
               , blue_p  = ::color::place::_internal::blue<category_type>::position_enum
              };
+            enum
+             {
+               saturation_p   = ::color::place::_internal::saturation< akin_type >::position_enum
+             };
 
             static return_type process( model_type const& c)
              {
@@ -100,7 +104,7 @@
                 s = delta / hi;
                }
 
-              return diverse_type::template process<0>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */s /* ) */);
+              return diverse_type::template process<saturation_p>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */s /* ) */);
              }
            };
 
@@ -126,6 +130,10 @@
               , green_p = ::color::place::_internal::green<category_type>::position_enum
               , blue_p  = ::color::place::_internal::blue<category_type>::position_enum
              };
+            enum
+             {
+               saturation_p   = ::color::place::_internal::saturation< akin_type >::position_enum
+             };
 
             static return_type process( model_type const& c )
              {
@@ -144,7 +152,7 @@
                {
                 s = delta / ( scalar_type(1) - fabs( scalar_type(2)*l - scalar_type(1) ) );
                }
-              return diverse_type::template process<0>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */s /* ) */);
+              return diverse_type::template process<saturation_p>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */s /* ) */);
              }
            };
 
@@ -171,6 +179,10 @@
               , green_p = ::color::place::_internal::green<category_type>::position_enum
               , blue_p  = ::color::place::_internal::blue<category_type>::position_enum
              };
+            enum
+             {
+               saturation_p   = ::color::place::_internal::saturation< akin_type >::position_enum
+             };
 
             static return_type process( model_type const& c )
              {
@@ -187,7 +199,7 @@
                 s = scalar_type(1) - lo / i;
                }
 
-              return diverse_type::template process<0>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */s /* ) */);
+              return diverse_type::template process<saturation_p>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */s /* ) */);
              }
            };
 

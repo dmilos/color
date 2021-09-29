@@ -89,7 +89,8 @@ template< typename tag_name >
      ss << "<td>" << print_color( "lmsK65 -"    + name, ::color::lms<   double, ::color::constant::lms::von_Kries_D65_entity >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "lmsKE -"     + name, ::color::lms<   double, ::color::constant::lms::von_Kries_E_entity   >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "lmsBFD -"    + name, ::color::lms<   double, ::color::constant::lms::BFD_entity           >( constant ) ) << "</td>";
-     ss << "<td>" << print_color( "lmsMCAT -"   + name, ::color::lms<   double, ::color::constant::lms::MCAT02_entity        >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "lmsCAT97-"   + name, ::color::lms<   double, ::color::constant::lms::CAT97_entity         >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "lmsCAT02-"   + name, ::color::lms<   double, ::color::constant::lms::CAT02_entity         >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "luv -"       + name, ::color::luv<   double >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "xyy -"       + name, ::color::xyy<   double >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "hwb -"       + name, ::color::hwb<   double >( constant ) ) << "</td>";

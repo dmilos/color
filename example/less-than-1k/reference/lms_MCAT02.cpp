@@ -11,13 +11,13 @@ using namespace color;
 
 int main( int argc, char *argv[] )
  {
-  lms<uint8_t    , constant::lms::MCAT02_entity >  c1( constant::aqua_t{} );
-  lms<uint16_t   , constant::lms::MCAT02_entity >  c2( constant::aqua_t{} );
-  lms<uint32_t   , constant::lms::MCAT02_entity >  c3( constant::aqua_t{} );
-  lms<uint64_t   , constant::lms::MCAT02_entity >  c4( constant::aqua_t{} );
-  lms<float      , constant::lms::MCAT02_entity >  c5( constant::aqua_t{} );
-  lms<double     , constant::lms::MCAT02_entity >  c6( constant::aqua_t{} );
-  lms<long double, constant::lms::MCAT02_entity >  c7( constant::aqua_t{} );
+  lms<uint8_t    , constant::lms::CAT02_entity >  c1( constant::aqua_t{} );
+  lms<uint16_t   , constant::lms::CAT02_entity >  c2( constant::aqua_t{} );
+  lms<uint32_t   , constant::lms::CAT02_entity >  c3( constant::aqua_t{} );
+  lms<uint64_t   , constant::lms::CAT02_entity >  c4( constant::aqua_t{} );
+  lms<float      , constant::lms::CAT02_entity >  c5( constant::aqua_t{} );
+  lms<double     , constant::lms::CAT02_entity >  c6( constant::aqua_t{} );
+  lms<long double, constant::lms::CAT02_entity >  c7( constant::aqua_t{} );
 
   print(c1)
   print(c2)

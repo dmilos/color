@@ -1,89 +1,98 @@
 #include <vector>
 #include <fstream>
+#include <iostream>
+#include <iomanip>
 
 #include "color/color.hpp"
 
 #include "./targa.hpp"
 
 template < typename model_name >
-void make_image(std::string const& name, double plane = 0.5, int side = 1, double const& hyper = 0 )
- {
-  int height = 1000;
-  int width  = 1000;
+ void make_image(std::string const& name, double plane = 0.5, int side = 1, double const& hyper = 0 )
+  {
+   int height = 1000;
+   int width  = 1000;
 
-  typedef ::color::_internal::diverse< typename model_name::category_type > diverse_type;
+   typedef ::color::_internal::diverse< typename model_name::category_type > diverse_type;
 
-  targa_header_struct header;
 
-  targa_make_header24( width, height, header);
-
-  std::vector< color::bgr<std::uint8_t> >   image(height * width);
-  color::rgb<double >  check;
-
-  for (int y = 0; y < height; y++)
-   {
-    for (int x = 0; x < width; x++)
-     {
-      switch( side )
-       {
-        case( 0 ):
-         {
-           model_name m( { diverse_type::template process<0>( plane  ),
-                           diverse_type::template process<1>( y / double(height) ),
-                           diverse_type::template process<2>( x / double(width)  )
+   std::vector< color::bgr<std::uint8_t> >   image(height * width);
+   color::rgb<double >  check;
+   std::size_t overburn=0;
+   for (int y = 0; y < height; y++)
+    {
+     for (int x = 0; x < width; x++)
+      {
+       switch( side )
+        {
+         case( 0 ):
+          {
+            model_name m( { diverse_type::template process<0>( plane  ),
+                            diverse_type::template process<1>( y / double(height) ),
+                            diverse_type::template process<2>( x / double(width)  )
+                                                 , hyper } );
+           check = m;
+          }break;
+         case( 1 ):
+           {
+            model_name m( { diverse_type::template process<0>( y / double(height) ),
+                            diverse_type::template process<1>( plane ),
+                            diverse_type::template process<2>( x / double(width)  )
                                                 , hyper } );
-          check = m;
-         }break;
-        case( 1 ):
+           check = m;
+           }break;
+         case( 2 ):
           {
            model_name m( { diverse_type::template process<0>( y / double(height) ),
-                           diverse_type::template process<1>( plane ),
-                           diverse_type::template process<2>( x / double(width)  )
-                                               , hyper } );
-          check = m;
+                           diverse_type::template process<1>( x / double(width)  ),
+                           diverse_type::template process<2>( plane )
+                                                , hyper } );
+           check = m;
           }break;
-        case( 2 ):
-         {
-          model_name m( { diverse_type::template process<0>( y / double(height) ),
-                          diverse_type::template process<1>( x / double(width)  ),
-                          diverse_type::template process<2>( plane )
-                                               , hyper } );
-          check = m;
-         }break;
-       }
-      if( true == ::color::check::overburn( check ) )
-       {
-        ::color::fix::overburn( check );
-        if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
-        if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
-       }
-
-      image[ y * width + x] = check;
-     }
-   }
-
-   {
-    std::ofstream of(name, std::ios_base::binary);
-    of.write((const char *)header, 18);
-    of.write((const char *)image.data(), image.size() * 3 );
-   }
- }
+        }
+       if( true == ::color::check::overburn( check ) )
+        {
+         if( true == ::color::check::overburn( check ) )
+          {
+           ++overburn;
+          }
+         ::color::fix::overburn( check );
+         if( ( 0 == (y % 5) ) && ( 0 == (x % 3) ) ) check = ::color::constant::white_t{};
+         if( ( 0 == (y % 3) ) && ( 0 == (x % 5) ) ) check = ::color::constant::black_t{};
+        }
+   
+       image[ y * width + x] = check;
+      }
+    }
+   
+    {
+     std::ofstream of(name, std::ios_base::binary);
+     targa_header_struct header;
+     targa_make_header24( width, height, header);
+     of.write((const char *)header, 18);
+     of.write((const char *)image.data(), image.size() * 3 );
+    }
+   std::cout << "pallete overburn: " << typeid(model_name).name() 
+             << " S: " << std::setw(  5 ) << side 
+             << " P: " << std::setw( 10 ) << plane 
+             << " - " << std::setw(  10 ) << 100*  overburn / double( width * height ) << std::endl;
+  }
 
 template< typename category_name >
-void palette( std::string const& name, int planes )
- {
-  std::string number="000";
-  for( int index = 0; index < planes; index += 1 )
-   {
-    auto layer = index/double(planes-1);
-    number[0] =  int(layer*1)%10 + '0';
-    number[1] =  int(layer*10)%10 + '0';
-    number[2] = (int(layer*100))%10 + '0';
-    make_image< color::model<category_name> >( "./palette/"+name+"-0-"+number+".tga" , layer, 0 );
-    make_image< color::model<category_name> >( "./palette/"+name+"-1-"+number+".tga" , layer, 1 );
-    make_image< color::model<category_name> >( "./palette/"+name+"-2-"+number+".tga" , layer, 2 );
-   }
- }
+ void palette( std::string const& name, int planes )
+  {
+   std::string number="000";
+   for( int index = 0; index < planes; index += 1 )
+    {
+     auto layer = index/double(planes-1);
+     number[0] =  int(layer*  1) %10 + '0';
+     number[1] =  int(layer* 10) %10 + '0';
+     number[2] = (int(layer*100))%10 + '0';
+     make_image< color::model<category_name> >( "./palette/"+name+"-0-"+number+".tga" , layer, 0 );
+     make_image< color::model<category_name> >( "./palette/"+name+"-1-"+number+".tga" , layer, 1 );
+     make_image< color::model<category_name> >( "./palette/"+name+"-2-"+number+".tga" , layer, 2 );
+    }
+  }
 
 void test_palette()
  {
@@ -123,6 +132,8 @@ void test_palette()
   palette< color::luv<double>::category_type  >( "luv",      5 );
   palette< color::lab<double, ::color::constant::lab::CIE_entity   >::category_type  >( "labCIE",         5 );
   palette< color::lab<double, ::color::constant::lab::Hunter_entity>::category_type  >( "labHunter",      5 );
+
+  make_image< color::lab<double> >( "./palette/labCIE-0-red.tga", color::lab<double>( ::color::constant::red_t{} )[0]/100.0, 0 );
 
   palette< color::lms<double>::category_type  >( "lms",      5 );
   palette< color::xyy<double>::category_type  >( "xyy",      5 );

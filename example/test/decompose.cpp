@@ -127,7 +127,8 @@ int decompose_test( int argc, char const *argv[] )
   decompose< ::color::lms<double, ::color::constant::lms::von_Kries_D65_entity > >( image, "./dec/lmsK65", width, height,    ::color::lms<double, ::color::constant::lms::von_Kries_D65_entity>{ 50, 0, 0 } );
   decompose< ::color::lms<double, ::color::constant::lms::von_Kries_E_entity   > >( image, "./dec/lmsKE", width, height,     ::color::lms<double, ::color::constant::lms::von_Kries_E_entity  >{ 50, 0, 0 } );
   decompose< ::color::lms<double, ::color::constant::lms::BFD_entity           > >( image, "./dec/lmsBFD", width, height,    ::color::lms<double, ::color::constant::lms::BFD_entity          >{ 50, 0, 0 } );
-  decompose< ::color::lms<double, ::color::constant::lms::MCAT02_entity        > >( image, "./dec/lmsMCAT02", width, height, ::color::lms<double, ::color::constant::lms::MCAT02_entity       >{ 50, 0, 0 } );
+  decompose< ::color::lms<double, ::color::constant::lms::CAT97_entity         > >( image, "./dec/lmsCAT97", width, height, ::color::lms<double, ::color::constant::lms::CAT97_entity       >{ 50, 0, 0 } );
+  decompose< ::color::lms<double, ::color::constant::lms::CAT02_entity         > >( image, "./dec/lmsCAT02", width, height, ::color::lms<double, ::color::constant::lms::CAT02_entity       >{ 50, 0, 0 } );
 
   {
    decompose2gray< ::color::cmyk<double>  >( image, "./dec-gray/cmyk", width, height );
@@ -167,7 +168,8 @@ int decompose_test( int argc, char const *argv[] )
    decompose2gray< ::color::lms<double, ::color::constant::lms::von_Kries_D65_entity > >( image, "./dec-gray/lmsK65", width, height      );
    decompose2gray< ::color::lms<double, ::color::constant::lms::von_Kries_E_entity   > >( image, "./dec-gray/lmsKE", width, height       );
    decompose2gray< ::color::lms<double, ::color::constant::lms::BFD_entity           > >( image, "./dec-gray/lmsBFD", width, height      );
-   decompose2gray< ::color::lms<double, ::color::constant::lms::MCAT02_entity        > >( image, "./dec-gray/lmsMCAT02", width, height   );
+   decompose2gray< ::color::lms<double, ::color::constant::lms::CAT97_entity        > >( image, "./dec-gray/lmsCAT97", width, height   );
+   decompose2gray< ::color::lms<double, ::color::constant::lms::CAT02_entity        > >( image, "./dec-gray/lmsCAT02", width, height   );
   }
 
 

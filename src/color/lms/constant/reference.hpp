@@ -18,7 +18,8 @@ namespace color
         ,von_Kries_D65_entity 
         ,von_Kries_E_entity 
         ,BFD_entity 
-        ,MCAT02_entity 
+        ,CAT97_entity 
+        ,CAT02_entity 
        };
 
      }

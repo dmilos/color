@@ -202,7 +202,8 @@ template< typename  type_type  >
 template< typename  type_type  > using lmsKries65 = ::color::lms< type_type, ::color::constant::lms::von_Kries_D65_entity  >;
 template< typename  type_type  > using lmsKriesE  = ::color::lms< type_type, ::color::constant::lms::von_Kries_E_entity  >;
 template< typename  type_type  > using lmsBFD     = ::color::lms< type_type, ::color::constant::lms::BFD_entity  >;
-template< typename  type_type  > using lmsMCAT02  = ::color::lms< type_type, ::color::constant::lms::MCAT02_entity  >;
+template< typename  type_type  > using lmsCAT97   = ::color::lms< type_type, ::color::constant::lms::CAT97_entity  >;
+template< typename  type_type  > using lmsCAT02   = ::color::lms< type_type, ::color::constant::lms::CAT02_entity  >;
 
 template< typename  type_type  > using labHunter  = ::color::lab< type_type/*, ::color::constant::lab::Hunter_entity */ >;
 template< typename  type_type  > using labCIE     = ::color::lab< type_type/*, ::color::constant::lab::CIE_entity    */ >;
@@ -276,10 +277,11 @@ void check_sizeof()
   ss << print_sizeof<::color::xyz    > ( "<code>xyz </code>"   );  ss << std::endl;
   ss << print_sizeof< labCIE    > ( "<code>labCIE</code>"   );  ss << std::endl;
   ss << print_sizeof< labHunter > ( "<code>labHunter </code>"   );  ss << std::endl;
-  ss << print_sizeof< lmsKries65 > ( "<code>lmsKries65 </code>"   );  ss << std::endl;
-  ss << print_sizeof< lmsKriesE  > ( "<code>lmsKriesE  </code>"   );  ss << std::endl;
-  ss << print_sizeof< lmsBFD     > ( "<code>lmsBFD     </code>"   );  ss << std::endl;
-  ss << print_sizeof< lmsMCAT02  > ( "<code>lmsMCAT02  </code>"   );  ss << std::endl;
+  ss << print_sizeof< lmsKries65 > ( "<code>lmsKries65 </code>" );  ss << std::endl;
+  ss << print_sizeof< lmsKriesE  > ( "<code>lmsKriesE  </code>" );  ss << std::endl;
+  ss << print_sizeof< lmsBFD     > ( "<code>lmsBFD     </code>" );  ss << std::endl;
+  ss << print_sizeof< lmsCAT97   > ( "<code>lmsCAT97  </code>"  );  ss << std::endl;
+  ss << print_sizeof< lmsCAT02   > ( "<code>lmsCAT02  </code>"  );  ss << std::endl;
   ss << print_sizeof<::color::luv    > ( "<code>luv </code>"   );  ss << std::endl;
   ss << print_sizeof<::color::xyy    > ( "<code>xyy </code>"   );  ss << std::endl;
 

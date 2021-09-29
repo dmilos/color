@@ -85,7 +85,7 @@
 
               scalar_type white = lo;
 
-              return diverse_type::template process<red_p >( white );
+              return diverse_type::template process<0>( white );
              }
            };
 
@@ -120,7 +120,7 @@
               scalar_type lightnes   = std::min<scalar_type>( {r,g,b} );
               scalar_type saturation = std::max<scalar_type>( {r,g,b} ) - std::min<scalar_type>( {r,g,b} );
 
-              return diverse_type::template process<red_p >( ( lightnes )* ( scalar_type(1) - saturation ) );
+              return diverse_type::template process<0>( ( lightnes )* ( scalar_type(1) - saturation ) );
              }
           };
 

@@ -32,6 +32,11 @@
 
               static void process( model_type &result )
                {
+                // auto value = result.template get<hue_p>();
+                // value -= bound_type::template minimum<hue_p>();
+                // value = fmod( value, bound_type::template range<hue_p>();
+                // value += bound_type::template minimum<hue_p>()
+
                 if( result.template get<hue_p>() < bound_type::template minimum<hue_p>() )
                  {
                   result.template set<hue_p>( bound_type::template minimum<hue_p>() );

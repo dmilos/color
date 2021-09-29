@@ -369,14 +369,25 @@ void print_bound()
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
 
   ss << print_semi_title( "L","m","s" );
-  ss << print_bound< color::lms<std::uint8_t , ::color::constant::lms::MCAT02_entity > >( "color::lmsMCAT02", "std::uint8_t  " ) << std::endl;
-  ss << print_bound< color::lms<std::uint16_t, ::color::constant::lms::MCAT02_entity > >( "color::lmsMCAT02", "std::uint16_t " ) << std::endl;
-  ss << print_bound< color::lms<std::uint32_t, ::color::constant::lms::MCAT02_entity > >( "color::lmsMCAT02", "std::uint32_t " ) << std::endl;
-  ss << print_bound< color::lms<std::uint64_t, ::color::constant::lms::MCAT02_entity > >( "color::lmsMCAT02", "std::uint64_t " ) << std::endl;
-  ss << print_bound< color::lms<float        , ::color::constant::lms::MCAT02_entity > >( "color::lmsMCAT02", "float         " ) << std::endl;
-  ss << print_bound< color::lms<double       , ::color::constant::lms::MCAT02_entity > >( "color::lmsMCAT02", "double        " ) << std::endl;
-  ss << print_bound< color::lms<long double  , ::color::constant::lms::MCAT02_entity > >( "color::lmsMCAT02", "long double   " ) << std::endl;
+  ss << print_bound< color::lms<std::uint8_t , ::color::constant::lms::CAT97_entity > >( "color::lmsCAT97", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::lms<std::uint16_t, ::color::constant::lms::CAT97_entity > >( "color::lmsCAT97", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::lms<std::uint32_t, ::color::constant::lms::CAT97_entity > >( "color::lmsCAT97", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::lms<std::uint64_t, ::color::constant::lms::CAT97_entity > >( "color::lmsCAT97", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::lms<float        , ::color::constant::lms::CAT97_entity > >( "color::lmsCAT97", "float         " ) << std::endl;
+  ss << print_bound< color::lms<double       , ::color::constant::lms::CAT97_entity > >( "color::lmsCAT97", "double        " ) << std::endl;
+  ss << print_bound< color::lms<long double  , ::color::constant::lms::CAT97_entity > >( "color::lmsCAT97", "long double   " ) << std::endl;
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
+
+  ss << print_semi_title( "L","m","s" );
+  ss << print_bound< color::lms<std::uint8_t , ::color::constant::lms::CAT02_entity > >( "color::lmsCAT02", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::lms<std::uint16_t, ::color::constant::lms::CAT02_entity > >( "color::lmsCAT02", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::lms<std::uint32_t, ::color::constant::lms::CAT02_entity > >( "color::lmsCAT02", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::lms<std::uint64_t, ::color::constant::lms::CAT02_entity > >( "color::lmsCAT02", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::lms<float        , ::color::constant::lms::CAT02_entity > >( "color::lmsCAT02", "float         " ) << std::endl;
+  ss << print_bound< color::lms<double       , ::color::constant::lms::CAT02_entity > >( "color::lmsCAT02", "double        " ) << std::endl;
+  ss << print_bound< color::lms<long double  , ::color::constant::lms::CAT02_entity > >( "color::lmsCAT02", "long double   " ) << std::endl;
+  ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
+
 
   ss << print_semi_title( "L","u","v" );
   ss << print_bound< color::luv<std::uint8_t  > >( "color::luv", "std::uint8_t  " ) << std::endl;
