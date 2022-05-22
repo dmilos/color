@@ -333,7 +333,6 @@ void check_sizeof()
    #if defined ( __VERSION__ )
    ss << "<tr><td>   __VERSION__  </td> <td>" <<  __VERSION__ << " </td></tr>" << std::endl;
    #endif
-
   }
 
   ss << "</table>" << std::endl;

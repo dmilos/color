@@ -29,9 +29,10 @@
 
          enum formula_enum
           {
-             cmy_entity
-            ,cmyk_entity
-            ,hsl_star_entity
+            cmy_entity
+           ,cmyk_entity
+           ,hsl_star_entity
+           ,hue_angle_entity
           };
 
         }}
@@ -176,6 +177,53 @@
                }
 
               return diverse_type::template process<red_p >( result );
+             }
+           };
+
+         template< typename tag_name >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::yellow::hue_angle_entity >
+           {
+            typedef ::color::category::rgb< tag_name>  category_type;
+            typedef ::color::model< category_type > model_type;
+
+            typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
+
+            typedef typename ::color::trait::component< category_type >::return_type return_type;
+
+            typedef ::color::_internal::diverse< category_type >     diverse_type;
+            typedef ::color::_internal::normalize< category_type > normalize_type;
+
+            enum
+             {
+               red_p   = ::color::place::_internal::red<category_type>::position_enum
+
+
+             };
+
+            static return_type process( model_type const& color_parameter )
+             {
+              static const scalar_type pivot = scalar_type(60)/scalar_type(360);
+
+              auto h = ::color::get::hue< ::color::get::constant::rgb::hue::polar_atan2_entity >( color_parameter );
+              scalar_type result = normalize_type::template process<red_p>( h );
+
+              result -= pivot;
+
+              if( result < scalar_type(0) )
+               {
+                result += scalar_type(1); 
+               }
+
+              if( result < scalar_type(0.5) )
+               {
+                result = scalar_type(0.5) - result;
+               }
+              else
+               {
+                result = result - scalar_type(0.5);
+               }
+
+              return diverse_type::template process<red_p >( scalar_type(2) * result );
              }
            };
 

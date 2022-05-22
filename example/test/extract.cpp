@@ -1,53 +1,63 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
 #include "./image.hpp"
 
 void
 extract_red( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
  {
   gray_image_type  component_channel; component_channel.reserve( image.size() );
-  gray_image_type  component_star;    component_star.reserve(image.size());
+  gray_image_type  component_star;    component_star.reserve(    image.size() );
+  gray_image_type  component_hue;     component_hue.reserve(     image.size() );
 
   for( auto & pixel : image )
    {
     component_channel.push_back( gray_color_type( ::color::get::red< ::color::get::constant::rgb::red::channel_entity  >( pixel ) ) );
     component_star.push_back(    gray_color_type( ::color::get::red< ::color::get::constant::rgb::red::hsl_star_entity >( pixel ) ) );
+    component_hue.push_back(     gray_color_type( ::color::get::red< ::color::get::constant::rgb::red::hue_angle_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-channel.tga", component_channel, width, height );
-  save_image_gray( name + "-star.tga",     component_star,    width, height );
+  save_image_gray( name + "-star.tga",    component_star,    width, height );
+  save_image_gray( name + "-hue.tga",     component_hue,     width, height );
  }
 
 void
 extract_green( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
  {
   gray_image_type  component_channel; component_channel.reserve( image.size() );
-  gray_image_type  component_star;    component_star.reserve(image.size());
+  gray_image_type  component_star;    component_star.reserve(    image.size() );
+  gray_image_type  component_hue;     component_hue.reserve(     image.size() );
 
   for( auto & pixel : image )
    {
     component_channel.push_back( gray_color_type( ::color::get::green< ::color::get::constant::rgb::green::channel_entity  >( pixel ) ) );
     component_star.push_back(    gray_color_type( ::color::get::green< ::color::get::constant::rgb::green::hsl_star_entity >( pixel ) ) );
+    component_hue.push_back(     gray_color_type( ::color::get::green< ::color::get::constant::rgb::green::hue_angle_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-channel.tga", component_channel, width, height );
-  save_image_gray( name + "-star.tga",     component_star,    width, height );
+  save_image_gray( name + "-star.tga",    component_star,    width, height );
+  save_image_gray( name + "-hue.tga",     component_hue,     width, height );
  }
 
 void
 extract_blue( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
  {
   gray_image_type  component_channel; component_channel.reserve( image.size() );
-  gray_image_type  component_star;    component_star.reserve(image.size());
+  gray_image_type  component_star;    component_star.reserve(    image.size() );
+  gray_image_type  component_hue;     component_hue.reserve(     image.size() );
 
   for( auto & pixel : image )
    {
     component_channel.push_back( gray_color_type( ::color::get::blue< ::color::get::constant::rgb::blue::channel_entity  >( pixel ) ) );
     component_star.push_back(    gray_color_type( ::color::get::blue< ::color::get::constant::rgb::blue::hsl_star_entity >( pixel ) ) );
+    component_hue.push_back(     gray_color_type( ::color::get::blue< ::color::get::constant::rgb::blue::hue_angle_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-channel.tga", component_channel, width, height );
-  save_image_gray( name + "-star.tga",     component_star,    width, height );
+  save_image_gray( name + "-star.tga",    component_star,    width, height );
+  save_image_gray( name + "-hue.tga",     component_hue,     width, height );
  }
 
 void
@@ -56,17 +66,20 @@ extract_cyan( bgr_image_type const& image, std::string const& name, std::size_t 
   gray_image_type  component_cmy;   component_cmy.reserve( image.size() );
   gray_image_type  component_cmyk;  component_cmyk.reserve(image.size());
   gray_image_type  component_star;  component_star.reserve(image.size());
+  gray_image_type  component_hue;     component_hue.reserve(     image.size() );
 
   for( auto & pixel : image )
    {
     component_cmy.push_back(   gray_color_type( ::color::get::cyan< ::color::get::constant::rgb::cyan::cmy_entity      >( pixel ) ) );
     component_cmyk.push_back(  gray_color_type( ::color::get::cyan< ::color::get::constant::rgb::cyan::cmyk_entity     >( pixel ) ) );
     component_star.push_back(  gray_color_type( ::color::get::cyan< ::color::get::constant::rgb::cyan::hsl_star_entity >( pixel ) ) );
+    component_hue.push_back(   gray_color_type( ::color::get::cyan< ::color::get::constant::rgb::cyan::hue_angle_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-cmy.tga",   component_cmy,   width, height );
   save_image_gray( name + "-cmyk.tga",  component_cmyk,  width, height );
   save_image_gray( name + "-star.tga",  component_star,  width, height );
+  save_image_gray( name + "-hue.tga",     component_hue,     width, height );
  }
 
 void
@@ -75,17 +88,20 @@ extract_magenta( bgr_image_type const& image, std::string const& name, std::size
   gray_image_type  component_cmy;   component_cmy.reserve( image.size() );
   gray_image_type  component_cmyk;  component_cmyk.reserve(image.size());
   gray_image_type  component_star;  component_star.reserve(image.size());
+  gray_image_type  component_hue;     component_hue.reserve(     image.size() );
 
   for( auto & pixel : image )
    {
     component_cmy.push_back(   gray_color_type( ::color::get::magenta< ::color::get::constant::rgb::magenta::cmy_entity      >( pixel ) ) );
     component_cmyk.push_back(  gray_color_type( ::color::get::magenta< ::color::get::constant::rgb::magenta::cmyk_entity     >( pixel ) ) );
     component_star.push_back(  gray_color_type( ::color::get::magenta< ::color::get::constant::rgb::magenta::hsl_star_entity >( pixel ) ) );
+    component_hue.push_back(   gray_color_type( ::color::get::magenta< ::color::get::constant::rgb::magenta::hue_angle_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-cmy.tga",   component_cmy,   width, height );
   save_image_gray( name + "-cmyk.tga",  component_cmyk,  width, height );
   save_image_gray( name + "-star.tga",  component_star,  width, height );
+  save_image_gray( name + "-hue.tga",     component_hue,     width, height );
  }
 
 void
@@ -94,19 +110,21 @@ extract_yellow( bgr_image_type const& image, std::string const& name, std::size_
   gray_image_type  component_cmy;   component_cmy.reserve( image.size() );
   gray_image_type  component_cmyk;  component_cmyk.reserve(image.size());
   gray_image_type  component_star;  component_star.reserve(image.size());
+  gray_image_type  component_hue;   component_hue.reserve( image.size() );
 
   for( auto & pixel : image )
    {
     component_cmy.push_back(   gray_color_type( ::color::get::yellow< ::color::get::constant::rgb::yellow::cmy_entity      >( pixel ) ) );
     component_cmyk.push_back(  gray_color_type( ::color::get::yellow< ::color::get::constant::rgb::yellow::cmyk_entity     >( pixel ) ) );
     component_star.push_back(  gray_color_type( ::color::get::yellow< ::color::get::constant::rgb::yellow::hsl_star_entity >( pixel ) ) );
+    component_hue.push_back(   gray_color_type( ::color::get::yellow<   ::color::get::constant::rgb::yellow::hue_angle_entity >( pixel ) ) );
    }
 
   save_image_gray( name + "-cmy.tga",   component_cmy,   width, height );
   save_image_gray( name + "-cmyk.tga",  component_cmyk,  width, height );
   save_image_gray( name + "-star.tga",  component_star,  width, height );
+  save_image_gray( name + "-hue.tga",   component_hue,   width, height );
  }
-
 
 void
 extract_gray( bgr_image_type const& image, std::string const& name, std::size_t const& width, std::size_t const& height )
@@ -301,11 +319,16 @@ void main_extract()
   bgr_image_type image;
   int width=0;
   int height=0;
+  
 
-  std::string root = "z:/work/code/cpp/prj/github/color/work/example/test/out";
-  if( false == load_image( image, width, height, root + "./palette/hsl-1-100.tga" ) )
+  //std::string root = "z:/work/code/cpp/prj/github/color/work/example/test/out";
+  //std::string file = "./palette/hsl-1-100.tga";
+  std::string root = "z:/work/code/cpp/prj/github/color/work/example/test/data";
+  std::string file = "./color-scale.tga";
+
+  if( false == load_image( image, width, height, root + file ) )
    {
-    std::cout << "Can not load" <<  "./palette/hsl-1-100.tga" << std::endl;
+    std::cout << "Can not load: " <<  file << std::endl;
     return;
    }
 

@@ -15,6 +15,8 @@
 
 
 
+
+
  namespace color
   {
    namespace get
@@ -130,8 +132,17 @@
 
             static return_type process( model_type const& color_parameter )
              {
+              //static const scalar_type pivot = 0;
+
               auto h = ::color::get::hue< ::color::get::constant::rgb::hue::polar_atan2_entity >( color_parameter );
               scalar_type result = normalize_type::template process<red_p>( h );
+
+              //result -= pivot;
+
+              //if( result < scalar_type(0) )
+              // {
+              //  result += scalar_type(1); 
+              // }
 
               if( result < scalar_type(0.5) )
                {
@@ -148,6 +159,7 @@
 
         }
       }}
+
 
      template
       <

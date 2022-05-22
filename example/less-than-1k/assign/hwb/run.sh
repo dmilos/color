@@ -10,7 +10,7 @@ pwd
 ./hwb2hsv.exe
 ./hwb2hwb.exe
 ./hwb2lab.exe
-./hwb2LabCH.exe
+./hwb2labCH.exe
 ./hwb2lms.exe
 ./hwb2lms_BFD.exe
 ./hwb2lms_K65.exe

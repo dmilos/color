@@ -670,14 +670,14 @@ template< typename source_name, typename category_name >
 
 int main(int argc, char const *argv[] )
  {
+  void main_extract();
+  main_extract();
+
   void test_palette();
   test_palette();
 
   void test_operation_distance__all( );
   test_operation_distance__all(); //!< must call test_palette before this.
-
-  void main_extract();
-  main_extract();
 
   void test_operation();
   test_operation();
