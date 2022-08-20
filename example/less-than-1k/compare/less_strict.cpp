@@ -1,15 +1,13 @@
 #include <iostream>
 #include <iomanip>
 
+
 #include "color/color.hpp"
 
 // NOTE: You can compare ONLY colors of the same model and format.
 /*
-  color::yiq< double > a;
-  color::yiq< float > b;
-
-  a = color::constant::red_t{};
-  b = color::constant::orange_t{);
+  color::yiq< double > a= color::constant::red_t{};
+  color::yiq< float > b = color::constant::orange_t{);
 
   // This will produce ERROR.
   std::cout << color::compare::less_strict( a, b ) << std::endl;
@@ -27,6 +25,8 @@ int main( int argc, char *argv[] )
 
   std::cout << "color::compare::less_strict( a, b ) == " << color::compare::less_strict( a, b ) << std::endl;
   std::cout << "a < b == " << ( a < b ) << std::endl;
+  std::cout << "a < red == "    << ( a < color::constant::red_t{} ) << std::endl;
+  std::cout << "orange < b == " << ( color::constant::orange_t{} < b ) << std::endl;
 
   return EXIT_SUCCESS;
  }

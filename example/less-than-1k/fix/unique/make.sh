@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pwd
+colorTestCounter=$(($colorTestCounter+1)); echo [$colorTestCounter][$(date)]$(pwd)
 
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hsl.cpp   -o  hsl
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hsv.cpp   -o  hsv

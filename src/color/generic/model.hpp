@@ -102,7 +102,7 @@ namespace color
 
        model( ::color::model<category_type> const& that )
         {
-         this->m_container = that.container();
+         *this = that;
         }
 
        template< typename other_category_name >
@@ -116,6 +116,12 @@ namespace color
         model &  operator=( ::color::constant::base< tag_name > const& )
          {
           ::color::constant::make< ::color::constant::base< tag_name >,category_name>::process( this->m_container );
+          return *this;
+         }
+
+        model & operator=( ::color::model<category_type> const& that )
+         {
+          this->m_container = that.container();
           return *this;
          }
 

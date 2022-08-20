@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pwd
+colorTestCounter=$(($colorTestCounter+1)); echo [$colorTestCounter][$(date)]$(pwd)
 
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../src brighter_rgb.cpp      -o  brighter_rgb
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../src darker_rgb.cpp        -o  darker_rgb

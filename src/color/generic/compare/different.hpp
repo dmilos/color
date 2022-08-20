@@ -41,7 +41,7 @@
         ,::color::constant::base< tag_name >  const& right
        )
        {
-        return ::color::compare::different< category_name >( ::color::model< category_name >( left ), right );
+        return ::color::compare::different< category_name >( left, ::color::model< category_name >( right )  );
        }
 
      namespace  operators

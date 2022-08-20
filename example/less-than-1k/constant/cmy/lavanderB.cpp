@@ -27,9 +27,9 @@ int main( int argc, char *argv[] )
   print( c2 );
   print( c3 );
   print( c4 );
-  print( c4 );
-  print( c4 );
-  print( c4 );
+  print( c5 );
+  print( c6 );
+  print( c7 );
 
   return EXIT_SUCCESS;
  }

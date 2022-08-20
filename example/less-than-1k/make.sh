@@ -1,13 +1,13 @@
 #!/bin/bash
 
-pwd
+colorTestCounter=$(($colorTestCounter+1)); echo [$colorTestCounter][$(date)]$(pwd)
 
 # Make all examples.
 # No Scons, no CMake, no Make or any other make tool
 
-#cd ./akin
-#./make.sh
-#cd ..
+cd ./akin
+./make.sh
+cd ..
 
 cd ./assign
 ./make.sh

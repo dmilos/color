@@ -6,7 +6,7 @@
 
 int main( int argc, char *argv[] )
  {
-  // Instead of float you may put std::uint8_t, ..., std::uint64_t, double, long double
+  // In place of float you may put std::uint8_t, ..., std::uint64_t, double, long double
   ::color::rgb<float> c = ::color::constant::aqua_t{};
 
   // Here is how to get yellow component. Default is cmy_entity
@@ -20,13 +20,16 @@ int main( int argc, char *argv[] )
 
   // Get yellow component by using HSL* calculation
   auto f3 = ::color::get::yellow< ::color::get::constant::rgb::yellow::hsl_star_entity >( c );
-  
-  // Now do whatever you wan to do
-  std::cout << f0 << " - " << f1 << " - " << f2 << " - " << "-" << f3 << std::endl;
+
+  // Get red component by using by finding angle distance in hue wheel.
+  auto f4 = ::color::get::yellow< ::color::get::constant::rgb::yellow::hue_angle_entity >( c );
+
+  // Now do whatever you want to do
+  std::cout << f0 << " - " << f1 << " - " << f2 << " - " << "-" << f3 << "-" << f4 << std::endl;
 
   return EXIT_SUCCESS;
  }
 
- 
+
 
 

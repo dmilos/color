@@ -178,3 +178,4 @@ example/make_rgb_red
 /example/test/build/msvc/2017/out
 
 /.idea
+/example/_cmakeGcc

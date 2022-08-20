@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pwd
+colorTestCounter=$(($colorTestCounter+1)); echo [$colorTestCounter][$(date)]$(pwd)
 
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2cmy.cpp            -o hwb2cmy
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2cmyk.cpp           -o hwb2cmyk
@@ -12,7 +12,7 @@ g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2hwb.cpp            -o h
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2lab.cpp            -o hwb2lab
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2lab_CIE.cpp        -o hwb2lab_CIE
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2lab_Hunter.cpp     -o hwb2lab_Hunter
-g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2LabCH.cpp          -o hwb2labCH
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2labCH.cpp          -o hwb2labCH
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2lms.cpp            -o hwb2lms
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2lms_BFD.cpp        -o hwb2lms_BFD
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hwb2lms_K65.cpp        -o hwb2lms_K65

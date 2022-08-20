@@ -2,9 +2,9 @@
 
 pwd
 
-#cd ./akin
-#./run.sh
-#cd ..
+cd ./akin
+./run.sh
+cd ..
 
 cd ./assign
 ./run.sh

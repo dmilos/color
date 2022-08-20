@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pwd
+colorTestCounter=$(($colorTestCounter+1)); echo [$colorTestCounter][$(date)]$(pwd)
 
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src YDbDr2cmy.cpp            -o YDbDr2cmy
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src YDbDr2cmyk.cpp           -o YDbDr2cmyk

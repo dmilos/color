@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <initializer_list>
 #include <array>
+#include <limits>
 #include <functional>
 //#include <mutex>
 #include <type_traits>

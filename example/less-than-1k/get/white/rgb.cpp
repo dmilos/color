@@ -18,7 +18,7 @@ int main( int argc, char *argv[] )
   // Get white component by using Alvy Ray Smith algorithm.
   auto f1 = color::get::white< ::color::get::constant::rgb::white::alvy_entity >( c );
 
-  // Get white component by using Alvy Ray Smith algorithm.
+  // Get blue component by using some my algorithm.
   auto f2 = color::get::white< ::color::get::constant::rgb::white::hsl_star_entity >( c );
 
   // Now do whatever you wan to do

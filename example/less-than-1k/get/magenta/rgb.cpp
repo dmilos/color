@@ -20,13 +20,16 @@ int main( int argc, char *argv[] )
 
   // Get magenta component by using HSL* calculation
   auto f3 = ::color::get::magenta< ::color::get::constant::rgb::magenta::hsl_star_entity >( c );
-  
+
+  // Get magenta component by using HSL* calculation
+  auto f4 = ::color::get::magenta< ::color::get::constant::rgb::magenta::hue_angle_entity >( c );
+
   // Now do whatever you wan to do
-  std::cout << f0 << " - " << f1 << " - " << f2 << " - " << "-" << f3 << std::endl;
+  std::cout << f0 << " - " << f1 << " - " << f2 << " - " << "-" << f3 << "-" << f4 << std::endl;
 
   return EXIT_SUCCESS;
  }
 
- 
+
 
 

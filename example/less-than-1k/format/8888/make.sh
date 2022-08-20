@@ -7,7 +7,7 @@
 
 # TODO g++ $gccBaseSwitch $gccExtraSwitch -I../src abgr.cpp                -o  akin
 
-pwd
+colorTestCounter=$(($colorTestCounter+1)); echo [$colorTestCounter][$(date)]$(pwd)
 
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./abgr.cpp   -o  abgr
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./argb.cpp   -o  argb

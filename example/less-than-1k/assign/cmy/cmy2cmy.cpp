@@ -19,5 +19,9 @@ int main( int argc, char *argv[] )
   c1 = c0;
   std::cout << c1[0] << ", " << c1[1] << ", " << c1[2] << std::endl;
 
+  // to itself
+  c0 = c0;
+  std::cout << c1[0] << ", " << c1[1] << ", " << c1[2] << std::endl;
+
   return EXIT_SUCCESS;
  }
