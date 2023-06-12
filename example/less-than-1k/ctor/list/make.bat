@@ -15,6 +15,7 @@ cl /EHsc  -I../../../../src /D%PP2F%  ./lms.cpp
 cl /EHsc  -I../../../../src /D%PP2F%  ./luv.cpp
 cl /EHsc  -I../../../../src /D%PP2F%  ./LuvCH.cpp
 cl /EHsc  -I../../../../src /D%PP2F%  ./rgb.cpp
+cl /EHsc  -I../../../../src /D%PP2F%  ./tsl.cpp
 cl /EHsc  -I../../../../src /D%PP2F%  ./xyy.cpp
 cl /EHsc  -I../../../../src /D%PP2F%  ./xyz.cpp
 cl /EHsc  -I../../../../src /D%PP2F%  ./YCgCo.cpp

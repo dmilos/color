@@ -10,6 +10,7 @@
 #include "./hwb.hpp"
 
 #include "./rgb.hpp"
+#include "./tsl.hpp"
 
 #include "./yiq.hpp"
 #include "./yuv.hpp"

@@ -8,6 +8,7 @@
 #include "./hsv.hpp"
 #include "./hsi.hpp"
 #include "./hwb.hpp"
+#include "./tsl.hpp"
 
 #include "./rgb.hpp"
 

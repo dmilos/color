@@ -76,6 +76,12 @@ void test_set_invoke()
   test_generic_set<::color::category::xyz_float>( 0.5 );
   test_generic_set<::color::category::xyz_double>( 0.5 );
 
+  test_generic_set<::color::category::tsl_uint8>( 0.5 );
+  test_generic_set<::color::category::tsl_uint16>( 0.5 );
+  test_generic_set<::color::category::tsl_uint32>( 0.5 );
+  test_generic_set<::color::category::tsl_uint64>( 0.5 );
+  test_generic_set<::color::category::tsl_float>( 0.5 );
+  test_generic_set<::color::category::tsl_double>( 0.5 );
 
 }
 

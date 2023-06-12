@@ -24,7 +24,7 @@ template< typename color_model >
   {
    gray_image_type  component;
 
-   for( std::size_t channel=0; channel< color_model::size(); ++channel )
+   for( std::size_t channel=0; channel < color_model::size(); ++channel )
     {
      component.clear();
      component.reserve( image.size() );
@@ -130,6 +130,7 @@ int decompose_test( int argc, char const *argv[] )
   decompose< ::color::lms<double, ::color::constant::lms::CAT97_entity         > >( image, "./dec/lmsCAT97", width, height, ::color::lms<double, ::color::constant::lms::CAT97_entity       >{ 50, 0, 0 } );
   decompose< ::color::lms<double, ::color::constant::lms::CAT02_entity         > >( image, "./dec/lmsCAT02", width, height, ::color::lms<double, ::color::constant::lms::CAT02_entity       >{ 50, 0, 0 } );
 
+  decompose< ::color::tsl<double        > >( image, "./dec/tsl", width, height, ::color::tsl<double >{ 0, 0, 0.5 } );
   {
    decompose2gray< ::color::cmyk<double>  >( image, "./dec-gray/cmyk", width, height );
 
@@ -170,8 +171,9 @@ int decompose_test( int argc, char const *argv[] )
    decompose2gray< ::color::lms<double, ::color::constant::lms::BFD_entity           > >( image, "./dec-gray/lmsBFD", width, height      );
    decompose2gray< ::color::lms<double, ::color::constant::lms::CAT97_entity        > >( image, "./dec-gray/lmsCAT97", width, height   );
    decompose2gray< ::color::lms<double, ::color::constant::lms::CAT02_entity        > >( image, "./dec-gray/lmsCAT02", width, height   );
-  }
 
+   decompose2gray< ::color::tsl<double  > >( image, "./dec-gray/tsl", width, height   );
+  }
 
   return EXIT_SUCCESS;
  }

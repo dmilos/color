@@ -1,7 +1,8 @@
 #ifndef color_trait_scalar
 #define color_trait_scalar
 
-// ::color::trait::scalar< category >
+// ::color::trait::scalar< category >::instance_type
+// ::color::trait::scalar< category >::is_small
 
 #include "../../_internal/utility/type/traitc.hpp"
 

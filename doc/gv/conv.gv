@@ -61,6 +61,7 @@ digraph color_conversion {
 	rgb -> YPbPr2020 [ label = "", dir=both ];
 	rgb -> yuv601[ label = "", dir=both ];
 	rgb -> yuv709[ label = "", dir=both ];
+	rgb -> tsl[ label = "", dir=both ];
 
 	//xyz -> Hunter  [ label = "", dir=both ];
 	xyz -> xyY     [ label = "", dir=both ];

@@ -90,4 +90,12 @@ void test_get_invoke( double value )
   test_generic_get< lms_float  <::color::constant::lms::von_Kries_D65_entity> >(); 
   test_generic_get< lms_double <::color::constant::lms::von_Kries_D65_entity> >(); 
   test_generic_get< lms_ldouble<::color::constant::lms::von_Kries_D65_entity> >(); 
+
+  test_generic_get< tsl_uint8   >();  test_generic_get< tsl_uint8   >();
+  test_generic_get< tsl_uint16  >();  test_generic_get< tsl_uint16  >();
+  test_generic_get< tsl_uint32  >();  test_generic_get< tsl_uint32  >();
+  test_generic_get< tsl_uint64  >();  test_generic_get< tsl_uint64  >();
+  test_generic_get< tsl_float   >();  test_generic_get< tsl_float   >();
+  test_generic_get< tsl_double  >();  test_generic_get< tsl_double  >();
+  test_generic_get< tsl_ldouble >();  test_generic_get< tsl_ldouble >();
  }

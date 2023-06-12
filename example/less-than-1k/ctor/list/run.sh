@@ -22,3 +22,4 @@ pwd
 ./yiq.exe
 ./YPbPr.exe
 ./yuv.exe
+./tsl.exe

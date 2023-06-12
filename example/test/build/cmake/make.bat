@@ -1,2 +1,2 @@
-%prg_cmake% -B output .
+%prg_cmake% -B _output .
 pause

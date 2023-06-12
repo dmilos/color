@@ -149,9 +149,11 @@ void make_test_gray_scale()
   ss <<  make_test_gray_single< ::color::YPbPr< double, ::color::constant::YPbPr::BT_601_entity> >(  "YPbPr601"  );
   ss <<  make_test_gray_single< ::color::YPbPr< double, ::color::constant::YPbPr::BT_709_entity> >(  "YPbPr709"  );
   ss <<  make_test_gray_single< ::color::YPbPr< double, ::color::constant::YPbPr::BT_2020_entity> >( "YPbPr2020" );
+  ss <<  make_test_gray_single< ::color::tsl< double> >( "tsl" );
 
-  ss <<  make_test_gray_single< ::color::xyz< double> >( "xyz" );
   ss <<  make_test_gray_single< ::color::lab< double, ::color::constant::lab::CIE_entity >   >( "LabCIE" );
+  ss <<  make_test_gray_single< ::color::LabCH< double> >( "LabCH" );
+  ss <<  make_test_gray_single< ::color::LuvCH< double> >( "LuvCH" );
   ss <<  make_test_gray_single< ::color::lab< double, ::color::constant::lab::Hunter_entity> >( "LabHunter" );
 
   ss <<  make_test_gray_single< ::color::lms< double, ::color::constant::lms::von_Kries_D65_entity> >( "lmsK65" );
@@ -162,9 +164,8 @@ void make_test_gray_scale()
 
   ss <<  make_test_gray_single< ::color::luv< double> >( "luv" );
   ss <<  make_test_gray_single< ::color::xyy< double> >( "xyy" );
+  ss <<  make_test_gray_single< ::color::xyz< double> >( "xyz" );
 
-  ss <<  make_test_gray_single< ::color::LabCH< double> >( "LabCH" );
-  ss <<  make_test_gray_single< ::color::LuvCH< double> >( "LuvCH" );
 
 
   ss << "</table>" << std::endl;

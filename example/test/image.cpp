@@ -80,4 +80,3 @@ bool load_image( bgr_image_type & image, int &width, int &height, std::string co
 
   return true;
  }
-

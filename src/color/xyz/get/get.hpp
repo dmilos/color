@@ -8,3 +8,5 @@
 #include "./blue.hpp"
 
 #include "./gray.hpp"
+
+#include "./temperature.hpp"

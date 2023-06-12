@@ -514,6 +514,15 @@ void print_bound()
   ss << print_bound< color::xyy<long double   > >( "color::xyy", "long double   " ) << std::endl;
   ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
 
+  ss << print_semi_title( "Tint", "Saturation", "Lightness" );
+  ss << print_bound< color::tsl<std::uint8_t  > >( "color::tsl", "std::uint8_t  " ) << std::endl;
+  ss << print_bound< color::tsl<std::uint16_t > >( "color::tsl", "std::uint16_t " ) << std::endl;
+  ss << print_bound< color::tsl<std::uint32_t > >( "color::tsl", "std::uint32_t " ) << std::endl;
+  ss << print_bound< color::tsl<std::uint64_t > >( "color::tsl", "std::uint64_t " ) << std::endl;
+  ss << print_bound< color::tsl<float         > >( "color::tsl", "float         " ) << std::endl;
+  ss << print_bound< color::tsl<double        > >( "color::tsl", "double        " ) << std::endl;
+  ss << print_bound< color::tsl<long double   > >( "color::tsl", "long double   " ) << std::endl;
+  ss << "<tr><td colspan=\"14\"></td></tr>" <<  std::endl;
 
   //ss << "</table> ";
 

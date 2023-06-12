@@ -38,10 +38,17 @@
 @call make.bat
 @cd ..
 @
+@cd tint
+@call make.bat
+@cd ..
+@
 @cd saturation
 @call make.bat
 @cd ..
 @
+@cd temperature
+@call make.bat
+@cd ..
 @
 @cd white
 @call make.bat

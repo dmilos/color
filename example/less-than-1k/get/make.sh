@@ -38,10 +38,17 @@ cd ./red
 ./make.sh
 cd ..
 
+cd ./tint
+./make.sh
+cd ..
+
 cd ./saturation
 ./make.sh
 cd ..
 
+cd ./temperature
+./make.sh
+cd ..
 
 cd ./white
 ./make.sh

@@ -1,7 +1,7 @@
 #ifndef color_contant_lms_parameter
 #define color_contant_lms_parameter
 
-// ::color::constant::lms::matrix< scalar_name, reference_number >::Wr()
+// ::color::constant::lms::matrix< scalar_name, reference_number >::a11()
 
 #include "./reference.hpp"
 
@@ -182,17 +182,17 @@ namespace color
            static /* constexpr*/ scalar_type const a32(){ return scalar_type( -0.0469 ); }
            static /* constexpr*/ scalar_type const a33(){ return scalar_type(  1.0112 ); }
 
-           static /* constexpr*/ scalar_type const i11(){ return  1.0 ; }
-           static /* constexpr*/ scalar_type const i12(){ return -0.0; }
-           static /* constexpr*/ scalar_type const i13(){ return  0.0; }
+           static /* constexpr*/ scalar_type const i11(){ return  0.9873999149199270079  ; }
+           static /* constexpr*/ scalar_type const i12(){ return -0.17682501985568416884 ; }
+           static /* constexpr*/ scalar_type const i13(){ return  0.1894251049357571609  ; }
 
-           static /* constexpr*/ scalar_type const i21(){ return  0.0  ; }
-           static /* constexpr*/ scalar_type const i22(){ return  0.0  ; }
-           static /* constexpr*/ scalar_type const i23(){ return  0.0; }
+           static /* constexpr*/ scalar_type const i21(){ return  0.45043510904453151582 ; }
+           static /* constexpr*/ scalar_type const i22(){ return  0.46493289775271091976 ; }
+           static /* constexpr*/ scalar_type const i23(){ return  0.084631993202757564411; }
 
-           static /* constexpr*/ scalar_type const i31(){ return -0.0 ; }
-           static /* constexpr*/ scalar_type const i32(){ return -0.0  ; }
-           static /* constexpr*/ scalar_type const i33(){ return  1.0; }
+           static /* constexpr*/ scalar_type const i31(){ return -0.013968325107251647638; }
+           static /* constexpr*/ scalar_type const i32(){ return  0.027806572501434006098; }
+           static /* constexpr*/ scalar_type const i33(){ return  0.98616175260581764165 ; }
           };
 
      }

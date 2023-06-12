@@ -94,6 +94,7 @@ template< typename tag_name >
      ss << "<td>" << print_color( "luv -"       + name, ::color::luv<   double >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "xyy -"       + name, ::color::xyy<   double >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "hwb -"       + name, ::color::hwb<   double >( constant ) ) << "</td>";
+     ss << "<td>" << print_color( "tsl -"       + name, ::color::tsl<   double >( constant ) ) << "</td>";
 
      ss << "<td>" << print_color( "LabCH -"       + name, ::color::LabCH<   double >( constant ) ) << "</td>";
      ss << "<td>" << print_color( "LuvCH -"       + name, ::color::LuvCH<   double >( constant ) ) << "</td>";

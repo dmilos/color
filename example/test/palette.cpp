@@ -141,6 +141,8 @@ void test_palette()
   palette< color::LuvCH<double>::category_type  >( "LuvCH",      5 );
   palette< color::LabCH<double>::category_type  >( "LabCH",      5 );
 
+  palette< color::tsl<double>::category_type  >( "tsl",      5 );
+
   std::string number="000";
   for( int layer= 0; layer < 12; layer += 1 )
    {

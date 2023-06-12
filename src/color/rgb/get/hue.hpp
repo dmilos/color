@@ -31,7 +31,7 @@
            ,hexagon_entity                     //!< = Preucil
            ,polar_atan2_entity                 //!< EHB(atan2) = Evans, Hanson, and Brewer
            ,polar_acos_entity                  //!< EHB(acos)  = Evans, Hanson, and Brewer
-           ,polar_entity = polar_atan2_entity  //!< Default polar formula
+           ,polar_entity          = polar_atan2_entity  //!< Default polar formula
           };
 
         }}
@@ -91,7 +91,7 @@
              };
 
             scalar_type process( scalar_type const& r, scalar_type const& g, scalar_type const& b )
-             { // angle betwen 0 and 2*PI
+             { // angle between 0 and 2*PI
               m_loValue = r;  m_midValue = g;  m_hiValue = b;
               m_loIndex = 0;  m_midIndex = 1;  m_hiIndex = 2;
 
@@ -163,13 +163,13 @@
              };
 
             static scalar_type process( scalar_type const& r, scalar_type const& g, scalar_type const& b )
-             {    // angle betwen 0 and 2*PI
+             {    // angle between 0 and 2*PI
               scalar_type h = 0;
 
               scalar_type c1 = scalar_type(2) * r - g - b ;
               scalar_type c2 = (g - b) * generic_constant_type::sqrt_3();
-              scalar_type thetaX = atan2(c2, c1);
-              if (thetaX < 0) { thetaX += generic_constant_type::two_pi(); }
+              scalar_type thetaX = atan2( c2, c1 );
+              if( thetaX < 0 ) { thetaX += generic_constant_type::two_pi(); }
               h = thetaX;
 
               return h;
@@ -209,7 +209,7 @@
              };
 
             static scalar_type process( scalar_type const& r, scalar_type const& g, scalar_type const& b )
-             { // angle betwen 0 and 2*PI 
+             { // angle between 0 and 2*PI
               scalar_type h = 0;
 
               scalar_type alpha = ( (r-g) + ( r- b) ) * scalar_type( 0.5 );

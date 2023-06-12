@@ -159,7 +159,8 @@ template< typename category_name >
   hsi_type hi;
   hsv_type hv;
 
-  image_double_type image_double(height * width);
+  image_double_type image_double( height * width );
+
   image_type  image_uint8(height * width);
 
   image_bgr_type image_bgr_referent(height * width);
@@ -172,6 +173,7 @@ template< typename category_name >
   image_type image_rgb_hexagon( height * width );
 
   double max = 0;
+  double max_max_atan2 = 0;
   unsigned index=0;
   for( unsigned red = 0; red  < height; ++red )
    {
@@ -185,7 +187,7 @@ template< typename category_name >
       hv = r;
 
       image_double[index][0] = fabs(hi[0] - hv[0]) / 360.0;
-      if (max < image_double[index][0] )
+      if ( max < image_double[index][0] )
        {
         max = image_double[index][0];
        }
@@ -202,18 +204,18 @@ template< typename category_name >
      }
    }
 
-   save_targa24(    "./hue/referent.tga", width, height, image_bgr_referent );
-   save_targa_gray( "./hue/hsi.tga",               width, height, image_hsi                );
-   save_targa_gray( "./hue/hsv.tga",               width, height, image_hsv                );
-   save_targa_gray( "./hue/rgb-default.tga",       width, height, image_rgb_default        );
-   save_targa_gray( "./hue/rgb-polar-default.tga", width, height, image_rgb_polar_default  );
-   save_targa_gray( "./hue/rgb-polar-atan2.tga",   width, height, image_rgb_polar_atan2    );
-   save_targa_gray( "./hue/rgb-polar-acos.tga",    width, height, image_rgb_polar_acos     );
-   save_targa_gray( "./hue/rgb-hexagon.tga",       width, height, image_rgb_hexagon  );
+   save_targa24(    "./hue/referent.tga",              width, height, image_bgr_referent         );
+   save_targa_gray( "./hue/hsi.tga",                   width, height, image_hsi                  );
+   save_targa_gray( "./hue/hsv.tga",                   width, height, image_hsv                  );
+   save_targa_gray( "./hue/rgb-default.tga",           width, height, image_rgb_default          );
+   save_targa_gray( "./hue/rgb-polar-default.tga",     width, height, image_rgb_polar_default    );
+   save_targa_gray( "./hue/rgb-polar-atan2.tga",       width, height, image_rgb_polar_atan2      );
+   save_targa_gray( "./hue/rgb-polar-acos.tga",        width, height, image_rgb_polar_acos       );
+   save_targa_gray( "./hue/rgb-hexagon.tga",           width, height, image_rgb_hexagon          );
 
   // 0.0031027397726933574[normalized], 1.116986318169608664[degree]
-   std::cout << "max = " << std::setprecision(20) << max << std::endl;
-  std::for_each(image_double.begin(), image_double.end(), [max](::color::gray< double > & g )->void { g[0] /= max; } );
+  std::cout << "max = " << std::setprecision(20) << max << std::endl;
+  std::for_each( image_double.begin(), image_double.end(), [max](::color::gray< double > & g )->void { g[0] /= max; } );
   std::copy( image_double.begin(), image_double.end(), image_uint8.begin() );
   save_targa_gray("./hue/difference.tga", width, height, image_uint8 );
  }

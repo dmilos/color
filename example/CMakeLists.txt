@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
+project(colorCmake)
+
 include_directories( "../src" )
 
 add_subdirectory( less-than-1k )

@@ -32,6 +32,7 @@
                          hsv_entity
             ,            hsl_entity
             ,            hsi_entity
+            ,            hanbury_entity
             //,  distance2gray_entity = ::distance( model<double>( this ), model<double>( gray<double>( this ) ) )
           };
 
@@ -104,7 +105,7 @@
                 s = delta / hi;
                }
 
-              return diverse_type::template process<saturation_p>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */s /* ) */);
+              return diverse_type::template process<saturation_p>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */ s /* ) */);
              }
            };
 
@@ -146,11 +147,11 @@
               scalar_type delta = hi - lo;
 
               scalar_type s = 0;
-              scalar_type l = (hi + lo) / scalar_type(2);
+              scalar_type lightness = (hi + lo) / scalar_type(2);
 
-              if( false == scalar_trait_type::is_small( delta ) )
+              if( ( false == scalar_trait_type::is_small( lightness ) ) && ( false == scalar_trait_type::is_small( scalar_type(1) - lightness ) ) )
                {
-                s = delta / ( scalar_type(1) - fabs( scalar_type(2)*l - scalar_type(1) ) );
+                s = delta / ( scalar_type(1) - fabs( scalar_type(2)*lightness - scalar_type(1) ) );
                }
               return diverse_type::template process<saturation_p>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */s /* ) */);
              }
@@ -198,6 +199,48 @@
                {
                 s = scalar_type(1) - lo / i;
                }
+
+              return diverse_type::template process<saturation_p>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */s /* ) */);
+             }
+           };
+    
+         template< typename tag_name >
+          struct usher< ::color::category::rgb< tag_name >, ::color::get::constant::rgb::saturation::hanbury_entity >
+           {
+            typedef ::color::category::rgb< tag_name > category_type;
+            typedef ::color::model< category_type > model_type;
+
+            typedef typename ::color::akin::hsv< category_type >::akin_type  akin_type;
+            typedef ::color::_internal::diverse< akin_type >     diverse_type;
+
+            typedef ::color::_internal::normalize< category_type > normalize_type;
+
+            typedef typename ::color::trait::scalar<category_type>                    scalar_trait_type;
+            typedef typename ::color::trait::scalar<category_type>::instance_type     scalar_type;
+
+            typedef typename ::color::trait::component< akin_type >::return_type return_type;
+
+            enum
+             {
+               red_p   = ::color::place::_internal::red<category_type>::position_enum
+              ,green_p = ::color::place::_internal::green<category_type>::position_enum
+              ,blue_p  = ::color::place::_internal::blue<category_type>::position_enum
+             };
+            enum
+             {
+               saturation_p   = ::color::place::_internal::saturation< akin_type >::position_enum
+             };
+
+            static return_type process( model_type const& c )
+             {
+              scalar_type r = normalize_type::template process<red_p  >( c.template get<red_p  >() );
+              scalar_type g = normalize_type::template process<green_p>( c.template get<green_p>() );
+              scalar_type b = normalize_type::template process<blue_p >( c.template get<blue_p >() );
+
+              scalar_type lo = std::min<scalar_type>( {r,g,b} );
+              scalar_type hi = std::max<scalar_type>( {r,g,b} );
+
+              scalar_type s = hi - lo;
 
               return diverse_type::template process<saturation_p>( /*typename ::color::trait::scalar<akin_type>::instance_type ( */s /* ) */);
              }

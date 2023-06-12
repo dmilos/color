@@ -12,8 +12,8 @@ extract_red( bgr_image_type const& image, std::string const& name, std::size_t c
 
   for( auto & pixel : image )
    {
-    component_channel.push_back( gray_color_type( ::color::get::red< ::color::get::constant::rgb::red::channel_entity  >( pixel ) ) );
-    component_star.push_back(    gray_color_type( ::color::get::red< ::color::get::constant::rgb::red::hsl_star_entity >( pixel ) ) );
+    component_channel.push_back( gray_color_type( ::color::get::red< ::color::get::constant::rgb::red::channel_entity   >( pixel ) ) );
+    component_star.push_back(    gray_color_type( ::color::get::red< ::color::get::constant::rgb::red::hsl_star_entity  >( pixel ) ) );
     component_hue.push_back(     gray_color_type( ::color::get::red< ::color::get::constant::rgb::red::hue_angle_entity >( pixel ) ) );
    }
 
@@ -190,6 +190,7 @@ extract_saturation( bgr_image_type const& image, std::string const& name, std::s
   gray_image_type  component_h0h;  component_h0h.reserve( image.size() );
   gray_image_type  component_h1h;  component_h1h.reserve(image.size());
   gray_image_type  component_h2h;  component_h2h.reserve(image.size());
+  gray_image_type  component_hun;  component_hun.reserve(image.size());
   gray_image_type  component_h0r;  component_h0r.reserve( image.size() );
   gray_image_type  component_h1r;  component_h1r.reserve(image.size());
   gray_image_type  component_h2r;  component_h2r.reserve(image.size());
@@ -202,6 +203,7 @@ extract_saturation( bgr_image_type const& image, std::string const& name, std::s
     component_h0h.push_back(  gray_color_type( ::color::get::saturation< ::color::get::constant::rgb::saturation::hsv_entity >( pixel ) ) );
     component_h1h.push_back(  gray_color_type( ::color::get::saturation< ::color::get::constant::rgb::saturation::hsl_entity >( pixel ) ) );
     component_h2h.push_back(  gray_color_type( ::color::get::saturation< ::color::get::constant::rgb::saturation::hsi_entity >( pixel ) ) );
+    component_hun.push_back(  gray_color_type( ::color::get::saturation< ::color::get::constant::rgb::saturation::hanbury_entity >( pixel ) ) );
 
     component_h0r.push_back(  gray_color_type( ::color::hsv<std::uint8_t>(pixel)[1] ) );
     component_h1r.push_back(  gray_color_type( ::color::hsl<std::uint8_t>(pixel)[1] ) );
@@ -215,6 +217,7 @@ extract_saturation( bgr_image_type const& image, std::string const& name, std::s
   save_image_gray( name + "-hsv-ref.tga",   component_h0r,  width, height );
   save_image_gray( name + "-hsl-ref.tga",   component_h1r,  width, height );
   save_image_gray( name + "-hsi-ref.tga",   component_h2r,  width, height );
+  save_image_gray( name + "-hun-ref.tga",   component_hun,  width, height );
 
   save_image_gray( name + "-hsv-rgb.tga",   component_h0h,  width, height );
   save_image_gray( name + "-hsl-rgb.tga",   component_h1h,  width, height );
@@ -234,6 +237,8 @@ extract_chroma( bgr_image_type const& image, std::string const& name, std::size_
   gray_image_type  component_LuvCH;   component_LuvCH  .reserve(image.size());
   gray_image_type  component_rgbMMM;  component_rgbMMM .reserve(image.size());
   gray_image_type  component_RGBd2g;  component_RGBd2g .reserve(image.size());
+  gray_image_type  component_RGBmax;  component_RGBmax .reserve(image.size());
+  gray_image_type  component_RGBhan;  component_RGBhan .reserve(image.size());
   gray_image_type  component_hsi;     component_hsi .reserve(image.size());
   gray_image_type  component_hsl;     component_hsl .reserve(image.size());
   gray_image_type  component_hsv;     component_hsv .reserve(image.size());
@@ -245,6 +250,8 @@ extract_chroma( bgr_image_type const& image, std::string const& name, std::size_
     component_LuvCH .push_back(  gray_color_type( (std::uint8_t)::color::get::chroma( ::color::LuvCH<float>( pixel ) ) ) );
     component_rgbMMM.push_back(  gray_color_type( ::color::get::chroma< ::color::get::constant::rgb::chroma::max_minus_min_entity>( pixel ) ) );
     component_RGBd2g.push_back(  gray_color_type( ::color::get::chroma< ::color::get::constant::rgb::chroma::distance2gray_entity>( pixel ) ) );
+    component_RGBmax.push_back(  gray_color_type( ::color::get::chroma< ::color::get::constant::rgb::chroma::maxwell_entity>( pixel ) ) );
+    component_RGBhan.push_back(  gray_color_type( ::color::get::chroma< ::color::get::constant::rgb::chroma::hanbury_entity>( pixel ) ) );
 
     component_hsi .push_back(  gray_color_type( (std::uint8_t)::color::get::chroma( ::color::hsi<std::uint8_t>( pixel ) ) ) );
     component_hsl .push_back(  gray_color_type( (std::uint8_t)::color::get::chroma( ::color::hsl<std::uint8_t>( pixel ) ) ) );
@@ -256,6 +263,8 @@ extract_chroma( bgr_image_type const& image, std::string const& name, std::size_
   save_image_gray( name + "-LuvCH.tga",   component_LuvCH ,  width, height );
   save_image_gray( name + "-rgbMMM.tga",  component_rgbMMM,  width, height );
   save_image_gray( name + "-RGBd2g.tga",  component_RGBd2g,  width, height );
+  save_image_gray( name + "-RGBmax.tga",  component_RGBmax,  width, height );
+  save_image_gray( name + "-RGBhan.tga",  component_RGBhan,  width, height );
   save_image_gray( name + "-hsi.tga",     component_hsi,  width, height );
   save_image_gray( name + "-hsl.tga",     component_hsl,  width, height );
   save_image_gray( name + "-hsv.tga",     component_hsv,  width, height );
@@ -288,7 +297,7 @@ extract_color
   save_image_gray( name+ "-hue-color.tga", component, width, height );
  }
 
- template< ::color::constant::distance::reference_enum reference_instance>
+ template< ::color::constant::distance::reference_enum reference_instance >
 void
 extract_color_hsl
  (
@@ -434,4 +443,9 @@ void main_extract()
    load_image( image, width, height, "./palette/hsl-1-075.tga" );  extract_chroma( image,"./extract/chroma-hsl-1-075", width, height );
    load_image( image, width, height, "./palette/hsl-1-100.tga" );  extract_chroma( image,"./extract/chroma-hsl-1-100", width, height );
 
+   //load_image( image, width, height, "./palette/hsl-1-000.tga" );  extract_tint( image,"./extract/tint-tsl-1-000", width, height );
+   //load_image( image, width, height, "./palette/hsl-1-025.tga" );  extract_tint( image,"./extract/tint-tsl-1-025", width, height );
+   //load_image( image, width, height, "./palette/hsl-1-050.tga" );  extract_tint( image,"./extract/tint-tsl-1-050", width, height );
+   //load_image( image, width, height, "./palette/hsl-1-075.tga" );  extract_tint( image,"./extract/tint-tsl-1-075", width, height );
+   //load_image( image, width, height, "./palette/hsl-1-100.tga" );  extract_tint( image,"./extract/tint-tsl-1-100", width, height );
  }

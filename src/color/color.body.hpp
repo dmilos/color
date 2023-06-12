@@ -1,6 +1,8 @@
 
 #include "./generic/generic.hpp"
 
+#include "./tsl/tsl.hpp"
+
 #include "./cmy/cmy.hpp"
 #include "./cmyk/cmyk.hpp"
 #include "./gray/gray.hpp"
@@ -15,6 +17,7 @@
 #include "./yuv/yuv.hpp"
 
 #include "./xyz/xyz.hpp"
+
 
 #include "./YCgCo/YCgCo.hpp"
 #include "./YDbDr/YDbDr.hpp"

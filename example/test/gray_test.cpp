@@ -62,6 +62,17 @@ void make_gray_hsl( gray_image_type & gray, bgr_image_type const& image )
    }
  }
 
+void make_gray_tsl( gray_image_type & gray, bgr_image_type const& image )
+ {
+  auto gc = gray.begin();
+  for( auto & c : image )
+   {
+    gc->set<0>( ::color::tsl< std::uint8_t >( c )[2] );
+    ++gc;
+   }
+ }
+
+
 void make_gray_hsv( gray_image_type & gray, bgr_image_type const& image )
  {
   auto gc = gray.begin();
@@ -218,6 +229,7 @@ int gray_test( int argc, char const *argv[] )
   typedef ::color::yiq< std::uint8_t   >::category_type     yiq_Category;
   typedef ::color::YPbPr< std::uint8_t >::category_type   YPbPr_Category;
   typedef ::color::yuv< std::uint8_t   >::category_type     yuv_Category;
+  typedef ::color::tsl< std::uint8_t   >::category_type     tsl_Category;
 
   gray_image_type gray;
   gray.resize( width * height );
@@ -242,7 +254,7 @@ int gray_test( int argc, char const *argv[] )
   make_gray__generic< yiq_Category   >( gray, image );  save_image_gray( "./gray/c-yiq.tga",    gray, width, height );
   make_gray__generic< YPbPr_Category >( gray, image );  save_image_gray( "./gray/c-YPbPr.tga",  gray, width, height );
   make_gray__generic< yuv_Category   >( gray, image );  save_image_gray( "./gray/c-yuv.tga",    gray, width, height );
-
+  make_gray__generic< tsl_Category   >( gray, image );  save_image_gray( "./gray/c-tsl.tga",    gray, width, height );
 
   make_gray_gray(      gray,  image ); save_image_gray( "./gray/gray.tga",         gray, width, height );
 

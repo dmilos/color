@@ -68,6 +68,7 @@ namespace color
        typedef typename container_trait_type::set_return_type        set_return_type;
 
        typedef typename scalar_trait_type::model_type          scalar_input_const_type;
+       typedef typename scalar_trait_type::instance_type       scalar_instance_type;
 
                model( )
                {
@@ -115,7 +116,7 @@ namespace color
        template< typename tag_name >
         model &  operator=( ::color::constant::base< tag_name > const& )
          {
-          ::color::constant::make< ::color::constant::base< tag_name >,category_name>::process( this->m_container );
+          ::color::constant::make< ::color::constant::base< tag_name >, category_name >::process( this->m_container );
           return *this;
          }
 

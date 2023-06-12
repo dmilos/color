@@ -15,6 +15,7 @@ g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./lms.cpp            -o  l
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./luv.cpp            -o  luv
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./LuvCH.cpp          -o  LuvCH
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./rgb.cpp            -o  rgb
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./tsl.cpp            -o  tsl
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./xyy.cpp            -o  xyy
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./xyz.cpp            -o  xyz
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src  ./YCgCo.cpp          -o  YCgCo

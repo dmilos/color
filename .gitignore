@@ -179,3 +179,6 @@ example/make_rgb_red
 
 /.idea
 /example/_cmakeGcc
+/example/test/out
+/example/test/out-R
+/example/test/out-T

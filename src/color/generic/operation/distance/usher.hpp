@@ -129,3 +129,4 @@
 #include "./hue_helix.hpp"
 #include "./hue_helix_rgb.hpp"
 #include "./rgb_special.hpp"
+#include "./maxwell.hpp"

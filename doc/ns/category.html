@@ -22,6 +22,8 @@
 							<li><a href="#hsl">hsl</a></li>
 							<li><a href="#hsv">hsv</a></li>
 							<li><a href="#hwb">hwb</a></li>
+							<li><a href="#tls">tls</a></li>
+
 							<li><a href="#lab">lab</a></li>
 
 							<li><a href="#LabCH">LabCH</a></li>
@@ -256,6 +258,37 @@
 								<blockquote><code>
 								::color::model&lt; ::color::category::hwb_uint32 &gt; &nbsp; &nbsp; c0; <br>
 								::color::hwb&lt; std::uint32_t &gt;  &nbsp;&nbsp;    c1; </code>
+								</blockquote>
+							</dd>
+						</dl>
+					</dd>
+
+ 					<dt><a name="TLS" />TSL</dt>
+					<dd>
+						<dl>
+							<dt><code>template&lt; typename tag_name &gt; struct tsl;</code></dt>
+							<dd>Generalized TSL category. All TSL categories are alias of instance of this class for some internal <code>tag_type</code>.</dd>
+							<dt>List</dt>
+							<dd>
+								<ul>
+									<!-- <li><code>using hwb_bool    = ::color::category::tsl&lt; <i>unspecified</i> &gt;;</code></li> -->
+									<li><code>using hwb_uint8   = ::color::category::tsl&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hwb_uint16  = ::color::category::tsl&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hwb_uint24  = ::color::category::tsl&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hwb_uint32  = ::color::category::tsl&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hwb_uint48  = ::color::category::tsl&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hwb_uint64  = ::color::category::tsl&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hwb_float   = ::color::category::tsl&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hwb_double  = ::color::category::tsl&lt; <i>unspecified</i> &gt;;</code></li>
+									<li><code>using hwb_ldouble = ::color::category::tsl&lt; <i>unspecified</i> &gt;;</code></li>
+								</ul>
+							</dd>
+							<dt>Example(s)</dt>
+							<dd>
+								Next two types are the same:
+								<blockquote><code>
+								::color::model&lt; ::color::category::hwb_uint32 &gt; &nbsp; &nbsp; c0; <br>
+								::color::tsl&lt; std::uint32_t &gt;  &nbsp;&nbsp;    c1; </code>
 								</blockquote>
 							</dd>
 						</dl>

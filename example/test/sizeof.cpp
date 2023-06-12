@@ -145,7 +145,7 @@ std::string print_system_sizeof( )
   std::stringstream ss;
   ss << "<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" >" << std::endl;
 
-  ss << "<tr><td> Type </td> <td> Size</td> </tr> ";
+  ss << "<tr><td> Type          </td> <td> Size</td> </tr> "<< std::endl;
 
   ss << "<tr><td> char          </td> <td> "<< sizeof( char          )<< "</td> </tr> " << std::endl;
   ss << "<tr><td> char          </td> <td> "<< sizeof( unsigned char )<< "</td> </tr> " << std::endl;
@@ -208,6 +208,7 @@ template< typename  type_type  > using lmsCAT02   = ::color::lms< type_type, ::c
 template< typename  type_type  > using labHunter  = ::color::lab< type_type/*, ::color::constant::lab::Hunter_entity */ >;
 template< typename  type_type  > using labCIE     = ::color::lab< type_type/*, ::color::constant::lab::CIE_entity    */ >;
 
+template< typename  type_type  > using tsl     = ::color::tsl< type_type >;
 
 void check_sizeof()
  {
@@ -285,6 +286,7 @@ void check_sizeof()
   ss << print_sizeof<::color::luv    > ( "<code>luv </code>"   );  ss << std::endl;
   ss << print_sizeof<::color::xyy    > ( "<code>xyy </code>"   );  ss << std::endl;
 
+  ss << print_sizeof<::color::tsl    > ( "<code>tsl</code>"   );  ss << std::endl;
 
   ss << "</table>";
 

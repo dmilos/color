@@ -29,6 +29,7 @@
 							<li><a href="#green">green</a></li>
 							<li><a href="#hue">hue</a></li>
 							<li><a href="#inphase">inphase </a></li>
+							<li><a href="#key">tint</a></li>
 							<li><a href="#key">key</a></li>
 							<li><a href="#luma">luma</a></li>
 							<li><a href="#luminance">luminance</a></li>
@@ -255,6 +256,20 @@
 					<dd>
 						<code>::color::yiq &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
 							std::cout &lt;&lt; ::color::get::inphase( h ) &lt;&lt; std::cout;<br></code>
+					</dd>
+				</dl><hr width="%20">
+
+				<dl>
+					<dt>Name</dt>
+					<dd><a name="#tint"/><i>tint</i></dd>
+					<dt>Declaration</dt>
+					<dd>See <a href="#general">general Note</a> about general declaration.</dd>
+					<dt>Description</dt>
+					<dd>Get tint <a href="glossary.html#component">component</a> or calculate if <a href="glossary.html#model">model</a> does not support natively.</dd>
+					<dt>Example</dt>
+					<dd>
+						<code>::color::tsl &lt; double &gt; h{ ::color::constant::aqua_t{}; };<br>
+							std::cout &lt;&lt; ::color::get::tint( h ) &lt;&lt; std::cout;<br></code>
 					</dd>
 				</dl><hr width="%20">
 

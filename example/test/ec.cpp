@@ -46,7 +46,10 @@ int main( int argc, char *argv[] )
   gray_image_type right_yellowHS ; right_yellowHS .resize( width * height );
   gray_image_type right_magentaHS; right_magentaHS.resize( width * height );
 
-  gray_image_type right_chroma   ; right_chroma .resize( width * height );
+  gray_image_type right_chroma_MM   ; right_chroma_MM .resize( width * height );
+  gray_image_type right_chroma_d2g   ; right_chroma_d2g .resize( width * height );
+  gray_image_type right_chroma_max   ; right_chroma_max .resize( width * height );
+  gray_image_type right_chroma_han   ; right_chroma_han .resize( width * height );
 
   gray_image_type right_gray     ; right_gray   .resize( width * height );
   gray_image_type right_black    ; right_black  .resize( width * height );
@@ -76,7 +79,10 @@ int main( int argc, char *argv[] )
      right_yellowHS [ y*width+x ][ 0 ] = ::color::get::yellow<   ::color::get::constant::rgb::yellow::hsl_star_entity   >( l );
      right_magentaHS[ y*width+x ][ 0 ] = ::color::get::magenta<  ::color::get::constant::rgb::magenta::hsl_star_entity  >( l );
 
-     right_chroma   [ y*width+x ][ 0 ] = ::color::get::chroma<   ::color::get::constant::rgb::chroma::distance2gray_entity  >( l );
+     right_chroma_MM   [ y*width+x ][ 0 ] = ::color::get::chroma<   ::color::get::constant::rgb::chroma::max_minus_min_entity  >( l );
+     right_chroma_d2g  [ y*width+x ][ 0 ] = ::color::get::chroma<   ::color::get::constant::rgb::chroma::distance2gray_entity  >( l );
+     right_chroma_max  [ y*width+x ][ 0 ] = ::color::get::chroma<   ::color::get::constant::rgb::chroma::maxwell_entity  >( l );
+     right_chroma_han  [ y*width+x ][ 0 ] = ::color::get::chroma<   ::color::get::constant::rgb::chroma::hanbur_entity  >( l );
 
      right_gray     [ y*width+x ][ 0 ] = ::color::get::gray<     ::color::get::constant::rgb::gray::yuv709_entity>( l );
      right_black    [ y*width+x ][ 0 ] = ::color::get::black<    ::color::get::constant::rgb::black::hsl_star_entity >( l );
@@ -100,7 +106,10 @@ int main( int argc, char *argv[] )
   save_image_gray( prefix + "e-6-cyanHS.tga"    , right_cyanHS ,   width, height );
   save_image_gray( prefix + "e-7-yellowHS.tga"  , right_yellowHS,  width, height );
   save_image_gray( prefix + "e-8-magentaHS.tga" , right_magentaHS, width, height );
-  save_image_gray( prefix + "e-9-chroma.tga"    , right_chroma ,   width, height );
+  save_image_gray( prefix + "e-9-chroma-mm.tga"    , right_chroma_MM ,   width, height );
+  save_image_gray( prefix + "e-9-chroma-d2g.tga"    , right_chroma_d2g ,   width, height );
+  save_image_gray( prefix + "e-9-chroma-max.tga"    , right_chroma_max ,   width, height );
+  save_image_gray( prefix + "e-9-chroma-han.tga"    , right_chroma_han ,   width, height );
   save_image_gray( prefix + "e-A-gray.tga"      , right_gray   ,   width, height );
   save_image_gray( prefix + "e-B-black.tga"     , right_black  ,   width, height );
   save_image_gray( prefix + "e-C-white.tga"     , right_white  ,   width, height );

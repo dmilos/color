@@ -28,13 +28,18 @@
          ,CIE94_graphics_entity
          ,CIE94_textile_entity
          ,CIEDE2000_entity
-         ,CMC1984_entity
+         ,CMC1984_entity         //!< default ratio is 2:1
          ,delta_gray_entity
          ,hue_euclid_entity
          ,hue_helix_entity
          ,hue_helix_rgb_entity
-       //,hue_entity // Rejected. Distance by only one coordinate
+       //,hue_entity             //!< Rejected. Distance by only one coordinate
          ,rgb_special_entity
+         ,maxwell_entity
+         // ,hsi_circle_entity //!< TODO  use all coordinate
+         // ,hsl_circle_entity //!< TODO  use all coordinate
+         // ,hsv_circle_entity //!< TODO  use all coordinate
+         // ,hwb_circle_entity //!< TODO  use all coordinate
         };
 
       }

@@ -202,6 +202,8 @@ void test_operation_any2any()
   typedef ::color::xyy<double>         xyy_t;
   typedef ::color::xyz<double>         xyz_t;
 
+  typedef ::color::tsl<double>         tsl_t;
+
    rgb_t rgbA; rgbA.container( {1, 0.0, 0.0 } );
    rgb_t rgbB; rgbB.container( {0, 1.0, 1.0 } );
    rgb_t rgbC; rgbC.container( {0, 0.0, 1.0 } );
@@ -245,6 +247,7 @@ void test_operation_any2any()
   ::color::operation::distance< ::color::constant::distance::CIEDE2000_entity >( bgr, rgb );
   ::color::operation::distance< ::color::constant::distance::CIEDE2000_entity >( bgr, rgb );
 
+  ::color::operation::distance< ::color::constant::distance::maxwell_entity >( bgr, rgb );
  }
 template
  <
@@ -294,6 +297,7 @@ void test_operation_zero_main()
   test_operation_distance_zero< ::color::constant::distance::hue_helix_entity,      rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::hue_helix_rgb_entity,  rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::rgb_special_entity,    rgb_t >();
+  test_operation_distance_zero< ::color::constant::distance::maxwell_entity,        rgb_t >();
  }
 
 void test_operation_distance__all()
@@ -350,6 +354,7 @@ void test_operation_distance__all()
   test_operation_distance_from< ::color::constant::distance::hue_helix_rgb_entity,  hsv_t >( image, width, height, ::color::hsv<double>( ::color::rgb<double>{0,1,0} ),  1.5 / 3.1415926,    "./operation/dist_hsvHr.tga"      );
 
   test_operation_distance_from< ::color::constant::distance::rgb_special_entity,    rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_rgbS_rgb2rgb.tga"       );
+  test_operation_distance_from< ::color::constant::distance::maxwell_entity,        rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_maxwell_rgb2rgb.tga"       );
 
   test_operation_any2any();
   test_operation_zero_main();

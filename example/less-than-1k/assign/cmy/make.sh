@@ -21,6 +21,7 @@ g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src cmy2lms_MCAT02.cpp     -o c
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src cmy2luv.cpp            -o cmy2luv
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src cmy2LuvCH.cpp          -o cmy2LuvCH
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src cmy2rgb.cpp            -o cmy2rgb
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src cmy2tsl.cpp            -o cmy2tsl
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src cmy2xyy.cpp            -o cmy2xyy
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src cmy2xyz.cpp            -o cmy2xyz
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src cmy2YCgCo.cpp          -o cmy2YCgCo

@@ -21,6 +21,7 @@ cl /EHsc  -I../../../../src /D%PP2F% cmy2lms_MCAT02.cpp
 cl /EHsc  -I../../../../src /D%PP2F% cmy2luv.cpp
 cl /EHsc  -I../../../../src /D%PP2F% cmy2LuvCH.cpp
 cl /EHsc  -I../../../../src /D%PP2F% cmy2rgb.cpp
+cl /EHsc  -I../../../../src /D%PP2F% cmy2tsl.cpp
 cl /EHsc  -I../../../../src /D%PP2F% cmy2xyy.cpp
 cl /EHsc  -I../../../../src /D%PP2F% cmy2xyz.cpp
 cl /EHsc  -I../../../../src /D%PP2F% cmy2YCgCo.cpp

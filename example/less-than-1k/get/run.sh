@@ -34,6 +34,18 @@ cd ./red
 ./run.sh
 cd ..
 
+cd ./tint
+./run.sh
+cd ..
+
+cd ./saturation
+./run.sh
+cd ..
+
+cd ./temperature
+./run.sh
+cd ..
+
 cd ./white
 ./run.sh
 cd ..

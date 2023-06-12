@@ -37,9 +37,9 @@
         scalar_type const A = static_cast<scalar_type>( normalize_type::template process<1>(           c.template get< 1 >() ) ) ;
         scalar_type const B = static_cast<scalar_type>( normalize_type::template process<2>(           c.template get< 2 >() ) );
 
-        if( false == scalar_trait_type::is_small( scalar_type(L) ) )
+        if( true == scalar_trait_type::is_small( scalar_type(L) ) )
          {
-          return 0;
+          return component_type(0);
          }
 
         return component_type( sqrt(A*A + B*B) / L );

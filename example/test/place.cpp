@@ -20,6 +20,7 @@ void place_yiq();
 void place_YPbPr();
 void place_yuv();
 void place_xyz();
+void place_tsl();
 
 
 void main_place()
@@ -37,6 +38,7 @@ void main_place()
   place_YPbPr();
   place_yuv();
   place_xyz();
+  place_tsl();
  }
 
 #define MAKE_CKECK_PLACE(DP_name)                                                 \
@@ -71,6 +73,7 @@ MAKE_CKECK_PLACE(red)
 MAKE_CKECK_PLACE(saturation)
 MAKE_CKECK_PLACE(value)
 MAKE_CKECK_PLACE(yellow)
+MAKE_CKECK_PLACE(tint)
 
 
 void place_RGB()
@@ -263,3 +266,13 @@ void place_xyz()
   check_place_luma< ::color::xyz<double>       ::category_type >();
   check_place_luma< ::color::xyz<long double>  ::category_type >();
  }
+
+void place_tsl()
+ {
+  //check_place_tint< ::color::tsl<std::uint8_t> ::category_type >();
+  //check_place_tint< ::color::tsl<std::uint16_t>::category_type >();
+  //check_place_tint< ::color::tsl<float>        ::category_type >();
+  //check_place_tint< ::color::tsl<double>       ::category_type >();
+  //check_place_tint< ::color::tsl<long double>  ::category_type >();
+ }
+

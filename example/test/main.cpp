@@ -5,7 +5,7 @@
 #include <iostream>
 #include <iomanip>
 
-#define COLOR_USE_PP2FILE
+//#define COLOR_USE_PP2FILE
 #include "color/color.hpp"
 
 #include "./model/invoke.hpp"
@@ -668,8 +668,99 @@ template< typename source_name, typename category_name >
    std::cout << std::endl;
   }
 
+void tsl_test()
+ { 
+  color::tsl<double> t;
+
+  //double t_min=+10, t_max=-10;
+  //double s_min=+10, s_max=-10;
+  //double l_min=+10, l_max=-10;
+  //color::rgb<double>  rgb;
+  //for( rgb[2] = 0; rgb[2] < 1.0; rgb[2] += 0.01 ) 
+  // for( rgb[1] = 0; rgb[1] < 1.0; rgb[1] += 0.01 )
+  //  for( rgb[0] = 0; rgb[0] < 1.0; rgb[0] += 0.01 ) 
+  //    { 
+  //     t =rgb;
+  //      t_min = std::min<double>( t_min, t[0] ); t_max= std::max<double>( t_max, t[0] );
+  //      s_min = std::min<double>( s_min, t[1] ); s_max= std::max<double>( s_max, t[1] );
+  //      l_min = std::min<double>( l_min, t[2] ); l_max= std::max<double>( l_max, t[2] );
+  //    }
+  //std::cout << t_min << ", " << t_max << std::endl;
+  //std::cout << s_min << ", " << s_max << std::endl;
+  //std::cout << l_min << ", " << l_max << std::endl;
+
+  color::rgb<std::uint8_t> r0 = color::constant::violet_t{};
+  color::rgb<std::uint8_t> r = color::constant::violet_t{};
+
+  color::gray<double> c0{ { 0.0 } };  t = c0; c0 = t;
+  color::gray<double> c1{ { 0.1 } };  t = c1; c1 = t;
+  color::gray<double> c2{ { 0.2 } };  t = c2; c2 = t;
+  color::gray<double> c3{ { 0.3 } };  t = c3; c3 = t;
+
+  t = r;
+  r = t;
+  std::cout << (int)r0[0] << ", " << (int)r0[1] << ", " << (int)r0[2] << std::endl;
+  std::cout << (int)r[0] << ", " << (int)r[1] << ", " << (int)r[2] << std::endl;
+ }
+
+void temperature()
+ { 
+  color::xyz<double> x = color::constant::aquamarine_t{};
+  std::cout << color::get::temperature( x ) << std::endl;
+
+  color::rgb<double> r = color::constant::aquamarine_t{};
+  std::cout << color::get::temperature( r ) << std::endl;
+ }
+
+void test_lms()
+ { 
+  typedef ::color::lms<   double, ::color::constant::lms::CAT97_entity         >  lms_t;
+  typedef ::color::rgb<   std::uint8_t    >  rgb_t;
+  typedef ::color::xyz<   double >      xyz_t;
+
+  typedef ::color::constant::lms::matrix< double, ::color::constant::lms::CAT97_entity > matrix_t;
+
+  auto r11 = matrix_t::a11() *  matrix_t::i11() +  matrix_t::a12() *  matrix_t::i21() + matrix_t::a13() *  matrix_t::i31();
+  auto r12 = matrix_t::a11() *  matrix_t::i12() +  matrix_t::a12() *  matrix_t::i22() + matrix_t::a13() *  matrix_t::i32();
+  auto r13 = matrix_t::a11() *  matrix_t::i13() +  matrix_t::a12() *  matrix_t::i23() + matrix_t::a13() *  matrix_t::i33();
+
+  auto r21 = matrix_t::a21() *  matrix_t::i11() +  matrix_t::a22() *  matrix_t::i21() + matrix_t::a23() *  matrix_t::i31();
+  auto r22 = matrix_t::a21() *  matrix_t::i12() +  matrix_t::a22() *  matrix_t::i22() + matrix_t::a23() *  matrix_t::i32();
+  auto r23 = matrix_t::a21() *  matrix_t::i13() +  matrix_t::a22() *  matrix_t::i23() + matrix_t::a23() *  matrix_t::i33();
+
+  auto r31 = matrix_t::a31() *  matrix_t::i11() +  matrix_t::a32() *  matrix_t::i21() + matrix_t::a33() *  matrix_t::i31();
+  auto r32 = matrix_t::a31() *  matrix_t::i12() +  matrix_t::a32() *  matrix_t::i22() + matrix_t::a33() *  matrix_t::i32();
+  auto r33 = matrix_t::a31() *  matrix_t::i13() +  matrix_t::a32() *  matrix_t::i23() + matrix_t::a33() *  matrix_t::i33();
+
+
+  lms_t l;
+  rgb_t r0 = color::constant::white_t{};
+  rgb_t r = color::constant::white_t{};
+
+  xyz_t x;   x =  r;
+  xyz_t x0;  x0 =  r;
+
+   l = r;
+   r = l;
+
+   l = x;
+   x = l;
+
+  std::cout <<  x0[0] << ", " <<   x0[1] << ", " << x0[2] << std::endl;
+  std::cout <<  x[0]  << ", " <<   x[1]  << ", " << x[2] << std::endl;
+
+ }
+
 int main(int argc, char const *argv[] )
  {
+  tsl_test();
+  test_lms();
+
+  temperature();
+
+  extern void test_constant();
+  test_constant();
+
   void main_extract();
   main_extract();
 
@@ -692,9 +783,6 @@ int main(int argc, char const *argv[] )
   sandbox_test5();
   extern void print_bound( );
   print_bound();
-
-  extern void test_constant();
-  test_constant();
 
   extern void check_sizeof();
   check_sizeof();
