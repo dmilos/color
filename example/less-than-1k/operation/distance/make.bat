@@ -11,3 +11,5 @@ cl /EHsc  -I../../../../src /D%PP2F% euclid.cpp
 cl /EHsc  -I../../../../src /D%PP2F% gray.cpp
 cl /EHsc  -I../../../../src /D%PP2F% delta_gray.cpp
 cl /EHsc  -I../../../../src /D%PP2F% hue_euclid.cpp
+cl /EHsc  -I../../../../src /D%PP2F% hsl_bicone.cpp
+cl /EHsc  -I../../../../src /D%PP2F% hsv_cone.cpp

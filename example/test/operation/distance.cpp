@@ -136,28 +136,34 @@ void test_operation_distance_from
  {
   bgr_image_type  distance; distance.reserve( image.size() );
   double maximum = 0;
+  double emax = 1.0/512.0;
   std::size_t count = 0;
   for( auto & pixel : image )
    {
     ++count;
-    auto dd = ::color::operation::distance< reference_number >( ::color::model<category_name>( pixel ), right );
+    auto ddo = ::color::operation::distance< reference_number >( ::color::model<category_name>( pixel ), right );
     auto dr = ::color::operation::distance< reference_number >( right, ::color::model<category_name>( pixel ) );
-    
-    //if( 0.01 < fabs( dd-dr ) ) 
-    // {
-    //  distance.push_back( ::color::constant::blue_t{} );
-    //  if( 0 == ( count % 4 )  )
-    //  continue;
-    // }
+    auto error = fabs( ddo-dr ); emax = std::max<double>( emax, error );
 
-    maximum = std::max<double>( maximum, dd );
-    dd *= scale;
+    if( 0.0001 < error ) 
+     {
+      //distance.push_back( ::color::constant::blue_t{} );
+      //continue;
+     }
+
+    maximum = std::max<double>( maximum, ddo );
+    auto dd = ddo * scale;
 
     if( 1 < dd ) dd = 1;
     dd = pow( 1 - dd,  1.5 );
     dd = dd * fabs( sin( 20 * dd * 3.14159265359 / 2.0 ) );
+    {
+     std::uint8_t r = std::uint8_t( 255 * (error/emax) );
+     std::uint8_t g = std::uint8_t( 255 * (ddo/maximum) );
+     std::uint8_t b = std::uint8_t( 255 * dd );
 
-    distance.push_back( bgr_color_type( gray_color_type( std::uint8_t( 255 * dd ) ) ) );
+     distance.push_back( bgr_color_type( { r, g, b } ) );
+    }
    }
 
   std::cout << __FUNCTION__ << " - " << reference_number << " - " << output << "; MAX: " << maximum << std::endl;
@@ -248,6 +254,9 @@ void test_operation_any2any()
   ::color::operation::distance< ::color::constant::distance::CIEDE2000_entity >( bgr, rgb );
 
   ::color::operation::distance< ::color::constant::distance::maxwell_entity >( bgr, rgb );
+
+  ::color::operation::distance< ::color::constant::distance::hsl_bicone_entity >( bgr, rgb );
+  ::color::operation::distance< ::color::constant::distance::hsv_cone_entity >( bgr, rgb );
  }
 template
  <
@@ -298,6 +307,9 @@ void test_operation_zero_main()
   test_operation_distance_zero< ::color::constant::distance::hue_helix_rgb_entity,  rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::rgb_special_entity,    rgb_t >();
   test_operation_distance_zero< ::color::constant::distance::maxwell_entity,        rgb_t >();
+
+  test_operation_distance_zero< ::color::constant::distance::hsl_bicone_entity,     rgb_t >();
+  test_operation_distance_zero< ::color::constant::distance::hsv_cone_entity,       rgb_t >();
  }
 
 void test_operation_distance__all()
@@ -320,10 +332,6 @@ void test_operation_distance__all()
    {
     std::cout << "Can not load" <<  "hsl-1-100.tga" << std::endl;
    }
-
-
-
-
 
   test_operation_distance_from< ::color::constant::distance::euclid_entity,         rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,0},  1.5/1.72979,              "./operation/dist_euclid_rgb2rgb.tga"     );
 
@@ -356,6 +364,8 @@ void test_operation_distance__all()
   test_operation_distance_from< ::color::constant::distance::rgb_special_entity,    rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_rgbS_rgb2rgb.tga"       );
   test_operation_distance_from< ::color::constant::distance::maxwell_entity,        rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_maxwell_rgb2rgb.tga"       );
 
+  test_operation_distance_from< ::color::constant::distance::hsl_bicone_entity,     rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_hsl_bicone_rgb2rgb.tga"       );
+  test_operation_distance_from< ::color::constant::distance::hsv_cone_entity,       rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_hsv_cone_rgb2rgb.tga"       );
   test_operation_any2any();
   test_operation_zero_main();
 }

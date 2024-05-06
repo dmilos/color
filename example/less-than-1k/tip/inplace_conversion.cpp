@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
   ::color::rgb<double> *r = reinterpret_cast< ::color::rgb<double> *>( image.data() );
   ::color::hsv<double> *h = reinterpret_cast< ::color::hsv<double> *>( image.data() );
 
-  std::transform( r, r + image.size(), h, []( ::color::rgb<double> const& r ) { return ::color::hsv<double>( r ); } );
+  std::transform( r, r + image.size(), h, []( ::color::rgb<double> const& c ) { return ::color::hsv<double>( c ); } );
 
   return 0;
  }

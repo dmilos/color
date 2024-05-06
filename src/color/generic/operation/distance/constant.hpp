@@ -33,13 +33,13 @@
          ,hue_euclid_entity
          ,hue_helix_entity
          ,hue_helix_rgb_entity
-       //,hue_entity             //!< Rejected. Distance by only one coordinate
+       //,hue_entity             //!< Rejected. Distance by only one coordinate. use hsl_bicone_entity , hsv_cone_entity
          ,rgb_special_entity
          ,maxwell_entity
-         // ,hsi_circle_entity //!< TODO  use all coordinate
-         // ,hsl_circle_entity //!< TODO  use all coordinate
-         // ,hsv_circle_entity //!< TODO  use all coordinate
-         // ,hwb_circle_entity //!< TODO  use all coordinate
+         ,hsl_bicone_entity // ( (1-fabs( 2*L - 1 ) ) * s*cos(H), (1-fabs( 2*L - 1 ) ) * s*sin(H), 2*L - 1  )
+         ,hsv_cone_entity   // ( V * s*cos(H), V * s*sin(H), V  )
+         // ,hsi_bicone_entity
+         // ,hwb_cone_entity
         };
 
       }

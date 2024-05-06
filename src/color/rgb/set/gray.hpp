@@ -45,7 +45,7 @@
           , blue_p  = ::color::place::_internal::blue<category_type>::position_enum
          };
 
-        scalar_type value =
+        scalar_type value = // TODO color::get::gray<yuv709>( color_parameter );
              gray_const_type::Rc() * normalize_rgb_type::template process<red_p  >( color_parameter.template get<red_p  >() )
            + gray_const_type::Gc() * normalize_rgb_type::template process<green_p>( color_parameter.template get<green_p>() )
            + gray_const_type::Bc() * normalize_rgb_type::template process<blue_p >( color_parameter.template get<blue_p >() );

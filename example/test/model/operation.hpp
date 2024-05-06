@@ -18,17 +18,17 @@ template< typename category_name >
    model_type   u32d;
 
    // long names discourage usage of it directly.
-   color::operation::addition( u32a, u32b, u32c ); ::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b, u32c );
-   color::operation::addition( u32a, u32b );       ::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b );
-   color::operation::subtract( u32a, u32b, u32c ); ::color::operation::_internal::subtract< color_t::category_type >{}( u32a, u32b, u32c );
-   color::operation::subtract( u32a, u32b );       ::color::operation::_internal::subtract< color_t::category_type >{}( u32a, u32b );
-   color::operation::invert( u32a, u32b );         ::color::operation::_internal::invert< color_t::category_type >{}( u32a, u32b );
-   color::operation::invert( u32a );               ::color::operation::_internal::invert< color_t::category_type >{}( u32a );
-   color::operation::scale( u32a, 0.5 );           ::color::operation::_internal::scale< color_t::category_type >{}( u32a, 0.5 );
-   color::operation::scale( u32a, 0.5, u32b );     ::color::operation::_internal::scale< color_t::category_type >{}( u32a, 0.5, u32b );
+   color::operation::addition( u32a, u32b, u32c ); //::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b, u32c );
+   color::operation::addition( u32a, u32b );       //::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b );
+   color::operation::subtract( u32a, u32b, u32c ); //::color::operation::_internal::subtract< color_t::category_type >{}( u32a, u32b, u32c );
+   color::operation::subtract( u32a, u32b );       //::color::operation::_internal::subtract< color_t::category_type >{}( u32a, u32b );
+   color::operation::invert( u32a, u32b );         //::color::operation::_internal::invert< color_t::category_type >{}( u32a, u32b );
+   color::operation::invert( u32a );               //::color::operation::_internal::invert< color_t::category_type >{}( u32a );
+   color::operation::scale( u32a, 0.5 );           //::color::operation::_internal::scale< color_t::category_type >{}( u32a, 0.5 );
+   color::operation::scale( u32a, 0.5, u32b );     //::color::operation::_internal::scale< color_t::category_type >{}( u32a, 0.5, u32b );
 
-   color::operation::multiply( u32a, u32b, u32c );  ::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b, u32c );
-   color::operation::multiply( u32a, u32b );        ::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b );
+   color::operation::multiply( u32a, u32b, u32c );  //::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b, u32c );
+   color::operation::multiply( u32a, u32b );        //::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b );
    //u32c = ::color::constant::gray_t<1,1>{};
    //color::operation::divide( u32a, u32b, u32c ); ::color::operation::_internal::addition< color_t::category_type >{}( u32a, u32b, u32c );
    //u32b = ::color::constant::gray_t<1,1>{};

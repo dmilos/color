@@ -1,6 +1,6 @@
 echo off
 set  left_folder=..\out\dec
-set  right_folder=..\..\..\..\mirror\example\test\out\dec
+set  right_folder=..\..\..\..\mirror2\example\test\out\dec
 set  target_folder=..\out\check
 set  program_TC=..\out\tc.exe
 
@@ -44,9 +44,9 @@ set  program_TC=..\out\tc.exe
 %program_TC% %left_folder%\lmsKE-0.tga        %right_folder%\lmsKE-0.tga           %target_folder%\lmsKE-0.tga
 %program_TC% %left_folder%\lmsKE-1.tga        %right_folder%\lmsKE-1.tga           %target_folder%\lmsKE-1.tga
 %program_TC% %left_folder%\lmsKE-2.tga        %right_folder%\lmsKE-2.tga           %target_folder%\lmsKE-2.tga
-%program_TC% %left_folder%\lmsMCAT02-0.tga    %right_folder%\lmsMCAT02-0.tga       %target_folder%\lmsMCAT02-0.tga
-%program_TC% %left_folder%\lmsMCAT02-1.tga    %right_folder%\lmsMCAT02-1.tga       %target_folder%\lmsMCAT02-1.tga
-%program_TC% %left_folder%\lmsMCAT02-2.tga    %right_folder%\lmsMCAT02-2.tga       %target_folder%\lmsMCAT02-2.tga
+%program_TC% %left_folder%\lmsCAT02-0.tga    %right_folder%\lmsCAT02-0.tga       %target_folder%\lmsCAT02-0.tga
+%program_TC% %left_folder%\lmsCAT02-1.tga    %right_folder%\lmsCAT02-1.tga       %target_folder%\lmsCAT02-1.tga
+%program_TC% %left_folder%\lmsCAT02-2.tga    %right_folder%\lmsCAT02-2.tga       %target_folder%\lmsCAT02-2.tga
 %program_TC% %left_folder%\luv-0.tga         %right_folder%\luv-0.tga           %target_folder%\luv-0.tga
 %program_TC% %left_folder%\luv-1.tga         %right_folder%\luv-1.tga           %target_folder%\luv-1.tga
 %program_TC% %left_folder%\luv-2.tga         %right_folder%\luv-2.tga           %target_folder%\luv-2.tga

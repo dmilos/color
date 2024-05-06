@@ -45,7 +45,7 @@
        )
        {
         typedef typename ::color::trait::scalar<category_name>::instance_type scalar_type;
-        return ::color::operation::_internal::combine<category_name>::process( result, a0, x0, a1 , x1, scalar_type(1)-a0-a1, x2 );
+        return ::color::operation::_internal::combine<category_name>::process( result, a0,x0, a1,x1, scalar_type(1)-a0-a1, x2 );
        }
 
      template< typename category_name >

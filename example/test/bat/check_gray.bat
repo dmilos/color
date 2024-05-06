@@ -1,6 +1,6 @@
 echo off
 set  left_folder=..\out\gray
-set  right_folder=..\..\..\..\mirror\example\test\out\gray
+set  right_folder=..\..\..\..\mirror2\example\test\out\gray
 set  target_folder=..\out\check
 set  program_TC=..\out\tc.exe
 

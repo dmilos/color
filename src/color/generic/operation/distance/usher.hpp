@@ -130,3 +130,5 @@
 #include "./hue_helix_rgb.hpp"
 #include "./rgb_special.hpp"
 #include "./maxwell.hpp"
+#include "./hsl_bicone.hpp"
+#include "./hsv_cone.hpp"

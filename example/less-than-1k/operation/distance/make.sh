@@ -11,3 +11,5 @@ g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src euclid.cpp          -o eucl
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src gray.cpp            -o gray
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src delta_gray.cpp      -o delta_gray
 g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hue_euclid.cpp      -o hue_euclid
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hsl_bicone.cpp      -o hsl_bicone
+g++ $gccBaseSwitch $gccExtraSwitch -I../../../../src hsv_cone.cpp        -o hsv_cone

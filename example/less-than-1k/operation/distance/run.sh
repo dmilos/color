@@ -11,3 +11,6 @@ pwd
 ./gray.exe
 ./delta_gray.exe
 ./hue_euclid.exe
+
+./hsl_bicone.exe
+./hsv_cone.exe

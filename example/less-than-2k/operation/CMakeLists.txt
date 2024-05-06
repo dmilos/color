@@ -6,26 +6,3 @@ add_subdirectory( invert )
 add_subdirectory( multiply )
 add_subdirectory( subtract )
 
-#add_executable(   ColorExample__TodoTodoTodo              TODO.cpp )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

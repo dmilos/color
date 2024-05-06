@@ -48,7 +48,7 @@ namespace color
        typedef typename index_trait_type::model_type             index_input_const_type;
        typedef typename index_trait_type::return_image_type      index_return_image_type;
 
-       typedef typename size_trait_type::instance_type          size_type;
+       typedef typename size_trait_type::instance_type          size_instance_type, size_type;
        typedef typename size_trait_type::return_image_type      size_return_image_type;
 
        typedef typename component_trait_type::instance_type       component_type;
@@ -68,7 +68,7 @@ namespace color
        typedef typename container_trait_type::set_return_type        set_return_type;
 
        typedef typename scalar_trait_type::model_type          scalar_input_const_type;
-       typedef typename scalar_trait_type::instance_type       scalar_instance_type;
+       typedef typename scalar_trait_type::instance_type       scalar_instance_type, scalar_type;
 
                model( )
                {
@@ -90,14 +90,16 @@ namespace color
 
        explicit model( std::initializer_list<component_type> const& ilist ) //!< NO explicit. Type conversion!!!
         {
-         //TODO C++14 static_assert( container_trait_type::size_entity != ilist.size(), "Initializer list size do not match model/format length." );
+//#if 201103L < __cplusplus
+//         static_assert( container_trait_type::size_entity != ilist.size(), "Initializer list size do not match model/format length." );
+//#endif
          ::color::_internal::init<category_name>( this->m_container, ilist );
         }
 
        /*template < typename that_component_type >
         explicit model( std::initializer_list<that_component_type> const& ilist )
          {
-          //TODO C++14 static_assert( container_trait_type::size_entity != ilist.size(), "Initializer list size do not match model/format length." );
+          static_assert( container_trait_type::size_entity != ilist.size(), "Initializer list size do not match model/format length." );
           ::color::_internal::init<category_name,that_component_type>( this->m_container, ilist );
          }*/
 

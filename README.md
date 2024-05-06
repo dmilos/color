@@ -116,11 +116,12 @@ yr = color::operation::mix( y2, 0.5, y2 ); //!< Blend two colors for given alpha
   
 ### (Links
   - [ibireme](https://github.com/ibireme/yy_color_convertor)
-  - [](http://discoverybiz.net/enu0/faq/faq_YUV_YCbCr_YPbPr.html)
+  - [YUV, YCbCr, YPbPr color spaces](http://discoverybiz.net/enu0/faq/faq_YUV_YCbCr_YPbPr.html)
   - [Bruce Justin Lindbloom](http://www.brucelindbloom.com/index.html)
   - [colorizer](http://colorizer.org/)
-  - [](https://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.2020-2-201510-I!!PDF-E.pdf)
+  - [Parameter values for ultra-high definition television systems for production and international programme exchange](https://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.2020-2-201510-I!!PDF-E.pdf)
 
 
 ### License
 Licensed under an [Apache-2.0](https://github.com/dmilos/color/blob/master/license.txt) license.
+

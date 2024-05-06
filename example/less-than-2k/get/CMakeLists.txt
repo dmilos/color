@@ -3,6 +3,3 @@
 add_subdirectory( gray )
 add_subdirectory( hue )
 
-
-#add_executable(   ColorExample__TodoTodoTodo              TODO.cpp )
-

@@ -1,3 +1,13 @@
 #cmake_minimum_required(VERSION 2.8)
 
-#TODO
+add_executable(  ColorExample__less-than-1k_operation_distance_CIE76        CIE76.cpp      )
+add_executable(  ColorExample__less-than-1k_operation_distance_cie94g       cie94g.cpp     )
+add_executable(  ColorExample__less-than-1k_operation_distance_cie94t       cie94t.cpp     )
+add_executable(  ColorExample__less-than-1k_operation_distance_CIEDE2000    CIEDE2000.cpp  )
+add_executable(  ColorExample__less-than-1k_operation_distance_CMC1984      CMC1984.cpp    )
+add_executable(  ColorExample__less-than-1k_operation_distance_delta_gray   delta_gray.cpp )
+add_executable(  ColorExample__less-than-1k_operation_distance_euclid       euclid.cpp     )
+add_executable(  ColorExample__less-than-1k_operation_distance_gray         gray.cpp       )
+add_executable(  ColorExample__less-than-1k_operation_distance_hsl_bicone   hsl_bicone.cpp )
+add_executable(  ColorExample__less-than-1k_operation_distance_hsv_cone     hsv_cone.cpp   )
+add_executable(  ColorExample__less-than-1k_operation_distance_hue_euclid   hue_euclid.cpp )

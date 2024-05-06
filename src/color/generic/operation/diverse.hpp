@@ -1,6 +1,8 @@
 #ifndef color_operation_diverse
 #define color_operation_diverse
 
+//  color::operation::diverse<category_name>( scalar, channel )
+
 #include "../../_internal/diverse.hpp"
 
 #include "../trait/component.hpp"

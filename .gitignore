@@ -182,3 +182,9 @@ example/make_rgb_red
 /example/test/out
 /example/test/out-R
 /example/test/out-T
+/example/test/build/msvc/2022/.vs
+/example/test/build/msvc/2022/_out-msvc22-Debug-x64
+/example/test/build/msvc/2015/_out-msvc14-Release-Win32
+/example/out
+/example/test/build/msvc/2015/test14.VC.db
+/example/test/build/msvc/2022/_out-msvc22-Release-x64

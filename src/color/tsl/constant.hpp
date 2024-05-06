@@ -31,6 +31,7 @@ namespace color
          static /* constexpr*/ scalar_type const G(){ return  0.5870000000000000000; }
          static /* constexpr*/ scalar_type const B(){ return  0.1140000000000000000; }
          static /* constexpr*/ scalar_type const two_pi(){ return  constant_generic_type::two_pi(); }
+         static /* constexpr*/ scalar_type const small(){ return  0.1/256.0; }
       };
 
    }

@@ -68,8 +68,10 @@ namespace color
            scalar_type g = normalize_type::template process<green_p>( container_right_trait_type::template get<green_p     >( right ) );
            scalar_type b = normalize_type::template process<blue_p >( container_right_trait_type::template get<lightness_p >( right ) );
 
-           scalar_type rp = r/( r+g+b ) - scalar_type(1)/scalar_type(3);
-           scalar_type gp = g/( r+g+b ) - scalar_type(1)/scalar_type(3);
+           scalar_type summae =  r+g+b ; 
+           scalar_type rp = r/summae - scalar_type(1)/scalar_type(3);
+           scalar_type gp = g/summae - scalar_type(1)/scalar_type(3);
+           if( fabs( summae ) < tsl_constant_type::small() ) { rp = 0; gp = 0; }
 
            scalar_type t = scalar_type(0.5) - atan2( gp, rp ) / tsl_constant_type::two_pi();
            scalar_type s = sqrt( ( scalar_type(9)/scalar_type(5) )*( rp*rp + gp*gp ) );
