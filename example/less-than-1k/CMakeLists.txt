@@ -1,5 +1,7 @@
 #cmake_minimum_required(VERSION 2.8)
 
+project(ColorExampleProject)
+ 
 add_subdirectory( akin )
 add_subdirectory( assign )
 add_subdirectory( check )

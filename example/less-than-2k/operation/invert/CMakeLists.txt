@@ -1,26 +1,21 @@
 #cmake_minimum_required(VERSION 2.8)
 
-
-#add_executable(   ColorExample__TodoTodoTodo              TODO.cpp )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+add_executable(   ColorExample__less-than-2k__operation__invert__cmy         cmy.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__cmyk         cmyk.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__gray         gray.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__hsi         hsi.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__hsl         hsl.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__hsv         hsv.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__hwb         hwb.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__lab         lab.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__LabCH         LabCH.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__lms         lms.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__luv         luv.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__LuvCH         LuvCH.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__rgb         rgb.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__xyz         xyz.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__YCgCo         YCgCo.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__YDbDr         YDbDr.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__yiq         yiq.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__YPbPr         YPbPr.cpp     )
+add_executable(   ColorExample__less-than-2k__operation__invert__yuv         yuv.cpp     )

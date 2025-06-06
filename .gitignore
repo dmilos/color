@@ -188,3 +188,5 @@ example/make_rgb_red
 /example/out
 /example/test/build/msvc/2015/test14.VC.db
 /example/test/build/msvc/2022/_out-msvc22-Release-x64
+/example/test/build/cmake/_output
+/example/_cmakeVS2015

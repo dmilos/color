@@ -753,12 +753,12 @@ void test_lms()
 
 int main(int argc, char const *argv[] )
  {
+    void test_palette();
+    test_palette();
 
   void test_operation_distance__all( );
   test_operation_distance__all(); //!< must call test_palette before this.
   return 0;
-  void test_palette();
-  test_palette();
 
   tsl_test();
   test_lms();

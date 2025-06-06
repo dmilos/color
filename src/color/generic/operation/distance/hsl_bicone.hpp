@@ -28,15 +28,17 @@
 
             static void getXYZ( scalar_type  &x, scalar_type  &y, scalar_type  &z, hsl_type const& c )
              {
-              scalar_type radians =  c.template get<0>() *constant_type::deg2rad();
-              scalar_type const lightnes = c.template get<2>() / scalar_type(100);
-              scalar_type const saturation = c.template get<1>() / scalar_type(100);
+              scalar_type const radians      = c.template get<0>() * constant_type::deg2rad();
+              scalar_type const & saturation = c.template get<1>();
+              scalar_type const & lightnes   = c.template get<2>();
 
-              scalar_type radius  =( scalar_type(1) - fabs( scalar_type(2)* lightnes - scalar_type(1) ) ); // radius *=  radius_scale;
+              scalar_type height = lightnes - scalar_type(50);
+              scalar_type radius = saturation;
+                          radius *= ( scalar_type(50) - fabs( height ) ) / scalar_type(50);
 
-              x = radius * saturation * cos( radians );
-              y = radius * saturation * sin( radians );
-              z =  scalar_type(2) * lightnes  - scalar_type(1);  // z *=  z_scale;
+              x = radius * cos( radians );
+              y = radius * sin( radians );
+              z = height;
              }
 
             static   scalar_type square( scalar_type const& s ){ return s * s; }

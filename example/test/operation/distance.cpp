@@ -327,10 +327,11 @@ void test_operation_distance__all()
   distance_check_hue_rgb_helix();
 
   std::string root = "z:/work/code/cpp/prj/github/color/work/example/test/out";
+   root = ".";
 
   if( false == load_image( image, width, height, root + "/palette/hsl-1-100.tga" ) )
    {
-    std::cout << "Can not load" <<  "hsl-1-100.tga" << std::endl;
+    std::cout << "Can not load: " <<  "hsl-1-100.tga" << std::endl;
    }
 
   test_operation_distance_from< ::color::constant::distance::euclid_entity,         rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,0},  1.5/1.72979,              "./operation/dist_euclid_rgb2rgb.tga"     );
@@ -364,8 +365,8 @@ void test_operation_distance__all()
   test_operation_distance_from< ::color::constant::distance::rgb_special_entity,    rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_rgbS_rgb2rgb.tga"       );
   test_operation_distance_from< ::color::constant::distance::maxwell_entity,        rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_maxwell_rgb2rgb.tga"       );
 
-  test_operation_distance_from< ::color::constant::distance::hsl_bicone_entity,     rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_hsl_bicone_rgb2rgb.tga"       );
-  test_operation_distance_from< ::color::constant::distance::hsv_cone_entity,       rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,1},  1.0 / 1.0,           "./operation/dist_hsv_cone_rgb2rgb.tga"       );
+  test_operation_distance_from< ::color::constant::distance::hsl_bicone_entity,     rgb_t >( image, width, height, ::color::rgb<double>{ 0, 1, 0 },  1.0 / 100.0,  "./operation/dist_hsl_bicone_rgb2rgb.tga"  );
+  test_operation_distance_from< ::color::constant::distance::hsv_cone_entity,       rgb_t >( image, width, height, ::color::rgb<double>{ 0, 1, 0 },  1.0 / 100.0,  "./operation/dist_hsv_cone_rgb2rgb.tga"    );
   test_operation_any2any();
   test_operation_zero_main();
 }
