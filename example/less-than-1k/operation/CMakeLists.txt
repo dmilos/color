@@ -1,3 +1,22 @@
 #cmake_minimum_required(VERSION 2.8)
 
-#TODO
+add_subdirectory( addition )
+add_subdirectory( blend  )
+add_subdirectory( distance )
+add_subdirectory( invert )
+
+add_executable(  ColorExample__less-than-1k_operation__bias             bias.cpp          )
+add_executable(  ColorExample__less-than-1k_operation__ceil             ceil.cpp          )
+add_executable(  ColorExample__less-than-1k_operation__clip             clip.cpp          )
+add_executable(  ColorExample__less-than-1k_operation__delta            delta.cpp         )
+add_executable(  ColorExample__less-than-1k_operation__divide           divide.cpp        )
+add_executable(  ColorExample__less-than-1k_operation__floor            floor.cpp         )
+add_executable(  ColorExample__less-than-1k_operation__gain             gain.cpp          )
+add_executable(  ColorExample__less-than-1k_operation__gamma            gamma.cpp         )
+add_executable(  ColorExample__less-than-1k_operation__median1          median1.cpp       )
+add_executable(  ColorExample__less-than-1k_operation__median2          median2.cpp       )
+add_executable(  ColorExample__less-than-1k_operation__mix_alpha        mix_alpha.cpp     )
+add_executable(  ColorExample__less-than-1k_operation__mix_noalpha      mix_noalpha.cpp   )
+add_executable(  ColorExample__less-than-1k_operation__multiply         multiply.cpp      )
+add_executable(  ColorExample__less-than-1k_operation__scale            scale.cpp         )
+add_executable(  ColorExample__less-than-1k_operation__subtract         subtract.cpp      )
