@@ -1,3 +1,12 @@
 #cmake_minimum_required(VERSION 2.8)
 
-#TODO
+add_executable(   ColorExample__less-than-1k__get__saturation__hsi        hsi.cpp      )
+add_executable(   ColorExample__less-than-1k__get__saturation__hsl        hsl.cpp      )
+add_executable(   ColorExample__less-than-1k__get__saturation__hsv        hsv.cpp      )
+add_executable(   ColorExample__less-than-1k__get__saturation__lab        lab.cpp      )
+add_executable(   ColorExample__less-than-1k__get__saturation__LabCH      LabCH.cpp    )
+add_executable(   ColorExample__less-than-1k__get__saturation__luv        luv.cpp      )
+add_executable(   ColorExample__less-than-1k__get__saturation__LuvCH      LuvCH.cpp    )
+add_executable(   ColorExample__less-than-1k__get__saturation__rgb_hsi    rgb_hsi.cpp  )
+add_executable(   ColorExample__less-than-1k__get__saturation__rgb_hsl    rgb_hsl.cpp  )
+add_executable(   ColorExample__less-than-1k__get__saturation__rgb_hsv    rgb_hsv.cpp  )
