@@ -44861,13 +44861,13 @@ public:
 	typedef ::color::constant::generic< category_name > constant_type;
 
 	static void getXYZ(scalar_type &x, scalar_type &y, scalar_type &z, hsv_type const& c) {
-		scalar_type radians = c.template get<0>() *constant_type::deg2rad();
-		scalar_type const value = c.template get<2>() / scalar_type(100);
-		scalar_type const saturation = c.template get<1>() / scalar_type(100);
-		scalar_type const& radius = value ;
-		x = radius * saturation * cos(radians);
-		y = radius * saturation * sin(radians);
-		z = value;
+		scalar_type const radians = c.template get<0>() * constant_type::deg2rad();
+		scalar_type const & saturation = c.template get<1>();
+		scalar_type const & value = c.template get<2>();
+		scalar_type radius = saturation ;
+		radius *= value / scalar_type(100);
+		x = radius * cos(radians);
+		y = radius * sin(radians);
 	}
 
 	static scalar_type square(scalar_type const& s) {
@@ -44904,13 +44904,15 @@ public:
 	typedef ::color::constant::generic< category_name > constant_type;
 
 	static void getXYZ(scalar_type &x, scalar_type &y, scalar_type &z, hsl_type const& c) {
-		scalar_type radians = c.template get<0>() *constant_type::deg2rad();
-		scalar_type const lightnes = c.template get<2>() / scalar_type(100);
-		scalar_type const saturation = c.template get<1>() / scalar_type(100);
-		scalar_type radius =(scalar_type(1) - fabs(scalar_type(2)* lightnes - scalar_type(1)));
-		x = radius * saturation * cos(radians);
-		y = radius * saturation * sin(radians);
-		z = scalar_type(2) * lightnes - scalar_type(1);
+		scalar_type const radians = c.template get<0>() * constant_type::deg2rad();
+		scalar_type const & saturation = c.template get<1>();
+		scalar_type const & lightnes = c.template get<2>();
+		scalar_type height = lightnes - scalar_type(50);
+		scalar_type radius = saturation;
+		radius *= (scalar_type(50) - fabs(height)) / scalar_type(50);
+		x = radius * cos(radians);
+		y = radius * sin(radians);
+		z = height;
 	}
 
 	static scalar_type square(scalar_type const& s) {
@@ -56171,7 +56173,7 @@ public:
 
 public:
 	static model_type & accumulate(model_type &result, scalar_type const& alpha, model_type const& upper) {
-		return this_type::template accumulate(result, result, alpha, upper);
+		return this_type::accumulate(result, result, alpha, upper);
 	}
 
 	static model_type & accumulate(model_type &result, model_type const& lower, scalar_type const& alpha, model_type const& upper) {
@@ -56202,7 +56204,7 @@ public:
 
 	static model_type mix(model_type const& lower, scalar_type const& alpha, model_type const& upper) {
 		model_type result;
-		this_type::template accumulate(result, lower, alpha, upper);
+		this_type::accumulate(result, lower, alpha, upper);
 		return result;
 	}
 

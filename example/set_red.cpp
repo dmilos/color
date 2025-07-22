@@ -44,7 +44,7 @@ void set_red_in_cmy()
 
   // Set the red
   // WARNING: Works for float, double and long double, for std::uint8_t use value between 0 and 255
-  color::set::red( c, 0.141592653589 );
+  color::set::red( c, 0.141592653589f );
 
   // Print changes
   std::cout << color::get::red( c ) << std::endl;
@@ -178,7 +178,7 @@ void set_red_in_yuv()
 
   // Set the red
   // WARNING: Works for float, double and long double, for std::uint8_t use value between 0 and 255
-  color::set::red( c, 0.141592653589 );
+  color::set::red( c, 0.141592653589f );
 
   // Print changes
   std::cout << color::get::red( c ) << std::endl;

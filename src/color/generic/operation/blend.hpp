@@ -55,7 +55,7 @@
           public:
             static model_type & accumulate( model_type &result, scalar_type const& alpha, model_type const& upper )
              {
-              return this_type::template accumulate( result, result, alpha, upper );
+              return this_type::accumulate( result, result, alpha, upper );
              }
 
             static model_type & accumulate( model_type &result, model_type const& lower, scalar_type const& alpha, model_type const& upper )
@@ -96,7 +96,7 @@
             static model_type mix( model_type const& lower, scalar_type const& alpha, model_type const& upper )
              {
               model_type result;
-              this_type::template accumulate( result, lower, alpha, upper );
+              this_type::accumulate( result, lower, alpha, upper );
               return result;
              }
 

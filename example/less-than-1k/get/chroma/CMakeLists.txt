@@ -1,3 +1,11 @@
 #cmake_minimum_required(VERSION 2.8)
 
-#TODO
+add_executable(   ColorExample__less-than-1k__get__chroma__hsi     hsi.cpp  )
+add_executable(   ColorExample__less-than-1k__get__chroma__hsl     hsl.cpp  )
+add_executable(   ColorExample__less-than-1k__get__chroma__hsv     hsv.cpp  )
+add_executable(   ColorExample__less-than-1k__get__chroma__lab     lab.cpp  )
+add_executable(   ColorExample__less-than-1k__get__chroma__LabCH     LabCH.cpp  )
+add_executable(   ColorExample__less-than-1k__get__chroma__luv     luv.cpp  )
+add_executable(   ColorExample__less-than-1k__get__chroma__LuvCH     LuvCH.cpp  )
+add_executable(   ColorExample__less-than-1k__get__chroma__rgb_d2g     rgb_d2g.cpp  )
+add_executable(   ColorExample__less-than-1k__get__chroma__rgb_mmm     rgb_mmm.cpp  )

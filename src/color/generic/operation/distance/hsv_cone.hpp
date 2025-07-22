@@ -26,17 +26,18 @@
             typedef ::color::hsv<scalar_type>  hsv_type;
             typedef ::color::constant::generic< category_name > constant_type;
 
+            //! NOTE: this can be improved more and more. Let's stop here.
             static void getXYZ( scalar_type  &x, scalar_type  &y, scalar_type  &z, hsv_type const& c )
              {
-              scalar_type radians =  c.template get<0>() *constant_type::deg2rad();
-              scalar_type const value = c.template get<2>() / scalar_type(100);
-              scalar_type const saturation = c.template get<1>() / scalar_type(100);
+              scalar_type const radians      = c.template get<0>() * constant_type::deg2rad();
+              scalar_type const & saturation = c.template get<1>();
+              scalar_type const & value      = c.template get<2>();
 
-              scalar_type const& radius  = value ;  // radius *=  radius_scale;
+              scalar_type radius  = saturation ;
+                          radius *= value / scalar_type(100);
 
-              x = radius * saturation * cos( radians );
-              y = radius * saturation * sin( radians );
-              z = value;  // z *=  z_scale;
+              x = radius * cos( radians );
+              y = radius * sin( radians );
              }
 
             static   scalar_type square( scalar_type const& s ){ return s * s; }

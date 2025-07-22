@@ -108,11 +108,9 @@ yr = color::operation::mix( y2, 0.5, y2 ); //!< Blend two colors for given alpha
   - [Wiki page](https://github.com/dmilos/color/wiki)
 
 ### Tested against:
-  - GCC 7.3.0
-  - GCC 10.2.0
-  - MSVC 2015 Update 3
-  - MSVC 2017 15.9.28
-  - MSVC 2019 16.8.3
+  - GCC 13.4.0, C++11,14,17,20
+  - MSVC 2022 17.14.9 C++11,14,17,20
+  - MSVC 2022 17.14.9 CLang, C++11,14,17,20
   
 ### (Links
   - [ibireme](https://github.com/ibireme/yy_color_convertor)
@@ -120,7 +118,6 @@ yr = color::operation::mix( y2, 0.5, y2 ); //!< Blend two colors for given alpha
   - [Bruce Justin Lindbloom](http://www.brucelindbloom.com/index.html)
   - [colorizer](http://colorizer.org/)
   - [Parameter values for ultra-high definition television systems for production and international programme exchange](https://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.2020-2-201510-I!!PDF-E.pdf)
-
 
 ### License
 Licensed under an [Apache-2.0](https://github.com/dmilos/color/blob/master/license.txt) license.

@@ -1,3 +1,21 @@
 #cmake_minimum_required(VERSION 2.8)
 
-#TODO
+
+add_executable(   ColorExample__less-than-1k__convert__cmy2cmy         cmy2cmy.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__cmy2cmyk        cmy2cmyk.cpp  )
+add_executable(   ColorExample__less-than-1k__convert__cmy2gray        cmy2gray.cpp  )
+add_executable(   ColorExample__less-than-1k__convert__cmy2hsl         cmy2hsl.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__cmy2hsv         cmy2hsv.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__cmy2rgb         cmy2rgb.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__cmy2yiq         cmy2yiq.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__cmy2yuv         cmy2yuv.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__gray2cmy        gray2cmy.cpp  )
+add_executable(   ColorExample__less-than-1k__convert__gray2rgb        gray2rgb.cpp  )
+add_executable(   ColorExample__less-than-1k__convert__rgb2cmy         rgb2cmy.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__rgb2cmyk        rgb2cmyk.cpp  )
+add_executable(   ColorExample__less-than-1k__convert__rgb2gray        rgb2gray.cpp  )
+add_executable(   ColorExample__less-than-1k__convert__rgb2hsl         rgb2hsl.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__rgb2hsv         rgb2hsv.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__rgb2rgb         rgb2rgb.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__rgb2yiq         rgb2yiq.cpp   )
+add_executable(   ColorExample__less-than-1k__convert__rgb2yuv         rgb2yuv.cpp   )

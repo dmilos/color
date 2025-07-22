@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.6)
 
-project(testColor)
+project(TestProject)
 
 set( directory__root "${CMAKE_SOURCE_DIR}/../../../.." )
 
@@ -24,4 +24,11 @@ source_group( TREE "${directory_example_test}" FILES ${SOURCE_CPP} )
 
 include_directories( "${directory_include}")
 
-add_executable( testCmake ${SOURCE_CPP} ${SOURCE_HPP} )
+add_executable( TestExe ${SOURCE_CPP} ${SOURCE_HPP} )
+
+if( MSVC )
+    target_compile_options( TestExe PRIVATE /bigobj)
+    set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT TestExe )
+else ()
+    #add_compile_options(-Wa,-mbig-obj)
+endif ()

@@ -17,7 +17,7 @@ int main( int argc, char *argv[] )
 
   // Set the blue
   // WARNING: Works for float, double and long double, for std::uint8_t use value between 0 and 255
-  color::set::blue( c, 0.141592653589 );
+  color::set::blue( c, 0.141592653589f );
 
   // Print changes
   std::cout << color::get::blue( c ) << std::endl;

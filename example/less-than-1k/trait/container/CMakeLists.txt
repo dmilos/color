@@ -1,3 +1,11 @@
 #cmake_minimum_required(VERSION 2.8)
 
-#TODO
+add_executable(   ColorExample__less-than-1k__trait__container__cmy         cmy.cpp )
+add_executable(   ColorExample__less-than-1k__trait__container__cmyk         cmyk.cpp )
+add_executable(   ColorExample__less-than-1k__trait__container__gray         gray.cpp )
+add_executable(   ColorExample__less-than-1k__trait__container__hsi         hsi.cpp )
+add_executable(   ColorExample__less-than-1k__trait__container__hsl         hsl.cpp )
+add_executable(   ColorExample__less-than-1k__trait__container__hsv         hsv.cpp )
+add_executable(   ColorExample__less-than-1k__trait__container__rgb         rgb.cpp )
+add_executable(   ColorExample__less-than-1k__trait__container__yiq         yiq.cpp )
+add_executable(   ColorExample__less-than-1k__trait__container__yuv         yuv.cpp )

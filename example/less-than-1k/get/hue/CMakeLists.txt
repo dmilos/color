@@ -1,3 +1,10 @@
 #cmake_minimum_required(VERSION 2.8)
 
-#TODO
+add_executable(   ColorExample__less-than-1k__get__hue__rgb_polar      hsi.cpp          )
+add_executable(   ColorExample__less-than-1k__get__hue__rgb_hex        hsl.cpp          )
+add_executable(   ColorExample__less-than-1k__get__hue__rgb_atan2      hsv.cpp          )
+add_executable(   ColorExample__less-than-1k__get__hue__rgb_acos       hwb.cpp          )
+add_executable(   ColorExample__less-than-1k__get__hue__hwb            rgb_acos.cpp     )
+add_executable(   ColorExample__less-than-1k__get__hue__hsv            rgb_atan2.cpp    )
+add_executable(   ColorExample__less-than-1k__get__hue__hsl            rgb_hex.cpp      )
+add_executable(   ColorExample__less-than-1k__get__hue__hsi            rgb_polar.cpp    )
