@@ -1,3 +1,21 @@
 #include "./constant.hpp"
-#include "./operation.hpp"
+
 #include "./usher.hpp"
+
+#include "./cie76.hpp"
+#include "./cie94.hpp"
+#include "./ciede2000.hpp"
+#include "./cmc1984.hpp"
+#include "./constant.hpp"
+#include "./delta_gray.hpp"
+#include "./euclid.hpp"
+#include "./hsl_bicone.hpp"
+#include "./hsv_cone.hpp"
+#include "./hue_euclid.hpp"
+#include "./hue_helix.hpp"
+#include "./hue_helix_rgb.hpp"
+#include "./maxwell.hpp"
+#include "./operation.hpp"
+#include "./rgb_special.hpp"
+
+#include "./operation.hpp"

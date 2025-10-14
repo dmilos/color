@@ -204,3 +204,16 @@ example/make_rgb_red
 /example/_build-msvc_Clang_14
 /example/_build-msvc_Clang_17
 /example/_build-msvc_Clang_20
+/example/_cmakeGcc_11
+/example/_cmakeGcc_14
+/example/_cmakeGcc_17
+<<<<<<< HEAD
+/example/_cmakeGcc_20
+
+/example/_buildGC-11
+/example/_buildGC-14
+/example/_buildGC-17
+/example/_buildGC-20
+=======
+/example/_cmakeGcc_20
+>>>>>>> fd047b5a (*test:[internal] Implemented more CMakeLists.txt files)
