@@ -1,7 +1,7 @@
 #cmake_minimum_required(VERSION 2.8)
 
 
-#add_executable(   ColorExample__TodoTodoTodo              tocolor.cpp )
+#add_executable(   ColorExample__opencv_tocolor              tocolor.cpp )
 
 
 

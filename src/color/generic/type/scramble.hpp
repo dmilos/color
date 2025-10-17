@@ -11,50 +11,22 @@ namespace color
   namespace type
    {
 
-    template< unsigned first_position, unsigned second_position >
-     struct scramble2
+    template< unsigned ... index >
+     struct scrambleX
      {
-      //TODO C++14 static_assert( first_position != second_position, "First and second place used for different components." );
      };
 
+    template< unsigned first_position, unsigned second_position >
+     using scramble2 = scrambleX< first_position, second_position >;
+
     template< unsigned first_position, unsigned second_position, unsigned third_position >
-     struct scramble3
-      {
-       //TODO C++14 static_assert( first_position  != second_position, "First and second place used for different components." );
-       //TODO C++14 static_assert( first_position  != third_position,  "First and third place used for different components."  );
-       //TODO C++14 static_assert( second_position != third_position,  "Second and third place used for different components." );
-      };
+     using scramble3 = scrambleX< first_position, second_position, third_position >;
 
     template< unsigned first_position, unsigned second_position, unsigned third_position , unsigned fourth_position >
-     struct scramble4
-      {
-       //TODO C++14 static_assert( first_position  != second_position,  "First and second place used for different components."   );
-       //TODO C++14 static_assert( first_position  != third_position,   "First and third place used for different components."    );
-       //TODO C++14 static_assert( first_position  != fourth_position,  "First and fourth place used for different components."   );
-
-       //TODO C++14 static_assert( second_position != third_position,   "Second and third place used for different components."   );
-       //TODO C++14 static_assert( second_position != fourth_position,  "Second and fourth place used for different components."  );
-
-       //TODO C++14 static_assert( third_position  != fourth_position,  "Third and fourth place used for different components."   );
-      };
+     using scramble4  = scrambleX< first_position, second_position, third_position, fourth_position >;
 
     template< unsigned first_position, unsigned second_position, unsigned third_position, unsigned fourth_position, unsigned fifth_position >
-     struct scramble5
-      {
-       //TODO C++14 static_assert( first_position  != second_position,  "First and second place used for different components."   );
-       //TODO C++14 static_assert( first_position  != third_position,   "First and third place used for different components."    );
-       //TODO C++14 static_assert( first_position  != fourth_position,  "First and fourth place used for different components."   );
-       //TODO C++14 static_assert( first_position  != fifth_position,  "First and fifth place used for different components."   );
-
-       //TODO C++14 static_assert( second_position != third_position,   "Second and third place used for different components."   );
-       //TODO C++14 static_assert( second_position != fourth_position,  "Second and fourth place used for different components."  );
-       //TODO C++14 static_assert( second_position != fifth_position,   "Second and fifth place used for different components."  );
-
-       //TODO C++14 static_assert( third_position  != fourth_position,  "Third and fourth place used for different components."   );
-       //TODO C++14 static_assert( third_position  != fifth_position,  "Third and fifth place used for different components."   );
-
-       //TODO C++14 static_assert( fourth_position  != fifth_position,  "Fourth and fifth place used for different components."   );
-      };
+     using scramble5  = scrambleX< first_position, second_position, third_position, fourth_position, fifth_position >;
 
    }
  }

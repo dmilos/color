@@ -22,20 +22,12 @@ namespace color
        typedef tag_name tag_type;
       };
 
-    template< typename tag_name >
-     struct rgba
-      : public ::color::category::rgb< tag_name >
-      {
-       typedef tag_name tag_type;
-      };
-
-    namespace _internal
+     namespace _internal
      {
-      template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position >
-       struct rgb_scramble : public ::color::type::scramble3< red_position, green_position, blue_position > {};
-
-      template< typename value_name, unsigned red_position, unsigned green_position, unsigned blue_position, unsigned alpha_position >
-        struct rgba_scramble : public ::color::type::scramble4< red_position, green_position, blue_position, alpha_position > {};
+      template< typename value_name, unsigned ...index >
+       struct rgb_scramble
+        {
+        };
      }
 
     // RGB
@@ -70,18 +62,18 @@ namespace color
     // RGBA
     namespace _internal
      {
-      using rgba_error   = ::color::category::_internal::rgba_scramble< ::color::type::error_t,       0, 1, 2, 3 >;
+      using rgba_error   = ::color::category::_internal::rgb_scramble< ::color::type::error_t,       0, 1, 2, 3 >;
 
-      using rgba_uint8     = ::color::category::_internal::rgba_scramble< std::uint8_t  ,             0, 1, 2, 3 >;
-      using rgba_uint16    = ::color::category::_internal::rgba_scramble< std::uint16_t ,             0, 1, 2, 3 >;
-      using rgba_uint32    = ::color::category::_internal::rgba_scramble< std::uint32_t ,             0, 1, 2, 3 >;
-      using rgba_uint64    = ::color::category::_internal::rgba_scramble< std::uint64_t ,             0, 1, 2, 3 >;
-      using rgba_float     = ::color::category::_internal::rgba_scramble<      float  ,               0, 1, 2, 3 >;
-      using rgba_double    = ::color::category::_internal::rgba_scramble<      double ,               0, 1, 2, 3 >;
-      using rgba_ldouble   = ::color::category::_internal::rgba_scramble<      long double,           0, 1, 2, 3 >;
+      using rgba_uint8     = ::color::category::_internal::rgb_scramble< std::uint8_t  ,             0, 1, 2, 3 >;
+      using rgba_uint16    = ::color::category::_internal::rgb_scramble< std::uint16_t ,             0, 1, 2, 3 >;
+      using rgba_uint32    = ::color::category::_internal::rgb_scramble< std::uint32_t ,             0, 1, 2, 3 >;
+      using rgba_uint64    = ::color::category::_internal::rgb_scramble< std::uint64_t ,             0, 1, 2, 3 >;
+      using rgba_float     = ::color::category::_internal::rgb_scramble<      float  ,               0, 1, 2, 3 >;
+      using rgba_double    = ::color::category::_internal::rgb_scramble<      double ,               0, 1, 2, 3 >;
+      using rgba_ldouble   = ::color::category::_internal::rgb_scramble<      long double,           0, 1, 2, 3 >;
 
       template < unsigned red_size, unsigned green_size, unsigned blue_size, unsigned alpha_size >
-       using rgba_pack = ::color::category::_internal::rgba_scramble< ::color::type::pack4< red_size, green_size, blue_size, alpha_size >, 0, 1, 2, 3 >;
+       using rgba_pack = ::color::category::_internal::rgb_scramble< ::color::type::pack4< red_size, green_size, blue_size, alpha_size >, 0, 1, 2, 3 >;
      }
 
     using rgba_error     = ::color::category::rgb< ::color::category::_internal::rgba_error     >;
@@ -99,18 +91,18 @@ namespace color
     // ARGB
     namespace _internal
      {
-      using argb_error     = ::color::category::_internal::rgba_scramble< ::color::type::error_t,     3, 0, 1, 2 >;
+      using argb_error     = ::color::category::_internal::rgb_scramble< ::color::type::error_t,     1, 2, 3, 0 >;
 
-      using argb_uint8     = ::color::category::_internal::rgba_scramble< std::uint8_t  ,             3, 0, 1, 2 >;
-      using argb_uint16    = ::color::category::_internal::rgba_scramble< std::uint16_t ,             3, 0, 1, 2 >;
-      using argb_uint32    = ::color::category::_internal::rgba_scramble< std::uint32_t ,             3, 0, 1, 2 >;
-      using argb_uint64    = ::color::category::_internal::rgba_scramble< std::uint64_t ,             3, 0, 1, 2 >;
-      using argb_float     = ::color::category::_internal::rgba_scramble<      float  ,               3, 0, 1, 2 >;
-      using argb_double    = ::color::category::_internal::rgba_scramble<      double ,               3, 0, 1, 2 >;
-      using argb_ldouble   = ::color::category::_internal::rgba_scramble<      long double,           3, 0, 1, 2 >;
+      using argb_uint8     = ::color::category::_internal::rgb_scramble< std::uint8_t  ,             1, 2, 3, 0 >;
+      using argb_uint16    = ::color::category::_internal::rgb_scramble< std::uint16_t ,             1, 2, 3, 0 >;
+      using argb_uint32    = ::color::category::_internal::rgb_scramble< std::uint32_t ,             1, 2, 3, 0 >;
+      using argb_uint64    = ::color::category::_internal::rgb_scramble< std::uint64_t ,             1, 2, 3, 0 >;
+      using argb_float     = ::color::category::_internal::rgb_scramble<      float  ,               1, 2, 3, 0 >;
+      using argb_double    = ::color::category::_internal::rgb_scramble<      double ,               1, 2, 3, 0 >;
+      using argb_ldouble   = ::color::category::_internal::rgb_scramble<      long double,           1, 2, 3, 0 >;
 
       template < unsigned red_size, unsigned green_size, unsigned blue_size, unsigned alpha_size >
-       using argb_pack = ::color::category::_internal::rgba_scramble< ::color::type::pack4< red_size, green_size, blue_size, alpha_size >, 3, 0, 1, 2 >;
+       using argb_pack = ::color::category::_internal::rgb_scramble< ::color::type::pack4< red_size, green_size, blue_size, alpha_size >, 3, 0, 1, 2 >;
      }
 
     using argb_error     = ::color::category::rgb< ::color::category::_internal::argb_error     >;
@@ -157,17 +149,17 @@ namespace color
     // BGRA
     namespace _internal
      {
-      using bgra_error     = ::color::category::_internal::rgba_scramble< ::color::type::error_t,     2, 1, 0, 3 >;
-      using bgra_uint8     = ::color::category::_internal::rgba_scramble< std::uint8_t  ,             2, 1, 0, 3 >;
-      using bgra_uint16    = ::color::category::_internal::rgba_scramble< std::uint16_t ,             2, 1, 0, 3 >;
-      using bgra_uint32    = ::color::category::_internal::rgba_scramble< std::uint32_t ,             2, 1, 0, 3 >;
-      using bgra_uint64    = ::color::category::_internal::rgba_scramble< std::uint64_t ,             2, 1, 0, 3 >;
-      using bgra_float     = ::color::category::_internal::rgba_scramble< float         ,             2, 1, 0, 3 >;
-      using bgra_double    = ::color::category::_internal::rgba_scramble< double        ,             2, 1, 0, 3 >;
-      using bgra_ldouble   = ::color::category::_internal::rgba_scramble< long    double,             2, 1, 0, 3 >;
+      using bgra_uint8     = ::color::category::_internal::rgb_scramble< std::uint8_t  ,             2, 1, 0, 3 >;
+      using bgra_error     = ::color::category::_internal::rgb_scramble< ::color::type::error_t,     2, 1, 0, 3 >;
+      using bgra_uint16    = ::color::category::_internal::rgb_scramble< std::uint16_t ,             2, 1, 0, 3 >;
+      using bgra_uint32    = ::color::category::_internal::rgb_scramble< std::uint32_t ,             2, 1, 0, 3 >;
+      using bgra_uint64    = ::color::category::_internal::rgb_scramble< std::uint64_t ,             2, 1, 0, 3 >;
+      using bgra_float     = ::color::category::_internal::rgb_scramble< float         ,             2, 1, 0, 3 >;
+      using bgra_double    = ::color::category::_internal::rgb_scramble< double        ,             2, 1, 0, 3 >;
+      using bgra_ldouble   = ::color::category::_internal::rgb_scramble< long    double,             2, 1, 0, 3 >;
 
       template < unsigned red_size, unsigned green_size, unsigned blue_size, unsigned alpha_size >
-       using bgra_pack = ::color::category::_internal::rgba_scramble< ::color::type::pack4< red_size, green_size, blue_size, alpha_size>, 2, 1, 0, 3 >;
+       using bgra_pack = ::color::category::_internal::rgb_scramble< ::color::type::pack4< red_size, green_size, blue_size, alpha_size>, 2, 1, 0, 3 >;
      }
 
     using bgra_error      = ::color::category::rgb< ::color::category::_internal::bgra_error     >;
@@ -185,17 +177,17 @@ namespace color
     // ABGR
     namespace _internal
      {
-      using abgr_error   = ::color::category::_internal::rgba_scramble< ::color::type::error_t,       3, 2, 1, 0 >;
-      using abgr_uint8   = ::color::category::_internal::rgba_scramble< std::uint8_t  ,               3, 2, 1, 0 >;
-      using abgr_uint16  = ::color::category::_internal::rgba_scramble< std::uint16_t ,               3, 2, 1, 0 >;
-      using abgr_uint32  = ::color::category::_internal::rgba_scramble< std::uint32_t ,               3, 2, 1, 0 >;
-      using abgr_uint64  = ::color::category::_internal::rgba_scramble< std::uint64_t ,               3, 2, 1, 0 >;
-      using abgr_float   = ::color::category::_internal::rgba_scramble< float         ,               3, 2, 1, 0 >;
-      using abgr_double  = ::color::category::_internal::rgba_scramble< double        ,               3, 2, 1, 0 >;
-      using abgr_ldouble = ::color::category::_internal::rgba_scramble< long    double,               3, 2, 1, 0 >;
+      using abgr_error   = ::color::category::_internal::rgb_scramble< ::color::type::error_t,       3, 2, 1, 0 >;
+      using abgr_uint8   = ::color::category::_internal::rgb_scramble< std::uint8_t  ,               3, 2, 1, 0 >;
+      using abgr_uint16  = ::color::category::_internal::rgb_scramble< std::uint16_t ,               3, 2, 1, 0 >;
+      using abgr_uint32  = ::color::category::_internal::rgb_scramble< std::uint32_t ,               3, 2, 1, 0 >;
+      using abgr_uint64  = ::color::category::_internal::rgb_scramble< std::uint64_t ,               3, 2, 1, 0 >;
+      using abgr_float   = ::color::category::_internal::rgb_scramble< float         ,               3, 2, 1, 0 >;
+      using abgr_double  = ::color::category::_internal::rgb_scramble< double        ,               3, 2, 1, 0 >;
+      using abgr_ldouble = ::color::category::_internal::rgb_scramble< long    double,               3, 2, 1, 0 >;
 
       template < unsigned red_size, unsigned green_size, unsigned blue_size, unsigned alpha_size >
-       using abgr_pack = ::color::category::_internal::rgba_scramble< ::color::type::pack4< red_size, green_size, blue_size, alpha_size>, 3, 2, 1, 0 >;
+       using abgr_pack = ::color::category::_internal::rgb_scramble< ::color::type::pack4< red_size, green_size, blue_size, alpha_size>, 3, 2, 1, 0 >;
      }
 
     using abgr_error      = ::color::category::rgb< ::color::category::_internal::abgr_error      >;

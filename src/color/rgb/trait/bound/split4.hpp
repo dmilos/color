@@ -64,7 +64,7 @@ namespace color
       unsigned third_index,   unsigned third_size,
       unsigned fourth_index,  unsigned fourth_size
      >
-     struct bound< ::color::category::rgb< ::color::category::_internal::rgba_scramble< ::color::type::pack4< first_size, second_size, third_size, fourth_size >, first_index, second_index, third_index, fourth_index > > >
+     struct bound< ::color::category::rgb< ::color::category::_internal::rgb_scramble< ::color::type::pack4< first_size, second_size, third_size, fourth_size >, first_index, second_index, third_index, fourth_index > > >
       : public ::color::trait::_internal::rgb::pick_bound4< first_size + second_size + third_size + fourth_size >:: template bound_type< first_size, second_size, third_size, fourth_size >
       {
       };

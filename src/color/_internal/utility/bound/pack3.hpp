@@ -49,12 +49,14 @@ namespace color
              template< index_instance_type index >
               static /*constexpr*/ return_image_type   maximum( )
                {
+                //TODO C++14 static_assert( index <  size_entity, "Index is out of range." );
                 static const instance_type max_list[] = { first_max, second_max, third_max };
                 return max_list[index];
                }
 
              static /*constexpr*/ return_image_type   maximum( index_input_const_type  index )
               {
+                //TODO C++14 static_assert( index <  size_entity, "Index is out of range." );
                 static const instance_type max_list[] = { first_max, second_max, third_max };
                 return max_list[index];
               }
@@ -81,6 +83,7 @@ namespace color
 
              static /*constexpr*/ return_image_type   range(   index_input_const_type  index )
               {
+                //TODO C++14 static_assert( index <  size_entity, "Index is out of range." );
                 static const instance_type max_list[] = { first_max, second_max, third_max };
                 return max_list[index];
               }

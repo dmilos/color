@@ -10,13 +10,12 @@ namespace color
   namespace akin
    {
 
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::rgb_uint8  , reference_number >{ typedef ::color::category::YPbPr_uint8  <reference_number> akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::rgb_uint16 , reference_number >{ typedef ::color::category::YPbPr_uint16 <reference_number> akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::rgb_uint32 , reference_number >{ typedef ::color::category::YPbPr_uint32 <reference_number> akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::rgb_uint64 , reference_number >{ typedef ::color::category::YPbPr_uint64 <reference_number> akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::rgb_float  , reference_number >{ typedef ::color::category::YPbPr_float  <reference_number> akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::rgb_double , reference_number >{ typedef ::color::category::YPbPr_double <reference_number> akin_type; };
-    template< ::color::constant::YPbPr::reference_enum reference_number >struct YPbPr< ::color::category::rgb_ldouble, reference_number >{ typedef ::color::category::YPbPr_ldouble<reference_number> akin_type; };
+    template< typename component_name, ::color::constant::YPbPr::reference_enum reference_number, unsigned ... index >
+     struct YPbPr< ::color::category::rgb< ::color::category::_internal::rgb_scramble< component_name, index ... > >, reference_number >
+      {
+       public:
+         typedef ::color::category::YPbPr< component_name, reference_number > akin_type;
+      };
 
    }
  }

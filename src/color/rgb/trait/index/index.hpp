@@ -15,7 +15,7 @@ namespace color
    {
 
     template< typename tag_name >
-     struct index< ::color::category::rgb< tag_name> >
+     struct index< ::color::category::rgb< tag_name > >
       : public ::color::_internal::utility::type::index< std::size_t >
       {
       };

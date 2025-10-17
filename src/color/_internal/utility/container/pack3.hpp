@@ -91,15 +91,15 @@ namespace color
                 this_type:: template set<index>( container, value );
                }
 
-
              static component_return_const_type get( model_type container, index_input_const_type index )
               {
+                //TODO C++14 static_assert( index <  size_entity, "Index is out of range." );
                switch( index )
                 {
-                 default:
                  case( 0 ): return ( ( container >> (  first_position ) ) &  first_mask );
                  case( 1 ): return ( ( container >> ( second_position ) ) & second_mask );
                  case( 2 ): return ( ( container >> (  third_position ) ) &  third_mask );
+                 default: break;
                 }
                return 0;
               }
@@ -113,12 +113,14 @@ namespace color
                   case( 0 ): return ( ( container >> (  first_position ) ) &  first_mask );
                   case( 1 ): return ( ( container >> ( second_position ) ) & second_mask );
                   case( 2 ): return ( ( container >> (  third_position ) ) &  third_mask );
+                  default: break;
                  }
                 return 0;
                }
 
              static set_return_type set( input_type container, index_input_const_type index, component_input_const_type value )
               {
+                //TODO C++14 static_assert( index <  size_entity, "Index is out of range." );
                switch( index )
                 {
                  default:
@@ -137,6 +139,7 @@ namespace color
                   case( 0 ) : container = ( container & ~(   first_mask << (  first_position ) ) )  |  ( ((instance_type)value) << (  first_position ) ); break;
                   case( 1 ) : container = ( container & ~(  second_mask << ( second_position ) ) )  |  ( ((instance_type)value) << ( second_position ) ); break;
                   case( 2 ) : container = ( container & ~(   third_mask << (  third_position ) ) )  |  ( ((instance_type)value) << (  third_position ) ); break;
+                  default: break;
                  }
                }
 

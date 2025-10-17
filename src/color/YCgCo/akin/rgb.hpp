@@ -10,13 +10,12 @@ namespace color
   namespace akin
    {
 
-    template< >struct YCgCo< ::color::category::rgb_uint8   >{ typedef ::color::category::YCgCo_uint8   akin_type; };
-    template< >struct YCgCo< ::color::category::rgb_uint16  >{ typedef ::color::category::YCgCo_uint16  akin_type; };
-    template< >struct YCgCo< ::color::category::rgb_uint32  >{ typedef ::color::category::YCgCo_uint32  akin_type; };
-    template< >struct YCgCo< ::color::category::rgb_uint64  >{ typedef ::color::category::YCgCo_uint64  akin_type; };
-    template< >struct YCgCo< ::color::category::rgb_float   >{ typedef ::color::category::YCgCo_float   akin_type; };
-    template< >struct YCgCo< ::color::category::rgb_double  >{ typedef ::color::category::YCgCo_double  akin_type; };
-    template< >struct YCgCo< ::color::category::rgb_ldouble >{ typedef ::color::category::YCgCo_ldouble akin_type; };
+    template< typename component_name, unsigned ... index >
+     struct YCgCo< ::color::category::rgb< ::color::category::_internal::rgb_scramble<component_name, index ... > > >
+      {
+       public:
+         typedef ::color::category::YCgCo<component_name> akin_type;
+      };
 
    }
  }

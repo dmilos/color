@@ -1,3 +1,10 @@
 #cmake_minimum_required(VERSION 2.8)
 
-#TODO
+add_executable(  ColorExample__less-than-1k__format__uint32__cmy     cmy.cpp )
+add_executable(  ColorExample__less-than-1k__format__uint32__cmyk   cmyk.cpp )
+add_executable(  ColorExample__less-than-1k__format__uint32__gray   gray.cpp )
+add_executable(  ColorExample__less-than-1k__format__uint32__hsl     hsl.cpp )
+add_executable(  ColorExample__less-than-1k__format__uint32__hsv     hsv.cpp )
+add_executable(  ColorExample__less-than-1k__format__uint32__rgb     rgb.cpp )
+add_executable(  ColorExample__less-than-1k__format__uint32__yiq     yiq.cpp )
+add_executable(  ColorExample__less-than-1k__format__uint32__yuv     yuv.cpp )

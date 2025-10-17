@@ -15,11 +15,11 @@
       void
       alpha
        (
-                  ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble < value_name, red_position, green_position, blue_position, alpha_position > > >                                   & color_parameter
-       ,typename  ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble < value_name, red_position, green_position, blue_position, alpha_position > > >::component_input_const_type         component_parameter
+                  ::color::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble < value_name, red_position, green_position, blue_position, alpha_position > > >                                   & color_parameter
+       ,typename  ::color::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble < value_name, red_position, green_position, blue_position, alpha_position > > >::component_input_const_type         component_parameter
        )
        {
-        typedef ::color::category::_internal::rgba_scramble < value_name, red_position, green_position, blue_position, alpha_position > tag_type;
+        typedef ::color::category::_internal::rgb_scramble < value_name, red_position, green_position, blue_position, alpha_position > tag_type;
         typedef ::color::category::rgb<tag_type>  category_type;
 
         enum{ alpha_p  = ::color::place::_internal::alpha<category_type>::position_enum };

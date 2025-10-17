@@ -2,10 +2,10 @@
 
 add_subdirectory( compare )
 
-add_executable(   ColorExample__less-than-1k__operator__addition      addition.cpp )
-add_executable(   ColorExample__less-than-1k__operator__divide        divide.cpp )
-add_executable(   ColorExample__less-than-1k__operator__scale         scale.cpp )
-add_executable(   ColorExample__less-than-1k__operator__subtraction   subtraction.cpp )
+add_executable(   ColorExample__less-than-1k_operator_addition      addition.cpp )
+add_executable(   ColorExample__less-than-1k_operator_divide        divide.cpp )
+add_executable(   ColorExample__less-than-1k_operator_scale         scale.cpp )
+add_executable(   ColorExample__less-than-1k_operator_subtraction   subtraction.cpp )
 
 
 

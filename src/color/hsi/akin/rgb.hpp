@@ -10,13 +10,12 @@ namespace color
   namespace akin
    {
 
-    template< >struct hsi< ::color::category::rgb_uint8   >{ typedef ::color::category::hsi_uint8   akin_type; };
-    template< >struct hsi< ::color::category::rgb_uint16  >{ typedef ::color::category::hsi_uint16  akin_type; };
-    template< >struct hsi< ::color::category::rgb_uint32  >{ typedef ::color::category::hsi_uint32  akin_type; };
-    template< >struct hsi< ::color::category::rgb_uint64  >{ typedef ::color::category::hsi_uint64  akin_type; };
-    template< >struct hsi< ::color::category::rgb_float   >{ typedef ::color::category::hsi_float   akin_type; };
-    template< >struct hsi< ::color::category::rgb_double  >{ typedef ::color::category::hsi_double  akin_type; };
-    template< >struct hsi< ::color::category::rgb_ldouble >{ typedef ::color::category::hsi_ldouble akin_type; };
+    template< typename component_name, unsigned ... index >
+     struct hsi< ::color::category::rgb< ::color::category::_internal::rgb_scramble<component_name, index ... > > >
+      {
+       public:
+         typedef ::color::category::hsi< component_name > akin_type;
+      };
 
    }
  }

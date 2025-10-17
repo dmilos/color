@@ -758,7 +758,6 @@ int main(int argc, char const *argv[] )
 
   void test_operation_distance__all( );
   test_operation_distance__all(); //!< must call test_palette before this.
-  return 0;
 
   tsl_test();
   test_lms();

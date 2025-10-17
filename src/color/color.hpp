@@ -29,6 +29,12 @@
 #pragma GCC diagnostic ignored "-Wunused-local-typedefs"
 #endif
 
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wunused-variable"
+#pragma clang diagnostic ignored "-Wself-assign-overloaded"
+#pragma clang diagnostic ignored "-Wimplicit-const-int-float-conversion"
+#endif
+
 #if defined COLOR_USE_PP2FILE
 #include "./color.pp2f.hpp"
 #else

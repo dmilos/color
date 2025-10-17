@@ -332,12 +332,13 @@ void main_extract()
 
   //std::string root = "z:/work/code/cpp/prj/github/color/work/example/test/out";
   //std::string file = "./palette/hsl-1-100.tga";
-  std::string root = "z:/work/code/cpp/prj/github/color/work/example/test/data";
-  std::string file = "./color-scale.tga";
+  //std::string root = "z:/work/code/cpp/prj/github/color/work/example/test/data";
+  std::string root = "../../../data";
+  std::string file = "color-scale.tga";
 
-  if( false == load_image( image, width, height, root + file ) )
+  if( false == load_image( image, width, height, root + "/" + file ) )
    {
-    std::cout << "Can not load: " <<  file << std::endl;
+    std::cout << "Can not load: " << root + "/" + file << std::endl;
     return;
    }
 

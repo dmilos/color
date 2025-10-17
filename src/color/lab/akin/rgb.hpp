@@ -10,16 +10,13 @@ namespace color
   namespace akin
    {
 
-    template
-     <
-       typename tag_name , typename  ::color::constant::lab::reference_enum      lab_reference_number
-
-     >
-     struct lab< ::color::category::rgb< tag_name >, lab_reference_number  >
+    template< typename component_name, ::color::constant::lab::reference_enum reference_number, unsigned ... index >
+     struct lab  < ::color::category::rgb< ::color::category::_internal::rgb_scramble< component_name, index ... > >, reference_number >
       {
        public:
-         typedef ::color::category::lab< tag_name, lab_reference_number > akin_type;
+         typedef ::color::category::lab  < component_name, reference_number> akin_type;
       };
+
    }
  }
 

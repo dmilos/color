@@ -17,12 +17,12 @@
        <
         ::color::category::rgb
          <
-          ::color::category::_internal::rgba_scramble < value_name, red_position, green_position, blue_position, alpha_position >
+          ::color::category::_internal::rgb_scramble < value_name, red_position, green_position, blue_position, alpha_position >
          >
        >::return_image_type
-      alpha( ::color::model< ::color::category::rgb< ::color::category::_internal::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > > > const& color_parameter )
+      alpha( ::color::model< ::color::category::rgb< ::color::category::_internal::rgb_scramble< value_name, red_position, green_position, blue_position, alpha_position > > > const& color_parameter )
        {
-        typedef ::color::category::_internal::rgba_scramble< value_name, red_position, green_position, blue_position, alpha_position > tag_type;
+        typedef ::color::category::_internal::rgb_scramble< value_name, red_position, green_position, blue_position, alpha_position > tag_type;
         typedef ::color::category::rgb< tag_type >  category_type;
 
         enum { alpha_enum  = ::color::place::_internal::alpha< category_type >::position_enum };
