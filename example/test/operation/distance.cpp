@@ -331,7 +331,7 @@ void test_operation_distance__all()
 
   if( false == load_image( image, width, height, root + "/palette/hsl-1-100.tga" ) )
    {
-    std::cout << "Can not load: " <<  "hsl-1-100.tga" << std::endl;
+    std::cout << "test_operation_distance__all:: Can not load: " << root + "/palette/hsl-1-100.tga" << std::endl;
    }
 
   test_operation_distance_from< ::color::constant::distance::euclid_entity,         rgb_t >( image, width, height, ::color::rgb<double>{ 0,1,0},  1.5/1.72979,              "./operation/dist_euclid_rgb2rgb.tga"     );

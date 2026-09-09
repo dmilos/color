@@ -473,10 +473,11 @@ int main( int argc, char const *argv[] )
   bgr_image_type image;
   int width;
   int height;
+  st::string file = "../data/color-reper.tga
   
-  if( false == load_image( image, width, height, "../data/color-reper.tga" ) )
+  if( false == load_image( image, width, height, file" ) )
    {
-    std::cout << "Can not load" <<  "../data/color-reper.tga" << std::endl;
+    std::cout << "Can not load" << file << std::endl;
     return 0;
    }
 

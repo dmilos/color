@@ -338,7 +338,7 @@ void main_extract()
 
   if( false == load_image( image, width, height, root + "/" + file ) )
    {
-    std::cout << "Can not load: " << root + "/" + file << std::endl;
+    std::cout << "main_extract::Can not load: " << root + "/" + file << std::endl;
     return;
    }
 

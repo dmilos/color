@@ -202,10 +202,11 @@ int gray_test( int argc, char const *argv[] )
   bgr_image_type image;
   int width;
   int height;
+  std::string file = "./palette/hsl-1-100.tga";
 
-  if( false == load_image( image, width, height, "./palette/hsl-1-100.tga" ) )
+  if( false == load_image( image, width, height, file ) )
    {
-    std::cout << "Can not load" <<  "./palette/hsl-1-100.tga" << std::endl;
+    std::cout << "gray_test::Can not load" <<  file << std::endl;
     return 0;
    }
 

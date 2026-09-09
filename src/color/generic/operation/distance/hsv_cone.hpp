@@ -33,11 +33,13 @@
               scalar_type const & saturation = c.template get<1>();
               scalar_type const & value      = c.template get<2>();
 
+              scalar_type height = value;
               scalar_type radius  = saturation ;
                           radius *= value / scalar_type(100);
 
               x = radius * cos( radians );
               y = radius * sin( radians );
+              z = height;
              }
 
             static   scalar_type square( scalar_type const& s ){ return s * s; }

@@ -86,7 +86,7 @@ int decompose_test( int argc, char const *argv[] )
 
   if( false == load_image( image, width, height, "./palette/hsl-1-100.tga" ) )
    {
-    std::cout << "Can not load" <<  "../data/* Fixed status value connection.tga" << std::endl;
+    std::cout << "decompose_test::Can not load" <<  "../data/* Fixed status value connection.tga" << std::endl;
     return 0;
    }
 

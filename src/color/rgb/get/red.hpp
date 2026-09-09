@@ -2,6 +2,10 @@
 #define color_rgb_get_red
 
 // ::color::get::red( c )
+// ::color::get::constant::rgb::red::channel_entity
+// ::color::get::constant::rgb::red::hsl_star_entity
+// ::color::get::constant::rgb::red::hue_angle_entity
+ 
 
 #include "../category.hpp"
 #include "../place/place.hpp"
@@ -141,7 +145,7 @@
 
               //if( result < scalar_type(0) )
               // {
-              //  result += scalar_type(1); 
+              //  result += scalar_type(1);
               // }
 
               if( result < scalar_type(0.5) )

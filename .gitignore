@@ -223,3 +223,4 @@ example/test/build/cmake/_build-msvc_Clang_11
 example/test/build/cmake/_build-msvc_Clang_14
 example/test/build/cmake/_build-msvc_Clang_17
 example/test/build/cmake/_build-msvc_Clang_20
+/example/less-than-2k/opencv/get/_build-msvc
